@@ -52,6 +52,8 @@ Giải pháp: dùng hoạt hình, infographic, comic và tương tác để gi�
 - Đã xây dựng trang chủ: giới thiệu, sáu nghề mẫu, ba bài viết, tìm kiếm tiếng Việt không dấu, lọc lĩnh vực, hộp thoại nội dung, giao diện responsive.
 - Backend Python FastAPI; frontend HTML, Bootstrap, CSS và JavaScript. AI có mã tích hợp DeepSeek API qua LangGraph, chưa kiểm thử lời gọi thật vì chưa có API key.
 - Đã chuẩn bị cấu hình Vercel và hướng dẫn triển khai. Repository người dùng chỉ định: https://github.com/TrooliGM/quocan4.
+- Đã đưa mã nguồn lên nhánh `main` của repository và xác minh cây tệp; commit ứng dụng `9ead1787bf959bc33557bd45f5b66f38ff982d5d`.
+- Triển khai Vercel đang chờ kết nối tài khoản. Plugin Vercel đã được tìm thấy và đề xuất, chưa xác nhận kết nối.
 - La Bàn là tên giao diện do trợ lý đề xuất khi triển khai, chưa phải tên thương hiệu người dùng xác nhận.
 - Nội dung nghề và bài viết là bản mẫu biên soạn, không có số liệu thị trường hoặc bảng xếp hạng tuyển dụng.
 - Chưa có tài khoản, trắc nghiệm, quản trị, cơ sở dữ liệu hoặc phim hoạt hình nghề nghiệp. Chi tiết xác minh ở `docs/validation.md`.
