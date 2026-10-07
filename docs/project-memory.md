@@ -56,7 +56,11 @@ Giải pháp: dùng hoạt hình, infographic, comic và tương tác để gi�
 - Triển khai Vercel đang chờ kết nối tài khoản. Plugin Vercel đã được tìm thấy và đề xuất, chưa xác nhận kết nối.
 - La Bàn là tên giao diện do trợ lý đề xuất khi triển khai, chưa phải tên thương hiệu người dùng xác nhận.
 - Nội dung nghề và bài viết là bản mẫu biên soạn, không có số liệu thị trường hoặc bảng xếp hạng tuyển dụng.
-- Chưa có tài khoản, trắc nghiệm, quản trị, cơ sở dữ liệu hoặc phim hoạt hình nghề nghiệp. Chi tiết xác minh ở `docs/validation.md`.
+- Ngày 2026-10-07, người dùng xác nhận trang chủ chạy tốt trên máy và yêu cầu setup đăng nhập Firebase.
+- Đã có mã đăng ký/đăng nhập email/mật khẩu và Google, quên mật khẩu, xác minh email, trạng thái tài khoản và đăng xuất. Backend xác minh Firebase ID token bằng google-auth và khóa công khai của Google; không cần service account.
+- Người dùng chưa có Firebase project và đã yêu cầu hướng dẫn thao tác; chưa được cung cấp cấu hình Web. Chưa đăng nhập thật vào Firebase; hướng dẫn ở `docs/firebase-setup.md`.
+- Đã có LangGraph trong môi trường hiện tại; các kiểm tra AI với mock đã chạy thành công, chưa gọi DeepSeek thật.
+- Chưa có trắc nghiệm, quản trị, lưu dữ liệu cá nhân, Firestore hoặc phim hoạt hình nghề nghiệp. Chi tiết xác minh ở `docs/validation.md`.
 
 ## Cách tiếp tục
 

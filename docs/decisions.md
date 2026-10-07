@@ -9,12 +9,16 @@
 | 2026-10-06 | Triển khai chức năng 1: trang chủ và giới thiệu. | Yêu cầu trực tiếp của người dùng. |
 | 2026-10-06 | Python backend, DeepSeek là AI chính, HTML/Bootstrap/CSS/JavaScript, LangGraph, Vercel và GitHub. | Công nghệ người dùng chỉ định. |
 | 2026-10-06 | Repository đích: TrooliGM/quocan4. | URL người dùng cung cấp. |
+| 2026-10-07 | Setup đăng nhập bằng Firebase. | Yêu cầu trực tiếp của người dùng. |
 
 ## Lựa chọn triển khai của trợ lý
 
 - FastAPI cho backend Python; dữ liệu mẫu đặt trong `content.py` để thay đổi dễ dàng.
 - Tên hiển thị La Bàn; phong cách sổ tay khám phá với nền kem, xanh bạc hà và cam san hô. Đây là lựa chọn thiết kế, có thể điều chỉnh.
 - LangGraph gồm hai node: chuẩn bị ngữ cảnh nghề và gọi DeepSeek. API key chỉ dùng trên server.
+- Firebase Web SDK qua CDN cho email/password và Google; thêm quên mật khẩu, xác minh email, đăng xuất. Provider cụ thể là lựa chọn triển khai của trợ lý.
+- Backend xác minh ID token bằng google-auth, không dùng service account. Chưa kiểm tra token bị thu hồi/disabled theo thời gian thực; chưa có chức năng quản trị nhạy cảm.
+- Chưa lưu Firestore; mặc định chọn phiên theo tab, có lựa chọn giữ đăng nhập trên máy cá nhân.
 
 ## Chưa được quyết định
 
@@ -25,7 +29,7 @@
 - Nguồn và cách cập nhật lương, triển vọng nghề, trường đào tạo, thông tin tuyển sinh.
 - Bộ câu hỏi, quyền sử dụng nội dung trắc nghiệm, cách tính điểm và ánh xạ kết quả sang nghề.
 - Quy trình chuyển câu hỏi cho giáo viên/chuyên gia và phạm vi AI khi mở rộng.
-- Thứ tự triển khai đăng nhập Email/Google/Zalo và cấu hình dịch vụ cần thiết.
+- Cấu hình Firebase project và bật provider trên tài khoản người dùng; Zalo chưa triển khai.
 - Vai trò người dùng, quyền quản trị, thông tin học sinh cần thu thập và thời gian lưu dữ liệu.
 - Phương pháp đánh giá hiệu quả hướng nghiệp cho báo cáo KHKT; chưa có kết quả khảo sát được cung cấp.
 

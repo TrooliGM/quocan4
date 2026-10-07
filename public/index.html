@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/assets/style.css" rel="stylesheet"><script src="/assets/app.js" defer></script>
+  <link href="/assets/style.css" rel="stylesheet"><link href="/assets/auth.css" rel="stylesheet"><script src="/assets/app.js" defer></script><script src="/assets/auth.js" type="module"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Đến nội dung chính</a>
@@ -16,7 +16,7 @@
   <a class="brand" href="#"><img src="/assets/compass.svg" width="38" height="38" alt=""><span>la bàn<span class="brand-dot">.</span></span></a>
   <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Mở menu">☰</button>
   <div class="nav-links" id="nav-links"><a class="active" href="#main">Trang chủ</a><a href="#careers">Khám phá nghề</a><a href="#articles">Góc hướng nghiệp</a><a href="#about">Về dự án</a></div>
-  <button class="btn btn-ink nav-cta" data-open-ai>Hỏi La Bàn <span aria-hidden="true">↗</span></button>
+  <button class="btn btn-ink nav-cta" id="account-button" data-open-auth><span class="account-avatar" id="account-avatar" hidden></span><span id="account-label">Đăng nhập</span><span aria-hidden="true">↗</span></button>
 </nav></header>
 <main id="main">
 <section class="hero container">
@@ -59,4 +59,27 @@
 <footer class="container site-footer"><div><a class="brand" href="#"><img src="/assets/compass.svg" width="32" height="32" alt=""><span>la bàn.</span></a><p>Mở lối tương lai, theo cách của bạn.</p></div><div><span>DỰ ÁN KHKT 2027</span><p>Kiều Oanh · Kiều Anh · An<br>GV hướng dẫn: Thầy Trần Quốc Giăng</p></div><a class="text-link" href="#main">Về đầu trang ↑</a></footer>
 <dialog id="content-dialog" class="content-dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="Đóng nội dung">×</button><div id="dialog-content"></div></dialog>
 <dialog id="ai-dialog" class="ai-dialog" aria-labelledby="ai-title"><button class="dialog-close" aria-label="Đóng trợ lý">×</button><span class="eyebrow">NGƯỜI BẠN KHÁM PHÁ NGHỀ</span><h2 id="ai-title">Chào bạn, mình là La Bàn ✦</h2><p>Bạn tò mò về nghề gì, hay thích làm điều gì ở trường?</p><div class="ai-examples"><button data-ai-question="Em thích vẽ, em có thể tìm hiểu nghề nào?">Mình thích vẽ ✳</button><button data-ai-question="Em thích môn Tin học, nên bắt đầu khám phá nghề như thế nào?">Mình thích Tin học &lt;/&gt;</button></div><form id="ai-form"><label for="ai-question">Câu hỏi của bạn</label><textarea id="ai-question" required minlength="3" maxlength="600" rows="3" placeholder="Ví dụ: Em thích Sinh học nhưng chưa biết nên tìm hiểu nghề nào…"></textarea><div class="ai-form-bottom"><span>Đừng chia sẻ thông tin riêng tư.</span><button class="btn btn-coral" id="ai-submit" type="submit">Gửi câu hỏi ↗</button></div></form><div id="ai-answer" role="status" aria-live="polite"></div><p class="ai-footnote">Gợi ý AI để tham khảo. Bạn có thể trao đổi thêm với thầy cô hoặc người làm nghề.</p></dialog>
+<dialog id="auth-dialog" class="auth-dialog" aria-labelledby="auth-title">
+  <button class="dialog-close" aria-label="Đóng tài khoản">×</button>
+  <div class="auth-layout"><aside class="auth-art" aria-hidden="true"><img src="/assets/compass.svg" width="68" height="68" alt=""><span class="eyebrow">MỘT GÓC NHỎ CỦA BẠN</span><div>Chào bạn.<br>Cùng mở lối<br><span>tương lai.</span></div><p>Mỗi bước khám phá<br>đều bắt đầu từ bạn.</p><span class="auth-art-star">✦</span></aside>
+  <div class="auth-main"><span class="eyebrow">LA BÀN · KHKT 2027</span><h2 id="auth-title">Mừng bạn trở lại!</h2>
+    <div id="auth-guest"><p id="auth-subtitle">Đăng nhập để có một góc khám phá của riêng mình.</p>
+      <div class="auth-switch" role="group" aria-label="Chọn đăng nhập hoặc đăng ký"><button type="button" id="mode-login" class="selected" aria-pressed="true">Đăng nhập</button><button type="button" id="mode-register" aria-pressed="false">Tạo tài khoản</button></div>
+      <p id="auth-setup-message" class="auth-setup" hidden>Đăng nhập đang được thiết lập. Bạn vẫn có thể khám phá nghề và đọc bài viết.</p>
+      <form id="auth-form"><div id="name-field" hidden><label for="auth-name">Tên hiển thị</label><input id="auth-name" type="text" maxlength="60" autocomplete="nickname" placeholder="Bạn muốn La Bàn gọi mình là gì?"></div>
+        <label for="auth-email">Email</label><input id="auth-email" type="email" required maxlength="254" autocomplete="email" placeholder="ban@example.com">
+        <label for="auth-password">Mật khẩu</label><div class="password-field"><input id="auth-password" type="password" required minlength="6" maxlength="128" autocomplete="current-password" placeholder="Mật khẩu của bạn"><button type="button" id="toggle-password" aria-label="Hiện mật khẩu" aria-pressed="false">Hiện</button></div>
+        <p class="password-hint" id="password-hint" hidden>Dùng ít nhất 6 ký tự; nên kết hợp chữ, số và ký hiệu.</p>
+        <div id="confirm-password-field" hidden><label for="auth-confirm-password">Nhập lại mật khẩu</label><input id="auth-confirm-password" type="password" minlength="6" maxlength="128" autocomplete="new-password" placeholder="Nhập lại mật khẩu vừa chọn"></div>
+        <button type="button" class="forgot-password" id="forgot-password">Quên mật khẩu?</button>
+        <button type="submit" class="btn btn-coral auth-submit" id="auth-submit" disabled>Đăng nhập ↗</button>
+      </form>
+      <div class="auth-divider"><span>hoặc</span></div>
+      <button type="button" id="google-signin" class="google-signin" disabled><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path fill="#4285F4" d="M21.8 12.2c0-.7-.1-1.4-.2-2.1H12v4h5.5c-.2 1.3-1 2.4-2.1 3.1v2.6h3.4c2-1.9 3-4.5 3-7.6Z"/><path fill="#34A853" d="M12 22c2.8 0 5.1-.9 6.8-2.4l-3.4-2.6c-.9.6-2 1-3.4 1-2.6 0-4.8-1.7-5.6-4H2.9v2.7A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.4 14a6 6 0 0 1 0-4V7.3H2.9a10 10 0 0 0 0 9.4L6.4 14Z"/><path fill="#EA4335" d="M12 6c1.5 0 2.8.5 3.9 1.5l2.9-2.9A9.7 9.7 0 0 0 12 2a10 10 0 0 0-9.1 5.3L6.4 10C7.2 7.7 9.4 6 12 6Z"/></svg>Tiếp tục với Google</button>
+      <label class="remember-login"><input id="remember-login" type="checkbox"> Giữ đăng nhập trên thiết bị này</label><p class="auth-privacy">Dùng máy ở trường? Để trống lựa chọn này và đăng xuất sau khi sử dụng.</p>
+    </div>
+    <div id="auth-member" hidden><div class="profile-initial" id="profile-initial" aria-hidden="true"></div><p class="profile-name" id="profile-name"></p><p id="profile-email" class="profile-email"></p><p id="profile-verified" class="verification-badge"></p><div class="profile-actions"><button type="button" class="btn btn-ink" id="verify-email">Gửi email xác minh</button><button type="button" class="text-link" id="refresh-profile">Tôi đã xác minh ↗</button></div><p class="auth-privacy">Đây là tài khoản đăng nhập của bạn. Lưu nghề yêu thích và lịch sử trắc nghiệm sẽ được bổ sung ở bước tiếp theo.</p><button type="button" id="signout-button" class="btn btn-coral auth-submit">Đăng xuất</button></div>
+    <p id="auth-status" class="auth-status" role="status" aria-live="polite"></p>
+  </div></div>
+</dialog>
 </body></html>

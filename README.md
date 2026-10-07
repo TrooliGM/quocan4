@@ -9,8 +9,13 @@ Trang chủ tiếng Việt dành cho học sinh THCS/THPT, dùng Python FastAPI,
 - Ba bài viết với nội dung đầy đủ, đọc ngay trên trang.
 - Trợ lý khám phá nghề: LangGraph lấy ngữ cảnh nghề rồi gọi DeepSeek ở server.
 - Responsive, menu điện thoại, điều hướng bàn phím, giảm chuyển động theo cài đặt thiết bị, trạng thái tải/lỗi và thử lại.
+- Firebase Authentication: đăng ký/đăng nhập email, Google, quên mật khẩu, xác minh email, xem tài khoản và đăng xuất; cần cấu hình project để sử dụng thật.
 
-Đây là chức năng trang chủ, chưa gồm tài khoản, trắc nghiệm, quản trị hoặc phim hoạt hình nghề nghiệp. Nghề nổi bật là nội dung bản mẫu, không phải xếp hạng thị trường. Tên La Bàn là tên giao diện đề xuất.
+Hiện gồm trang chủ và mã đăng nhập Firebase; chưa có lưu nghề yêu thích, lịch sử trắc nghiệm, quản trị hoặc phim hoạt hình nghề nghiệp. Nghề nổi bật là nội dung bản mẫu, không phải xếp hạng thị trường. Tên La Bàn là tên giao diện đề xuất.
+
+## Thiết lập đăng nhập Firebase
+
+Đọc [hướng dẫn Firebase từng bước](docs/firebase-setup.md). Đăng ký ứng dụng Web trong Firebase, bật Email/Password và Google, thêm domain chạy thử, rồi điền các biến `FIREBASE_*` vào `.env` hoặc Vercel. Mã đăng nhập không cần service account/private key. Khi chưa cấu hình, hộp đăng nhập thông báo đang được thiết lập và trang chủ vẫn hoạt động.
 
 ## Chạy trên Windows PowerShell
 

@@ -1,4 +1,18 @@
-# Xác minh và triển khai — 2026-10-06
+# Xác minh và triển khai
+
+## Cập nhật 2026-10-07: đăng nhập Firebase
+
+- `python -m unittest discover -s tests -v`: 12 bài kiểm tra đạt (4 trang chủ, 2 luồng AI với mock, 6 Firebase backend).
+- Test Firebase dùng khóa RSA sinh tại thời điểm chạy test: xác minh chữ ký hợp lệ, từ chối chữ ký bị sửa, token unsigned/header sai, token hết hạn, audience/issuer/sub/auth_time không hợp lệ.
+- Đã kiểm tra cache chứng thư, lỗi kết nối Google, header Bearer, header no-store trên API xác thực và không lộ cấu hình DeepSeek trong endpoint cấu hình Web.
+- `python -m compileall -q app.py firebase_auth.py`: thành công.
+- Mã giao diện có đăng ký, đăng nhập email/mật khẩu và Google, quên mật khẩu, xác minh email, đăng xuất và lựa chọn lưu phiên. Chưa chạy kiểm thử bằng trình duyệt.
+- Người dùng xác nhận trang chủ hiện có chạy tốt trên máy. Đây là xác nhận của người dùng, không phải browser QA của trợ lý cho phần Firebase mới.
+- Firebase chưa được cấu hình: người dùng chưa có project và chưa gửi firebaseConfig. Chưa thử tạo tài khoản thật, Google popup hoặc gửi email thật; xem `firebase-setup.md`.
+- LangGraph hiện đã có trong môi trường và hai test AI đã chạy; chưa gọi DeepSeek thật.
+- Vercel vẫn chưa có deployment được xác nhận.
+
+## Lịch sử 2026-10-06
 
 ## Đã chạy thành công
 
@@ -12,7 +26,7 @@
 - Đã lưu 20 tệp mã nguồn/tài liệu lên nhánh `main` của https://github.com/TrooliGM/quocan4; commit ứng dụng `9ead1787bf959bc33557bd45f5b66f38ff982d5d`.
 - Đã đọc lại cây tệp GitHub để xác minh mã nguồn được lưu.
 
-## Giới hạn hiện tại
+## Giới hạn tại ngày 2026-10-06
 
 - Máy có FastAPI/httpx/python-dotenv, chưa có LangGraph. Yêu cầu tải thư viện qua mạng đã bị người dùng từ chối; không tiếp tục cài bằng cách khác.
 - Đã viết `tests/test_ai.py` cho luồng LangGraph, payload DeepSeek và xử lý lỗi nhà cung cấp, nhưng chưa chạy vì thiếu LangGraph.

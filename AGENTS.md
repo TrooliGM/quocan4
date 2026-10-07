@@ -15,4 +15,4 @@ Trước khi làm việc trong dự án, đọc `docs/project-memory.md` để n
 
 - Mục tiêu: website hướng nghiệp trực quan cho học sinh THCS và THPT.
 - Chức năng cốt lõi: mô phỏng một ngày làm việc của từng nghề bằng hoạt hình/comic/video ngắn.
-- Trạng thái hiện tại: đã xây dựng trang chủ FastAPI/HTML/Bootstrap/JavaScript, có mã tích hợp DeepSeek qua LangGraph; xem `docs/validation.md` cho giới hạn xác minh và triển khai.
+- Trạng thái hiện tại: đã xây dựng trang chủ và mã đăng nhập Firebase, có tích hợp DeepSeek qua LangGraph; Firebase đang chờ cấu hình project của người dùng. Xem `docs/validation.md` và `docs/firebase-setup.md`.
