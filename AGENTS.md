@@ -15,4 +15,4 @@ Trước khi làm việc trong dự án, đọc `docs/project-memory.md` để n
 
 - Mục tiêu: website hướng nghiệp trực quan cho học sinh THCS và THPT.
 - Chức năng cốt lõi: mô phỏng một ngày làm việc của từng nghề bằng hoạt hình/comic/video ngắn.
-- Trạng thái hiện tại: đã xây dựng trang chủ và mã đăng nhập Firebase, có tích hợp DeepSeek qua LangGraph; Firebase đang chờ cấu hình project của người dùng. Xem `docs/validation.md` và `docs/firebase-setup.md`.
+- Trạng thái hiện tại: đã có trang chủ, cấu hình Firebase local và chat AI 1:1 sau đăng nhập, lịch sử SQLite khi đồng ý. DeepSeek đã gọi thử thật thành công. Micro dùng Web Speech trình duyệt khi Google STT chưa cấu hình; chưa thử micro thật trên thiết bị. Vbee đọc giọng chưa thuộc bản hiện tại. Người dùng yêu cầu lưu mã nguồn lên GitHub nhưng chưa yêu cầu deploy. Xem `docs/validation.md`, `docs/firebase-setup.md` và `docs/ai-advisor.md`.

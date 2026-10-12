@@ -15,14 +15,17 @@ from firebase_auth import verify_user, web_config
 
 ROOT = Path(__file__).resolve().parent
 load_dotenv(ROOT / ".env")
+from advisor.routes import router as advisor_router
+
 app = FastAPI(title="La Bàn — KHKT 2027", version="0.1.0")
+app.include_router(advisor_router)
 ai_slots = asyncio.Semaphore(4)
 
 
 @app.middleware("http")
 async def auth_cache_control(request, call_next):
     response = await call_next(request)
-    if request.url.path.startswith("/api/auth/"):
+    if request.url.path.startswith(("/api/auth/", "/api/ai/", "/api/voice/")):
         response.headers["Cache-Control"] = "no-store"
     return response
 
@@ -35,6 +38,12 @@ def normalize(text: str) -> str:
 @app.get("/", include_in_schema=False)
 def homepage():
     return FileResponse(ROOT / "public" / "index.html")
+
+
+@app.get("/ai-career-advisor", include_in_schema=False)
+def career_advisor():
+    # HTML không chứa dữ liệu tài khoản; mọi API đều xác minh Firebase token.
+    return FileResponse(ROOT / "public" / "chat.html", headers={"Cache-Control": "no-store"})
 
 
 @app.get("/api/health")
@@ -88,7 +97,7 @@ async def advice(payload: AdviceRequest):
         async with asyncio.timeout(30):
             async with ai_slots:
                 result = await advice_graph.ainvoke({"question": payload.question, "context": "", "answer": ""})
-        return {"answer": result["answer"], "model": os.getenv("DEEPSEEK_MODEL", "deepseek-chat")}
+        return {"answer": result["answer"], "model": os.getenv("DEEPSEEK_MODEL", "deepseek-flash")}
     except (TimeoutError, httpx.TimeoutException):
         raise HTTPException(504, "Trợ lý phản hồi hơi lâu. Bạn thử lại sau một chút nhé.") from None
     except (httpx.HTTPError, ValueError, KeyError, IndexError, RuntimeError):

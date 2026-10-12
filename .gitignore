@@ -7,3 +7,8 @@ __pycache__/
 .vercel/
 .pytest_cache/
 artifacts/
+data/
+*.sqlite3
+*.sqlite3-*
+*service-account*.json
+*credentials*.json

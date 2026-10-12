@@ -7,11 +7,13 @@ Trang chủ tiếng Việt dành cho học sinh THCS/THPT, dùng Python FastAPI,
 - Giới thiệu dự án, đội thực hiện và mục tiêu hướng nghiệp trực quan.
 - Sáu nghề mẫu; tìm kiếm không phân biệt dấu tiếng Việt, lọc lĩnh vực, xem hoạt động hàng ngày và kỹ năng trong hộp thoại.
 - Ba bài viết với nội dung đầy đủ, đọc ngay trên trang.
-- Trợ lý khám phá nghề: LangGraph lấy ngữ cảnh nghề rồi gọi DeepSeek ở server.
+- Tư vấn 1:1 sau đăng nhập tại `/ai-career-advisor`: DeepSeek qua LangGraph, lịch sử riêng, hồ sơ tự chia sẻ, Markdown an toàn; micro nhận diện tiếng Việt bằng Google Speech khi đã cấu hình hoặc Web Speech của trình duyệt.
 - Responsive, menu điện thoại, điều hướng bàn phím, giảm chuyển động theo cài đặt thiết bị, trạng thái tải/lỗi và thử lại.
 - Firebase Authentication: đăng ký/đăng nhập email, Google, quên mật khẩu, xác minh email, xem tài khoản và đăng xuất; cần cấu hình project để sử dụng thật.
 
-Hiện gồm trang chủ và mã đăng nhập Firebase; chưa có lưu nghề yêu thích, lịch sử trắc nghiệm, quản trị hoặc phim hoạt hình nghề nghiệp. Nghề nổi bật là nội dung bản mẫu, không phải xếp hạng thị trường. Tên La Bàn là tên giao diện đề xuất.
+Hiện có trang chủ, Firebase và tư vấn 1:1; chưa có lưu nghề yêu thích, lịch sử trắc nghiệm, quản trị hoặc phim hoạt hình nghề nghiệp. Nghề nổi bật là nội dung bản mẫu, không phải xếp hạng thị trường.
+
+Đọc [hướng dẫn tư vấn AI](docs/ai-advisor.md) để thử chat, micro và cấu hình DeepSeek, Google Speech. Thiếu khóa AI có thể bật `AI_DEMO_MODE=true`; câu trả lời mẫu luôn có nhãn.
 
 ## Thiết lập đăng nhập Firebase
 
@@ -22,7 +24,7 @@ Hiện gồm trang chủ và mã đăng nhập Firebase; chưa có lưu nghề y
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
-Copy-Item .env.example .env
+if (!(Test-Path .env)) { Copy-Item .env.example .env }
 # Điền DEEPSEEK_API_KEY vào .env trên máy của bạn.
 .\.venv\Scripts\python.exe -m uvicorn app:app --reload
 ```
@@ -39,10 +41,10 @@ Repository đích do người dùng cung cấp: https://github.com/TrooliGM/quoc
 
 1. Đăng nhập Vercel và chọn **Add New → Project**, import repository trên.
 2. Chọn framework **FastAPI**, root directory là thư mục gốc repository; không cần lệnh build frontend.
-3. Trong Environment Variables, đặt `DEEPSEEK_API_KEY` và `DEEPSEEK_MODEL=deepseek-chat`.
+3. Trong Environment Variables, đặt `DEEPSEEK_API_KEY` và `DEEPSEEK_MODEL=deepseek-flash`.
 4. Deploy. Kiểm tra `/`, `/api/health`, tìm kiếm và trợ lý. Nếu thêm key sau khi deploy, redeploy.
 
-`app.py` xuất `app`, `vercel.json` chọn FastAPI. `public/assets` được CDN phục vụ trên Vercel; local dùng StaticFiles. Dependencies nằm trong `requirements.txt`. Dữ liệu mẫu ở `content.py`; bản này không ghi vào ổ đĩa của serverless.
+`app.py` xuất `app`, `vercel.json` chọn FastAPI. `public/assets` được CDN phục vụ trên Vercel; local dùng StaticFiles. Dependencies nằm trong `requirements.txt`. Người dùng hiện chưa cần deployment. Lịch sử chat dùng SQLite local; cần database bền vững dùng chung trước khi deploy tính năng chat lên Vercel.
 
 ## Luồng AI
 
@@ -54,7 +56,7 @@ flowchart LR
   D --> E[Trả câu trả lời về giao diện]
 ```
 
-AI không lưu lịch sử hội thoại và mỗi câu hỏi được gửi độc lập. Endpoint giới hạn độ dài, timeout và số lời gọi đồng thời trong mỗi instance. Trước khi mở rộng truy cập công khai, đặt giới hạn chi tiêu API và rate limit ở Vercel Firewall hoặc kho dùng chung; semaphore không phải rate limit giữa nhiều serverless instance.
+Endpoint cũ `/api/advice` trả lời từng câu độc lập. Chat mới `/api/ai/chat` giữ ngữ cảnh và chỉ lưu lâu dài khi người dùng đồng ý. API giới hạn độ dài, timeout, số lượt/phiên và số lời gọi đồng thời. Trước khi mở truy cập công khai cần rate limit và database dùng chung; semaphore chỉ áp dụng trong một tiến trình.
 
 ## Tài liệu kỹ thuật đã đối chiếu
 

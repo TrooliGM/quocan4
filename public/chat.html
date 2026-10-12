@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5ee"><meta name="robots" content="noindex">
+  <title>La Bàn AI · Một góc để hiểu mình</title>
+  <link rel="icon" href="/assets/compass.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/style.css" rel="stylesheet"><link href="/assets/chat.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.3.0/dist/purify.min.js" defer></script>
+  <script src="/assets/chat.js" type="module"></script>
+</head>
+<body class="advisor-page">
+<a class="skip-link" href="#message-input">Đến ô nhập tin nhắn</a>
+<div id="auth-loading" class="auth-loading" role="status"><img src="/assets/compass.svg" width="54" height="54" alt=""><p>Đang mở góc trò chuyện của bạn…</p><a href="/">Về trang chủ</a></div>
+<div id="chat-app" class="chat-shell" hidden>
+  <button id="drawer-backdrop" class="drawer-backdrop" aria-label="Đóng lịch sử" hidden></button>
+  <aside class="chat-sidebar" id="chat-sidebar" aria-label="Cuộc trò chuyện của bạn">
+    <div class="sidebar-brand"><a href="/" class="brand"><img src="/assets/compass.svg" width="36" height="36" alt=""><span>la bàn<span class="brand-dot">.</span></span></a><button id="close-sidebar" class="icon-button mobile-only" aria-label="Đóng lịch sử">×</button></div>
+    <p class="sidebar-caption">MỘT GÓC ĐỂ HIỂU MÌNH</p>
+    <button id="new-chat" class="btn btn-ink new-chat"><span aria-hidden="true">＋</span> Cuộc trò chuyện mới</button>
+    <label class="history-search"><span aria-hidden="true">⌕</span><input id="history-search" type="search" placeholder="Tìm cuộc trò chuyện…" maxlength="80" aria-label="Tìm cuộc trò chuyện"></label>
+    <div class="history-heading"><span>HÀNH TRÌNH CỦA BẠN</span><span aria-hidden="true">↙</span></div>
+    <div id="history-list" class="history-list"></div>
+    <div class="sidebar-bottom">
+      <button id="open-profile" class="sidebar-link"><span aria-hidden="true">✳</span> Hồ sơ hướng nghiệp của tôi</button>
+      <a href="/" class="sidebar-link"><span aria-hidden="true">↖</span> Quay lại trang chủ</a>
+      <div class="sidebar-account"><span id="user-initial" class="user-initial"></span><div><strong id="user-name"></strong><small>Tài khoản của bạn</small></div><button id="logout" class="icon-button" aria-label="Đăng xuất" title="Đăng xuất">↪</button></div>
+    </div>
+  </aside>
+  <main class="chat-main" id="chat-main">
+    <header class="chat-header">
+      <button id="open-sidebar" class="icon-button mobile-only" aria-expanded="false" aria-controls="chat-sidebar" aria-label="Mở lịch sử">☰</button>
+      <img class="assistant-avatar header-avatar" src="/assets/compass.svg" width="43" height="43" alt="">
+      <div class="assistant-identity"><h1>La Bàn AI <span class="private-badge">1:1</span></h1><p>Trợ lý hướng nghiệp của bạn</p></div>
+      <div class="header-actions"><span id="connection-status" class="connection-status">Đang kết nối</span><button id="end-session" class="end-session" title="Trở về màn hình bắt đầu">Kết thúc</button></div>
+    </header>
+    <div id="mode-banner" class="mode-banner" role="status" hidden></div>
+    <section class="chat-scroll" id="chat-scroll" aria-label="Nội dung tư vấn">
+      <div id="welcome" class="welcome-screen">
+        <div class="welcome-art" aria-hidden="true"><span class="orbit-dash"></span><span class="art-star star-one">✦</span><img src="/assets/compass.svg" width="90" height="90" alt=""><span class="art-star star-two">✳</span><span class="art-note">từng bước, theo cách của bạn</span></div>
+        <p class="eyebrow">CHÀO BẠN, MÌNH LÀ LA BÀN</p>
+        <h2>Cùng La Bàn khám phá<br>tương lai <span>của bạn.</span></h2>
+        <p class="welcome-description">Mỗi người đều có những khả năng riêng. Hãy kể cho mình nghe về bạn để chúng ta cùng tìm hiểu những nghề nghiệp thú vị nhé!</p>
+        <div class="starter-grid">
+          <button data-prompt="Mình thích công nghệ nhưng chưa biết chọn nghề."><span class="starter-symbol mint">&lt;/&gt;</span><span>Mình thích công nghệ nhưng<br>chưa biết chọn nghề.</span><span class="starter-arrow">↗</span></button>
+          <button data-prompt="Mình học tốt Toán, có thể làm nghề gì?"><span class="starter-symbol yellow">π</span><span>Mình học tốt Toán,<br>có thể làm nghề gì?</span><span class="starter-arrow">↗</span></button>
+          <button data-prompt="Mình thích vẽ và sáng tạo."><span class="starter-symbol peach">✳</span><span>Mình thích vẽ<br>và sáng tạo.</span><span class="starter-arrow">↗</span></button>
+          <button data-prompt="Mình chưa biết điểm mạnh của bản thân."><span class="starter-symbol blue">✦</span><span>Mình chưa biết điểm mạnh<br>của bản thân.</span><span class="starter-arrow">↗</span></button>
+        </div>
+        <label class="memory-consent"><input id="remember-chat" type="checkbox"><span>Lưu cuộc trò chuyện và ghi nhớ những điều mình chia sẻ cho lần sau.</span></label>
+        <button id="start-chat" class="btn btn-coral start-chat">Bắt đầu tư vấn với AI <span aria-hidden="true">↗</span></button>
+        <p class="welcome-footnote">Không cần có sẵn câu trả lời. Chỉ cần bắt đầu từ một chút tò mò.</p>
+      </div>
+      <div id="messages" class="message-list" role="log" aria-label="Tin nhắn" aria-live="polite" aria-relevant="additions" hidden></div>
+      <div id="thinking" class="thinking" role="status" hidden><img src="/assets/compass.svg" width="28" height="28" alt=""><span>La Bàn đang lắng nghe</span><i></i><i></i><i></i></div>
+    </section>
+    <div class="composer-area">
+      <div id="mic-status" class="voice-status" role="status" hidden><span class="wave-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span id="mic-status-text">Đang nghe…</span><button id="cancel-mic" type="button">Hủy ghi âm</button></div>
+      <div id="chat-notice" class="chat-notice" role="status" hidden><span id="chat-notice-text"></span><button id="retry-send" hidden>Thử gửi lại ↗</button></div>
+      <form id="message-form" class="composer">
+        <label for="message-input" class="visually-hidden">Tin nhắn của bạn</label>
+        <textarea id="message-input" rows="1" maxlength="2000" placeholder="Chia sẻ sở thích, điểm mạnh hoặc điều bạn đang băn khoăn…"></textarea>
+        <div class="composer-bottom"><span id="session-note">Một góc trò chuyện riêng, theo nhịp của bạn.</span><div><button id="microphone" class="mic-button" type="button" aria-label="Nói bằng micro" title="Nói bằng micro" disabled><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3M8 22h8"/></svg></button><button id="send-message" class="send-button" type="submit" aria-label="Gửi tin nhắn" disabled>↑</button></div></div>
+      </form>
+      <p class="composer-footnote">Bấm mic để nói, kiểm tra chữ rồi gửi. Gợi ý AI để tham khảo. <span>Enter để gửi · Shift + Enter để xuống dòng</span></p>
+    </div>
+  </main>
+</div>
+<dialog id="profile-dialog" class="chat-dialog" aria-labelledby="profile-title"><button data-close-dialog class="dialog-close" aria-label="Đóng hồ sơ">×</button><span class="eyebrow">NHỮNG ĐIỀU BẠN ĐÃ CHIA SẺ</span><h2 id="profile-title">Hồ sơ hướng nghiệp của tôi</h2><p>Ghi nhớ từ những cuộc trò chuyện bạn chọn lưu. Đây là thông tin tự chia sẻ, không phải kết quả đánh giá năng lực.</p><div id="profile-content"></div><button id="delete-all-data" class="danger-button">Xóa toàn bộ lịch sử và ghi nhớ</button></dialog>
+<dialog id="action-dialog" class="chat-dialog" aria-labelledby="action-title"><form id="action-form"><button type="button" data-close-dialog class="dialog-close" aria-label="Đóng">×</button><h2 id="action-title"></h2><p id="action-description"></p><label for="rename-input" id="rename-label" hidden>Tên cuộc trò chuyện</label><input id="rename-input" maxlength="80" hidden><div class="dialog-actions"><button type="button" data-close-dialog class="btn btn-light">Hủy</button><button id="confirm-action" class="btn btn-coral" type="submit">Xác nhận</button></div><p id="action-error" role="status"></p></form></dialog>
+
+</body>
+</html>

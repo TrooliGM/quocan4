@@ -1,3 +1,4 @@
+import {getFirebase} from './firebase-client.js';
 const select = (s) => document.querySelector(s);
 const dialog = select('#auth-dialog');
 let sdk, auth, mode = 'login', busy = false, ready = false, configTask, profileEpoch = 0;
@@ -87,20 +88,14 @@ async function ensureAuth() {
   if (configTask) return configTask;
   configTask = (async () => {
     try {
-      const response = await fetch('/api/auth/config', {cache:'no-store', signal:AbortSignal.timeout(10000)});
-      if (!response.ok) throw new Error('config_failed');
-      const data = await response.json();
-      if (!data.configured) { select('#auth-setup-message').hidden = false; return false; }
-      const [appSDK, authSDK] = await Promise.all([
-        import('https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js'),
-        import('https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js')
-      ]);
-      sdk = authSDK; auth = sdk.getAuth(appSDK.initializeApp(data.config)); auth.languageCode = 'vi';
+      ({auth, sdk} = await getFirebase());
       ready = true; select('#auth-setup-message').hidden = true; setBusy(false);
       sdk.onAuthStateChanged(auth, (user) => {
         const epoch = ++profileEpoch;
         displayUser(user);
-        if (user) backendProfile(user).catch((error) => { if (epoch === profileEpoch) status(errorMessage(error), true); });
+        if (user) backendProfile(user).then(() => {
+          if (epoch === profileEpoch && !busy && new URLSearchParams(location.search).get('login') === '1') location.replace('/ai-career-advisor');
+        }).catch((error) => { if (epoch === profileEpoch) status(errorMessage(error), true); });
       });
       return true;
     } catch {
@@ -140,6 +135,7 @@ select('#auth-form').addEventListener('submit', async (event) => {
       catch { status('Tài khoản đã tạo. Bạn có thể bấm “Gửi email xác minh” để thử lại.'); }
     } else { status('Đăng nhập thành công. Chào mừng bạn trở lại!'); }
     await backendProfile(credential.user, true);
+    location.assign('/ai-career-advisor');
   } catch (error) { status(errorMessage(error), true); }
   finally { select('#auth-password').value = ''; select('#auth-confirm-password').value = ''; setBusy(false); }
 });
@@ -155,6 +151,7 @@ select('#google-signin').addEventListener('click', () => {
       await persistence();
       await backendProfile(credential.user);
       status('Đăng nhập Google thành công. Chào bạn!');
+      location.assign('/ai-career-advisor');
     } catch (error) { status(errorMessage(error), true); }
     finally { setBusy(false); }
   })();
@@ -194,3 +191,13 @@ select('#refresh-profile').addEventListener('click', async () => {
 dialog.addEventListener('close', () => { select('#auth-password').value = ''; select('#auth-confirm-password').value = ''; select('#auth-password').type = 'password'; select('#toggle-password').textContent = 'Hiện'; select('#toggle-password').setAttribute('aria-pressed','false'); select('#toggle-password').setAttribute('aria-label','Hiện mật khẩu'); });
 setBusy(false);
 ensureAuth();
+// Trang tư vấn chuyển khách về đúng hộp đăng nhập hiện có.
+if (new URLSearchParams(location.search).get('login') === '1') {
+  dialog.showModal();
+  ensureAuth().then(async (ok) => {
+    if (ok && auth.currentUser) {
+      try { await backendProfile(auth.currentUser); location.replace('/ai-career-advisor'); }
+      catch (error) { status(errorMessage(error), true); }
+    }
+  });
+}

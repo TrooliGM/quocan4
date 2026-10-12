@@ -5,11 +5,20 @@
 | Ngày | Nội dung | Cơ sở |
 | --- | --- | --- |
 | 2026-10-06 | Cài frontend-design ở phạm vi dự án. | Yêu cầu trực tiếp của người dùng; tệp đã được sao chép và kiểm tra khớp nội dung. |
+| 2026-10-12 | Chỉ đưa micro nhận diện lời nói trở lại chat; giọng đọc Vbee không nằm trong bản hiện tại. | Yêu cầu trực tiếp mới nhất của người dùng, thay thế phạm vi voice rộng hơn trước đó. |
+| 2026-10-12 | Lưu mã nguồn hiện tại lên GitHub `TrooliGM/quocan4`; chưa deploy website. | Người dùng yêu cầu trực tiếp, repository đã cung cấp trước đó. |
 | 2026-10-06 | Tạo bộ nhớ dự án từ báo cáo DOCX. | Yêu cầu trực tiếp của người dùng. |
 | 2026-10-06 | Triển khai chức năng 1: trang chủ và giới thiệu. | Yêu cầu trực tiếp của người dùng. |
 | 2026-10-06 | Python backend, DeepSeek là AI chính, HTML/Bootstrap/CSS/JavaScript, LangGraph, Vercel và GitHub. | Công nghệ người dùng chỉ định. |
 | 2026-10-06 | Repository đích: TrooliGM/quocan4. | URL người dùng cung cấp. |
 | 2026-10-07 | Setup đăng nhập bằng Firebase. | Yêu cầu trực tiếp của người dùng. |
+| 2026-10-07 | Dùng Firebase project khoa-hoc-86942, ứng dụng Web “la bàn tương lai”; cấu hình đặt ở .env cục bộ. | firebaseConfig người dùng cung cấp. |
+| 2026-10-11 | Sau đăng nhập mở chat AI 1:1; bổ sung text/voice và bộ nhớ tài khoản. | Yêu cầu trực tiếp và brief đính kèm. |
+| 2026-10-11 | Chưa triển khai website công khai. | Người dùng đã hoãn đưa website lên mạng trong trao đổi trước. |
+| 2026-10-11 | Cấu hình khóa DeepSeek và token/App ID Vbee vào môi trường riêng để dùng dịch vụ thật. | Người dùng trực tiếp cung cấp thông tin dịch vụ cho tính năng AI. |
+| 2026-10-11 | Thêm nhận diện/giọng đọc trình duyệt để thử voice ngay khi Google/Vbee chưa sẵn sàng. | Người dùng chọn “Thêm giọng trình duyệt để thử ngay”. |
+| 2026-10-12 | Cho phép cài gói giọng tiếng Việt từ Windows Update trên máy. | Người dùng chọn “Đồng ý, cài giọng tiếng Việt giúp tôi”. Chưa cài thành công vì dịch vụ Windows Update kẹt; chưa được cho phép reboot máy. |
+| 2026-10-12 | Cho phép tạm ngắt WARP để thử tải giọng, rồi kết nối lại. | Người dùng đồng ý trực tiếp. Đã thực hiện và xác minh WARP kết nối lại; Windows Update còn StopPending nên chưa thử lại được bước tải. Không kết luận WARP gây lỗi. |
 
 ## Lựa chọn triển khai của trợ lý
 
@@ -19,17 +28,23 @@
 - Firebase Web SDK qua CDN cho email/password và Google; thêm quên mật khẩu, xác minh email, đăng xuất. Provider cụ thể là lựa chọn triển khai của trợ lý.
 - Backend xác minh ID token bằng google-auth, không dùng service account. Chưa kiểm tra token bị thu hồi/disabled theo thời gian thực; chưa có chức năng quản trị nhạy cảm.
 - Chưa lưu Firestore; mặc định chọn phiên theo tab, có lựa chọn giữ đăng nhập trên máy cá nhân.
+- Tư vấn mới dùng `advisor/` với DeepSeek Flash configurable, một lời gọi/model mỗi lượt, đầu ra JSON kiểm tra trước khi lưu. Prompt nằm riêng.
+- Chọn SQLite bổ sung cho bản local vì dự án chưa có database; không di chuyển/xóa dữ liệu cũ. Lưu lịch sử/hồ sơ khi có đồng ý; phiên không lưu ở RAM. Đây là lựa chọn kỹ thuật, chưa chốt database cloud.
+- Voice dùng Google STT REST sau ghi âm WAV/VAD client, transcript sửa trước khi gửi; Vbee v1 sync chia đoạn <=280 ký tự. Không dùng streaming/WebSocket hoặc Vbee batch/webhook. Không tự bật micro sau giọng đọc.
+- Thiếu khóa: demo có nhãn; không giả kết quả provider. Voice disabled khi thiếu cấu hình. Các provider thật chưa kiểm thử.
+- Cập nhật sau nhận khóa: DeepSeek đã kiểm thử thật thành công và tắt demo local. Vbee lấy danh sách giọng thành công nhưng sync TTS bị gói tài khoản từ chối; tạm tắt bằng `VBEE_TTS_ENABLED=false`, UI giải thích hạn chế. Google STT vẫn chưa cấu hình. Chưa mua/nâng cấp dịch vụ hoặc chuyển sang batch/webhook.
+- Sau xác nhận voice trình duyệt: thiếu Google/Vbee thì dùng Web Speech nếu được hỗ trợ. Nhận diện vi-VN cần thao tác xin quyền, transcript sửa trước khi gửi; giọng đọc chỉ chọn giọng Việt có trên máy, tự đọc mặc định tắt. Không coi chế độ này là offline hoặc đã xác minh Google/Vbee. Dừng/hủy/đổi phiên/đăng xuất chặn callback cũ.
 
 ## Chưa được quyết định
 
 - Tên thương hiệu, logo, bảng màu và phong cách giao diện cụ thể.
-- Phạm vi những chức năng tiếp theo sau trang chủ.
+- Phạm vi sau tính năng tư vấn 1:1.
 - Cơ sở dữ liệu và nơi lưu nội dung đa phương tiện khi mở rộng.
 - Hình thức trực quan hóa đầu tiên: comic, hoạt hình hay video; nguồn tài sản hình ảnh.
 - Nguồn và cách cập nhật lương, triển vọng nghề, trường đào tạo, thông tin tuyển sinh.
 - Bộ câu hỏi, quyền sử dụng nội dung trắc nghiệm, cách tính điểm và ánh xạ kết quả sang nghề.
 - Quy trình chuyển câu hỏi cho giáo viên/chuyên gia và phạm vi AI khi mở rộng.
-- Cấu hình Firebase project và bật provider trên tài khoản người dùng; Zalo chưa triển khai.
+- Kiểm thử Email/Password và Google thật trên project đã cấu hình (ảnh đã thể hiện provider bật); Zalo chưa triển khai.
 - Vai trò người dùng, quyền quản trị, thông tin học sinh cần thu thập và thời gian lưu dữ liệu.
 - Phương pháp đánh giá hiệu quả hướng nghiệp cho báo cáo KHKT; chưa có kết quả khảo sát được cung cấp.
 

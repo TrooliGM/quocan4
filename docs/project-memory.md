@@ -1,5 +1,12 @@
 # Bộ nhớ dự án: Website Hướng nghiệp KHKT 2027
 
+## Trạng thái mới nhất 2026-10-12
+
+- Người dùng chốt phạm vi giọng nói hiện tại là **chỉ thêm lại micro** để nhập câu hỏi tiếng Việt, sau đó yêu cầu lưu dự án lên repository GitHub `TrooliGM/quocan4`. Yêu cầu triển khai website công khai vẫn được hoãn.
+- Chat chính dùng DeepSeek Flash trả Markdown; một lời gọi riêng nén ngữ cảnh/hồ sơ và lỗi ở bước nén không làm mất câu trả lời. Đã thử sáu lượt DeepSeek thật bằng dữ liệu tổng hợp, gồm sở thích vẽ, thêm hiểu biết máy tính, hỏi nhiều nghề và sửa thông tin.
+- Micro mới: Google Speech-to-Text khi có credentials server, Web Speech trình duyệt khi chưa có; tự dừng sau khoảng 3 giây im lặng, hiện bản chữ để sửa rồi gửi thủ công. Hiện chưa có Google credentials, chưa xác minh micro thật; Vbee đọc giọng không thuộc phạm vi bản này. Các ghi chú voice cũ phía dưới là lịch sử đã được thay thế.
+- Kiểm thử backend và Chrome giả lập đạt trước khi đồng bộ. Không lưu khóa/token hoặc dữ liệu cá nhân vào repository.
+
 ## Nguồn và phạm vi
 
 - Nguồn: `C:/Users/Administrator/Downloads/Bao_Cao_Y_Tuong_Website_Huong_Nghiep_KHKT2027 (2).docx`.
@@ -50,18 +57,59 @@ Giải pháp: dùng hoạt hình, infographic, comic và tương tác để gi�
 - Đã cài skill frontend-design tại `.agents/skills/frontend-design/SKILL.md`.
 - Đã đọc nội dung báo cáo và tạo tài liệu bộ nhớ.
 - Đã xây dựng trang chủ: giới thiệu, sáu nghề mẫu, ba bài viết, tìm kiếm tiếng Việt không dấu, lọc lĩnh vực, hộp thoại nội dung, giao diện responsive.
-- Backend Python FastAPI; frontend HTML, Bootstrap, CSS và JavaScript. AI có mã tích hợp DeepSeek API qua LangGraph, chưa kiểm thử lời gọi thật vì chưa có API key.
+- Backend Python FastAPI; frontend HTML, Bootstrap, CSS và JavaScript. DeepSeek qua LangGraph đã kiểm thử lời gọi thật với nội dung mẫu; xem cập nhật khóa dịch vụ bên dưới.
 - Đã chuẩn bị cấu hình Vercel và hướng dẫn triển khai. Repository người dùng chỉ định: https://github.com/TrooliGM/quocan4.
 - Đã đưa mã nguồn lên nhánh `main` của repository và xác minh cây tệp; commit ứng dụng `9ead1787bf959bc33557bd45f5b66f38ff982d5d`.
-- Triển khai Vercel đang chờ kết nối tài khoản. Plugin Vercel đã được tìm thấy và đề xuất, chưa xác nhận kết nối.
+- Người dùng đã xác nhận chưa cần đưa website lên mạng; hiện phát triển và chạy local. Chưa có deployment Vercel được xác minh.
 - La Bàn là tên giao diện do trợ lý đề xuất khi triển khai, chưa phải tên thương hiệu người dùng xác nhận.
 - Nội dung nghề và bài viết là bản mẫu biên soạn, không có số liệu thị trường hoặc bảng xếp hạng tuyển dụng.
 - Ngày 2026-10-07, người dùng xác nhận trang chủ chạy tốt trên máy và yêu cầu setup đăng nhập Firebase.
 - Đã có mã đăng ký/đăng nhập email/mật khẩu và Google, quên mật khẩu, xác minh email, trạng thái tài khoản và đăng xuất. Backend xác minh Firebase ID token bằng google-auth và khóa công khai của Google; không cần service account.
-- Người dùng chưa có Firebase project và đã yêu cầu hướng dẫn thao tác; chưa được cung cấp cấu hình Web. Chưa đăng nhập thật vào Firebase; hướng dẫn ở `docs/firebase-setup.md`.
-- Đã có LangGraph trong môi trường hiện tại; các kiểm tra AI với mock đã chạy thành công, chưa gọi DeepSeek thật.
-- Chưa có trắc nghiệm, quản trị, lưu dữ liệu cá nhân, Firestore hoặc phim hoạt hình nghề nghiệp. Chi tiết xác minh ở `docs/validation.md`.
+- Người dùng đã cung cấp cấu hình Web của Firebase project `khoa-hoc-86942`, ứng dụng “la bàn tương lai”. Đã điền các biến FIREBASE_* vào `.env` cục bộ, giữ nguyên các cấu hình khác và kiểm tra endpoint cấu hình trả configured=true. Không lưu API key vào bộ nhớ hoặc GitHub.
+- Ảnh người dùng gửi cho thấy đã bật Email/Password và Google, có localhost trong authorized domains. Chưa kiểm thử đăng nhập thật bằng tài khoản của người dùng; hướng dẫn ở `docs/firebase-setup.md`.
+- Đã có LangGraph trong môi trường hiện tại; kiểm tra mock thành công và đã có kiểm tra DeepSeek thật qua graph với nội dung mẫu.
+- Chưa có trắc nghiệm, quản trị, Firestore hoặc phim hoạt hình nghề nghiệp. Chi tiết xác minh ở `docs/validation.md`.
+
+## Cập nhật 2026-10-11: tư vấn AI 1:1
+
+- Yêu cầu trực tiếp: đăng nhập thành công chuyển tới giao diện chat 1:1 với AI; tài liệu đính kèm bổ sung phạm vi text/voice và bộ nhớ riêng.
+- Đã thêm route `/ai-career-advisor`, tái sử dụng Firebase hiện có. Email/Google chuyển trang sau xác thực backend; khách quay về hộp đăng nhập trang chủ. Có liên kết Tư vấn cùng AI.
+- Giao diện dùng frontend-design và bộ màu/font cũ: màn hình bắt đầu, bốn gợi ý, chat, sidebar lịch sử/tìm kiếm/đổi tên/xóa, hồ sơ, drawer mobile, Enter gửi/Shift+Enter xuống dòng, lỗi và thử lại, Markdown qua Marked/DOMPurify.
+- Module `advisor/` có LangGraph một lời gọi DeepSeek mỗi lượt, ngữ cảnh gần nhất + tóm tắt + hồ sơ, JSON phân tích riêng, kiểm tra tối thiểu ba nghề khác nhau khi có gợi ý.
+- Lựa chọn triển khai local: SQLite cho phiên người dùng đồng ý lưu; phiên không lưu chỉ ở RAM, hết hạn sau 2 giờ không hoạt động. Tất cả API kiểm tra Firebase UID và quyền sở hữu; UUID chống trùng trong một tiến trình. Có xóa toàn bộ dữ liệu tư vấn của tài khoản.
+- Đã viết adapter Google Speech-to-Text vi-VN và Vbee sync TTS, recorder WAV/VAD dừng sau 3 giây im lặng, sửa transcript trước khi gửi, dừng/phát lại/tắt giọng đọc. Chưa xác minh micro/VAD bằng thiết bị thật hoặc request provider thật.
+- `.env` local bật demo có nhãn vì chưa có khóa DeepSeek; không tạo kết luận năng lực hoặc hồ sơ giả. Không lưu khóa trong bộ nhớ dự án. Thiếu cấu hình Google/Vbee thì UI giải thích và vô hiệu hóa chức năng tương ứng.
+- Đã chạy 22 test backend thành công. Chrome headless với Firebase stub đã kiểm tra guest guard, login redirect, gửi demo, đổi tên, tải lại lịch sử, chống XSS Markdown, hồ sơ, drawer/mobile không tràn ngang, WAV client và đăng xuất. Đây không phải thử Firebase/AI/voice thật.
+- Hướng dẫn dùng/cấu hình/giới hạn ở `docs/ai-advisor.md`. Chưa đồng bộ thay đổi lần này lên GitHub hoặc deploy. Trước khi deploy cần database dùng chung bền vững, distributed idempotency và rate limit theo tài khoản; SQLite không dùng làm kho serverless.
 
 ## Cách tiếp tục
+
+### Khắc phục AI không đọc thành tiếng 2026-10-12
+
+- Người dùng xác nhận bấm Nghe nhưng không có tiếng/không thấy lỗi. Đọc danh sách thật từ Chrome kiểm tra riêng thấy 22 giọng, không có `vi`; registry Windows chỉ có giọng tiếng Anh. Đây là kiểm tra browser trên máy này, không phải xem tab đăng nhập của người dùng.
+- Đã sửa frontend: kiểm tra giọng Việt khi mở trang, hiển thị trạng thái cạnh ô nhập, hộp hướng dẫn/nghe thử/dừng/kiểm tra lại. Bật tự đọc khi thiếu giọng sẽ mở hướng dẫn. Chờ danh sách giọng cập nhật; resume bộ đọc, đặt âm lượng câu đọc 1; chỉ báo Đang đọc sau sự kiện start, không khởi động sau 6 giây thì báo lỗi rõ. Đóng hộp thử không hủy nhầm lần đọc câu trả lời mới.
+- 23 test backend đạt; Chrome stub đạt hồi quy, nghe thử, trạng thái thiếu giọng và bộ đọc không khởi động. Chưa xác minh âm thanh tiếng Việt thật.
+- Người dùng đã cho phép cài giọng tiếng Việt từ Windows Update. Gói `Language.TextToSpeech~~~vi-VN~0.0.1.0` hiện vẫn `NotPresent`. Cài đầu lỗi dịch vụ bị tắt; đã thử tạm bật BITS/wuauserv nhưng Windows Update kẹt `StopPending`, chưa cài được. Đã khôi phục kiểu khởi động cả hai về Disabled; BITS Stopped, wuauserv vẫn StopPending. Đã dừng riêng shell cài của trợ lý đang chờ; không kill dịch vụ hệ thống, không reboot máy.
+- Người dùng đã khởi động lại Windows. Thử cài lại thất bại với `0x80200010` (bộ tải Windows báo mất kết nối), dù truy cập HTTP thử bằng Python thành công. BITS đã dừng; Windows Update lại kẹt `StopPending`; kiểu khởi động cả hai đã trả về Disabled như ban đầu.
+- Người dùng cho phép tạm ngắt WARP để thử. Đã ngắt, nhưng không thể bắt đầu lần tải mới vì Windows Update chưa thoát `StopPending` trong thời gian chờ 20 giây. Khối `finally` đã kết nối WARP lại; kiểm tra sau cùng báo `Connected`, `Network: healthy`. Chưa xác nhận WARP là nguyên nhân. Gói giọng vẫn `NotPresent`.
+- Có script cài thủ công `scripts/install-windows-vietnamese-voice.ps1`: lưu/khôi phục kiểu khởi động dịch vụ, giới hạn thời gian chờ trạng thái dịch vụ, xuất kết quả thực tế; không reboot hoặc kill dịch vụ. Lệnh Add-WindowsCapability vẫn phụ thuộc Windows Update. Không chạy script tự động cùng website.
+- Còn cần xử lý Windows Update/bộ tải hoặc nguồn gói Microsoft phù hợp trước khi cài được giọng. Không lặp lại cài khi dịch vụ vẫn StopPending. Sau khi cài phải kiểm tra giọng Việt có trong Chrome và playback thật; không coi test stub là nghe được âm thanh.
+
+### Giọng trình duyệt 2026-10-11
+
+- Người dùng yêu cầu mở voice chat và xác nhận chọn thêm giọng trình duyệt để thử ngay. Google/Vbee vẫn được giữ và ưu tiên khi sẵn sàng; không nâng cấp gói hoặc thay credentials.
+- Đã thêm `public/assets/browser-voice.js`: SpeechRecognition vi-VN khi browser hỗ trợ/secure context, dừng/hủy/giới hạn thời gian, kết quả sửa trước khi gửi và giữ draft; không tự gửi hoặc tự bật micro sau khi đọc.
+- SpeechSynthesis chỉ dùng giọng Việt trên máy, chia đoạn, dừng/nghe lại; chưa có giọng Việt thì báo rõ. Banner phân biệt chế độ trình duyệt và nói rõ nhận diện có thể dùng dịch vụ trực tuyến. Mặc định tự đọc tắt, người dùng bật hoặc nghe từng câu.
+- 23 test backend đạt. Chrome headless đạt hồi quy và các ca Web Speech stub: nối draft, thay interim, gửi thủ công, hủy/kết quả cũ, từ chối quyền, chọn giọng Việt, đọc nhiều đoạn/dừng, dừng đọc khi bật micro, thiếu giọng Việt và browser không hỗ trợ. Không gọi Google/Vbee endpoint ở chế độ browser. Chưa thử micro/âm thanh thật trên thiết bị người dùng.
+
+### Cập nhật khóa dịch vụ 2026-10-11
+
+- Người dùng cung cấp khóa DeepSeek và token/App ID Vbee để cấu hình; chỉ lưu ở `.env` riêng, không ghi giá trị vào bộ nhớ, mã nguồn hay kết quả kiểm tra.
+- Đã tắt `AI_DEMO_MODE` và xác minh DeepSeek `/models` trả 200 với model `deepseek-flash`. LangGraph trả nội dung thật và JSON hợp lệ; một câu hỏi yêu cầu gợi ý nghề trả ba nghề khác nhau. Dùng tài khoản kiểm thử tổng hợp trong RAM, không dùng dữ liệu học sinh.
+- Vbee API danh sách giọng trả 200; chọn HN - Ngọc Huyền. Request tạo âm thanh sync thật trả 400 với thông báo gói người dùng chưa hỗ trợ tính năng. Chưa có âm thanh Vbee thành công.
+- Tạm tắt giọng đọc bằng cấu hình `VBEE_TTS_ENABLED=false`, lý do `package_not_supported`; frontend hiển thị đúng lý do và tiếp tục chat chữ. Cần tài khoản hỗ trợ sync TTS hoặc một phương án async có callback phù hợp trước khi bật lại. Không mua/nâng cấp gói dịch vụ.
+- Google STT vẫn chưa cấu hình. Sau cập nhật giọng trình duyệt bên trên, micro dùng Web Speech nếu được hỗ trợ. Không thay đổi Firebase hoặc deploy.
+- Sau cập nhật đã chạy đạt 23 test backend, biên dịch Python và kiểm tra lại Chrome headless với Firebase stub/demo; chưa kiểm tra đăng nhập Firebase thật nối toàn bộ luồng chat thật trên trình duyệt.
+- Công cụ kiểm tra thật ở `scripts/check_live_providers.py`; chỉ chạy chủ động, có dùng quota API, không ghi âm thanh xuống đĩa và không in khóa.
 
 Khi người dùng yêu cầu triển khai, tham khảo `docs/decisions.md`, xác định phạm vi cần làm và cập nhật bộ nhớ theo kết quả thực tế. Giữ chức năng trực quan hóa nghề nghiệp ở vị trí trung tâm của sản phẩm.

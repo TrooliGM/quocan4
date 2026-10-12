@@ -35,11 +35,11 @@ async def ask_deepseek(state: AdviceState):
     )
     async with httpx.AsyncClient(timeout=httpx.Timeout(25, connect=8)) as client:
         response = await client.post(
-            "https://api.deepseek.com/chat/completions",
+            os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com").rstrip("/") + "/chat/completions",
             headers={"Authorization": f"Bearer {key}"},
-            json={"model": os.getenv("DEEPSEEK_MODEL", "deepseek-chat"),
+            json={"model": os.getenv("DEEPSEEK_MODEL", "deepseek-flash"),
                   "messages": [{"role": "system", "content": prompt}, {"role": "user", "content": state["question"]}],
-                  "max_tokens": 700, "stream": False},
+                  "max_tokens": 700, "thinking": {"type": "disabled"}, "stream": False},
         )
         response.raise_for_status()
         answer = response.json()["choices"][0]["message"]["content"]
