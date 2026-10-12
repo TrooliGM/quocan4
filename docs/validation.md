@@ -6,6 +6,7 @@
 - Backend: `python -m unittest discover -s tests -v` đạt 22 bài kiểm tra. Chrome headless: `python tests/browser_smoke.py` đạt với Firebase và micro giả lập; đã kiểm tra tự dừng sau 3 giây, chèn bản chữ, không tự gửi, hủy và chống callback cũ.
 - Google Cloud Speech chưa có credentials; chưa thử micro thật, mạng nhận diện tiếng Việt thật hoặc bản ghi âm trên thiết bị. Vbee đọc giọng không thuộc bản hiện tại.
 - Repository GitHub là kho mã nguồn; chưa có deployment công khai. `.env`, credentials, SQLite, `.venv` và artifacts được loại khỏi bản đồng bộ.
+- Đã đối chiếu đủ 43 tệp local với cây GitHub sau chuẩn hóa xuống dòng; không thiếu hoặc sai nội dung. Commit `35c2d84ebb234b9984088c9c886b07fa961a51f8` là bản mã chức năng đã đưa lên nhánh `main`.
 
 ## AI không đọc thành tiếng 2026-10-12
 

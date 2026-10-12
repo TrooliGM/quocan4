@@ -6,6 +6,7 @@
 - Chat chính dùng DeepSeek Flash trả Markdown; một lời gọi riêng nén ngữ cảnh/hồ sơ và lỗi ở bước nén không làm mất câu trả lời. Đã thử sáu lượt DeepSeek thật bằng dữ liệu tổng hợp, gồm sở thích vẽ, thêm hiểu biết máy tính, hỏi nhiều nghề và sửa thông tin.
 - Micro mới: Google Speech-to-Text khi có credentials server, Web Speech trình duyệt khi chưa có; tự dừng sau khoảng 3 giây im lặng, hiện bản chữ để sửa rồi gửi thủ công. Hiện chưa có Google credentials, chưa xác minh micro thật; Vbee đọc giọng không thuộc phạm vi bản này. Các ghi chú voice cũ phía dưới là lịch sử đã được thay thế.
 - Kiểm thử backend và Chrome giả lập đạt trước khi đồng bộ. Không lưu khóa/token hoặc dữ liệu cá nhân vào repository.
+- Đã lưu 43 tệp mã nguồn/tài liệu lên nhánh `main` của `TrooliGM/quocan4`, commit `35c2d84ebb234b9984088c9c886b07fa961a51f8`; đã kiểm tra nhánh và tệp micro trên GitHub. Chưa triển khai website công khai.
 
 ## Nguồn và phạm vi
 
