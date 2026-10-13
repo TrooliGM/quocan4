@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Một ngày làm việc · La Bàn</title>
+  <meta name="description" content="Khám phá một ngày làm việc của bác sĩ, lập trình viên, nhà thiết kế và nhiều nghề khác qua truyện tranh tương tác của La Bàn KHKT 2027.">
+  <meta name="theme-color" content="#f6f5ee"><link rel="icon" href="/assets/compass.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/style.css" rel="stylesheet"><link href="/assets/stories.css" rel="stylesheet">
+  <script type="module" src="/assets/stories.js"></script>
+</head>
+<body class="stories-page">
+<a class="skip-link" href="#story-main">Đến nội dung truyện</a>
+<header class="site-header"><nav class="container story-nav" aria-label="Điều hướng chính">
+  <a class="brand" href="/"><img src="/assets/compass.svg" width="36" height="36" alt=""><span>la bàn<span class="brand-dot">.</span></span></a>
+  <a class="back-home" href="/#careers">← Khám phá nghề</a><a class="btn btn-ink" href="/ai-career-advisor">Tư vấn cùng AI ↗</a>
+</nav></header>
+<main id="story-main" class="container">
+  <section class="story-intro"><div><p class="eyebrow">GÓC NHÌN NGHỀ NGHIỆP · KHKT 2027</p><h1>Thử bước vào<br><span>một ngày làm việc.</span></h1><p>Đi cùng nhân vật. Gặp những tình huống thật gần.<br>Khám phá điều làm nên một nghề, qua từng khung truyện.</p></div><div class="issue-stamp" aria-hidden="true"><span>LA BÀN COMICS</span><strong>06</strong><span>NGHỀ · NHIỀU GÓC NHÌN</span><i>✦</i></div></section>
+  <nav id="career-shelf" class="career-shelf" aria-label="Chọn truyện theo nghề"><p>Đang mở thư viện truyện…</p></nav>
+  <div id="story-error" class="story-error" role="alert" hidden><p id="story-error-text"></p><button class="btn btn-ink" id="retry-story">Thử lại</button></div>
+  <p id="story-loading" role="status">Đang chuẩn bị một ngày mới…</p>
+  <div id="story-content" hidden>
+    <section class="story-heading"><div><span class="eyebrow" id="story-category"></span><h2 id="career-title"></h2><p id="career-intro"></p></div><div class="view-switch" role="group" aria-label="Cách xem truyện"><button id="mode-play" aria-pressed="true" class="selected">▣ Từng cảnh</button><button id="mode-comic" aria-pressed="false">▦ Cả trang truyện</button></div></section>
+    <section id="player" aria-label="Trình xem một ngày làm việc" tabindex="0">
+      <div class="story-spread"><div class="scene-frame" id="scene-frame"><div class="frame-label"><span id="scene-time"></span><span id="frame-number"></span></div><div id="scene-art"></div><p class="speech-balloon" id="scene-speech"></p><span class="character-tag" id="character-name"></span></div>
+        <div class="scene-copy"><span class="eyebrow" id="scene-kicker"></span><h3 id="scene-title"></h3><p id="scene-caption"></p><div class="skill-note"><span>✦ KỸ NĂNG TRONG CẢNH</span><strong id="scene-skill"></strong></div><div class="scene-turn"><button id="prev-scene" aria-label="Cảnh trước">←</button><span id="scene-counter" aria-live="polite"></span><button id="next-scene" aria-label="Cảnh tiếp theo">→</button></div></div>
+      </div>
+      <div class="playback"><button id="play-toggle" class="btn btn-ink" aria-pressed="false">▶ Tự chuyển cảnh</button><label for="scene-speed">Mỗi cảnh <select id="scene-speed"><option value="12000">12 giây</option><option value="20000">20 giây</option></select></label><span class="playback-note">Bạn có thể dừng để đọc theo nhịp của mình.</span></div>
+      <nav id="scene-timeline" class="scene-timeline" aria-label="Các cảnh trong ngày"></nav>
+    </section>
+    <section id="comic-grid" class="comic-grid" aria-label="Toàn bộ trang truyện" hidden></section>
+    <section class="story-lower" id="explore-scene"><div class="decision-card"><span class="eyebrow">DỪNG MỘT CHÚT · THỬ NGHĨ XEM</span><h3 id="decision-question"></h3><div id="decision-choices"></div><p id="decision-feedback" role="status" hidden></p><p class="decision-note">Một tình huống để khám phá, không phải bài chấm điểm năng lực.</p></div>
+      <aside class="ask-card"><span class="eyebrow">TÒ MÒ THÊM MỘT CHÚT?</span><h3>Hỏi La Bàn về cảnh này <span>✳</span></h3><form id="story-ask-form"><label for="story-question">Điều bạn muốn biết thêm</label><textarea id="story-question" rows="3" minlength="3" maxlength="600" required placeholder="Ví dụ: Học sinh có thể rèn kỹ năng này thế nào?"></textarea><button class="btn btn-ink" id="story-ask-submit">Hỏi La Bàn ↗</button></form><p id="story-answer" role="status" hidden></p><p class="decision-note">Gợi ý AI để tham khảo. Không cần chia sẻ thông tin cá nhân.</p></aside></section>
+    <section id="day-summary" class="day-summary" tabindex="-1" hidden><span class="summary-star" aria-hidden="true">✦</span><div><p class="eyebrow">KHÉP LẠI MỘT NGÀY · MỞ THÊM MỘT GÓC NHÌN</p><h2>Bạn vừa đi cùng <span id="summary-character"></span>.</h2><p id="summary-text"></p><div id="summary-skills" class="summary-skills"></div><h3>Một bước nhỏ bạn có thể thử</h3><p id="summary-step"></p><button class="btn btn-coral" id="restart-story">↺ Xem lại từ đầu</button><a href="/ai-career-advisor" class="text-link">Cùng AI tìm hiểu bản thân ↗</a></div></section>
+    <div class="story-finish"><button class="btn btn-coral" id="finish-story">Xem điều đọng lại sau một ngày ↗</button></div>
+    <details class="story-source"><summary>Về câu chuyện và nguồn tham khảo</summary><p id="story-note"></p><a id="story-source-link" target="_blank" rel="noopener noreferrer"></a><p>Minh họa được tạo riêng cho La Bàn. Tình huống hướng nghiệp do dự án biên soạn; không thay thế đào tạo chuyên môn.</p></details>
+  </div>
+</main>
+<footer class="container stories-footer"><a class="brand" href="/">la bàn.</a><p>Dự án KHKT 2027 · Hiểu nghề bằng những câu chuyện.</p><a href="/#about">Về dự án ↗</a></footer>
+</body></html>
