@@ -8,6 +8,7 @@
 - API hỏi AI theo cảnh qua `story_ai.py` dùng LangGraph/DeepSeek; hủy hiển thị kết quả cũ khi đổi cảnh. Đã thử một câu hỏi tổng hợp thật về hội chẩn, HTTP 200; không dùng dữ liệu cá nhân.
 - 26 bài kiểm tra backend đạt; Chrome đạt các luồng truyện, AI giả lập, mobile, giảm chuyển động. Kiểm thử đăng nhập/chat/mic giả lập hiện có cũng đạt.
 - Vercel đã có cấu hình FastAPI và tệp loại trừ dữ liệu local. Người dùng đã xác nhận **dùng bản chạy trên máy trước** trong ngày 2026-10-13; chưa deploy. Chat SQLite còn cần cơ sở dữ liệu bền vững trước triển khai toàn bộ. Xem `docs/career-stories.md`.
+- Đã lưu bản truyện lên `TrooliGM/quocan4`, nhánh `main`, commit chức năng `48d485324d863f361f931f054eb870eebc9a85c4`. Đối chiếu 18 tệp thay đổi với cây GitHub đều khớp; cây tổng cộng 53 tệp, không chứa `.env`, dữ liệu local hay artifacts. Server local `/mot-ngay-lam-viec` và API danh mục trả HTTP 200.
 
 ## Trạng thái mới nhất 2026-10-12
 
