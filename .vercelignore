@@ -1,0 +1,16 @@
+.env
+.env.*
+.venv/
+**/__pycache__/
+*.pyc
+data/
+artifacts/
+.pytest_cache/
+.agents/
+tests/
+scripts/
+docs/
+*credentials*.json
+*service-account*.json
+*.sqlite3
+*.sqlite3-*

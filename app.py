@@ -11,6 +11,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, field_validator
 
 from content import ARTICLES, CAREERS
+from career_stories import STORIES, get_story
 from firebase_auth import verify_user, web_config
 
 ROOT = Path(__file__).resolve().parent
@@ -44,6 +45,26 @@ def homepage():
 def career_advisor():
     # HTML không chứa dữ liệu tài khoản; mọi API đều xác minh Firebase token.
     return FileResponse(ROOT / "public" / "chat.html", headers={"Cache-Control": "no-store"})
+
+
+@app.get("/mot-ngay-lam-viec", include_in_schema=False)
+def career_comics():
+    return FileResponse(ROOT / "public" / "stories.html")
+
+
+@app.get("/api/career-stories")
+def story_catalog():
+    return {"items": [{"id": c["id"], "name": c["name"], "category": c["category"],
+                       "color": c["color"], "scenes": len(STORIES[c["id"]]["scenes"])}
+                      for c in CAREERS if c["id"] in STORIES]}
+
+
+@app.get("/api/career-stories/{career_id}")
+def career_story(career_id: str):
+    story = get_story(career_id)
+    if not story:
+        raise HTTPException(404, "Chưa có truyện cho nghề này. Bạn chọn một nghề trong thư viện nhé.")
+    return story
 
 
 @app.get("/api/health")
@@ -86,6 +107,31 @@ class AdviceRequest(BaseModel):
     @classmethod
     def strip_question(cls, value):
         return value.strip() if isinstance(value, str) else value
+
+
+class StoryQuestion(AdviceRequest):
+    scene_index: int = Field(default=0, ge=0, le=20)
+
+
+@app.post("/api/career-stories/{career_id}/ask")
+async def ask_about_story(career_id: str, payload: StoryQuestion, response: Response):
+    response.headers["Cache-Control"] = "no-store"
+    story = career_story(career_id)
+    if payload.scene_index >= len(story["scenes"]):
+        raise HTTPException(422, "Cảnh truyện không hợp lệ.")
+    if not os.getenv("DEEPSEEK_API_KEY", "").strip():
+        raise HTTPException(503, "La Bàn AI chưa được cấu hình. Bạn vẫn có thể xem truyện và thử các tình huống.")
+    from story_ai import story_graph
+    try:
+        async with asyncio.timeout(30):
+            async with ai_slots:
+                result = await story_graph.ainvoke({"career_id": career_id, "scene_index": payload.scene_index,
+                                                   "question": payload.question, "context": "", "answer": ""})
+        return {"answer": result["answer"]}
+    except (TimeoutError, httpx.TimeoutException):
+        raise HTTPException(504, "La Bàn phản hồi hơi lâu. Bạn thử lại nhé.") from None
+    except (httpx.HTTPError, ValueError, KeyError, IndexError, RuntimeError):
+        raise HTTPException(502, "Chưa nhận được phản hồi từ La Bàn. Bạn thử lại nhé.") from None
 
 
 @app.post("/api/advice")

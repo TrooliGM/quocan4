@@ -1,5 +1,14 @@
 # Bộ nhớ dự án: Website Hướng nghiệp KHKT 2027
 
+## Trạng thái mới nhất 2026-10-13: truyện nghề
+
+- Người dùng yêu cầu chức năng cốt lõi mô phỏng một ngày làm việc bằng hoạt hình/comic, áp dụng frontend-design, Python, DeepSeek, LangGraph, GitHub và Vercel.
+- Đã thêm `/mot-ngay-lam-viec`, sáu nghề với 24 cảnh SVG gốc có chuyển động, lời thoại, kỹ năng, lựa chọn tình huống và phản hồi. Có trình xem từng cảnh, tự chuyển 12/20 giây, chế độ cả trang, tổng kết, giảm chuyển động và bố cục điện thoại. Truyện bác sĩ gồm khám bệnh, hội chẩn, kê đơn, ca trực; không hướng dẫn điều trị.
+- Truyện có liên kết từ menu, khối giới thiệu trang chủ, thẻ nghề và hộp chi tiết. Giữ tìm kiếm, bài viết và giới thiệu KHKT 2027.
+- API hỏi AI theo cảnh qua `story_ai.py` dùng LangGraph/DeepSeek; hủy hiển thị kết quả cũ khi đổi cảnh. Đã thử một câu hỏi tổng hợp thật về hội chẩn, HTTP 200; không dùng dữ liệu cá nhân.
+- 26 bài kiểm tra backend đạt; Chrome đạt các luồng truyện, AI giả lập, mobile, giảm chuyển động. Kiểm thử đăng nhập/chat/mic giả lập hiện có cũng đạt.
+- Vercel đã có cấu hình FastAPI và tệp loại trừ dữ liệu local. Người dùng đã xác nhận **dùng bản chạy trên máy trước** trong ngày 2026-10-13; chưa deploy. Chat SQLite còn cần cơ sở dữ liệu bền vững trước triển khai toàn bộ. Xem `docs/career-stories.md`.
+
 ## Trạng thái mới nhất 2026-10-12
 
 - Người dùng chốt phạm vi giọng nói hiện tại là **chỉ thêm lại micro** để nhập câu hỏi tiếng Việt, sau đó yêu cầu lưu dự án lên repository GitHub `TrooliGM/quocan4`. Yêu cầu triển khai website công khai vẫn được hoãn.

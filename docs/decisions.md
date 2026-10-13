@@ -4,6 +4,9 @@
 
 | Ngày | Nội dung | Cơ sở |
 | --- | --- | --- |
+| 2026-10-13 | Dùng bản chạy trên máy trước; tiếp tục lưu mã nguồn GitHub, hoãn deployment. | Người dùng trả lời trực tiếp khi được hỏi về kết nối Vercel. Đây là quyết định mới nhất về triển khai. |
+| 2026-10-13 | Xây dựng truyện nghề mô phỏng một ngày làm việc; lưu GitHub và hướng tới Vercel theo yêu cầu mới. | Người dùng yêu cầu trực tiếp, ghi rõ bác sĩ và bộ công nghệ hiện có; Vercel chưa kết nối, chưa triển khai thành công. |
+| 2026-10-13 | Bản đầu gồm sáu nghề hiện có, bốn cảnh mỗi nghề, SVG/CSS và comic tương tác; AI giải thích theo cảnh. | Lựa chọn triển khai của trợ lý để cung cấp nội dung dùng được ngay, chưa phải video có lồng tiếng. |
 | 2026-10-06 | Cài frontend-design ở phạm vi dự án. | Yêu cầu trực tiếp của người dùng; tệp đã được sao chép và kiểm tra khớp nội dung. |
 | 2026-10-12 | Chỉ đưa micro nhận diện lời nói trở lại chat; giọng đọc Vbee không nằm trong bản hiện tại. | Yêu cầu trực tiếp mới nhất của người dùng, thay thế phạm vi voice rộng hơn trước đó. |
 | 2026-10-12 | Lưu mã nguồn hiện tại lên GitHub `TrooliGM/quocan4`; chưa deploy website. | Người dùng yêu cầu trực tiếp, repository đã cung cấp trước đó. |

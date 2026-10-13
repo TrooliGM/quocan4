@@ -1,5 +1,13 @@
 # Xác minh và triển khai
 
+## Truyện nghề 2026-10-13
+
+- Backend: 26 bài kiểm tra đạt, gồm dữ liệu sáu nghề, nghề/cảnh không hợp lệ, thiếu dịch vụ, lỗi API, ngữ cảnh nghề/cảnh trong lời gọi DeepSeek và các chức năng cũ.
+- `tests/browser_stories.py`: Chrome đạt các luồng sáu truyện, chuyển cảnh/phím mũi tên, phản hồi lựa chọn, tự chuyển/dừng, xem cả trang, tổng kết, khởi động lại, DeepSeek giả lập theo cảnh, hủy kết quả cũ, hiển thị an toàn, mobile 390px, giảm chuyển động, nghề không tồn tại và liên kết trang chủ.
+- `tests/browser_smoke.py`: các luồng Firebase/chat/mic giả lập cũ đạt. Đã xem ảnh chụp desktop và mobile của trang truyện.
+- API hỏi theo cảnh bác sĩ/hội chẩn đã gọi DeepSeek thật, trả HTTP 200 với câu trả lời có nội dung. Chỉ là một câu hỏi tổng hợp, không phải đánh giá đầy đủ chất lượng tư vấn.
+- Chưa có video/lồng tiếng; minh họa là SVG/CSS có chuyển động. Nội dung khám phá nghề cần tiếp tục được giáo viên/người làm nghề góp ý. Vercel chưa kết nối và chưa có deployment mới.
+
 ## Bản chat và micro trước khi đồng bộ GitHub 2026-10-12
 
 - Sáu lượt DeepSeek thật với dữ liệu tổng hợp đã qua kiểm tra chất lượng bằng `scripts/check_chat_quality.py`; gồm tiếp nối sở thích vẽ và hiểu biết máy tính, hỏi tám nghề, sửa thông tin đã chia sẻ. Kết quả không thay cho thử nghiệm với người dùng thật.

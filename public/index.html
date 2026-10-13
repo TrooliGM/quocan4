@@ -8,14 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/assets/style.css" rel="stylesheet"><link href="/assets/auth.css" rel="stylesheet"><script src="/assets/app.js" defer></script><script src="/assets/auth.js" type="module"></script>
+  <link href="/assets/style.css" rel="stylesheet"><link href="/assets/auth.css" rel="stylesheet"><link href="/assets/stories.css" rel="stylesheet"><script src="/assets/app.js" defer></script><script src="/assets/auth.js" type="module"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Đến nội dung chính</a>
 <header class="site-header"><nav class="container nav-wrap" aria-label="Điều hướng chính">
   <a class="brand" href="#"><img src="/assets/compass.svg" width="38" height="38" alt=""><span>la bàn<span class="brand-dot">.</span></span></a>
   <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Mở menu">☰</button>
-  <div class="nav-links" id="nav-links"><a class="active" href="#main">Trang chủ</a><a href="#careers">Khám phá nghề</a><a href="#articles">Góc hướng nghiệp</a><a href="#about">Về dự án</a><a href="/ai-career-advisor">Tư vấn cùng AI</a></div>
+  <div class="nav-links" id="nav-links"><a class="active" href="#main">Trang chủ</a><a href="#careers">Khám phá nghề</a><a href="/mot-ngay-lam-viec">Truyện nghề</a><a href="#articles">Góc hướng nghiệp</a><a href="#about">Về dự án</a><a href="/ai-career-advisor">Tư vấn cùng AI</a></div>
   <button class="btn btn-ink nav-cta" id="account-button" data-open-auth><span class="account-avatar" id="account-avatar" hidden></span><span id="account-label">Đăng nhập</span><span aria-hidden="true">↗</span></button>
 </nav></header>
 <main id="main">
@@ -47,6 +47,7 @@
   <form id="search-form" class="search-form" role="search"><label class="visually-hidden" for="career-search">Tìm nghề nghiệp hoặc kỹ năng</label><span aria-hidden="true" class="search-icon">⌕</span><input id="career-search" type="search" placeholder="Thử “bác sĩ”, “thiết kế”, “công nghệ”…" maxlength="120" autocomplete="off"><button type="submit" class="btn btn-ink">Tìm kiếm <span aria-hidden="true">→</span></button></form>
   <div class="suggestions"><span>Thử tìm:</span><button data-query="Công nghệ">Công nghệ</button><button data-query="Sáng tạo">Sáng tạo</button><button data-query="Y tế">Y tế</button></div>
 </div></section>
+<section class="container" aria-labelledby="comic-feature-title"><div class="story-feature"><div><span class="eyebrow">MỞ MỘT KHUNG TRUYỆN · HIỂU THÊM MỘT NGHỀ</span><h2 id="comic-feature-title">Nếu hôm nay,<br>bạn là một bác sĩ?</h2><p>Cùng bác sĩ Linh đi từ phòng khám đến ca trực. Xem truyện, thử tình huống và tìm điều khiến bạn tò mò.</p><a href="/mot-ngay-lam-viec?nghe=bac-si" class="btn btn-coral">Bước vào một ngày làm việc ↗</a></div><div class="feature-panels" aria-hidden="true"><div class="feature-panel"><small>08:00 · PHÒNG KHÁM</small><span>✚</span><strong>Lắng nghe<br>để thấu hiểu.</strong></div><div class="feature-panel"><small>10:30 · HỘI CHẨN</small><span>☷</span><strong>Cùng nhau<br>tìm lời giải.</strong></div></div></div></section>
 <section class="container section-space" id="careers" aria-labelledby="careers-title"><div class="section-heading"><div><div class="eyebrow">CÓ THỂ BẠN SẼ THÍCH</div><h2 id="careers-title">Những nghề đáng khám phá<span class="coral"> ✦</span></h2><p>Mỗi nghề là một thế giới. Bạn muốn bước vào thế giới nào?</p></div><button id="show-all" class="text-link">Xem tất cả nghề <span aria-hidden="true">↗</span></button></div>
   <div class="filters" role="group" aria-label="Lọc theo lĩnh vực"><button class="selected" data-category="" aria-pressed="true">Tất cả</button><button data-category="Công nghệ" aria-pressed="false">Công nghệ</button><button data-category="Sáng tạo" aria-pressed="false">Sáng tạo</button><button data-category="Y tế" aria-pressed="false">Y tế</button><button data-category="Giáo dục" aria-pressed="false">Giáo dục</button><button data-category="Kỹ thuật" aria-pressed="false">Kỹ thuật</button></div>
   <p class="content-note">Nghề nổi bật do dự án chọn để khám phá, không phải bảng xếp hạng tuyển dụng.</p>

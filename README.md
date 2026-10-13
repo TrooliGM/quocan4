@@ -7,11 +7,12 @@ Trang chủ tiếng Việt dành cho học sinh THCS/THPT, dùng Python FastAPI,
 - Giới thiệu dự án, đội thực hiện và mục tiêu hướng nghiệp trực quan.
 - Sáu nghề mẫu; tìm kiếm không phân biệt dấu tiếng Việt, lọc lĩnh vực, xem hoạt động hàng ngày và kỹ năng trong hộp thoại.
 - Ba bài viết với nội dung đầy đủ, đọc ngay trên trang.
+- Truyện tranh **Một ngày làm việc** tại `/mot-ngay-lam-viec`: sáu nghề, 24 cảnh SVG có chuyển động, phát/dừng, đọc cả trang, tình huống tương tác, tổng kết kỹ năng và hỏi DeepSeek về cảnh đang xem. Xem [hướng dẫn truyện nghề](docs/career-stories.md).
 - Tư vấn 1:1 sau đăng nhập tại `/ai-career-advisor`: DeepSeek qua LangGraph, lịch sử riêng, hồ sơ tự chia sẻ, Markdown an toàn; micro nhận diện tiếng Việt bằng Google Speech khi đã cấu hình hoặc Web Speech của trình duyệt.
 - Responsive, menu điện thoại, điều hướng bàn phím, giảm chuyển động theo cài đặt thiết bị, trạng thái tải/lỗi và thử lại.
 - Firebase Authentication: đăng ký/đăng nhập email, Google, quên mật khẩu, xác minh email, xem tài khoản và đăng xuất; cần cấu hình project để sử dụng thật.
 
-Hiện có trang chủ, Firebase và tư vấn 1:1; chưa có lưu nghề yêu thích, lịch sử trắc nghiệm, quản trị hoặc phim hoạt hình nghề nghiệp. Nghề nổi bật là nội dung bản mẫu, không phải xếp hạng thị trường.
+Hiện có trang chủ, Firebase, tư vấn 1:1 và truyện tranh nghề nghiệp có chuyển động; chưa có lưu nghề yêu thích, lịch sử trắc nghiệm, quản trị hoặc video có lồng tiếng. Nghề nổi bật là nội dung bản mẫu, không phải xếp hạng thị trường.
 
 Đọc [hướng dẫn tư vấn AI](docs/ai-advisor.md) để thử chat, micro và cấu hình DeepSeek, Google Speech. Thiếu khóa AI có thể bật `AI_DEMO_MODE=true`; câu trả lời mẫu luôn có nhãn.
 
