@@ -47,7 +47,7 @@ def career_advisor():
 
 @app.get("/mot-ngay-lam-viec", include_in_schema=False)
 def career_comics():
-    return FileResponse(ROOT / "public" / "stories.html")
+  return FileResponse(ROOT / "stories.html")
 
 
 @app.get("/api/career-stories")
