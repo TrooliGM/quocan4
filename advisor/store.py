@@ -171,5 +171,10 @@ def _store(database_url):
 
 
 def get_store():
-    default = "sqlite:///" + str(Path(__file__).resolve().parents[1] / "data" / "advisor.sqlite3")
-    return _store(os.getenv("DATABASE_URL", default))
+    if os.getenv("VERCEL"):
+        default_path = Path("/tmp/advisor.sqlite3")
+    else:
+        default_path = Path(__file__).resolve().parents[1] / "data" / "advisor.sqlite3"
+
+    default = "sqlite:///" + str(default_path)
+    return _store(os.getenv("DATABASE_URL") or default)
