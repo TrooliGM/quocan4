@@ -43,8 +43,7 @@ def homepage():
 
 @app.get("/ai-career-advisor", include_in_schema=False)
 def career_advisor():
-    # HTML không chứa dữ liệu tài khoản; mọi API đều xác minh Firebase token.
-return FileResponse(ROOT / "chat.html", headers={"Cache-Control": "no-store"})
+    return FileResponse(ROOT / "chat.html", headers={"Cache-Control": "no-store"})
 
 @app.get("/mot-ngay-lam-viec", include_in_schema=False)
 def career_comics():
