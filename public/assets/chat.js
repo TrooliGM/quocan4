@@ -5,6 +5,7 @@ const $ = (selector) => document.querySelector(selector);
 let auth, sdk, user, config, active = null, sessions = [], pending = null;
 let busy = false, phase = 'idle', identityEpoch = 0;
 let actionResolve = null;
+let guestQuota = null;
 let micMode = null, recorder = null, micTurn = 0, transcriptAbort = null;
 const loginURL = '/?login=1';
 
@@ -16,7 +17,8 @@ function notice(text = '', retry = false) {
 function scrollBottom() { $('#chat-scroll').scrollTop = $('#chat-scroll').scrollHeight; }
 function updateControls() {
   const listening = ['starting-mic', 'listening', 'transcribing'].includes(phase);
-  $('#send-message').disabled = busy || listening || !config?.configured || !$('#message-input').value.trim();
+  const exhausted = config?.is_guest && guestQuota?.remaining === 0;
+  $('#send-message').disabled = exhausted || busy || listening || !config?.configured || !$('#message-input').value.trim();
   $('#message-input').disabled = busy || listening;
   $('#start-chat').disabled = busy;
   $('#microphone').disabled = busy || !micMode || phase === 'starting-mic' || phase === 'transcribing';
@@ -24,6 +26,10 @@ function updateControls() {
   $('#microphone').setAttribute('aria-label', phase === 'listening' ? 'Dừng mic và nhận diện' : 'Nói bằng micro');
   $('#mic-status').hidden = !listening;
   $('#thinking').hidden = !busy || phase !== 'thinking';
+  $('#guest-banner').hidden = !config?.is_guest;
+  $('#guest-banner').classList.toggle('limit-reached',Boolean(exhausted));
+  $('#guest-login').setAttribute('aria-disabled',String(busy || listening));
+  if(config?.is_guest) $('#guest-quota-text').textContent = exhausted ? 'Bạn đã dùng hết 8 câu hỏi miễn phí. Đăng nhập để tiếp tục cuộc trò chuyện.' : `Bạn đang dùng thử · còn ${guestQuota?.remaining ?? 8}/8 câu hỏi miễn phí.`;
   $('#connection-status').textContent = phase === 'thinking' ? 'Đang suy nghĩ' : phase === 'starting-mic' ? 'Đang mở mic' : phase === 'listening' ? 'Đang nghe' : phase === 'transcribing' ? 'Đang nhận diện' : config?.mode === 'demo' ? 'Bản demo' : config?.configured ? 'Sẵn sàng' : 'Chưa cấu hình';
 }
 async function api(path, options = {}, retried = false) {
@@ -38,7 +44,9 @@ async function api(path, options = {}, retried = false) {
   if (response.status === 401 && !retried) return api(path, options, true);
   if (!response.ok) {
     const data = await response.json().catch(() => ({}));
-    const error = new Error(typeof data.detail === 'string' ? data.detail : 'Chưa thực hiện được. Bạn kiểm tra kết nối rồi thử lại nhé.');
+    const error = new Error(typeof data.detail === 'string' ? data.detail : data.detail?.message || 'Chưa thực hiện được. Bạn kiểm tra kết nối rồi thử lại nhé.');
+    error.code = data.detail?.code;
+    if(error.code==='GUEST_LIMIT_REACHED') guestQuota={limit:8,used_questions:8,remaining:0};
     error.status = response.status;
     if (response.status === 401) {
       clearPrivateUI();
@@ -202,6 +210,7 @@ async function send(retry = false) {
   if (busy || ['listening','transcribing','starting-mic'].includes(phase)) return;
   const text = retry && pending ? pending.message : $('#message-input').value.trim();
   if (!text || !config.configured) return;
+  if(config.is_guest && guestQuota?.remaining===0 && !retry){notice('Bạn đã dùng hết 8 câu hỏi. Đăng nhập Google hoặc email để tiếp tục nhé.');updateControls();return;}
   if (text.length > 2000) return notice('Mỗi tin nhắn tối đa 2.000 ký tự nhé.');
   notice(); busy = true; phase = 'thinking'; updateControls();
   const epoch = identityEpoch;
@@ -213,6 +222,7 @@ async function send(retry = false) {
     const data = await jsonAPI('/api/ai/chat', {method:'POST', body:JSON.stringify(request)});
     if (epoch !== identityEpoch || active?.id !== request.session_id) return;
     active = data.session; pending = null; renderMessages();
+    if(data.guest_quota) guestQuota=data.guest_quota;
     await refreshHistory().catch(() => notice('Câu trả lời đã có, nhưng danh sách lịch sử chưa tải lại được.'));
     busy = false; phase = 'idle'; updateControls();
   } catch (error) {
@@ -370,17 +380,21 @@ async function initialize() {
   try {
     ({auth, sdk} = await getFirebase());
     user = await restoredUser(auth, sdk);
-    if (!user) { location.replace(loginURL); return; }
+    if (!user) {
+      try {user=(await sdk.signInAnonymously(auth)).user;}
+      catch {throw new Error('Chưa mở được phiên khách. Bạn có thể đăng nhập Google/email; nhóm dự án cần bật Anonymous trong Firebase.');}
+    }
     const owner = user.uid;
     sdk.onAuthStateChanged(auth, (current) => { if (!current || current.uid !== owner) { clearPrivateUI(); location.replace(loginURL); } });
     await jsonAPI('/api/auth/me');
     config = await jsonAPI('/api/ai/config');
+    guestQuota = config.guest_quota;
     micMode = config.microphone?.google && window.isSecureContext && navigator.mediaDevices?.getUserMedia && window.AudioContext ? 'google'
       : window.isSecureContext && (window.SpeechRecognition || window.webkitSpeechRecognition) ? 'browser' : null;
     $('#microphone').title = micMode === 'google' ? 'Nói tiếng Việt bằng Google Speech-to-Text; tự dừng sau 3 giây im lặng'
       : micMode === 'browser' ? 'Nói tiếng Việt bằng nhận diện của trình duyệt; tự dừng sau 3 giây im lặng' : 'Mic cần Chrome trên localhost hoặc HTTPS.';
-    $('#user-name').textContent = user.displayName || 'Bạn';
-    $('#user-initial').textContent = [...(user.displayName || 'Bạn')][0].toLocaleUpperCase('vi');
+    $('#user-name').textContent = config.is_guest ? 'Khách dùng thử' : user.displayName || 'Bạn';
+    $('#user-initial').textContent = config.is_guest ? 'K' : [...(user.displayName || 'Bạn')][0].toLocaleUpperCase('vi');
     const banner = [];
     if (config.mode === 'demo') banner.push('BẢN DEMO · Câu trả lời mẫu để thử giao diện. Chưa kết nối DeepSeek và chưa phân tích năng lực.');
     else if (!config.configured) banner.push('Tư vấn AI đang chờ cấu hình khóa DeepSeek.');
@@ -393,7 +407,7 @@ async function initialize() {
     if (previous && sessions.some((item) => item.id === previous)) await loadSession(previous);
     else renderMessages();
     const url = new URL(location.href);
-    if (url.searchParams.get('start') === '1') {
+    if (url.searchParams.get('start') === '1' || config.is_guest) {
       // Đăng nhập mở ngay phiên tạm; chỉ lưu lâu dài khi có lựa chọn đồng ý.
       if (!active) await startChat();
       if (active) {
@@ -403,6 +417,9 @@ async function initialize() {
       }
     }
     updateControls();
-  } catch (error) { $('#auth-loading p').textContent = failure(error); }
+  } catch (error) {
+    $('#auth-loading p').textContent = failure(error);
+    if (!$('#chat-app').hidden) notice(failure(error));
+  }
 }
 initialize();

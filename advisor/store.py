@@ -167,6 +167,10 @@ class ConversationStore:
 
 @lru_cache(maxsize=4)
 def _store(database_url):
+    if database_url.startswith(("postgresql://", "postgres://")):
+        from advisor.postgres_adapter import PostgresConversationStore
+        return PostgresConversationStore()
+
     return ConversationStore(database_url)
 
 

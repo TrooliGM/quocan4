@@ -60,7 +60,7 @@ async def checks(debug_url, origin):
         await browser.call("Page.enable")
         await browser.call("Emulation.setDeviceMetricsOverride", {"width":1440, "height":1000, "deviceScaleFactor":1, "mobile":False})
         # Khách mở trang chat phải quay về hộp đăng nhập hiện có.
-        await browser.call("Page.navigate", {"url":origin + "/ai-career-advisor"})
+        await browser.call("Page.navigate", {"url":origin + "/?login=1"})
         await browser.wait_for("location.search.includes('login=1') && document.querySelector('#auth-dialog')?.open")
         await browser.wait_for("!document.querySelector('#auth-submit').disabled")
         await browser.evaluate("document.querySelector('#auth-email').value='test@example.com'; document.querySelector('#auth-password').value='test-password'; document.querySelector('#auth-form').requestSubmit()")
@@ -134,7 +134,12 @@ def main():
     ARTIFACTS.mkdir(exist_ok=True)
     chrome = Path(os.environ.get("PROGRAMFILES", "C:/Program Files")) / "Google/Chrome/Application/chrome.exe"
     suffix = uuid4().hex[:8]
-    environment = {**os.environ, "AI_DEMO_MODE":"true", "DATABASE_URL":"sqlite:///" + str(ARTIFACTS / f"browser-{suffix}.sqlite3")}
+    test_database = os.environ.get('LABAN_BROWSER_TEST_DATABASE')
+    if test_database:
+        from urllib.parse import urlparse
+        if urlparse(test_database).hostname not in ('127.0.0.1','localhost'):
+            raise RuntimeError('Browser PostgreSQL tests only accept loopback, never production.')
+    environment = {**os.environ, "AI_DEMO_MODE":"true", "DATABASE_URL":test_database or "sqlite:///" + str(ARTIFACTS / f"browser-{suffix}.sqlite3")}
     with (ARTIFACTS / "browser-server.log").open("w", encoding="utf-8") as log, (ARTIFACTS / "browser-chrome.log").open("w", encoding="utf-8") as chrome_log:
         server = subprocess.Popen([sys.executable,"-m","uvicorn","browser_fixture:app","--app-dir","tests","--host","127.0.0.1","--port","8013"],
                                   cwd=ROOT, env=environment, stdout=log, stderr=log, creationflags=subprocess.CREATE_NO_WINDOW)

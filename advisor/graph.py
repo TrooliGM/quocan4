@@ -69,6 +69,7 @@ class AdvisorState(TypedDict, total=False):
     careers: str
     reply: dict
     mode: str
+    guest_reservation_token: str
 
 
 def demo_mode():
@@ -233,21 +234,62 @@ def validate_reply(state):
     return {"reply": AdvisorReply.model_validate(state["reply"]).model_dump()}
 
 
+
 def save_messages(state):
-    from uuid import uuid4
-    reply = state["reply"]
-    user = {"id": str(uuid4()), "role": "user", "content": state["message"], "request_id": state["request_id"]}
-    assistant = {"id": str(uuid4()), "role": "assistant", "content": reply["answer"],
-                 "recommendations": reply["recommendations"], "request_id": state["request_id"], "mode": state["mode"]}
-    # Đọc lại để không ghi đè tên đã được sửa khi API đang chờ.
+    from advisor.postgres_adapter import PostgresConversationStore
+    from advisor.postgres_store import save_messages_atomic
+
     store = get_store()
+
+    if isinstance(store, PostgresConversationStore):
+        session = save_messages_atomic(
+            uid=state["uid"],
+            session_id=state["session_id"],
+            request_id=state["request_id"],
+            message=state["message"],
+            reply=state["reply"],
+            mode=state["mode"],
+            guest_reservation_token=state.get("guest_reservation_token"),
+        )
+        return {"session": session}
+
+    from uuid import uuid4
+
+    reply = state["reply"]
+
+    user = {
+        "id": str(uuid4()),
+        "role": "user",
+        "content": state["message"],
+        "request_id": state["request_id"],
+    }
+
+    assistant = {
+        "id": str(uuid4()),
+        "role": "assistant",
+        "content": reply["answer"],
+        "recommendations": reply["recommendations"],
+        "request_id": state["request_id"],
+        "mode": state["mode"],
+    }
+
     with store.lock:
         session = store.get(state["uid"], state["session_id"])
+
+        if any(
+            item.get("request_id") == state["request_id"]
+            and item.get("role") == "user"
+            for item in session["messages"]
+        ):
+            return {"session": session}
+
         session["messages"].extend([user, assistant])
         session["profile"] = reply["profile"]
         session["summary"] = reply["summary"]
+
         if len(session["messages"]) == 3 and session["title"] == "Một hướng đi mới":
             session["title"] = state["message"][:60]
+
         return {"session": store.write(state["uid"], session)}
 
 

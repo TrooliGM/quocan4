@@ -1,7 +1,17 @@
 import {getFirebase} from './firebase-client.js';
+import {signInEmailPreservingGuest,signInGooglePreservingGuest,hasPendingGuestClaim,retryGuestClaim} from './account-link.js';
 const select = (s) => document.querySelector(s);
 const dialog = select('#auth-dialog');
 const chatAfterLogin = '/ai-career-advisor?start=1';
+const claimRetry = document.createElement('button');
+claimRetry.type = 'button';claimRetry.className = 'btn btn-ink';claimRetry.hidden = true;claimRetry.textContent = 'Thử giữ lịch sử';
+select('#auth-status').after(claimRetry);
+claimRetry.addEventListener('click',async()=>{
+  setBusy(true);
+  try {await retryGuestClaim(auth);await backendProfile(auth.currentUser,true);location.assign(chatAfterLogin);}
+  catch(error){status(errorMessage(error),true);}
+  finally{claimRetry.hidden=!hasPendingGuestClaim();setBusy(false);}
+});
 let sdk, auth, mode = 'login', busy = false, ready = false, configTask, profileEpoch = 0;
 
 const messages = {
@@ -10,6 +20,7 @@ const messages = {
   'auth/user-not-found': 'Email hoặc mật khẩu chưa đúng. Bạn thử lại nhé.',
   'auth/wrong-password': 'Email hoặc mật khẩu chưa đúng. Bạn thử lại nhé.',
   'auth/email-already-in-use': 'Email này đã có tài khoản. Bạn chọn Đăng nhập hoặc Quên mật khẩu nhé.',
+  'auth/credential-already-in-use': 'Email này đã có tài khoản. Chọn Đăng nhập để tiếp tục và giữ lịch sử khách.',
   'auth/weak-password': 'Mật khẩu chưa đủ mạnh. Hãy dùng ít nhất 6 ký tự và thêm chữ, số hoặc ký hiệu.',
   'auth/password-does-not-meet-requirements': 'Mật khẩu chưa đáp ứng yêu cầu. Hãy dùng thêm chữ hoa, chữ thường, số và ký hiệu.',
   'auth/popup-closed-by-user': 'Bạn đã đóng cửa sổ Google. Có thể thử lại khi sẵn sàng.',
@@ -55,6 +66,7 @@ function setMode(value) {
   status(); setBusy(false);
 }
 function displayUser(user) {
+  if (user?.isAnonymous) user = null;
   const name = user?.displayName?.trim() || user?.email?.split('@')[0] || 'Bạn';
   const initial = [...name][0]?.toLocaleUpperCase('vi') || 'B';
   select('#auth-guest').hidden = Boolean(user);
@@ -94,8 +106,8 @@ async function ensureAuth() {
       sdk.onAuthStateChanged(auth, (user) => {
         const epoch = ++profileEpoch;
         displayUser(user);
-        if (user) backendProfile(user).then(() => {
-          if (epoch === profileEpoch && !busy && new URLSearchParams(location.search).get('login') === '1') location.replace(chatAfterLogin);
+        if (user && !user.isAnonymous) backendProfile(user).then(() => {
+          if (epoch === profileEpoch && !busy && !hasPendingGuestClaim() && new URLSearchParams(location.search).get('login') === '1') location.replace(chatAfterLogin);
         }).catch((error) => { if (epoch === profileEpoch) status(errorMessage(error), true); });
       });
       return true;
@@ -127,7 +139,7 @@ select('#auth-form').addEventListener('submit', async (event) => {
   setBusy(true); status();
   try {
     await persistence();
-    const credential = mode === 'register' ? await sdk.createUserWithEmailAndPassword(auth, email, password) : await sdk.signInWithEmailAndPassword(auth, email, password);
+    const credential = await signInEmailPreservingGuest(auth,sdk,email,password,mode === 'register');
     if (mode === 'register') {
       try { await sdk.updateProfile(credential.user, {displayName: name}); }
       catch { displayUser(credential.user); status('Tài khoản đã tạo, nhưng chưa lưu được tên hiển thị. Bạn vẫn có thể đăng nhập.', true); return; }
@@ -138,14 +150,14 @@ select('#auth-form').addEventListener('submit', async (event) => {
     await backendProfile(credential.user, true);
     location.assign(chatAfterLogin);
   } catch (error) { status(errorMessage(error), true); }
-  finally { select('#auth-password').value = ''; select('#auth-confirm-password').value = ''; setBusy(false); }
+  finally { claimRetry.hidden=!hasPendingGuestClaim();select('#auth-password').value = ''; select('#auth-confirm-password').value = ''; setBusy(false); }
 });
 select('#google-signin').addEventListener('click', () => {
   if (busy || !ready) return;
   setBusy(true); status();
   const provider = new sdk.GoogleAuthProvider(); provider.setCustomParameters({prompt: 'select_account'});
   // Mở popup ngay trong click để giữ quyền mở cửa sổ của trình duyệt.
-  const popup = sdk.signInWithPopup(auth, provider);
+  const popup = signInGooglePreservingGuest(auth,sdk,provider);
   (async () => {
     try {
       const credential = await popup;
@@ -154,7 +166,7 @@ select('#google-signin').addEventListener('click', () => {
       status('Đăng nhập Google thành công. Chào bạn!');
       location.assign(chatAfterLogin);
     } catch (error) { status(errorMessage(error), true); }
-    finally { setBusy(false); }
+    finally { claimRetry.hidden=!hasPendingGuestClaim();setBusy(false); }
   })();
 });
 select('#forgot-password').addEventListener('click', async () => {
@@ -196,7 +208,7 @@ ensureAuth();
 if (new URLSearchParams(location.search).get('login') === '1') {
   dialog.showModal();
   ensureAuth().then(async (ok) => {
-    if (ok && auth.currentUser) {
+    if (ok && auth.currentUser && !auth.currentUser.isAnonymous) {
       try { await backendProfile(auth.currentUser); location.replace(chatAfterLogin); }
       catch (error) { status(errorMessage(error), true); }
     }

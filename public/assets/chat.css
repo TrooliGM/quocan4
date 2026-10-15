@@ -11,3 +11,5 @@
 @media(prefers-reduced-motion:reduce){.advisor-page *{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
 /* Kiểm tra giọng luôn nhìn thấy, giữ phong cách sổ tay của trang tư vấn. */
 .voice-readiness{display:inline-block;margin:0 0 0 8px;border:0;background:none;color:#426956;text-decoration:underline;text-underline-offset:3px;font:inherit;padding:2px 4px}.voice-help-actions{display:flex;flex-wrap:wrap;gap:8px}.voice-help-actions button{font-size:12px}.chat-dialog a{color:#38765d}
+/* Khách dùng thử cùng giao diện chat hiện có. */
+.guest-banner{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 24px;background:#e5eedc;border-bottom:1px solid #cad6bc;font-size:12px;color:#294739}.guest-banner.limit-reached{background:#f5e3c9}.guest-banner .text-link{font-size:11px;white-space:nowrap}.guest-banner a[aria-disabled=true]{pointer-events:none;opacity:.5}@media(max-width:760px){.guest-banner{padding:10px 18px;align-items:flex-start;flex-direction:column;gap:5px;font-size:11px}}

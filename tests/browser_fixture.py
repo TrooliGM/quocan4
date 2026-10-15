@@ -7,6 +7,7 @@ from fastapi.responses import Response
 from fastapi.routing import APIRoute
 
 import app as application
+import advisor.routes as routes
 from advisor.routes import require_user
 import advisor.graph as graph
 
@@ -14,13 +15,24 @@ app = application.app
 
 
 def fixture_user(authorization: str | None = Header(default=None)):
-    if authorization != "Bearer browser-fixture-only":
+    if authorization and authorization.startswith(('Bearer browser-fixture-guest:', 'Bearer browser-fixture-linked:')):
+        import re
+        prefix,uid=authorization.split(':',1)
+        if re.fullmatch(r'browser-guest-\d+',uid):
+            return {'uid':uid,'provider':'anonymous' if prefix.endswith('guest') else 'password','display_name':'Bạn thử','email_verified':True}
+    users = {
+        'Bearer browser-fixture-only': {'uid':'browser-user','provider':'password'},
+        'Bearer browser-fixture-guest': {'uid':'browser-guest','provider':'anonymous'},
+        'Bearer browser-fixture-linked': {'uid':'browser-guest','provider':'password'},
+    }
+    if authorization not in users:
         raise HTTPException(401, "Fixture requires login")
-    return {"uid": "browser-user", "display_name": "Bạn thử", "email_verified": True}
+    return {**users[authorization], "display_name": "Bạn thử", "email_verified": True}
 
 
 app.dependency_overrides[require_user] = fixture_user
 application.verify_user = lambda token: fixture_user("Bearer " + token)
+routes.verify_user = application.verify_user
 original_demo = graph.demo_reply
 
 
@@ -36,14 +48,29 @@ graph.demo_reply = demo_with_untrusted_html
 
 def firebase_stub():
     return Response('''
-const profile = {uid:'browser-user',displayName:'Bạn thử',email:'test@example.com',emailVerified:true,getIdToken:async()=> 'browser-fixture-only'};
-const auth = {currentUser:sessionStorage.getItem('__fixture_login')==='1'?profile:null};
+const profile = {uid:'browser-user',isAnonymous:false,displayName:'Bạn thử',email:'test@example.com',emailVerified:true,getIdToken:async()=> 'browser-fixture-only'};
+const guest = {uid:'browser-guest-'+(localStorage.getItem('__fixture_guest_serial')||'0'),isAnonymous:true,displayName:null,email:null,emailVerified:false,async getIdToken(){return (this.isAnonymous?'browser-fixture-guest:':'browser-fixture-linked:')+this.uid;}};
+const stored=sessionStorage.getItem('__fixture_login');
+if(stored==='linked')guest.isAnonymous=false;
+const auth = {currentUser:stored==='1'?profile:['guest','linked'].includes(stored)?guest:null};
 const listeners = new Set();
+const update=(user,state)=>{auth.currentUser=user;sessionStorage.setItem('__fixture_login',state);listeners.forEach(cb=>cb(user));return {user};};
 const sdk = {
   browserLocalPersistence:{}, browserSessionPersistence:{}, setPersistence:async()=>{},
   onAuthStateChanged(a,callback) { listeners.add(callback); queueMicrotask(()=>callback(a.currentUser)); return ()=>listeners.delete(callback); },
   async signInWithEmailAndPassword() {auth.currentUser=profile;sessionStorage.setItem('__fixture_login','1');listeners.forEach(cb=>cb(profile));return {user:profile};},
-  GoogleAuthProvider: class {setCustomParameters(){}},
+  async signInAnonymously(){const n=Number(localStorage.getItem('__fixture_guest_serial')||0)+1;localStorage.setItem('__fixture_guest_serial',String(n));guest.uid='browser-guest-'+n;return update(guest,'guest');},
+  EmailAuthProvider: {credential:(email,password)=>({email,password})},
+  async linkWithCredential(user){user.isAnonymous=false;return update(user,'linked');},
+  async createUserWithEmailAndPassword(){return update(profile,'1');},
+  async updateProfile(user,data){Object.assign(user,data);},
+  async sendEmailVerification(){},
+  async linkWithPopup(user){
+    if(sessionStorage.getItem('__fixture_google_existing')==='1')throw {code:'auth/credential-already-in-use',credential:{}};
+    user.isAnonymous=false;return update(user,'linked');
+  },
+  GoogleAuthProvider: class {setCustomParameters(){} static credentialFromError(e){return e.credential;}},
+  async signInWithCredential(){return update(profile,'1');},
   async signInWithPopup() {auth.currentUser=profile;sessionStorage.setItem('__fixture_login','1');listeners.forEach(cb=>cb(profile));return {user:profile};},
   async signOut() {auth.currentUser=null;sessionStorage.removeItem('__fixture_login');listeners.forEach(cb=>cb(null));}
 };

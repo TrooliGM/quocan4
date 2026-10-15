@@ -5,6 +5,7 @@ import weakref
 from uuid import UUID
 
 import httpx
+import psycopg
 import google.auth.exceptions
 from fastapi import APIRouter, Depends, Header, HTTPException, Request, Response
 from pydantic import BaseModel, ConfigDict, Field, field_validator
@@ -13,6 +14,9 @@ from firebase_auth import verify_user
 from .graph import advisor_graph, demo_mode
 from .store import get_store
 from . import voice
+from .postgres_adapter import PostgresConversationStore
+from .guest_quota import (reserve_guest_request, finish_guest_request, get_guest_usage,
+                          check_chat_rate, claim_guest_history)
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -66,11 +70,39 @@ class ChatInput(BaseModel):
 def config(user=Depends(require_user)):
     return {"mode": "demo" if demo_mode() else "live", "configured": demo_mode() or bool(os.getenv("DEEPSEEK_API_KEY", "").strip()),
             "model": "demo" if demo_mode() else os.getenv("DEEPSEEK_MODEL", "deepseek-flash"),
-            "microphone": {"google": voice.google_stt_configured()}}
+            "microphone": {"google": voice.google_stt_configured()},
+            "is_guest": user.get('provider') == 'anonymous',
+            "guest_quota": guest_usage(user)}
+
+
+def guest_usage(user):
+    if user.get('provider') != 'anonymous':
+        return None
+    if not isinstance(get_store(), PostgresConversationStore):
+        raise HTTPException(503, 'Chế độ khách cần PostgreSQL và migration quota. Bạn vẫn có thể đăng nhập để dùng bản local.')
+    return get_guest_usage(user['uid'])
+
+
+class GuestClaimInput(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    guest_id_token: str = Field(min_length=20, max_length=12000, repr=False)
+
+
+@router.post('/api/ai/guest/claim')
+def claim_guest(payload: GuestClaimInput, user=Depends(require_user)):
+    if user.get('provider') not in ('password', 'google.com'):
+        raise HTTPException(403, 'Đăng nhập Google hoặc email trước khi giữ lịch sử khách.')
+    source = verify_user(payload.guest_id_token)
+    if source.get('provider') != 'anonymous':
+        raise HTTPException(403, 'Chỉ chuyển lịch sử từ phiên khách đã được xác thực.')
+    if not isinstance(get_store(), PostgresConversationStore):
+        raise HTTPException(503, 'Chuyển lịch sử khách cần PostgreSQL.')
+    return claim_guest_history(source['uid'], user['uid'])
 
 
 @router.post("/api/ai/sessions", status_code=201)
 def create_session(payload: SessionInput, user=Depends(require_user)):
+    guest_usage(user)  # Chặn UID khách đã được chuyển sang tài khoản khác.
     return {"session": get_store().create(user["uid"], payload.remember)}
 
 
@@ -106,45 +138,79 @@ def delete_data(user=Depends(require_user)):
     return Response(status_code=204)
 
 
+def completed_answer(session, request_id, message):
+    previous = next((m for m in session["messages"] if m.get("request_id") == request_id and m["role"] == "user"), None)
+    if previous and previous["content"] != message:
+        raise HTTPException(409, "Mã tin nhắn đã được sử dụng cho nội dung khác.")
+    return previous and any(m.get("request_id") == request_id and m["role"] == "assistant" for m in session["messages"])
+
+
 @router.post("/api/ai/chat")
 async def chat(payload: ChatInput, user=Depends(require_user)):
     session_id, request_id = str(payload.session_id), str(payload.request_id)
     uid = user["uid"]
-    # Quyền sở hữu được kiểm tra trước khi chiếm slot hoặc gọi dịch vụ trả phí.
-    get_store().get(uid, session_id)
+    is_guest = user.get("provider") == "anonymous"
+    store = get_store()
+    reservation = None
+    store.get(uid, session_id)  # Ownership before rate/quota/provider calls.
     try:
         async with asyncio.timeout(90):
             async with lock_for(session_id):
-                current = get_store().get(uid, session_id)
-                for item in current["messages"]:
-                    if item.get("request_id") == request_id and item["role"] == "user":
-                        if item["content"] != payload.message:
-                            raise HTTPException(409, "Mã tin nhắn đã được sử dụng cho nội dung khác.")
-                        return {"session": current, "duplicate": True}
+                current = store.get(uid, session_id)
+                if completed_answer(current, request_id, payload.message):
+                    return {"session": current, "duplicate": True, "guest_quota": guest_usage(user)}
                 if len(current["messages"]) >= 501:
                     raise HTTPException(409, "Phiên đã dài. Bạn hãy tạo cuộc trò chuyện mới nhé.")
                 if not demo_mode() and not os.getenv("DEEPSEEK_API_KEY", "").strip():
                     raise HTTPException(503, "Chưa có khóa DeepSeek. Nhóm dự án cần cấu hình trước khi tư vấn thật.")
                 async with slots:
-                    result = await advisor_graph.ainvoke({"uid": uid, "session_id": session_id,
-                                                         "request_id": request_id, "message": payload.message})
-                return {"session": result["session"], "duplicate": False}
-    except (TimeoutError, httpx.TimeoutException):
-        raise HTTPException(504, "La Bàn phản hồi hơi lâu. Bạn có thể bấm Thử gửi lại.") from None
-    except httpx.HTTPStatusError as error:
-        status = error.response.status_code
-        logger.warning("advisor_provider_failed status=%d", status)
-        if status == 429 or status >= 500:
-            raise HTTPException(503, "Dịch vụ AI đang bận. Bạn đợi một chút rồi bấm Thử gửi lại nhé.") from None
-        if status in (401, 402, 403):
-            raise HTTPException(503, "Kết nối DeepSeek cần được kiểm tra lại cấu hình hoặc hạn mức tài khoản.") from None
-        raise HTTPException(502, "Chưa kết nối được dịch vụ AI. Bạn thử gửi lại nhé.") from None
-    except httpx.HTTPError:
-        logger.warning("advisor_provider_failed reason=connection_error")
-        raise HTTPException(502, "Kết nối đến AI bị gián đoạn. Tin nhắn vẫn còn để bạn thử gửi lại.") from None
-    except (ValueError, KeyError, IndexError, TypeError, RuntimeError) as error:
-        logger.warning("advisor_reply_failed type=%s", type(error).__name__)
-        raise HTTPException(502, "Chưa nhận được câu trả lời hợp lệ từ AI. Tin nhắn chưa được lưu; bạn thử lại nhé.") from None
+                    if isinstance(store, PostgresConversationStore):
+                        await asyncio.to_thread(check_chat_rate, uid)
+                    if is_guest:
+                        if not isinstance(store, PostgresConversationStore):
+                            raise HTTPException(503, "Chế độ khách cần PostgreSQL và migration quota.")
+                        reservation = await asyncio.to_thread(reserve_guest_request, uid, session_id, request_id, payload.message)
+                        if not reservation["new_reservation"]:
+                            current = store.get(uid, session_id)
+                            if completed_answer(current, request_id, payload.message):
+                                return {"session": current, "duplicate": True, "guest_quota": guest_usage(user)}
+                            raise HTTPException(409, {"code": "GUEST_REQUEST_PENDING" if reservation['status'] == 'reserved' else "GUEST_REQUEST_COMPLETED",
+                                "message": "Yêu cầu này đang xử lý hoặc đã hoàn thành. Hãy tải lại cuộc trò chuyện trước khi thử gửi lại."})
+                    state = {"uid": uid, "session_id": session_id, "request_id": request_id, "message": payload.message}
+                    if reservation and reservation['new_reservation']:
+                        state['guest_reservation_token'] = reservation['reservation_token']
+                    result = await advisor_graph.ainvoke(state)
+                return {"session": result["session"], "duplicate": False, "guest_quota": guest_usage(user)}
+    except BaseException as error:
+        # Lỗi sau COMMIT có thể xảy ra do mạng/response/graph. Đọc lại trước khi
+        # hoàn lượt; câu trả lời và status completed đã được commit nguyên tử.
+        if reservation and reservation.get('new_reservation'):
+            try:
+                await asyncio.shield(asyncio.to_thread(finish_guest_request, uid, request_id, False, reservation['reservation_token']))
+                current = store.get(uid, session_id)
+                if completed_answer(current, request_id, payload.message):
+                    if isinstance(error, asyncio.CancelledError):
+                        raise error
+                    return {"session": current, "duplicate": True, "guest_quota": guest_usage(user)}
+            except asyncio.CancelledError:
+                raise
+            except Exception as settlement_error:
+                # Không đoán kết quả COMMIT khi database không truy cập được.
+                # Lease sẽ phục hồi bằng transaction sau; không in DSN/token.
+                logger.warning('guest_settlement_unavailable type=%s', type(settlement_error).__name__)
+        if isinstance(error, (HTTPException, asyncio.CancelledError)):
+            raise
+        if isinstance(error, (TimeoutError, httpx.TimeoutException)):
+            raise HTTPException(504, "La Bàn phản hồi hơi lâu. Bạn có thể bấm Thử gửi lại.") from None
+        if isinstance(error, httpx.HTTPStatusError):
+            status = error.response.status_code
+            logger.warning('advisor_provider_failed status=%d', status)
+            raise HTTPException(503 if status in (401,402,403,429) or status >= 500 else 502,
+                "Dịch vụ AI đang bận hoặc cần kiểm tra hạn mức. Bạn thử lại sau nhé.") from None
+        if isinstance(error, (psycopg.Error, httpx.HTTPError, ValueError, KeyError, IndexError, TypeError, RuntimeError)):
+            logger.warning('advisor_reply_failed type=%s', type(error).__name__)
+            raise HTTPException(502, "Chưa xác nhận được câu trả lời. Bạn thử gửi lại cùng tin nhắn nhé.") from None
+        raise
 
 
 @router.post("/api/voice/transcribe")
