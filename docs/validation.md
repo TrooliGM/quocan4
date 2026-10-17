@@ -1,5 +1,39 @@
 # Xác minh và triển khai
 
+## Nhận diện ý định và gợi ý Truyện nghề 2026-10-17
+
+- `python -m unittest discover -s tests -v`: 35 bài đạt; nhóm PostgreSQL skip do thiếu PostgreSQL kiểm thử. Test mới gồm các diễn đạt tương đương, đồng nghĩa nghề, thiếu nghề, kiến trúc sư/nghề không có truyện, nhiều nghề, câu hỏi lương/kỹ năng, từ chối, theo ngữ cảnh, confidence sai và URL/HTML giả mạo.
+- Test graph với DeepSeek mock chứng minh câu hỏi không có từ khóa cố định vẫn dùng semantic metadata; vẫn chỉ có hai lời gọi LLM, lịch sử/metadata được lưu và khôi phục, retry cùng request_id không trùng. Metadata lỗi không làm mất câu trả lời chính và có quy tắc dự phòng cho ý định rõ.
+- `python tests/browser_story_intent.py`: Chrome headless với Firebase/AI giả lập và SQLite riêng đạt. Kiểm tra các câu bác sĩ/lập trình/giáo viên/kiến trúc sư, thiếu nghề, lương, nghề không tồn tại, từ chối, nhiều nghề; không auto redirect; nút mở đúng nghề qua query `nghe`; quay lại Chat AI giữ UUID/tin nhắn cả lịch sử đã lưu lẫn phiên tạm; mobile không tràn ngang, truyện từ Navbar vẫn hoạt động.
+- Test browser chèn metadata có href ngoài/HTML/tên nghề giả/ID traversal: chỉ ID thật được tạo nút, URL luôn cùng origin với route cố định; không chạy XSS hoặc có exception JS. Lượt test đầu gặp timeout do script chờ DOM trả object thay vì boolean; đã sửa script và chạy lại đạt.
+- Hồi quy `browser_smoke.py` và `browser_stories.py` đều đạt. Đã xem ảnh desktop nút trong chat; ảnh kiểm tra `artifacts/story-intent-desktop.png` và `artifacts/story-intent-mobile.png`.
+- Đã thử một lời gọi DeepSeek thật riêng ở bước metadata bằng hội thoại tổng hợp: ngữ cảnh đang cân nhắc lập trình viên, câu cuối “Nếu mai nhận việc, từng buổi ở chỗ làm mình sẽ trải qua những gì?” được phân loại đúng và chọn `lap-trinh`. Kết quả boolean ở `artifacts/story-intent-live.json`; không có khóa hoặc dữ liệu cá nhân trong artifact.
+- Chưa thử PostgreSQL thật cho metadata mới hoặc Firebase/Google thật cùng luồng mới; chưa chứng minh mọi cách diễn đạt đều được model nhận đúng. Không sửa schema/database, khóa dịch vụ, hệ thống auth, Navbar hoặc Vercel; không commit/push/deploy. Các trang/API local kiểm tra trả HTTP 200.
+
+## Điều hướng Hero/Navbar 2026-10-17
+
+- Phân tích trước sửa: Hero `href="#careers"`, không có onclick/handler riêng; mục Navbar AI `href="/ai-career-advisor"`, listener chung chỉ đóng menu. Route FastAPI phục vụ `chat.html`; xác thực/khôi phục phiên được giữ ở các module Firebase/chat hiện có.
+- QA bằng Chrome headless, Firebase stub, AI demo và database kiểm thử riêng: baseline Navbar cũ đạt; sau đổi Hero và trước xóa Navbar đạt; sau xóa Navbar đạt. Lượt cuối ban đầu gặp lỗi biểu thức chờ DOM trong script QA, đã sửa null-guard của script và chạy lại đạt; không phải lỗi JavaScript ứng dụng.
+- Desktop 1440px và mobile 390px: so sánh chính xác innerHTML, class, vị trí/kích thước và các computed style chính của Hero với baseline; CSS/animation/hover không thay đổi vì tệp CSS giữ nguyên hash. Đã xem ảnh desktop cuối; Navbar cân đối bằng flex hiện hữu, mobile còn đúng các mục yêu cầu và mở/đóng được.
+- Chưa đăng nhập: Hero tái hiện đúng hành vi cũ thử Anonymous và nhận thông báo PostgreSQL của bản SQLite; API 401 chuyển về hộp đăng nhập `/?login=1` hiện hữu, không lặp. Email giả lập mở chat; người đã đăng nhập trở lại từ Hero giữ nguyên UUID phiên và toàn bộ tin nhắn. Mỗi lần nhấn chỉ tải chat một lần, không còn hash `#careers`.
+- `python -m unittest discover -s tests -v`: 26 bài đạt; nhóm PostgreSQL skip do thiếu môi trường. Fingerprint trước/sau xác nhận chỉ `public/index.html` đổi trong mã ứng dụng; backend, JS, CSS, `.env`, cấu hình Vercel và dữ liệu local không thay đổi.
+- Chưa chạy Firebase thật/Google thật, DeepSeek trả phí hoặc PostgreSQL khách thật trong lượt này. Không giải quyết hạn chế đăng nhập Google giả lập đã ghi nhận ở lần cập nhật nhánh. Không commit/push/deploy. QA script: `artifacts/navigation-change/check_navigation.py` (các chế độ baseline/hero/final); ảnh nằm trong `artifacts/navigation-*.png`.
+
+## Cập nhật fix-chat-vercel 2026-10-17
+
+- Commit nguồn `ad18135b6953d164f387f2c3260248eaceda1153`: 67 tệp hiện diện, 64 tệp khớp Git blob SHA và ba tài liệu được hợp nhất với ghi nhận local. Đã sao lưu tệp cũ; SHA-256 của `.env` và dữ liệu local không đổi.
+- `python -m unittest discover -s tests -v`: 26 bài đạt, một nhóm `GuestPostgresTests` bị skip vì thiếu PostgreSQL kiểm thử local. Lượt sandbox gặp lỗi quyền thư mục tạm; chạy ngoài sandbox với quyền được cấp thì đạt. Không coi kết quả này là xác minh PostgreSQL/Neon hoặc quota khách thật.
+- `python tests/browser_smoke.py` và `python tests/browser_stories.py`: đạt với Firebase/AI/micro giả lập, Chrome headless riêng biệt.
+- `python tests/browser_login.py`: chưa đạt; luồng email và khôi phục phiên đi qua trước đó, lượt Google timeout tại dòng 46 khi chờ mở chat/focus vào ô nhập. Không có exception JavaScript được harness ghi nhận. Chưa xác định nguyên nhân, chưa sửa khác biệt so với nhánh và chưa thử Google thật.
+- Server thật `/api/health` trả HTTP 200, AI/Firebase có cấu hình; OpenAPI có route `/api/ai/guest/claim`; `/`, `/ai-career-advisor`, `/mot-ngay-lam-viec`, `/assets/account-link.js` đều trả HTTP 200.
+- PostgreSQL và Firebase Anonymous chưa được cấu hình/xác minh trong lần cập nhật này. Giữ SQLite local, không chạy migration hoặc chuyển dữ liệu. Chưa push hoặc deploy.
+
+## Đối chiếu GitHub 2026-10-17
+
+- Nhánh `main`, commit `346e9757dec7ebce43f74b815ccb138758cfa077`: đủ 53 tệp trên máy; 51 tệp khớp Git blob SHA sau chuẩn hóa xuống dòng, hai tệp bộ nhớ có thêm ghi nhận local và không thiếu dòng của bản GitHub. Không có mã mới cần ghi đè.
+- `python -m unittest discover -s tests -v`: 26 bài kiểm tra đạt sau khi chạy ngoài sandbox với quyền được cấp. Lượt sandbox trước đó gặp lỗi quyền thư mục tạm Windows, không phải kết luận lỗi chức năng ứng dụng.
+- Chỉ kiểm tra backend bằng test/mocks hiện có; chưa chạy lại kiểm thử trình duyệt, đăng nhập Firebase thật, micro thật hoặc gọi DeepSeek thật trong ngày này. Cấu hình `.env` và dữ liệu local được giữ nguyên; chưa deploy.
+
 ## Chuẩn bị Vercel 2026-10-13
 
 - Backend 26 bài kiểm tra đạt. Chrome browser_login và browser_stories đạt với Firebase/AI giả lập và dữ liệu kiểm thử riêng.

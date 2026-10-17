@@ -11,6 +11,7 @@ from pydantic import BaseModel, Field, ValidationError, field_validator
 
 from content import CAREERS
 from .store import PROFILE_KEYS, empty_profile, get_store
+from .story_intent import CATALOG, suggest_story
 
 logger = logging.getLogger(__name__)
 
@@ -51,6 +52,7 @@ class AdvisorReply(BaseModel):
     profile: Profile
     summary: str = Field(max_length=1500)
     recommendations: list[Recommendation] = Field(default_factory=list, max_length=12)
+    story_navigation: dict | None = None
 
     @field_validator("answer", mode="before")
     @classmethod
@@ -70,6 +72,7 @@ class AdvisorState(TypedDict, total=False):
     reply: dict
     mode: str
     guest_reservation_token: str
+    story_intent: dict
 
 
 def demo_mode():
@@ -165,7 +168,8 @@ async def compress_context(state):
         return {}
     prompt = Path(__file__).with_name("memory-prompt.txt").read_text(encoding="utf-8")
     context = {"profile": state["profile"], "summary": state["session"]["summary"],
-               "latest_user": state["message"], "latest_assistant": state["reply"]["answer"]}
+               "latest_user": state["message"], "latest_assistant": state["reply"]["answer"],
+               "recent_conversation": state["history"][-8:], "story_catalog": CATALOG}
     payload = {"model": os.getenv("DEEPSEEK_SUMMARY_MODEL") or os.getenv("DEEPSEEK_MODEL", "deepseek-flash"),
                "messages": [{"role": "system", "content": prompt},
                             {"role": "user", "content": json.dumps(context, ensure_ascii=False)}],
@@ -184,7 +188,8 @@ async def compress_context(state):
             if content.startswith("```") and content.endswith("```"):
                 content = content.split("\n", 1)[-1].rsplit("```", 1)[0].strip()
             raw = json.loads(content)
-            return {"reply": normalize_reply({"answer": state["reply"]["answer"],
+            return {"story_intent": raw.get("story_intent"),
+                    "reply": normalize_reply({"answer": state["reply"]["answer"],
                                                 "profile": raw.get("profile"),
                                                 "summary": raw.get("summary"),
                                                 "recommendations": []}, state)}
@@ -272,6 +277,8 @@ def save_messages(state):
         "request_id": state["request_id"],
         "mode": state["mode"],
     }
+    if reply.get('story_navigation'):
+        assistant['story_navigation'] = reply['story_navigation']
 
     with store.lock:
         session = store.get(state["uid"], state["session_id"])
@@ -297,6 +304,7 @@ builder = StateGraph(AdvisorState)
 nodes = [("load_profile", load_profile), ("load_recent_conversation", load_recent_conversation),
          ("retrieve_careers", retrieve_careers), ("generate_answer", generate_response),
          ("compress_context", compress_context),
+         ("suggest_career_story", suggest_story),
          ("validate_recommendations", validate_reply), ("update_profile_and_save", save_messages)]
 previous = START
 for name, function in nodes:

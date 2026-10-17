@@ -200,6 +200,7 @@ def save_messages_atomic(uid, session_id, request_id, message, reply, mode, gues
             "recommendations": reply["recommendations"],
             "request_id": request_id,
             "mode": mode,
+            **({"story_navigation": reply["story_navigation"]} if reply.get("story_navigation") else {}),
         })
 
         title = row["title"]

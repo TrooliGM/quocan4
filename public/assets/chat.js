@@ -128,6 +128,7 @@ function messageRow(message) {
   const label = document.createElement('span'); label.className = 'message-label'; label.textContent = message.role === 'assistant' ? `La Bàn AI${message.mode === 'demo' ? ' · Trả lời mẫu' : ''}` : 'Bạn';
   const bubble = document.createElement('div'); bubble.className = 'message-bubble';
   if (message.role === 'assistant') markdown(bubble, message.content); else bubble.textContent = message.content;
+  if (message.role === 'assistant' && message.story_navigation?.choices?.length) renderStoryLinks(bubble, message.story_navigation);
   if (message.recommendations?.length) {
     const cards = document.createElement('div'); cards.className = 'recommendations';
     for (const [index, career] of message.recommendations.entries()) {
@@ -154,6 +155,29 @@ function messageRow(message) {
     body.append(actions);
   }
   row.append(body); return row;
+}
+let storyCatalogTask;
+async function renderStoryLinks(bubble, navigation) {
+  try {
+    if (!storyCatalogTask) storyCatalogTask = fetch('/api/career-stories', {cache:'no-store'})
+      .then(r => {if (!r.ok) throw new Error('catalog'); return r.json();})
+      .then(data => new Map(data.items.map(c => [c.id, c.name])))
+      .catch(error => {storyCatalogTask=null; throw error;});
+    const catalog = await storyCatalogTask;
+    const group = document.createElement('nav'); group.className = 'story-suggestions';
+    group.setAttribute('aria-label','Khám phá truyện nghề từ cuộc trò chuyện');
+    const seen = new Set();
+    for (const choice of navigation.choices.slice(0,6)) {
+      if (!catalog.has(choice.career_id) || seen.has(choice.career_id)) continue;
+      seen.add(choice.career_id);
+      const link = document.createElement('a'); link.className = 'story-experience-link';
+      // Route cố định + ID có trong API danh mục; không tin href do model cung cấp.
+      link.href = '/mot-ngay-lam-viec?nghe=' + encodeURIComponent(choice.career_id);
+      link.textContent = navigation.kind === 'open' ? 'Khám phá một ngày làm việc →' : catalog.get(choice.career_id) + ' →';
+      group.append(link);
+    }
+    if (group.childElementCount) bubble.append(group);
+  } catch { /* Lỗi tải danh mục không chặn đọc hoặc tiếp tục trò chuyện. */ }
 }
 function renderMessages() {
   const list = $('#messages'); list.replaceChildren();

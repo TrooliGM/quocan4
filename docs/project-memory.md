@@ -1,5 +1,62 @@
 # Bộ nhớ dự án: Website Hướng nghiệp KHKT 2027
 
+## Nhánh lưu thay đổi điều hướng — 2026-10-17
+
+- Người dùng đã xác nhận lưu các thay đổi hiện tại lên một nhánh GitHub mới; yêu cầu này cho phép commit/lưu mã, thay cho giới hạn không commit/push ở các lượt triển khai trước. Vẫn không merge hoặc deploy.
+- Đã tạo nhánh `feat/ai-career-story-navigation` của `TrooliGM/quocan4` từ `fix-chat-vercel` tại commit `ad18135b6953d164f387f2c3260248eaceda1153`.
+- Nội dung mốc lưu gồm điều hướng Hero/Navbar, nhận diện ý định Truyện nghề, frontend CTA an toàn, các kiểm thử mới và bộ nhớ/tài liệu. Loại `.env`, dữ liệu local, credentials, artifacts và caches; giữ các nhánh gốc nguyên trạng.
+
+## Chat gợi ý Truyện nghề theo ý định — 2026-10-17
+
+- Yêu cầu trực tiếp trong tệp đính kèm: nhận diện câu hỏi về một ngày/ca làm việc và trải nghiệm thực tế, đề xuất mở Truyện nghề bằng nút xác nhận, giữ chat/lịch sử/Firebase và không commit/push/deploy.
+- Phân tích route thật: `/mot-ngay-lam-viec` phục vụ `stories.html`; `stories.js` đã hỗ trợ `?nghe=<career_id>` và API `/api/career-stories`. Có sẵn liên kết quay về `/ai-career-advisor`, tự khôi phục phiên theo UID/sessionStorage. Không tạo trang, route hoặc cơ chế đăng nhập khác.
+- Đã mở rộng bước `compress_context` hiện có trong LangGraph để DeepSeek trả `story_intent` gồm intent, các tên nghề và confidence; dùng tám tin nhắn gần nhất, summary và danh mục truyện để hiểu đồng nghĩa/nghề từ ngữ cảnh. Không thêm lời gọi LLM ngoài hai lời gọi chat + metadata vốn có. Node `suggest_career_story` đối chiếu danh mục sáu truyện, chuẩn hóa tên (kỹ sư phần mềm → lập trình viên), ngưỡng confidence 0.75; có quy tắc dự phòng khi metadata lỗi/demo, không dựa duy nhất vào từ khóa.
+- Xử lý thiếu nghề bằng câu hỏi làm rõ; nghề chưa có truyện không nhận URL giả; nhiều nghề có lựa chọn riêng. Câu hỏi chỉ về lương/kỹ năng/cơ hội và lời từ chối không thêm nút. Kết quả semantic `none` có độ tin cậy cao được tôn trọng.
+- Frontend tạo nút bằng DOM/textContent, xác minh ID qua API danh mục và tự ghép route cố định `/mot-ngay-lam-viec?nghe=<id>`, bỏ qua href/HTML/ID lạ trong metadata. Không tự chuyển trang. CSS nút giữ nền kem/xanh rêu/cam san hô hiện có và hỗ trợ focus/giảm chuyển động.
+- `story_navigation` được lưu trong JSON của tin nhắn assistant cho cả SQLite/RAM và đường lưu PostgreSQL; không đổi schema hoặc chạy migration. Không sửa `.env`, Firebase, Navbar, route/trang Truyện nghề hoặc cấu hình Vercel.
+- 35 bài backend đạt; nhóm PostgreSQL skip vì thiếu PostgreSQL kiểm thử. Ba script Chrome headless `browser_story_intent.py`, `browser_smoke.py`, `browser_stories.py` đều đạt: đủ các trường hợp chính, nút chỉ điều hướng khi nhấn, mở đúng truyện, quay lại giữ lịch sử đã lưu và phiên tạm, mobile, danh mục/Navbar và chống URL/HTML giả mạo.
+- Một lời gọi DeepSeek thật bằng dữ liệu tổng hợp đã nhận đúng nghề lập trình từ câu hỏi không có cụm từ khóa cố định, nhờ ngữ cảnh trước đó. Không dùng tài khoản/dữ liệu người dùng. Chưa kiểm tra PostgreSQL/Firebase thật hoặc mọi cách diễn đạt với model thật; phiên tạm vẫn chịu TTL/RAM như kiến trúc hiện hữu. Health/trang chat/trang truyện/API nghề local đều HTTP 200.
+
+## Điều hướng Hero và Navbar — 2026-10-17
+
+- Yêu cầu trực tiếp: chuyển toàn bộ hành vi đang hoạt động của mục Navbar “Tư vấn cùng AI” sang nút Hero “Bắt đầu khám phá”, sau đó bỏ mục Navbar này trên desktop/mobile; giữ thiết kế và toàn bộ hệ thống khác, không commit/push/deploy.
+- Phân tích mã: Hero trước đây là liên kết `href="#careers"` cuộn tới thư viện nghề, không có onclick hoặc handler riêng. Mục AI là liên kết `href="/ai-career-advisor"`; listener chung `#nav-links a` chỉ đóng menu mobile. Xác thực/lịch sử được xử lý trong trang chat qua `initialize()`, `getFirebase()`, `restoredUser()`, API hiện hữu và sessionStorage theo UID, không nằm ở mục Navbar.
+- Đã đổi duy nhất hai dòng mã trong `public/index.html`: Hero dùng `href="/ai-career-advisor"`, giữ nguyên nội dung, class, icon và thiết kế; xóa liên kết AI khỏi `#nav-links` dùng chung desktop/mobile. Các mục còn lại và nút tài khoản giữ nguyên; CSS flex hiện có tự phân bố lại, không cần sửa CSS. Không thêm JavaScript listener.
+- Giữ đúng luồng nhánh hiện tại: chưa có người dùng thì chat thử Firebase Anonymous; guest cần PostgreSQL, còn API 401 quay về `/?login=1`. Sau email/Google thành công, logic cũ chuyển `/ai-career-advisor?start=1`. Không thêm cổng đăng nhập hoặc viết lại logic chat.
+- Chrome headless/Firebase giả lập đã so sánh Navbar cũ → Hero trước khi xóa Navbar → trạng thái cuối: desktop 1440px/mobile 390px, Hero giữ nguyên nội dung/style/kích thước/vị trí; menu còn đúng năm liên kết và nút tài khoản, mobile mở/đóng; cùng luồng khách/401, email vào chat, giữ nguyên UUID phiên và nội dung lịch sử khi trở lại qua CTA, một lần điều hướng mỗi lần nhấn, không có exception JS ứng dụng. Script và ảnh QA nằm trong `artifacts/navigation-change/` và `artifacts/navigation-*.png`, không thuộc mã triển khai.
+- 26 bài backend đạt; nhóm PostgreSQL skip do chưa có PostgreSQL kiểm thử. Fingerprint xác nhận mọi tệp backend/JS/CSS/.env/Vercel/dữ liệu local không đổi. Chưa thử Firebase/Google thật hoặc guest PostgreSQL thật; các hạn chế có sẵn của nhánh vẫn giữ nguyên.
+
+## Bản local từ fix-chat-vercel — 2026-10-17
+
+- Người dùng yêu cầu cập nhật dữ liệu từ nhánh `fix-chat-vercel` của `TrooliGM/quocan4`. Đã cập nhật 35 tệp theo commit `ad18135b6953d164f387f2c3260248eaceda1153` ngày 2026-10-15, thông điệp “Add PostgreSQL guest chat and account linking”. Đây là snapshot mã đang chạy local, thay cho snapshot `main` trước đó; thư mục vẫn không có `.git` nên không phải Git checkout.
+- Đủ 67 tệp của nhánh trên máy: 64 tệp khớp Git blob SHA sau chuẩn hóa xuống dòng; ba tệp bộ nhớ/quyết định/xác minh được hợp nhất để giữ các ghi nhận local. Giữ nguyên tài liệu Excel chỉ có trên máy. Không push, deploy hoặc thay đổi nhánh trên GitHub.
+- Đã sao lưu các tệp local cần thay thế tại `artifacts/branch-sync/fix-chat-vercel-ad18135-20261017/`; đối chiếu SHA-256 xác nhận `.env` và tệp dữ liệu local không đổi. Đã cài `psycopg[binary]` theo requirements của nhánh.
+- Nhánh bổ sung adapter PostgreSQL, lưu chat bằng PostgreSQL, chat khách giới hạn 8 câu, quota/rate limit và chuyển lịch sử khách khi liên kết tài khoản; đây là tính năng có trong mã, chưa xác nhận chạy đầy đủ trên môi trường hiện tại. `DATABASE_URL` local vẫn là SQLite; không migrate dữ liệu, không tự tạo/kết nối Neon hoặc chạy migration production. Chat khách yêu cầu PostgreSQL và Firebase Anonymous; tài khoản đăng nhập vẫn có đường chạy SQLite.
+- Kiểm tra lại: 26 bài backend đạt; nhóm PostgreSQL bị bỏ qua do thiếu PostgreSQL kiểm thử local. `browser_smoke.py` và `browser_stories.py` đạt với dữ liệu giả. `browser_login.py` chưa đạt ở lượt đăng nhập Google giả lập, timeout khi chờ mở chat sau Google; chưa sửa mã nhánh hoặc kết luận đăng nhập Google thật bị lỗi. Không thử provider trả phí hay tài khoản người dùng.
+- Server ở `127.0.0.1:8000` đã nạp route mới `/api/ai/guest/claim`; trang chủ, chat, truyện và tài sản account-link trả HTTP 200. Health vẫn xác nhận AI/Firebase có cấu hình. Cần tải lại trình duyệt để lấy frontend mới.
+- Một số tài liệu của nhánh còn ghi lịch sử “chưa có adapter PostgreSQL” hoặc “chưa đồng bộ”; đọc cùng ghi nhận mới nhất ở đây. Chưa có deployment Vercel hoặc kết nối PostgreSQL thật được xác minh trong lần cập nhật này.
+
+## Đối chiếu GitHub 2026-10-17
+
+- Theo yêu cầu cập nhật tệp từ GitHub và xem tiến độ, đã đọc nhánh `main` của `TrooliGM/quocan4`. Commit mới nhất là `346e9757dec7ebce43f74b815ccb138758cfa077`, ngày 2026-10-13, thông điệp “Record career comics validation and local-first deployment decision”.
+- Đã đối chiếu SHA Git blob sau chuẩn hóa CRLF/LF: đủ 53 tệp của repository trên máy; 51 tệp khớp hoàn toàn. Hai tệp `docs/project-memory.md` và `docs/decisions.md` có thêm ghi nhận local về cấu hình Firebase/DeepSeek, không thiếu dòng nào của bản GitHub; giữ các cập nhật local. Không có mã nguồn mới cần tải đè.
+- Giữ nguyên `.env`, thư mục dữ liệu local và hai tệp tham khảo chỉ có trên máy (`docs/ai-career-requirements.md`, `docs/sources/8_chuc_nang_AI_tu_van_viec_lam.xlsx`). Không push hoặc deploy trong lần kiểm tra này.
+- Chạy lại `python -m unittest discover -s tests -v`: 26 bài đạt. Lượt đầu trong sandbox bị chặn thư mục tạm Windows; chạy lại ngoài sandbox sau khi được cấp quyền thì đạt. Không chạy lại browser QA hoặc gọi provider thật ngày 2026-10-17.
+- Tiến độ: đã có trang chủ/tìm nghề/bài viết, Firebase, chat AI 1:1 với bộ nhớ/lịch sử theo lựa chọn, micro và sáu truyện nghề gồm 24 cảnh SVG/CSS tương tác, có AI giải thích theo cảnh. Chưa có trắc nghiệm hoàn chỉnh, tìm tin tuyển dụng/phân tích CV hoặc quản trị; chưa có deployment công khai được xác nhận. Hướng local trước và yêu cầu database bền vững khi triển khai chat vẫn được giữ.
+
+## Khôi phục cấu hình AI 2026-10-13
+
+- Người dùng cung cấp lại khóa DeepSeek để bật gửi câu hỏi. Đã điền khóa vào `.env` cục bộ, đặt `AI_DEMO_MODE=false`, giữ cấu hình Firebase và các thiết lập khác; không ghi giá trị khóa vào tài liệu hoặc repository.
+- Đã kích hoạt nạp lại server local; `/api/health` xác nhận `ai_configured=true` và `auth_configured=true`. Đã gửi một câu hỏi tổng hợp về khám phá nghề lập trình tới `/api/advice`: HTTP 200, có câu trả lời thật, model `deepseek-flash`.
+- Người dùng cần tải lại trang chat để nhận trạng thái mới. Chưa kiểm thử gửi câu hỏi qua phiên Firebase của người dùng; không sử dụng dữ liệu cá nhân trong kiểm tra AI.
+
+## Cập nhật Firebase 2026-10-13
+
+- Theo cấu hình và yêu cầu trực tiếp mới nhất của người dùng, đã cấu hình Firebase project `khkt-b8fdd` trong `.env` cục bộ, thay cho project `khoa-hoc-86942` được ghi nhận trước đây. Tại thời điểm kiểm tra chưa có `.env`, nên tạo từ `.env.example`, điền năm biến Firebase và giữ các thiết lập khác của mẫu. Không khôi phục hoặc tự thay đổi các khóa dịch vụ khác.
+- Hàm cấu hình và `/api/auth/config` qua FastAPI TestClient xác nhận `configured=true`, đúng project mới; endpoint trả HTTP 200. Chưa kiểm thử đăng ký/đăng nhập thật, chưa xác nhận provider và authorized domains trên project mới. Cần khởi động lại server đang chạy để nhận cấu hình mới.
+- Chỉ lưu cấu hình trong `.env` đã được `.gitignore` loại trừ; không ghi API key vào bộ nhớ dự án. Không di chuyển tài khoản hoặc dữ liệu giữa hai Firebase project.
+- Khi người dùng báo nút đăng nhập bị khóa, đã kiểm tra server thật ở `127.0.0.1:8000`: ban đầu `/api/auth/config` trả `configured=false` dù `.env` đủ cấu hình. Đã kích hoạt Uvicorn `--reload` bằng thời gian sửa của `app.py` (không đổi nội dung mã). Endpoint server thật sau nạp lại trả HTTP 200, `configured=true`, đúng project `khkt-b8fdd`. Cần tải lại trang trình duyệt; chưa thử đăng ký/đăng nhập thật của người dùng.
+
 ## Chuẩn bị Vercel — 2026-10-13
 
 - Người dùng yêu cầu chuẩn bị cấu hình Vercel từ GitHub; không commit/push, không đổi Firebase project hoặc hệ thống đăng nhập, không xóa dữ liệu. Chưa yêu cầu tạo deployment trong lần chuẩn bị này.
