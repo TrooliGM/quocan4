@@ -1,4 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "fastapi"
+  "framework": "fastapi",
+  "functions": {
+    "app.py": {
+      "includeFiles": "{index.html,chat.html,stories.html,advisor/*.txt}"
+    }
+  }
 }

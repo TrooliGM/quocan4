@@ -1,5 +1,8 @@
 -- Chạy bằng tài khoản migration trên database thử nghiệm trước.
 -- Không tự chạy khi ứng dụng khởi động. Không xóa/reset dữ liệu hiện có.
+BEGIN;
+SET LOCAL lock_timeout = '3s';
+SET LOCAL statement_timeout = '30s';
 CREATE TABLE IF NOT EXISTS guest_ai_usage (
     uid TEXT PRIMARY KEY,
     used_questions INTEGER NOT NULL DEFAULT 0,
@@ -26,3 +29,4 @@ CREATE TABLE IF NOT EXISTS advisor_chat_rate_limits (
     window_start TIMESTAMPTZ NOT NULL,
     requests INTEGER NOT NULL
 );
+COMMIT;

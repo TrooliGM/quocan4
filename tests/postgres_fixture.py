@@ -40,7 +40,7 @@ class LocalPostgres:
         with self.directory.with_suffix('.fixture.log').open('ab') as log:
             subprocess.run([str(self.ctl),'-D',str(self.directory),'-w','stop','-m','fast'],stdin=subprocess.DEVNULL,stdout=log,stderr=log,creationflags=self.flags,timeout=30)
 
-    def schema(self):
+    def schema(self, initialize=True):
         name = 'guest_test_'+uuid4().hex
         with psycopg.connect(self.url,autocommit=True) as db:
             from psycopg import sql
@@ -52,11 +52,9 @@ class LocalPostgres:
             with connect() as db:
                 yield db
         connection.schema_name = name
-        with connection() as db:
-            for table in ('advisor_sessions','advisor_temporary_sessions'):
-                ttl = ', expires_at TIMESTAMPTZ NOT NULL' if table.endswith('temporary_sessions') else ''
-                db.execute(f'''CREATE TABLE {table}(id TEXT PRIMARY KEY,owner TEXT NOT NULL,title TEXT NOT NULL,
-                    created_at TEXT NOT NULL,updated_at TEXT NOT NULL,messages TEXT NOT NULL,
-                    profile TEXT NOT NULL,summary TEXT NOT NULL{ttl})''')
-            db.execute((ROOT/'migrations/002_guest_quota.sql').read_text(encoding='utf-8'))
+        if initialize:
+            with connect() as db:
+                db.autocommit = True
+                for migration in ('001_conversations.sql', '002_guest_quota.sql'):
+                    db.execute((ROOT/'migrations'/migration).read_text(encoding='utf-8'))
         return connection

@@ -2,10 +2,10 @@
 import os
 from typing import TypedDict
 
-import httpx
 from langgraph.graph import END, START, StateGraph
 
 from content import CAREERS
+from deepseek_client import post_completion, message_text, model_name
 
 
 class AdviceState(TypedDict):
@@ -33,19 +33,11 @@ async def ask_deepseek(state: AdviceState):
         "Gợi ý một hoạt động nhỏ và một câu hỏi tự suy ngẫm. "
         "Nội dung tham khảo của dự án:\n" + state["context"]
     )
-    async with httpx.AsyncClient(timeout=httpx.Timeout(25, connect=8)) as client:
-        response = await client.post(
-            os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com").rstrip("/") + "/chat/completions",
-            headers={"Authorization": f"Bearer {key}"},
-            json={"model": os.getenv("DEEPSEEK_MODEL", "deepseek-flash"),
+    response = await post_completion(
+            {"model": model_name(),
                   "messages": [{"role": "system", "content": prompt}, {"role": "user", "content": state["question"]}],
-                  "max_tokens": 700, "thinking": {"type": "disabled"}, "stream": False},
-        )
-        response.raise_for_status()
-        answer = response.json()["choices"][0]["message"]["content"]
-        if not isinstance(answer, str) or not answer.strip():
-            raise ValueError("empty_model_response")
-        return {"answer": answer.strip()}
+                  "max_tokens": 700, "thinking": {"type": "disabled"}, "stream": False}, timeout=25)
+    return {"answer": message_text(response)}
 
 
 builder = StateGraph(AdviceState)

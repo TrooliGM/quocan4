@@ -20,6 +20,10 @@ GREETING = "Chào bạn, mình là La Bàn. Bạn có thể kể về một sở
 PROFILE_KEYS = ("interests", "strengths", "growth_skills", "careers")
 
 
+class StorageConfigurationError(RuntimeError):
+    """Lỗi cấu hình an toàn; không chứa URL hoặc credentials database."""
+
+
 def empty_profile():
     return {key: [] for key in PROFILE_KEYS}
 
@@ -171,14 +175,14 @@ def _store(database_url):
         from advisor.postgres_adapter import PostgresConversationStore
         return PostgresConversationStore()
 
+    if not database_url.startswith('sqlite:///'):
+        raise StorageConfigurationError('DATABASE_URL_UNSUPPORTED')
     return ConversationStore(database_url)
 
 
 def get_store():
-    if os.getenv("VERCEL"):
-        default_path = Path("/tmp/advisor.sqlite3")
-    else:
-        default_path = Path(__file__).resolve().parents[1] / "data" / "advisor.sqlite3"
-
-    default = "sqlite:///" + str(default_path)
-    return _store(os.getenv("DATABASE_URL") or default)
+    database_url = os.getenv('DATABASE_URL', '').strip()
+    if os.getenv('VERCEL') and not database_url.startswith(('postgresql://', 'postgres://')):
+        raise StorageConfigurationError('POSTGRES_REQUIRED')
+    default = 'sqlite:///' + str(Path(__file__).resolve().parents[1] / 'data' / 'advisor.sqlite3')
+    return _store(database_url or default)

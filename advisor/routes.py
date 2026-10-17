@@ -11,6 +11,7 @@ from fastapi import APIRouter, Depends, Header, HTTPException, Request, Response
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from firebase_auth import verify_user
+from deepseek_client import provider_http_error, ProviderConfigurationError, model_name
 from .graph import advisor_graph, demo_mode
 from .store import get_store
 from . import voice
@@ -69,7 +70,7 @@ class ChatInput(BaseModel):
 @router.get("/api/ai/config")
 def config(user=Depends(require_user)):
     return {"mode": "demo" if demo_mode() else "live", "configured": demo_mode() or bool(os.getenv("DEEPSEEK_API_KEY", "").strip()),
-            "model": "demo" if demo_mode() else os.getenv("DEEPSEEK_MODEL", "deepseek-flash"),
+            "model": "demo" if demo_mode() else model_name(),
             "microphone": {"google": voice.google_stt_configured()},
             "is_guest": user.get('provider') == 'anonymous',
             "guest_quota": guest_usage(user)}
@@ -200,14 +201,11 @@ async def chat(payload: ChatInput, user=Depends(require_user)):
                 logger.warning('guest_settlement_unavailable type=%s', type(settlement_error).__name__)
         if isinstance(error, (HTTPException, asyncio.CancelledError)):
             raise
-        if isinstance(error, (TimeoutError, httpx.TimeoutException)):
-            raise HTTPException(504, "La Bàn phản hồi hơi lâu. Bạn có thể bấm Thử gửi lại.") from None
-        if isinstance(error, httpx.HTTPStatusError):
-            status = error.response.status_code
-            logger.warning('advisor_provider_failed status=%d', status)
-            raise HTTPException(503 if status in (401,402,403,429) or status >= 500 else 502,
-                "Dịch vụ AI đang bận hoặc cần kiểm tra hạn mức. Bạn thử lại sau nhé.") from None
-        if isinstance(error, (psycopg.Error, httpx.HTTPError, ValueError, KeyError, IndexError, TypeError, RuntimeError)):
+        if isinstance(error, psycopg.Error):
+            raise  # Handler chung phân biệt kết nối, quyền và schema, không lộ DSN.
+        if isinstance(error, (TimeoutError, httpx.HTTPError, ProviderConfigurationError)):
+            raise provider_http_error(error) from None
+        if isinstance(error, (httpx.HTTPError, ValueError, KeyError, IndexError, TypeError, RuntimeError)):
             logger.warning('advisor_reply_failed type=%s', type(error).__name__)
             raise HTTPException(502, "Chưa xác nhận được câu trả lời. Bạn thử gửi lại cùng tin nhắn nhé.") from None
         raise

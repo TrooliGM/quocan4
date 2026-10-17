@@ -1,26 +1,56 @@
 import asyncio
 import os
+import logging
 import unicodedata
 from pathlib import Path
 
 import httpx
 from dotenv import load_dotenv
 from fastapi import FastAPI, Header, HTTPException, Query, Response
-from fastapi.responses import FileResponse
+from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, field_validator
 
 from content import ARTICLES, CAREERS
 from career_stories import STORIES, get_story
 from firebase_auth import verify_user, web_config
+from advisor.store import StorageConfigurationError
+from advisor.storage_errors import storage_error
+from deepseek_client import provider_http_error, model_name
+import psycopg
 
 ROOT = Path(__file__).resolve().parent
-load_dotenv(ROOT / ".env")
+if not os.getenv('VERCEL'):
+    load_dotenv(ROOT / ".env")
 from advisor.routes import router as advisor_router
 
 app = FastAPI(title="La Bàn — KHKT 2027", version="0.1.0")
 app.include_router(advisor_router)
 ai_slots = asyncio.Semaphore(4)
+logger = logging.getLogger(__name__)
+
+
+@app.exception_handler(StorageConfigurationError)
+@app.exception_handler(psycopg.Error)
+async def storage_failure(request, error):
+    status, detail = storage_error(error)
+    logger.error('storage_failure code=%s type=%s', detail['code'], type(error).__name__)
+    return JSONResponse({'detail': detail}, status_code=status, headers={'Cache-Control': 'no-store', 'Retry-After': '30'})
+
+
+def html_page(filename):
+    # HTML runtime ở gốc, assets trong public/ do Vercel CDN phục vụ.
+    # Bản public là fallback cho checkout cũ/local; không giả định nó có trong Function.
+    for path in (ROOT / filename, ROOT / 'public' / filename):
+        try:
+            return HTMLResponse(path.read_text(encoding='utf-8'), headers={'Cache-Control': 'no-store'})
+        except (OSError, UnicodeError):
+            continue
+    logger.error('html_page_unavailable page=%s', filename)
+    return HTMLResponse('<!doctype html><html lang="vi"><meta charset="utf-8"><title>La Bàn</title>'
+                        '<h1>La Bàn đang được cập nhật</h1><p>Chưa tải được trang này. Bạn thử lại sau nhé.</p>'
+                        '<a href="/">Về trang chủ</a></html>', status_code=503,
+                        headers={'Cache-Control': 'no-store', 'Retry-After': '30'})
 
 
 @app.middleware("http")
@@ -38,16 +68,17 @@ def normalize(text: str) -> str:
 
 @app.get("/", include_in_schema=False)
 def homepage():
-    return FileResponse(ROOT / "public" / "index.html")
+    return html_page('index.html')
 
 
 @app.get("/ai-career-advisor", include_in_schema=False)
+@app.get("/chat", include_in_schema=False)
 def career_advisor():
-    return FileResponse(ROOT / "chat.html", headers={"Cache-Control": "no-store"})
+    return html_page('chat.html')
 
 @app.get("/mot-ngay-lam-viec", include_in_schema=False)
 def career_comics():
-  return FileResponse(ROOT / "stories.html")
+    return html_page('stories.html')
 
 
 @app.get("/api/career-stories")
@@ -126,10 +157,8 @@ async def ask_about_story(career_id: str, payload: StoryQuestion, response: Resp
                 result = await story_graph.ainvoke({"career_id": career_id, "scene_index": payload.scene_index,
                                                    "question": payload.question, "context": "", "answer": ""})
         return {"answer": result["answer"]}
-    except (TimeoutError, httpx.TimeoutException):
-        raise HTTPException(504, "La Bàn phản hồi hơi lâu. Bạn thử lại nhé.") from None
-    except (httpx.HTTPError, ValueError, KeyError, IndexError, RuntimeError):
-        raise HTTPException(502, "Chưa nhận được phản hồi từ La Bàn. Bạn thử lại nhé.") from None
+    except (TimeoutError, httpx.HTTPError, ValueError, KeyError, IndexError, TypeError, AttributeError, RuntimeError) as error:
+        raise provider_http_error(error) from None
 
 
 @app.post("/api/advice")
@@ -141,11 +170,9 @@ async def advice(payload: AdviceRequest):
         async with asyncio.timeout(30):
             async with ai_slots:
                 result = await advice_graph.ainvoke({"question": payload.question, "context": "", "answer": ""})
-        return {"answer": result["answer"], "model": os.getenv("DEEPSEEK_MODEL", "deepseek-flash")}
-    except (TimeoutError, httpx.TimeoutException):
-        raise HTTPException(504, "Trợ lý phản hồi hơi lâu. Bạn thử lại sau một chút nhé.") from None
-    except (httpx.HTTPError, ValueError, KeyError, IndexError, RuntimeError):
-        raise HTTPException(502, "Chưa kết nối được trợ lý. Bạn thử lại sau nhé.") from None
+        return {"answer": result["answer"], "model": model_name()}
+    except (TimeoutError, httpx.HTTPError, ValueError, KeyError, IndexError, TypeError, AttributeError, RuntimeError) as error:
+        raise provider_http_error(error) from None
 
 
 # public/ được Vercel phục vụ qua CDN; mount này chỉ dành cho chạy local.

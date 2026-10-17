@@ -30,6 +30,6 @@ class GraphTests(unittest.IsolatedAsyncioTestCase):
         with patch.dict(os.environ, {"DEEPSEEK_API_KEY": "test-secret"}), patch.object(httpx.AsyncClient, "post", fake_post):
             with TestClient(app) as client:
                 response = client.post("/api/advice", json={"question": "Em thích vẽ"})
-        self.assertEqual(response.status_code, 502)
+        self.assertEqual(response.status_code, 503)
         self.assertNotIn("test-secret", response.text)
         self.assertNotIn("sensitive", response.text)

@@ -47,7 +47,7 @@ class StoryTests(unittest.TestCase):
             return httpx.Response(401, json={'error': 'private_provider_error'}, request=httpx.Request('POST', url))
         with patch.dict(os.environ, {'DEEPSEEK_API_KEY': 'test-secret'}), patch.object(httpx.AsyncClient, 'post', fail), TestClient(app) as client:
             response = client.post('/api/career-stories/bac-si/ask', json={'question': 'Hỏi về nghề'})
-            self.assertEqual(response.status_code, 502)
+            self.assertEqual(response.status_code, 503)
             self.assertNotIn('test-secret', response.text)
             self.assertNotIn('private_provider_error', response.text)
 

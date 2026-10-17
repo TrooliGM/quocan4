@@ -20,6 +20,8 @@ def postgres_connection():
         row_factory=dict_row,
         connect_timeout=10,
     ) as connection:
+        # Giới hạn thời gian chờ trong từng kết nối, không mở pool theo mỗi instance.
+        connection.execute('SET statement_timeout = 10000; SET lock_timeout = 3000; SET idle_in_transaction_session_timeout = 15000')
         yield connection
 
 

@@ -20,5 +20,7 @@ docs/
 firebase-admin*.json
 secrets/
 .secrets/
+backups/
+*.backup
 *.pem
 *.key
