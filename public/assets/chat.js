@@ -15,6 +15,22 @@ function notice(text = '', retry = false) {
   $('#retry-send').hidden = !retry;
 }
 function scrollBottom() { $('#chat-scroll').scrollTop = $('#chat-scroll').scrollHeight; }
+function renderGuestQuota() {
+  const label = $('#guest-quota-text');
+  if (!config?.is_guest) return;
+  const {limit, remaining} = guestQuota || {};
+  if (!Number.isInteger(limit) || limit <= 0 || !Number.isInteger(remaining)) {
+    label.textContent = 'Bạn đang dùng thử · Đang tải số lượt còn lại…';
+    return;
+  }
+  if (remaining === 0) {
+    label.textContent = `Bạn đã dùng hết ${limit} câu hỏi miễn phí. Đăng nhập để tiếp tục cuộc trò chuyện.`;
+    return;
+  }
+  const count = document.createElement('strong');
+  count.textContent = `${remaining}/${limit}`;
+  label.replaceChildren(document.createTextNode('Bạn đang dùng thử · còn '), count, document.createTextNode(' câu hỏi miễn phí.'));
+}
 function updateControls() {
   const listening = ['starting-mic', 'listening', 'transcribing'].includes(phase);
   const exhausted = config?.is_guest && guestQuota?.remaining === 0;
@@ -29,7 +45,7 @@ function updateControls() {
   $('#guest-banner').hidden = !config?.is_guest;
   $('#guest-banner').classList.toggle('limit-reached',Boolean(exhausted));
   $('#guest-login').setAttribute('aria-disabled',String(busy || listening));
-  if(config?.is_guest) $('#guest-quota-text').textContent = exhausted ? 'Bạn đã dùng hết 8 câu hỏi miễn phí. Đăng nhập để tiếp tục cuộc trò chuyện.' : `Bạn đang dùng thử · còn ${guestQuota?.remaining ?? 8}/8 câu hỏi miễn phí.`;
+  renderGuestQuota();
   $('#connection-status').textContent = phase === 'thinking' ? 'Đang suy nghĩ' : phase === 'starting-mic' ? 'Đang mở mic' : phase === 'listening' ? 'Đang nghe' : phase === 'transcribing' ? 'Đang nhận diện' : config?.mode === 'demo' ? 'Bản demo' : config?.configured ? 'Sẵn sàng' : 'Chưa cấu hình';
 }
 async function api(path, options = {}, retried = false) {
@@ -46,7 +62,10 @@ async function api(path, options = {}, retried = false) {
     const data = await response.json().catch(() => ({}));
     const error = new Error(typeof data.detail === 'string' ? data.detail : data.detail?.message || 'Chưa thực hiện được. Bạn kiểm tra kết nối rồi thử lại nhé.');
     error.code = data.detail?.code;
-    if(error.code==='GUEST_LIMIT_REACHED') guestQuota={limit:8,used_questions:8,remaining:0};
+    if(error.code==='GUEST_LIMIT_REACHED') {
+      const {limit, used_questions, remaining} = data.detail;
+      guestQuota = {limit, used_questions, remaining};
+    }
     error.status = response.status;
     if (response.status === 401) {
       clearPrivateUI();
@@ -71,12 +90,12 @@ function rememberActive() {
 }
 function setSidebar(open) {
   const mobile = window.innerWidth <= 760;
-  $('#chat-sidebar').classList.toggle('open', open);
-  $('#drawer-backdrop').hidden = !open;
-  $('#open-sidebar').setAttribute('aria-expanded', String(open));
+  $('#chat-sidebar').classList.toggle('open', mobile && open);
+  $('#drawer-backdrop').hidden = !mobile || !open;
+  $('#open-sidebar').setAttribute('aria-expanded', String(mobile && open));
   $('#chat-main').inert = mobile && open;
   $('#chat-sidebar').inert = mobile && !open;
-  if (open) $('#close-sidebar').focus(); else $('#open-sidebar').focus();
+  if (mobile) { if (open) $('#close-sidebar').focus(); else $('#open-sidebar').focus(); }
 }
 function renderHistory() {
   const list = $('#history-list'); list.replaceChildren();
@@ -90,6 +109,8 @@ function renderHistory() {
   for (const item of rows) {
     const row = document.createElement('div'); row.className = 'history-item'; row.classList.toggle('active', item.id === active?.id);
     const open = document.createElement('button'); open.className = 'history-open';
+    open.title = item.title;
+    open.setAttribute('aria-current', item.id === active?.id ? 'true' : 'false');
     const title = document.createElement('strong'); title.textContent = item.title;
     const caption = document.createElement('small'); caption.textContent = item.remember ? new Date(item.updated_at).toLocaleDateString('vi-VN', {day:'numeric', month:'short'}) : 'Phiên tạm · không lưu lâu dài';
     open.append(title, caption); open.addEventListener('click', () => loadSession(item.id));
@@ -210,7 +231,7 @@ async function send(retry = false) {
   if (busy || ['listening','transcribing','starting-mic'].includes(phase)) return;
   const text = retry && pending ? pending.message : $('#message-input').value.trim();
   if (!text || !config.configured) return;
-  if(config.is_guest && guestQuota?.remaining===0 && !retry){notice('Bạn đã dùng hết 8 câu hỏi. Đăng nhập Google hoặc email để tiếp tục nhé.');updateControls();return;}
+  if(config.is_guest && guestQuota?.remaining===0 && !retry){notice(`Bạn đã dùng hết ${guestQuota.limit} câu hỏi. Đăng nhập Google hoặc email để tiếp tục nhé.`);updateControls();return;}
   if (text.length > 2000) return notice('Mỗi tin nhắn tối đa 2.000 ký tự nhé.');
   notice(); busy = true; phase = 'thinking'; updateControls();
   const epoch = identityEpoch;
@@ -233,7 +254,36 @@ async function send(retry = false) {
     if (epoch === identityEpoch) { busy = false; phase = 'idle'; updateControls(); $('#message-input').focus(); }
   }
 }
-function resizeInput() { const input = $('#message-input'); input.style.height = 'auto'; input.style.height = `${Math.min(input.scrollHeight,130)}px`; updateControls(); }
+function resizeInput() {
+  const input = $('#message-input');
+  const ceiling = Math.min(130, Math.max(64, (window.visualViewport?.height || window.innerHeight) * .24));
+  input.style.height = 'auto';
+  input.style.height = `${Math.min(input.scrollHeight, ceiling)}px`;
+  updateControls();
+}
+
+// Điều chỉnh bố cục theo vùng nhìn thấy khi bàn phím điện thoại mở.
+// Không can thiệp luồng gửi tin, mic hoặc trạng thái hội thoại.
+function syncChatViewport() {
+  const viewport = window.visualViewport;
+  if (window.innerWidth <= 760 && viewport && viewport.scale === 1) {
+    document.body.style.setProperty('--chat-viewport-height', `${Math.round(viewport.height)}px`);
+    document.body.style.setProperty('--chat-viewport-top', `${Math.round(viewport.offsetTop)}px`);
+  } else {
+    document.body.style.removeProperty('--chat-viewport-height');
+    document.body.style.removeProperty('--chat-viewport-top');
+  }
+  resizeInput();
+}
+let viewportFrame;
+function scheduleViewportLayout() {
+  cancelAnimationFrame(viewportFrame);
+  viewportFrame = requestAnimationFrame(syncChatViewport);
+}
+window.addEventListener('resize', scheduleViewportLayout);
+window.visualViewport?.addEventListener('resize', scheduleViewportLayout);
+window.visualViewport?.addEventListener('scroll', scheduleViewportLayout);
+syncChatViewport();
 
 function cancelMic() {
   micTurn++; transcriptAbort?.abort(); transcriptAbort = null;
@@ -394,6 +444,7 @@ async function initialize() {
     $('#microphone').title = micMode === 'google' ? 'Nói tiếng Việt bằng Google Speech-to-Text; tự dừng sau 3 giây im lặng'
       : micMode === 'browser' ? 'Nói tiếng Việt bằng nhận diện của trình duyệt; tự dừng sau 3 giây im lặng' : 'Mic cần Chrome trên localhost hoặc HTTPS.';
     $('#user-name').textContent = config.is_guest ? 'Khách dùng thử' : user.displayName || 'Bạn';
+    $('#account-caption').textContent = config.is_guest ? 'Khám phá cùng La Bàn' : 'Tài khoản của bạn';
     $('#user-initial').textContent = config.is_guest ? 'K' : [...(user.displayName || 'Bạn')][0].toLocaleUpperCase('vi');
     const banner = [];
     if (config.mode === 'demo') banner.push('BẢN DEMO · Câu trả lời mẫu để thử giao diện. Chưa kết nối DeepSeek và chưa phân tích năng lực.');
