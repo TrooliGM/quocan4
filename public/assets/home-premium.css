@@ -232,3 +232,13 @@ body.home-premium {
 @media (prefers-reduced-motion: reduce) {
   .home-premium *, .home-premium *::before, .home-premium *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* Nhi?m v? 1: ?i?u h??ng n?m sau Hero, c?ng ng?n ng? Premium hi?n c?. */
+.home-brand{padding-top:28px;padding-bottom:4px}.home-brand .brand{display:inline-flex}
+.home-premium .hero-actions{flex-wrap:wrap;gap:14px}
+.home-premium .hero-actions .nav-cta{display:inline-flex;align-items:center;gap:9px}
+.journey-nav{margin-top:10px;margin-bottom:38px}
+.journey-links{display:flex;gap:8px;overflow-x:auto;padding:9px;background:var(--ink,#173f45);border-radius:20px;scrollbar-width:thin}
+.journey-links a{flex:1;min-width:140px;text-align:center;padding:16px 20px;white-space:nowrap;color:#fff;text-decoration:none;border-radius:13px;font-weight:600}
+.journey-links a:hover,.journey-links a:focus-visible,.journey-links a[aria-current]{background:#e8f2e9;color:#173f45}
+@media(max-width:600px){.journey-nav{margin-bottom:22px}.journey-links a{min-width:132px;padding:13px 16px}.home-brand{padding-top:20px}}

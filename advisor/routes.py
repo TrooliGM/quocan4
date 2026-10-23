@@ -13,6 +13,7 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 from firebase_auth import verify_user
 from deepseek_client import provider_http_error, ProviderConfigurationError, model_name
 from .graph import advisor_graph, demo_mode
+from .survey import SurveyInput, save_survey, needs_survey
 from .store import get_store
 from . import voice
 from .postgres_adapter import PostgresConversationStore
@@ -117,6 +118,12 @@ def session(session_id: UUID, user=Depends(require_user)):
     return {"session": get_store().get(user["uid"], str(session_id))}
 
 
+@router.put("/api/ai/sessions/{session_id}/survey")
+async def submit_survey(session_id: UUID, payload: SurveyInput, user=Depends(require_user)):
+    async with lock_for(str(session_id)):
+        return {"session": await asyncio.to_thread(save_survey, get_store(), user['uid'], str(session_id), payload)}
+
+
 @router.patch("/api/ai/sessions/{session_id}")
 def rename_session(session_id: UUID, payload: RenameInput, user=Depends(require_user)):
     return {"session": get_store().rename(user["uid"], str(session_id), payload.title)}
@@ -158,6 +165,8 @@ async def chat(payload: ChatInput, user=Depends(require_user)):
         async with asyncio.timeout(90):
             async with lock_for(session_id):
                 current = store.get(uid, session_id)
+                if needs_survey(current):
+                    raise HTTPException(409, "Em hãy hoàn thành khảo sát trước khi tư vấn nhé.")
                 if completed_answer(current, request_id, payload.message):
                     return {"session": current, "duplicate": True, "guest_quota": guest_usage(user)}
                 if len(current["messages"]) >= 501:

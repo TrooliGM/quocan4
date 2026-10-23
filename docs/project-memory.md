@@ -138,3 +138,8 @@ Giải pháp: dùng hoạt hình, infographic, comic và tương tác để gi�
 - Công cụ kiểm tra thật ở `scripts/check_live_providers.py`; chỉ chạy chủ động, có dùng quota API, không ghi âm thanh xuống đĩa và không in khóa.
 
 Khi người dùng yêu cầu triển khai, tham khảo `docs/decisions.md`, xác định phạm vi cần làm và cập nhật bộ nhớ theo kết quả thực tế. Giữ chức năng trực quan hóa nghề nghiệp ở vị trí trung tâm của sản phẩm.
+
+
+## Nhiệm vụ 1 — 2026-10-23
+
+Đã phát triển giao diện điều hướng sau Hero và khảo sát năm bước theo phiên trên nhánh riêng feat/task-1-career-survey, từ Premium 7c07d33. Dữ liệu khảo sát dùng metadata JSON hiện có, không migration; lưu/ownership/row lock và browser local đã kiểm tra. Không thay Neon/Production. Chi tiết, giới hạn kiểm thử thật và checkpoint Nhiệm vụ 2 ở docs/task-1-checkpoint.md. Không thực hiện Nhiệm vụ 2/3.

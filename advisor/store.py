@@ -108,7 +108,7 @@ class ConversationStore:
                 raise HTTPException(409, "Bạn đã có 100 cuộc trò chuyện. Hãy xóa bớt lịch sử trước nhé.")
             row = {"id": str(uuid4()), "owner": uid, "title": "Một hướng đi mới", "remember": remember,
                    "created_at": now(), "updated_at": now(), "messages": [
-                       {"id": str(uuid4()), "role": "assistant", "content": GREETING}],
+                       {"id": str(uuid4()), "role": "assistant", "content": GREETING, "survey_required": True}],
                    "profile": empty_profile(), "summary": ""}
             if remember:
                 with self.connect() as db:

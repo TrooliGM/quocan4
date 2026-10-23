@@ -58,6 +58,8 @@ class AdvisorTests(unittest.TestCase):
     def session(self, remember=False):
         response = self.client.post("/api/ai/sessions", headers=self.a, json={"remember": remember})
         self.assertEqual(response.status_code, 201, response.text)
+        self.client.put('/api/ai/sessions/'+response.json()['session']['id']+'/survey', headers=self.a,
+                        json={'answers':['Chưa rõ']*5,'address':'chị'}).raise_for_status()
         return response.json()["session"]
 
     def send(self, session, text="Mình thích Toán", request_id=None):

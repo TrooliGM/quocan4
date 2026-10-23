@@ -8,10 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/assets/style.css?v=20261019-premium-2" rel="stylesheet"><link href="/assets/chat.css?v=20261019-premium-2" rel="stylesheet">
+  <link href="/assets/style.css?v=20261019-premium-2" rel="stylesheet"><link href="/assets/chat.css?v=task1-20261019-premium-2" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.3.0/dist/purify.min.js" defer></script>
-  <script src="/assets/chat.js?v=20261019-premium-2" type="module"></script>
+  <script src="/assets/chat.js?v=task1-20261019-premium-2" type="module"></script>
 </head>
 <body class="advisor-page" data-ui-version="premium-20261019-2">
 <a class="skip-link" href="#message-input">Đến ô nhập tin nhắn</a>
@@ -60,6 +60,18 @@
         <p class="welcome-footnote">Không cần có sẵn câu trả lời. Chỉ cần bắt đầu từ một chút tò mò.</p>
         </div>
       </div>
+      <form id="career-survey" class="career-survey" hidden aria-labelledby="survey-question">
+        <p class="eyebrow">HIỂU MÌNH · MỞ LỐI</p>
+        <div class="survey-top"><span id="survey-step" role="status"></span><label for="survey-address">Em muốn trò chuyện cùng <select id="survey-address"><option value="chị">Chị tư vấn</option><option value="anh">Anh tư vấn</option></select></label></div>
+        <progress id="survey-progress" max="5" value="1" aria-label="Tiến trình khảo sát"></progress>
+        <h2 id="survey-question" tabindex="-1"></h2>
+        <p>Chạm gợi ý để thêm, hoặc viết theo cách của em.</p>
+        <div id="survey-suggestions" class="survey-suggestions"></div>
+        <label for="survey-answer" class="visually-hidden">Câu trả lời của em</label>
+        <textarea id="survey-answer" maxlength="400" rows="4" placeholder="Em có thể chia sẻ rằng mình chưa rõ…" required></textarea>
+        <p class="survey-note">Chỉ chia sẻ sở thích và mong muốn. Không cần thông tin liên hệ hay dữ liệu riêng tư. Phân tích AI dùng 1 lượt tư vấn.</p>
+        <div class="survey-actions"><button id="survey-back" type="button" class="btn">← Quay lại</button><button id="survey-next" type="submit" class="btn btn-coral">Tiếp tục →</button></div>
+      </form>
       <div id="messages" class="message-list" role="log" aria-label="Tin nhắn" aria-live="polite" aria-relevant="additions" hidden></div>
       <div id="thinking" class="thinking" role="status" hidden><img src="/assets/compass.svg" width="28" height="28" alt=""><span>La Bàn đang lắng nghe</span><i></i><i></i><i></i></div>
     </section>

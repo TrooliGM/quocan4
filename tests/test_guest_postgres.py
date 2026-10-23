@@ -56,6 +56,8 @@ class GuestPostgresTests(unittest.TestCase):
     def session(self,owner='guest',remember=False):
         response = self.client.post('/api/ai/sessions',headers={'Authorization':'Bearer '+owner},json={'remember':remember})
         self.assertEqual(response.status_code,201,response.text)
+        self.client.put('/api/ai/sessions/'+response.json()['session']['id']+'/survey',
+            headers={'Authorization':'Bearer '+owner},json={'answers':['Chưa rõ']*5,'address':'chị'}).raise_for_status()
         return response.json()['session']['id']
 
     def send(self,sid,request_id=None,owner='guest',message='Mình thích vẽ'):

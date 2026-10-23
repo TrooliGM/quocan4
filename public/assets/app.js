@@ -8,7 +8,7 @@ const icons = {
   leaf: '<path d="M55 79C0 66 16 18 27 11c10 26 48 17 47 43 0 11-8 22-19 25z" fill="#b4d5b9" stroke="#203c36" stroke-width="3"/><path d="M55 83c23-14 39-33 40-57-30 0-48 18-40 57z" fill="#fffdf5" stroke="#203c36" stroke-width="3"/><path d="M37 35q22 25 18 54m25-43L55 83" fill="none" stroke="#203c36" stroke-width="3"/>',
   chat: '<path d="M13 17h76a8 8 0 0 1 8 8v40a8 8 0 0 1-8 8H51L30 88V73H13a8 8 0 0 1-8-8V25a8 8 0 0 1 8-8z" fill="#fffdf5" stroke="#203c36" stroke-width="3"/><path d="M23 35h55M23 46h45M23 57h30" fill="none" stroke="#203c36" stroke-width="3" stroke-linecap="round"/><circle cx="85" cy="15" r="13" fill="#ec7357"/><path d="M79 15h12m-6-6v12" stroke="#fffdf5" stroke-width="3"/>'
 };
-let careerData = [], articleData = [], category = '', allCareers = false, searchController;
+let careerData = [], category = '', allCareers = false, searchController;
 async function fetchJSON(url, options = {}) {
   const response = await fetch(url, options);
   let data;
@@ -62,23 +62,8 @@ function openCareer(id) {
   if (!c) return;
   openContent(c.name, `<a class="btn btn-coral dialog-story-link" href="/mot-ngay-lam-viec?nghe=${encodeURIComponent(c.id)}">Xem truyện một ngày làm việc ↗</a><br><span class="eyebrow">${escapeHTML(c.category)} · KHÁM PHÁ NGHỀ</span><p>${escapeHTML(c.description)}</p><h3>Một ngày làm việc có thể gồm</h3><ol class="day-list">${c.day.map((s) => `<li>${escapeHTML(s)}</li>`).join('')}</ol><h3>Những kỹ năng đáng rèn luyện</h3><div class="skill-tags">${c.skills.map((s) => `<span>${escapeHTML(s)}</span>`).join('')}</div><h3>Thử một bước nhỏ hôm nay</h3><p class="first-step">${escapeHTML(c.first_step)}</p><p class="content-note">Nội dung giới thiệu của bản mẫu; công việc cụ thể thay đổi theo vị trí và nơi làm việc.</p>`);
 }
-function renderArticles() {
-  $('#article-grid').innerHTML = articleData.map((a, i) => `<div class="col-md-6 col-lg-4"><article class="article-card"><div class="article-cover ${escapeHTML(a.color)}"><span>${escapeHTML(a.category.toLocaleUpperCase('vi'))}</span><i aria-hidden="true">${['✳', '↗', '“'][i % 3]}</i><strong aria-hidden="true">${escapeHTML(a.number)}</strong></div><div class="article-body"><span class="reading-time">LA BÀN BIÊN SOẠN · ${a.minutes} PHÚT ĐỌC</span><h3>${escapeHTML(a.title)}</h3><p>${escapeHTML(a.summary)}</p><button data-article="${escapeHTML(a.id)}" aria-label="Đọc bài ${escapeHTML(a.title)}">Đọc câu chuyện ↗</button></div></article></div>`).join('');
-}
-async function loadArticles() {
-  try { articleData = (await fetchJSON('/api/articles')).items; renderArticles(); }
-  catch {
-    $('#article-grid').innerHTML = '<div class="col-12"><div class="empty-state"><p>Chưa tải được bài viết.</p><button id="retry-articles" class="btn btn-ink">Thử lại</button></div></div>';
-    $('#retry-articles').addEventListener('click', loadArticles);
-  }
-}
 document.addEventListener('click', (event) => {
   const career = event.target.closest('[data-career]'); if (career) openCareer(career.dataset.career);
-  const article = event.target.closest('[data-article]');
-  if (article) {
-    const a = articleData.find((item) => item.id === article.dataset.article);
-    if (a) openContent(a.title, `<span class="eyebrow">${escapeHTML(a.category)} · ${a.minutes} PHÚT ĐỌC</span>${a.body.map((p) => `<p>${escapeHTML(p)}</p>`).join('')}`);
-  }
   if (event.target.closest('[data-open-ai]')) $('#ai-dialog').showModal();
   const example = event.target.closest('[data-ai-question]');
   if (example) { $('#ai-question').value = example.dataset.aiQuestion; $('#ai-question').focus(); }
@@ -93,8 +78,6 @@ $('#career-search').addEventListener('input', () => { clearTimeout(debounce); de
 document.querySelectorAll('[data-category]').forEach((b) => b.addEventListener('click', () => { selectCategory(b.dataset.category); allCareers = true; loadCareers(); }));
 document.querySelectorAll('[data-query]').forEach((b) => b.addEventListener('click', () => { selectCategory(''); $('#career-search').value = b.dataset.query; $('#search-form').requestSubmit(); }));
 $('#show-all').addEventListener('click', resetSearch);
-$('#menu-toggle').addEventListener('click', () => { const open = $('#nav-links').classList.toggle('open'); $('#menu-toggle').setAttribute('aria-expanded', String(open)); });
-document.querySelectorAll('#nav-links a').forEach((link) => link.addEventListener('click', () => { $('#nav-links').classList.remove('open'); $('#menu-toggle').setAttribute('aria-expanded', 'false'); }));
 $('#ai-form').addEventListener('submit', async (event) => {
   event.preventDefault();
   const question = $('#ai-question').value.trim();
@@ -109,8 +92,7 @@ $('#ai-form').addEventListener('submit', async (event) => {
 });
 async function initialize() {
   await Promise.allSettled([
-    (async () => { try { careerData = (await fetchJSON('/api/careers')).items; renderCareers(careerData); } catch { await loadCareers(); } })(),
-    loadArticles()
+    (async () => { try { careerData = (await fetchJSON('/api/careers')).items; renderCareers(careerData); } catch { await loadCareers(); } })()
   ]);
 }
 initialize();

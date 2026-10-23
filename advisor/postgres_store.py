@@ -94,6 +94,7 @@ def create_postgres_session(uid):
                 "id": str(uuid4()),
                 "role": "assistant",
                 "content": GREETING,
+                "survey_required": True,
             }
         ],
         "profile": empty_profile(),
@@ -477,6 +478,7 @@ def create_temporary_session(uid):
                 "id": str(uuid4()),
                 "role": "assistant",
                 "content": GREETING,
+                "survey_required": True,
             }
         ],
         "profile": empty_profile(),

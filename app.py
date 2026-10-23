@@ -11,7 +11,7 @@ from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, field_validator
 
-from content import ARTICLES, CAREERS
+from content import CAREERS
 from career_stories import STORIES, get_story
 from firebase_auth import verify_user, web_config
 from advisor.store import StorageConfigurationError
@@ -122,11 +122,6 @@ def careers(q: str = Query("", max_length=120), category: str = Query("", max_le
     search = normalize(q.strip())
     return {"items": [c for c in CAREERS if (not category or c["category"] == category) and
                       search in normalize(" ".join([c["name"], c["category"], c["description"], *c["skills"]]))]}
-
-
-@app.get("/api/articles")
-def articles():
-    return {"items": ARTICLES}
 
 
 class AdviceRequest(BaseModel):

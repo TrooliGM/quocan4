@@ -8,6 +8,61 @@ let actionResolve = null;
 let guestQuota = null;
 let micMode = null, recorder = null, micTurn = 0, transcriptAbort = null;
 const loginURL = '/?login=1';
+const analysisMessage = 'Hãy phân tích khảo sát của em, gợi ý khoảng 3 nhóm nghề cùng lý do, môn học, kỹ năng và trải nghiệm để thử.';
+const surveyQuestions = [
+  ['Em yêu thích lĩnh vực nào?', ['Công nghệ', 'Nghệ thuật', 'Y tế', 'Kinh doanh', 'Em chưa rõ']],
+  ['Em thích làm những hoạt động gì?', ['Vẽ và sáng tạo', 'Tìm hiểu máy tính', 'Giúp đỡ mọi người', 'Làm việc ngoài trời']],
+  ['Em nhận thấy điểm mạnh của mình là gì?', ['Kiên nhẫn', 'Tư duy logic', 'Lắng nghe', 'Sáng tạo', 'Em muốn tìm hiểu thêm']],
+  ['Em mong muốn công việc tương lai như thế nào?', ['Có ích cho cộng đồng', 'Được sáng tạo', 'Ổn định', 'Có cơ hội khám phá']],
+  ['Em muốn AI tư vấn điều gì?', ['Nhóm nghề nên tìm hiểu', 'Môn học cần chú ý', 'Kỹ năng cần luyện', 'Một hoạt động để thử']]
+];
+const surveyDrafts = new Map();
+const needsSurvey = () => Boolean(active?.messages?.[0]?.survey_required && !active.messages[0].survey);
+function renderSurvey() {
+  const form = $('#career-survey'); form.hidden = !needsSurvey();
+  $('#message-form').hidden = needsSurvey();
+  if (!needsSurvey()) return;
+  let draft = surveyDrafts.get(active.id);
+  if (!draft) { draft = {step:0, answers:['','','','',''], address:'chị'}; surveyDrafts.set(active.id, draft); }
+  const [question, suggestions] = surveyQuestions[draft.step];
+  $('#survey-step').textContent = `Câu ${draft.step + 1} / 5`;
+  $('#survey-progress').value = draft.step + 1;
+  $('#survey-question').textContent = question;
+  $('#survey-answer').value = draft.answers[draft.step];
+  $('#survey-address').value = draft.address;
+  $('#survey-back').disabled = draft.step === 0 || busy;
+  $('#survey-next').textContent = draft.step === 4 ? 'Nhận gợi ý từ AI ↗' : 'Tiếp tục →';
+  $('#survey-next').disabled = busy;
+  const chips = $('#survey-suggestions'); chips.replaceChildren();
+  for (const text of suggestions) {
+    const chip = document.createElement('button'); chip.type = 'button'; chip.textContent = text;
+    chip.addEventListener('click', () => {
+      const input = $('#survey-answer');
+      input.value = [input.value.trim(), text].filter(Boolean).join(', ').slice(0,400);
+      draft.answers[draft.step] = input.value; input.focus();
+    }); chips.append(chip);
+  }
+}
+$('#survey-answer').addEventListener('input', () => { if (active) surveyDrafts.get(active.id).answers[surveyDrafts.get(active.id).step] = $('#survey-answer').value; });
+$('#survey-address').addEventListener('change', () => { if (active) surveyDrafts.get(active.id).address = $('#survey-address').value; });
+$('#survey-back').addEventListener('click', () => { const draft = surveyDrafts.get(active.id); if (!busy && draft.step > 0) { draft.step--; renderSurvey(); $('#survey-question').focus(); } });
+$('#career-survey').addEventListener('submit', async event => {
+  event.preventDefault(); if (busy || !active) return;
+  const draft = surveyDrafts.get(active.id);
+  draft.answers[draft.step] = $('#survey-answer').value.trim();
+  if (!draft.answers[draft.step]) return $('#survey-answer').focus();
+  if (draft.step < 4) { draft.step++; renderSurvey(); $('#survey-question').focus(); return; }
+  const id = active.id, epoch = identityEpoch;
+  busy = true; updateControls(); renderSurvey(); notice();
+  try {
+    const data = await jsonAPI(`/api/ai/sessions/${id}/survey`, {method:'PUT', body:JSON.stringify({answers:draft.answers,address:draft.address})});
+    if (epoch !== identityEpoch || active?.id !== id) return;
+    active = data.session; surveyDrafts.delete(id); renderMessages();
+    $('#message-input').value = analysisMessage;
+  } catch (error) { notice(failure(error)); }
+  finally { if (epoch === identityEpoch) { busy = false; updateControls(); renderSurvey(); } }
+  if (epoch === identityEpoch && active?.id === id && !needsSurvey()) await send();
+});
 
 function notice(text = '', retry = false) {
   $('#chat-notice-text').textContent = text;
@@ -32,12 +87,18 @@ function renderGuestQuota() {
   label.replaceChildren(document.createTextNode('Bạn đang dùng thử · còn '), count, document.createTextNode(' câu hỏi miễn phí.'));
 }
 function updateControls() {
+  $('#survey-next').disabled = busy;
+  $('#survey-back').disabled = busy || !active || !surveyDrafts.get(active.id)?.step;
+  $('#survey-answer').disabled = busy;
+  $('#survey-address').disabled = busy;
+  document.querySelectorAll('#survey-suggestions button').forEach(button => { button.disabled = busy; });
   const listening = ['starting-mic', 'listening', 'transcribing'].includes(phase);
+  const surveying = needsSurvey();
   const exhausted = config?.is_guest && guestQuota?.remaining === 0;
-  $('#send-message').disabled = exhausted || busy || listening || !config?.configured || !$('#message-input').value.trim();
-  $('#message-input').disabled = busy || listening;
+  $('#send-message').disabled = surveying || exhausted || busy || listening || !config?.configured || !$('#message-input').value.trim();
+  $('#message-input').disabled = surveying || busy || listening;
   $('#start-chat').disabled = busy;
-  $('#microphone').disabled = busy || !micMode || phase === 'starting-mic' || phase === 'transcribing';
+  $('#microphone').disabled = surveying || busy || !micMode || phase === 'starting-mic' || phase === 'transcribing';
   $('#microphone').classList.toggle('recording', phase === 'listening');
   $('#microphone').setAttribute('aria-label', phase === 'listening' ? 'Dừng mic và nhận diện' : 'Nói bằng micro');
   $('#mic-status').hidden = !listening;
@@ -184,8 +245,10 @@ function renderMessages() {
     if (pending && pending.session_id === active.id && !active.messages.some((item) => item.request_id === pending.request_id)) list.append(messageRow({role:'user', content:pending.message}));
   }
   $('#session-note').textContent = active ? active.remember ? 'Lịch sử đã bật · Bạn có thể xóa bất cứ lúc nào.' : 'Phiên tạm · Không ghi nhớ cho lần đăng nhập sau.' : 'Một góc trò chuyện riêng, theo nhịp của bạn.';
+  renderSurvey();
+  list.hidden = !active || needsSurvey();
   renderHistory();
-  if (active) scrollBottom(); else $('#chat-scroll').scrollTop = 0;
+  if (active && !needsSurvey()) scrollBottom(); else $('#chat-scroll').scrollTop = 0;
 }
 async function createSession() {
   if (active) return active;
@@ -202,7 +265,10 @@ async function startChat(prompt = '') {
   busy = true; updateControls(); notice();
   try {
     await createSession();
-    if (prompt) { $('#message-input').value = prompt; resizeInput(); }
+    if (prompt) {
+      if (needsSurvey()) surveyDrafts.get(active.id).answers[4] = prompt;
+      else { $('#message-input').value = prompt; resizeInput(); }
+    }
   } catch (error) { notice(failure(error)); }
   finally { busy = false; updateControls(); if (active) $('#message-input').focus(); }
 }
@@ -237,7 +303,8 @@ async function send(retry = false) {
   const epoch = identityEpoch;
   try {
     await createSession();
-    if (!retry || !pending) pending = {session_id:active.id, request_id:crypto.randomUUID(), message:text};
+    if (needsSurvey()) { surveyDrafts.get(active.id).answers[4] = text; return; }
+    if (!retry || !pending) pending = {session_id:active.id, request_id:text === analysisMessage && active.messages[0]?.survey ? active.messages[0].survey.analysis_request_id : crypto.randomUUID(), message:text};
     const request = {...pending}; renderMessages();
     $('#message-input').value = ''; resizeInput();
     const data = await jsonAPI('/api/ai/chat', {method:'POST', body:JSON.stringify(request)});
@@ -374,7 +441,10 @@ async function openProfile() {
 }
 
 function clearPrivateUI() {
-  identityEpoch++; cancelMic();
+  identityEpoch++; cancelMic(); surveyDrafts.clear(); $('#career-survey').hidden = true;
+  $('#survey-answer').value = '';
+  $('#survey-suggestions').replaceChildren();
+  $('#survey-question').textContent = '';
   active = null; pending = null; sessions = []; busy = false;
   $('#messages').replaceChildren(); $('#history-list').replaceChildren(); $('#profile-content').replaceChildren();
   $('#message-input').value = ''; $('#user-name').textContent = ''; $('#user-initial').textContent = '';
