@@ -75,7 +75,7 @@ def get_postgres_session(uid, session_id):
 
     return row
 
-def create_postgres_session(uid):
+def create_postgres_session(uid, context=None):
     """Tạo cuộc trò chuyện mới trên Neon PostgreSQL."""
     import json
     from uuid import uuid4
@@ -95,6 +95,7 @@ def create_postgres_session(uid):
                 "role": "assistant",
                 "content": GREETING,
                 "survey_required": True,
+                "career_context": context or {"mode":"career_discovery","career_id":None},
             }
         ],
         "profile": empty_profile(),
@@ -455,7 +456,7 @@ def cleanup_expired_sessions():
 
         return result.rowcount
 
-def create_temporary_session(uid):
+def create_temporary_session(uid, context=None):
     """Tạo cuộc trò chuyện tạm, hết hạn sau 2 giờ."""
     import json
     from datetime import datetime, timedelta, timezone
@@ -479,6 +480,7 @@ def create_temporary_session(uid):
                 "role": "assistant",
                 "content": GREETING,
                 "survey_required": True,
+                "career_context": context or {"mode":"career_discovery","career_id":None},
             }
         ],
         "profile": empty_profile(),

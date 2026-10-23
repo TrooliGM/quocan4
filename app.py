@@ -92,7 +92,7 @@ def story_catalog():
 def career_story(career_id: str):
     story = get_story(career_id)
     if not story:
-        raise HTTPException(404, "Chưa có truyện cho nghề này. Bạn chọn một nghề trong thư viện nhé.")
+        raise HTTPException(404, "Truyện nghề này đang được cập nhật.")
     return story
 
 
@@ -115,6 +115,28 @@ def current_user(response: Response, authorization: str | None = Header(default=
     if len(parts) != 2 or parts[0].lower() != "bearer" or len(parts[1]) > 12000:
         raise HTTPException(401, "Bạn cần đăng nhập để xem tài khoản.", headers={"WWW-Authenticate": "Bearer"})
     return {"user": verify_user(parts[1])}
+
+
+@app.get('/api/career-library/categories')
+def library_categories():
+    from career_library import CATEGORIES, catalog
+    return {'items':[{'category_id':k,'name':v,'count':sum(c.category_id==k for c in catalog().careers)} for k,v in CATEGORIES.items()]}
+
+
+@app.get('/api/career-library')
+def library(q: str = Query('',max_length=120), category_id: str = Query('',max_length=80), offset: int = Query(0,ge=0), limit: int = Query(12,ge=1,le=24)):
+    from career_library import catalog, CATEGORIES
+    if category_id and category_id not in CATEGORIES: raise HTTPException(422,'Lĩnh vực không hợp lệ.')
+    rows=catalog().search(q,category_id)
+    return {'items':[c.model_dump() for c in rows[offset:offset+limit]],'total':len(rows),'offset':offset,'limit':limit}
+
+
+@app.get('/api/career-library/{career_id}')
+def library_detail(career_id: str):
+    from career_library import find_career
+    career=find_career(career_id)
+    if not career: raise HTTPException(404,'Không tìm thấy nghề.')
+    return career.model_dump()
 
 
 @app.get("/api/careers")

@@ -1,0 +1,1652 @@
+[
+  {
+    "career_id": "can-bo-tu-phap-ho-tich",
+    "name": "Cán bộ tư pháp hộ tịch",
+    "category_id": "public-service",
+    "short_description": "Hướng dẫn hồ sơ hộ tịch, kiểm tra thông tin đăng ký.",
+    "description": "Cán bộ tư pháp hộ tịch tập trung vào hướng dẫn hồ sơ hộ tịch. Công việc còn bao gồm kiểm tra thông tin đăng ký, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Hướng dẫn hồ sơ hộ tịch",
+      "Kiểm tra thông tin đăng ký"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "challenges": [
+      "Thông tin nhân thân phải chính xác"
+    ],
+    "keywords": [
+      "Cán bộ tư pháp hộ tịch",
+      "Luật, hành chính và dịch vụ công",
+      "Hướng dẫn hồ sơ hộ tịch",
+      "Kiểm tra thông tin đăng ký",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "can-bo-hai-quan",
+    "name": "Cán bộ hải quan",
+    "category_id": "public-service",
+    "short_description": "Kiểm tra hồ sơ hàng hóa, thực hiện kiểm soát theo phân công.",
+    "description": "Cán bộ hải quan tập trung vào kiểm tra hồ sơ hàng hóa. Công việc còn bao gồm thực hiện kiểm soát theo phân công, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Kiểm tra hồ sơ hàng hóa",
+      "Thực hiện kiểm soát theo phân công"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "challenges": [
+      "Khối lượng hàng và hồ sơ lớn"
+    ],
+    "keywords": [
+      "Cán bộ hải quan",
+      "Luật, hành chính và dịch vụ công",
+      "Kiểm tra hồ sơ hàng hóa",
+      "Thực hiện kiểm soát theo phân công",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-ngoai-giao",
+    "name": "Chuyên viên ngoại giao",
+    "category_id": "public-service",
+    "short_description": "Chuẩn bị thông tin đối ngoại, hỗ trợ hoạt động hợp tác.",
+    "description": "Chuyên viên ngoại giao tập trung vào chuẩn bị thông tin đối ngoại. Công việc còn bao gồm hỗ trợ hoạt động hợp tác, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chuẩn bị thông tin đối ngoại",
+      "Hỗ trợ hoạt động hợp tác"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "challenges": [
+      "Khác biệt văn hóa và nghi thức"
+    ],
+    "keywords": [
+      "Chuyên viên ngoại giao",
+      "Luật, hành chính và dịch vụ công",
+      "Chuẩn bị thông tin đối ngoại",
+      "Hỗ trợ hoạt động hợp tác",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "nhan-vien-cong-tac-xa-hoi",
+    "name": "Nhân viên công tác xã hội",
+    "category_id": "public-service",
+    "short_description": "Đánh giá nhu cầu hỗ trợ, kết nối nguồn lực cộng đồng.",
+    "description": "Nhân viên công tác xã hội tập trung vào đánh giá nhu cầu hỗ trợ. Công việc còn bao gồm kết nối nguồn lực cộng đồng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Đánh giá nhu cầu hỗ trợ",
+      "Kết nối nguồn lực cộng đồng"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "challenges": [
+      "Hoàn cảnh người được hỗ trợ phức tạp"
+    ],
+    "keywords": [
+      "Nhân viên công tác xã hội",
+      "Luật, hành chính và dịch vụ công",
+      "Đánh giá nhu cầu hỗ trợ",
+      "Kết nối nguồn lực cộng đồng",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "linh-cuu-hoa",
+    "name": "Lính cứu hỏa",
+    "category_id": "public-service",
+    "short_description": "Kiểm tra trang bị cứu nạn, tham gia xử lý cháy và cứu hộ.",
+    "description": "Lính cứu hỏa tập trung vào kiểm tra trang bị cứu nạn. Công việc còn bao gồm tham gia xử lý cháy và cứu hộ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Kiểm tra trang bị cứu nạn",
+      "Tham gia xử lý cháy và cứu hộ"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "challenges": [
+      "Môi trường nguy hiểm và thể lực cao"
+    ],
+    "keywords": [
+      "Lính cứu hỏa",
+      "Luật, hành chính và dịch vụ công",
+      "Kiểm tra trang bị cứu nạn",
+      "Tham gia xử lý cháy và cứu hộ",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "can-bo-canh-sat-giao-thong",
+    "name": "Cán bộ cảnh sát giao thông",
+    "category_id": "public-service",
+    "short_description": "Theo dõi trật tự giao thông, xử lý tình huống theo phân công.",
+    "description": "Cán bộ cảnh sát giao thông tập trung vào theo dõi trật tự giao thông. Công việc còn bao gồm xử lý tình huống theo phân công, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Theo dõi trật tự giao thông",
+      "Xử lý tình huống theo phân công"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "challenges": [
+      "Làm việc ngoài trời và ứng phó sự cố"
+    ],
+    "keywords": [
+      "Cán bộ cảnh sát giao thông",
+      "Luật, hành chính và dịch vụ công",
+      "Theo dõi trật tự giao thông",
+      "Xử lý tình huống theo phân công",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-chinh-sach-cong",
+    "name": "Chuyên viên chính sách công",
+    "category_id": "public-service",
+    "short_description": "Phân tích vấn đề xã hội, đánh giá tác động phương án chính sách.",
+    "description": "Chuyên viên chính sách công tập trung vào phân tích vấn đề xã hội. Công việc còn bao gồm đánh giá tác động phương án chính sách, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Phân tích vấn đề xã hội",
+      "Đánh giá tác động phương án chính sách"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "challenges": [
+      "Cân đối lợi ích nhiều nhóm"
+    ],
+    "keywords": [
+      "Chuyên viên chính sách công",
+      "Luật, hành chính và dịch vụ công",
+      "Phân tích vấn đề xã hội",
+      "Đánh giá tác động phương án chính sách",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-so-huu-tri-tue",
+    "name": "Chuyên viên sở hữu trí tuệ",
+    "category_id": "public-service",
+    "short_description": "Tra cứu thông tin quyền sở hữu, hỗ trợ hồ sơ bảo hộ.",
+    "description": "Chuyên viên sở hữu trí tuệ tập trung vào tra cứu thông tin quyền sở hữu. Công việc còn bao gồm hỗ trợ hồ sơ bảo hộ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tra cứu thông tin quyền sở hữu",
+      "Hỗ trợ hồ sơ bảo hộ"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "challenges": [
+      "Phân biệt ý tưởng với đối tượng được bảo hộ"
+    ],
+    "keywords": [
+      "Chuyên viên sở hữu trí tuệ",
+      "Luật, hành chính và dịch vụ công",
+      "Tra cứu thông tin quyền sở hữu",
+      "Hỗ trợ hồ sơ bảo hộ",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "ky-su-moi-truong",
+    "name": "Kỹ sư môi trường",
+    "category_id": "environment",
+    "short_description": "Đánh giá dòng chất thải, đề xuất quy trình xử lý.",
+    "description": "Kỹ sư môi trường tập trung vào đánh giá dòng chất thải. Công việc còn bao gồm đề xuất quy trình xử lý, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Đánh giá dòng chất thải",
+      "Đề xuất quy trình xử lý"
+    ],
+    "skills": [
+      "Quan sát thực địa",
+      "Phân tích mẫu và dữ liệu"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ],
+    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "challenges": [
+      "Dữ liệu quan trắc và điều kiện thực địa"
+    ],
+    "keywords": [
+      "Kỹ sư môi trường",
+      "Nông nghiệp, môi trường và tài nguyên",
+      "Đánh giá dòng chất thải",
+      "Đề xuất quy trình xử lý",
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ]
+  },
+  {
+    "career_id": "ky-su-nong-hoc",
+    "name": "Kỹ sư nông học",
+    "category_id": "environment",
+    "short_description": "Theo dõi cây trồng, thử phương án canh tác.",
+    "description": "Kỹ sư nông học tập trung vào theo dõi cây trồng. Công việc còn bao gồm thử phương án canh tác, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Theo dõi cây trồng",
+      "Thử phương án canh tác"
+    ],
+    "skills": [
+      "Quan sát thực địa",
+      "Phân tích mẫu và dữ liệu"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ],
+    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "challenges": [
+      "Thời tiết và sâu bệnh biến đổi"
+    ],
+    "keywords": [
+      "Kỹ sư nông học",
+      "Nông nghiệp, môi trường và tài nguyên",
+      "Theo dõi cây trồng",
+      "Thử phương án canh tác",
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ]
+  },
+  {
+    "career_id": "ky-su-chan-nuoi",
+    "name": "Kỹ sư chăn nuôi",
+    "category_id": "environment",
+    "short_description": "Theo dõi đàn vật nuôi, điều chỉnh quy trình chăm sóc.",
+    "description": "Kỹ sư chăn nuôi tập trung vào theo dõi đàn vật nuôi. Công việc còn bao gồm điều chỉnh quy trình chăm sóc, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Theo dõi đàn vật nuôi",
+      "Điều chỉnh quy trình chăm sóc"
+    ],
+    "skills": [
+      "Quan sát thực địa",
+      "Phân tích mẫu và dữ liệu"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ],
+    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "challenges": [
+      "Kiểm soát dịch bệnh trong trang trại"
+    ],
+    "keywords": [
+      "Kỹ sư chăn nuôi",
+      "Nông nghiệp, môi trường và tài nguyên",
+      "Theo dõi đàn vật nuôi",
+      "Điều chỉnh quy trình chăm sóc",
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ]
+  },
+  {
+    "career_id": "bac-si-thu-y",
+    "name": "Bác sĩ thú y",
+    "category_id": "environment",
+    "short_description": "Thăm khám động vật, hướng dẫn chăm sóc và phòng bệnh.",
+    "description": "Bác sĩ thú y tập trung vào thăm khám động vật. Công việc còn bao gồm hướng dẫn chăm sóc và phòng bệnh, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thăm khám động vật",
+      "Hướng dẫn chăm sóc và phòng bệnh"
+    ],
+    "skills": [
+      "Quan sát thực địa",
+      "Phân tích mẫu và dữ liệu"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ],
+    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "challenges": [
+      "Động vật không thể tự mô tả triệu chứng"
+    ],
+    "keywords": [
+      "Bác sĩ thú y",
+      "Nông nghiệp, môi trường và tài nguyên",
+      "Thăm khám động vật",
+      "Hướng dẫn chăm sóc và phòng bệnh",
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ]
+  },
+  {
+    "career_id": "ky-su-nuoi-trong-thuy-san",
+    "name": "Kỹ sư nuôi trồng thủy sản",
+    "category_id": "environment",
+    "short_description": "Theo dõi môi trường nước, điều chỉnh chăm sóc thủy sản.",
+    "description": "Kỹ sư nuôi trồng thủy sản tập trung vào theo dõi môi trường nước. Công việc còn bao gồm điều chỉnh chăm sóc thủy sản, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Theo dõi môi trường nước",
+      "Điều chỉnh chăm sóc thủy sản"
+    ],
+    "skills": [
+      "Quan sát thực địa",
+      "Phân tích mẫu và dữ liệu"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ],
+    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "challenges": [
+      "Chất lượng nước thay đổi nhanh"
+    ],
+    "keywords": [
+      "Kỹ sư nuôi trồng thủy sản",
+      "Nông nghiệp, môi trường và tài nguyên",
+      "Theo dõi môi trường nước",
+      "Điều chỉnh chăm sóc thủy sản",
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-lam-nghiep",
+    "name": "Chuyên viên lâm nghiệp",
+    "category_id": "environment",
+    "short_description": "Theo dõi tài nguyên rừng, lập kế hoạch chăm sóc rừng.",
+    "description": "Chuyên viên lâm nghiệp tập trung vào theo dõi tài nguyên rừng. Công việc còn bao gồm lập kế hoạch chăm sóc rừng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Theo dõi tài nguyên rừng",
+      "Lập kế hoạch chăm sóc rừng"
+    ],
+    "skills": [
+      "Quan sát thực địa",
+      "Phân tích mẫu và dữ liệu"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ],
+    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "challenges": [
+      "Địa bàn rộng và điều kiện hiện trường"
+    ],
+    "keywords": [
+      "Chuyên viên lâm nghiệp",
+      "Nông nghiệp, môi trường và tài nguyên",
+      "Theo dõi tài nguyên rừng",
+      "Lập kế hoạch chăm sóc rừng",
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ]
+  },
+  {
+    "career_id": "nhan-vien-kiem-lam",
+    "name": "Nhân viên kiểm lâm",
+    "category_id": "environment",
+    "short_description": "Tuần tra địa bàn rừng, theo dõi dấu hiệu vi phạm.",
+    "description": "Nhân viên kiểm lâm tập trung vào tuần tra địa bàn rừng. Công việc còn bao gồm theo dõi dấu hiệu vi phạm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tuần tra địa bàn rừng",
+      "Theo dõi dấu hiệu vi phạm"
+    ],
+    "skills": [
+      "Quan sát thực địa",
+      "Phân tích mẫu và dữ liệu"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ],
+    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "challenges": [
+      "Thời tiết và địa hình khó khăn"
+    ],
+    "keywords": [
+      "Nhân viên kiểm lâm",
+      "Nông nghiệp, môi trường và tài nguyên",
+      "Tuần tra địa bàn rừng",
+      "Theo dõi dấu hiệu vi phạm",
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ]
+  },
+  {
+    "career_id": "ky-su-thuy-loi",
+    "name": "Kỹ sư thủy lợi",
+    "category_id": "environment",
+    "short_description": "Tính toán hệ thống tưới, theo dõi công trình dẫn nước.",
+    "description": "Kỹ sư thủy lợi tập trung vào tính toán hệ thống tưới. Công việc còn bao gồm theo dõi công trình dẫn nước, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tính toán hệ thống tưới",
+      "Theo dõi công trình dẫn nước"
+    ],
+    "skills": [
+      "Quan sát thực địa",
+      "Phân tích mẫu và dữ liệu"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ],
+    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "challenges": [
+      "Nguồn nước biến động theo mùa"
+    ],
+    "keywords": [
+      "Kỹ sư thủy lợi",
+      "Nông nghiệp, môi trường và tài nguyên",
+      "Tính toán hệ thống tưới",
+      "Theo dõi công trình dẫn nước",
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-quan-trac-moi-truong",
+    "name": "Chuyên viên quan trắc môi trường",
+    "category_id": "environment",
+    "short_description": "Lấy mẫu hiện trường, kiểm tra số liệu đo.",
+    "description": "Chuyên viên quan trắc môi trường tập trung vào lấy mẫu hiện trường. Công việc còn bao gồm kiểm tra số liệu đo, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Lấy mẫu hiện trường",
+      "Kiểm tra số liệu đo"
+    ],
+    "skills": [
+      "Quan sát thực địa",
+      "Phân tích mẫu và dữ liệu"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ],
+    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "challenges": [
+      "Độ chính xác của mẫu và thiết bị"
+    ],
+    "keywords": [
+      "Chuyên viên quan trắc môi trường",
+      "Nông nghiệp, môi trường và tài nguyên",
+      "Lấy mẫu hiện trường",
+      "Kiểm tra số liệu đo",
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-bao-ton-da-dang-sinh-hoc",
+    "name": "Chuyên viên bảo tồn đa dạng sinh học",
+    "category_id": "environment",
+    "short_description": "Khảo sát loài và sinh cảnh, theo dõi chương trình bảo tồn.",
+    "description": "Chuyên viên bảo tồn đa dạng sinh học tập trung vào khảo sát loài và sinh cảnh. Công việc còn bao gồm theo dõi chương trình bảo tồn, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Khảo sát loài và sinh cảnh",
+      "Theo dõi chương trình bảo tồn"
+    ],
+    "skills": [
+      "Quan sát thực địa",
+      "Phân tích mẫu và dữ liệu"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ],
+    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "challenges": [
+      "Nguồn lực hạn chế trên địa bàn rộng"
+    ],
+    "keywords": [
+      "Chuyên viên bảo tồn đa dạng sinh học",
+      "Nông nghiệp, môi trường và tài nguyên",
+      "Khảo sát loài và sinh cảnh",
+      "Theo dõi chương trình bảo tồn",
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ]
+  },
+  {
+    "career_id": "nha-dia-chat",
+    "name": "Nhà địa chất",
+    "category_id": "environment",
+    "short_description": "Khảo sát cấu trúc địa tầng, phân tích mẫu đất đá.",
+    "description": "Nhà địa chất tập trung vào khảo sát cấu trúc địa tầng. Công việc còn bao gồm phân tích mẫu đất đá, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Khảo sát cấu trúc địa tầng",
+      "Phân tích mẫu đất đá"
+    ],
+    "skills": [
+      "Quan sát thực địa",
+      "Phân tích mẫu và dữ liệu"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ],
+    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "challenges": [
+      "Điều kiện thực địa và dữ liệu không đầy đủ"
+    ],
+    "keywords": [
+      "Nhà địa chất",
+      "Nông nghiệp, môi trường và tài nguyên",
+      "Khảo sát cấu trúc địa tầng",
+      "Phân tích mẫu đất đá",
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-khi-tuong",
+    "name": "Chuyên viên khí tượng",
+    "category_id": "environment",
+    "short_description": "Theo dõi dữ liệu thời tiết, phân tích diễn biến khí quyển.",
+    "description": "Chuyên viên khí tượng tập trung vào theo dõi dữ liệu thời tiết. Công việc còn bao gồm phân tích diễn biến khí quyển, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Theo dõi dữ liệu thời tiết",
+      "Phân tích diễn biến khí quyển"
+    ],
+    "skills": [
+      "Quan sát thực địa",
+      "Phân tích mẫu và dữ liệu"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ],
+    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "challenges": [
+      "Dự báo luôn có độ bất định"
+    ],
+    "keywords": [
+      "Chuyên viên khí tượng",
+      "Nông nghiệp, môi trường và tài nguyên",
+      "Theo dõi dữ liệu thời tiết",
+      "Phân tích diễn biến khí quyển",
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-khi-hau",
+    "name": "Chuyên viên khí hậu",
+    "category_id": "environment",
+    "short_description": "Phân tích chuỗi khí hậu, đánh giá kịch bản biến đổi.",
+    "description": "Chuyên viên khí hậu tập trung vào phân tích chuỗi khí hậu. Công việc còn bao gồm đánh giá kịch bản biến đổi, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Phân tích chuỗi khí hậu",
+      "Đánh giá kịch bản biến đổi"
+    ],
+    "skills": [
+      "Quan sát thực địa",
+      "Phân tích mẫu và dữ liệu"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ],
+    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "challenges": [
+      "Phân biệt xu hướng dài hạn với dao động"
+    ],
+    "keywords": [
+      "Chuyên viên khí hậu",
+      "Nông nghiệp, môi trường và tài nguyên",
+      "Phân tích chuỗi khí hậu",
+      "Đánh giá kịch bản biến đổi",
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-quan-ly-dat-dai",
+    "name": "Chuyên viên quản lý đất đai",
+    "category_id": "environment",
+    "short_description": "Đối chiếu thông tin thửa đất, hỗ trợ cập nhật hồ sơ đất.",
+    "description": "Chuyên viên quản lý đất đai tập trung vào đối chiếu thông tin thửa đất. Công việc còn bao gồm hỗ trợ cập nhật hồ sơ đất, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Đối chiếu thông tin thửa đất",
+      "Hỗ trợ cập nhật hồ sơ đất"
+    ],
+    "skills": [
+      "Quan sát thực địa",
+      "Phân tích mẫu và dữ liệu"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ],
+    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "challenges": [
+      "Ranh giới và nguồn hồ sơ khác nhau"
+    ],
+    "keywords": [
+      "Chuyên viên quản lý đất đai",
+      "Nông nghiệp, môi trường và tài nguyên",
+      "Đối chiếu thông tin thửa đất",
+      "Hỗ trợ cập nhật hồ sơ đất",
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ]
+  },
+  {
+    "career_id": "ky-thuat-vien-xu-ly-nuoc",
+    "name": "Kỹ thuật viên xử lý nước",
+    "category_id": "environment",
+    "short_description": "Theo dõi bể và thiết bị xử lý, kiểm tra chỉ tiêu vận hành.",
+    "description": "Kỹ thuật viên xử lý nước tập trung vào theo dõi bể và thiết bị xử lý. Công việc còn bao gồm kiểm tra chỉ tiêu vận hành, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Theo dõi bể và thiết bị xử lý",
+      "Kiểm tra chỉ tiêu vận hành"
+    ],
+    "skills": [
+      "Quan sát thực địa",
+      "Phân tích mẫu và dữ liệu"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ],
+    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "challenges": [
+      "Chất lượng nước đầu vào biến động"
+    ],
+    "keywords": [
+      "Kỹ thuật viên xử lý nước",
+      "Nông nghiệp, môi trường và tài nguyên",
+      "Theo dõi bể và thiết bị xử lý",
+      "Kiểm tra chỉ tiêu vận hành",
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-phat-trien-nong-thon",
+    "name": "Chuyên viên phát triển nông thôn",
+    "category_id": "environment",
+    "short_description": "Khảo sát sinh kế cộng đồng, phối hợp dự án phát triển địa phương.",
+    "description": "Chuyên viên phát triển nông thôn tập trung vào khảo sát sinh kế cộng đồng. Công việc còn bao gồm phối hợp dự án phát triển địa phương, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Khảo sát sinh kế cộng đồng",
+      "Phối hợp dự án phát triển địa phương"
+    ],
+    "skills": [
+      "Quan sát thực địa",
+      "Phân tích mẫu và dữ liệu"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ],
+    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "challenges": [
+      "Giải pháp cần phù hợp điều kiện địa phương"
+    ],
+    "keywords": [
+      "Chuyên viên phát triển nông thôn",
+      "Nông nghiệp, môi trường và tài nguyên",
+      "Khảo sát sinh kế cộng đồng",
+      "Phối hợp dự án phát triển địa phương",
+      "Sinh học",
+      "Địa lý",
+      "Hóa học"
+    ]
+  },
+  {
+    "career_id": "huong-dan-vien-du-lich",
+    "name": "Hướng dẫn viên du lịch",
+    "category_id": "hospitality",
+    "short_description": "Chuẩn bị nội dung điểm đến, dẫn và hỗ trợ đoàn khách.",
+    "description": "Hướng dẫn viên du lịch tập trung vào chuẩn bị nội dung điểm đến. Công việc còn bao gồm dẫn và hỗ trợ đoàn khách, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chuẩn bị nội dung điểm đến",
+      "Dẫn và hỗ trợ đoàn khách"
+    ],
+    "skills": [
+      "Giao tiếp dịch vụ",
+      "Phối hợp trong ca làm việc"
+    ],
+    "related_subjects": [
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "challenges": [
+      "Lịch trình thay đổi và khác biệt nhu cầu"
+    ],
+    "keywords": [
+      "Hướng dẫn viên du lịch",
+      "Du lịch, dịch vụ và khách sạn",
+      "Chuẩn bị nội dung điểm đến",
+      "Dẫn và hỗ trợ đoàn khách",
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-dieu-hanh-tour",
+    "name": "Chuyên viên điều hành tour",
+    "category_id": "hospitality",
+    "short_description": "Thiết kế hành trình, phối hợp dịch vụ chuyến đi.",
+    "description": "Chuyên viên điều hành tour tập trung vào thiết kế hành trình. Công việc còn bao gồm phối hợp dịch vụ chuyến đi, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết kế hành trình",
+      "Phối hợp dịch vụ chuyến đi"
+    ],
+    "skills": [
+      "Giao tiếp dịch vụ",
+      "Phối hợp trong ca làm việc"
+    ],
+    "related_subjects": [
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "challenges": [
+      "Gián đoạn giao thông và nhà cung cấp"
+    ],
+    "keywords": [
+      "Chuyên viên điều hành tour",
+      "Du lịch, dịch vụ và khách sạn",
+      "Thiết kế hành trình",
+      "Phối hợp dịch vụ chuyến đi",
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "le-tan-khach-san",
+    "name": "Lễ tân khách sạn",
+    "category_id": "hospitality",
+    "short_description": "Tiếp nhận đặt phòng, hỗ trợ khách lưu trú.",
+    "description": "Lễ tân khách sạn tập trung vào tiếp nhận đặt phòng. Công việc còn bao gồm hỗ trợ khách lưu trú, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tiếp nhận đặt phòng",
+      "Hỗ trợ khách lưu trú"
+    ],
+    "skills": [
+      "Giao tiếp dịch vụ",
+      "Phối hợp trong ca làm việc"
+    ],
+    "related_subjects": [
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "challenges": [
+      "Giao tiếp trong ca làm việc liên tục"
+    ],
+    "keywords": [
+      "Lễ tân khách sạn",
+      "Du lịch, dịch vụ và khách sạn",
+      "Tiếp nhận đặt phòng",
+      "Hỗ trợ khách lưu trú",
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "quan-ly-khach-san",
+    "name": "Quản lý khách sạn",
+    "category_id": "hospitality",
+    "short_description": "Điều phối bộ phận dịch vụ, theo dõi trải nghiệm khách.",
+    "description": "Quản lý khách sạn tập trung vào điều phối bộ phận dịch vụ. Công việc còn bao gồm theo dõi trải nghiệm khách, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Điều phối bộ phận dịch vụ",
+      "Theo dõi trải nghiệm khách"
+    ],
+    "skills": [
+      "Giao tiếp dịch vụ",
+      "Phối hợp trong ca làm việc"
+    ],
+    "related_subjects": [
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "challenges": [
+      "Cân đối chất lượng và vận hành"
+    ],
+    "keywords": [
+      "Quản lý khách sạn",
+      "Du lịch, dịch vụ và khách sạn",
+      "Điều phối bộ phận dịch vụ",
+      "Theo dõi trải nghiệm khách",
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "nhan-vien-buong-phong",
+    "name": "Nhân viên buồng phòng",
+    "category_id": "hospitality",
+    "short_description": "Chuẩn bị phòng lưu trú, kiểm tra vật dụng và vệ sinh.",
+    "description": "Nhân viên buồng phòng tập trung vào chuẩn bị phòng lưu trú. Công việc còn bao gồm kiểm tra vật dụng và vệ sinh, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chuẩn bị phòng lưu trú",
+      "Kiểm tra vật dụng và vệ sinh"
+    ],
+    "skills": [
+      "Giao tiếp dịch vụ",
+      "Phối hợp trong ca làm việc"
+    ],
+    "related_subjects": [
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "challenges": [
+      "Thời gian xử lý phòng có giới hạn"
+    ],
+    "keywords": [
+      "Nhân viên buồng phòng",
+      "Du lịch, dịch vụ và khách sạn",
+      "Chuẩn bị phòng lưu trú",
+      "Kiểm tra vật dụng và vệ sinh",
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "dau-bep",
+    "name": "Đầu bếp",
+    "category_id": "hospitality",
+    "short_description": "Chuẩn bị nguyên liệu, chế biến và kiểm soát món ăn.",
+    "description": "Đầu bếp tập trung vào chuẩn bị nguyên liệu. Công việc còn bao gồm chế biến và kiểm soát món ăn, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chuẩn bị nguyên liệu",
+      "Chế biến và kiểm soát món ăn"
+    ],
+    "skills": [
+      "Giao tiếp dịch vụ",
+      "Phối hợp trong ca làm việc"
+    ],
+    "related_subjects": [
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "challenges": [
+      "An toàn thực phẩm và nhịp phục vụ nhanh"
+    ],
+    "keywords": [
+      "Đầu bếp",
+      "Du lịch, dịch vụ và khách sạn",
+      "Chuẩn bị nguyên liệu",
+      "Chế biến và kiểm soát món ăn",
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "tho-lam-banh",
+    "name": "Thợ làm bánh",
+    "category_id": "hospitality",
+    "short_description": "Cân nguyên liệu, theo dõi ủ và nướng.",
+    "description": "Thợ làm bánh tập trung vào cân nguyên liệu. Công việc còn bao gồm theo dõi ủ và nướng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Cân nguyên liệu",
+      "Theo dõi ủ và nướng"
+    ],
+    "skills": [
+      "Giao tiếp dịch vụ",
+      "Phối hợp trong ca làm việc"
+    ],
+    "related_subjects": [
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "challenges": [
+      "Độ chính xác và nhiệt độ ảnh hưởng thành phẩm"
+    ],
+    "keywords": [
+      "Thợ làm bánh",
+      "Du lịch, dịch vụ và khách sạn",
+      "Cân nguyên liệu",
+      "Theo dõi ủ và nướng",
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "nhan-vien-pha-che",
+    "name": "Nhân viên pha chế",
+    "category_id": "hospitality",
+    "short_description": "Chuẩn bị đồ uống, kiểm tra nguyên liệu quầy.",
+    "description": "Nhân viên pha chế tập trung vào chuẩn bị đồ uống. Công việc còn bao gồm kiểm tra nguyên liệu quầy, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chuẩn bị đồ uống",
+      "Kiểm tra nguyên liệu quầy"
+    ],
+    "skills": [
+      "Giao tiếp dịch vụ",
+      "Phối hợp trong ca làm việc"
+    ],
+    "related_subjects": [
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "challenges": [
+      "Giữ chất lượng khi đông khách"
+    ],
+    "keywords": [
+      "Nhân viên pha chế",
+      "Du lịch, dịch vụ và khách sạn",
+      "Chuẩn bị đồ uống",
+      "Kiểm tra nguyên liệu quầy",
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "nhan-vien-phuc-vu-nha-hang",
+    "name": "Nhân viên phục vụ nhà hàng",
+    "category_id": "hospitality",
+    "short_description": "Tiếp nhận yêu cầu món, phối hợp phục vụ bàn.",
+    "description": "Nhân viên phục vụ nhà hàng tập trung vào tiếp nhận yêu cầu món. Công việc còn bao gồm phối hợp phục vụ bàn, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tiếp nhận yêu cầu món",
+      "Phối hợp phục vụ bàn"
+    ],
+    "skills": [
+      "Giao tiếp dịch vụ",
+      "Phối hợp trong ca làm việc"
+    ],
+    "related_subjects": [
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "challenges": [
+      "Nhiều yêu cầu phát sinh đồng thời"
+    ],
+    "keywords": [
+      "Nhân viên phục vụ nhà hàng",
+      "Du lịch, dịch vụ và khách sạn",
+      "Tiếp nhận yêu cầu món",
+      "Phối hợp phục vụ bàn",
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "tiep-vien-hang-khong",
+    "name": "Tiếp viên hàng không",
+    "category_id": "hospitality",
+    "short_description": "Kiểm tra trang bị khoang khách, hướng dẫn an toàn và hỗ trợ hành khách.",
+    "description": "Tiếp viên hàng không tập trung vào kiểm tra trang bị khoang khách. Công việc còn bao gồm hướng dẫn an toàn và hỗ trợ hành khách, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Kiểm tra trang bị khoang khách",
+      "Hướng dẫn an toàn và hỗ trợ hành khách"
+    ],
+    "skills": [
+      "Giao tiếp dịch vụ",
+      "Phối hợp trong ca làm việc"
+    ],
+    "related_subjects": [
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "challenges": [
+      "Lịch bay và tình huống khẩn cấp"
+    ],
+    "keywords": [
+      "Tiếp viên hàng không",
+      "Du lịch, dịch vụ và khách sạn",
+      "Kiểm tra trang bị khoang khách",
+      "Hướng dẫn an toàn và hỗ trợ hành khách",
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "phi-cong",
+    "name": "Phi công",
+    "category_id": "hospitality",
+    "short_description": "Chuẩn bị kế hoạch chuyến bay, theo dõi và điều khiển máy bay.",
+    "description": "Phi công tập trung vào chuẩn bị kế hoạch chuyến bay. Công việc còn bao gồm theo dõi và điều khiển máy bay, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chuẩn bị kế hoạch chuyến bay",
+      "Theo dõi và điều khiển máy bay"
+    ],
+    "skills": [
+      "Giao tiếp dịch vụ",
+      "Phối hợp trong ca làm việc"
+    ],
+    "related_subjects": [
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "challenges": [
+      "Đòi hỏi tập trung và phối hợp chặt chẽ"
+    ],
+    "keywords": [
+      "Phi công",
+      "Du lịch, dịch vụ và khách sạn",
+      "Chuẩn bị kế hoạch chuyến bay",
+      "Theo dõi và điều khiển máy bay",
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "nhan-vien-dieu-phoi-van-tai",
+    "name": "Nhân viên điều phối vận tải",
+    "category_id": "hospitality",
+    "short_description": "Sắp xếp lịch phương tiện, theo dõi chuyến đi.",
+    "description": "Nhân viên điều phối vận tải tập trung vào sắp xếp lịch phương tiện. Công việc còn bao gồm theo dõi chuyến đi, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Sắp xếp lịch phương tiện",
+      "Theo dõi chuyến đi"
+    ],
+    "skills": [
+      "Giao tiếp dịch vụ",
+      "Phối hợp trong ca làm việc"
+    ],
+    "related_subjects": [
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "challenges": [
+      "Thời tiết và lưu lượng giao thông"
+    ],
+    "keywords": [
+      "Nhân viên điều phối vận tải",
+      "Du lịch, dịch vụ và khách sạn",
+      "Sắp xếp lịch phương tiện",
+      "Theo dõi chuyến đi",
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-cham-soc-sac-dep",
+    "name": "Chuyên viên chăm sóc sắc đẹp",
+    "category_id": "hospitality",
+    "short_description": "Tìm hiểu nhu cầu khách, thực hiện dịch vụ trong phạm vi đào tạo.",
+    "description": "Chuyên viên chăm sóc sắc đẹp tập trung vào tìm hiểu nhu cầu khách. Công việc còn bao gồm thực hiện dịch vụ trong phạm vi đào tạo, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tìm hiểu nhu cầu khách",
+      "Thực hiện dịch vụ trong phạm vi đào tạo"
+    ],
+    "skills": [
+      "Giao tiếp dịch vụ",
+      "Phối hợp trong ca làm việc"
+    ],
+    "related_subjects": [
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "challenges": [
+      "Vệ sinh dụng cụ và kỳ vọng khách"
+    ],
+    "keywords": [
+      "Chuyên viên chăm sóc sắc đẹp",
+      "Du lịch, dịch vụ và khách sạn",
+      "Tìm hiểu nhu cầu khách",
+      "Thực hiện dịch vụ trong phạm vi đào tạo",
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "tho-cat-toc",
+    "name": "Thợ cắt tóc",
+    "category_id": "hospitality",
+    "short_description": "Tư vấn kiểu tóc, cắt và tạo kiểu.",
+    "description": "Thợ cắt tóc tập trung vào tư vấn kiểu tóc. Công việc còn bao gồm cắt và tạo kiểu, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tư vấn kiểu tóc",
+      "Cắt và tạo kiểu"
+    ],
+    "skills": [
+      "Giao tiếp dịch vụ",
+      "Phối hợp trong ca làm việc"
+    ],
+    "related_subjects": [
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "challenges": [
+      "Điều chỉnh theo chất tóc và mong muốn"
+    ],
+    "keywords": [
+      "Thợ cắt tóc",
+      "Du lịch, dịch vụ và khách sạn",
+      "Tư vấn kiểu tóc",
+      "Cắt và tạo kiểu",
+      "Tiếng Anh",
+      "Địa lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "nha-toan-hoc",
+    "name": "Nhà toán học",
+    "category_id": "science",
+    "short_description": "Xây dựng mô hình toán, kiểm tra lập luận và chứng minh.",
+    "description": "Nhà toán học tập trung vào xây dựng mô hình toán. Công việc còn bao gồm kiểm tra lập luận và chứng minh, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Xây dựng mô hình toán",
+      "Kiểm tra lập luận và chứng minh"
+    ],
+    "skills": [
+      "Đặt câu hỏi nghiên cứu",
+      "Ghi chép và phân tích bằng chứng"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ],
+    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "challenges": [
+      "Bài toán có thể chưa có hướng giải"
+    ],
+    "keywords": [
+      "Nhà toán học",
+      "Khoa học, nghiên cứu và lĩnh vực khác",
+      "Xây dựng mô hình toán",
+      "Kiểm tra lập luận và chứng minh",
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ]
+  },
+  {
+    "career_id": "nha-vat-ly",
+    "name": "Nhà vật lý",
+    "category_id": "science",
+    "short_description": "Thiết kế phép đo, phân tích hiện tượng vật lý.",
+    "description": "Nhà vật lý tập trung vào thiết kế phép đo. Công việc còn bao gồm phân tích hiện tượng vật lý, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết kế phép đo",
+      "Phân tích hiện tượng vật lý"
+    ],
+    "skills": [
+      "Đặt câu hỏi nghiên cứu",
+      "Ghi chép và phân tích bằng chứng"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ],
+    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "challenges": [
+      "Tách tín hiệu thật khỏi nhiễu"
+    ],
+    "keywords": [
+      "Nhà vật lý",
+      "Khoa học, nghiên cứu và lĩnh vực khác",
+      "Thiết kế phép đo",
+      "Phân tích hiện tượng vật lý",
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ]
+  },
+  {
+    "career_id": "nha-hoa-hoc",
+    "name": "Nhà hóa học",
+    "category_id": "science",
+    "short_description": "Thiết kế thí nghiệm hóa học, phân tích thành phần mẫu.",
+    "description": "Nhà hóa học tập trung vào thiết kế thí nghiệm hóa học. Công việc còn bao gồm phân tích thành phần mẫu, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết kế thí nghiệm hóa học",
+      "Phân tích thành phần mẫu"
+    ],
+    "skills": [
+      "Đặt câu hỏi nghiên cứu",
+      "Ghi chép và phân tích bằng chứng"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ],
+    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "challenges": [
+      "An toàn và khả năng tái lập"
+    ],
+    "keywords": [
+      "Nhà hóa học",
+      "Khoa học, nghiên cứu và lĩnh vực khác",
+      "Thiết kế thí nghiệm hóa học",
+      "Phân tích thành phần mẫu",
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ]
+  },
+  {
+    "career_id": "nha-sinh-hoc",
+    "name": "Nhà sinh học",
+    "category_id": "science",
+    "short_description": "Quan sát hệ sống, phân tích kết quả thí nghiệm sinh học.",
+    "description": "Nhà sinh học tập trung vào quan sát hệ sống. Công việc còn bao gồm phân tích kết quả thí nghiệm sinh học, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Quan sát hệ sống",
+      "Phân tích kết quả thí nghiệm sinh học"
+    ],
+    "skills": [
+      "Đặt câu hỏi nghiên cứu",
+      "Ghi chép và phân tích bằng chứng"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ],
+    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "challenges": [
+      "Biến thiên tự nhiên giữa các mẫu"
+    ],
+    "keywords": [
+      "Nhà sinh học",
+      "Khoa học, nghiên cứu và lĩnh vực khác",
+      "Quan sát hệ sống",
+      "Phân tích kết quả thí nghiệm sinh học",
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-thong-ke",
+    "name": "Chuyên viên thống kê",
+    "category_id": "science",
+    "short_description": "Thiết kế phương án lấy mẫu, phân tích sai số thống kê.",
+    "description": "Chuyên viên thống kê tập trung vào thiết kế phương án lấy mẫu. Công việc còn bao gồm phân tích sai số thống kê, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết kế phương án lấy mẫu",
+      "Phân tích sai số thống kê"
+    ],
+    "skills": [
+      "Đặt câu hỏi nghiên cứu",
+      "Ghi chép và phân tích bằng chứng"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ],
+    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "challenges": [
+      "Tránh diễn giải vượt dữ liệu"
+    ],
+    "keywords": [
+      "Chuyên viên thống kê",
+      "Khoa học, nghiên cứu và lĩnh vực khác",
+      "Thiết kế phương án lấy mẫu",
+      "Phân tích sai số thống kê",
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ]
+  },
+  {
+    "career_id": "nha-xa-hoi-hoc",
+    "name": "Nhà xã hội học",
+    "category_id": "science",
+    "short_description": "Thiết kế nghiên cứu xã hội, phân tích hành vi nhóm.",
+    "description": "Nhà xã hội học tập trung vào thiết kế nghiên cứu xã hội. Công việc còn bao gồm phân tích hành vi nhóm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết kế nghiên cứu xã hội",
+      "Phân tích hành vi nhóm"
+    ],
+    "skills": [
+      "Đặt câu hỏi nghiên cứu",
+      "Ghi chép và phân tích bằng chứng"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ],
+    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "challenges": [
+      "Bảo vệ người tham gia nghiên cứu"
+    ],
+    "keywords": [
+      "Nhà xã hội học",
+      "Khoa học, nghiên cứu và lĩnh vực khác",
+      "Thiết kế nghiên cứu xã hội",
+      "Phân tích hành vi nhóm",
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ]
+  },
+  {
+    "career_id": "nha-khao-co-hoc",
+    "name": "Nhà khảo cổ học",
+    "category_id": "science",
+    "short_description": "Khảo sát di tích, ghi chép và phân tích hiện vật.",
+    "description": "Nhà khảo cổ học tập trung vào khảo sát di tích. Công việc còn bao gồm ghi chép và phân tích hiện vật, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Khảo sát di tích",
+      "Ghi chép và phân tích hiện vật"
+    ],
+    "skills": [
+      "Đặt câu hỏi nghiên cứu",
+      "Ghi chép và phân tích bằng chứng"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ],
+    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "challenges": [
+      "Bảo tồn bối cảnh khi khai quật"
+    ],
+    "keywords": [
+      "Nhà khảo cổ học",
+      "Khoa học, nghiên cứu và lĩnh vực khác",
+      "Khảo sát di tích",
+      "Ghi chép và phân tích hiện vật",
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ]
+  },
+  {
+    "career_id": "nha-su-hoc",
+    "name": "Nhà sử học",
+    "category_id": "science",
+    "short_description": "Đối chiếu tư liệu lịch sử, xây dựng lập luận từ chứng cứ.",
+    "description": "Nhà sử học tập trung vào đối chiếu tư liệu lịch sử. Công việc còn bao gồm xây dựng lập luận từ chứng cứ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Đối chiếu tư liệu lịch sử",
+      "Xây dựng lập luận từ chứng cứ"
+    ],
+    "skills": [
+      "Đặt câu hỏi nghiên cứu",
+      "Ghi chép và phân tích bằng chứng"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ],
+    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "challenges": [
+      "Tư liệu thiếu hoặc mâu thuẫn"
+    ],
+    "keywords": [
+      "Nhà sử học",
+      "Khoa học, nghiên cứu và lĩnh vực khác",
+      "Đối chiếu tư liệu lịch sử",
+      "Xây dựng lập luận từ chứng cứ",
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ]
+  },
+  {
+    "career_id": "bien-dich-vien",
+    "name": "Biên dịch viên",
+    "category_id": "science",
+    "short_description": "Chuyển ngữ tài liệu, đối chiếu thuật ngữ.",
+    "description": "Biên dịch viên tập trung vào chuyển ngữ tài liệu. Công việc còn bao gồm đối chiếu thuật ngữ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chuyển ngữ tài liệu",
+      "Đối chiếu thuật ngữ"
+    ],
+    "skills": [
+      "Đặt câu hỏi nghiên cứu",
+      "Ghi chép và phân tích bằng chứng"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ],
+    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "challenges": [
+      "Giữ ý nghĩa và giọng văn nguồn"
+    ],
+    "keywords": [
+      "Biên dịch viên",
+      "Khoa học, nghiên cứu và lĩnh vực khác",
+      "Chuyển ngữ tài liệu",
+      "Đối chiếu thuật ngữ",
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ]
+  },
+  {
+    "career_id": "phien-dich-vien",
+    "name": "Phiên dịch viên",
+    "category_id": "science",
+    "short_description": "Chuẩn bị thuật ngữ buổi làm việc, chuyển lời nói giữa các ngôn ngữ.",
+    "description": "Phiên dịch viên tập trung vào chuẩn bị thuật ngữ buổi làm việc. Công việc còn bao gồm chuyển lời nói giữa các ngôn ngữ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chuẩn bị thuật ngữ buổi làm việc",
+      "Chuyển lời nói giữa các ngôn ngữ"
+    ],
+    "skills": [
+      "Đặt câu hỏi nghiên cứu",
+      "Ghi chép và phân tích bằng chứng"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ],
+    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "challenges": [
+      "Xử lý thông tin trong thời gian ngắn"
+    ],
+    "keywords": [
+      "Phiên dịch viên",
+      "Khoa học, nghiên cứu và lĩnh vực khác",
+      "Chuẩn bị thuật ngữ buổi làm việc",
+      "Chuyển lời nói giữa các ngôn ngữ",
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-nghien-cuu-vat-lieu-sinh-hoc",
+    "name": "Chuyên viên nghiên cứu vật liệu sinh học",
+    "category_id": "science",
+    "short_description": "Thử đặc tính vật liệu tương tác sinh học, phân tích kết quả thử nghiệm.",
+    "description": "Chuyên viên nghiên cứu vật liệu sinh học tập trung vào thử đặc tính vật liệu tương tác sinh học. Công việc còn bao gồm phân tích kết quả thử nghiệm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thử đặc tính vật liệu tương tác sinh học",
+      "Phân tích kết quả thử nghiệm"
+    ],
+    "skills": [
+      "Đặt câu hỏi nghiên cứu",
+      "Ghi chép và phân tích bằng chứng"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ],
+    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "challenges": [
+      "Khác biệt giữa thí nghiệm và ứng dụng"
+    ],
+    "keywords": [
+      "Chuyên viên nghiên cứu vật liệu sinh học",
+      "Khoa học, nghiên cứu và lĩnh vực khác",
+      "Thử đặc tính vật liệu tương tác sinh học",
+      "Phân tích kết quả thử nghiệm",
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ]
+  },
+  {
+    "career_id": "ky-thuat-vien-phong-thi-nghiem",
+    "name": "Kỹ thuật viên phòng thí nghiệm",
+    "category_id": "science",
+    "short_description": "Chuẩn bị mẫu và dụng cụ, ghi chép quy trình thí nghiệm.",
+    "description": "Kỹ thuật viên phòng thí nghiệm tập trung vào chuẩn bị mẫu và dụng cụ. Công việc còn bao gồm ghi chép quy trình thí nghiệm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chuẩn bị mẫu và dụng cụ",
+      "Ghi chép quy trình thí nghiệm"
+    ],
+    "skills": [
+      "Đặt câu hỏi nghiên cứu",
+      "Ghi chép và phân tích bằng chứng"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ],
+    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "challenges": [
+      "Duy trì độ sạch và khả năng truy xuất"
+    ],
+    "keywords": [
+      "Kỹ thuật viên phòng thí nghiệm",
+      "Khoa học, nghiên cứu và lĩnh vực khác",
+      "Chuẩn bị mẫu và dụng cụ",
+      "Ghi chép quy trình thí nghiệm",
+      "Toán",
+      "Khoa học tự nhiên",
+      "Ngoại ngữ"
+    ]
+  }
+]

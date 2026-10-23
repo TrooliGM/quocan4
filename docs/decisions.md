@@ -68,3 +68,8 @@ Danh sách này phục vụ những lượt làm việc tiếp theo; không ph�
 ## Nhiệm vụ 1 — 2026-10-23
 
 Yêu cầu đã xác nhận qua tài liệu Nhiệm vụ 1: được phát triển và commit nhánh riêng; không tự merge/deploy Production. Quyết định triển khai: khảo sát gắn session/owner trong metadata messages hiện có; giữ nguyên consent và TTL; không đổi schema, Firebase hay quota 8. Phân tích đi qua API chat hiện có và tính một lượt AI như trước. Chưa có phê duyệt push/triển khai; xem docs/task-1-checkpoint.md.
+
+
+## Nhiệm vụ 2 — 2026-10-24
+
+Thư viện 200 nghề/12 nhóm, modal chung, hai mode AI và liên kết truyện theo ID đã triển khai trên feat/task-2-career-library. Preview localhost:8003 riêng dùng PostgreSQL local và AI demo. 17 test backend và browser desktop/mobile PASS có fixture; Firebase/DeepSeek thật cho flow mới chưa kiểm chứng. Không push/merge/deploy/Neon; Nhiệm vụ 3 chưa bắt đầu. Xem docs/task-2-checkpoint.md.

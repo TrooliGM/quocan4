@@ -1,0 +1,1652 @@
+[
+  {
+    "career_id": "quan-ly-dao-tao",
+    "name": "Quản lý đào tạo",
+    "category_id": "education",
+    "short_description": "Lập lịch học, điều phối nguồn lực giảng dạy.",
+    "description": "Quản lý đào tạo tập trung vào lập lịch học. Công việc còn bao gồm điều phối nguồn lực giảng dạy, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Lập lịch học",
+      "Điều phối nguồn lực giảng dạy"
+    ],
+    "skills": [
+      "Giải thích dễ hiểu",
+      "Thiết kế hoạt động học"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ],
+    "work_environment": "Trường học, cơ sở đào tạo hoặc đơn vị phát triển học liệu.",
+    "challenges": [
+      "Xử lý thay đổi lịch và nhu cầu học viên"
+    ],
+    "keywords": [
+      "Quản lý đào tạo",
+      "Giáo dục và đào tạo",
+      "Lập lịch học",
+      "Điều phối nguồn lực giảng dạy",
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "huan-luyen-vien-ky-nang-song",
+    "name": "Huấn luyện viên kỹ năng sống",
+    "category_id": "education",
+    "short_description": "Thiết kế tình huống trải nghiệm, hướng dẫn phản hồi sau hoạt động.",
+    "description": "Huấn luyện viên kỹ năng sống tập trung vào thiết kế tình huống trải nghiệm. Công việc còn bao gồm hướng dẫn phản hồi sau hoạt động, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết kế tình huống trải nghiệm",
+      "Hướng dẫn phản hồi sau hoạt động"
+    ],
+    "skills": [
+      "Giải thích dễ hiểu",
+      "Thiết kế hoạt động học"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ],
+    "work_environment": "Trường học, cơ sở đào tạo hoặc đơn vị phát triển học liệu.",
+    "challenges": [
+      "Chuyển trải nghiệm thành kỹ năng thực tế"
+    ],
+    "keywords": [
+      "Huấn luyện viên kỹ năng sống",
+      "Giáo dục và đào tạo",
+      "Thiết kế tình huống trải nghiệm",
+      "Hướng dẫn phản hồi sau hoạt động",
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "ky-su-co-khi",
+    "name": "Kỹ sư cơ khí",
+    "category_id": "engineering",
+    "short_description": "Thiết kế chi tiết máy, kiểm tra nguyên mẫu.",
+    "description": "Kỹ sư cơ khí tập trung vào thiết kế chi tiết máy. Công việc còn bao gồm kiểm tra nguyên mẫu, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết kế chi tiết máy",
+      "Kiểm tra nguyên mẫu"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "Dung sai và điều kiện tải thực tế"
+    ],
+    "keywords": [
+      "Kỹ sư cơ khí",
+      "Kỹ thuật và công nghiệp",
+      "Thiết kế chi tiết máy",
+      "Kiểm tra nguyên mẫu",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "ky-su-dien",
+    "name": "Kỹ sư điện",
+    "category_id": "engineering",
+    "short_description": "Thiết kế mạch cấp điện, đánh giá vận hành hệ thống.",
+    "description": "Kỹ sư điện tập trung vào thiết kế mạch cấp điện. Công việc còn bao gồm đánh giá vận hành hệ thống, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết kế mạch cấp điện",
+      "Đánh giá vận hành hệ thống"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "An toàn điện trong mọi công đoạn"
+    ],
+    "keywords": [
+      "Kỹ sư điện",
+      "Kỹ thuật và công nghiệp",
+      "Thiết kế mạch cấp điện",
+      "Đánh giá vận hành hệ thống",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "ky-su-dien-tu",
+    "name": "Kỹ sư điện tử",
+    "category_id": "engineering",
+    "short_description": "Thiết kế mạch điện tử, đo tín hiệu thử nghiệm.",
+    "description": "Kỹ sư điện tử tập trung vào thiết kế mạch điện tử. Công việc còn bao gồm đo tín hiệu thử nghiệm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết kế mạch điện tử",
+      "Đo tín hiệu thử nghiệm"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "Nhiễu và sai lệch linh kiện"
+    ],
+    "keywords": [
+      "Kỹ sư điện tử",
+      "Kỹ thuật và công nghiệp",
+      "Thiết kế mạch điện tử",
+      "Đo tín hiệu thử nghiệm",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "ky-su-tu-dong-hoa",
+    "name": "Kỹ sư tự động hóa",
+    "category_id": "engineering",
+    "short_description": "Lập trình bộ điều khiển, tối ưu dây chuyền tự động.",
+    "description": "Kỹ sư tự động hóa tập trung vào lập trình bộ điều khiển. Công việc còn bao gồm tối ưu dây chuyền tự động, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Lập trình bộ điều khiển",
+      "Tối ưu dây chuyền tự động"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "Kết hợp phần mềm và thiết bị thực"
+    ],
+    "keywords": [
+      "Kỹ sư tự động hóa",
+      "Kỹ thuật và công nghiệp",
+      "Lập trình bộ điều khiển",
+      "Tối ưu dây chuyền tự động",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "ky-su-xay-dung",
+    "name": "Kỹ sư xây dựng",
+    "category_id": "engineering",
+    "short_description": "Đọc bản vẽ kết cấu, theo dõi chất lượng thi công.",
+    "description": "Kỹ sư xây dựng tập trung vào đọc bản vẽ kết cấu. Công việc còn bao gồm theo dõi chất lượng thi công, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Đọc bản vẽ kết cấu",
+      "Theo dõi chất lượng thi công"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "Điều kiện công trường và tiến độ"
+    ],
+    "keywords": [
+      "Kỹ sư xây dựng",
+      "Kỹ thuật và công nghiệp",
+      "Đọc bản vẽ kết cấu",
+      "Theo dõi chất lượng thi công",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "kien-truc-su",
+    "name": "Kiến trúc sư",
+    "category_id": "engineering",
+    "short_description": "Phát triển phương án không gian, trao đổi nhu cầu với khách hàng.",
+    "description": "Kiến trúc sư tập trung vào phát triển phương án không gian. Công việc còn bao gồm trao đổi nhu cầu với khách hàng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Phát triển phương án không gian",
+      "Trao đổi nhu cầu với khách hàng"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "Cân đối thẩm mỹ và sử dụng"
+    ],
+    "keywords": [
+      "Kiến trúc sư",
+      "Kỹ thuật và công nghiệp",
+      "Phát triển phương án không gian",
+      "Trao đổi nhu cầu với khách hàng",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "ky-su-giao-thong",
+    "name": "Kỹ sư giao thông",
+    "category_id": "engineering",
+    "short_description": "Phân tích lưu lượng xe, thiết kế phương án hạ tầng.",
+    "description": "Kỹ sư giao thông tập trung vào phân tích lưu lượng xe. Công việc còn bao gồm thiết kế phương án hạ tầng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Phân tích lưu lượng xe",
+      "Thiết kế phương án hạ tầng"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "Nhiều loại phương tiện cùng sử dụng"
+    ],
+    "keywords": [
+      "Kỹ sư giao thông",
+      "Kỹ thuật và công nghiệp",
+      "Phân tích lưu lượng xe",
+      "Thiết kế phương án hạ tầng",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "ky-su-cap-thoat-nuoc",
+    "name": "Kỹ sư cấp thoát nước",
+    "category_id": "engineering",
+    "short_description": "Tính toán mạng đường ống, theo dõi lưu lượng và áp lực.",
+    "description": "Kỹ sư cấp thoát nước tập trung vào tính toán mạng đường ống. Công việc còn bao gồm theo dõi lưu lượng và áp lực, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tính toán mạng đường ống",
+      "Theo dõi lưu lượng và áp lực"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "Địa hình và nhu cầu sử dụng biến động"
+    ],
+    "keywords": [
+      "Kỹ sư cấp thoát nước",
+      "Kỹ thuật và công nghiệp",
+      "Tính toán mạng đường ống",
+      "Theo dõi lưu lượng và áp lực",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "ky-su-nhiet-lanh",
+    "name": "Kỹ sư nhiệt lạnh",
+    "category_id": "engineering",
+    "short_description": "Thiết kế hệ thống làm mát, đo hiệu suất vận hành.",
+    "description": "Kỹ sư nhiệt lạnh tập trung vào thiết kế hệ thống làm mát. Công việc còn bao gồm đo hiệu suất vận hành, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết kế hệ thống làm mát",
+      "Đo hiệu suất vận hành"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "Tiết kiệm năng lượng và bảo trì"
+    ],
+    "keywords": [
+      "Kỹ sư nhiệt lạnh",
+      "Kỹ thuật và công nghiệp",
+      "Thiết kế hệ thống làm mát",
+      "Đo hiệu suất vận hành",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "ky-su-o-to",
+    "name": "Kỹ sư ô tô",
+    "category_id": "engineering",
+    "short_description": "Đánh giá hệ truyền động, thử nghiệm tính năng xe.",
+    "description": "Kỹ sư ô tô tập trung vào đánh giá hệ truyền động. Công việc còn bao gồm thử nghiệm tính năng xe, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Đánh giá hệ truyền động",
+      "Thử nghiệm tính năng xe"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "Kết hợp nhiều hệ thống trên xe"
+    ],
+    "keywords": [
+      "Kỹ sư ô tô",
+      "Kỹ thuật và công nghiệp",
+      "Đánh giá hệ truyền động",
+      "Thử nghiệm tính năng xe",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "ky-thuat-vien-sua-chua-o-to",
+    "name": "Kỹ thuật viên sửa chữa ô tô",
+    "category_id": "engineering",
+    "short_description": "Chẩn đoán lỗi phương tiện, thực hiện bảo dưỡng.",
+    "description": "Kỹ thuật viên sửa chữa ô tô tập trung vào chẩn đoán lỗi phương tiện. Công việc còn bao gồm thực hiện bảo dưỡng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chẩn đoán lỗi phương tiện",
+      "Thực hiện bảo dưỡng"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "Xác định nguyên nhân từ triệu chứng giống nhau"
+    ],
+    "keywords": [
+      "Kỹ thuật viên sửa chữa ô tô",
+      "Kỹ thuật và công nghiệp",
+      "Chẩn đoán lỗi phương tiện",
+      "Thực hiện bảo dưỡng",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "tho-han",
+    "name": "Thợ hàn",
+    "category_id": "engineering",
+    "short_description": "Chuẩn bị mối ghép, kiểm tra chất lượng mối hàn.",
+    "description": "Thợ hàn tập trung vào chuẩn bị mối ghép. Công việc còn bao gồm kiểm tra chất lượng mối hàn, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chuẩn bị mối ghép",
+      "Kiểm tra chất lượng mối hàn"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "Nhiệt độ cao và bảo hộ lao động"
+    ],
+    "keywords": [
+      "Thợ hàn",
+      "Kỹ thuật và công nghiệp",
+      "Chuẩn bị mối ghép",
+      "Kiểm tra chất lượng mối hàn",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "tho-dien-dan-dung",
+    "name": "Thợ điện dân dụng",
+    "category_id": "engineering",
+    "short_description": "Lắp đặt đường điện, kiểm tra thiết bị bảo vệ.",
+    "description": "Thợ điện dân dụng tập trung vào lắp đặt đường điện. Công việc còn bao gồm kiểm tra thiết bị bảo vệ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Lắp đặt đường điện",
+      "Kiểm tra thiết bị bảo vệ"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "Nguy cơ điện giật và chập cháy"
+    ],
+    "keywords": [
+      "Thợ điện dân dụng",
+      "Kỹ thuật và công nghiệp",
+      "Lắp đặt đường điện",
+      "Kiểm tra thiết bị bảo vệ",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "tho-tien-cnc",
+    "name": "Thợ tiện CNC",
+    "category_id": "engineering",
+    "short_description": "Lập thông số gia công, đo kích thước chi tiết.",
+    "description": "Thợ tiện CNC tập trung vào lập thông số gia công. Công việc còn bao gồm đo kích thước chi tiết, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Lập thông số gia công",
+      "Đo kích thước chi tiết"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "Sai số gia công làm hỏng phôi"
+    ],
+    "keywords": [
+      "Thợ tiện CNC",
+      "Kỹ thuật và công nghiệp",
+      "Lập thông số gia công",
+      "Đo kích thước chi tiết",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "ky-su-vat-lieu",
+    "name": "Kỹ sư vật liệu",
+    "category_id": "engineering",
+    "short_description": "Thử đặc tính vật liệu, so sánh phương án sử dụng.",
+    "description": "Kỹ sư vật liệu tập trung vào thử đặc tính vật liệu. Công việc còn bao gồm so sánh phương án sử dụng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thử đặc tính vật liệu",
+      "So sánh phương án sử dụng"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "Đặc tính thay đổi theo điều kiện"
+    ],
+    "keywords": [
+      "Kỹ sư vật liệu",
+      "Kỹ thuật và công nghiệp",
+      "Thử đặc tính vật liệu",
+      "So sánh phương án sử dụng",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "ky-su-hoa-hoc",
+    "name": "Kỹ sư hóa học",
+    "category_id": "engineering",
+    "short_description": "Thiết kế quy trình sản xuất, theo dõi thông số phản ứng.",
+    "description": "Kỹ sư hóa học tập trung vào thiết kế quy trình sản xuất. Công việc còn bao gồm theo dõi thông số phản ứng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết kế quy trình sản xuất",
+      "Theo dõi thông số phản ứng"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "Kiểm soát hóa chất và chất thải"
+    ],
+    "keywords": [
+      "Kỹ sư hóa học",
+      "Kỹ thuật và công nghiệp",
+      "Thiết kế quy trình sản xuất",
+      "Theo dõi thông số phản ứng",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "ky-su-cong-nghe-thuc-pham",
+    "name": "Kỹ sư công nghệ thực phẩm",
+    "category_id": "engineering",
+    "short_description": "Thử quy trình chế biến, kiểm tra chất lượng thực phẩm.",
+    "description": "Kỹ sư công nghệ thực phẩm tập trung vào thử quy trình chế biến. Công việc còn bao gồm kiểm tra chất lượng thực phẩm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thử quy trình chế biến",
+      "Kiểm tra chất lượng thực phẩm"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "An toàn thực phẩm trong chuỗi sản xuất"
+    ],
+    "keywords": [
+      "Kỹ sư công nghệ thực phẩm",
+      "Kỹ thuật và công nghiệp",
+      "Thử quy trình chế biến",
+      "Kiểm tra chất lượng thực phẩm",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "ky-su-det-may",
+    "name": "Kỹ sư dệt may",
+    "category_id": "engineering",
+    "short_description": "Thiết kế quy trình may, đánh giá chất lượng vải và sản phẩm.",
+    "description": "Kỹ sư dệt may tập trung vào thiết kế quy trình may. Công việc còn bao gồm đánh giá chất lượng vải và sản phẩm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết kế quy trình may",
+      "Đánh giá chất lượng vải và sản phẩm"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "Cân đối năng suất với chất lượng"
+    ],
+    "keywords": [
+      "Kỹ sư dệt may",
+      "Kỹ thuật và công nghiệp",
+      "Thiết kế quy trình may",
+      "Đánh giá chất lượng vải và sản phẩm",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "ky-su-dong-tau",
+    "name": "Kỹ sư đóng tàu",
+    "category_id": "engineering",
+    "short_description": "Thiết kế cấu kiện tàu, giám sát lắp ráp thân tàu.",
+    "description": "Kỹ sư đóng tàu tập trung vào thiết kế cấu kiện tàu. Công việc còn bao gồm giám sát lắp ráp thân tàu, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết kế cấu kiện tàu",
+      "Giám sát lắp ráp thân tàu"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "Môi trường biển và kết cấu lớn"
+    ],
+    "keywords": [
+      "Kỹ sư đóng tàu",
+      "Kỹ thuật và công nghiệp",
+      "Thiết kế cấu kiện tàu",
+      "Giám sát lắp ráp thân tàu",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "ky-thuat-vien-bao-tri-cong-nghiep",
+    "name": "Kỹ thuật viên bảo trì công nghiệp",
+    "category_id": "engineering",
+    "short_description": "Kiểm tra máy móc định kỳ, thay thế bộ phận hao mòn.",
+    "description": "Kỹ thuật viên bảo trì công nghiệp tập trung vào kiểm tra máy móc định kỳ. Công việc còn bao gồm thay thế bộ phận hao mòn, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Kiểm tra máy móc định kỳ",
+      "Thay thế bộ phận hao mòn"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "Dừng máy ảnh hưởng dây chuyền"
+    ],
+    "keywords": [
+      "Kỹ thuật viên bảo trì công nghiệp",
+      "Kỹ thuật và công nghiệp",
+      "Kiểm tra máy móc định kỳ",
+      "Thay thế bộ phận hao mòn",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "ky-su-nang-luong-tai-tao",
+    "name": "Kỹ sư năng lượng tái tạo",
+    "category_id": "engineering",
+    "short_description": "Tính toán hệ thống điện sạch, theo dõi sản lượng phát điện.",
+    "description": "Kỹ sư năng lượng tái tạo tập trung vào tính toán hệ thống điện sạch. Công việc còn bao gồm theo dõi sản lượng phát điện, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tính toán hệ thống điện sạch",
+      "Theo dõi sản lượng phát điện"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "Nguồn năng lượng phụ thuộc thời tiết"
+    ],
+    "keywords": [
+      "Kỹ sư năng lượng tái tạo",
+      "Kỹ thuật và công nghiệp",
+      "Tính toán hệ thống điện sạch",
+      "Theo dõi sản lượng phát điện",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "ky-su-hang-khong",
+    "name": "Kỹ sư hàng không",
+    "category_id": "engineering",
+    "short_description": "Phân tích cấu trúc thiết bị bay, kiểm tra thông số kỹ thuật.",
+    "description": "Kỹ sư hàng không tập trung vào phân tích cấu trúc thiết bị bay. Công việc còn bao gồm kiểm tra thông số kỹ thuật, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Phân tích cấu trúc thiết bị bay",
+      "Kiểm tra thông số kỹ thuật"
+    ],
+    "skills": [
+      "Đọc bản vẽ và thông số",
+      "Đo lường và kiểm soát an toàn"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ],
+    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "challenges": [
+      "Yêu cầu độ tin cậy cao"
+    ],
+    "keywords": [
+      "Kỹ sư hàng không",
+      "Kỹ thuật và công nghiệp",
+      "Phân tích cấu trúc thiết bị bay",
+      "Kiểm tra thông số kỹ thuật",
+      "Toán",
+      "Vật lý",
+      "Công nghệ"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-nhan-su",
+    "name": "Chuyên viên nhân sự",
+    "category_id": "business",
+    "short_description": "Tiếp nhận nhu cầu tuyển dụng, hỗ trợ quy trình nhân sự.",
+    "description": "Chuyên viên nhân sự tập trung vào tiếp nhận nhu cầu tuyển dụng. Công việc còn bao gồm hỗ trợ quy trình nhân sự, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tiếp nhận nhu cầu tuyển dụng",
+      "Hỗ trợ quy trình nhân sự"
+    ],
+    "skills": [
+      "Tổ chức công việc",
+      "Giao tiếp và phân tích nhu cầu"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "challenges": [
+      "Cân bằng quyền lợi các bên"
+    ],
+    "keywords": [
+      "Chuyên viên nhân sự",
+      "Kinh doanh và quản lý",
+      "Tiếp nhận nhu cầu tuyển dụng",
+      "Hỗ trợ quy trình nhân sự",
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-tuyen-dung",
+    "name": "Chuyên viên tuyển dụng",
+    "category_id": "business",
+    "short_description": "Trao đổi với ứng viên, đánh giá thông tin ứng tuyển.",
+    "description": "Chuyên viên tuyển dụng tập trung vào trao đổi với ứng viên. Công việc còn bao gồm đánh giá thông tin ứng tuyển, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Trao đổi với ứng viên",
+      "Đánh giá thông tin ứng tuyển"
+    ],
+    "skills": [
+      "Tổ chức công việc",
+      "Giao tiếp và phân tích nhu cầu"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "challenges": [
+      "Nhận định công bằng và tránh thiên kiến"
+    ],
+    "keywords": [
+      "Chuyên viên tuyển dụng",
+      "Kinh doanh và quản lý",
+      "Trao đổi với ứng viên",
+      "Đánh giá thông tin ứng tuyển",
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-phat-trien-kinh-doanh",
+    "name": "Chuyên viên phát triển kinh doanh",
+    "category_id": "business",
+    "short_description": "Tìm đối tác tiềm năng, xây dựng đề xuất hợp tác.",
+    "description": "Chuyên viên phát triển kinh doanh tập trung vào tìm đối tác tiềm năng. Công việc còn bao gồm xây dựng đề xuất hợp tác, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tìm đối tác tiềm năng",
+      "Xây dựng đề xuất hợp tác"
+    ],
+    "skills": [
+      "Tổ chức công việc",
+      "Giao tiếp và phân tích nhu cầu"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "challenges": [
+      "Nhu cầu thị trường biến đổi"
+    ],
+    "keywords": [
+      "Chuyên viên phát triển kinh doanh",
+      "Kinh doanh và quản lý",
+      "Tìm đối tác tiềm năng",
+      "Xây dựng đề xuất hợp tác",
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "nhan-vien-kinh-doanh",
+    "name": "Nhân viên kinh doanh",
+    "category_id": "business",
+    "short_description": "Tìm hiểu nhu cầu khách, theo dõi quá trình bán hàng.",
+    "description": "Nhân viên kinh doanh tập trung vào tìm hiểu nhu cầu khách. Công việc còn bao gồm theo dõi quá trình bán hàng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tìm hiểu nhu cầu khách",
+      "Theo dõi quá trình bán hàng"
+    ],
+    "skills": [
+      "Tổ chức công việc",
+      "Giao tiếp và phân tích nhu cầu"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "challenges": [
+      "Áp lực mục tiêu và từ chối"
+    ],
+    "keywords": [
+      "Nhân viên kinh doanh",
+      "Kinh doanh và quản lý",
+      "Tìm hiểu nhu cầu khách",
+      "Theo dõi quá trình bán hàng",
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "quan-ly-san-pham",
+    "name": "Quản lý sản phẩm",
+    "category_id": "business",
+    "short_description": "Ưu tiên nhu cầu người dùng, điều phối kế hoạch sản phẩm.",
+    "description": "Quản lý sản phẩm tập trung vào ưu tiên nhu cầu người dùng. Công việc còn bao gồm điều phối kế hoạch sản phẩm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Ưu tiên nhu cầu người dùng",
+      "Điều phối kế hoạch sản phẩm"
+    ],
+    "skills": [
+      "Tổ chức công việc",
+      "Giao tiếp và phân tích nhu cầu"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "challenges": [
+      "Đánh đổi giữa các ưu tiên"
+    ],
+    "keywords": [
+      "Quản lý sản phẩm",
+      "Kinh doanh và quản lý",
+      "Ưu tiên nhu cầu người dùng",
+      "Điều phối kế hoạch sản phẩm",
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "quan-ly-du-an",
+    "name": "Quản lý dự án",
+    "category_id": "business",
+    "short_description": "Lập kế hoạch công việc, theo dõi tiến độ và rủi ro.",
+    "description": "Quản lý dự án tập trung vào lập kế hoạch công việc. Công việc còn bao gồm theo dõi tiến độ và rủi ro, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Lập kế hoạch công việc",
+      "Theo dõi tiến độ và rủi ro"
+    ],
+    "skills": [
+      "Tổ chức công việc",
+      "Giao tiếp và phân tích nhu cầu"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "challenges": [
+      "Phụ thuộc giữa nhiều nhóm"
+    ],
+    "keywords": [
+      "Quản lý dự án",
+      "Kinh doanh và quản lý",
+      "Lập kế hoạch công việc",
+      "Theo dõi tiến độ và rủi ro",
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-van-hanh",
+    "name": "Chuyên viên vận hành",
+    "category_id": "business",
+    "short_description": "Theo dõi quy trình dịch vụ, xử lý điểm nghẽn.",
+    "description": "Chuyên viên vận hành tập trung vào theo dõi quy trình dịch vụ. Công việc còn bao gồm xử lý điểm nghẽn, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Theo dõi quy trình dịch vụ",
+      "Xử lý điểm nghẽn"
+    ],
+    "skills": [
+      "Tổ chức công việc",
+      "Giao tiếp và phân tích nhu cầu"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "challenges": [
+      "Giữ chất lượng khi khối lượng tăng"
+    ],
+    "keywords": [
+      "Chuyên viên vận hành",
+      "Kinh doanh và quản lý",
+      "Theo dõi quy trình dịch vụ",
+      "Xử lý điểm nghẽn",
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-mua-hang",
+    "name": "Chuyên viên mua hàng",
+    "category_id": "business",
+    "short_description": "So sánh đề xuất nhà cung cấp, theo dõi đơn mua.",
+    "description": "Chuyên viên mua hàng tập trung vào so sánh đề xuất nhà cung cấp. Công việc còn bao gồm theo dõi đơn mua, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "So sánh đề xuất nhà cung cấp",
+      "Theo dõi đơn mua"
+    ],
+    "skills": [
+      "Tổ chức công việc",
+      "Giao tiếp và phân tích nhu cầu"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "challenges": [
+      "Cân đối chất lượng và thời gian giao"
+    ],
+    "keywords": [
+      "Chuyên viên mua hàng",
+      "Kinh doanh và quản lý",
+      "So sánh đề xuất nhà cung cấp",
+      "Theo dõi đơn mua",
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-logistics",
+    "name": "Chuyên viên logistics",
+    "category_id": "business",
+    "short_description": "Điều phối luồng hàng, theo dõi vận chuyển.",
+    "description": "Chuyên viên logistics tập trung vào điều phối luồng hàng. Công việc còn bao gồm theo dõi vận chuyển, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Điều phối luồng hàng",
+      "Theo dõi vận chuyển"
+    ],
+    "skills": [
+      "Tổ chức công việc",
+      "Giao tiếp và phân tích nhu cầu"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "challenges": [
+      "Gián đoạn ở nhiều mắt xích"
+    ],
+    "keywords": [
+      "Chuyên viên logistics",
+      "Kinh doanh và quản lý",
+      "Điều phối luồng hàng",
+      "Theo dõi vận chuyển",
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-xuat-nhap-khau",
+    "name": "Chuyên viên xuất nhập khẩu",
+    "category_id": "business",
+    "short_description": "Chuẩn bị chứng từ hàng hóa, phối hợp giao nhận quốc tế.",
+    "description": "Chuyên viên xuất nhập khẩu tập trung vào chuẩn bị chứng từ hàng hóa. Công việc còn bao gồm phối hợp giao nhận quốc tế, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chuẩn bị chứng từ hàng hóa",
+      "Phối hợp giao nhận quốc tế"
+    ],
+    "skills": [
+      "Tổ chức công việc",
+      "Giao tiếp và phân tích nhu cầu"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "challenges": [
+      "Chứng từ và lịch vận chuyển thay đổi"
+    ],
+    "keywords": [
+      "Chuyên viên xuất nhập khẩu",
+      "Kinh doanh và quản lý",
+      "Chuẩn bị chứng từ hàng hóa",
+      "Phối hợp giao nhận quốc tế",
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "quan-ly-kho",
+    "name": "Quản lý kho",
+    "category_id": "business",
+    "short_description": "Kiểm tra tồn kho, tổ chức vị trí lưu hàng.",
+    "description": "Quản lý kho tập trung vào kiểm tra tồn kho. Công việc còn bao gồm tổ chức vị trí lưu hàng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Kiểm tra tồn kho",
+      "Tổ chức vị trí lưu hàng"
+    ],
+    "skills": [
+      "Tổ chức công việc",
+      "Giao tiếp và phân tích nhu cầu"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "challenges": [
+      "Sai lệch giữa sổ sách và hàng thực"
+    ],
+    "keywords": [
+      "Quản lý kho",
+      "Kinh doanh và quản lý",
+      "Kiểm tra tồn kho",
+      "Tổ chức vị trí lưu hàng",
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-thuong-mai-dien-tu",
+    "name": "Chuyên viên thương mại điện tử",
+    "category_id": "business",
+    "short_description": "Quản lý gian hàng số, theo dõi hành trình đặt hàng.",
+    "description": "Chuyên viên thương mại điện tử tập trung vào quản lý gian hàng số. Công việc còn bao gồm theo dõi hành trình đặt hàng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Quản lý gian hàng số",
+      "Theo dõi hành trình đặt hàng"
+    ],
+    "skills": [
+      "Tổ chức công việc",
+      "Giao tiếp và phân tích nhu cầu"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "challenges": [
+      "Thay đổi nền tảng và hành vi mua"
+    ],
+    "keywords": [
+      "Chuyên viên thương mại điện tử",
+      "Kinh doanh và quản lý",
+      "Quản lý gian hàng số",
+      "Theo dõi hành trình đặt hàng",
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-cham-soc-khach-hang",
+    "name": "Chuyên viên chăm sóc khách hàng",
+    "category_id": "business",
+    "short_description": "Tiếp nhận phản hồi, phối hợp xử lý yêu cầu.",
+    "description": "Chuyên viên chăm sóc khách hàng tập trung vào tiếp nhận phản hồi. Công việc còn bao gồm phối hợp xử lý yêu cầu, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tiếp nhận phản hồi",
+      "Phối hợp xử lý yêu cầu"
+    ],
+    "skills": [
+      "Tổ chức công việc",
+      "Giao tiếp và phân tích nhu cầu"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "challenges": [
+      "Giao tiếp khi khách đang bức xúc"
+    ],
+    "keywords": [
+      "Chuyên viên chăm sóc khách hàng",
+      "Kinh doanh và quản lý",
+      "Tiếp nhận phản hồi",
+      "Phối hợp xử lý yêu cầu",
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-nghien-cuu-thi-truong",
+    "name": "Chuyên viên nghiên cứu thị trường",
+    "category_id": "business",
+    "short_description": "Thiết kế khảo sát, phân tích nhu cầu tiêu dùng.",
+    "description": "Chuyên viên nghiên cứu thị trường tập trung vào thiết kế khảo sát. Công việc còn bao gồm phân tích nhu cầu tiêu dùng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết kế khảo sát",
+      "Phân tích nhu cầu tiêu dùng"
+    ],
+    "skills": [
+      "Tổ chức công việc",
+      "Giao tiếp và phân tích nhu cầu"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "challenges": [
+      "Mẫu khảo sát không đại diện"
+    ],
+    "keywords": [
+      "Chuyên viên nghiên cứu thị trường",
+      "Kinh doanh và quản lý",
+      "Thiết kế khảo sát",
+      "Phân tích nhu cầu tiêu dùng",
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-quan-ly-chat-luong",
+    "name": "Chuyên viên quản lý chất lượng",
+    "category_id": "business",
+    "short_description": "Rà soát quy trình, theo dõi hành động cải tiến.",
+    "description": "Chuyên viên quản lý chất lượng tập trung vào rà soát quy trình. Công việc còn bao gồm theo dõi hành động cải tiến, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Rà soát quy trình",
+      "Theo dõi hành động cải tiến"
+    ],
+    "skills": [
+      "Tổ chức công việc",
+      "Giao tiếp và phân tích nhu cầu"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "challenges": [
+      "Thay đổi thói quen làm việc"
+    ],
+    "keywords": [
+      "Chuyên viên quản lý chất lượng",
+      "Kinh doanh và quản lý",
+      "Rà soát quy trình",
+      "Theo dõi hành động cải tiến",
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "quan-ly-cua-hang",
+    "name": "Quản lý cửa hàng",
+    "category_id": "business",
+    "short_description": "Điều phối ca bán hàng, kiểm tra trải nghiệm mua sắm.",
+    "description": "Quản lý cửa hàng tập trung vào điều phối ca bán hàng. Công việc còn bao gồm kiểm tra trải nghiệm mua sắm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Điều phối ca bán hàng",
+      "Kiểm tra trải nghiệm mua sắm"
+    ],
+    "skills": [
+      "Tổ chức công việc",
+      "Giao tiếp và phân tích nhu cầu"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "challenges": [
+      "Xử lý đồng thời nhiều tình huống"
+    ],
+    "keywords": [
+      "Quản lý cửa hàng",
+      "Kinh doanh và quản lý",
+      "Điều phối ca bán hàng",
+      "Kiểm tra trải nghiệm mua sắm",
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-hoach-dinh-chuoi-cung-ung",
+    "name": "Chuyên viên hoạch định chuỗi cung ứng",
+    "category_id": "business",
+    "short_description": "Dự báo nhu cầu hàng, lập kế hoạch cung ứng.",
+    "description": "Chuyên viên hoạch định chuỗi cung ứng tập trung vào dự báo nhu cầu hàng. Công việc còn bao gồm lập kế hoạch cung ứng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Dự báo nhu cầu hàng",
+      "Lập kế hoạch cung ứng"
+    ],
+    "skills": [
+      "Tổ chức công việc",
+      "Giao tiếp và phân tích nhu cầu"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "challenges": [
+      "Dự báo sai gây thiếu hoặc tồn hàng"
+    ],
+    "keywords": [
+      "Chuyên viên hoạch định chuỗi cung ứng",
+      "Kinh doanh và quản lý",
+      "Dự báo nhu cầu hàng",
+      "Lập kế hoạch cung ứng",
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-tu-van-quan-tri",
+    "name": "Chuyên viên tư vấn quản trị",
+    "category_id": "business",
+    "short_description": "Phân tích vấn đề tổ chức, đề xuất phương án cải tiến.",
+    "description": "Chuyên viên tư vấn quản trị tập trung vào phân tích vấn đề tổ chức. Công việc còn bao gồm đề xuất phương án cải tiến, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Phân tích vấn đề tổ chức",
+      "Đề xuất phương án cải tiến"
+    ],
+    "skills": [
+      "Tổ chức công việc",
+      "Giao tiếp và phân tích nhu cầu"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "challenges": [
+      "Hiểu thực tế vận hành trước khi tư vấn"
+    ],
+    "keywords": [
+      "Chuyên viên tư vấn quản trị",
+      "Kinh doanh và quản lý",
+      "Phân tích vấn đề tổ chức",
+      "Đề xuất phương án cải tiến",
+      "Toán",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "ke-toan-vien",
+    "name": "Kế toán viên",
+    "category_id": "finance",
+    "short_description": "Ghi nhận nghiệp vụ, đối chiếu chứng từ.",
+    "description": "Kế toán viên tập trung vào ghi nhận nghiệp vụ. Công việc còn bao gồm đối chiếu chứng từ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Ghi nhận nghiệp vụ",
+      "Đối chiếu chứng từ"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "challenges": [
+      "Sai số nhỏ ảnh hưởng báo cáo"
+    ],
+    "keywords": [
+      "Kế toán viên",
+      "Tài chính, kế toán và ngân hàng",
+      "Ghi nhận nghiệp vụ",
+      "Đối chiếu chứng từ",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "kiem-toan-vien",
+    "name": "Kiểm toán viên",
+    "category_id": "finance",
+    "short_description": "Kiểm tra bằng chứng tài chính, đánh giá sai lệch báo cáo.",
+    "description": "Kiểm toán viên tập trung vào kiểm tra bằng chứng tài chính. Công việc còn bao gồm đánh giá sai lệch báo cáo, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Kiểm tra bằng chứng tài chính",
+      "Đánh giá sai lệch báo cáo"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "challenges": [
+      "Giữ tính độc lập trong đánh giá"
+    ],
+    "keywords": [
+      "Kiểm toán viên",
+      "Tài chính, kế toán và ngân hàng",
+      "Kiểm tra bằng chứng tài chính",
+      "Đánh giá sai lệch báo cáo",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-phan-tich-tai-chinh",
+    "name": "Chuyên viên phân tích tài chính",
+    "category_id": "finance",
+    "short_description": "Phân tích dòng tiền, so sánh kịch bản kinh doanh.",
+    "description": "Chuyên viên phân tích tài chính tập trung vào phân tích dòng tiền. Công việc còn bao gồm so sánh kịch bản kinh doanh, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Phân tích dòng tiền",
+      "So sánh kịch bản kinh doanh"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "challenges": [
+      "Giả định có thể thay đổi kết quả"
+    ],
+    "keywords": [
+      "Chuyên viên phân tích tài chính",
+      "Tài chính, kế toán và ngân hàng",
+      "Phân tích dòng tiền",
+      "So sánh kịch bản kinh doanh",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "giao-dich-vien-ngan-hang",
+    "name": "Giao dịch viên ngân hàng",
+    "category_id": "finance",
+    "short_description": "Tiếp nhận yêu cầu giao dịch, kiểm tra thông tin hồ sơ.",
+    "description": "Giao dịch viên ngân hàng tập trung vào tiếp nhận yêu cầu giao dịch. Công việc còn bao gồm kiểm tra thông tin hồ sơ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tiếp nhận yêu cầu giao dịch",
+      "Kiểm tra thông tin hồ sơ"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "challenges": [
+      "Độ chính xác khi phục vụ liên tục"
+    ],
+    "keywords": [
+      "Giao dịch viên ngân hàng",
+      "Tài chính, kế toán và ngân hàng",
+      "Tiếp nhận yêu cầu giao dịch",
+      "Kiểm tra thông tin hồ sơ",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-tin-dung",
+    "name": "Chuyên viên tín dụng",
+    "category_id": "finance",
+    "short_description": "Tìm hiểu nhu cầu vay, đánh giá thông tin hồ sơ tín dụng.",
+    "description": "Chuyên viên tín dụng tập trung vào tìm hiểu nhu cầu vay. Công việc còn bao gồm đánh giá thông tin hồ sơ tín dụng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tìm hiểu nhu cầu vay",
+      "Đánh giá thông tin hồ sơ tín dụng"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "challenges": [
+      "Nhận diện khả năng trả nợ"
+    ],
+    "keywords": [
+      "Chuyên viên tín dụng",
+      "Tài chính, kế toán và ngân hàng",
+      "Tìm hiểu nhu cầu vay",
+      "Đánh giá thông tin hồ sơ tín dụng",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-quan-tri-rui-ro",
+    "name": "Chuyên viên quản trị rủi ro",
+    "category_id": "finance",
+    "short_description": "Theo dõi chỉ báo rủi ro, xây dựng kịch bản kiểm soát.",
+    "description": "Chuyên viên quản trị rủi ro tập trung vào theo dõi chỉ báo rủi ro. Công việc còn bao gồm xây dựng kịch bản kiểm soát, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Theo dõi chỉ báo rủi ro",
+      "Xây dựng kịch bản kiểm soát"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "challenges": [
+      "Rủi ro mới khó dự báo"
+    ],
+    "keywords": [
+      "Chuyên viên quản trị rủi ro",
+      "Tài chính, kế toán và ngân hàng",
+      "Theo dõi chỉ báo rủi ro",
+      "Xây dựng kịch bản kiểm soát",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-bao-hiem",
+    "name": "Chuyên viên bảo hiểm",
+    "category_id": "finance",
+    "short_description": "Giải thích phạm vi sản phẩm, hỗ trợ xử lý hồ sơ.",
+    "description": "Chuyên viên bảo hiểm tập trung vào giải thích phạm vi sản phẩm. Công việc còn bao gồm hỗ trợ xử lý hồ sơ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Giải thích phạm vi sản phẩm",
+      "Hỗ trợ xử lý hồ sơ"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "challenges": [
+      "Diễn đạt rõ điều khoản và giới hạn"
+    ],
+    "keywords": [
+      "Chuyên viên bảo hiểm",
+      "Tài chính, kế toán và ngân hàng",
+      "Giải thích phạm vi sản phẩm",
+      "Hỗ trợ xử lý hồ sơ",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-dinh-phi-bao-hiem",
+    "name": "Chuyên viên định phí bảo hiểm",
+    "category_id": "finance",
+    "short_description": "Xây mô hình xác suất, ước tính nghĩa vụ bảo hiểm.",
+    "description": "Chuyên viên định phí bảo hiểm tập trung vào xây mô hình xác suất. Công việc còn bao gồm ước tính nghĩa vụ bảo hiểm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Xây mô hình xác suất",
+      "Ước tính nghĩa vụ bảo hiểm"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "challenges": [
+      "Dữ liệu lịch sử không phản ánh mọi biến cố"
+    ],
+    "keywords": [
+      "Chuyên viên định phí bảo hiểm",
+      "Tài chính, kế toán và ngân hàng",
+      "Xây mô hình xác suất",
+      "Ước tính nghĩa vụ bảo hiểm",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  }
+]

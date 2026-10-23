@@ -1,0 +1,1652 @@
+[
+  {
+    "career_id": "chuyen-vien-phan-tich-dau-tu",
+    "name": "Chuyên viên phân tích đầu tư",
+    "category_id": "finance",
+    "short_description": "Đọc báo cáo doanh nghiệp, đánh giá kịch bản đầu tư.",
+    "description": "Chuyên viên phân tích đầu tư tập trung vào đọc báo cáo doanh nghiệp. Công việc còn bao gồm đánh giá kịch bản đầu tư, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Đọc báo cáo doanh nghiệp",
+      "Đánh giá kịch bản đầu tư"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "challenges": [
+      "Bất định của thị trường"
+    ],
+    "keywords": [
+      "Chuyên viên phân tích đầu tư",
+      "Tài chính, kế toán và ngân hàng",
+      "Đọc báo cáo doanh nghiệp",
+      "Đánh giá kịch bản đầu tư",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-thue",
+    "name": "Chuyên viên thuế",
+    "category_id": "finance",
+    "short_description": "Rà soát nghĩa vụ thuế, chuẩn bị hồ sơ liên quan.",
+    "description": "Chuyên viên thuế tập trung vào rà soát nghĩa vụ thuế. Công việc còn bao gồm chuẩn bị hồ sơ liên quan, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Rà soát nghĩa vụ thuế",
+      "Chuẩn bị hồ sơ liên quan"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "challenges": [
+      "Quy định và tình huống thay đổi"
+    ],
+    "keywords": [
+      "Chuyên viên thuế",
+      "Tài chính, kế toán và ngân hàng",
+      "Rà soát nghĩa vụ thuế",
+      "Chuẩn bị hồ sơ liên quan",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-ngan-quy",
+    "name": "Chuyên viên ngân quỹ",
+    "category_id": "finance",
+    "short_description": "Theo dõi thu chi, lập kế hoạch thanh khoản.",
+    "description": "Chuyên viên ngân quỹ tập trung vào theo dõi thu chi. Công việc còn bao gồm lập kế hoạch thanh khoản, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Theo dõi thu chi",
+      "Lập kế hoạch thanh khoản"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "challenges": [
+      "Duy trì đủ tiền cho hoạt động"
+    ],
+    "keywords": [
+      "Chuyên viên ngân quỹ",
+      "Tài chính, kế toán và ngân hàng",
+      "Theo dõi thu chi",
+      "Lập kế hoạch thanh khoản",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-tham-dinh-gia",
+    "name": "Chuyên viên thẩm định giá",
+    "category_id": "finance",
+    "short_description": "Khảo sát tài sản, so sánh bằng chứng thị trường.",
+    "description": "Chuyên viên thẩm định giá tập trung vào khảo sát tài sản. Công việc còn bao gồm so sánh bằng chứng thị trường, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Khảo sát tài sản",
+      "So sánh bằng chứng thị trường"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "challenges": [
+      "Thiếu dữ liệu giao dịch đáng tin"
+    ],
+    "keywords": [
+      "Chuyên viên thẩm định giá",
+      "Tài chính, kế toán và ngân hàng",
+      "Khảo sát tài sản",
+      "So sánh bằng chứng thị trường",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "ke-toan-quan-tri",
+    "name": "Kế toán quản trị",
+    "category_id": "finance",
+    "short_description": "Tổng hợp chi phí hoạt động, lập báo cáo hỗ trợ quyết định.",
+    "description": "Kế toán quản trị tập trung vào tổng hợp chi phí hoạt động. Công việc còn bao gồm lập báo cáo hỗ trợ quyết định, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tổng hợp chi phí hoạt động",
+      "Lập báo cáo hỗ trợ quyết định"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "challenges": [
+      "Phân bổ chi phí hợp lý"
+    ],
+    "keywords": [
+      "Kế toán quản trị",
+      "Tài chính, kế toán và ngân hàng",
+      "Tổng hợp chi phí hoạt động",
+      "Lập báo cáo hỗ trợ quyết định",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-thanh-toan-quoc-te",
+    "name": "Chuyên viên thanh toán quốc tế",
+    "category_id": "finance",
+    "short_description": "Kiểm tra chứng từ thanh toán, phối hợp giao dịch xuyên biên giới.",
+    "description": "Chuyên viên thanh toán quốc tế tập trung vào kiểm tra chứng từ thanh toán. Công việc còn bao gồm phối hợp giao dịch xuyên biên giới, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Kiểm tra chứng từ thanh toán",
+      "Phối hợp giao dịch xuyên biên giới"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "challenges": [
+      "Khác biệt múi giờ và quy trình"
+    ],
+    "keywords": [
+      "Chuyên viên thanh toán quốc tế",
+      "Tài chính, kế toán và ngân hàng",
+      "Kiểm tra chứng từ thanh toán",
+      "Phối hợp giao dịch xuyên biên giới",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-tuan-thu-tai-chinh",
+    "name": "Chuyên viên tuân thủ tài chính",
+    "category_id": "finance",
+    "short_description": "Rà soát hoạt động giao dịch, theo dõi yêu cầu tuân thủ.",
+    "description": "Chuyên viên tuân thủ tài chính tập trung vào rà soát hoạt động giao dịch. Công việc còn bao gồm theo dõi yêu cầu tuân thủ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Rà soát hoạt động giao dịch",
+      "Theo dõi yêu cầu tuân thủ"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "challenges": [
+      "Nhận diện dấu hiệu bất thường"
+    ],
+    "keywords": [
+      "Chuyên viên tuân thủ tài chính",
+      "Tài chính, kế toán và ngân hàng",
+      "Rà soát hoạt động giao dịch",
+      "Theo dõi yêu cầu tuân thủ",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "moi-gioi-chung-khoan",
+    "name": "Môi giới chứng khoán",
+    "category_id": "finance",
+    "short_description": "Giải thích dịch vụ giao dịch, cập nhật thông tin thị trường.",
+    "description": "Môi giới chứng khoán tập trung vào giải thích dịch vụ giao dịch. Công việc còn bao gồm cập nhật thông tin thị trường, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Giải thích dịch vụ giao dịch",
+      "Cập nhật thông tin thị trường"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "challenges": [
+      "Không hứa hẹn lợi nhuận chắc chắn"
+    ],
+    "keywords": [
+      "Môi giới chứng khoán",
+      "Tài chính, kế toán và ngân hàng",
+      "Giải thích dịch vụ giao dịch",
+      "Cập nhật thông tin thị trường",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "thiet-ke",
+    "name": "Nhà thiết kế đồ họa",
+    "category_id": "design",
+    "short_description": "Thiết kế nhận diện hình ảnh, chỉnh bố cục theo phản hồi.",
+    "description": "Nhà thiết kế đồ họa tập trung vào thiết kế nhận diện hình ảnh. Công việc còn bao gồm chỉnh bố cục theo phản hồi, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết kế nhận diện hình ảnh",
+      "Chỉnh bố cục theo phản hồi"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, xưởng sáng tạo hoặc nhóm thiết kế tại doanh nghiệp.",
+    "challenges": [
+      "Đáp ứng mục tiêu truyền đạt và thẩm mỹ"
+    ],
+    "keywords": [
+      "Nhà thiết kế đồ họa",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Thiết kế nhận diện hình ảnh",
+      "Chỉnh bố cục theo phản hồi",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "nha-thiet-ke-ux",
+    "name": "Nhà thiết kế UX",
+    "category_id": "design",
+    "short_description": "Nghiên cứu trải nghiệm người dùng, thử nguyên mẫu tương tác.",
+    "description": "Nhà thiết kế UX tập trung vào nghiên cứu trải nghiệm người dùng. Công việc còn bao gồm thử nguyên mẫu tương tác, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Nghiên cứu trải nghiệm người dùng",
+      "Thử nguyên mẫu tương tác"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, xưởng sáng tạo hoặc nhóm thiết kế tại doanh nghiệp.",
+    "challenges": [
+      "Tránh thiết kế chỉ theo sở thích cá nhân"
+    ],
+    "keywords": [
+      "Nhà thiết kế UX",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Nghiên cứu trải nghiệm người dùng",
+      "Thử nguyên mẫu tương tác",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "nha-thiet-ke-ui",
+    "name": "Nhà thiết kế UI",
+    "category_id": "design",
+    "short_description": "Thiết kế màn hình số, xây thư viện thành phần giao diện.",
+    "description": "Nhà thiết kế UI tập trung vào thiết kế màn hình số. Công việc còn bao gồm xây thư viện thành phần giao diện, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết kế màn hình số",
+      "Xây thư viện thành phần giao diện"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, xưởng sáng tạo hoặc nhóm thiết kế tại doanh nghiệp.",
+    "challenges": [
+      "Giữ tính nhất quán và khả năng đọc"
+    ],
+    "keywords": [
+      "Nhà thiết kế UI",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Thiết kế màn hình số",
+      "Xây thư viện thành phần giao diện",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "nha-thiet-ke-noi-that",
+    "name": "Nhà thiết kế nội thất",
+    "category_id": "design",
+    "short_description": "Lập phương án bố trí phòng, lựa chọn vật liệu nội thất.",
+    "description": "Nhà thiết kế nội thất tập trung vào lập phương án bố trí phòng. Công việc còn bao gồm lựa chọn vật liệu nội thất, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Lập phương án bố trí phòng",
+      "Lựa chọn vật liệu nội thất"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, xưởng sáng tạo hoặc nhóm thiết kế tại doanh nghiệp.",
+    "challenges": [
+      "Không gian và ngân sách có giới hạn"
+    ],
+    "keywords": [
+      "Nhà thiết kế nội thất",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Lập phương án bố trí phòng",
+      "Lựa chọn vật liệu nội thất",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "nha-thiet-ke-thoi-trang",
+    "name": "Nhà thiết kế thời trang",
+    "category_id": "design",
+    "short_description": "Phác thảo trang phục, thử mẫu và chỉnh phom.",
+    "description": "Nhà thiết kế thời trang tập trung vào phác thảo trang phục. Công việc còn bao gồm thử mẫu và chỉnh phom, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Phác thảo trang phục",
+      "Thử mẫu và chỉnh phom"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, xưởng sáng tạo hoặc nhóm thiết kế tại doanh nghiệp.",
+    "challenges": [
+      "Kết hợp thẩm mỹ với khả năng sản xuất"
+    ],
+    "keywords": [
+      "Nhà thiết kế thời trang",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Phác thảo trang phục",
+      "Thử mẫu và chỉnh phom",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "nha-thiet-ke-cong-nghiep",
+    "name": "Nhà thiết kế công nghiệp",
+    "category_id": "design",
+    "short_description": "Phác thảo sản phẩm vật lý, đánh giá nguyên mẫu sử dụng.",
+    "description": "Nhà thiết kế công nghiệp tập trung vào phác thảo sản phẩm vật lý. Công việc còn bao gồm đánh giá nguyên mẫu sử dụng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Phác thảo sản phẩm vật lý",
+      "Đánh giá nguyên mẫu sử dụng"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, xưởng sáng tạo hoặc nhóm thiết kế tại doanh nghiệp.",
+    "challenges": [
+      "Công năng và quy trình chế tạo"
+    ],
+    "keywords": [
+      "Nhà thiết kế công nghiệp",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Phác thảo sản phẩm vật lý",
+      "Đánh giá nguyên mẫu sử dụng",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "hoa-si-minh-hoa",
+    "name": "Họa sĩ minh họa",
+    "category_id": "design",
+    "short_description": "Diễn giải ý tưởng bằng hình vẽ, chỉnh hình theo nội dung.",
+    "description": "Họa sĩ minh họa tập trung vào diễn giải ý tưởng bằng hình vẽ. Công việc còn bao gồm chỉnh hình theo nội dung, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Diễn giải ý tưởng bằng hình vẽ",
+      "Chỉnh hình theo nội dung"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, xưởng sáng tạo hoặc nhóm thiết kế tại doanh nghiệp.",
+    "challenges": [
+      "Giữ phong cách khi yêu cầu đa dạng"
+    ],
+    "keywords": [
+      "Họa sĩ minh họa",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Diễn giải ý tưởng bằng hình vẽ",
+      "Chỉnh hình theo nội dung",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "hoa-si-truyen-tranh",
+    "name": "Họa sĩ truyện tranh",
+    "category_id": "design",
+    "short_description": "Xây phân cảnh truyện, vẽ nhân vật và bối cảnh.",
+    "description": "Họa sĩ truyện tranh tập trung vào xây phân cảnh truyện. Công việc còn bao gồm vẽ nhân vật và bối cảnh, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Xây phân cảnh truyện",
+      "Vẽ nhân vật và bối cảnh"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, xưởng sáng tạo hoặc nhóm thiết kế tại doanh nghiệp.",
+    "challenges": [
+      "Kể chuyện rõ trong số khung hạn chế"
+    ],
+    "keywords": [
+      "Họa sĩ truyện tranh",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Xây phân cảnh truyện",
+      "Vẽ nhân vật và bối cảnh",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "hoa-si-hoat-hinh",
+    "name": "Họa sĩ hoạt hình",
+    "category_id": "design",
+    "short_description": "Tạo chuyển động nhân vật, kiểm tra nhịp diễn xuất.",
+    "description": "Họa sĩ hoạt hình tập trung vào tạo chuyển động nhân vật. Công việc còn bao gồm kiểm tra nhịp diễn xuất, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tạo chuyển động nhân vật",
+      "Kiểm tra nhịp diễn xuất"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, xưởng sáng tạo hoặc nhóm thiết kế tại doanh nghiệp.",
+    "challenges": [
+      "Nhiều khung hình cần nhất quán"
+    ],
+    "keywords": [
+      "Họa sĩ hoạt hình",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Tạo chuyển động nhân vật",
+      "Kiểm tra nhịp diễn xuất",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "nghe-si-mo-hinh-3d",
+    "name": "Nghệ sĩ mô hình 3D",
+    "category_id": "design",
+    "short_description": "Dựng hình ba chiều, tạo chất liệu bề mặt.",
+    "description": "Nghệ sĩ mô hình 3D tập trung vào dựng hình ba chiều. Công việc còn bao gồm tạo chất liệu bề mặt, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Dựng hình ba chiều",
+      "Tạo chất liệu bề mặt"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, xưởng sáng tạo hoặc nhóm thiết kế tại doanh nghiệp.",
+    "challenges": [
+      "Độ chi tiết phải phù hợp hiệu năng"
+    ],
+    "keywords": [
+      "Nghệ sĩ mô hình 3D",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Dựng hình ba chiều",
+      "Tạo chất liệu bề mặt",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "nha-dieu-khac",
+    "name": "Nhà điêu khắc",
+    "category_id": "design",
+    "short_description": "Phác hình khối, chế tác tác phẩm.",
+    "description": "Nhà điêu khắc tập trung vào phác hình khối. Công việc còn bao gồm chế tác tác phẩm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Phác hình khối",
+      "Chế tác tác phẩm"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, xưởng sáng tạo hoặc nhóm thiết kế tại doanh nghiệp.",
+    "challenges": [
+      "Đặc tính vật liệu và trọng lượng"
+    ],
+    "keywords": [
+      "Nhà điêu khắc",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Phác hình khối",
+      "Chế tác tác phẩm",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "nghe-nhan-gom",
+    "name": "Nghệ nhân gốm",
+    "category_id": "design",
+    "short_description": "Tạo hình đất, theo dõi nung và men.",
+    "description": "Nghệ nhân gốm tập trung vào tạo hình đất. Công việc còn bao gồm theo dõi nung và men, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tạo hình đất",
+      "Theo dõi nung và men"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, xưởng sáng tạo hoặc nhóm thiết kế tại doanh nghiệp.",
+    "challenges": [
+      "Nhiệt độ làm thay đổi thành phẩm"
+    ],
+    "keywords": [
+      "Nghệ nhân gốm",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Tạo hình đất",
+      "Theo dõi nung và men",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "tho-kim-hoan",
+    "name": "Thợ kim hoàn",
+    "category_id": "design",
+    "short_description": "Chế tác trang sức, kiểm tra mối nối chi tiết.",
+    "description": "Thợ kim hoàn tập trung vào chế tác trang sức. Công việc còn bao gồm kiểm tra mối nối chi tiết, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chế tác trang sức",
+      "Kiểm tra mối nối chi tiết"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, xưởng sáng tạo hoặc nhóm thiết kế tại doanh nghiệp.",
+    "challenges": [
+      "Độ chính xác trên vật liệu nhỏ"
+    ],
+    "keywords": [
+      "Thợ kim hoàn",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Chế tác trang sức",
+      "Kiểm tra mối nối chi tiết",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "nhiep-anh-gia",
+    "name": "Nhiếp ảnh gia",
+    "category_id": "design",
+    "short_description": "Chuẩn bị ánh sáng, chọn và xử lý ảnh.",
+    "description": "Nhiếp ảnh gia tập trung vào chuẩn bị ánh sáng. Công việc còn bao gồm chọn và xử lý ảnh, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chuẩn bị ánh sáng",
+      "Chọn và xử lý ảnh"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, xưởng sáng tạo hoặc nhóm thiết kế tại doanh nghiệp.",
+    "challenges": [
+      "Điều kiện chụp thay đổi liên tục"
+    ],
+    "keywords": [
+      "Nhiếp ảnh gia",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Chuẩn bị ánh sáng",
+      "Chọn và xử lý ảnh",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "nha-thiet-ke-canh-quan",
+    "name": "Nhà thiết kế cảnh quan",
+    "category_id": "design",
+    "short_description": "Bố trí cây và lối đi, đánh giá điều kiện khu đất.",
+    "description": "Nhà thiết kế cảnh quan tập trung vào bố trí cây và lối đi. Công việc còn bao gồm đánh giá điều kiện khu đất, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Bố trí cây và lối đi",
+      "Đánh giá điều kiện khu đất"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, xưởng sáng tạo hoặc nhóm thiết kế tại doanh nghiệp.",
+    "challenges": [
+      "Phối hợp sinh thái với nhu cầu sử dụng"
+    ],
+    "keywords": [
+      "Nhà thiết kế cảnh quan",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Bố trí cây và lối đi",
+      "Đánh giá điều kiện khu đất",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "nha-thiet-ke-san-khau",
+    "name": "Nhà thiết kế sân khấu",
+    "category_id": "design",
+    "short_description": "Phác không gian biểu diễn, phối hợp dựng bối cảnh.",
+    "description": "Nhà thiết kế sân khấu tập trung vào phác không gian biểu diễn. Công việc còn bao gồm phối hợp dựng bối cảnh, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Phác không gian biểu diễn",
+      "Phối hợp dựng bối cảnh"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, xưởng sáng tạo hoặc nhóm thiết kế tại doanh nghiệp.",
+    "challenges": [
+      "Giới hạn sân khấu và thời gian chuyển cảnh"
+    ],
+    "keywords": [
+      "Nhà thiết kế sân khấu",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Phác không gian biểu diễn",
+      "Phối hợp dựng bối cảnh",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "tho-thu-cong-may-tre",
+    "name": "Thợ thủ công mây tre",
+    "category_id": "design",
+    "short_description": "Chuẩn bị nguyên liệu đan, hoàn thiện sản phẩm thủ công.",
+    "description": "Thợ thủ công mây tre tập trung vào chuẩn bị nguyên liệu đan. Công việc còn bao gồm hoàn thiện sản phẩm thủ công, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chuẩn bị nguyên liệu đan",
+      "Hoàn thiện sản phẩm thủ công"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, xưởng sáng tạo hoặc nhóm thiết kế tại doanh nghiệp.",
+    "challenges": [
+      "Độ bền và độ đều của sợi"
+    ],
+    "keywords": [
+      "Thợ thủ công mây tre",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Chuẩn bị nguyên liệu đan",
+      "Hoàn thiện sản phẩm thủ công",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-thiet-ke-bao-bi",
+    "name": "Chuyên viên thiết kế bao bì",
+    "category_id": "design",
+    "short_description": "Thiết kế kết cấu hộp, thử khả năng bảo vệ sản phẩm.",
+    "description": "Chuyên viên thiết kế bao bì tập trung vào thiết kế kết cấu hộp. Công việc còn bao gồm thử khả năng bảo vệ sản phẩm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết kế kết cấu hộp",
+      "Thử khả năng bảo vệ sản phẩm"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, xưởng sáng tạo hoặc nhóm thiết kế tại doanh nghiệp.",
+    "challenges": [
+      "Cân đối vật liệu và thông tin nhãn"
+    ],
+    "keywords": [
+      "Chuyên viên thiết kế bao bì",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Thiết kế kết cấu hộp",
+      "Thử khả năng bảo vệ sản phẩm",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "truyen-thong",
+    "name": "Người làm truyền thông",
+    "category_id": "media",
+    "short_description": "Lập kế hoạch nội dung, phối hợp đưa thông tin tới công chúng.",
+    "description": "Người làm truyền thông tập trung vào lập kế hoạch nội dung. Công việc còn bao gồm phối hợp đưa thông tin tới công chúng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Lập kế hoạch nội dung",
+      "Phối hợp đưa thông tin tới công chúng"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Tòa soạn, trường quay, sân khấu hoặc nhóm sản xuất nội dung.",
+    "challenges": [
+      "Kiểm chứng thông điệp trước khi công bố"
+    ],
+    "keywords": [
+      "Người làm truyền thông",
+      "Truyền thông và giải trí",
+      "Lập kế hoạch nội dung",
+      "Phối hợp đưa thông tin tới công chúng",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "nha-bao",
+    "name": "Nhà báo",
+    "category_id": "media",
+    "short_description": "Phỏng vấn nguồn tin, kiểm chứng và viết bài.",
+    "description": "Nhà báo tập trung vào phỏng vấn nguồn tin. Công việc còn bao gồm kiểm chứng và viết bài, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Phỏng vấn nguồn tin",
+      "Kiểm chứng và viết bài"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Tòa soạn, trường quay, sân khấu hoặc nhóm sản xuất nội dung.",
+    "challenges": [
+      "Đảm bảo chính xác dưới áp lực thời gian"
+    ],
+    "keywords": [
+      "Nhà báo",
+      "Truyền thông và giải trí",
+      "Phỏng vấn nguồn tin",
+      "Kiểm chứng và viết bài",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "bien-tap-vien",
+    "name": "Biên tập viên",
+    "category_id": "media",
+    "short_description": "Rà soát bản thảo, chỉnh cấu trúc nội dung.",
+    "description": "Biên tập viên tập trung vào rà soát bản thảo. Công việc còn bao gồm chỉnh cấu trúc nội dung, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Rà soát bản thảo",
+      "Chỉnh cấu trúc nội dung"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Tòa soạn, trường quay, sân khấu hoặc nhóm sản xuất nội dung.",
+    "challenges": [
+      "Giữ giọng tác giả và độ chính xác"
+    ],
+    "keywords": [
+      "Biên tập viên",
+      "Truyền thông và giải trí",
+      "Rà soát bản thảo",
+      "Chỉnh cấu trúc nội dung",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-quan-he-cong-chung",
+    "name": "Chuyên viên quan hệ công chúng",
+    "category_id": "media",
+    "short_description": "Theo dõi hình ảnh tổ chức, phối hợp phản hồi công chúng.",
+    "description": "Chuyên viên quan hệ công chúng tập trung vào theo dõi hình ảnh tổ chức. Công việc còn bao gồm phối hợp phản hồi công chúng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Theo dõi hình ảnh tổ chức",
+      "Phối hợp phản hồi công chúng"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Tòa soạn, trường quay, sân khấu hoặc nhóm sản xuất nội dung.",
+    "challenges": [
+      "Xử lý thông tin trong khủng hoảng"
+    ],
+    "keywords": [
+      "Chuyên viên quan hệ công chúng",
+      "Truyền thông và giải trí",
+      "Theo dõi hình ảnh tổ chức",
+      "Phối hợp phản hồi công chúng",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-to-chuc-su-kien",
+    "name": "Chuyên viên tổ chức sự kiện",
+    "category_id": "media",
+    "short_description": "Lập kịch bản tổ chức, điều phối nhà cung cấp.",
+    "description": "Chuyên viên tổ chức sự kiện tập trung vào lập kịch bản tổ chức. Công việc còn bao gồm điều phối nhà cung cấp, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Lập kịch bản tổ chức",
+      "Điều phối nhà cung cấp"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Tòa soạn, trường quay, sân khấu hoặc nhóm sản xuất nội dung.",
+    "challenges": [
+      "Sự cố tại hiện trường khó dự báo"
+    ],
+    "keywords": [
+      "Chuyên viên tổ chức sự kiện",
+      "Truyền thông và giải trí",
+      "Lập kịch bản tổ chức",
+      "Điều phối nhà cung cấp",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "dao-dien",
+    "name": "Đạo diễn",
+    "category_id": "media",
+    "short_description": "Phát triển cách kể chuyện, chỉ đạo ghi hình hoặc biểu diễn.",
+    "description": "Đạo diễn tập trung vào phát triển cách kể chuyện. Công việc còn bao gồm chỉ đạo ghi hình hoặc biểu diễn, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Phát triển cách kể chuyện",
+      "Chỉ đạo ghi hình hoặc biểu diễn"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Tòa soạn, trường quay, sân khấu hoặc nhóm sản xuất nội dung.",
+    "challenges": [
+      "Thống nhất tầm nhìn của nhiều bộ phận"
+    ],
+    "keywords": [
+      "Đạo diễn",
+      "Truyền thông và giải trí",
+      "Phát triển cách kể chuyện",
+      "Chỉ đạo ghi hình hoặc biểu diễn",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "bien-kich",
+    "name": "Biên kịch",
+    "category_id": "media",
+    "short_description": "Xây cấu trúc câu chuyện, viết đối thoại.",
+    "description": "Biên kịch tập trung vào xây cấu trúc câu chuyện. Công việc còn bao gồm viết đối thoại, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Xây cấu trúc câu chuyện",
+      "Viết đối thoại"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Tòa soạn, trường quay, sân khấu hoặc nhóm sản xuất nội dung.",
+    "challenges": [
+      "Duy trì logic nhân vật"
+    ],
+    "keywords": [
+      "Biên kịch",
+      "Truyền thông và giải trí",
+      "Xây cấu trúc câu chuyện",
+      "Viết đối thoại",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "quay-phim",
+    "name": "Quay phim",
+    "category_id": "media",
+    "short_description": "Thiết lập máy và ánh sáng, ghi hình theo phân cảnh.",
+    "description": "Quay phim tập trung vào thiết lập máy và ánh sáng. Công việc còn bao gồm ghi hình theo phân cảnh, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết lập máy và ánh sáng",
+      "Ghi hình theo phân cảnh"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Tòa soạn, trường quay, sân khấu hoặc nhóm sản xuất nội dung.",
+    "challenges": [
+      "Đảm bảo hình ảnh trong điều kiện khó"
+    ],
+    "keywords": [
+      "Quay phim",
+      "Truyền thông và giải trí",
+      "Thiết lập máy và ánh sáng",
+      "Ghi hình theo phân cảnh",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "dung-phim",
+    "name": "Dựng phim",
+    "category_id": "media",
+    "short_description": "Chọn và sắp xếp cảnh, phối hợp hình và âm thanh.",
+    "description": "Dựng phim tập trung vào chọn và sắp xếp cảnh. Công việc còn bao gồm phối hợp hình và âm thanh, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chọn và sắp xếp cảnh",
+      "Phối hợp hình và âm thanh"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Tòa soạn, trường quay, sân khấu hoặc nhóm sản xuất nội dung.",
+    "challenges": [
+      "Giữ mạch kể và nhịp cảm xúc"
+    ],
+    "keywords": [
+      "Dựng phim",
+      "Truyền thông và giải trí",
+      "Chọn và sắp xếp cảnh",
+      "Phối hợp hình và âm thanh",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "ky-thuat-vien-am-thanh",
+    "name": "Kỹ thuật viên âm thanh",
+    "category_id": "media",
+    "short_description": "Thiết lập hệ thống thu tiếng, kiểm tra chất lượng âm thanh.",
+    "description": "Kỹ thuật viên âm thanh tập trung vào thiết lập hệ thống thu tiếng. Công việc còn bao gồm kiểm tra chất lượng âm thanh, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết lập hệ thống thu tiếng",
+      "Kiểm tra chất lượng âm thanh"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Tòa soạn, trường quay, sân khấu hoặc nhóm sản xuất nội dung.",
+    "challenges": [
+      "Tạp âm và phản hồi âm khó kiểm soát"
+    ],
+    "keywords": [
+      "Kỹ thuật viên âm thanh",
+      "Truyền thông và giải trí",
+      "Thiết lập hệ thống thu tiếng",
+      "Kiểm tra chất lượng âm thanh",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "nhac-si-sang-tac",
+    "name": "Nhạc sĩ sáng tác",
+    "category_id": "media",
+    "short_description": "Phát triển giai điệu, hoàn thiện bản nhạc.",
+    "description": "Nhạc sĩ sáng tác tập trung vào phát triển giai điệu. Công việc còn bao gồm hoàn thiện bản nhạc, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Phát triển giai điệu",
+      "Hoàn thiện bản nhạc"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Tòa soạn, trường quay, sân khấu hoặc nhóm sản xuất nội dung.",
+    "challenges": [
+      "Cân bằng sáng tạo và yêu cầu biểu diễn"
+    ],
+    "keywords": [
+      "Nhạc sĩ sáng tác",
+      "Truyền thông và giải trí",
+      "Phát triển giai điệu",
+      "Hoàn thiện bản nhạc",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "ca-si",
+    "name": "Ca sĩ",
+    "category_id": "media",
+    "short_description": "Luyện giọng, tập và biểu diễn tiết mục.",
+    "description": "Ca sĩ tập trung vào luyện giọng. Công việc còn bao gồm tập và biểu diễn tiết mục, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Luyện giọng",
+      "Tập và biểu diễn tiết mục"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Tòa soạn, trường quay, sân khấu hoặc nhóm sản xuất nội dung.",
+    "challenges": [
+      "Giữ sức khỏe giọng hát"
+    ],
+    "keywords": [
+      "Ca sĩ",
+      "Truyền thông và giải trí",
+      "Luyện giọng",
+      "Tập và biểu diễn tiết mục",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "dien-vien",
+    "name": "Diễn viên",
+    "category_id": "media",
+    "short_description": "Nghiên cứu nhân vật, tập diễn với bạn diễn.",
+    "description": "Diễn viên tập trung vào nghiên cứu nhân vật. Công việc còn bao gồm tập diễn với bạn diễn, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Nghiên cứu nhân vật",
+      "Tập diễn với bạn diễn"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Tòa soạn, trường quay, sân khấu hoặc nhóm sản xuất nội dung.",
+    "challenges": [
+      "Biểu đạt thuyết phục qua nhiều lần diễn"
+    ],
+    "keywords": [
+      "Diễn viên",
+      "Truyền thông và giải trí",
+      "Nghiên cứu nhân vật",
+      "Tập diễn với bạn diễn",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "nguoi-dan-chuong-trinh",
+    "name": "Người dẫn chương trình",
+    "category_id": "media",
+    "short_description": "Chuẩn bị lời dẫn, kết nối các phần chương trình.",
+    "description": "Người dẫn chương trình tập trung vào chuẩn bị lời dẫn. Công việc còn bao gồm kết nối các phần chương trình, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chuẩn bị lời dẫn",
+      "Kết nối các phần chương trình"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Tòa soạn, trường quay, sân khấu hoặc nhóm sản xuất nội dung.",
+    "challenges": [
+      "Ứng biến trước tình huống trực tiếp"
+    ],
+    "keywords": [
+      "Người dẫn chương trình",
+      "Truyền thông và giải trí",
+      "Chuẩn bị lời dẫn",
+      "Kết nối các phần chương trình",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-noi-dung-so",
+    "name": "Chuyên viên nội dung số",
+    "category_id": "media",
+    "short_description": "Biên soạn nội dung theo kênh, đánh giá phản hồi người xem.",
+    "description": "Chuyên viên nội dung số tập trung vào biên soạn nội dung theo kênh. Công việc còn bao gồm đánh giá phản hồi người xem, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Biên soạn nội dung theo kênh",
+      "Đánh giá phản hồi người xem"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Tòa soạn, trường quay, sân khấu hoặc nhóm sản xuất nội dung.",
+    "challenges": [
+      "Tránh chạy theo lượt xem bằng thông tin sai"
+    ],
+    "keywords": [
+      "Chuyên viên nội dung số",
+      "Truyền thông và giải trí",
+      "Biên soạn nội dung theo kênh",
+      "Đánh giá phản hồi người xem",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-seo",
+    "name": "Chuyên viên SEO",
+    "category_id": "media",
+    "short_description": "Nghiên cứu nhu cầu tìm kiếm, cải thiện cấu trúc nội dung web.",
+    "description": "Chuyên viên SEO tập trung vào nghiên cứu nhu cầu tìm kiếm. Công việc còn bao gồm cải thiện cấu trúc nội dung web, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Nghiên cứu nhu cầu tìm kiếm",
+      "Cải thiện cấu trúc nội dung web"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Tòa soạn, trường quay, sân khấu hoặc nhóm sản xuất nội dung.",
+    "challenges": [
+      "Thuật toán và nhu cầu tìm kiếm thay đổi"
+    ],
+    "keywords": [
+      "Chuyên viên SEO",
+      "Truyền thông và giải trí",
+      "Nghiên cứu nhu cầu tìm kiếm",
+      "Cải thiện cấu trúc nội dung web",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "luat-su",
+    "name": "Luật sư",
+    "category_id": "public-service",
+    "short_description": "Nghiên cứu hồ sơ vụ việc, tư vấn trong phạm vi chuyên môn.",
+    "description": "Luật sư tập trung vào nghiên cứu hồ sơ vụ việc. Công việc còn bao gồm tư vấn trong phạm vi chuyên môn, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Nghiên cứu hồ sơ vụ việc",
+      "Tư vấn trong phạm vi chuyên môn"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "challenges": [
+      "Đánh giá chứng cứ và bảo vệ bảo mật"
+    ],
+    "keywords": [
+      "Luật sư",
+      "Luật, hành chính và dịch vụ công",
+      "Nghiên cứu hồ sơ vụ việc",
+      "Tư vấn trong phạm vi chuyên môn",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-phap-che",
+    "name": "Chuyên viên pháp chế",
+    "category_id": "public-service",
+    "short_description": "Rà soát hợp đồng, đánh giá rủi ro pháp lý của tổ chức.",
+    "description": "Chuyên viên pháp chế tập trung vào rà soát hợp đồng. Công việc còn bao gồm đánh giá rủi ro pháp lý của tổ chức, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Rà soát hợp đồng",
+      "Đánh giá rủi ro pháp lý của tổ chức"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "challenges": [
+      "Giải thích quy định trong tình huống cụ thể"
+    ],
+    "keywords": [
+      "Chuyên viên pháp chế",
+      "Luật, hành chính và dịch vụ công",
+      "Rà soát hợp đồng",
+      "Đánh giá rủi ro pháp lý của tổ chức",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "cong-chung-vien",
+    "name": "Công chứng viên",
+    "category_id": "public-service",
+    "short_description": "Kiểm tra giấy tờ giao dịch, thực hiện nghiệp vụ công chứng.",
+    "description": "Công chứng viên tập trung vào kiểm tra giấy tờ giao dịch. Công việc còn bao gồm thực hiện nghiệp vụ công chứng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Kiểm tra giấy tờ giao dịch",
+      "Thực hiện nghiệp vụ công chứng"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "challenges": [
+      "Xác minh tính xác thực hồ sơ"
+    ],
+    "keywords": [
+      "Công chứng viên",
+      "Luật, hành chính và dịch vụ công",
+      "Kiểm tra giấy tờ giao dịch",
+      "Thực hiện nghiệp vụ công chứng",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "tham-phan",
+    "name": "Thẩm phán",
+    "category_id": "public-service",
+    "short_description": "Nghiên cứu hồ sơ tố tụng, điều hành xét xử theo thẩm quyền.",
+    "description": "Thẩm phán tập trung vào nghiên cứu hồ sơ tố tụng. Công việc còn bao gồm điều hành xét xử theo thẩm quyền, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Nghiên cứu hồ sơ tố tụng",
+      "Điều hành xét xử theo thẩm quyền"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "challenges": [
+      "Yêu cầu khách quan và trách nhiệm cao"
+    ],
+    "keywords": [
+      "Thẩm phán",
+      "Luật, hành chính và dịch vụ công",
+      "Nghiên cứu hồ sơ tố tụng",
+      "Điều hành xét xử theo thẩm quyền",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "kiem-sat-vien",
+    "name": "Kiểm sát viên",
+    "category_id": "public-service",
+    "short_description": "Nghiên cứu hồ sơ tố tụng, thực hiện nhiệm vụ kiểm sát theo phân công.",
+    "description": "Kiểm sát viên tập trung vào nghiên cứu hồ sơ tố tụng. Công việc còn bao gồm thực hiện nhiệm vụ kiểm sát theo phân công, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Nghiên cứu hồ sơ tố tụng",
+      "Thực hiện nhiệm vụ kiểm sát theo phân công"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "challenges": [
+      "Đánh giá chứng cứ đúng phạm vi trách nhiệm"
+    ],
+    "keywords": [
+      "Kiểm sát viên",
+      "Luật, hành chính và dịch vụ công",
+      "Nghiên cứu hồ sơ tố tụng",
+      "Thực hiện nhiệm vụ kiểm sát theo phân công",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "chap-hanh-vien",
+    "name": "Chấp hành viên",
+    "category_id": "public-service",
+    "short_description": "Tổ chức thi hành quyết định, làm việc với các bên liên quan.",
+    "description": "Chấp hành viên tập trung vào tổ chức thi hành quyết định. Công việc còn bao gồm làm việc với các bên liên quan, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tổ chức thi hành quyết định",
+      "Làm việc với các bên liên quan"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "challenges": [
+      "Xử lý quyền lợi đối lập"
+    ],
+    "keywords": [
+      "Chấp hành viên",
+      "Luật, hành chính và dịch vụ công",
+      "Tổ chức thi hành quyết định",
+      "Làm việc với các bên liên quan",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-hanh-chinh",
+    "name": "Chuyên viên hành chính",
+    "category_id": "public-service",
+    "short_description": "Tiếp nhận và xử lý văn bản, điều phối công việc văn phòng.",
+    "description": "Chuyên viên hành chính tập trung vào tiếp nhận và xử lý văn bản. Công việc còn bao gồm điều phối công việc văn phòng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tiếp nhận và xử lý văn bản",
+      "Điều phối công việc văn phòng"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "challenges": [
+      "Nhiều đầu việc cần theo dõi chính xác"
+    ],
+    "keywords": [
+      "Chuyên viên hành chính",
+      "Luật, hành chính và dịch vụ công",
+      "Tiếp nhận và xử lý văn bản",
+      "Điều phối công việc văn phòng",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  },
+  {
+    "career_id": "van-thu-luu-tru",
+    "name": "Văn thư lưu trữ",
+    "category_id": "public-service",
+    "short_description": "Phân loại hồ sơ, theo dõi giao nhận tài liệu.",
+    "description": "Văn thư lưu trữ tập trung vào phân loại hồ sơ. Công việc còn bao gồm theo dõi giao nhận tài liệu, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Phân loại hồ sơ",
+      "Theo dõi giao nhận tài liệu"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "challenges": [
+      "Bảo mật và tìm lại hồ sơ lâu năm"
+    ],
+    "keywords": [
+      "Văn thư lưu trữ",
+      "Luật, hành chính và dịch vụ công",
+      "Phân loại hồ sơ",
+      "Theo dõi giao nhận tài liệu",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ]
+  }
+]

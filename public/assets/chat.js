@@ -8,6 +8,8 @@ let actionResolve = null;
 let guestQuota = null;
 let micMode = null, recorder = null, micTurn = 0, transcriptAbort = null;
 const loginURL = '/?login=1';
+let entryContext = null;
+let explorationName = '';
 const analysisMessage = 'Hãy phân tích khảo sát của em, gợi ý khoảng 3 nhóm nghề cùng lý do, môn học, kỹ năng và trải nghiệm để thử.';
 const surveyQuestions = [
   ['Em yêu thích lĩnh vực nào?', ['Công nghệ', 'Nghệ thuật', 'Y tế', 'Kinh doanh', 'Em chưa rõ']],
@@ -58,10 +60,16 @@ $('#career-survey').addEventListener('submit', async event => {
     const data = await jsonAPI(`/api/ai/sessions/${id}/survey`, {method:'PUT', body:JSON.stringify({answers:draft.answers,address:draft.address})});
     if (epoch !== identityEpoch || active?.id !== id) return;
     active = data.session; surveyDrafts.delete(id); renderMessages();
-    $('#message-input').value = analysisMessage;
+    const context = active.messages[0].career_context;
+    if (context?.mode === 'career_exploration') {
+      const career = await jsonAPI('/api/career-library/'+encodeURIComponent(context.career_id));
+      explorationName = career.name;
+      $('#message-input').value = `Em muốn tìm hiểu nghề ${career.name}: công việc hằng ngày, kỹ năng, môi trường, thử thách và cách bắt đầu.`;
+      notice('Em có thể sửa câu hỏi trước khi gửi.');
+    } else $('#message-input').value = analysisMessage;
   } catch (error) { notice(failure(error)); }
   finally { if (epoch === identityEpoch) { busy = false; updateControls(); renderSurvey(); } }
-  if (epoch === identityEpoch && active?.id === id && !needsSurvey()) await send();
+  if (epoch === identityEpoch && active?.id === id && !needsSurvey() && active.messages[0].career_context?.mode !== 'career_exploration') await send();
 });
 
 function notice(text = '', retry = false) {
@@ -245,6 +253,11 @@ function renderMessages() {
     if (pending && pending.session_id === active.id && !active.messages.some((item) => item.request_id === pending.request_id)) list.append(messageRow({role:'user', content:pending.message}));
   }
   $('#session-note').textContent = active ? active.remember ? 'Lịch sử đã bật · Bạn có thể xóa bất cứ lúc nào.' : 'Phiên tạm · Không ghi nhớ cho lần đăng nhập sau.' : 'Một góc trò chuyện riêng, theo nhịp của bạn.';
+  const context = active?.messages?.[0]?.career_context;
+  if (context?.mode === 'career_exploration') $('#session-note').textContent += ` · Tìm hiểu: ${context.career_name || context.career_id}`;
+  if (context?.mode === 'career_exploration' && active.messages[0].survey && active.messages.length === 1 && !$('#message-input').value) {
+    $('#message-input').value = `Em muốn tìm hiểu nghề ${context.career_name || context.career_id}: công việc hằng ngày, kỹ năng, môi trường, thử thách và cách bắt đầu.`;
+  }
   renderSurvey();
   list.hidden = !active || needsSurvey();
   renderHistory();
@@ -253,9 +266,9 @@ function renderMessages() {
 async function createSession() {
   if (active) return active;
   const epoch = identityEpoch;
-  const data = await jsonAPI('/api/ai/sessions', {method:'POST', body:JSON.stringify({remember:$('#remember-chat').checked})});
+  const data = await jsonAPI('/api/ai/sessions', {method:'POST', body:JSON.stringify({remember:$('#remember-chat').checked, ...(entryContext || {})})});
   if (epoch !== identityEpoch) throw new Error('Phiên đăng nhập đã thay đổi.');
-  active = data.session; pending = null; rememberActive(); renderMessages();
+  active = data.session; entryContext = null; pending = null; rememberActive(); renderMessages();
   await refreshHistory();
   return active;
 }
@@ -280,8 +293,8 @@ async function loadSession(id) {
   try {
     const data = await jsonAPI(`/api/ai/sessions/${id}`);
     if (epoch !== identityEpoch) return;
-    active = data.session; rememberActive(); renderMessages();
-    $('#message-input').value = ''; resizeInput();
+    $('#message-input').value = '';
+    active = data.session; rememberActive(); renderMessages(); resizeInput();
     if (window.innerWidth <= 760) setSidebar(false);
   } catch (error) { notice(failure(error)); if (error.status === 404) await refreshHistory(); }
   finally { busy = false; updateControls(); }
@@ -289,7 +302,7 @@ async function loadSession(id) {
 function freshChat() {
   if (busy) return notice('Đợi La Bàn trả lời xong rồi bắt đầu cuộc trò chuyện mới nhé.');
   cancelMic();
-  active = null; pending = null; rememberActive();
+  active = null; entryContext = null; pending = null; rememberActive();
   $('#message-input').value = ''; $('#remember-chat').checked = false; notice(); renderMessages(); resizeInput(); updateControls();
   if (window.innerWidth <= 760) setSidebar(false);
 }
@@ -441,7 +454,7 @@ async function openProfile() {
 }
 
 function clearPrivateUI() {
-  identityEpoch++; cancelMic(); surveyDrafts.clear(); $('#career-survey').hidden = true;
+  identityEpoch++; entryContext = null; cancelMic(); surveyDrafts.clear(); $('#career-survey').hidden = true;
   $('#survey-answer').value = '';
   $('#survey-suggestions').replaceChildren();
   $('#survey-question').textContent = '';
@@ -524,8 +537,17 @@ async function initialize() {
     await refreshHistory();
     $('#auth-loading').hidden = true; $('#chat-app').hidden = false;
     setSidebar(false);
+    const entryURL = new URL(location.href);
+    if (entryURL.searchParams.has('mode')) {
+      const mode = entryURL.searchParams.get('mode');
+      const career_id = entryURL.searchParams.get('career_id');
+      entryContext = {mode, ...(career_id ? {career_id} : {})};
+      active = null; pending = null;
+      await startChat();
+      if (active) { entryURL.searchParams.delete('mode'); entryURL.searchParams.delete('career_id'); history.replaceState(null,'',entryURL); }
+    }
     let previous; try { previous = sessionStorage.getItem(storageKey()); } catch { /* Không bắt buộc storage. */ }
-    if (previous && sessions.some((item) => item.id === previous)) await loadSession(previous);
+    if (!active && previous && sessions.some((item) => item.id === previous)) await loadSession(previous);
     else renderMessages();
     const url = new URL(location.href);
     if (url.searchParams.get('start') === '1' || config.is_guest) {

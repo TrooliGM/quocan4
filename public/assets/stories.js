@@ -64,6 +64,7 @@ function setMode(value) {
   if(mode==='comic') cancelAsk();
 }
 async function loadStory(id, push=true) {
+  if(push){const url=new URL(location.href);url.searchParams.set('nghe',id);history.pushState({},'',url);}
   pause();cancelAsk();request?.abort();
   const current=new AbortController();request=current;requestedId=id;
   $('#story-content').hidden=true;$('#story-error').hidden=true;$('#story-loading').hidden=false;
@@ -72,7 +73,7 @@ async function loadStory(id, push=true) {
     const data=await json(`/api/career-stories/${encodeURIComponent(id)}`,{signal:current.signal});
     if(request!==current)return;
     story=data;index=0;answers=new Map();
-    if(push){const url=new URL(location.href);url.searchParams.set('nghe',id);history.pushState({},'',url);}
+
     document.title=`Một ngày làm ${story.name.toLocaleLowerCase('vi')} · La Bàn`;
     $('#story-category').textContent=`${story.category.toLocaleUpperCase('vi')} · ${story.scenes.length} CẢNH KHÁM PHÁ`;
     $('#career-title').textContent=`Một ngày làm ${story.name.toLocaleLowerCase('vi')}`;$('#career-intro').textContent=story.intro;
@@ -130,3 +131,5 @@ async function initialize(){
   } catch {$('#story-loading').hidden=true;$('#story-error').hidden=false;$('#story-error-text').textContent='Chưa tải được thư viện truyện. Kiểm tra kết nối rồi thử lại nhé.';}
 }
 initialize();
+
+addEventListener('popstate',()=>loadStory(new URLSearchParams(location.search).get('nghe')||'bac-si',false));

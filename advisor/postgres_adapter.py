@@ -44,7 +44,7 @@ class PostgresConversationStore:
             reverse=True,
         )
 
-    def create(self, uid, remember):
+    def create(self, uid, remember, context=None):
         if len(self.list(uid)) >= 100:
             raise HTTPException(
                 status_code=409,
@@ -52,9 +52,9 @@ class PostgresConversationStore:
             )
 
         if remember:
-            return create_postgres_session(uid)
+            return create_postgres_session(uid, context)
 
-        return create_temporary_session(uid)
+        return create_temporary_session(uid, context)
 
     def write(self, uid, row):
         current = self.get(uid, row["id"])

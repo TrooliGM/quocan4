@@ -102,13 +102,13 @@ class ConversationStore:
             return [{key: row[key] for key in ("id", "title", "created_at", "updated_at", "remember")}
                     for row in sorted(rows, key=lambda row: row["updated_at"], reverse=True)]
 
-    def create(self, uid, remember):
+    def create(self, uid, remember, context=None):
         with self.lock:
             if len(self.list(uid)) >= 100:
                 raise HTTPException(409, "Bạn đã có 100 cuộc trò chuyện. Hãy xóa bớt lịch sử trước nhé.")
             row = {"id": str(uuid4()), "owner": uid, "title": "Một hướng đi mới", "remember": remember,
                    "created_at": now(), "updated_at": now(), "messages": [
-                       {"id": str(uuid4()), "role": "assistant", "content": GREETING, "survey_required": True}],
+                       {"id": str(uuid4()), "role": "assistant", "content": GREETING, "survey_required": True, "career_context": context or {"mode":"career_discovery","career_id":None}}],
                    "profile": empty_profile(), "summary": ""}
             if remember:
                 with self.connect() as db:

@@ -1,0 +1,1652 @@
+[
+  {
+    "career_id": "lap-trinh",
+    "name": "Lập trình viên",
+    "category_id": "technology",
+    "short_description": "Viết mã ứng dụng, kiểm thử tính năng.",
+    "description": "Lập trình viên tập trung vào viết mã ứng dụng. Công việc còn bao gồm kiểm thử tính năng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Viết mã ứng dụng",
+      "Kiểm thử tính năng"
+    ],
+    "skills": [
+      "Lập luận logic",
+      "Phân tích lỗi"
+    ],
+    "related_subjects": [
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Nhóm công nghệ tại doanh nghiệp hoặc tổ chức; có thể phối hợp từ xa.",
+    "challenges": [
+      "Theo dõi lỗi khi yêu cầu thay đổi"
+    ],
+    "keywords": [
+      "Lập trình viên",
+      "Công nghệ thông tin và dữ liệu",
+      "Viết mã ứng dụng",
+      "Kiểm thử tính năng",
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "ky-su-du-lieu",
+    "name": "Kỹ sư dữ liệu",
+    "category_id": "technology",
+    "short_description": "Xây luồng thu thập dữ liệu, kiểm tra chất lượng kho dữ liệu.",
+    "description": "Kỹ sư dữ liệu tập trung vào xây luồng thu thập dữ liệu. Công việc còn bao gồm kiểm tra chất lượng kho dữ liệu, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Xây luồng thu thập dữ liệu",
+      "Kiểm tra chất lượng kho dữ liệu"
+    ],
+    "skills": [
+      "Lập luận logic",
+      "Phân tích lỗi"
+    ],
+    "related_subjects": [
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Nhóm công nghệ tại doanh nghiệp hoặc tổ chức; có thể phối hợp từ xa.",
+    "challenges": [
+      "Đồng bộ dữ liệu từ nhiều nguồn"
+    ],
+    "keywords": [
+      "Kỹ sư dữ liệu",
+      "Công nghệ thông tin và dữ liệu",
+      "Xây luồng thu thập dữ liệu",
+      "Kiểm tra chất lượng kho dữ liệu",
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "nha-khoa-hoc-du-lieu",
+    "name": "Nhà khoa học dữ liệu",
+    "category_id": "technology",
+    "short_description": "Thiết kế thử nghiệm dữ liệu, đánh giá mô hình dự báo.",
+    "description": "Nhà khoa học dữ liệu tập trung vào thiết kế thử nghiệm dữ liệu. Công việc còn bao gồm đánh giá mô hình dự báo, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết kế thử nghiệm dữ liệu",
+      "Đánh giá mô hình dự báo"
+    ],
+    "skills": [
+      "Lập luận logic",
+      "Phân tích lỗi"
+    ],
+    "related_subjects": [
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Nhóm công nghệ tại doanh nghiệp hoặc tổ chức; có thể phối hợp từ xa.",
+    "challenges": [
+      "Tránh kết luận từ dữ liệu lệch"
+    ],
+    "keywords": [
+      "Nhà khoa học dữ liệu",
+      "Công nghệ thông tin và dữ liệu",
+      "Thiết kế thử nghiệm dữ liệu",
+      "Đánh giá mô hình dự báo",
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-phan-tich-du-lieu",
+    "name": "Chuyên viên phân tích dữ liệu",
+    "category_id": "technology",
+    "short_description": "Lập bảng theo dõi chỉ số, giải thích xu hướng cho nhóm.",
+    "description": "Chuyên viên phân tích dữ liệu tập trung vào lập bảng theo dõi chỉ số. Công việc còn bao gồm giải thích xu hướng cho nhóm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Lập bảng theo dõi chỉ số",
+      "Giải thích xu hướng cho nhóm"
+    ],
+    "skills": [
+      "Lập luận logic",
+      "Phân tích lỗi"
+    ],
+    "related_subjects": [
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Nhóm công nghệ tại doanh nghiệp hoặc tổ chức; có thể phối hợp từ xa.",
+    "challenges": [
+      "Làm rõ ý nghĩa của chỉ số"
+    ],
+    "keywords": [
+      "Chuyên viên phân tích dữ liệu",
+      "Công nghệ thông tin và dữ liệu",
+      "Lập bảng theo dõi chỉ số",
+      "Giải thích xu hướng cho nhóm",
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "ky-su-hoc-may",
+    "name": "Kỹ sư học máy",
+    "category_id": "technology",
+    "short_description": "Huấn luyện mô hình, theo dõi sai số khi vận hành.",
+    "description": "Kỹ sư học máy tập trung vào huấn luyện mô hình. Công việc còn bao gồm theo dõi sai số khi vận hành, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Huấn luyện mô hình",
+      "Theo dõi sai số khi vận hành"
+    ],
+    "skills": [
+      "Lập luận logic",
+      "Phân tích lỗi"
+    ],
+    "related_subjects": [
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Nhóm công nghệ tại doanh nghiệp hoặc tổ chức; có thể phối hợp từ xa.",
+    "challenges": [
+      "Mô hình giảm chất lượng theo thời gian"
+    ],
+    "keywords": [
+      "Kỹ sư học máy",
+      "Công nghệ thông tin và dữ liệu",
+      "Huấn luyện mô hình",
+      "Theo dõi sai số khi vận hành",
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-an-toan-thong-tin",
+    "name": "Chuyên viên an toàn thông tin",
+    "category_id": "technology",
+    "short_description": "Đánh giá rủi ro bảo mật, theo dõi cảnh báo tấn công.",
+    "description": "Chuyên viên an toàn thông tin tập trung vào đánh giá rủi ro bảo mật. Công việc còn bao gồm theo dõi cảnh báo tấn công, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Đánh giá rủi ro bảo mật",
+      "Theo dõi cảnh báo tấn công"
+    ],
+    "skills": [
+      "Lập luận logic",
+      "Phân tích lỗi"
+    ],
+    "related_subjects": [
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Nhóm công nghệ tại doanh nghiệp hoặc tổ chức; có thể phối hợp từ xa.",
+    "challenges": [
+      "Xử lý sự cố dưới áp lực"
+    ],
+    "keywords": [
+      "Chuyên viên an toàn thông tin",
+      "Công nghệ thông tin và dữ liệu",
+      "Đánh giá rủi ro bảo mật",
+      "Theo dõi cảnh báo tấn công",
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "quan-tri-mang",
+    "name": "Quản trị mạng",
+    "category_id": "technology",
+    "short_description": "Cấu hình thiết bị mạng, kiểm tra kết nối.",
+    "description": "Quản trị mạng tập trung vào cấu hình thiết bị mạng. Công việc còn bao gồm kiểm tra kết nối, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Cấu hình thiết bị mạng",
+      "Kiểm tra kết nối"
+    ],
+    "skills": [
+      "Lập luận logic",
+      "Phân tích lỗi"
+    ],
+    "related_subjects": [
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Nhóm công nghệ tại doanh nghiệp hoặc tổ chức; có thể phối hợp từ xa.",
+    "challenges": [
+      "Duy trì dịch vụ khi thiết bị lỗi"
+    ],
+    "keywords": [
+      "Quản trị mạng",
+      "Công nghệ thông tin và dữ liệu",
+      "Cấu hình thiết bị mạng",
+      "Kiểm tra kết nối",
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "quan-tri-co-so-du-lieu",
+    "name": "Quản trị cơ sở dữ liệu",
+    "category_id": "technology",
+    "short_description": "Theo dõi truy vấn, kiểm tra phương án phục hồi dữ liệu.",
+    "description": "Quản trị cơ sở dữ liệu tập trung vào theo dõi truy vấn. Công việc còn bao gồm kiểm tra phương án phục hồi dữ liệu, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Theo dõi truy vấn",
+      "Kiểm tra phương án phục hồi dữ liệu"
+    ],
+    "skills": [
+      "Lập luận logic",
+      "Phân tích lỗi"
+    ],
+    "related_subjects": [
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Nhóm công nghệ tại doanh nghiệp hoặc tổ chức; có thể phối hợp từ xa.",
+    "challenges": [
+      "Bảo vệ tính toàn vẹn dữ liệu"
+    ],
+    "keywords": [
+      "Quản trị cơ sở dữ liệu",
+      "Công nghệ thông tin và dữ liệu",
+      "Theo dõi truy vấn",
+      "Kiểm tra phương án phục hồi dữ liệu",
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "kiem-thu-phan-mem",
+    "name": "Kiểm thử phần mềm",
+    "category_id": "technology",
+    "short_description": "Thiết kế tình huống kiểm thử, ghi nhận lỗi có thể tái hiện.",
+    "description": "Kiểm thử phần mềm tập trung vào thiết kế tình huống kiểm thử. Công việc còn bao gồm ghi nhận lỗi có thể tái hiện, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết kế tình huống kiểm thử",
+      "Ghi nhận lỗi có thể tái hiện"
+    ],
+    "skills": [
+      "Lập luận logic",
+      "Phân tích lỗi"
+    ],
+    "related_subjects": [
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Nhóm công nghệ tại doanh nghiệp hoặc tổ chức; có thể phối hợp từ xa.",
+    "challenges": [
+      "Bao phủ các tình huống ít gặp"
+    ],
+    "keywords": [
+      "Kiểm thử phần mềm",
+      "Công nghệ thông tin và dữ liệu",
+      "Thiết kế tình huống kiểm thử",
+      "Ghi nhận lỗi có thể tái hiện",
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-phan-tich-nghiep-vu",
+    "name": "Chuyên viên phân tích nghiệp vụ",
+    "category_id": "technology",
+    "short_description": "Phỏng vấn người dùng, mô tả yêu cầu hệ thống.",
+    "description": "Chuyên viên phân tích nghiệp vụ tập trung vào phỏng vấn người dùng. Công việc còn bao gồm mô tả yêu cầu hệ thống, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Phỏng vấn người dùng",
+      "Mô tả yêu cầu hệ thống"
+    ],
+    "skills": [
+      "Lập luận logic",
+      "Phân tích lỗi"
+    ],
+    "related_subjects": [
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Nhóm công nghệ tại doanh nghiệp hoặc tổ chức; có thể phối hợp từ xa.",
+    "challenges": [
+      "Dung hòa yêu cầu khác nhau"
+    ],
+    "keywords": [
+      "Chuyên viên phân tích nghiệp vụ",
+      "Công nghệ thông tin và dữ liệu",
+      "Phỏng vấn người dùng",
+      "Mô tả yêu cầu hệ thống",
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "ky-su-dien-toan-dam-may",
+    "name": "Kỹ sư điện toán đám mây",
+    "category_id": "technology",
+    "short_description": "Thiết kế hạ tầng đám mây, theo dõi tài nguyên sử dụng.",
+    "description": "Kỹ sư điện toán đám mây tập trung vào thiết kế hạ tầng đám mây. Công việc còn bao gồm theo dõi tài nguyên sử dụng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết kế hạ tầng đám mây",
+      "Theo dõi tài nguyên sử dụng"
+    ],
+    "skills": [
+      "Lập luận logic",
+      "Phân tích lỗi"
+    ],
+    "related_subjects": [
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Nhóm công nghệ tại doanh nghiệp hoặc tổ chức; có thể phối hợp từ xa.",
+    "challenges": [
+      "Cân đối độ sẵn sàng và chi phí"
+    ],
+    "keywords": [
+      "Kỹ sư điện toán đám mây",
+      "Công nghệ thông tin và dữ liệu",
+      "Thiết kế hạ tầng đám mây",
+      "Theo dõi tài nguyên sử dụng",
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "ky-su-devops",
+    "name": "Kỹ sư DevOps",
+    "category_id": "technology",
+    "short_description": "Tự động hóa phát hành, giám sát hệ thống.",
+    "description": "Kỹ sư DevOps tập trung vào tự động hóa phát hành. Công việc còn bao gồm giám sát hệ thống, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tự động hóa phát hành",
+      "Giám sát hệ thống"
+    ],
+    "skills": [
+      "Lập luận logic",
+      "Phân tích lỗi"
+    ],
+    "related_subjects": [
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Nhóm công nghệ tại doanh nghiệp hoặc tổ chức; có thể phối hợp từ xa.",
+    "challenges": [
+      "Phục hồi nhanh khi bản cập nhật lỗi"
+    ],
+    "keywords": [
+      "Kỹ sư DevOps",
+      "Công nghệ thông tin và dữ liệu",
+      "Tự động hóa phát hành",
+      "Giám sát hệ thống",
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "lap-trinh-vien-tro-choi",
+    "name": "Lập trình viên trò chơi",
+    "category_id": "technology",
+    "short_description": "Lập trình cơ chế chơi, tối ưu tốc độ khung hình.",
+    "description": "Lập trình viên trò chơi tập trung vào lập trình cơ chế chơi. Công việc còn bao gồm tối ưu tốc độ khung hình, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Lập trình cơ chế chơi",
+      "Tối ưu tốc độ khung hình"
+    ],
+    "skills": [
+      "Lập luận logic",
+      "Phân tích lỗi"
+    ],
+    "related_subjects": [
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Nhóm công nghệ tại doanh nghiệp hoặc tổ chức; có thể phối hợp từ xa.",
+    "challenges": [
+      "Cân đối trải nghiệm và hiệu năng"
+    ],
+    "keywords": [
+      "Lập trình viên trò chơi",
+      "Công nghệ thông tin và dữ liệu",
+      "Lập trình cơ chế chơi",
+      "Tối ưu tốc độ khung hình",
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "lap-trinh-vien-ung-dung-di-dong",
+    "name": "Lập trình viên ứng dụng di động",
+    "category_id": "technology",
+    "short_description": "Xây giao diện điện thoại, kiểm thử trên thiết bị.",
+    "description": "Lập trình viên ứng dụng di động tập trung vào xây giao diện điện thoại. Công việc còn bao gồm kiểm thử trên thiết bị, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Xây giao diện điện thoại",
+      "Kiểm thử trên thiết bị"
+    ],
+    "skills": [
+      "Lập luận logic",
+      "Phân tích lỗi"
+    ],
+    "related_subjects": [
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Nhóm công nghệ tại doanh nghiệp hoặc tổ chức; có thể phối hợp từ xa.",
+    "challenges": [
+      "Khác biệt giữa các hệ điều hành"
+    ],
+    "keywords": [
+      "Lập trình viên ứng dụng di động",
+      "Công nghệ thông tin và dữ liệu",
+      "Xây giao diện điện thoại",
+      "Kiểm thử trên thiết bị",
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "lap-trinh-vien-nhung",
+    "name": "Lập trình viên nhúng",
+    "category_id": "technology",
+    "short_description": "Viết phần mềm điều khiển thiết bị, đo phản hồi phần cứng.",
+    "description": "Lập trình viên nhúng tập trung vào viết phần mềm điều khiển thiết bị. Công việc còn bao gồm đo phản hồi phần cứng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Viết phần mềm điều khiển thiết bị",
+      "Đo phản hồi phần cứng"
+    ],
+    "skills": [
+      "Lập luận logic",
+      "Phân tích lỗi"
+    ],
+    "related_subjects": [
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Nhóm công nghệ tại doanh nghiệp hoặc tổ chức; có thể phối hợp từ xa.",
+    "challenges": [
+      "Giới hạn bộ nhớ và thời gian xử lý"
+    ],
+    "keywords": [
+      "Lập trình viên nhúng",
+      "Công nghệ thông tin và dữ liệu",
+      "Viết phần mềm điều khiển thiết bị",
+      "Đo phản hồi phần cứng",
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-ho-tro-cntt",
+    "name": "Chuyên viên hỗ trợ CNTT",
+    "category_id": "technology",
+    "short_description": "Chẩn đoán lỗi máy tính, hướng dẫn sử dụng công cụ.",
+    "description": "Chuyên viên hỗ trợ CNTT tập trung vào chẩn đoán lỗi máy tính. Công việc còn bao gồm hướng dẫn sử dụng công cụ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chẩn đoán lỗi máy tính",
+      "Hướng dẫn sử dụng công cụ"
+    ],
+    "skills": [
+      "Lập luận logic",
+      "Phân tích lỗi"
+    ],
+    "related_subjects": [
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Nhóm công nghệ tại doanh nghiệp hoặc tổ chức; có thể phối hợp từ xa.",
+    "challenges": [
+      "Giải thích kỹ thuật cho người mới"
+    ],
+    "keywords": [
+      "Chuyên viên hỗ trợ CNTT",
+      "Công nghệ thông tin và dữ liệu",
+      "Chẩn đoán lỗi máy tính",
+      "Hướng dẫn sử dụng công cụ",
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "kien-truc-su-phan-mem",
+    "name": "Kiến trúc sư phần mềm",
+    "category_id": "technology",
+    "short_description": "Thiết kế cấu trúc hệ thống, đánh giá phương án kỹ thuật.",
+    "description": "Kiến trúc sư phần mềm tập trung vào thiết kế cấu trúc hệ thống. Công việc còn bao gồm đánh giá phương án kỹ thuật, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thiết kế cấu trúc hệ thống",
+      "Đánh giá phương án kỹ thuật"
+    ],
+    "skills": [
+      "Lập luận logic",
+      "Phân tích lỗi"
+    ],
+    "related_subjects": [
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Nhóm công nghệ tại doanh nghiệp hoặc tổ chức; có thể phối hợp từ xa.",
+    "challenges": [
+      "Quyết định trong điều kiện chưa đủ thông tin"
+    ],
+    "keywords": [
+      "Kiến trúc sư phần mềm",
+      "Công nghệ thông tin và dữ liệu",
+      "Thiết kế cấu trúc hệ thống",
+      "Đánh giá phương án kỹ thuật",
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "ky-su-thi-giac-may-tinh",
+    "name": "Kỹ sư thị giác máy tính",
+    "category_id": "technology",
+    "short_description": "Xử lý hình ảnh đầu vào, đánh giá khả năng nhận diện.",
+    "description": "Kỹ sư thị giác máy tính tập trung vào xử lý hình ảnh đầu vào. Công việc còn bao gồm đánh giá khả năng nhận diện, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Xử lý hình ảnh đầu vào",
+      "Đánh giá khả năng nhận diện"
+    ],
+    "skills": [
+      "Lập luận logic",
+      "Phân tích lỗi"
+    ],
+    "related_subjects": [
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Nhóm công nghệ tại doanh nghiệp hoặc tổ chức; có thể phối hợp từ xa.",
+    "challenges": [
+      "Ánh sáng và góc chụp thay đổi"
+    ],
+    "keywords": [
+      "Kỹ sư thị giác máy tính",
+      "Công nghệ thông tin và dữ liệu",
+      "Xử lý hình ảnh đầu vào",
+      "Đánh giá khả năng nhận diện",
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-quan-tri-he-thong",
+    "name": "Chuyên viên quản trị hệ thống",
+    "category_id": "technology",
+    "short_description": "Quản lý tài khoản truy cập, theo dõi máy chủ.",
+    "description": "Chuyên viên quản trị hệ thống tập trung vào quản lý tài khoản truy cập. Công việc còn bao gồm theo dõi máy chủ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Quản lý tài khoản truy cập",
+      "Theo dõi máy chủ"
+    ],
+    "skills": [
+      "Lập luận logic",
+      "Phân tích lỗi"
+    ],
+    "related_subjects": [
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Nhóm công nghệ tại doanh nghiệp hoặc tổ chức; có thể phối hợp từ xa.",
+    "challenges": [
+      "Duy trì ổn định ngoài giờ làm việc"
+    ],
+    "keywords": [
+      "Chuyên viên quản trị hệ thống",
+      "Công nghệ thông tin và dữ liệu",
+      "Quản lý tài khoản truy cập",
+      "Theo dõi máy chủ",
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-gis",
+    "name": "Chuyên viên GIS",
+    "category_id": "technology",
+    "short_description": "Biên tập bản đồ số, phân tích dữ liệu không gian.",
+    "description": "Chuyên viên GIS tập trung vào biên tập bản đồ số. Công việc còn bao gồm phân tích dữ liệu không gian, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Biên tập bản đồ số",
+      "Phân tích dữ liệu không gian"
+    ],
+    "skills": [
+      "Lập luận logic",
+      "Phân tích lỗi"
+    ],
+    "related_subjects": [
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ],
+    "work_environment": "Nhóm công nghệ tại doanh nghiệp hoặc tổ chức; có thể phối hợp từ xa.",
+    "challenges": [
+      "Sai lệch tọa độ từ nguồn khác nhau"
+    ],
+    "keywords": [
+      "Chuyên viên GIS",
+      "Công nghệ thông tin và dữ liệu",
+      "Biên tập bản đồ số",
+      "Phân tích dữ liệu không gian",
+      "Tin học",
+      "Toán",
+      "Tiếng Anh"
+    ]
+  },
+  {
+    "career_id": "bac-si",
+    "name": "Bác sĩ",
+    "category_id": "health",
+    "short_description": "Thăm khám và lắng nghe người bệnh, phối hợp xây dựng kế hoạch chăm sóc.",
+    "description": "Bác sĩ tập trung vào thăm khám và lắng nghe người bệnh. Công việc còn bao gồm phối hợp xây dựng kế hoạch chăm sóc, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Thăm khám và lắng nghe người bệnh",
+      "Phối hợp xây dựng kế hoạch chăm sóc"
+    ],
+    "skills": [
+      "Quan sát cẩn thận",
+      "Lắng nghe và phối hợp"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ],
+    "work_environment": "Cơ sở chăm sóc sức khỏe, phòng chuyên môn hoặc cộng đồng tùy vị trí.",
+    "challenges": [
+      "Ra quyết định với thông tin lâm sàng chưa đầy đủ"
+    ],
+    "keywords": [
+      "Bác sĩ",
+      "Y tế và chăm sóc sức khỏe",
+      "Thăm khám và lắng nghe người bệnh",
+      "Phối hợp xây dựng kế hoạch chăm sóc",
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "dieu-duong",
+    "name": "Điều dưỡng",
+    "category_id": "health",
+    "short_description": "Theo dõi dấu hiệu sức khỏe, thực hiện chăm sóc theo kế hoạch.",
+    "description": "Điều dưỡng tập trung vào theo dõi dấu hiệu sức khỏe. Công việc còn bao gồm thực hiện chăm sóc theo kế hoạch, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Theo dõi dấu hiệu sức khỏe",
+      "Thực hiện chăm sóc theo kế hoạch"
+    ],
+    "skills": [
+      "Quan sát cẩn thận",
+      "Lắng nghe và phối hợp"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ],
+    "work_environment": "Cơ sở chăm sóc sức khỏe, phòng chuyên môn hoặc cộng đồng tùy vị trí.",
+    "challenges": [
+      "Ca trực và nhu cầu chăm sóc liên tục"
+    ],
+    "keywords": [
+      "Điều dưỡng",
+      "Y tế và chăm sóc sức khỏe",
+      "Theo dõi dấu hiệu sức khỏe",
+      "Thực hiện chăm sóc theo kế hoạch",
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "ho-sinh",
+    "name": "Hộ sinh",
+    "category_id": "health",
+    "short_description": "Theo dõi thai phụ, hỗ trợ chăm sóc mẹ và trẻ sơ sinh.",
+    "description": "Hộ sinh tập trung vào theo dõi thai phụ. Công việc còn bao gồm hỗ trợ chăm sóc mẹ và trẻ sơ sinh, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Theo dõi thai phụ",
+      "Hỗ trợ chăm sóc mẹ và trẻ sơ sinh"
+    ],
+    "skills": [
+      "Quan sát cẩn thận",
+      "Lắng nghe và phối hợp"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ],
+    "work_environment": "Cơ sở chăm sóc sức khỏe, phòng chuyên môn hoặc cộng đồng tùy vị trí.",
+    "challenges": [
+      "Nhận biết tình huống cần chuyển xử trí"
+    ],
+    "keywords": [
+      "Hộ sinh",
+      "Y tế và chăm sóc sức khỏe",
+      "Theo dõi thai phụ",
+      "Hỗ trợ chăm sóc mẹ và trẻ sơ sinh",
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "duoc-si",
+    "name": "Dược sĩ",
+    "category_id": "health",
+    "short_description": "Kiểm tra thông tin sử dụng thuốc, tư vấn dùng thuốc an toàn.",
+    "description": "Dược sĩ tập trung vào kiểm tra thông tin sử dụng thuốc. Công việc còn bao gồm tư vấn dùng thuốc an toàn, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Kiểm tra thông tin sử dụng thuốc",
+      "Tư vấn dùng thuốc an toàn"
+    ],
+    "skills": [
+      "Quan sát cẩn thận",
+      "Lắng nghe và phối hợp"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ],
+    "work_environment": "Cơ sở chăm sóc sức khỏe, phòng chuyên môn hoặc cộng đồng tùy vị trí.",
+    "challenges": [
+      "Nguy cơ tương tác và nhầm lẫn thuốc"
+    ],
+    "keywords": [
+      "Dược sĩ",
+      "Y tế và chăm sóc sức khỏe",
+      "Kiểm tra thông tin sử dụng thuốc",
+      "Tư vấn dùng thuốc an toàn",
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "ky-thuat-vien-xet-nghiem",
+    "name": "Kỹ thuật viên xét nghiệm",
+    "category_id": "health",
+    "short_description": "Chuẩn bị mẫu bệnh phẩm, kiểm soát chất lượng xét nghiệm.",
+    "description": "Kỹ thuật viên xét nghiệm tập trung vào chuẩn bị mẫu bệnh phẩm. Công việc còn bao gồm kiểm soát chất lượng xét nghiệm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chuẩn bị mẫu bệnh phẩm",
+      "Kiểm soát chất lượng xét nghiệm"
+    ],
+    "skills": [
+      "Quan sát cẩn thận",
+      "Lắng nghe và phối hợp"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ],
+    "work_environment": "Cơ sở chăm sóc sức khỏe, phòng chuyên môn hoặc cộng đồng tùy vị trí.",
+    "challenges": [
+      "Sai sót nhỏ ảnh hưởng kết quả"
+    ],
+    "keywords": [
+      "Kỹ thuật viên xét nghiệm",
+      "Y tế và chăm sóc sức khỏe",
+      "Chuẩn bị mẫu bệnh phẩm",
+      "Kiểm soát chất lượng xét nghiệm",
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "ky-thuat-vien-chan-doan-hinh-anh",
+    "name": "Kỹ thuật viên chẩn đoán hình ảnh",
+    "category_id": "health",
+    "short_description": "Chuẩn bị thiết bị ghi hình, hỗ trợ quy trình chụp.",
+    "description": "Kỹ thuật viên chẩn đoán hình ảnh tập trung vào chuẩn bị thiết bị ghi hình. Công việc còn bao gồm hỗ trợ quy trình chụp, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chuẩn bị thiết bị ghi hình",
+      "Hỗ trợ quy trình chụp"
+    ],
+    "skills": [
+      "Quan sát cẩn thận",
+      "Lắng nghe và phối hợp"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ],
+    "work_environment": "Cơ sở chăm sóc sức khỏe, phòng chuyên môn hoặc cộng đồng tùy vị trí.",
+    "challenges": [
+      "Tuân thủ an toàn khi vận hành thiết bị"
+    ],
+    "keywords": [
+      "Kỹ thuật viên chẩn đoán hình ảnh",
+      "Y tế và chăm sóc sức khỏe",
+      "Chuẩn bị thiết bị ghi hình",
+      "Hỗ trợ quy trình chụp",
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-vat-ly-tri-lieu",
+    "name": "Chuyên viên vật lý trị liệu",
+    "category_id": "health",
+    "short_description": "Đánh giá khả năng vận động, hướng dẫn bài tập phục hồi.",
+    "description": "Chuyên viên vật lý trị liệu tập trung vào đánh giá khả năng vận động. Công việc còn bao gồm hướng dẫn bài tập phục hồi, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Đánh giá khả năng vận động",
+      "Hướng dẫn bài tập phục hồi"
+    ],
+    "skills": [
+      "Quan sát cẩn thận",
+      "Lắng nghe và phối hợp"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ],
+    "work_environment": "Cơ sở chăm sóc sức khỏe, phòng chuyên môn hoặc cộng đồng tùy vị trí.",
+    "challenges": [
+      "Tiến triển phục hồi không đồng đều"
+    ],
+    "keywords": [
+      "Chuyên viên vật lý trị liệu",
+      "Y tế và chăm sóc sức khỏe",
+      "Đánh giá khả năng vận động",
+      "Hướng dẫn bài tập phục hồi",
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-dinh-duong",
+    "name": "Chuyên viên dinh dưỡng",
+    "category_id": "health",
+    "short_description": "Đánh giá thói quen ăn uống, xây dựng tư vấn dinh dưỡng.",
+    "description": "Chuyên viên dinh dưỡng tập trung vào đánh giá thói quen ăn uống. Công việc còn bao gồm xây dựng tư vấn dinh dưỡng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Đánh giá thói quen ăn uống",
+      "Xây dựng tư vấn dinh dưỡng"
+    ],
+    "skills": [
+      "Quan sát cẩn thận",
+      "Lắng nghe và phối hợp"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ],
+    "work_environment": "Cơ sở chăm sóc sức khỏe, phòng chuyên môn hoặc cộng đồng tùy vị trí.",
+    "challenges": [
+      "Cá nhân hóa theo điều kiện người được tư vấn"
+    ],
+    "keywords": [
+      "Chuyên viên dinh dưỡng",
+      "Y tế và chăm sóc sức khỏe",
+      "Đánh giá thói quen ăn uống",
+      "Xây dựng tư vấn dinh dưỡng",
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-tam-ly",
+    "name": "Chuyên viên tâm lý",
+    "category_id": "health",
+    "short_description": "Lắng nghe vấn đề tâm lý, thực hiện đánh giá và hỗ trợ trong phạm vi chuyên môn.",
+    "description": "Chuyên viên tâm lý tập trung vào lắng nghe vấn đề tâm lý. Công việc còn bao gồm thực hiện đánh giá và hỗ trợ trong phạm vi chuyên môn, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Lắng nghe vấn đề tâm lý",
+      "Thực hiện đánh giá và hỗ trợ trong phạm vi chuyên môn"
+    ],
+    "skills": [
+      "Quan sát cẩn thận",
+      "Lắng nghe và phối hợp"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ],
+    "work_environment": "Cơ sở chăm sóc sức khỏe, phòng chuyên môn hoặc cộng đồng tùy vị trí.",
+    "challenges": [
+      "Giữ ranh giới và bảo mật"
+    ],
+    "keywords": [
+      "Chuyên viên tâm lý",
+      "Y tế và chăm sóc sức khỏe",
+      "Lắng nghe vấn đề tâm lý",
+      "Thực hiện đánh giá và hỗ trợ trong phạm vi chuyên môn",
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "ky-thuat-vien-phuc-hinh-rang",
+    "name": "Kỹ thuật viên phục hình răng",
+    "category_id": "health",
+    "short_description": "Chế tác phục hình theo thông số, kiểm tra độ chính xác sản phẩm.",
+    "description": "Kỹ thuật viên phục hình răng tập trung vào chế tác phục hình theo thông số. Công việc còn bao gồm kiểm tra độ chính xác sản phẩm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chế tác phục hình theo thông số",
+      "Kiểm tra độ chính xác sản phẩm"
+    ],
+    "skills": [
+      "Quan sát cẩn thận",
+      "Lắng nghe và phối hợp"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ],
+    "work_environment": "Cơ sở chăm sóc sức khỏe, phòng chuyên môn hoặc cộng đồng tùy vị trí.",
+    "challenges": [
+      "Yêu cầu khớp hình dạng rất cao"
+    ],
+    "keywords": [
+      "Kỹ thuật viên phục hình răng",
+      "Y tế và chăm sóc sức khỏe",
+      "Chế tác phục hình theo thông số",
+      "Kiểm tra độ chính xác sản phẩm",
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "nhan-vien-y-te-cong-dong",
+    "name": "Nhân viên y tế cộng đồng",
+    "category_id": "health",
+    "short_description": "Khảo sát nhu cầu sức khỏe, tổ chức truyền thông phòng bệnh.",
+    "description": "Nhân viên y tế cộng đồng tập trung vào khảo sát nhu cầu sức khỏe. Công việc còn bao gồm tổ chức truyền thông phòng bệnh, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Khảo sát nhu cầu sức khỏe",
+      "Tổ chức truyền thông phòng bệnh"
+    ],
+    "skills": [
+      "Quan sát cẩn thận",
+      "Lắng nghe và phối hợp"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ],
+    "work_environment": "Cơ sở chăm sóc sức khỏe, phòng chuyên môn hoặc cộng đồng tùy vị trí.",
+    "challenges": [
+      "Tiếp cận các nhóm dân cư khác nhau"
+    ],
+    "keywords": [
+      "Nhân viên y tế cộng đồng",
+      "Y tế và chăm sóc sức khỏe",
+      "Khảo sát nhu cầu sức khỏe",
+      "Tổ chức truyền thông phòng bệnh",
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-dich-te-hoc",
+    "name": "Chuyên viên dịch tễ học",
+    "category_id": "health",
+    "short_description": "Phân tích dữ liệu bệnh, điều tra yếu tố nguy cơ.",
+    "description": "Chuyên viên dịch tễ học tập trung vào phân tích dữ liệu bệnh. Công việc còn bao gồm điều tra yếu tố nguy cơ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Phân tích dữ liệu bệnh",
+      "Điều tra yếu tố nguy cơ"
+    ],
+    "skills": [
+      "Quan sát cẩn thận",
+      "Lắng nghe và phối hợp"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ],
+    "work_environment": "Cơ sở chăm sóc sức khỏe, phòng chuyên môn hoặc cộng đồng tùy vị trí.",
+    "challenges": [
+      "Phân biệt liên hệ và nguyên nhân"
+    ],
+    "keywords": [
+      "Chuyên viên dịch tễ học",
+      "Y tế và chăm sóc sức khỏe",
+      "Phân tích dữ liệu bệnh",
+      "Điều tra yếu tố nguy cơ",
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "ky-su-thiet-bi-y-te",
+    "name": "Kỹ sư thiết bị y tế",
+    "category_id": "health",
+    "short_description": "Kiểm tra thiết bị chăm sóc, lập kế hoạch bảo trì.",
+    "description": "Kỹ sư thiết bị y tế tập trung vào kiểm tra thiết bị chăm sóc. Công việc còn bao gồm lập kế hoạch bảo trì, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Kiểm tra thiết bị chăm sóc",
+      "Lập kế hoạch bảo trì"
+    ],
+    "skills": [
+      "Quan sát cẩn thận",
+      "Lắng nghe và phối hợp"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ],
+    "work_environment": "Cơ sở chăm sóc sức khỏe, phòng chuyên môn hoặc cộng đồng tùy vị trí.",
+    "challenges": [
+      "Hạn chế gián đoạn hoạt động khám chữa bệnh"
+    ],
+    "keywords": [
+      "Kỹ sư thiết bị y tế",
+      "Y tế và chăm sóc sức khỏe",
+      "Kiểm tra thiết bị chăm sóc",
+      "Lập kế hoạch bảo trì",
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-hoat-dong-tri-lieu",
+    "name": "Chuyên viên hoạt động trị liệu",
+    "category_id": "health",
+    "short_description": "Đánh giá sinh hoạt hằng ngày, hướng dẫn điều chỉnh hoạt động.",
+    "description": "Chuyên viên hoạt động trị liệu tập trung vào đánh giá sinh hoạt hằng ngày. Công việc còn bao gồm hướng dẫn điều chỉnh hoạt động, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Đánh giá sinh hoạt hằng ngày",
+      "Hướng dẫn điều chỉnh hoạt động"
+    ],
+    "skills": [
+      "Quan sát cẩn thận",
+      "Lắng nghe và phối hợp"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ],
+    "work_environment": "Cơ sở chăm sóc sức khỏe, phòng chuyên môn hoặc cộng đồng tùy vị trí.",
+    "challenges": [
+      "Thiết kế hỗ trợ theo từng người"
+    ],
+    "keywords": [
+      "Chuyên viên hoạt động trị liệu",
+      "Y tế và chăm sóc sức khỏe",
+      "Đánh giá sinh hoạt hằng ngày",
+      "Hướng dẫn điều chỉnh hoạt động",
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-am-ngu-tri-lieu",
+    "name": "Chuyên viên âm ngữ trị liệu",
+    "category_id": "health",
+    "short_description": "Đánh giá giao tiếp và nuốt, hướng dẫn luyện tập.",
+    "description": "Chuyên viên âm ngữ trị liệu tập trung vào đánh giá giao tiếp và nuốt. Công việc còn bao gồm hướng dẫn luyện tập, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Đánh giá giao tiếp và nuốt",
+      "Hướng dẫn luyện tập"
+    ],
+    "skills": [
+      "Quan sát cẩn thận",
+      "Lắng nghe và phối hợp"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ],
+    "work_environment": "Cơ sở chăm sóc sức khỏe, phòng chuyên môn hoặc cộng đồng tùy vị trí.",
+    "challenges": [
+      "Theo dõi thay đổi nhỏ qua nhiều buổi"
+    ],
+    "keywords": [
+      "Chuyên viên âm ngữ trị liệu",
+      "Y tế và chăm sóc sức khỏe",
+      "Đánh giá giao tiếp và nuốt",
+      "Hướng dẫn luyện tập",
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "nhan-vien-cap-cuu-ngoai-vien",
+    "name": "Nhân viên cấp cứu ngoại viện",
+    "category_id": "health",
+    "short_description": "Tiếp nhận thông tin cấp cứu, phối hợp sơ cứu và vận chuyển.",
+    "description": "Nhân viên cấp cứu ngoại viện tập trung vào tiếp nhận thông tin cấp cứu. Công việc còn bao gồm phối hợp sơ cứu và vận chuyển, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tiếp nhận thông tin cấp cứu",
+      "Phối hợp sơ cứu và vận chuyển"
+    ],
+    "skills": [
+      "Quan sát cẩn thận",
+      "Lắng nghe và phối hợp"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ],
+    "work_environment": "Cơ sở chăm sóc sức khỏe, phòng chuyên môn hoặc cộng đồng tùy vị trí.",
+    "challenges": [
+      "Thời gian gấp và hiện trường khó dự đoán"
+    ],
+    "keywords": [
+      "Nhân viên cấp cứu ngoại viện",
+      "Y tế và chăm sóc sức khỏe",
+      "Tiếp nhận thông tin cấp cứu",
+      "Phối hợp sơ cứu và vận chuyển",
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-quan-ly-thong-tin-y-te",
+    "name": "Chuyên viên quản lý thông tin y tế",
+    "category_id": "health",
+    "short_description": "Kiểm tra hồ sơ bệnh án, tổng hợp số liệu dịch vụ.",
+    "description": "Chuyên viên quản lý thông tin y tế tập trung vào kiểm tra hồ sơ bệnh án. Công việc còn bao gồm tổng hợp số liệu dịch vụ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Kiểm tra hồ sơ bệnh án",
+      "Tổng hợp số liệu dịch vụ"
+    ],
+    "skills": [
+      "Quan sát cẩn thận",
+      "Lắng nghe và phối hợp"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ],
+    "work_environment": "Cơ sở chăm sóc sức khỏe, phòng chuyên môn hoặc cộng đồng tùy vị trí.",
+    "challenges": [
+      "Bảo vệ dữ liệu sức khỏe riêng tư"
+    ],
+    "keywords": [
+      "Chuyên viên quản lý thông tin y tế",
+      "Y tế và chăm sóc sức khỏe",
+      "Kiểm tra hồ sơ bệnh án",
+      "Tổng hợp số liệu dịch vụ",
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "nhan-vien-cham-soc-nguoi-cao-tuoi",
+    "name": "Nhân viên chăm sóc người cao tuổi",
+    "category_id": "health",
+    "short_description": "Hỗ trợ sinh hoạt thường ngày, quan sát thay đổi sức khỏe.",
+    "description": "Nhân viên chăm sóc người cao tuổi tập trung vào hỗ trợ sinh hoạt thường ngày. Công việc còn bao gồm quan sát thay đổi sức khỏe, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Hỗ trợ sinh hoạt thường ngày",
+      "Quan sát thay đổi sức khỏe"
+    ],
+    "skills": [
+      "Quan sát cẩn thận",
+      "Lắng nghe và phối hợp"
+    ],
+    "related_subjects": [
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ],
+    "work_environment": "Cơ sở chăm sóc sức khỏe, phòng chuyên môn hoặc cộng đồng tùy vị trí.",
+    "challenges": [
+      "Khối lượng chăm sóc và giao tiếp với gia đình"
+    ],
+    "keywords": [
+      "Nhân viên chăm sóc người cao tuổi",
+      "Y tế và chăm sóc sức khỏe",
+      "Hỗ trợ sinh hoạt thường ngày",
+      "Quan sát thay đổi sức khỏe",
+      "Sinh học",
+      "Hóa học",
+      "Ngữ văn"
+    ]
+  },
+  {
+    "career_id": "giao-vien",
+    "name": "Giáo viên",
+    "category_id": "education",
+    "short_description": "Soạn hoạt động học tập, phản hồi tiến bộ của học sinh.",
+    "description": "Giáo viên tập trung vào soạn hoạt động học tập. Công việc còn bao gồm phản hồi tiến bộ của học sinh, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Soạn hoạt động học tập",
+      "Phản hồi tiến bộ của học sinh"
+    ],
+    "skills": [
+      "Giải thích dễ hiểu",
+      "Thiết kế hoạt động học"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ],
+    "work_environment": "Trường học, cơ sở đào tạo hoặc đơn vị phát triển học liệu.",
+    "challenges": [
+      "Nhu cầu học tập khác nhau trong lớp"
+    ],
+    "keywords": [
+      "Giáo viên",
+      "Giáo dục và đào tạo",
+      "Soạn hoạt động học tập",
+      "Phản hồi tiến bộ của học sinh",
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "giao-vien-mam-non",
+    "name": "Giáo viên mầm non",
+    "category_id": "education",
+    "short_description": "Tổ chức chơi và học, theo dõi sự phát triển của trẻ.",
+    "description": "Giáo viên mầm non tập trung vào tổ chức chơi và học. Công việc còn bao gồm theo dõi sự phát triển của trẻ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tổ chức chơi và học",
+      "Theo dõi sự phát triển của trẻ"
+    ],
+    "skills": [
+      "Giải thích dễ hiểu",
+      "Thiết kế hoạt động học"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ],
+    "work_environment": "Trường học, cơ sở đào tạo hoặc đơn vị phát triển học liệu.",
+    "challenges": [
+      "Đảm bảo an toàn và chú ý liên tục"
+    ],
+    "keywords": [
+      "Giáo viên mầm non",
+      "Giáo dục và đào tạo",
+      "Tổ chức chơi và học",
+      "Theo dõi sự phát triển của trẻ",
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "giao-vien-giao-duc-dac-biet",
+    "name": "Giáo viên giáo dục đặc biệt",
+    "category_id": "education",
+    "short_description": "Điều chỉnh hoạt động học, phối hợp kế hoạch hỗ trợ cá nhân.",
+    "description": "Giáo viên giáo dục đặc biệt tập trung vào điều chỉnh hoạt động học. Công việc còn bao gồm phối hợp kế hoạch hỗ trợ cá nhân, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Điều chỉnh hoạt động học",
+      "Phối hợp kế hoạch hỗ trợ cá nhân"
+    ],
+    "skills": [
+      "Giải thích dễ hiểu",
+      "Thiết kế hoạt động học"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ],
+    "work_environment": "Trường học, cơ sở đào tạo hoặc đơn vị phát triển học liệu.",
+    "challenges": [
+      "Cần kiên trì với tiến bộ nhỏ"
+    ],
+    "keywords": [
+      "Giáo viên giáo dục đặc biệt",
+      "Giáo dục và đào tạo",
+      "Điều chỉnh hoạt động học",
+      "Phối hợp kế hoạch hỗ trợ cá nhân",
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "giang-vien-dai-hoc",
+    "name": "Giảng viên đại học",
+    "category_id": "education",
+    "short_description": "Chuẩn bị bài giảng, hướng dẫn học tập và nghiên cứu.",
+    "description": "Giảng viên đại học tập trung vào chuẩn bị bài giảng. Công việc còn bao gồm hướng dẫn học tập và nghiên cứu, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Chuẩn bị bài giảng",
+      "Hướng dẫn học tập và nghiên cứu"
+    ],
+    "skills": [
+      "Giải thích dễ hiểu",
+      "Thiết kế hoạt động học"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ],
+    "work_environment": "Trường học, cơ sở đào tạo hoặc đơn vị phát triển học liệu.",
+    "challenges": [
+      "Cân đối giảng dạy với nghiên cứu"
+    ],
+    "keywords": [
+      "Giảng viên đại học",
+      "Giáo dục và đào tạo",
+      "Chuẩn bị bài giảng",
+      "Hướng dẫn học tập và nghiên cứu",
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "giao-vien-day-nghe",
+    "name": "Giáo viên dạy nghề",
+    "category_id": "education",
+    "short_description": "Hướng dẫn thao tác thực hành, đánh giá kỹ năng nghề.",
+    "description": "Giáo viên dạy nghề tập trung vào hướng dẫn thao tác thực hành. Công việc còn bao gồm đánh giá kỹ năng nghề, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Hướng dẫn thao tác thực hành",
+      "Đánh giá kỹ năng nghề"
+    ],
+    "skills": [
+      "Giải thích dễ hiểu",
+      "Thiết kế hoạt động học"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ],
+    "work_environment": "Trường học, cơ sở đào tạo hoặc đơn vị phát triển học liệu.",
+    "challenges": [
+      "An toàn khi dùng thiết bị thực hành"
+    ],
+    "keywords": [
+      "Giáo viên dạy nghề",
+      "Giáo dục và đào tạo",
+      "Hướng dẫn thao tác thực hành",
+      "Đánh giá kỹ năng nghề",
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-thiet-ke-hoc-lieu",
+    "name": "Chuyên viên thiết kế học liệu",
+    "category_id": "education",
+    "short_description": "Xây dựng bài học số, thử nghiệm tài liệu với người học.",
+    "description": "Chuyên viên thiết kế học liệu tập trung vào xây dựng bài học số. Công việc còn bao gồm thử nghiệm tài liệu với người học, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Xây dựng bài học số",
+      "Thử nghiệm tài liệu với người học"
+    ],
+    "skills": [
+      "Giải thích dễ hiểu",
+      "Thiết kế hoạt động học"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ],
+    "work_environment": "Trường học, cơ sở đào tạo hoặc đơn vị phát triển học liệu.",
+    "challenges": [
+      "Giữ nội dung dễ hiểu và chính xác"
+    ],
+    "keywords": [
+      "Chuyên viên thiết kế học liệu",
+      "Giáo dục và đào tạo",
+      "Xây dựng bài học số",
+      "Thử nghiệm tài liệu với người học",
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-phat-trien-chuong-trinh",
+    "name": "Chuyên viên phát triển chương trình",
+    "category_id": "education",
+    "short_description": "Xác định mục tiêu học tập, rà soát cấu trúc chương trình.",
+    "description": "Chuyên viên phát triển chương trình tập trung vào xác định mục tiêu học tập. Công việc còn bao gồm rà soát cấu trúc chương trình, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Xác định mục tiêu học tập",
+      "Rà soát cấu trúc chương trình"
+    ],
+    "skills": [
+      "Giải thích dễ hiểu",
+      "Thiết kế hoạt động học"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ],
+    "work_environment": "Trường học, cơ sở đào tạo hoặc đơn vị phát triển học liệu.",
+    "challenges": [
+      "Cân đối mục tiêu và thời lượng"
+    ],
+    "keywords": [
+      "Chuyên viên phát triển chương trình",
+      "Giáo dục và đào tạo",
+      "Xác định mục tiêu học tập",
+      "Rà soát cấu trúc chương trình",
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-dao-tao-doanh-nghiep",
+    "name": "Chuyên viên đào tạo doanh nghiệp",
+    "category_id": "education",
+    "short_description": "Khảo sát nhu cầu đào tạo, tổ chức buổi thực hành.",
+    "description": "Chuyên viên đào tạo doanh nghiệp tập trung vào khảo sát nhu cầu đào tạo. Công việc còn bao gồm tổ chức buổi thực hành, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Khảo sát nhu cầu đào tạo",
+      "Tổ chức buổi thực hành"
+    ],
+    "skills": [
+      "Giải thích dễ hiểu",
+      "Thiết kế hoạt động học"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ],
+    "work_environment": "Trường học, cơ sở đào tạo hoặc đơn vị phát triển học liệu.",
+    "challenges": [
+      "Đo chuyển biến sau khóa học"
+    ],
+    "keywords": [
+      "Chuyên viên đào tạo doanh nghiệp",
+      "Giáo dục và đào tạo",
+      "Khảo sát nhu cầu đào tạo",
+      "Tổ chức buổi thực hành",
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "can-bo-thu-vien",
+    "name": "Cán bộ thư viện",
+    "category_id": "education",
+    "short_description": "Phân loại tài liệu, hỗ trợ tìm kiếm thông tin.",
+    "description": "Cán bộ thư viện tập trung vào phân loại tài liệu. Công việc còn bao gồm hỗ trợ tìm kiếm thông tin, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Phân loại tài liệu",
+      "Hỗ trợ tìm kiếm thông tin"
+    ],
+    "skills": [
+      "Giải thích dễ hiểu",
+      "Thiết kế hoạt động học"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ],
+    "work_environment": "Trường học, cơ sở đào tạo hoặc đơn vị phát triển học liệu.",
+    "challenges": [
+      "Giúp người đọc chọn nguồn đáng tin"
+    ],
+    "keywords": [
+      "Cán bộ thư viện",
+      "Giáo dục và đào tạo",
+      "Phân loại tài liệu",
+      "Hỗ trợ tìm kiếm thông tin",
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-tu-van-hoc-duong",
+    "name": "Chuyên viên tư vấn học đường",
+    "category_id": "education",
+    "short_description": "Tiếp nhận khó khăn của học sinh, phối hợp hỗ trợ với nhà trường.",
+    "description": "Chuyên viên tư vấn học đường tập trung vào tiếp nhận khó khăn của học sinh. Công việc còn bao gồm phối hợp hỗ trợ với nhà trường, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tiếp nhận khó khăn của học sinh",
+      "Phối hợp hỗ trợ với nhà trường"
+    ],
+    "skills": [
+      "Giải thích dễ hiểu",
+      "Thiết kế hoạt động học"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ],
+    "work_environment": "Trường học, cơ sở đào tạo hoặc đơn vị phát triển học liệu.",
+    "challenges": [
+      "Bảo mật và giới hạn vai trò tư vấn"
+    ],
+    "keywords": [
+      "Chuyên viên tư vấn học đường",
+      "Giáo dục và đào tạo",
+      "Tiếp nhận khó khăn của học sinh",
+      "Phối hợp hỗ trợ với nhà trường",
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-huong-nghiep",
+    "name": "Chuyên viên hướng nghiệp",
+    "category_id": "education",
+    "short_description": "Tìm hiểu sở thích và năng lực, tổ chức trải nghiệm nghề.",
+    "description": "Chuyên viên hướng nghiệp tập trung vào tìm hiểu sở thích và năng lực. Công việc còn bao gồm tổ chức trải nghiệm nghề, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Tìm hiểu sở thích và năng lực",
+      "Tổ chức trải nghiệm nghề"
+    ],
+    "skills": [
+      "Giải thích dễ hiểu",
+      "Thiết kế hoạt động học"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ],
+    "work_environment": "Trường học, cơ sở đào tạo hoặc đơn vị phát triển học liệu.",
+    "challenges": [
+      "Tránh gán nhãn khả năng của học sinh"
+    ],
+    "keywords": [
+      "Chuyên viên hướng nghiệp",
+      "Giáo dục và đào tạo",
+      "Tìm hiểu sở thích và năng lực",
+      "Tổ chức trải nghiệm nghề",
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ]
+  },
+  {
+    "career_id": "chuyen-vien-khao-thi",
+    "name": "Chuyên viên khảo thí",
+    "category_id": "education",
+    "short_description": "Xây dựng ngân hàng câu hỏi, phân tích kết quả đánh giá.",
+    "description": "Chuyên viên khảo thí tập trung vào xây dựng ngân hàng câu hỏi. Công việc còn bao gồm phân tích kết quả đánh giá, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "daily_tasks": [
+      "Xây dựng ngân hàng câu hỏi",
+      "Phân tích kết quả đánh giá"
+    ],
+    "skills": [
+      "Giải thích dễ hiểu",
+      "Thiết kế hoạt động học"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ],
+    "work_environment": "Trường học, cơ sở đào tạo hoặc đơn vị phát triển học liệu.",
+    "challenges": [
+      "Đảm bảo công bằng và độ tin cậy"
+    ],
+    "keywords": [
+      "Chuyên viên khảo thí",
+      "Giáo dục và đào tạo",
+      "Xây dựng ngân hàng câu hỏi",
+      "Phân tích kết quả đánh giá",
+      "Ngữ văn",
+      "Tâm lý học",
+      "Tin học"
+    ]
+  }
+]

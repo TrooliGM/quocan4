@@ -3,13 +3,15 @@ import os
 import logging
 import weakref
 from uuid import UUID
+from typing import Literal
 
 import httpx
 import psycopg
 import google.auth.exceptions
 from fastapi import APIRouter, Depends, Header, HTTPException, Request, Response
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
+from career_library import find_career
 from firebase_auth import verify_user
 from deepseek_client import provider_http_error, ProviderConfigurationError, model_name
 from .graph import advisor_graph, demo_mode
@@ -45,6 +47,18 @@ def lock_for(session_id):
 class SessionInput(BaseModel):
     model_config = ConfigDict(extra="forbid")
     remember: bool = False
+    mode: Literal['career_discovery','career_exploration'] = 'career_discovery'
+    career_id: str | None = Field(default=None,max_length=80)
+
+    @model_validator(mode='after')
+    def valid_context(self):
+        from career_library import find_career
+        if self.mode == 'career_exploration':
+            if not self.career_id or not find_career(self.career_id):
+                raise ValueError('Nghề được chọn không hợp lệ')
+        elif self.career_id is not None:
+            raise ValueError('Discovery không nhận nghề cố định')
+        return self
 
 
 class RenameInput(BaseModel):
@@ -105,7 +119,7 @@ def claim_guest(payload: GuestClaimInput, user=Depends(require_user)):
 @router.post("/api/ai/sessions", status_code=201)
 def create_session(payload: SessionInput, user=Depends(require_user)):
     guest_usage(user)  # Chặn UID khách đã được chuyển sang tài khoản khác.
-    return {"session": get_store().create(user["uid"], payload.remember)}
+    return {"session": get_store().create(user["uid"], payload.remember, {"mode":payload.mode,"career_id":payload.career_id,"career_name": find_career(payload.career_id).name if payload.career_id else None})}
 
 
 @router.get("/api/ai/sessions")

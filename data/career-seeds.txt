@@ -1,0 +1,212 @@
+# technology
+Lập trình viên|Viết mã ứng dụng;Kiểm thử tính năng|Theo dõi lỗi khi yêu cầu thay đổi
+Kỹ sư dữ liệu|Xây luồng thu thập dữ liệu;Kiểm tra chất lượng kho dữ liệu|Đồng bộ dữ liệu từ nhiều nguồn
+Nhà khoa học dữ liệu|Thiết kế thử nghiệm dữ liệu;Đánh giá mô hình dự báo|Tránh kết luận từ dữ liệu lệch
+Chuyên viên phân tích dữ liệu|Lập bảng theo dõi chỉ số;Giải thích xu hướng cho nhóm|Làm rõ ý nghĩa của chỉ số
+Kỹ sư học máy|Huấn luyện mô hình;Theo dõi sai số khi vận hành|Mô hình giảm chất lượng theo thời gian
+Chuyên viên an toàn thông tin|Đánh giá rủi ro bảo mật;Theo dõi cảnh báo tấn công|Xử lý sự cố dưới áp lực
+Quản trị mạng|Cấu hình thiết bị mạng;Kiểm tra kết nối|Duy trì dịch vụ khi thiết bị lỗi
+Quản trị cơ sở dữ liệu|Theo dõi truy vấn;Kiểm tra phương án phục hồi dữ liệu|Bảo vệ tính toàn vẹn dữ liệu
+Kiểm thử phần mềm|Thiết kế tình huống kiểm thử;Ghi nhận lỗi có thể tái hiện|Bao phủ các tình huống ít gặp
+Chuyên viên phân tích nghiệp vụ|Phỏng vấn người dùng;Mô tả yêu cầu hệ thống|Dung hòa yêu cầu khác nhau
+Kỹ sư điện toán đám mây|Thiết kế hạ tầng đám mây;Theo dõi tài nguyên sử dụng|Cân đối độ sẵn sàng và chi phí
+Kỹ sư DevOps|Tự động hóa phát hành;Giám sát hệ thống|Phục hồi nhanh khi bản cập nhật lỗi
+Lập trình viên trò chơi|Lập trình cơ chế chơi;Tối ưu tốc độ khung hình|Cân đối trải nghiệm và hiệu năng
+Lập trình viên ứng dụng di động|Xây giao diện điện thoại;Kiểm thử trên thiết bị|Khác biệt giữa các hệ điều hành
+Lập trình viên nhúng|Viết phần mềm điều khiển thiết bị;Đo phản hồi phần cứng|Giới hạn bộ nhớ và thời gian xử lý
+Chuyên viên hỗ trợ CNTT|Chẩn đoán lỗi máy tính;Hướng dẫn sử dụng công cụ|Giải thích kỹ thuật cho người mới
+Kiến trúc sư phần mềm|Thiết kế cấu trúc hệ thống;Đánh giá phương án kỹ thuật|Quyết định trong điều kiện chưa đủ thông tin
+Kỹ sư thị giác máy tính|Xử lý hình ảnh đầu vào;Đánh giá khả năng nhận diện|Ánh sáng và góc chụp thay đổi
+Chuyên viên quản trị hệ thống|Quản lý tài khoản truy cập;Theo dõi máy chủ|Duy trì ổn định ngoài giờ làm việc
+Chuyên viên GIS|Biên tập bản đồ số;Phân tích dữ liệu không gian|Sai lệch tọa độ từ nguồn khác nhau
+# health
+Bác sĩ|Thăm khám và lắng nghe người bệnh;Phối hợp xây dựng kế hoạch chăm sóc|Ra quyết định với thông tin lâm sàng chưa đầy đủ
+Điều dưỡng|Theo dõi dấu hiệu sức khỏe;Thực hiện chăm sóc theo kế hoạch|Ca trực và nhu cầu chăm sóc liên tục
+Hộ sinh|Theo dõi thai phụ;Hỗ trợ chăm sóc mẹ và trẻ sơ sinh|Nhận biết tình huống cần chuyển xử trí
+Dược sĩ|Kiểm tra thông tin sử dụng thuốc;Tư vấn dùng thuốc an toàn|Nguy cơ tương tác và nhầm lẫn thuốc
+Kỹ thuật viên xét nghiệm|Chuẩn bị mẫu bệnh phẩm;Kiểm soát chất lượng xét nghiệm|Sai sót nhỏ ảnh hưởng kết quả
+Kỹ thuật viên chẩn đoán hình ảnh|Chuẩn bị thiết bị ghi hình;Hỗ trợ quy trình chụp|Tuân thủ an toàn khi vận hành thiết bị
+Chuyên viên vật lý trị liệu|Đánh giá khả năng vận động;Hướng dẫn bài tập phục hồi|Tiến triển phục hồi không đồng đều
+Chuyên viên dinh dưỡng|Đánh giá thói quen ăn uống;Xây dựng tư vấn dinh dưỡng|Cá nhân hóa theo điều kiện người được tư vấn
+Chuyên viên tâm lý|Lắng nghe vấn đề tâm lý;Thực hiện đánh giá và hỗ trợ trong phạm vi chuyên môn|Giữ ranh giới và bảo mật
+Kỹ thuật viên phục hình răng|Chế tác phục hình theo thông số;Kiểm tra độ chính xác sản phẩm|Yêu cầu khớp hình dạng rất cao
+Nhân viên y tế cộng đồng|Khảo sát nhu cầu sức khỏe;Tổ chức truyền thông phòng bệnh|Tiếp cận các nhóm dân cư khác nhau
+Chuyên viên dịch tễ học|Phân tích dữ liệu bệnh;Điều tra yếu tố nguy cơ|Phân biệt liên hệ và nguyên nhân
+Kỹ sư thiết bị y tế|Kiểm tra thiết bị chăm sóc;Lập kế hoạch bảo trì|Hạn chế gián đoạn hoạt động khám chữa bệnh
+Chuyên viên hoạt động trị liệu|Đánh giá sinh hoạt hằng ngày;Hướng dẫn điều chỉnh hoạt động|Thiết kế hỗ trợ theo từng người
+Chuyên viên âm ngữ trị liệu|Đánh giá giao tiếp và nuốt;Hướng dẫn luyện tập|Theo dõi thay đổi nhỏ qua nhiều buổi
+Nhân viên cấp cứu ngoại viện|Tiếp nhận thông tin cấp cứu;Phối hợp sơ cứu và vận chuyển|Thời gian gấp và hiện trường khó dự đoán
+Chuyên viên quản lý thông tin y tế|Kiểm tra hồ sơ bệnh án;Tổng hợp số liệu dịch vụ|Bảo vệ dữ liệu sức khỏe riêng tư
+Nhân viên chăm sóc người cao tuổi|Hỗ trợ sinh hoạt thường ngày;Quan sát thay đổi sức khỏe|Khối lượng chăm sóc và giao tiếp với gia đình
+# education
+Giáo viên|Soạn hoạt động học tập;Phản hồi tiến bộ của học sinh|Nhu cầu học tập khác nhau trong lớp
+Giáo viên mầm non|Tổ chức chơi và học;Theo dõi sự phát triển của trẻ|Đảm bảo an toàn và chú ý liên tục
+Giáo viên giáo dục đặc biệt|Điều chỉnh hoạt động học;Phối hợp kế hoạch hỗ trợ cá nhân|Cần kiên trì với tiến bộ nhỏ
+Giảng viên đại học|Chuẩn bị bài giảng;Hướng dẫn học tập và nghiên cứu|Cân đối giảng dạy với nghiên cứu
+Giáo viên dạy nghề|Hướng dẫn thao tác thực hành;Đánh giá kỹ năng nghề|An toàn khi dùng thiết bị thực hành
+Chuyên viên thiết kế học liệu|Xây dựng bài học số;Thử nghiệm tài liệu với người học|Giữ nội dung dễ hiểu và chính xác
+Chuyên viên phát triển chương trình|Xác định mục tiêu học tập;Rà soát cấu trúc chương trình|Cân đối mục tiêu và thời lượng
+Chuyên viên đào tạo doanh nghiệp|Khảo sát nhu cầu đào tạo;Tổ chức buổi thực hành|Đo chuyển biến sau khóa học
+Cán bộ thư viện|Phân loại tài liệu;Hỗ trợ tìm kiếm thông tin|Giúp người đọc chọn nguồn đáng tin
+Chuyên viên tư vấn học đường|Tiếp nhận khó khăn của học sinh;Phối hợp hỗ trợ với nhà trường|Bảo mật và giới hạn vai trò tư vấn
+Chuyên viên hướng nghiệp|Tìm hiểu sở thích và năng lực;Tổ chức trải nghiệm nghề|Tránh gán nhãn khả năng của học sinh
+Chuyên viên khảo thí|Xây dựng ngân hàng câu hỏi;Phân tích kết quả đánh giá|Đảm bảo công bằng và độ tin cậy
+Quản lý đào tạo|Lập lịch học;Điều phối nguồn lực giảng dạy|Xử lý thay đổi lịch và nhu cầu học viên
+Huấn luyện viên kỹ năng sống|Thiết kế tình huống trải nghiệm;Hướng dẫn phản hồi sau hoạt động|Chuyển trải nghiệm thành kỹ năng thực tế
+# engineering
+Kỹ sư cơ khí|Thiết kế chi tiết máy;Kiểm tra nguyên mẫu|Dung sai và điều kiện tải thực tế
+Kỹ sư điện|Thiết kế mạch cấp điện;Đánh giá vận hành hệ thống|An toàn điện trong mọi công đoạn
+Kỹ sư điện tử|Thiết kế mạch điện tử;Đo tín hiệu thử nghiệm|Nhiễu và sai lệch linh kiện
+Kỹ sư tự động hóa|Lập trình bộ điều khiển;Tối ưu dây chuyền tự động|Kết hợp phần mềm và thiết bị thực
+Kỹ sư xây dựng|Đọc bản vẽ kết cấu;Theo dõi chất lượng thi công|Điều kiện công trường và tiến độ
+Kiến trúc sư|Phát triển phương án không gian;Trao đổi nhu cầu với khách hàng|Cân đối thẩm mỹ và sử dụng
+Kỹ sư giao thông|Phân tích lưu lượng xe;Thiết kế phương án hạ tầng|Nhiều loại phương tiện cùng sử dụng
+Kỹ sư cấp thoát nước|Tính toán mạng đường ống;Theo dõi lưu lượng và áp lực|Địa hình và nhu cầu sử dụng biến động
+Kỹ sư nhiệt lạnh|Thiết kế hệ thống làm mát;Đo hiệu suất vận hành|Tiết kiệm năng lượng và bảo trì
+Kỹ sư ô tô|Đánh giá hệ truyền động;Thử nghiệm tính năng xe|Kết hợp nhiều hệ thống trên xe
+Kỹ thuật viên sửa chữa ô tô|Chẩn đoán lỗi phương tiện;Thực hiện bảo dưỡng|Xác định nguyên nhân từ triệu chứng giống nhau
+Thợ hàn|Chuẩn bị mối ghép;Kiểm tra chất lượng mối hàn|Nhiệt độ cao và bảo hộ lao động
+Thợ điện dân dụng|Lắp đặt đường điện;Kiểm tra thiết bị bảo vệ|Nguy cơ điện giật và chập cháy
+Thợ tiện CNC|Lập thông số gia công;Đo kích thước chi tiết|Sai số gia công làm hỏng phôi
+Kỹ sư vật liệu|Thử đặc tính vật liệu;So sánh phương án sử dụng|Đặc tính thay đổi theo điều kiện
+Kỹ sư hóa học|Thiết kế quy trình sản xuất;Theo dõi thông số phản ứng|Kiểm soát hóa chất và chất thải
+Kỹ sư công nghệ thực phẩm|Thử quy trình chế biến;Kiểm tra chất lượng thực phẩm|An toàn thực phẩm trong chuỗi sản xuất
+Kỹ sư dệt may|Thiết kế quy trình may;Đánh giá chất lượng vải và sản phẩm|Cân đối năng suất với chất lượng
+Kỹ sư đóng tàu|Thiết kế cấu kiện tàu;Giám sát lắp ráp thân tàu|Môi trường biển và kết cấu lớn
+Kỹ thuật viên bảo trì công nghiệp|Kiểm tra máy móc định kỳ;Thay thế bộ phận hao mòn|Dừng máy ảnh hưởng dây chuyền
+Kỹ sư năng lượng tái tạo|Tính toán hệ thống điện sạch;Theo dõi sản lượng phát điện|Nguồn năng lượng phụ thuộc thời tiết
+Kỹ sư hàng không|Phân tích cấu trúc thiết bị bay;Kiểm tra thông số kỹ thuật|Yêu cầu độ tin cậy cao
+# business
+Chuyên viên nhân sự|Tiếp nhận nhu cầu tuyển dụng;Hỗ trợ quy trình nhân sự|Cân bằng quyền lợi các bên
+Chuyên viên tuyển dụng|Trao đổi với ứng viên;Đánh giá thông tin ứng tuyển|Nhận định công bằng và tránh thiên kiến
+Chuyên viên phát triển kinh doanh|Tìm đối tác tiềm năng;Xây dựng đề xuất hợp tác|Nhu cầu thị trường biến đổi
+Nhân viên kinh doanh|Tìm hiểu nhu cầu khách;Theo dõi quá trình bán hàng|Áp lực mục tiêu và từ chối
+Quản lý sản phẩm|Ưu tiên nhu cầu người dùng;Điều phối kế hoạch sản phẩm|Đánh đổi giữa các ưu tiên
+Quản lý dự án|Lập kế hoạch công việc;Theo dõi tiến độ và rủi ro|Phụ thuộc giữa nhiều nhóm
+Chuyên viên vận hành|Theo dõi quy trình dịch vụ;Xử lý điểm nghẽn|Giữ chất lượng khi khối lượng tăng
+Chuyên viên mua hàng|So sánh đề xuất nhà cung cấp;Theo dõi đơn mua|Cân đối chất lượng và thời gian giao
+Chuyên viên logistics|Điều phối luồng hàng;Theo dõi vận chuyển|Gián đoạn ở nhiều mắt xích
+Chuyên viên xuất nhập khẩu|Chuẩn bị chứng từ hàng hóa;Phối hợp giao nhận quốc tế|Chứng từ và lịch vận chuyển thay đổi
+Quản lý kho|Kiểm tra tồn kho;Tổ chức vị trí lưu hàng|Sai lệch giữa sổ sách và hàng thực
+Chuyên viên thương mại điện tử|Quản lý gian hàng số;Theo dõi hành trình đặt hàng|Thay đổi nền tảng và hành vi mua
+Chuyên viên chăm sóc khách hàng|Tiếp nhận phản hồi;Phối hợp xử lý yêu cầu|Giao tiếp khi khách đang bức xúc
+Chuyên viên nghiên cứu thị trường|Thiết kế khảo sát;Phân tích nhu cầu tiêu dùng|Mẫu khảo sát không đại diện
+Chuyên viên quản lý chất lượng|Rà soát quy trình;Theo dõi hành động cải tiến|Thay đổi thói quen làm việc
+Quản lý cửa hàng|Điều phối ca bán hàng;Kiểm tra trải nghiệm mua sắm|Xử lý đồng thời nhiều tình huống
+Chuyên viên hoạch định chuỗi cung ứng|Dự báo nhu cầu hàng;Lập kế hoạch cung ứng|Dự báo sai gây thiếu hoặc tồn hàng
+Chuyên viên tư vấn quản trị|Phân tích vấn đề tổ chức;Đề xuất phương án cải tiến|Hiểu thực tế vận hành trước khi tư vấn
+# finance
+Kế toán viên|Ghi nhận nghiệp vụ;Đối chiếu chứng từ|Sai số nhỏ ảnh hưởng báo cáo
+Kiểm toán viên|Kiểm tra bằng chứng tài chính;Đánh giá sai lệch báo cáo|Giữ tính độc lập trong đánh giá
+Chuyên viên phân tích tài chính|Phân tích dòng tiền;So sánh kịch bản kinh doanh|Giả định có thể thay đổi kết quả
+Giao dịch viên ngân hàng|Tiếp nhận yêu cầu giao dịch;Kiểm tra thông tin hồ sơ|Độ chính xác khi phục vụ liên tục
+Chuyên viên tín dụng|Tìm hiểu nhu cầu vay;Đánh giá thông tin hồ sơ tín dụng|Nhận diện khả năng trả nợ
+Chuyên viên quản trị rủi ro|Theo dõi chỉ báo rủi ro;Xây dựng kịch bản kiểm soát|Rủi ro mới khó dự báo
+Chuyên viên bảo hiểm|Giải thích phạm vi sản phẩm;Hỗ trợ xử lý hồ sơ|Diễn đạt rõ điều khoản và giới hạn
+Chuyên viên định phí bảo hiểm|Xây mô hình xác suất;Ước tính nghĩa vụ bảo hiểm|Dữ liệu lịch sử không phản ánh mọi biến cố
+Chuyên viên phân tích đầu tư|Đọc báo cáo doanh nghiệp;Đánh giá kịch bản đầu tư|Bất định của thị trường
+Chuyên viên thuế|Rà soát nghĩa vụ thuế;Chuẩn bị hồ sơ liên quan|Quy định và tình huống thay đổi
+Chuyên viên ngân quỹ|Theo dõi thu chi;Lập kế hoạch thanh khoản|Duy trì đủ tiền cho hoạt động
+Chuyên viên thẩm định giá|Khảo sát tài sản;So sánh bằng chứng thị trường|Thiếu dữ liệu giao dịch đáng tin
+Kế toán quản trị|Tổng hợp chi phí hoạt động;Lập báo cáo hỗ trợ quyết định|Phân bổ chi phí hợp lý
+Chuyên viên thanh toán quốc tế|Kiểm tra chứng từ thanh toán;Phối hợp giao dịch xuyên biên giới|Khác biệt múi giờ và quy trình
+Chuyên viên tuân thủ tài chính|Rà soát hoạt động giao dịch;Theo dõi yêu cầu tuân thủ|Nhận diện dấu hiệu bất thường
+Môi giới chứng khoán|Giải thích dịch vụ giao dịch;Cập nhật thông tin thị trường|Không hứa hẹn lợi nhuận chắc chắn
+# design
+Nhà thiết kế đồ họa|Thiết kế nhận diện hình ảnh;Chỉnh bố cục theo phản hồi|Đáp ứng mục tiêu truyền đạt và thẩm mỹ
+Nhà thiết kế UX|Nghiên cứu trải nghiệm người dùng;Thử nguyên mẫu tương tác|Tránh thiết kế chỉ theo sở thích cá nhân
+Nhà thiết kế UI|Thiết kế màn hình số;Xây thư viện thành phần giao diện|Giữ tính nhất quán và khả năng đọc
+Nhà thiết kế nội thất|Lập phương án bố trí phòng;Lựa chọn vật liệu nội thất|Không gian và ngân sách có giới hạn
+Nhà thiết kế thời trang|Phác thảo trang phục;Thử mẫu và chỉnh phom|Kết hợp thẩm mỹ với khả năng sản xuất
+Nhà thiết kế công nghiệp|Phác thảo sản phẩm vật lý;Đánh giá nguyên mẫu sử dụng|Công năng và quy trình chế tạo
+Họa sĩ minh họa|Diễn giải ý tưởng bằng hình vẽ;Chỉnh hình theo nội dung|Giữ phong cách khi yêu cầu đa dạng
+Họa sĩ truyện tranh|Xây phân cảnh truyện;Vẽ nhân vật và bối cảnh|Kể chuyện rõ trong số khung hạn chế
+Họa sĩ hoạt hình|Tạo chuyển động nhân vật;Kiểm tra nhịp diễn xuất|Nhiều khung hình cần nhất quán
+Nghệ sĩ mô hình 3D|Dựng hình ba chiều;Tạo chất liệu bề mặt|Độ chi tiết phải phù hợp hiệu năng
+Nhà điêu khắc|Phác hình khối;Chế tác tác phẩm|Đặc tính vật liệu và trọng lượng
+Nghệ nhân gốm|Tạo hình đất;Theo dõi nung và men|Nhiệt độ làm thay đổi thành phẩm
+Thợ kim hoàn|Chế tác trang sức;Kiểm tra mối nối chi tiết|Độ chính xác trên vật liệu nhỏ
+Nhiếp ảnh gia|Chuẩn bị ánh sáng;Chọn và xử lý ảnh|Điều kiện chụp thay đổi liên tục
+Nhà thiết kế cảnh quan|Bố trí cây và lối đi;Đánh giá điều kiện khu đất|Phối hợp sinh thái với nhu cầu sử dụng
+Nhà thiết kế sân khấu|Phác không gian biểu diễn;Phối hợp dựng bối cảnh|Giới hạn sân khấu và thời gian chuyển cảnh
+Thợ thủ công mây tre|Chuẩn bị nguyên liệu đan;Hoàn thiện sản phẩm thủ công|Độ bền và độ đều của sợi
+Chuyên viên thiết kế bao bì|Thiết kế kết cấu hộp;Thử khả năng bảo vệ sản phẩm|Cân đối vật liệu và thông tin nhãn
+# media
+Người làm truyền thông|Lập kế hoạch nội dung;Phối hợp đưa thông tin tới công chúng|Kiểm chứng thông điệp trước khi công bố
+Nhà báo|Phỏng vấn nguồn tin;Kiểm chứng và viết bài|Đảm bảo chính xác dưới áp lực thời gian
+Biên tập viên|Rà soát bản thảo;Chỉnh cấu trúc nội dung|Giữ giọng tác giả và độ chính xác
+Chuyên viên quan hệ công chúng|Theo dõi hình ảnh tổ chức;Phối hợp phản hồi công chúng|Xử lý thông tin trong khủng hoảng
+Chuyên viên tổ chức sự kiện|Lập kịch bản tổ chức;Điều phối nhà cung cấp|Sự cố tại hiện trường khó dự báo
+Đạo diễn|Phát triển cách kể chuyện;Chỉ đạo ghi hình hoặc biểu diễn|Thống nhất tầm nhìn của nhiều bộ phận
+Biên kịch|Xây cấu trúc câu chuyện;Viết đối thoại|Duy trì logic nhân vật
+Quay phim|Thiết lập máy và ánh sáng;Ghi hình theo phân cảnh|Đảm bảo hình ảnh trong điều kiện khó
+Dựng phim|Chọn và sắp xếp cảnh;Phối hợp hình và âm thanh|Giữ mạch kể và nhịp cảm xúc
+Kỹ thuật viên âm thanh|Thiết lập hệ thống thu tiếng;Kiểm tra chất lượng âm thanh|Tạp âm và phản hồi âm khó kiểm soát
+Nhạc sĩ sáng tác|Phát triển giai điệu;Hoàn thiện bản nhạc|Cân bằng sáng tạo và yêu cầu biểu diễn
+Ca sĩ|Luyện giọng;Tập và biểu diễn tiết mục|Giữ sức khỏe giọng hát
+Diễn viên|Nghiên cứu nhân vật;Tập diễn với bạn diễn|Biểu đạt thuyết phục qua nhiều lần diễn
+Người dẫn chương trình|Chuẩn bị lời dẫn;Kết nối các phần chương trình|Ứng biến trước tình huống trực tiếp
+Chuyên viên nội dung số|Biên soạn nội dung theo kênh;Đánh giá phản hồi người xem|Tránh chạy theo lượt xem bằng thông tin sai
+Chuyên viên SEO|Nghiên cứu nhu cầu tìm kiếm;Cải thiện cấu trúc nội dung web|Thuật toán và nhu cầu tìm kiếm thay đổi
+# public-service
+Luật sư|Nghiên cứu hồ sơ vụ việc;Tư vấn trong phạm vi chuyên môn|Đánh giá chứng cứ và bảo vệ bảo mật
+Chuyên viên pháp chế|Rà soát hợp đồng;Đánh giá rủi ro pháp lý của tổ chức|Giải thích quy định trong tình huống cụ thể
+Công chứng viên|Kiểm tra giấy tờ giao dịch;Thực hiện nghiệp vụ công chứng|Xác minh tính xác thực hồ sơ
+Thẩm phán|Nghiên cứu hồ sơ tố tụng;Điều hành xét xử theo thẩm quyền|Yêu cầu khách quan và trách nhiệm cao
+Kiểm sát viên|Nghiên cứu hồ sơ tố tụng;Thực hiện nhiệm vụ kiểm sát theo phân công|Đánh giá chứng cứ đúng phạm vi trách nhiệm
+Chấp hành viên|Tổ chức thi hành quyết định;Làm việc với các bên liên quan|Xử lý quyền lợi đối lập
+Chuyên viên hành chính|Tiếp nhận và xử lý văn bản;Điều phối công việc văn phòng|Nhiều đầu việc cần theo dõi chính xác
+Văn thư lưu trữ|Phân loại hồ sơ;Theo dõi giao nhận tài liệu|Bảo mật và tìm lại hồ sơ lâu năm
+Cán bộ tư pháp hộ tịch|Hướng dẫn hồ sơ hộ tịch;Kiểm tra thông tin đăng ký|Thông tin nhân thân phải chính xác
+Cán bộ hải quan|Kiểm tra hồ sơ hàng hóa;Thực hiện kiểm soát theo phân công|Khối lượng hàng và hồ sơ lớn
+Chuyên viên ngoại giao|Chuẩn bị thông tin đối ngoại;Hỗ trợ hoạt động hợp tác|Khác biệt văn hóa và nghi thức
+Nhân viên công tác xã hội|Đánh giá nhu cầu hỗ trợ;Kết nối nguồn lực cộng đồng|Hoàn cảnh người được hỗ trợ phức tạp
+Lính cứu hỏa|Kiểm tra trang bị cứu nạn;Tham gia xử lý cháy và cứu hộ|Môi trường nguy hiểm và thể lực cao
+Cán bộ cảnh sát giao thông|Theo dõi trật tự giao thông;Xử lý tình huống theo phân công|Làm việc ngoài trời và ứng phó sự cố
+Chuyên viên chính sách công|Phân tích vấn đề xã hội;Đánh giá tác động phương án chính sách|Cân đối lợi ích nhiều nhóm
+Chuyên viên sở hữu trí tuệ|Tra cứu thông tin quyền sở hữu;Hỗ trợ hồ sơ bảo hộ|Phân biệt ý tưởng với đối tượng được bảo hộ
+# environment
+Kỹ sư môi trường|Đánh giá dòng chất thải;Đề xuất quy trình xử lý|Dữ liệu quan trắc và điều kiện thực địa
+Kỹ sư nông học|Theo dõi cây trồng;Thử phương án canh tác|Thời tiết và sâu bệnh biến đổi
+Kỹ sư chăn nuôi|Theo dõi đàn vật nuôi;Điều chỉnh quy trình chăm sóc|Kiểm soát dịch bệnh trong trang trại
+Bác sĩ thú y|Thăm khám động vật;Hướng dẫn chăm sóc và phòng bệnh|Động vật không thể tự mô tả triệu chứng
+Kỹ sư nuôi trồng thủy sản|Theo dõi môi trường nước;Điều chỉnh chăm sóc thủy sản|Chất lượng nước thay đổi nhanh
+Chuyên viên lâm nghiệp|Theo dõi tài nguyên rừng;Lập kế hoạch chăm sóc rừng|Địa bàn rộng và điều kiện hiện trường
+Nhân viên kiểm lâm|Tuần tra địa bàn rừng;Theo dõi dấu hiệu vi phạm|Thời tiết và địa hình khó khăn
+Kỹ sư thủy lợi|Tính toán hệ thống tưới;Theo dõi công trình dẫn nước|Nguồn nước biến động theo mùa
+Chuyên viên quan trắc môi trường|Lấy mẫu hiện trường;Kiểm tra số liệu đo|Độ chính xác của mẫu và thiết bị
+Chuyên viên bảo tồn đa dạng sinh học|Khảo sát loài và sinh cảnh;Theo dõi chương trình bảo tồn|Nguồn lực hạn chế trên địa bàn rộng
+Nhà địa chất|Khảo sát cấu trúc địa tầng;Phân tích mẫu đất đá|Điều kiện thực địa và dữ liệu không đầy đủ
+Chuyên viên khí tượng|Theo dõi dữ liệu thời tiết;Phân tích diễn biến khí quyển|Dự báo luôn có độ bất định
+Chuyên viên khí hậu|Phân tích chuỗi khí hậu;Đánh giá kịch bản biến đổi|Phân biệt xu hướng dài hạn với dao động
+Chuyên viên quản lý đất đai|Đối chiếu thông tin thửa đất;Hỗ trợ cập nhật hồ sơ đất|Ranh giới và nguồn hồ sơ khác nhau
+Kỹ thuật viên xử lý nước|Theo dõi bể và thiết bị xử lý;Kiểm tra chỉ tiêu vận hành|Chất lượng nước đầu vào biến động
+Chuyên viên phát triển nông thôn|Khảo sát sinh kế cộng đồng;Phối hợp dự án phát triển địa phương|Giải pháp cần phù hợp điều kiện địa phương
+# hospitality
+Hướng dẫn viên du lịch|Chuẩn bị nội dung điểm đến;Dẫn và hỗ trợ đoàn khách|Lịch trình thay đổi và khác biệt nhu cầu
+Chuyên viên điều hành tour|Thiết kế hành trình;Phối hợp dịch vụ chuyến đi|Gián đoạn giao thông và nhà cung cấp
+Lễ tân khách sạn|Tiếp nhận đặt phòng;Hỗ trợ khách lưu trú|Giao tiếp trong ca làm việc liên tục
+Quản lý khách sạn|Điều phối bộ phận dịch vụ;Theo dõi trải nghiệm khách|Cân đối chất lượng và vận hành
+Nhân viên buồng phòng|Chuẩn bị phòng lưu trú;Kiểm tra vật dụng và vệ sinh|Thời gian xử lý phòng có giới hạn
+Đầu bếp|Chuẩn bị nguyên liệu;Chế biến và kiểm soát món ăn|An toàn thực phẩm và nhịp phục vụ nhanh
+Thợ làm bánh|Cân nguyên liệu;Theo dõi ủ và nướng|Độ chính xác và nhiệt độ ảnh hưởng thành phẩm
+Nhân viên pha chế|Chuẩn bị đồ uống;Kiểm tra nguyên liệu quầy|Giữ chất lượng khi đông khách
+Nhân viên phục vụ nhà hàng|Tiếp nhận yêu cầu món;Phối hợp phục vụ bàn|Nhiều yêu cầu phát sinh đồng thời
+Tiếp viên hàng không|Kiểm tra trang bị khoang khách;Hướng dẫn an toàn và hỗ trợ hành khách|Lịch bay và tình huống khẩn cấp
+Phi công|Chuẩn bị kế hoạch chuyến bay;Theo dõi và điều khiển máy bay|Đòi hỏi tập trung và phối hợp chặt chẽ
+Nhân viên điều phối vận tải|Sắp xếp lịch phương tiện;Theo dõi chuyến đi|Thời tiết và lưu lượng giao thông
+Chuyên viên chăm sóc sắc đẹp|Tìm hiểu nhu cầu khách;Thực hiện dịch vụ trong phạm vi đào tạo|Vệ sinh dụng cụ và kỳ vọng khách
+Thợ cắt tóc|Tư vấn kiểu tóc;Cắt và tạo kiểu|Điều chỉnh theo chất tóc và mong muốn
+# science
+Nhà toán học|Xây dựng mô hình toán;Kiểm tra lập luận và chứng minh|Bài toán có thể chưa có hướng giải
+Nhà vật lý|Thiết kế phép đo;Phân tích hiện tượng vật lý|Tách tín hiệu thật khỏi nhiễu
+Nhà hóa học|Thiết kế thí nghiệm hóa học;Phân tích thành phần mẫu|An toàn và khả năng tái lập
+Nhà sinh học|Quan sát hệ sống;Phân tích kết quả thí nghiệm sinh học|Biến thiên tự nhiên giữa các mẫu
+Chuyên viên thống kê|Thiết kế phương án lấy mẫu;Phân tích sai số thống kê|Tránh diễn giải vượt dữ liệu
+Nhà xã hội học|Thiết kế nghiên cứu xã hội;Phân tích hành vi nhóm|Bảo vệ người tham gia nghiên cứu
+Nhà khảo cổ học|Khảo sát di tích;Ghi chép và phân tích hiện vật|Bảo tồn bối cảnh khi khai quật
+Nhà sử học|Đối chiếu tư liệu lịch sử;Xây dựng lập luận từ chứng cứ|Tư liệu thiếu hoặc mâu thuẫn
+Biên dịch viên|Chuyển ngữ tài liệu;Đối chiếu thuật ngữ|Giữ ý nghĩa và giọng văn nguồn
+Phiên dịch viên|Chuẩn bị thuật ngữ buổi làm việc;Chuyển lời nói giữa các ngôn ngữ|Xử lý thông tin trong thời gian ngắn
+Chuyên viên nghiên cứu vật liệu sinh học|Thử đặc tính vật liệu tương tác sinh học;Phân tích kết quả thử nghiệm|Khác biệt giữa thí nghiệm và ứng dụng
+Kỹ thuật viên phòng thí nghiệm|Chuẩn bị mẫu và dụng cụ;Ghi chép quy trình thí nghiệm|Duy trì độ sạch và khả năng truy xuất

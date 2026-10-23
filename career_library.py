@@ -1,5 +1,8 @@
 """Hợp đồng dữ liệu thư viện nghề; ID tương thích với Truyện nghề hiện có."""
 import unicodedata
+import json
+from functools import lru_cache
+from pathlib import Path
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
@@ -69,3 +72,18 @@ class Catalog(BaseModel):
         return [c for c in self.careers if (not category_id or c.category_id == category_id)
                 and query in normalize_search(' '.join([c.name, CATEGORIES[c.category_id],
                     c.short_description, *c.keywords]))]
+
+
+@lru_cache(maxsize=1)
+def catalog():
+    rows = []
+    for index in range(1, 5):
+        rows.extend(json.loads((Path(__file__).parent/'data'/f'careers-{index}.json').read_text(encoding='utf-8')))
+    result = Catalog(careers=rows)
+    if len(result.careers) != 200:
+        raise ValueError('Career catalog must contain exactly 200 careers')
+    return result
+
+
+def find_career(career_id):
+    return next((c for c in catalog().careers if c.career_id == career_id), None)

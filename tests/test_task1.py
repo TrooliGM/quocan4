@@ -106,7 +106,7 @@ class SurveyTests(unittest.TestCase):
         self.assertEqual(self.client.get('/api/articles').status_code,404)
         home = self.client.get('/').text
         self.assertNotIn('Góc hướng nghiệp',home)
-        self.assertIn('href="/ai-career-advisor" class="btn btn-coral">Bắt đầu',home)
+        self.assertIn('href="/ai-career-advisor?mode=career_discovery" class="btn btn-coral">Bắt đầu',home)
 
 
 class PostgresSurveyTests(unittest.TestCase):
