@@ -31,3 +31,8 @@ Ngày 2026-10-23. Nhánh `feat/task-1-career-survey`, worktree `.claude/worktree
 - Khảo sát chưa hoàn tất chỉ giữ bản nháp trong RAM của tab; tải lại có thể phải nhập lại. Sau nộp đã lưu vào store theo consent/thời hạn phiên. Nếu trang đóng ngay sau lưu nhưng trước gửi phân tích, mở lại cho phép tiếp tục chat, không tạo lại khảo sát; chưa có background job tự gọi AI.
 - Các rủi ro phát hành Production của ticket #7 (binding DATABASE_URL, tương thích schema legacy, chuỗi nâng cấp khách tám câu) không được xử lý hay cho là đã giải quyết bởi Nhiệm vụ 1.
 - Chưa triển khai Nhiệm vụ 2/3. Khi tiếp tục, đọc file này và Git HEAD tại nhánh trên, giữ nguyên các worktree khác. Phải được người dùng duyệt riêng trước merge/push/deploy.
+
+
+## Tinh chỉnh Navbar/Hero — 2026-10-23
+
+Bổ sung SVG icon nội tuyến cho bốn mục, nền kem active, hover/focus, sticky và scroll spy hỗ trợ hash/URL trực tiếp. Hero căn trái hai nút cùng chiều cao, gap 14px, bỏ margin auto từ CSS cũ. Chromium desktop 1440 và mobile 390 PASS: vị trí dưới Hero, icon, spacing, warm cream, sticky/clearance, hash/direct URL active, không overflow hoặc exception. Đã xử lý scroll-padding-top cũ trong tính active; có một lần browser bị đóng do hai phiên QA trùng cổng, kiểm tra lại tuần tự PASS. Không đổi AI/Firebase/database. Script và ảnh QA ở artifacts/check_navhero.py và artifacts/navhero-{1440,390}.png. Chưa kiểm tra điện thoại thật/Safari hoặc đăng nhập Firebase thật trong đợt chỉ sửa Navbar/Hero. Commit giao diện này là nền Nhiệm vụ 2; Nhiệm vụ 2/3 chưa bắt đầu.
