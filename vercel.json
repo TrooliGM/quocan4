@@ -3,7 +3,7 @@
   "framework": "fastapi",
   "functions": {
     "app.py": {
-      "includeFiles": "{index.html,chat.html,stories.html,advisor/*.txt}"
+      "includeFiles": "{index.html,chat.html,stories.html,advisor/*.txt,data/careers-1.json,data/careers-2.json,data/careers-3.json,data/careers-4.json}"
     }
   }
 }

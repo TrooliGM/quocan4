@@ -148,3 +148,7 @@ Khi người dùng yêu cầu triển khai, tham khảo `docs/decisions.md`, xá
 ## Nhiệm vụ 2 — 2026-10-24
 
 Thư viện 200 nghề/12 nhóm, modal chung, hai mode AI và liên kết truyện theo ID đã triển khai trên feat/task-2-career-library. Preview localhost:8003 riêng dùng PostgreSQL local và AI demo. 17 test backend và browser desktop/mobile PASS có fixture; Firebase/DeepSeek thật cho flow mới chưa kiểm chứng. Không push/merge/deploy/Neon; Nhiệm vụ 3 chưa bắt đầu. Xem docs/task-2-checkpoint.md.
+
+### QA hồi quy Nhiệm vụ 1 + 2 — 2026-10-24
+
+Đã sửa whitelist bốn JSON runtime Vercel và modal bị phản hồi cũ ghi đè; giữ thiết kế, auth/quota và dữ liệu. Kết quả mới nhất: 79 backend method có outcome cuối PASS (batch 78/79 + retest module 4/4, không phải full batch 79/79), 93 browser assertion PASS trên 1440/768/390/360px. Tổng 172 PASS, 2 FAIL, 5 BLOCKED, 3 chưa kiểm chứng. Chỉ local PostgreSQL/Firebase fixture/AI demo; không chứng nhận Firebase/DeepSeek thật cho flow mới. **NOT READY FOR VERCEL PREVIEW** do hai API AI legacy không dùng auth/quota/rate chung, đã tái hiện mock; cần quyết định xử lý. Chưa deploy/Neon/push/merge; 8003 giữ nguyên. Báo cáo ở artifacts/super-board-report.md; xem checkpoint Nhiệm vụ 2. Không bắt đầu Nhiệm vụ 3.

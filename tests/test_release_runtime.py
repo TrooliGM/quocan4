@@ -84,6 +84,9 @@ class ReleaseRuntimeTests(unittest.TestCase):
             for name in ('index.html', 'chat.html', 'stories.html'):
                 shutil.copy2(ROOT/name, target/name)
                 self.assertEqual((ROOT/name).read_bytes(), (ROOT/'public'/name).read_bytes())
+            (target/'data').mkdir()
+            for index in range(1, 5):
+                shutil.copy2(ROOT/'data'/f'careers-{index}.json', target/'data'/f'careers-{index}.json')
             (target/'.env').write_text('LABAN_BUNDLE_SENTINEL=should-not-load\n', encoding='utf-8')
             script = '''
 import os
@@ -94,6 +97,8 @@ with TestClient(app) as client:
  for url in ('/','/chat','/ai-career-advisor?start=1','/mot-ngay-lam-viec'):
   assert client.get(url).status_code == 200,url
  assert client.get('/api/ai/sessions').status_code == 401
+ assert client.get('/api/career-library').json()['total'] == 200
+ assert len(client.get('/api/career-library/categories').json()['items']) == 12
 print('isolated-runtime-ok')
 '''
             environment = {**os.environ, 'VERCEL': '1', 'DATABASE_URL': '', 'DEEPSEEK_API_KEY': ''}
@@ -163,6 +168,8 @@ print('isolated-runtime-ok')
                 'AI_DEMO_MODE':'false','DEEPSEEK_API_KEY':'test-key','DEEPSEEK_BASE_URL':'https://api.deepseek.com'
             }), TestClient(application.app) as client:
                 sid=client.post('/api/ai/sessions',json={'remember':True}).json()['session']['id']
+                self.assertEqual(client.put('/api/ai/sessions/'+sid+'/survey',json={
+                    'answers':['Vẽ và công nghệ']*5,'address':'chị'}).status_code,200)
                 for upstream in (401,403,429,500,'timeout','invalid-json'):
                     async def fake_post(client, endpoint, **kwargs):
                         if upstream=='timeout':raise httpx.ReadTimeout('private-error')
@@ -189,6 +196,8 @@ print('isolated-runtime-ok')
                 'AI_DEMO_MODE':'false','DEEPSEEK_API_KEY':'test-key','DEEPSEEK_BASE_URL':'https://api.deepseek.com'
             }), patch.object(httpx.AsyncClient,'post',fake_post), TestClient(application.app) as client:
                 sid=client.post('/api/ai/sessions',json={'remember':True}).json()['session']['id']
+                self.assertEqual(client.put('/api/ai/sessions/'+sid+'/survey',json={
+                    'answers':['Vẽ và công nghệ']*5,'address':'chị'}).status_code,200)
                 body={'session_id':sid,'request_id':str(uuid4()),'message':'Em thích vẽ'}
                 result=client.post('/api/ai/chat',json=body)
                 self.assertEqual(result.status_code,200,result.text)

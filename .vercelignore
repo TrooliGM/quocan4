@@ -3,7 +3,11 @@
 .venv/
 **/__pycache__/
 *.pyc
-data/
+data/*
+!data/careers-1.json
+!data/careers-2.json
+!data/careers-3.json
+!data/careers-4.json
 artifacts/
 .pytest_cache/
 .agents/

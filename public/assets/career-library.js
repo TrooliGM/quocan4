@@ -1,6 +1,6 @@
 const $ = s => document.querySelector(s);
 const escape = value => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let categories=[], category='', offset=0, generation=0, selected=false;
+let categories=[], category='', offset=0, generation=0, modalGeneration=0, selected=false;
 const symbols=['⌘','✚','▤','⚙','◇','▥','✳','◉','⚖','♧','☀','⚗'];
 async function json(url) {
   const response=await fetch(url); const body=await response.json();
@@ -30,15 +30,16 @@ async function load(append=false){
   }catch(error){if(ticket===generation)$('#career-status').textContent=error.message+' Em có thể bấm Tìm kiếm để thử lại.';}
 }
 async function openCareer(id){
+  const ticket=++modalGeneration;
   const dialog=$('#content-dialog'), content=$('#dialog-content');
   content.innerHTML='<h2 id="dialog-title">Đang mở nghề…</h2>';
   if(!dialog.open)dialog.showModal();
   try{
     const c=await json('/api/career-library/'+encodeURIComponent(id));
-    if(!dialog.open)return;
+    if(ticket!==modalGeneration||!dialog.open)return;
     const lists=(title,items)=>`<h3>${title}</h3><ul>${items.map(x=>`<li>${escape(x)}</li>`).join('')}</ul>`;
     content.innerHTML=`<span class="eyebrow">${escape(categories.find(x=>x.category_id===c.category_id)?.name||'KHÁM PHÁ NGHỀ')}</span><h2 id="dialog-title">${escape(c.name)}</h2><p>${escape(c.description)}</p>${lists('Công việc thường ngày',c.daily_tasks)}${lists('Kỹ năng hữu ích',c.skills)}${lists('Môn học liên quan',c.related_subjects)}<h3>Môi trường làm việc</h3><p>${escape(c.work_environment)}</p>${lists('Khó khăn và thử thách',c.challenges)}<div class="library-modal-actions"><a class="btn btn-coral" href="/ai-career-advisor?mode=career_exploration&amp;career_id=${encodeURIComponent(c.career_id)}">Cùng tìm hiểu nghề ↗</a><a class="btn btn-ink" href="/mot-ngay-lam-viec?nghe=${encodeURIComponent(c.career_id)}">Xem truyện một ngày làm việc →</a></div><p class="content-note">Điều kiện đào tạo và hành nghề cần kiểm tra tại cơ sở đào tạo hoặc cơ quan chuyên môn. Bản mô tả không thay thế tư vấn chuyên môn.</p>`;
-  }catch(e){content.replaceChildren();const title=document.createElement('h2');title.id='dialog-title';title.textContent=e.message;content.append(title);}
+  }catch(e){if(ticket!==modalGeneration||!dialog.open)return;content.replaceChildren();const title=document.createElement('h2');title.id='dialog-title';title.textContent=e.message;content.append(title);}
 }
 window.openLibraryCareer=openCareer;
 $('#search-form').addEventListener('submit',event=>{event.preventDefault();selected=true;categoryState();load();});

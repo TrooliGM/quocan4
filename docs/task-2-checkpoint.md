@@ -76,3 +76,13 @@ Ngày 2026-10-23. Nhánh `feat/task-2-career-library`, worktree `D:/khkt/.claude
 9. Commit phần hoàn thiện, danh sách file/test/ảnh, checkpoint Nhiệm vụ 3; không push/merge/Production deploy. Không tuyên bố toàn bộ Nhiệm vụ 2 hoàn tất trước khi các mục trên thực sự làm xong.
 
 Yêu cầu đầy đủ: attachment gốc. Các giới hạn phát hành Production của ticket #7 vẫn chưa được giải quyết. Không mở lại hay sửa migration 003 trong nhiệm vụ này.
+
+## QA hồi quy Nhiệm vụ 1 + 2 — 2026-10-24
+
+Trạng thái mới nhất sau baseline `8f32e3b`: **NOT READY FOR VERCEL PREVIEW**. Giữ thiết kế đã duyệt, không bắt đầu Nhiệm vụ 3. Đã sửa hai lỗi High: whitelist đúng bốn JSON nghề cho runtime Vercel (data khác vẫn bị loại) và chống response/error modal cũ ghi đè nghề vừa chọn. Hai index chỉ tăng phiên bản JS; không đổi auth/quota/schema.
+
+Kết quả riêng biệt: **172 PASS / 2 FAIL / 5 BLOCKED / 3 CHƯA KIỂM CHỨNG**, 182 đơn vị. Backend có 79 method kết quả cuối PASS qua batch 78/79 và retest module 4/4 sau sửa encoding stdin của harness; không phải một batch 79/79. Browser 93 assertion PASS tại 1440/768/390/360px, Firebase stub và AI demo trên fixture 8013, PostgreSQL local riêng. Kiểm real Firebase/DeepSeek cho hai mode mới bị chặn vì chưa có môi trường test riêng được phép; không suy từ QA ticket #7 cũ.
+
+Hai FAIL là rủi ro High còn mở: `/api/advice` và `/api/career-stories/{career_id}/ask` gọi graph khi không Authorization, không quota/rate chung (tái hiện mock, không gọi AI thật). Cần quyết định bảo vệ hoặc tắt legacy AI trước Preview có provider thật. Chưa chứng nhận biên tập ngữ nghĩa toàn bộ 200 nghề, thiết bị vật lý/Safari hoặc Vercel runtime thật. Đã rà 24 mẫu/12 nhóm và exact duplicates, không phát hiện trùng chính xác.
+
+Báo cáo local: `artifacts/super-board-report.md`, `artifacts/super-board-summary.json`; ảnh `artifacts/qa/home-{1440,768,390,360}.png` và `exploration-draft-360.png`. Artifacts không commit. Server xem thử 8003 giữ nguyên; không Neon, push, merge hoặc deploy. Chỉ commit bản sửa đã kiểm chứng trên `feat/task-2-career-library` theo quyền được cấp.

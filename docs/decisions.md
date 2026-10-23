@@ -73,3 +73,9 @@ Yêu cầu đã xác nhận qua tài liệu Nhiệm vụ 1: được phát tri�
 ## Nhiệm vụ 2 — 2026-10-24
 
 Thư viện 200 nghề/12 nhóm, modal chung, hai mode AI và liên kết truyện theo ID đã triển khai trên feat/task-2-career-library. Preview localhost:8003 riêng dùng PostgreSQL local và AI demo. 17 test backend và browser desktop/mobile PASS có fixture; Firebase/DeepSeek thật cho flow mới chưa kiểm chứng. Không push/merge/deploy/Neon; Nhiệm vụ 3 chưa bắt đầu. Xem docs/task-2-checkpoint.md.
+
+### Quyết định QA Nhiệm vụ 1 + 2 — 2026-10-24
+
+Đã xác nhận: chỉ sửa lỗi thực tế, giữ thiết kế và commit bản sửa đã kiểm chứng trên nhánh `feat/task-2-career-library`; không push/merge/deploy. Đã sửa whitelist runtime đúng bốn JSON nghề (không mở toàn bộ data/) và generation fence cho modal. Không đổi Firebase, quota 8 hoặc schema.
+
+Còn mở, **chưa được duyệt triển khai**: bảo vệ `/api/advice` và `/api/career-stories/{career_id}/ask` bằng auth/quota/rate chung, hoặc chốt chính sách vô hiệu hóa legacy AI. Hiện hai API vượt lớp bảo vệ khi có provider key, tái hiện bằng mock; không tự tắt để tránh phá chức năng. Vì vậy kết luận NOT READY FOR VERCEL PREVIEW. Firebase/DeepSeek thật cho hai mode mới và Vercel build thật chưa kiểm chứng; không dùng fixture PASS thay cho bằng chứng live. Chi tiết tại docs/task-2-checkpoint.md và artifacts/super-board-report.md.
