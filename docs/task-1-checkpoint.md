@@ -36,3 +36,8 @@ Ngày 2026-10-23. Nhánh `feat/task-1-career-survey`, worktree `.claude/worktree
 ## Tinh chỉnh Navbar/Hero — 2026-10-23
 
 Bổ sung SVG icon nội tuyến cho bốn mục, nền kem active, hover/focus, sticky và scroll spy hỗ trợ hash/URL trực tiếp. Hero căn trái hai nút cùng chiều cao, gap 14px, bỏ margin auto từ CSS cũ. Chromium desktop 1440 và mobile 390 PASS: vị trí dưới Hero, icon, spacing, warm cream, sticky/clearance, hash/direct URL active, không overflow hoặc exception. Đã xử lý scroll-padding-top cũ trong tính active; có một lần browser bị đóng do hai phiên QA trùng cổng, kiểm tra lại tuần tự PASS. Không đổi AI/Firebase/database. Script và ảnh QA ở artifacts/check_navhero.py và artifacts/navhero-{1440,390}.png. Chưa kiểm tra điện thoại thật/Safari hoặc đăng nhập Firebase thật trong đợt chỉ sửa Navbar/Hero. Commit giao diện này là nền Nhiệm vụ 2; Nhiệm vụ 2/3 chưa bắt đầu.
+
+
+## Navbar phương án 2 — 2026-10-23
+
+Theo yêu cầu đã duyệt: Navbar căn giữa max-width 768px, bốn ô grid bằng nhau, icon trên chữ, nền #183F34 và active #F3E5C9. Chỉ thay CSS Navbar. Chromium 1440/390 PASS: chiều rộng, bố cục dọc, icon, màu active, sticky/section clearance, hash/direct URL và không overflow/JS exception. Node syntax và git diff --check PASS; dự án không có bước bundle riêng. Không sửa Hero/AI/khảo sát/Firebase; không push/merge/deploy.

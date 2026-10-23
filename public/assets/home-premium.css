@@ -255,3 +255,11 @@ body.home-premium {
 .journey-links a:focus-visible{outline:3px solid #efaa88;outline-offset:1px}
 .home-premium :is(#careers,#about){scroll-margin-top:100px}
 @media(max-width:600px){.journey-nav{top:4px}.journey-links a{flex-direction:column;gap:5px;font-size:11px;padding:10px 4px;min-width:0;white-space:normal}.journey-links{overflow:visible}.home-premium .hero-actions .btn{min-height:50px;padding-inline:18px}}
+
+/* Approved option 2: centered, equal vertical navigation tiles. */
+.journey-nav.container{width:100%;max-width:768px;margin-inline:auto}
+.journey-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:#183F34;border-radius:24px;padding:8px;gap:6px;overflow:visible}
+.journey-links a{flex-direction:column;gap:5px;padding:12px 6px;min-height:72px;border-radius:17px;color:#fff;font-size:13px;line-height:1.35;white-space:normal;text-align:center}
+.journey-links a:hover{color:#fff;background:#2b5146}
+.journey-links a[aria-current]{background:#F3E5C9;color:#183F34}
+@media(max-width:600px){.journey-links{padding:6px;gap:4px;border-radius:21px}.journey-links a{font-size:11px;padding:10px 3px;min-height:68px;border-radius:15px}}
