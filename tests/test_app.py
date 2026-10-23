@@ -4,10 +4,12 @@ from unittest.mock import patch
 
 from fastapi.testclient import TestClient
 from app import app
+from protection_fixture import ProtectedAPIFixture
 
 
-class HomepageTests(unittest.TestCase):
+class HomepageTests(ProtectedAPIFixture, unittest.TestCase):
     def setUp(self):
+        super().setUp()
         self.client = TestClient(app)
 
     def test_home_and_assets(self):

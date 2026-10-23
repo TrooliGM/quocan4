@@ -1,10 +1,11 @@
 const $ = (s) => document.querySelector(s);
+let pendingAdvice;
 const escapeHTML = (value) => String(value).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 async function fetchJSON(url, options = {}) {
   const response = await fetch(url, options);
   let data;
   try { data = await response.json(); } catch { throw new Error('Chưa tải được nội dung. Bạn thử lại nhé.'); }
-  if (!response.ok) throw new Error(typeof data.detail === 'string' ? data.detail : 'Bạn nhập câu hỏi từ 3 đến 600 ký tự nhé.');
+  if (!response.ok) throw new Error(typeof data.detail === 'string' ? data.detail : data.detail?.message || 'Chưa thực hiện được. Bạn thử lại nhé.');
   return data;
 }
 function openCareer(id) { window.openLibraryCareer?.(id); }
@@ -26,8 +27,11 @@ $('#ai-form').addEventListener('submit', async (event) => {
   if (question.length < 3) { answer.textContent = 'Bạn nhập câu hỏi ít nhất 3 ký tự nhé.'; return; }
   $('#ai-submit').disabled = true; $('#ai-submit').textContent = 'Đang suy nghĩ…'; answer.classList.remove('error'); answer.textContent = 'La Bàn đang tìm một gợi ý cho bạn…';
   try {
-    const result = await fetchJSON('/api/advice', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({question}), signal:AbortSignal.timeout(35000)});
+    if (pendingAdvice?.question !== question) pendingAdvice = {question,request_id:crypto.randomUUID()};
+    const {aiHeaders} = await import('./ai-access.js');
+    const result = await fetchJSON('/api/advice', {method:'POST', headers:await aiHeaders(), body:JSON.stringify(pendingAdvice), signal:AbortSignal.timeout(35000)});
     answer.textContent = result.answer;
+    pendingAdvice = null;
   } catch (error) { answer.classList.add('error'); answer.textContent = error.name === 'TimeoutError' ? 'Phản hồi hơi lâu. Bạn thử lại sau nhé.' : error.message; }
   finally { $('#ai-submit').disabled = false; $('#ai-submit').textContent = 'Gửi câu hỏi ↗'; }
 });

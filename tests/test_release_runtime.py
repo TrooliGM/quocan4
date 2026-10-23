@@ -17,13 +17,14 @@ import app as application
 from advisor.routes import require_user
 from advisor.store import get_store, ConversationStore, StorageConfigurationError
 from advisor.postgres_adapter import PostgresConversationStore
+from protection_fixture import ProtectedAPIFixture
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
-class ReleaseRuntimeTests(unittest.TestCase):
+class ReleaseRuntimeTests(ProtectedAPIFixture, unittest.TestCase):
     def test_pages_alias_assets_and_unknown_route(self):
-        with TestClient(application.app) as client:
+        with TestClient(application.app,client=('127.0.0.1',1)) as client:
             for url in ('/', '/ai-career-advisor?start=1', '/chat', '/mot-ngay-lam-viec'):
                 response = client.get(url)
                 self.assertEqual(response.status_code, 200)
@@ -33,7 +34,7 @@ class ReleaseRuntimeTests(unittest.TestCase):
             self.assertEqual(client.get('/not-a-page').status_code, 404)
 
     def test_missing_html_is_controlled_without_disclosing_path(self):
-        with tempfile.TemporaryDirectory() as directory, patch.object(application, 'ROOT', Path(directory)), TestClient(application.app) as client:
+        with tempfile.TemporaryDirectory() as directory, patch.object(application, 'ROOT', Path(directory)), TestClient(application.app,client=('127.0.0.1',1)) as client:
             with self.assertLogs('app', level='ERROR') as logs:
                 response = client.get('/ai-career-advisor?start=1')
             self.assertEqual(response.status_code, 503)
@@ -59,7 +60,7 @@ class ReleaseRuntimeTests(unittest.TestCase):
                      (psycopg.errors.UndefinedTable('never print this secret'), 'DATABASE_SCHEMA_MISSING'),
                      (psycopg.errors.UndefinedColumn('never print this secret'), 'DATABASE_SCHEMA_MISSING'),
                      (psycopg.errors.InsufficientPrivilege('never print this secret'), 'DATABASE_PERMISSION')]
-            with TestClient(application.app) as client:
+            with TestClient(application.app,client=('127.0.0.1',1)) as client:
                 for error, code in cases:
                     with self.subTest(code=code), patch('advisor.routes.get_store', side_effect=error), self.assertLogs('app', level='ERROR') as logs:
                         response = client.get('/api/ai/sessions')
@@ -93,7 +94,7 @@ import os
 from fastapi.testclient import TestClient
 from app import app
 assert not os.getenv('LABAN_BUNDLE_SENTINEL')
-with TestClient(app) as client:
+with TestClient(app,client=('127.0.0.1',1)) as client:
  for url in ('/','/chat','/ai-career-advisor?start=1','/mot-ngay-lam-viec'):
   assert client.get(url).status_code == 200,url
  assert client.get('/api/ai/sessions').status_code == 401
@@ -115,7 +116,7 @@ print('isolated-runtime-ok')
             for upstream, expected in ((401,503),(403,503),(429,503),(500,503),(400,503),(404,503)):
                 async def fake_post(client, endpoint, **kwargs):
                     return httpx.Response(upstream, json={'error':'private-body'}, request=httpx.Request('POST',endpoint))
-                with self.subTest(url=url,upstream=upstream), patch.dict(os.environ, {'DEEPSEEK_API_KEY':'test-secret'}), patch.object(httpx.AsyncClient,'post',fake_post), TestClient(application.app) as client:
+                with self.subTest(url=url,upstream=upstream), patch.dict(os.environ, {'DEEPSEEK_API_KEY':'test-secret'}), patch.object(httpx.AsyncClient,'post',fake_post), TestClient(application.app,client=('127.0.0.1',1)) as client:
                     with self.assertLogs('deepseek_client', level='WARNING') as logs:
                         response=client.post(url,json={'question':'Em thích vẽ'})
                     self.assertEqual(response.status_code, expected)
@@ -129,7 +130,7 @@ print('isolated-runtime-ok')
                 if body is None:raise httpx.ReadTimeout('private-provider-detail')
                 return httpx.Response(200,json=body,request=httpx.Request('POST',endpoint))
             for url in ('/api/advice','/api/career-stories/bac-si/ask'):
-                with patch.dict(os.environ, {'DEEPSEEK_API_KEY':'test-key'}), patch.object(httpx.AsyncClient,'post',fake_post), TestClient(application.app) as client:
+                with patch.dict(os.environ, {'DEEPSEEK_API_KEY':'test-key'}), patch.object(httpx.AsyncClient,'post',fake_post), TestClient(application.app,client=('127.0.0.1',1)) as client:
                     response=client.post(url,json={'question':'Em thích vẽ'})
                     self.assertEqual(response.status_code,504 if body is None else 502)
                     self.assertNotIn('private-provider-detail', response.text)
@@ -164,9 +165,9 @@ print('isolated-runtime-ok')
         application.app.dependency_overrides[require_user] = lambda: {'uid':'release-test','provider':'password'}
         try:
             with tempfile.TemporaryDirectory() as directory, patch.dict(os.environ, {
-                'VERCEL':'','DATABASE_URL':'sqlite:///'+str(Path(directory)/'test.sqlite3'),
+                'VERCEL':'','DATABASE_URL':self.protected_cluster.url,
                 'AI_DEMO_MODE':'false','DEEPSEEK_API_KEY':'test-key','DEEPSEEK_BASE_URL':'https://api.deepseek.com'
-            }), TestClient(application.app) as client:
+            }), TestClient(application.app,client=('127.0.0.1',1)) as client:
                 sid=client.post('/api/ai/sessions',json={'remember':True}).json()['session']['id']
                 self.assertEqual(client.put('/api/ai/sessions/'+sid+'/survey',json={
                     'answers':['Vẽ và công nghệ']*5,'address':'chị'}).status_code,200)
@@ -192,9 +193,9 @@ print('isolated-runtime-ok')
             return httpx.Response(200,json={'choices':[{'message':{'content':'Hãy thử **thiết kế poster**.'},'finish_reason':'stop'}]},request=httpx.Request('POST',endpoint))
         try:
             with tempfile.TemporaryDirectory() as directory, patch.dict(os.environ, {
-                'VERCEL':'','DATABASE_URL':'sqlite:///'+str(Path(directory)/'test.sqlite3'),
+                'VERCEL':'','DATABASE_URL':self.protected_cluster.url,
                 'AI_DEMO_MODE':'false','DEEPSEEK_API_KEY':'test-key','DEEPSEEK_BASE_URL':'https://api.deepseek.com'
-            }), patch.object(httpx.AsyncClient,'post',fake_post), TestClient(application.app) as client:
+            }), patch.object(httpx.AsyncClient,'post',fake_post), TestClient(application.app,client=('127.0.0.1',1)) as client:
                 sid=client.post('/api/ai/sessions',json={'remember':True}).json()['session']['id']
                 self.assertEqual(client.put('/api/ai/sessions/'+sid+'/survey',json={
                     'answers':['Vẽ và công nghệ']*5,'address':'chị'}).status_code,200)

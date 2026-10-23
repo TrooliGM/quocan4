@@ -6,9 +6,10 @@ import httpx
 from fastapi.testclient import TestClient
 from app import app
 from ai import advice_graph
+from protection_fixture import ProtectedAPIFixture
 
 
-class GraphTests(unittest.IsolatedAsyncioTestCase):
+class GraphTests(ProtectedAPIFixture, unittest.IsolatedAsyncioTestCase):
     async def test_graph_context_and_deepseek_request(self):
         seen = {}
 
@@ -28,7 +29,7 @@ class GraphTests(unittest.IsolatedAsyncioTestCase):
             return httpx.Response(401, json={"error": "sensitive provider details"}, request=httpx.Request("POST", url))
 
         with patch.dict(os.environ, {"DEEPSEEK_API_KEY": "test-secret"}), patch.object(httpx.AsyncClient, "post", fake_post):
-            with TestClient(app) as client:
+            with TestClient(app,client=('127.0.0.1',1)) as client:
                 response = client.post("/api/advice", json={"question": "Em thích vẽ"})
         self.assertEqual(response.status_code, 503)
         self.assertNotIn("test-secret", response.text)

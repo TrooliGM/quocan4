@@ -3,8 +3,13 @@ let pendingClaim = null;
 export const hasPendingGuestClaim = () => Boolean(pendingClaim);
 
 async function transferHistory(auth, target, guest, guestToken) {
+  if (!guest) {
+    const response = await fetch('/api/ai/guest/session',{cache:'no-store'});
+    if (!response.ok) throw new Error('Chưa kiểm tra được lịch sử khách. Bạn thử lại nhé.');
+    guest = (await response.json()).user;
+  }
   if (!guest || guest.uid === target.uid) return;
-  if (!guestToken) throw new Error('Không lấy được bằng chứng phiên khách. Bạn thử đăng nhập lại từ phiên khách nhé.');
+  if (!guestToken && !guest.server_guest) throw new Error('Không lấy được bằng chứng phiên khách. Bạn thử đăng nhập lại từ phiên khách nhé.');
   pendingClaim = {target, guest, guestToken};
   await retryGuestClaim(auth);
 }

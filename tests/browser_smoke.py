@@ -141,7 +141,7 @@ def main():
             raise RuntimeError('Browser PostgreSQL tests only accept loopback, never production.')
     environment = {**os.environ, "AI_DEMO_MODE":"true", "DATABASE_URL":test_database or "sqlite:///" + str(ARTIFACTS / f"browser-{suffix}.sqlite3")}
     with (ARTIFACTS / "browser-server.log").open("w", encoding="utf-8") as log, (ARTIFACTS / "browser-chrome.log").open("w", encoding="utf-8") as chrome_log:
-        server = subprocess.Popen([sys.executable,"-m","uvicorn","browser_fixture:app","--app-dir","tests","--host","127.0.0.1","--port","8013"],
+        server = subprocess.Popen([sys.executable,"-m","uvicorn","browser_fixture:app","--app-dir","tests","--host","127.0.0.1","--port","8013","--no-proxy-headers"],
                                   cwd=ROOT, env=environment, stdout=log, stderr=log, creationflags=subprocess.CREATE_NO_WINDOW)
         browser = subprocess.Popen([str(chrome),"--headless=new","--disable-gpu","--no-first-run","--no-default-browser-check","--no-proxy-server",
                                     "--remote-debugging-port=9227","--remote-allow-origins=http://localhost:9227",

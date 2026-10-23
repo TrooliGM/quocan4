@@ -154,6 +154,6 @@ if __name__=='__main__':
     OUT.mkdir(exist_ok=True,parents=True)
     with LocalPostgres() as pg:
         with psycopg.connect(pg.url,autocommit=True) as db:
-            for name in ('001_conversations.sql','002_guest_quota.sql'):db.execute((h.ROOT/'migrations'/name).read_text(encoding='utf8'))
+            for name in ('001_conversations.sql','002_guest_quota.sql','004_shared_ai_protection.sql'):db.execute((h.ROOT/'migrations'/name).read_text(encoding='utf8'))
         os.environ['LABAN_BROWSER_TEST_DATABASE']=pg.url
         h.checks=checks;h.main()

@@ -1,12 +1,14 @@
 import {storyArt} from './story-art.js';
+import {aiHeaders} from './ai-access.js';
 const $ = s => document.querySelector(s);
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let story, index = 0, mode = 'play', playing = false, timer, request, askRequest, requestedId;
 let answers = new Map();
+let pendingQuestion;
 async function json(url, options={}) {
   const response = await fetch(url, options);
   const body = await response.json();
-  if (!response.ok) throw new Error(typeof body.detail === 'string' ? body.detail : 'Chưa tải được nội dung. Bạn thử lại nhé.');
+  if (!response.ok) throw new Error(typeof body.detail === 'string' ? body.detail : body.detail?.message || 'Chưa tải được nội dung. Bạn thử lại nhé.');
   return body;
 }
 function pause() {
@@ -118,8 +120,10 @@ $('#story-ask-form').addEventListener('submit',async e=>{
   $('#story-ask-submit').disabled=true;$('#story-ask-submit').textContent='Đang suy nghĩ…';
   $('#story-answer').hidden=false;$('#story-answer').textContent='La Bàn đang tìm lời giải thích…';
   try {
-    const result=await json(`/api/career-stories/${encodeURIComponent(story.id)}/ask`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question,scene_index:index}),signal:current.signal});
-    if(askRequest===current)$('#story-answer').textContent=result.answer;
+    const key=`${story.id}:${index}:${question}`;
+    if(pendingQuestion?.key!==key)pendingQuestion={key,request_id:crypto.randomUUID()};
+    const result=await json(`/api/career-stories/${encodeURIComponent(story.id)}/ask`,{method:'POST',headers:await aiHeaders(),body:JSON.stringify({question,scene_index:index,request_id:pendingQuestion.request_id}),signal:current.signal});
+    if(askRequest===current){$('#story-answer').textContent=result.answer;pendingQuestion=null;}
   } catch(error) {if(askRequest===current){$('#story-answer').classList.add('error');$('#story-answer').textContent=error.name==='AbortError'?'Phản hồi hơi lâu. Bạn thử gửi lại nhé.':error.message;}}
   finally {clearTimeout(timeout);if(askRequest===current){$('#story-ask-submit').disabled=false;$('#story-ask-submit').textContent='Hỏi La Bàn ↗';askRequest=null;}}
 });

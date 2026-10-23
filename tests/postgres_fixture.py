@@ -55,6 +55,6 @@ class LocalPostgres:
         if initialize:
             with connect() as db:
                 db.autocommit = True
-                for migration in ('001_conversations.sql', '002_guest_quota.sql'):
+                for migration in ('001_conversations.sql', '002_guest_quota.sql', '004_shared_ai_protection.sql'):
                     db.execute((ROOT/'migrations'/migration).read_text(encoding='utf-8'))
         return connection

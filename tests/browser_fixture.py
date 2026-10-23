@@ -2,7 +2,7 @@
 
 Thay Firebase bằng stub trong tiến trình kiểm thử; app.py không import module này.
 """
-from fastapi import Header, HTTPException
+from fastapi import Header, HTTPException, Request
 from fastapi.responses import Response
 from fastapi.routing import APIRoute
 
@@ -14,7 +14,10 @@ import advisor.graph as graph
 app = application.app
 
 
-def fixture_user(authorization: str | None = Header(default=None)):
+def fixture_user(authorization: str | None = Header(default=None), request: Request = None):
+    if authorization is None and request is not None:
+        from advisor.protection import server_guest
+        return server_guest(request)
     if authorization and authorization.startswith(('Bearer browser-fixture-guest:', 'Bearer browser-fixture-linked:')):
         import re
         prefix,uid=authorization.split(':',1)
@@ -33,6 +36,14 @@ def fixture_user(authorization: str | None = Header(default=None)):
 app.dependency_overrides[require_user] = fixture_user
 application.verify_user = lambda token: fixture_user("Bearer " + token)
 routes.verify_user = application.verify_user
+import os
+if os.getenv('LABAN_BROWSER_TEST_LEGACY_AI') == '1':
+    import ai
+    import story_ai
+    async def legacy_demo(state):
+        return {'answer':'BẢN DEMO KIỂM THỬ · Thử tìm hiểu minh họa, thiết kế và lập trình.'}
+    ai.advice_graph.ainvoke = legacy_demo
+    story_ai.story_graph.ainvoke = legacy_demo
 original_demo = graph.demo_reply
 
 
@@ -74,7 +85,7 @@ const sdk = {
   async signInWithPopup() {auth.currentUser=profile;sessionStorage.setItem('__fixture_login','1');listeners.forEach(cb=>cb(profile));return {user:profile};},
   async signOut() {auth.currentUser=null;sessionStorage.removeItem('__fixture_login');listeners.forEach(cb=>cb(null));}
 };
-export async function getFirebase(){return {auth,sdk};}
+export async function getFirebase(){if(new URLSearchParams(location.search).has('fixture_no_firebase'))throw new Error('Firebase unavailable fixture');return {auth,sdk};}
 export async function restoredUser(){return auth.currentUser;}
 ''', media_type="application/javascript")
 

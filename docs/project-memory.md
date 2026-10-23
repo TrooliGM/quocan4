@@ -152,3 +152,7 @@ Thư viện 200 nghề/12 nhóm, modal chung, hai mode AI và liên kết truy�
 ### QA hồi quy Nhiệm vụ 1 + 2 — 2026-10-24
 
 Đã sửa whitelist bốn JSON runtime Vercel và modal bị phản hồi cũ ghi đè; giữ thiết kế, auth/quota và dữ liệu. Kết quả mới nhất: 79 backend method có outcome cuối PASS (batch 78/79 + retest module 4/4, không phải full batch 79/79), 93 browser assertion PASS trên 1440/768/390/360px. Tổng 172 PASS, 2 FAIL, 5 BLOCKED, 3 chưa kiểm chứng. Chỉ local PostgreSQL/Firebase fixture/AI demo; không chứng nhận Firebase/DeepSeek thật cho flow mới. **NOT READY FOR VERCEL PREVIEW** do hai API AI legacy không dùng auth/quota/rate chung, đã tái hiện mock; cần quyết định xử lý. Chưa deploy/Neon/push/merge; 8003 giữ nguyên. Báo cáo ở artifacts/super-board-report.md; xem checkpoint Nhiệm vụ 2. Không bắt đầu Nhiệm vụ 3.
+
+### Shared AI protection — 2026-10-24, trạng thái mới nhất
+
+High legacy đã được sửa và hai boundary retest401/graph0 PASS; chat/advice/story dùng identity/rate/quota/row lease chung, guest cookie không bắt Firebase, claim giữ lịch sử; voice rate nhưng không trừ quota8. Tổng197 PASS/0 FAIL/5 BLOCKED/3 chưa kiểm chứng, không cộng trùng batch90+security15 (94 method backend), browser101 và2boundary. Chỉ local/mock/demo, chưa live Firebase/DeepSeek. Migration004 nguồn cần phê duyệt riêng; legacy003 và proxy Vercel còn gate, nên NOT READY FOR VERCEL PREVIEW. Server8003 local mới PID16800, không dữ liệu Production. Chi tiết docs/shared-ai-protection.md và checkpoint task-2; không push/merge/deploy/Task3.

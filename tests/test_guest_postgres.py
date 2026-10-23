@@ -43,7 +43,7 @@ class GuestPostgresTests(unittest.TestCase):
         self.dbpatch = patch.object(pg,'postgres_connection',self.connection)
         self.env.start();self.dbpatch.start()
         app.dependency_overrides[require_user] = fake_user
-        self.client = TestClient(app)
+        self.client = TestClient(app,client=('127.0.0.1',1))
         async def mocked(state):
             return {'session':pg.save_messages_atomic(state['uid'],state['session_id'],state['request_id'],state['message'],reply(),'demo',state.get('guest_reservation_token'))}
         self.graph = patch('advisor.routes.advisor_graph.ainvoke',side_effect=mocked)
@@ -69,7 +69,7 @@ class GuestPostgresTests(unittest.TestCase):
             response = self.send(sid)
             self.assertEqual(response.status_code,200,response.text)
             self.assertEqual(response.json()['guest_quota']['used_questions'],i+1)
-        self.assertEqual(self.send(self.session()).status_code,403)
+        self.assertEqual(self.send(self.session()).status_code,429)
         self.assertEqual(self.graph_mock.call_count,8)
         last=self.graph_mock.call_args.args[0]
         self.assertEqual(self.send(last['session_id'],last['request_id'],message=last['message']).status_code,200)
@@ -137,7 +137,7 @@ class GuestPostgresTests(unittest.TestCase):
             try:return pg.reserve_guest_request('guest',sid,str(uuid4()),'parallel')['new_reservation']
             except HTTPException as e:return e.status_code
         with ThreadPoolExecutor(max_workers=2) as pool:results=list(pool.map(lambda _:reserve(),range(2)))
-        self.assertCountEqual(results,[True,403])
+        self.assertCountEqual(results,[True,429])
         self.assertEqual(get_guest_usage('guest')['used_questions'],8)
 
     def test_expired_lease_fences_old_worker_and_recovers(self):
@@ -183,7 +183,7 @@ class GuestPostgresTests(unittest.TestCase):
             barrier.wait()
             return self.send(session_id).status_code
         with ThreadPoolExecutor(max_workers=2) as pool:results=list(pool.map(send_parallel,sessions))
-        self.assertCountEqual(results,[200,403])
+        self.assertCountEqual(results,[200,429])
         self.assertEqual(get_guest_usage('guest')['used_questions'],8)
         self.assertEqual(self.graph_mock.call_count,8)
 
@@ -192,7 +192,7 @@ class GuestPostgresTests(unittest.TestCase):
         sid=self.session();rid=str(uuid4())
         with patch('advisor.routes.advisor_graph.ainvoke',side_effect=asyncio.CancelledError):
             with self.assertRaises(asyncio.CancelledError):
-                asyncio.run(chat(ChatInput(session_id=sid,request_id=rid,message='cancel'),{'uid':'guest','provider':'anonymous'}))
+                asyncio.run(chat(ChatInput(session_id=sid,request_id=rid,message='cancel'),__import__('starlette.requests',fromlist=['Request']).Request({'type':'http','client':('127.0.0.1',1),'headers':[]}),{'uid':'guest','provider':'anonymous'}))
         self.assertEqual(get_guest_usage('guest')['used_questions'],0)
 
     def test_save_and_quota_update_roll_back_together(self):

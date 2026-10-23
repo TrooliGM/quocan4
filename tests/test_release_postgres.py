@@ -29,9 +29,10 @@ class ReleasePostgresTests(unittest.TestCase):
 
     def test_fresh_and_repeated_migrations_keep_saved_history(self):
         connection=self.cluster.schema(initialize=False)
-        with connection() as db:self.assertEqual(len(inspect_schema(db)['missing_tables']),6)
+        with connection() as db:self.assertEqual(len(inspect_schema(db)['missing_tables']),7)
         self.migrate(connection,'001_conversations.sql')
         self.migrate(connection,'002_guest_quota.sql')
+        self.migrate(connection,'004_shared_ai_protection.sql')
         with patch.object(pg,'postgres_connection',connection):
             saved=pg.create_postgres_session('migration-test')
             temporary=pg.create_temporary_session('migration-test')
@@ -51,6 +52,9 @@ class ReleasePostgresTests(unittest.TestCase):
                 CREATE TABLE guest_ai_requests(request_id TEXT PRIMARY KEY,uid TEXT NOT NULL,session_id TEXT NOT NULL,status TEXT NOT NULL,updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW())''')
             db.execute("INSERT INTO guest_ai_usage(uid,used_questions) VALUES('legacy-test',7)")
         self.migrate(connection,'002_guest_quota.sql')
+        with connection() as db:
+            self.assertFalse(inspect_schema(db)['ready'])
+        self.migrate(connection,'004_shared_ai_protection.sql')
         with connection() as db:
             self.assertTrue(inspect_schema(db)['ready'])
             self.assertEqual(db.execute("SELECT used_questions FROM guest_ai_usage WHERE uid='legacy-test'").fetchone()['used_questions'],7)

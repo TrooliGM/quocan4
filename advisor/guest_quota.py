@@ -49,7 +49,7 @@ def settle_locked(db, uid, request, success):
         success = saved_pair(db, uid, str(request['session_id']), str(request['request_id']), lock=True) is not None
     status = 'completed' if success else 'failed'
     db.execute('UPDATE guest_ai_requests SET status=%s, updated_at=NOW(), lease_until=NULL WHERE request_id=%s AND uid=%s', (status, request['request_id'], uid))
-    if not success:
+    if not success and request.get('charge_quota', True):
         db.execute('UPDATE guest_ai_usage SET used_questions=GREATEST(used_questions-1,0), updated_at=NOW() WHERE uid=%s', (uid,))
     return status
 
@@ -75,11 +75,12 @@ def get_guest_usage(uid):
         return usage_payload(used)
 
 
-def reserve_guest_request(uid, session_id, request_id, message=None):
-    """new_reservation chỉ đúng khi transaction này thực sự tăng bộ đếm."""
+def reserve_guest_request(uid, session_id, request_id, message=None, charge_quota=True):
+    """new_reservation xác nhận lease mới; chỉ charge_quota=True mới tăng quota8."""
     with connection() as db:
         lock_usage(db, uid)
-        ensure_unclaimed(db, uid)
+        if charge_quota:
+            ensure_unclaimed(db, uid)
         recover_expired(db, uid)
         previous = db.execute('SELECT * FROM guest_ai_requests WHERE request_id=%s FOR UPDATE', (request_id,)).fetchone()
         used = db.execute('SELECT used_questions FROM guest_ai_usage WHERE uid=%s', (uid,)).fetchone()['used_questions']
@@ -91,22 +92,23 @@ def reserve_guest_request(uid, session_id, request_id, message=None):
                 raise HTTPException(409, 'Mã tin nhắn đã được sử dụng cho nội dung khác.')
             if previous['status'] != 'failed':
                 return {**usage_payload(used), 'status': previous['status'], 'new_reservation': False}
-        if used >= LIMIT:
-            raise HTTPException(403, {'code': 'GUEST_LIMIT_REACHED', 'message': 'Bạn đã dùng hết 8 câu hỏi miễn phí. Đăng nhập Google hoặc email để tiếp tục.', **usage_payload(used)})
+        if charge_quota and used >= LIMIT:
+            raise HTTPException(429, {'code': 'GUEST_LIMIT_REACHED', 'message': 'Bạn đã dùng hết 8 câu hỏi miễn phí. Đăng nhập Google hoặc email để tiếp tục.', **usage_payload(used)}, headers={'Retry-After': '86400'})
         token = str(uuid4())
         if previous:
             db.execute("""UPDATE guest_ai_requests SET status='reserved', reservation_token=%s,
-                message_hash=COALESCE(message_hash,%s), lease_until=NOW()+INTERVAL '120 seconds', updated_at=NOW()
-                WHERE request_id=%s AND uid=%s""", (token, hashed, request_id, uid))
+                message_hash=COALESCE(message_hash,%s), charge_quota=%s, lease_until=NOW()+INTERVAL '120 seconds', updated_at=NOW()
+                WHERE request_id=%s AND uid=%s""", (token, hashed, charge_quota, request_id, uid))
         else:
             inserted = db.execute("""INSERT INTO guest_ai_requests
-                (request_id,uid,session_id,status,message_hash,reservation_token,lease_until)
-                VALUES (%s,%s,%s,'reserved',%s,%s,NOW()+INTERVAL '120 seconds')
-                ON CONFLICT (request_id) DO NOTHING RETURNING request_id""", (request_id, uid, session_id, hashed, token)).fetchone()
+                (request_id,uid,session_id,status,message_hash,reservation_token,lease_until,charge_quota)
+                VALUES (%s,%s,%s,'reserved',%s,%s,NOW()+INTERVAL '120 seconds',%s)
+                ON CONFLICT (request_id) DO NOTHING RETURNING request_id""", (request_id, uid, session_id, hashed, token, charge_quota)).fetchone()
             if not inserted:
                 raise HTTPException(409, 'Mã yêu cầu đang được sử dụng. Hãy gửi lại đúng yêu cầu ban đầu.')
-        db.execute('UPDATE guest_ai_usage SET used_questions=used_questions+1, updated_at=NOW() WHERE uid=%s', (uid,))
-        return {**usage_payload(used+1), 'status': 'reserved', 'new_reservation': True, 'reservation_token': token}
+        if charge_quota:
+            db.execute('UPDATE guest_ai_usage SET used_questions=used_questions+1, updated_at=NOW() WHERE uid=%s', (uid,))
+        return {**usage_payload(used+int(charge_quota)), 'status': 'reserved', 'new_reservation': True, 'reservation_token': token}
 
 
 def lock_request_for_save(db, uid, session_id, request_id, message, reservation_token):

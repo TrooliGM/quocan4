@@ -86,3 +86,11 @@ Kết quả riêng biệt: **172 PASS / 2 FAIL / 5 BLOCKED / 3 CHƯA KIỂM CH�
 Hai FAIL là rủi ro High còn mở: `/api/advice` và `/api/career-stories/{career_id}/ask` gọi graph khi không Authorization, không quota/rate chung (tái hiện mock, không gọi AI thật). Cần quyết định bảo vệ hoặc tắt legacy AI trước Preview có provider thật. Chưa chứng nhận biên tập ngữ nghĩa toàn bộ 200 nghề, thiết bị vật lý/Safari hoặc Vercel runtime thật. Đã rà 24 mẫu/12 nhóm và exact duplicates, không phát hiện trùng chính xác.
 
 Báo cáo local: `artifacts/super-board-report.md`, `artifacts/super-board-summary.json`; ảnh `artifacts/qa/home-{1440,768,390,360}.png` và `exploration-draft-360.png`. Artifacts không commit. Server xem thử 8003 giữ nguyên; không Neon, push, merge hoặc deploy. Chỉ commit bản sửa đã kiểm chứng trên `feat/task-2-career-library` theo quyền được cấp.
+
+## Shared AI protection — cập nhật sau b8cef96, 2026-10-24
+
+Đã sửa High legacy bằng bảo vệ chung chat/advice/storyask và rate cho voice: danh tính backend, server guest cookie hash/TTL/CSRF, PostgreSQL UID/IP/day, quota8 chung và row lease/fencing cho cả member; claim giữ lịch sử. Giữ UI/survey/modes/catalog/story. Migration004 nguồn thêm guest sessions và charge_quota; **chỉ chạy PG local**, chưa remote. Không bỏ qua gate003 UUID/orphan.
+
+197 PASS / 0 FAIL / 5 BLOCKED / 3 chưa kiểm chứng: 94 backend method có outcome cuối PASS (batch90/90 + security15/15, overlap11; không single batch94), browser93+8 PASS, hai boundary cũ401/graph0 PASS. Config/proxy retest2+1 nằm trong94, không cộng trùng. Firebase/DeepSeek thật vẫn BLOCKED; chuyên gia dữ liệu, thiết bị/Safari và Vercel runtime chưa kiểm chứng. **NOT READY FOR VERCEL PREVIEW** tới khi migration target được duyệt, proxy/origin và tích hợp live được xác minh.
+
+Server8003 đã restart an toàn từ PID16280 sang PID16800 với database local mới có001/002/004, AI demo, dotenv tắt; không xóa dữ liệu cũ/không chạm8000/8002. Xem docs/shared-ai-protection.md, artifacts/super-board-report.md và JSON. Được phép commit cùng nhánh; không push/merge/deploy, không Nhiệm vụ3.

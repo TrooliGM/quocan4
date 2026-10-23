@@ -29,7 +29,7 @@ class SurveyTests(unittest.TestCase):
             'AI_DEMO_MODE':'false', 'DEEPSEEK_API_KEY':'test-placeholder'})
         self.env.start()
         app.dependency_overrides[require_user] = identity
-        self.client = TestClient(app)
+        self.client = TestClient(app,client=('127.0.0.1',1))
         self.headers = {'Authorization':'Bearer a'}
 
     def tearDown(self):
@@ -85,6 +85,7 @@ class SurveyTests(unittest.TestCase):
         with patch.dict(os.environ, {'AI_DEMO_MODE':'true'}):
             self.assertEqual(self.client.post('/api/ai/chat',headers=self.headers,json=payload).status_code,200)
 
+    @patch('advisor.routes.check_ai_rate', lambda *args, **kwargs: None)
     def test_real_graph_payload_includes_survey_and_address(self):
         session = self.create(True); self.submit(session)
         payload = {'session_id':session['id'],'request_id':str(uuid4()),'message':'Phân tích khảo sát'}

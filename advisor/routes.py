@@ -16,11 +16,12 @@ from firebase_auth import verify_user
 from deepseek_client import provider_http_error, ProviderConfigurationError, model_name
 from .graph import advisor_graph, demo_mode
 from .survey import SurveyInput, save_survey, needs_survey
-from .store import get_store
+from .store import get_store, StorageConfigurationError
 from . import voice
 from .postgres_adapter import PostgresConversationStore
 from .guest_quota import (reserve_guest_request, finish_guest_request, get_guest_usage,
                           check_chat_rate, claim_guest_history)
+from .protection import server_guest, issue_guest, check_ai_rate, cookie_name
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -29,7 +30,9 @@ voice_slots = asyncio.Semaphore(3)
 session_locks = weakref.WeakValueDictionary()
 
 
-def require_user(authorization: str | None = Header(default=None)):
+def require_user(request: Request, authorization: str | None = Header(default=None)):
+    if authorization is None:
+        return server_guest(request)
     parts = authorization.split() if authorization else []
     if len(parts) != 2 or parts[0].lower() != "bearer" or len(parts[1]) > 12000:
         raise HTTPException(401, "Bạn cần đăng nhập để trò chuyện.", headers={"WWW-Authenticate": "Bearer"})
@@ -101,19 +104,33 @@ def guest_usage(user):
 
 class GuestClaimInput(BaseModel):
     model_config = ConfigDict(extra='forbid')
-    guest_id_token: str = Field(min_length=20, max_length=12000, repr=False)
+    guest_id_token: str | None = Field(default=None, min_length=20, max_length=12000, repr=False)
+
+
+@router.post('/api/ai/guest/session')
+def open_guest(request: Request, response: Response):
+    response.headers['Cache-Control'] = 'no-store'
+    return issue_guest(request, response)
+
+
+@router.get('/api/ai/guest/session')
+def existing_guest(request: Request):
+    return {'user': server_guest(request, required=False)}
 
 
 @router.post('/api/ai/guest/claim')
-def claim_guest(payload: GuestClaimInput, user=Depends(require_user)):
+def claim_guest(payload: GuestClaimInput, request: Request, response: Response, user=Depends(require_user)):
     if user.get('provider') not in ('password', 'google.com'):
         raise HTTPException(403, 'Đăng nhập Google hoặc email trước khi giữ lịch sử khách.')
-    source = verify_user(payload.guest_id_token)
+    source = verify_user(payload.guest_id_token) if payload.guest_id_token else server_guest(request)
     if source.get('provider') != 'anonymous':
         raise HTTPException(403, 'Chỉ chuyển lịch sử từ phiên khách đã được xác thực.')
     if not isinstance(get_store(), PostgresConversationStore):
         raise HTTPException(503, 'Chuyển lịch sử khách cần PostgreSQL.')
-    return claim_guest_history(source['uid'], user['uid'])
+    result = claim_guest_history(source['uid'], user['uid'])
+    if source.get('server_guest'):
+        response.delete_cookie(cookie_name(request), path='/', httponly=True, samesite='strict', secure=bool(os.getenv('VERCEL')) or request.url.scheme == 'https')
+    return result
 
 
 @router.post("/api/ai/sessions", status_code=201)
@@ -168,7 +185,7 @@ def completed_answer(session, request_id, message):
 
 
 @router.post("/api/ai/chat")
-async def chat(payload: ChatInput, user=Depends(require_user)):
+async def chat(payload: ChatInput, request: Request, user=Depends(require_user)):
     session_id, request_id = str(payload.session_id), str(payload.request_id)
     uid = user["uid"]
     is_guest = user.get("provider") == "anonymous"
@@ -188,12 +205,11 @@ async def chat(payload: ChatInput, user=Depends(require_user)):
                 if not demo_mode() and not os.getenv("DEEPSEEK_API_KEY", "").strip():
                     raise HTTPException(503, "Chưa có khóa DeepSeek. Nhóm dự án cần cấu hình trước khi tư vấn thật.")
                 async with slots:
-                    if isinstance(store, PostgresConversationStore):
-                        await asyncio.to_thread(check_chat_rate, uid)
-                    if is_guest:
+                    await asyncio.to_thread(check_ai_rate, request, user, not demo_mode())
+                    if is_guest or isinstance(store, PostgresConversationStore):
                         if not isinstance(store, PostgresConversationStore):
                             raise HTTPException(503, "Chế độ khách cần PostgreSQL và migration quota.")
-                        reservation = await asyncio.to_thread(reserve_guest_request, uid, session_id, request_id, payload.message)
+                        reservation = await asyncio.to_thread(reserve_guest_request, uid, session_id, request_id, payload.message, is_guest)
                         if not reservation["new_reservation"]:
                             current = store.get(uid, session_id)
                             if completed_answer(current, request_id, payload.message):
@@ -224,7 +240,7 @@ async def chat(payload: ChatInput, user=Depends(require_user)):
                 logger.warning('guest_settlement_unavailable type=%s', type(settlement_error).__name__)
         if isinstance(error, (HTTPException, asyncio.CancelledError)):
             raise
-        if isinstance(error, psycopg.Error):
+        if isinstance(error, (psycopg.Error, StorageConfigurationError)):
             raise  # Handler chung phân biệt kết nối, quyền và schema, không lộ DSN.
         if isinstance(error, (TimeoutError, httpx.HTTPError, ProviderConfigurationError)):
             raise provider_http_error(error) from None
@@ -248,6 +264,7 @@ async def transcribe(request: Request, user=Depends(require_user)):
     except ValueError:
         raise HTTPException(422, "Mic chưa ghi được lời nói hợp lệ. Bạn thử nói rõ trong tối đa 55 giây.") from None
     try:
+        await asyncio.to_thread(check_ai_rate, request, user)
         async with asyncio.timeout(40):
             async with voice_slots:
                 transcript = await voice.transcribe(bytes(audio))

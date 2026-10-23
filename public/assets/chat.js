@@ -1,5 +1,6 @@
 import {getFirebase, restoredUser} from './firebase-client.js';
 import {GoogleMic, BrowserMic} from './mic-recorder.js';
+import {guestSession} from './ai-access.js';
 
 const $ = (selector) => document.querySelector(selector);
 let auth, sdk, user, config, active = null, sessions = [], pending = null;
@@ -118,15 +119,15 @@ function updateControls() {
   $('#connection-status').textContent = phase === 'thinking' ? 'Đang suy nghĩ' : phase === 'starting-mic' ? 'Đang mở mic' : phase === 'listening' ? 'Đang nghe' : phase === 'transcribing' ? 'Đang nhận diện' : config?.mode === 'demo' ? 'Bản demo' : config?.configured ? 'Sẵn sàng' : 'Chưa cấu hình';
 }
 async function api(path, options = {}, retried = false) {
-  if (!user || auth.currentUser?.uid !== user.uid) throw new Error('Phiên đăng nhập đã thay đổi. Vui lòng đăng nhập lại.');
+  if (!user || (!user.server_guest && auth?.currentUser?.uid !== user.uid)) throw new Error('Phiên đăng nhập đã thay đổi. Vui lòng đăng nhập lại.');
   const owner = user.uid;
-  const token = await user.getIdToken(retried);
-  if (auth.currentUser?.uid !== owner) throw new Error('Phiên đăng nhập đã thay đổi.');
-  const headers = {...options.headers, Authorization: `Bearer ${token}`};
+  const token = user.server_guest ? null : await user.getIdToken(retried);
+  if (!user.server_guest && auth?.currentUser?.uid !== owner) throw new Error('Phiên đăng nhập đã thay đổi.');
+  const headers = {...options.headers, ...(token ? {Authorization: `Bearer ${token}`} : {})};
   if (typeof options.body === 'string') headers['Content-Type'] = 'application/json';
   const response = await fetch(path, {...options, headers, cache: 'no-store', signal: options.signal || AbortSignal.timeout(100000)});
-  if (auth.currentUser?.uid !== owner) throw new Error('Phiên đăng nhập đã thay đổi.');
-  if (response.status === 401 && !retried) return api(path, options, true);
+  if (!user.server_guest && auth?.currentUser?.uid !== owner) throw new Error('Phiên đăng nhập đã thay đổi.');
+  if (response.status === 401 && !retried && !user.server_guest) return api(path, options, true);
   if (!response.ok) {
     const data = await response.json().catch(() => ({}));
     const error = new Error(typeof data.detail === 'string' ? data.detail : data.detail?.message || 'Chưa thực hiện được. Bạn kiểm tra kết nối rồi thử lại nhé.');
@@ -505,20 +506,17 @@ $('#delete-all-data').addEventListener('click', async () => {
   catch (error) { notice(failure(error)); }
 });
 $('#logout').addEventListener('click', async () => {
-  try { await sdk.signOut(auth); clearPrivateUI(); location.replace('/'); }
+  try { if (!user?.server_guest) await sdk.signOut(auth); clearPrivateUI(); location.replace('/'); }
   catch (error) { notice(failure(error)); }
 });
 
 async function initialize() {
   try {
-    ({auth, sdk} = await getFirebase());
-    user = await restoredUser(auth, sdk);
-    if (!user) {
-      try {user=(await sdk.signInAnonymously(auth)).user;}
-      catch {throw new Error('Chưa mở được phiên khách. Bạn có thể đăng nhập Google/email; nhóm dự án cần bật Anonymous trong Firebase.');}
-    }
+    try { ({auth, sdk} = await getFirebase()); user = await restoredUser(auth, sdk); }
+    catch { /* Server guest works without Firebase configuration/network. */ }
+    if (!user) user = await guestSession();
     const owner = user.uid;
-    sdk.onAuthStateChanged(auth, (current) => { if (!current || current.uid !== owner) { clearPrivateUI(); location.replace(loginURL); } });
+    if (!user.server_guest) sdk.onAuthStateChanged(auth, (current) => { if (!current || current.uid !== owner) { clearPrivateUI(); location.replace(loginURL); } });
     await jsonAPI('/api/auth/me');
     config = await jsonAPI('/api/ai/config');
     guestQuota = config.guest_quota;

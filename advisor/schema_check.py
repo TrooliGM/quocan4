@@ -7,9 +7,10 @@ EXPECTED = {
     'advisor_temporary_sessions': {**SESSION, 'expires_at': TIME},
     'guest_ai_usage': {'uid': TEXT, 'used_questions': 'integer', 'updated_at': TIME},
     'guest_ai_requests': {'request_id': TEXT, 'uid': TEXT, 'session_id': TEXT, 'status': TEXT,
-                          'updated_at': TIME, 'message_hash': TEXT, 'reservation_token': TEXT, 'lease_until': TIME},
+                          'updated_at': TIME, 'message_hash': TEXT, 'reservation_token': TEXT, 'lease_until': TIME, 'charge_quota': 'boolean'},
     'advisor_guest_claims': {'guest_uid': TEXT, 'account_uid': TEXT, 'claimed_at': TIME},
     'advisor_chat_rate_limits': {'uid': TEXT, 'window_start': TIME, 'requests': 'integer'},
+    'advisor_guest_sessions': {'token_hash': TEXT, 'uid': TEXT, 'created_at': TIME, 'expires_at': TIME},
 }
 
 

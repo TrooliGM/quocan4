@@ -138,6 +138,7 @@ class AdvisorTests(unittest.TestCase):
             self.assertEqual(self.send(session).status_code, 503)
         self.assertEqual(self.client.post("/api/voice/transcribe", headers=self.a, content=wav_audio()).status_code, 503)
 
+    @patch('advisor.routes.check_ai_rate', lambda *args, **kwargs: None)
     def test_live_request_uses_history_and_private_profile(self):
         seen = []
         async def fake_post(client, url, **kwargs):
@@ -161,6 +162,7 @@ class AdvisorTests(unittest.TestCase):
         self.assertEqual(self.client.get("/api/ai/career-profile", headers=self.a).json()["profile"]["interests"], ["vẽ"])
         self.assertEqual(self.client.get("/api/ai/career-profile", headers=self.b).json()["profile"], empty_profile())
 
+    @patch('advisor.routes.check_ai_rate', lambda *args, **kwargs: None)
     def test_invalid_memory_does_not_discard_good_answer_and_empty_answer_retries(self):
         calls = []
         async def fake_post(client, url, **kwargs):
@@ -175,6 +177,7 @@ class AdvisorTests(unittest.TestCase):
         self.assertIn("minh họa số", result.json()["session"]["messages"][-1]["content"])
         self.assertEqual(len(result.json()["session"]["messages"]), 3)
 
+    @patch('advisor.routes.check_ai_rate', lambda *args, **kwargs: None)
     def test_bad_answer_never_saves_user_message(self):
         async def fake_post(client, url, **kwargs):
             return httpx.Response(200, json={"choices": [{"finish_reason": "stop", "message": {"content": ""}}]}, request=httpx.Request("POST", url))
@@ -185,6 +188,7 @@ class AdvisorTests(unittest.TestCase):
         self.assertNotIn("fake-test-key", response.text)
         self.assertEqual(len(get_store().get("user-a", session["id"])["messages"]), 1)
 
+    @patch('advisor.routes.check_ai_rate', lambda *args, **kwargs: None)
     def test_google_transcription_auth_wav_and_no_automatic_chat_send(self):
         async def fake_transcribe(audio):
             self.assertEqual(audio, wav_audio())

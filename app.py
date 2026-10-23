@@ -6,10 +6,11 @@ from pathlib import Path
 
 import httpx
 from dotenv import load_dotenv
-from fastapi import FastAPI, Header, HTTPException, Query, Response
+from fastapi import FastAPI, Header, HTTPException, Query, Response, Request, Depends
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, field_validator, ConfigDict
+from uuid import UUID, uuid4
 
 from content import CAREERS
 from career_stories import STORIES, get_story
@@ -23,6 +24,9 @@ ROOT = Path(__file__).resolve().parent
 if not os.getenv('VERCEL'):
     load_dotenv(ROOT / ".env")
 from advisor.routes import router as advisor_router
+from advisor.routes import require_user
+from advisor.protection import server_guest
+from advisor.legacy_ai import run_legacy
 
 app = FastAPI(title="La Bàn — KHKT 2027", version="0.1.0")
 app.include_router(advisor_router)
@@ -56,7 +60,7 @@ def html_page(filename):
 @app.middleware("http")
 async def auth_cache_control(request, call_next):
     response = await call_next(request)
-    if request.url.path.startswith(("/api/auth/", "/api/ai/", "/api/voice/")):
+    if request.url.path.startswith(("/api/auth/", "/api/ai/", "/api/voice/")) or request.url.path == '/api/advice' or request.url.path.endswith('/ask'):
         response.headers["Cache-Control"] = "no-store"
     return response
 
@@ -109,8 +113,10 @@ def auth_config(response: Response):
 
 
 @app.get("/api/auth/me")
-def current_user(response: Response, authorization: str | None = Header(default=None)):
+def current_user(request: Request, response: Response, authorization: str | None = Header(default=None)):
     response.headers["Cache-Control"] = "no-store"
+    if authorization is None:
+        return {'user': server_guest(request)}
     parts = authorization.split() if authorization else []
     if len(parts) != 2 or parts[0].lower() != "bearer" or len(parts[1]) > 12000:
         raise HTTPException(401, "Bạn cần đăng nhập để xem tài khoản.", headers={"WWW-Authenticate": "Bearer"})
@@ -147,7 +153,9 @@ def careers(q: str = Query("", max_length=120), category: str = Query("", max_le
 
 
 class AdviceRequest(BaseModel):
+    model_config = ConfigDict(extra='forbid')
     question: str = Field(min_length=3, max_length=600)
+    request_id: UUID = Field(default_factory=uuid4)
 
     @field_validator("question", mode="before")
     @classmethod
@@ -160,7 +168,7 @@ class StoryQuestion(AdviceRequest):
 
 
 @app.post("/api/career-stories/{career_id}/ask")
-async def ask_about_story(career_id: str, payload: StoryQuestion, response: Response):
+async def ask_about_story(career_id: str, payload: StoryQuestion, response: Response, request: Request, user=Depends(require_user)):
     response.headers["Cache-Control"] = "no-store"
     story = career_story(career_id)
     if payload.scene_index >= len(story["scenes"]):
@@ -171,23 +179,30 @@ async def ask_about_story(career_id: str, payload: StoryQuestion, response: Resp
     try:
         async with asyncio.timeout(30):
             async with ai_slots:
-                result = await story_graph.ainvoke({"career_id": career_id, "scene_index": payload.scene_index,
-                                                   "question": payload.question, "context": "", "answer": ""})
-        return {"answer": result["answer"]}
+                result = await run_legacy(request,user,str(payload.request_id),payload.question,
+                    f'story:{career_id}:{payload.scene_index}',story_graph,
+                    {"career_id":career_id,"scene_index":payload.scene_index,"question":payload.question,"context":"","answer":""})
+        return result
+    except StorageConfigurationError:
+        raise
     except (TimeoutError, httpx.HTTPError, ValueError, KeyError, IndexError, TypeError, AttributeError, RuntimeError) as error:
         raise provider_http_error(error) from None
 
 
 @app.post("/api/advice")
-async def advice(payload: AdviceRequest):
+async def advice(payload: AdviceRequest, response: Response, request: Request, user=Depends(require_user)):
+    response.headers['Cache-Control'] = 'no-store'
     if not os.getenv("DEEPSEEK_API_KEY", "").strip():
         raise HTTPException(503, "Trợ lý đang được chuẩn bị. Bạn vẫn có thể khám phá nghề và đọc bài viết.")
     from ai import advice_graph
     try:
         async with asyncio.timeout(30):
             async with ai_slots:
-                result = await advice_graph.ainvoke({"question": payload.question, "context": "", "answer": ""})
-        return {"answer": result["answer"], "model": model_name()}
+                result = await run_legacy(request,user,str(payload.request_id),payload.question,'advice',advice_graph,
+                    {"question":payload.question,"context":"","answer":""})
+        return {**result, "model": model_name()}
+    except StorageConfigurationError:
+        raise
     except (TimeoutError, httpx.HTTPError, ValueError, KeyError, IndexError, TypeError, AttributeError, RuntimeError) as error:
         raise provider_http_error(error) from None
 

@@ -31,7 +31,7 @@ class LibraryTests(unittest.TestCase):
         from content import CAREERS
         by_name={c.name:c.career_id for c in rows}
         for legacy in CAREERS:self.assertEqual(by_name[legacy['name']],legacy['id'])
-        with TestClient(app) as client:
+        with TestClient(app,client=('127.0.0.1',1)) as client:
             self.assertEqual(len(client.get('/api/career-library/categories').json()['items']),12)
             r=client.get('/api/career-library').json()
             self.assertEqual(r['total'],200);self.assertEqual(len(r['items']),12)
@@ -54,7 +54,7 @@ class ModeTests(unittest.TestCase):
     def setUp(self):
         self.env=patch.dict(os.environ,{'DATABASE_URL':self.cluster.url,'AI_DEMO_MODE':'true','DEEPSEEK_API_KEY':''})
         self.db=patch.object(pg,'postgres_connection',self.cluster.schema())
-        self.env.start();self.db.start();app.dependency_overrides[require_user]=user;self.client=TestClient(app)
+        self.env.start();self.db.start();app.dependency_overrides[require_user]=user;self.client=TestClient(app,client=('127.0.0.1',1))
     def tearDown(self):
         self.client.close();app.dependency_overrides.pop(require_user,None);self.db.stop();self.env.stop()
     def test_guest_modes_survey_quota_and_isolation(self):
