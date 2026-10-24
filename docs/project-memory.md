@@ -182,3 +182,8 @@ High legacy đã được sửa và hai boundary retest401/graph0 PASS; chat/adv
 ## Hotfix điều hướng/hiệu năng —24/10/2026
 
 Tạo hotfix/chat-navigation-performance từ Production6c5ce23 được Vercel xác minh. Đo5create/5open thật: API median create12559,1ms/list7329,9ms/open7260,6ms, Chrome khảo sát sẵn sàng19523,7ms và open7159,7ms;0AIcalls. Sửa sidebar refresh thừa, cacheRAM owner/TTL30s, abort+fencing, one request connection/UNION/COUNT giữauthquota; thêm Server-Timing không dữ liệu nhạy cảm. Login có return_to nội bộ+UUID, chụp target trước listener, tái hiện intent mất; Google thật cần kiểm lại, không phủ nhận báo lỗi mới vì ca trước từngPASS. Local backend37+7, Node7, Chrome12 và perf guest/member/rapid PASS. Không đổi thư viện200/CSS/schema/config. User cho phép commit/push/deploy hotfix có điều kiện; build và đo Production mới còn chờ lúc ghi checkpoint này. Chi tiết docs/chat-performance-hotfix.md.
+
+
+## Task4 Production canary — 25/10/2026
+
+Đã xác nhận quyền triển khai có kiểm soát theo yêu cầu mới. Đã backup Neon READY/readback, áp migration006 additive trong transaction sau kiểm target/hash và bảng cũ/quota không đổi; không chạy001–005. Phát hành fde7ed2 / dpl_7ZaE94zBvSeBAps9HgTPkak9Q1aT lên domain chính thức, chỉ 1 UID QA Firebase đã verify được Task4; account khác/Guest giữ df1c300 ổn định, không sửa thư viện/Truyện nghề. Firebase email/password, DeepSeek, khảo sát/đề xuất/xác nhận/Neon và Guest8/concurrency LIVE có bằng chứng. Chưa Google popup/Brave; ID23 FAIL khi AI chưa dùng hồ sơ opt-in dù lưu/đọc đúng. 36PASS/16BLOCKED/1FAIL; không mở đại trà. Rollback deployment df1c300, giữ bảng additive/dữ liệu, không reset quota. Xem docs/task-4-production-rollout.md; không ghi secrets/UID/email học sinh vào memory.
