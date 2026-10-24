@@ -8,7 +8,7 @@ data/*
 !data/careers-2.json
 !data/careers-3.json
 !data/careers-4.json
-!data/stories/
+!data/stories
 data/stories/*
 !data/stories/batch-1.json
 !data/stories/batch-2.json
