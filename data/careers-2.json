@@ -4,10 +4,13 @@
     "name": "Quản lý đào tạo",
     "category_id": "education",
     "short_description": "Lập lịch học, điều phối nguồn lực giảng dạy.",
-    "description": "Quản lý đào tạo tập trung vào lập lịch học. Công việc còn bao gồm điều phối nguồn lực giảng dạy, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Quản lý đào tạo điều phối lịch học, nguồn lực và hồ sơ để chương trình đào tạo diễn ra đúng kế hoạch. Kết quả công việc gắn với lập lịch học và điều phối nguồn lực giảng dạy.",
     "daily_tasks": [
       "Lập lịch học",
-      "Điều phối nguồn lực giảng dạy"
+      "Điều phối nguồn lực giảng dạy",
+      "Xếp lịch lớp và phòng học",
+      "Theo dõi tiến độ hoàn thành học phần",
+      "Xử lý thay đổi lịch với giảng viên"
     ],
     "skills": [
       "Giải thích dễ hiểu",
@@ -18,9 +21,11 @@
       "Tâm lý học",
       "Tin học"
     ],
-    "work_environment": "Trường học, cơ sở đào tạo hoặc đơn vị phát triển học liệu.",
+    "work_environment": "Phòng đào tạo, thường phối hợp giáo viên và bộ phận hỗ trợ người học.",
     "challenges": [
-      "Xử lý thay đổi lịch và nhu cầu học viên"
+      "Xử lý thay đổi lịch và nhu cầu học viên",
+      "Lịch trùng ảnh hưởng nhiều lớp",
+      "Hồ sơ học tập cần chính xác"
     ],
     "keywords": [
       "Quản lý đào tạo",
@@ -30,17 +35,56 @@
       "Ngữ văn",
       "Tâm lý học",
       "Tin học"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Lập lịch học."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Xếp lịch lớp và phòng học; theo dõi tiến độ hoàn thành học phần."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Xử lý thay đổi lịch với giảng viên."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Giải thích dễ hiểu",
+        "reason": "Hỗ trợ việc lập lịch học; cần kiểm tra kết quả vì lịch trùng ảnh hưởng nhiều lớp."
+      },
+      {
+        "skill": "Thiết kế hoạt động học",
+        "reason": "Hỗ trợ việc xếp lịch lớp và phòng học; cần kiểm tra kết quả vì hồ sơ học tập cần chính xác."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Ngữ văn, Tâm lý học, Tin học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử xếp lịch lớp và phòng học ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Lập thời khóa biểu câu lạc bộ có ràng buộc phòng và người hướng dẫn. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "huan-luyen-vien-ky-nang-song",
     "name": "Huấn luyện viên kỹ năng sống",
     "category_id": "education",
     "short_description": "Thiết kế tình huống trải nghiệm, hướng dẫn phản hồi sau hoạt động.",
-    "description": "Huấn luyện viên kỹ năng sống tập trung vào thiết kế tình huống trải nghiệm. Công việc còn bao gồm hướng dẫn phản hồi sau hoạt động, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Huấn luyện viên kỹ năng sống tạo hoạt động để người học luyện giao tiếp, hợp tác và tự quản lý qua trải nghiệm. Kết quả công việc gắn với thiết kế tình huống trải nghiệm và hướng dẫn phản hồi sau hoạt động.",
     "daily_tasks": [
       "Thiết kế tình huống trải nghiệm",
-      "Hướng dẫn phản hồi sau hoạt động"
+      "Hướng dẫn phản hồi sau hoạt động",
+      "Thiết kế tình huống nhập vai",
+      "Quan sát phản ứng trong hoạt động nhóm",
+      "Hướng dẫn người học tự rút kinh nghiệm"
     ],
     "skills": [
       "Giải thích dễ hiểu",
@@ -51,9 +95,11 @@
       "Tâm lý học",
       "Tin học"
     ],
-    "work_environment": "Trường học, cơ sở đào tạo hoặc đơn vị phát triển học liệu.",
+    "work_environment": "Trường học hoặc trung tâm hoạt động trải nghiệm có giám sát.",
     "challenges": [
-      "Chuyển trải nghiệm thành kỹ năng thực tế"
+      "Chuyển trải nghiệm thành kỹ năng thực tế",
+      "Hoạt động phải phù hợp độ tuổi",
+      "Không gán nhãn tính cách từ trò chơi"
     ],
     "keywords": [
       "Huấn luyện viên kỹ năng sống",
@@ -63,17 +109,56 @@
       "Ngữ văn",
       "Tâm lý học",
       "Tin học"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thiết kế tình huống trải nghiệm."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Thiết kế tình huống nhập vai; quan sát phản ứng trong hoạt động nhóm."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Hướng dẫn người học tự rút kinh nghiệm."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Giải thích dễ hiểu",
+        "reason": "Hỗ trợ việc thiết kế tình huống trải nghiệm; cần kiểm tra kết quả vì hoạt động phải phù hợp độ tuổi."
+      },
+      {
+        "skill": "Thiết kế hoạt động học",
+        "reason": "Hỗ trợ việc thiết kế tình huống nhập vai; cần kiểm tra kết quả vì không gán nhãn tính cách từ trò chơi."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Ngữ văn, Tâm lý học, Tin học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử thiết kế tình huống nhập vai ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Tổ chức trò chơi hợp tác ngắn, không ép chia sẻ chuyện riêng. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-su-co-khi",
     "name": "Kỹ sư cơ khí",
     "category_id": "engineering",
     "short_description": "Thiết kế chi tiết máy, kiểm tra nguyên mẫu.",
-    "description": "Kỹ sư cơ khí tập trung vào thiết kế chi tiết máy. Công việc còn bao gồm kiểm tra nguyên mẫu, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ sư cơ khí thiết kế cơ cấu và chi tiết máy để đáp ứng tải trọng, chuyển động và khả năng chế tạo. Kết quả công việc gắn với thiết kế chi tiết máy và kiểm tra nguyên mẫu.",
     "daily_tasks": [
       "Thiết kế chi tiết máy",
-      "Kiểm tra nguyên mẫu"
+      "Kiểm tra nguyên mẫu",
+      "Tính kích thước và dung sai",
+      "Dựng mô hình chi tiết máy",
+      "Thử mẫu và phân tích hư hỏng"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -84,9 +169,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Phòng thiết kế cơ khí kết hợp xưởng chế tạo và khu thử nghiệm.",
     "challenges": [
-      "Dung sai và điều kiện tải thực tế"
+      "Dung sai và điều kiện tải thực tế",
+      "Sai dung sai làm chi tiết không lắp được",
+      "Cần cân bằng độ bền và chi phí"
     ],
     "keywords": [
       "Kỹ sư cơ khí",
@@ -96,17 +183,56 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thiết kế chi tiết máy."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Tính kích thước và dung sai; dựng mô hình chi tiết máy."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Thử mẫu và phân tích hư hỏng."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc thiết kế chi tiết máy; cần kiểm tra kết quả vì sai dung sai làm chi tiết không lắp được."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc tính kích thước và dung sai; cần kiểm tra kết quả vì cần cân bằng độ bền và chi phí."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử tính kích thước và dung sai ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Làm mô hình truyền động bằng bìa và bánh răng nhựa. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-su-dien",
     "name": "Kỹ sư điện",
     "category_id": "engineering",
     "short_description": "Thiết kế mạch cấp điện, đánh giá vận hành hệ thống.",
-    "description": "Kỹ sư điện tập trung vào thiết kế mạch cấp điện. Công việc còn bao gồm đánh giá vận hành hệ thống, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ sư điện thiết kế và kiểm tra hệ thống cấp điện theo tải và yêu cầu bảo vệ. Kết quả công việc gắn với thiết kế mạch cấp điện và đánh giá vận hành hệ thống.",
     "daily_tasks": [
       "Thiết kế mạch cấp điện",
-      "Đánh giá vận hành hệ thống"
+      "Đánh giá vận hành hệ thống",
+      "Tính phụ tải và chọn thiết bị",
+      "Lập sơ đồ tủ điện",
+      "Đối chiếu kết quả đo với thiết kế"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -117,9 +243,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Phòng thiết kế, trạm điện và công trường với quy trình an toàn điện.",
     "challenges": [
-      "An toàn điện trong mọi công đoạn"
+      "An toàn điện trong mọi công đoạn",
+      "Điện giật và cháy có hậu quả lớn",
+      "Mất điện ảnh hưởng hoạt động liên tục"
     ],
     "keywords": [
       "Kỹ sư điện",
@@ -129,17 +257,56 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thiết kế mạch cấp điện."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Tính phụ tải và chọn thiết bị; lập sơ đồ tủ điện."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Đối chiếu kết quả đo với thiết kế."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc thiết kế mạch cấp điện; cần kiểm tra kết quả vì điện giật và cháy có hậu quả lớn."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc tính phụ tải và chọn thiết bị; cần kiểm tra kết quả vì mất điện ảnh hưởng hoạt động liên tục."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử tính phụ tải và chọn thiết bị ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Mô phỏng mạch điện thấp áp bằng phần mềm. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-su-dien-tu",
     "name": "Kỹ sư điện tử",
     "category_id": "engineering",
     "short_description": "Thiết kế mạch điện tử, đo tín hiệu thử nghiệm.",
-    "description": "Kỹ sư điện tử tập trung vào thiết kế mạch điện tử. Công việc còn bao gồm đo tín hiệu thử nghiệm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ sư điện tử phát triển mạch xử lý tín hiệu và điều khiển trong các sản phẩm điện tử. Kết quả công việc gắn với thiết kế mạch điện tử và đo tín hiệu thử nghiệm.",
     "daily_tasks": [
       "Thiết kế mạch điện tử",
-      "Đo tín hiệu thử nghiệm"
+      "Đo tín hiệu thử nghiệm",
+      "Chọn linh kiện theo thông số",
+      "Thiết kế sơ đồ và bố trí mạch",
+      "Đo tín hiệu để tìm lỗi"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -150,9 +317,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Phòng phát triển sản phẩm với bàn mạch và thiết bị đo.",
     "challenges": [
-      "Nhiễu và sai lệch linh kiện"
+      "Nhiễu và sai lệch linh kiện",
+      "Nhiễu ảnh hưởng độ ổn định",
+      "Linh kiện nhỏ dễ hỏng do thao tác sai"
     ],
     "keywords": [
       "Kỹ sư điện tử",
@@ -162,17 +331,56 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thiết kế mạch điện tử."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Chọn linh kiện theo thông số; thiết kế sơ đồ và bố trí mạch."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Đo tín hiệu để tìm lỗi."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc thiết kế mạch điện tử; cần kiểm tra kết quả vì nhiễu ảnh hưởng độ ổn định."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc chọn linh kiện theo thông số; cần kiểm tra kết quả vì linh kiện nhỏ dễ hỏng do thao tác sai."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử chọn linh kiện theo thông số ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Lắp mạch LED dùng bộ học tập điện áp thấp có hướng dẫn. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-su-tu-dong-hoa",
     "name": "Kỹ sư tự động hóa",
     "category_id": "engineering",
     "short_description": "Lập trình bộ điều khiển, tối ưu dây chuyền tự động.",
-    "description": "Kỹ sư tự động hóa tập trung vào lập trình bộ điều khiển. Công việc còn bao gồm tối ưu dây chuyền tự động, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ sư tự động hóa kết nối cảm biến, bộ điều khiển và cơ cấu chấp hành để máy vận hành theo quy trình. Kết quả công việc gắn với lập trình bộ điều khiển và tối ưu dây chuyền tự động.",
     "daily_tasks": [
       "Lập trình bộ điều khiển",
-      "Tối ưu dây chuyền tự động"
+      "Tối ưu dây chuyền tự động",
+      "Lập trình logic điều khiển",
+      "Cấu hình tín hiệu cảm biến",
+      "Thử liên động và dừng khẩn cấp"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -183,9 +391,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Nhà máy, phòng điều khiển và khu chạy thử được phân quyền.",
     "challenges": [
-      "Kết hợp phần mềm và thiết bị thực"
+      "Kết hợp phần mềm và thiết bị thực",
+      "Logic sai có thể tạo chuyển động nguy hiểm",
+      "Dừng dây chuyền gây tổn thất"
     ],
     "keywords": [
       "Kỹ sư tự động hóa",
@@ -195,17 +405,56 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Lập trình bộ điều khiển."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Lập trình logic điều khiển; cấu hình tín hiệu cảm biến."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Thử liên động và dừng khẩn cấp."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc lập trình bộ điều khiển; cần kiểm tra kết quả vì logic sai có thể tạo chuyển động nguy hiểm."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc lập trình logic điều khiển; cần kiểm tra kết quả vì dừng dây chuyền gây tổn thất."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử lập trình logic điều khiển ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Mô phỏng băng tải trên phần mềm, không điều khiển máy thật. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-su-xay-dung",
     "name": "Kỹ sư xây dựng",
     "category_id": "engineering",
     "short_description": "Đọc bản vẽ kết cấu, theo dõi chất lượng thi công.",
-    "description": "Kỹ sư xây dựng tập trung vào đọc bản vẽ kết cấu. Công việc còn bao gồm theo dõi chất lượng thi công, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ sư xây dựng tính toán và tổ chức giải pháp kết cấu để công trình chịu lực và thi công đúng thiết kế. Kết quả công việc gắn với đọc bản vẽ kết cấu và theo dõi chất lượng thi công.",
     "daily_tasks": [
       "Đọc bản vẽ kết cấu",
-      "Theo dõi chất lượng thi công"
+      "Theo dõi chất lượng thi công",
+      "Tính tải và phương án kết cấu",
+      "Kiểm tra bản vẽ và khối lượng",
+      "Đối chiếu chất lượng thi công với hồ sơ"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -216,9 +465,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Văn phòng thiết kế và công trường với thiết bị bảo hộ.",
     "challenges": [
-      "Điều kiện công trường và tiến độ"
+      "Điều kiện công trường và tiến độ",
+      "Sai sót kết cấu ảnh hưởng an toàn",
+      "Điều kiện hiện trường thường thay đổi"
     ],
     "keywords": [
       "Kỹ sư xây dựng",
@@ -228,17 +479,56 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Đọc bản vẽ kết cấu."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Tính tải và phương án kết cấu; kiểm tra bản vẽ và khối lượng."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Đối chiếu chất lượng thi công với hồ sơ."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc đọc bản vẽ kết cấu; cần kiểm tra kết quả vì sai sót kết cấu ảnh hưởng an toàn."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc tính tải và phương án kết cấu; cần kiểm tra kết quả vì điều kiện hiện trường thường thay đổi."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử tính tải và phương án kết cấu ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Làm cầu giấy và thử tải bằng vật nhẹ. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "kien-truc-su",
     "name": "Kiến trúc sư",
     "category_id": "engineering",
     "short_description": "Phát triển phương án không gian, trao đổi nhu cầu với khách hàng.",
-    "description": "Kiến trúc sư tập trung vào phát triển phương án không gian. Công việc còn bao gồm trao đổi nhu cầu với khách hàng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kiến trúc sư tổ chức không gian đáp ứng nhu cầu sử dụng, thẩm mỹ và bối cảnh của công trình. Kết quả công việc gắn với phát triển phương án không gian và trao đổi nhu cầu với khách hàng.",
     "daily_tasks": [
       "Phát triển phương án không gian",
-      "Trao đổi nhu cầu với khách hàng"
+      "Trao đổi nhu cầu với khách hàng",
+      "Khảo sát nhu cầu và khu đất",
+      "Phát triển mặt bằng và phối cảnh",
+      "Phối hợp kết cấu và hệ thống kỹ thuật"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -249,9 +539,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Văn phòng kiến trúc, buổi trao đổi với chủ đầu tư và khảo sát công trình.",
     "challenges": [
-      "Cân đối thẩm mỹ và sử dụng"
+      "Cân đối thẩm mỹ và sử dụng",
+      "Ý tưởng phải phù hợp quy chuẩn",
+      "Thay đổi yêu cầu tác động nhiều bản vẽ"
     ],
     "keywords": [
       "Kiến trúc sư",
@@ -261,17 +553,61 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Phát triển phương án không gian."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Khảo sát nhu cầu và khu đất; phát triển mặt bằng và phối cảnh."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Phối hợp kết cấu và hệ thống kỹ thuật."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc phát triển phương án không gian; cần kiểm tra kết quả vì ý tưởng phải phù hợp quy chuẩn."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc khảo sát nhu cầu và khu đất; cần kiểm tra kết quả vì thay đổi yêu cầu tác động nhiều bản vẽ."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử khảo sát nhu cầu và khu đất ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Vẽ phương án lớp học dễ tiếp cận trên giấy. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "regulated_or_role_specific",
+      "note": "Một số vai trò hành nghề kiến trúc cần chứng chỉ theo luật; không phải mọi vị trí hỗ trợ thiết kế.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [
+      {
+        "label": "Luật Kiến trúc",
+        "url": "https://chinhphu.vn/default.aspx?docid=197313&pageid=27160"
+      }
+    ],
+    "profile_version": 2
   },
   {
     "career_id": "ky-su-giao-thong",
     "name": "Kỹ sư giao thông",
     "category_id": "engineering",
     "short_description": "Phân tích lưu lượng xe, thiết kế phương án hạ tầng.",
-    "description": "Kỹ sư giao thông tập trung vào phân tích lưu lượng xe. Công việc còn bao gồm thiết kế phương án hạ tầng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ sư giao thông thiết kế hạ tầng và phương án giao thông để người, hàng hóa di chuyển an toàn. Kết quả công việc gắn với phân tích lưu lượng xe và thiết kế phương án hạ tầng.",
     "daily_tasks": [
       "Phân tích lưu lượng xe",
-      "Thiết kế phương án hạ tầng"
+      "Thiết kế phương án hạ tầng",
+      "Phân tích lưu lượng tuyến",
+      "Tính hình học đường và nút giao",
+      "Kiểm tra thoát nước và an toàn tuyến"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -282,9 +618,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Đơn vị tư vấn hạ tầng và hiện trường khảo sát được bảo vệ.",
     "challenges": [
-      "Nhiều loại phương tiện cùng sử dụng"
+      "Nhiều loại phương tiện cùng sử dụng",
+      "Dữ liệu lưu lượng biến động",
+      "Thi công phải hạn chế ảnh hưởng người đi đường"
     ],
     "keywords": [
       "Kỹ sư giao thông",
@@ -294,17 +632,56 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Phân tích lưu lượng xe."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Phân tích lưu lượng tuyến; tính hình học đường và nút giao."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Kiểm tra thoát nước và an toàn tuyến."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc phân tích lưu lượng xe; cần kiểm tra kết quả vì dữ liệu lưu lượng biến động."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc phân tích lưu lượng tuyến; cần kiểm tra kết quả vì thi công phải hạn chế ảnh hưởng người đi đường."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử phân tích lưu lượng tuyến ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Quan sát lưu lượng từ nơi an toàn, không đứng dưới lòng đường. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-su-cap-thoat-nuoc",
     "name": "Kỹ sư cấp thoát nước",
     "category_id": "engineering",
     "short_description": "Tính toán mạng đường ống, theo dõi lưu lượng và áp lực.",
-    "description": "Kỹ sư cấp thoát nước tập trung vào tính toán mạng đường ống. Công việc còn bao gồm theo dõi lưu lượng và áp lực, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ sư cấp thoát nước thiết kế mạng cấp nước và thu gom nước thải phù hợp nhu cầu và địa hình. Kết quả công việc gắn với tính toán mạng đường ống và theo dõi lưu lượng và áp lực.",
     "daily_tasks": [
       "Tính toán mạng đường ống",
-      "Theo dõi lưu lượng và áp lực"
+      "Theo dõi lưu lượng và áp lực",
+      "Tính lưu lượng và áp lực",
+      "Chọn đường kính ống và trạm bơm",
+      "Đối chiếu mạng với địa hình và công trình"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -315,9 +692,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Đơn vị thiết kế hạ tầng, nhà máy nước và công trường đường ống.",
     "challenges": [
-      "Địa hình và nhu cầu sử dụng biến động"
+      "Địa hình và nhu cầu sử dụng biến động",
+      "Rò rỉ gây thất thoát hoặc ô nhiễm",
+      "Tắc nghẽn ảnh hưởng nhiều hộ"
     ],
     "keywords": [
       "Kỹ sư cấp thoát nước",
@@ -327,17 +706,56 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Tính toán mạng đường ống."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Tính lưu lượng và áp lực; chọn đường kính ống và trạm bơm."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Đối chiếu mạng với địa hình và công trình."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc tính toán mạng đường ống; cần kiểm tra kết quả vì rò rỉ gây thất thoát hoặc ô nhiễm."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc tính lưu lượng và áp lực; cần kiểm tra kết quả vì tắc nghẽn ảnh hưởng nhiều hộ."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử tính lưu lượng và áp lực ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Làm mô hình dòng chảy bằng chai sạch, không thử nước thải. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-su-nhiet-lanh",
     "name": "Kỹ sư nhiệt lạnh",
     "category_id": "engineering",
     "short_description": "Thiết kế hệ thống làm mát, đo hiệu suất vận hành.",
-    "description": "Kỹ sư nhiệt lạnh tập trung vào thiết kế hệ thống làm mát. Công việc còn bao gồm đo hiệu suất vận hành, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ sư nhiệt lạnh tính toán và tổ chức hệ thống làm mát, thông gió hoặc cấp nhiệt tiết kiệm năng lượng. Kết quả công việc gắn với thiết kế hệ thống làm mát và đo hiệu suất vận hành.",
     "daily_tasks": [
       "Thiết kế hệ thống làm mát",
-      "Đo hiệu suất vận hành"
+      "Đo hiệu suất vận hành",
+      "Tính tải nhiệt cho không gian",
+      "Chọn thiết bị và đường ống",
+      "Kiểm tra cân bằng gió và hiệu suất"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -348,9 +766,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Văn phòng kỹ thuật, phòng máy và các tòa nhà vận hành.",
     "challenges": [
-      "Tiết kiệm năng lượng và bảo trì"
+      "Tiết kiệm năng lượng và bảo trì",
+      "Môi chất lạnh cần quản lý an toàn",
+      "Thiết kế thiếu tải gây lãng phí"
     ],
     "keywords": [
       "Kỹ sư nhiệt lạnh",
@@ -360,17 +780,56 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thiết kế hệ thống làm mát."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Tính tải nhiệt cho không gian; chọn thiết bị và đường ống."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Kiểm tra cân bằng gió và hiệu suất."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc thiết kế hệ thống làm mát; cần kiểm tra kết quả vì môi chất lạnh cần quản lý an toàn."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc tính tải nhiệt cho không gian; cần kiểm tra kết quả vì thiết kế thiếu tải gây lãng phí."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử tính tải nhiệt cho không gian ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: So sánh cách thông gió phòng bằng quan sát nhiệt kế. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-su-o-to",
     "name": "Kỹ sư ô tô",
     "category_id": "engineering",
     "short_description": "Đánh giá hệ truyền động, thử nghiệm tính năng xe.",
-    "description": "Kỹ sư ô tô tập trung vào đánh giá hệ truyền động. Công việc còn bao gồm thử nghiệm tính năng xe, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ sư ô tô thiết kế, thử nghiệm hoặc cải tiến hệ thống xe theo vai trò trong phát triển sản phẩm. Kết quả công việc gắn với đánh giá hệ truyền động và thử nghiệm tính năng xe.",
     "daily_tasks": [
       "Đánh giá hệ truyền động",
-      "Thử nghiệm tính năng xe"
+      "Thử nghiệm tính năng xe",
+      "Phân tích hoạt động hệ truyền động",
+      "Thử mẫu và ghi thông số",
+      "Đánh giá nguyên nhân lỗi thiết kế"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -381,9 +840,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Trung tâm phát triển xe, nhà máy và bãi thử chuyên dụng.",
     "challenges": [
-      "Kết hợp nhiều hệ thống trên xe"
+      "Kết hợp nhiều hệ thống trên xe",
+      "An toàn xe đòi hỏi kiểm chứng nghiêm ngặt",
+      "Nhiều hệ thống tương tác phức tạp"
     ],
     "keywords": [
       "Kỹ sư ô tô",
@@ -393,17 +854,56 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Đánh giá hệ truyền động."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Phân tích hoạt động hệ truyền động; thử mẫu và ghi thông số."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Đánh giá nguyên nhân lỗi thiết kế."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc đánh giá hệ truyền động; cần kiểm tra kết quả vì an toàn xe đòi hỏi kiểm chứng nghiêm ngặt."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc phân tích hoạt động hệ truyền động; cần kiểm tra kết quả vì nhiều hệ thống tương tác phức tạp."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử phân tích hoạt động hệ truyền động ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Vẽ sơ đồ truyền năng lượng trên xe mô hình. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-thuat-vien-sua-chua-o-to",
     "name": "Kỹ thuật viên sửa chữa ô tô",
     "category_id": "engineering",
     "short_description": "Chẩn đoán lỗi phương tiện, thực hiện bảo dưỡng.",
-    "description": "Kỹ thuật viên sửa chữa ô tô tập trung vào chẩn đoán lỗi phương tiện. Công việc còn bao gồm thực hiện bảo dưỡng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ thuật viên sửa chữa ô tô chẩn đoán và sửa hư hỏng xe theo quy trình dịch vụ và thông số nhà sản xuất. Kết quả công việc gắn với chẩn đoán lỗi phương tiện và thực hiện bảo dưỡng.",
     "daily_tasks": [
       "Chẩn đoán lỗi phương tiện",
-      "Thực hiện bảo dưỡng"
+      "Thực hiện bảo dưỡng",
+      "Đọc mã lỗi và kiểm tra triệu chứng",
+      "Thay hoặc sửa chi tiết được xác định",
+      "Kiểm tra lại sau sửa chữa"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -414,9 +914,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Xưởng dịch vụ với cầu nâng, dụng cụ chuyên dụng và hướng dẫn an toàn.",
     "challenges": [
-      "Xác định nguyên nhân từ triệu chứng giống nhau"
+      "Xác định nguyên nhân từ triệu chứng giống nhau",
+      "Chẩn đoán nhầm làm tăng chi phí",
+      "Nâng xe và điện cao áp có nguy cơ"
     ],
     "keywords": [
       "Kỹ thuật viên sửa chữa ô tô",
@@ -426,17 +928,56 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Chẩn đoán lỗi phương tiện."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Đọc mã lỗi và kiểm tra triệu chứng; thay hoặc sửa chi tiết được xác định."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Kiểm tra lại sau sửa chữa."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc chẩn đoán lỗi phương tiện; cần kiểm tra kết quả vì chẩn đoán nhầm làm tăng chi phí."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc đọc mã lỗi và kiểm tra triệu chứng; cần kiểm tra kết quả vì nâng xe và điện cao áp có nguy cơ."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử đọc mã lỗi và kiểm tra triệu chứng ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Quan sát buổi giới thiệu nghề, không tự chui dưới xe. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "tho-han",
     "name": "Thợ hàn",
     "category_id": "engineering",
     "short_description": "Chuẩn bị mối ghép, kiểm tra chất lượng mối hàn.",
-    "description": "Thợ hàn tập trung vào chuẩn bị mối ghép. Công việc còn bao gồm kiểm tra chất lượng mối hàn, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Thợ hàn nối vật liệu bằng kỹ thuật hàn phù hợp để mối nối đáp ứng yêu cầu bản vẽ. Kết quả công việc gắn với chuẩn bị mối ghép và kiểm tra chất lượng mối hàn.",
     "daily_tasks": [
       "Chuẩn bị mối ghép",
-      "Kiểm tra chất lượng mối hàn"
+      "Kiểm tra chất lượng mối hàn",
+      "Chuẩn bị mép và gá phôi",
+      "Chọn thông số hàn theo vật liệu",
+      "Kiểm tra khuyết tật mối hàn"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -447,9 +988,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Xưởng cơ khí, công trình hoặc khu hàn có thông gió và che chắn.",
     "challenges": [
-      "Nhiệt độ cao và bảo hộ lao động"
+      "Nhiệt độ cao và bảo hộ lao động",
+      "Hồ quang và khói hàn cần bảo vệ",
+      "Mối hàn lỗi ảnh hưởng độ bền"
     ],
     "keywords": [
       "Thợ hàn",
@@ -459,17 +1002,56 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Chuẩn bị mối ghép."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Chuẩn bị mép và gá phôi; chọn thông số hàn theo vật liệu."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Kiểm tra khuyết tật mối hàn."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc chuẩn bị mối ghép; cần kiểm tra kết quả vì hồ quang và khói hàn cần bảo vệ."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc chuẩn bị mép và gá phôi; cần kiểm tra kết quả vì mối hàn lỗi ảnh hưởng độ bền."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử chuẩn bị mép và gá phôi ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Ghép mô hình bằng bìa để hiểu vị trí mối nối. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "tho-dien-dan-dung",
     "name": "Thợ điện dân dụng",
     "category_id": "engineering",
     "short_description": "Lắp đặt đường điện, kiểm tra thiết bị bảo vệ.",
-    "description": "Thợ điện dân dụng tập trung vào lắp đặt đường điện. Công việc còn bao gồm kiểm tra thiết bị bảo vệ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Thợ điện dân dụng lắp đặt và bảo trì hệ thống điện trong nhà theo yêu cầu kỹ thuật và an toàn. Kết quả công việc gắn với lắp đặt đường điện và kiểm tra thiết bị bảo vệ.",
     "daily_tasks": [
       "Lắp đặt đường điện",
-      "Kiểm tra thiết bị bảo vệ"
+      "Kiểm tra thiết bị bảo vệ",
+      "Đọc sơ đồ điện của phòng",
+      "Chọn dây và thiết bị bảo vệ",
+      "Kiểm tra cách điện trước bàn giao"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -480,9 +1062,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Nhà ở và công trình dân dụng, chỉ làm sau quy trình cô lập nguồn.",
     "challenges": [
-      "Nguy cơ điện giật và chập cháy"
+      "Nguy cơ điện giật và chập cháy",
+      "Chạm điện có thể gây tử vong",
+      "Đấu sai dễ tạo cháy âm trong tường"
     ],
     "keywords": [
       "Thợ điện dân dụng",
@@ -492,17 +1076,56 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Lắp đặt đường điện."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Đọc sơ đồ điện của phòng; chọn dây và thiết bị bảo vệ."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Kiểm tra cách điện trước bàn giao."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc lắp đặt đường điện; cần kiểm tra kết quả vì chạm điện có thể gây tử vong."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc đọc sơ đồ điện của phòng; cần kiểm tra kết quả vì đấu sai dễ tạo cháy âm trong tường."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử đọc sơ đồ điện của phòng ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Dùng mô phỏng điện, tuyệt đối không thử điện lưới. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "tho-tien-cnc",
     "name": "Thợ tiện CNC",
     "category_id": "engineering",
     "short_description": "Lập thông số gia công, đo kích thước chi tiết.",
-    "description": "Thợ tiện CNC tập trung vào lập thông số gia công. Công việc còn bao gồm đo kích thước chi tiết, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Thợ tiện CNC vận hành máy tiện điều khiển số để gia công chi tiết đúng kích thước. Kết quả công việc gắn với lập thông số gia công và đo kích thước chi tiết.",
     "daily_tasks": [
       "Lập thông số gia công",
-      "Đo kích thước chi tiết"
+      "Đo kích thước chi tiết",
+      "Đọc bản vẽ và chọn dao",
+      "Gá phôi và thiết lập tọa độ",
+      "Đo chi tiết rồi hiệu chỉnh chương trình"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -513,9 +1136,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Xưởng gia công cơ khí với máy có che chắn và quy trình vận hành.",
     "challenges": [
-      "Sai số gia công làm hỏng phôi"
+      "Sai số gia công làm hỏng phôi",
+      "Gá sai có thể văng phôi",
+      "Sai bù dao làm hỏng cả lô"
     ],
     "keywords": [
       "Thợ tiện CNC",
@@ -525,17 +1150,56 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Lập thông số gia công."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Đọc bản vẽ và chọn dao; gá phôi và thiết lập tọa độ."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Đo chi tiết rồi hiệu chỉnh chương trình."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc lập thông số gia công; cần kiểm tra kết quả vì gá sai có thể văng phôi."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc đọc bản vẽ và chọn dao; cần kiểm tra kết quả vì sai bù dao làm hỏng cả lô."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử đọc bản vẽ và chọn dao ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Mô phỏng đường chạy dao bằng phần mềm giáo dục. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-su-vat-lieu",
     "name": "Kỹ sư vật liệu",
     "category_id": "engineering",
     "short_description": "Thử đặc tính vật liệu, so sánh phương án sử dụng.",
-    "description": "Kỹ sư vật liệu tập trung vào thử đặc tính vật liệu. Công việc còn bao gồm so sánh phương án sử dụng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ sư vật liệu lựa chọn và phát triển vật liệu dựa trên quan hệ giữa cấu trúc, chế tạo và tính chất. Kết quả công việc gắn với thử đặc tính vật liệu và so sánh phương án sử dụng.",
     "daily_tasks": [
       "Thử đặc tính vật liệu",
-      "So sánh phương án sử dụng"
+      "So sánh phương án sử dụng",
+      "Chuẩn bị mẫu thử vật liệu",
+      "Đo độ bền hoặc đặc tính bề mặt",
+      "Phân tích nguyên nhân vật liệu hỏng"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -546,9 +1210,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Phòng thí nghiệm vật liệu và nhà máy chế tạo.",
     "challenges": [
-      "Đặc tính thay đổi theo điều kiện"
+      "Đặc tính thay đổi theo điều kiện",
+      "Kết quả mẫu chưa đại diện cả sản phẩm",
+      "Thử nghiệm có nhiệt hoặc hóa chất"
     ],
     "keywords": [
       "Kỹ sư vật liệu",
@@ -558,17 +1224,56 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thử đặc tính vật liệu."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Chuẩn bị mẫu thử vật liệu; đo độ bền hoặc đặc tính bề mặt."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Phân tích nguyên nhân vật liệu hỏng."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc thử đặc tính vật liệu; cần kiểm tra kết quả vì kết quả mẫu chưa đại diện cả sản phẩm."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc chuẩn bị mẫu thử vật liệu; cần kiểm tra kết quả vì thử nghiệm có nhiệt hoặc hóa chất."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử chuẩn bị mẫu thử vật liệu ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: So sánh khả năng hút nước của giấy và vải sạch. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-su-hoa-hoc",
     "name": "Kỹ sư hóa học",
     "category_id": "engineering",
     "short_description": "Thiết kế quy trình sản xuất, theo dõi thông số phản ứng.",
-    "description": "Kỹ sư hóa học tập trung vào thiết kế quy trình sản xuất. Công việc còn bao gồm theo dõi thông số phản ứng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ sư hóa học thiết kế và tối ưu quy trình chuyển nguyên liệu thành sản phẩm ở quy mô công nghiệp. Kết quả công việc gắn với thiết kế quy trình sản xuất và theo dõi thông số phản ứng.",
     "daily_tasks": [
       "Thiết kế quy trình sản xuất",
-      "Theo dõi thông số phản ứng"
+      "Theo dõi thông số phản ứng",
+      "Lập cân bằng vật chất và năng lượng",
+      "Chọn thiết bị phản ứng và tách",
+      "Đánh giá an toàn khi tăng quy mô"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -579,9 +1284,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Văn phòng công nghệ, nhà máy hóa chất và phòng thử có kiểm soát.",
     "challenges": [
-      "Kiểm soát hóa chất và chất thải"
+      "Kiểm soát hóa chất và chất thải",
+      "Phản ứng có thể tạo nhiệt và áp suất",
+      "Phóng đại từ phòng lab không đơn giản"
     ],
     "keywords": [
       "Kỹ sư hóa học",
@@ -591,17 +1298,56 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thiết kế quy trình sản xuất."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Lập cân bằng vật chất và năng lượng; chọn thiết bị phản ứng và tách."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Đánh giá an toàn khi tăng quy mô."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc thiết kế quy trình sản xuất; cần kiểm tra kết quả vì phản ứng có thể tạo nhiệt và áp suất."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc lập cân bằng vật chất và năng lượng; cần kiểm tra kết quả vì phóng đại từ phòng lab không đơn giản."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử lập cân bằng vật chất và năng lượng ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Vẽ quy trình lọc hỗn hợp cát nước trong tiết học có giám sát. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-su-cong-nghe-thuc-pham",
     "name": "Kỹ sư công nghệ thực phẩm",
     "category_id": "engineering",
     "short_description": "Thử quy trình chế biến, kiểm tra chất lượng thực phẩm.",
-    "description": "Kỹ sư công nghệ thực phẩm tập trung vào thử quy trình chế biến. Công việc còn bao gồm kiểm tra chất lượng thực phẩm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ sư công nghệ thực phẩm tạo quy trình chế biến và bảo quản để sản phẩm đạt chất lượng và an toàn thực phẩm. Kết quả công việc gắn với thử quy trình chế biến và kiểm tra chất lượng thực phẩm.",
     "daily_tasks": [
       "Thử quy trình chế biến",
-      "Kiểm tra chất lượng thực phẩm"
+      "Kiểm tra chất lượng thực phẩm",
+      "Thử công thức và thông số chế biến",
+      "Theo dõi điểm kiểm soát vệ sinh",
+      "Đánh giá bao bì và thời hạn bảo quản"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -612,9 +1358,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Nhà máy thực phẩm, bếp thử và phòng kiểm nghiệm.",
     "challenges": [
-      "An toàn thực phẩm trong chuỗi sản xuất"
+      "An toàn thực phẩm trong chuỗi sản xuất",
+      "Vi sinh vật có thể không nhìn thấy",
+      "Thay nguyên liệu làm đổi chất lượng"
     ],
     "keywords": [
       "Kỹ sư công nghệ thực phẩm",
@@ -624,17 +1372,56 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thử quy trình chế biến."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Thử công thức và thông số chế biến; theo dõi điểm kiểm soát vệ sinh."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Đánh giá bao bì và thời hạn bảo quản."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc thử quy trình chế biến; cần kiểm tra kết quả vì vi sinh vật có thể không nhìn thấy."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc thử công thức và thông số chế biến; cần kiểm tra kết quả vì thay nguyên liệu làm đổi chất lượng."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử thử công thức và thông số chế biến ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: So sánh nhãn bảo quản của thực phẩm đóng gói. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-su-det-may",
     "name": "Kỹ sư dệt may",
     "category_id": "engineering",
     "short_description": "Thiết kế quy trình may, đánh giá chất lượng vải và sản phẩm.",
-    "description": "Kỹ sư dệt may tập trung vào thiết kế quy trình may. Công việc còn bao gồm đánh giá chất lượng vải và sản phẩm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ sư dệt may tổ chức công nghệ sợi, vải hoặc may để đạt yêu cầu thiết kế và năng suất. Kết quả công việc gắn với thiết kế quy trình may và đánh giá chất lượng vải và sản phẩm.",
     "daily_tasks": [
       "Thiết kế quy trình may",
-      "Đánh giá chất lượng vải và sản phẩm"
+      "Đánh giá chất lượng vải và sản phẩm",
+      "Chọn cấu trúc vải và nguyên liệu",
+      "Thiết lập quy trình cắt may",
+      "Đánh giá lỗi và hao hụt vật liệu"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -645,9 +1432,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Nhà máy dệt may, phòng mẫu và khu kiểm chất lượng.",
     "challenges": [
-      "Cân đối năng suất với chất lượng"
+      "Cân đối năng suất với chất lượng",
+      "Sai kích thước ảnh hưởng cả lô",
+      "Vải phản ứng khác nhau khi xử lý"
     ],
     "keywords": [
       "Kỹ sư dệt may",
@@ -657,17 +1446,56 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thiết kế quy trình may."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Chọn cấu trúc vải và nguyên liệu; thiết lập quy trình cắt may."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Đánh giá lỗi và hao hụt vật liệu."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc thiết kế quy trình may; cần kiểm tra kết quả vì sai kích thước ảnh hưởng cả lô."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc chọn cấu trúc vải và nguyên liệu; cần kiểm tra kết quả vì vải phản ứng khác nhau khi xử lý."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử chọn cấu trúc vải và nguyên liệu ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Thiết kế rập giấy cho túi nhỏ rồi tính phần vải thừa. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-su-dong-tau",
     "name": "Kỹ sư đóng tàu",
     "category_id": "engineering",
     "short_description": "Thiết kế cấu kiện tàu, giám sát lắp ráp thân tàu.",
-    "description": "Kỹ sư đóng tàu tập trung vào thiết kế cấu kiện tàu. Công việc còn bao gồm giám sát lắp ráp thân tàu, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ sư đóng tàu thiết kế và tổ chức chế tạo tàu đáp ứng tính nổi, độ bền và công năng. Kết quả công việc gắn với thiết kế cấu kiện tàu và giám sát lắp ráp thân tàu.",
     "daily_tasks": [
       "Thiết kế cấu kiện tàu",
-      "Giám sát lắp ráp thân tàu"
+      "Giám sát lắp ráp thân tàu",
+      "Tính ổn định và bố trí khoang",
+      "Thiết kế kết cấu thân tàu",
+      "Phối hợp kiểm tra và thử tàu"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -678,9 +1506,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Viện thiết kế, nhà máy đóng tàu và khu thử có kiểm soát.",
     "challenges": [
-      "Môi trường biển và kết cấu lớn"
+      "Môi trường biển và kết cấu lớn",
+      "Thay trọng lượng ảnh hưởng ổn định",
+      "Môi trường biển gây ăn mòn"
     ],
     "keywords": [
       "Kỹ sư đóng tàu",
@@ -690,17 +1520,56 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thiết kế cấu kiện tàu."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Tính ổn định và bố trí khoang; thiết kế kết cấu thân tàu."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Phối hợp kiểm tra và thử tàu."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc thiết kế cấu kiện tàu; cần kiểm tra kết quả vì thay trọng lượng ảnh hưởng ổn định."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc tính ổn định và bố trí khoang; cần kiểm tra kết quả vì môi trường biển gây ăn mòn."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử tính ổn định và bố trí khoang ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Làm thuyền giấy và quan sát ảnh hưởng phân bố tải. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-thuat-vien-bao-tri-cong-nghiep",
     "name": "Kỹ thuật viên bảo trì công nghiệp",
     "category_id": "engineering",
     "short_description": "Kiểm tra máy móc định kỳ, thay thế bộ phận hao mòn.",
-    "description": "Kỹ thuật viên bảo trì công nghiệp tập trung vào kiểm tra máy móc định kỳ. Công việc còn bao gồm thay thế bộ phận hao mòn, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ thuật viên bảo trì công nghiệp phòng ngừa và xử lý hư hỏng máy để dây chuyền vận hành ổn định. Kết quả công việc gắn với kiểm tra máy móc định kỳ và thay thế bộ phận hao mòn.",
     "daily_tasks": [
       "Kiểm tra máy móc định kỳ",
-      "Thay thế bộ phận hao mòn"
+      "Thay thế bộ phận hao mòn",
+      "Kiểm tra rung và nhiệt bất thường",
+      "Thực hiện bảo trì theo lịch",
+      "Ghi lỗi và đề xuất thay chi tiết"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -711,9 +1580,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Xưởng sản xuất và phòng bảo trì, có thể làm theo ca.",
     "challenges": [
-      "Dừng máy ảnh hưởng dây chuyền"
+      "Dừng máy ảnh hưởng dây chuyền",
+      "Năng lượng tích trữ gây tai nạn",
+      "Sửa gấp có thể bỏ sót nguyên nhân"
     ],
     "keywords": [
       "Kỹ thuật viên bảo trì công nghiệp",
@@ -723,17 +1594,56 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Kiểm tra máy móc định kỳ."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Kiểm tra rung và nhiệt bất thường; thực hiện bảo trì theo lịch."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Ghi lỗi và đề xuất thay chi tiết."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc kiểm tra máy móc định kỳ; cần kiểm tra kết quả vì năng lượng tích trữ gây tai nạn."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc kiểm tra rung và nhiệt bất thường; cần kiểm tra kết quả vì sửa gấp có thể bỏ sót nguyên nhân."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử kiểm tra rung và nhiệt bất thường ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Lập lịch bảo dưỡng cho xe đạp mô hình hoặc đồ dùng không điện. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-su-nang-luong-tai-tao",
     "name": "Kỹ sư năng lượng tái tạo",
     "category_id": "engineering",
     "short_description": "Tính toán hệ thống điện sạch, theo dõi sản lượng phát điện.",
-    "description": "Kỹ sư năng lượng tái tạo tập trung vào tính toán hệ thống điện sạch. Công việc còn bao gồm theo dõi sản lượng phát điện, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ sư năng lượng tái tạo thiết kế và theo dõi hệ thống khai thác nguồn năng lượng như nắng hoặc gió. Kết quả công việc gắn với tính toán hệ thống điện sạch và theo dõi sản lượng phát điện.",
     "daily_tasks": [
       "Tính toán hệ thống điện sạch",
-      "Theo dõi sản lượng phát điện"
+      "Theo dõi sản lượng phát điện",
+      "Đánh giá nguồn nắng và gió",
+      "Chọn cấu hình nguồn và thiết bị chuyển đổi",
+      "Phân tích sản lượng và tổn thất"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -744,9 +1654,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Nhóm thiết kế, trạm điện mặt trời hoặc điện gió và trung tâm giám sát.",
     "challenges": [
-      "Nguồn năng lượng phụ thuộc thời tiết"
+      "Nguồn năng lượng phụ thuộc thời tiết",
+      "Thời tiết khiến sản lượng biến động",
+      "Kết nối điện cần kiểm soát an toàn"
     ],
     "keywords": [
       "Kỹ sư năng lượng tái tạo",
@@ -756,17 +1668,56 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Tính toán hệ thống điện sạch."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Đánh giá nguồn nắng và gió; chọn cấu hình nguồn và thiết bị chuyển đổi."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Phân tích sản lượng và tổn thất."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc tính toán hệ thống điện sạch; cần kiểm tra kết quả vì thời tiết khiến sản lượng biến động."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc đánh giá nguồn nắng và gió; cần kiểm tra kết quả vì kết nối điện cần kiểm soát an toàn."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử đánh giá nguồn nắng và gió ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Đo bóng nắng trong sân trường rồi vẽ biểu đồ. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-su-hang-khong",
     "name": "Kỹ sư hàng không",
     "category_id": "engineering",
     "short_description": "Phân tích cấu trúc thiết bị bay, kiểm tra thông số kỹ thuật.",
-    "description": "Kỹ sư hàng không tập trung vào phân tích cấu trúc thiết bị bay. Công việc còn bao gồm kiểm tra thông số kỹ thuật, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ sư hàng không phân tích và phát triển hệ thống tàu bay trong quy trình kiểm chứng kỹ thuật chặt chẽ. Kết quả công việc gắn với phân tích cấu trúc thiết bị bay và kiểm tra thông số kỹ thuật.",
     "daily_tasks": [
       "Phân tích cấu trúc thiết bị bay",
-      "Kiểm tra thông số kỹ thuật"
+      "Kiểm tra thông số kỹ thuật",
+      "Mô phỏng khí động hoặc kết cấu",
+      "Phân tích dữ liệu thử nghiệm",
+      "Ghi hồ sơ thay đổi thiết kế"
     ],
     "skills": [
       "Đọc bản vẽ và thông số",
@@ -777,9 +1728,11 @@
       "Vật lý",
       "Công nghệ"
     ],
-    "work_environment": "Xưởng, phòng thiết kế hoặc công trường, tùy tính chất dự án.",
+    "work_environment": "Trung tâm kỹ thuật, phòng mô phỏng và cơ sở bảo dưỡng được phép.",
     "challenges": [
-      "Yêu cầu độ tin cậy cao"
+      "Yêu cầu độ tin cậy cao",
+      "Sai sót nhỏ có thể ảnh hưởng an toàn bay",
+      "Thay đổi cần nhiều bước kiểm chứng"
     ],
     "keywords": [
       "Kỹ sư hàng không",
@@ -789,17 +1742,56 @@
       "Toán",
       "Vật lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Phân tích cấu trúc thiết bị bay."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Mô phỏng khí động hoặc kết cấu; phân tích dữ liệu thử nghiệm."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Ghi hồ sơ thay đổi thiết kế."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc bản vẽ và thông số",
+        "reason": "Hỗ trợ việc phân tích cấu trúc thiết bị bay; cần kiểm tra kết quả vì sai sót nhỏ có thể ảnh hưởng an toàn bay."
+      },
+      {
+        "skill": "Đo lường và kiểm soát an toàn",
+        "reason": "Hỗ trợ việc mô phỏng khí động hoặc kết cấu; cần kiểm tra kết quả vì thay đổi cần nhiều bước kiểm chứng."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Vật lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử mô phỏng khí động hoặc kết cấu ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: So sánh cánh máy bay giấy, không thử thiết bị bay ngoài quy định. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-nhan-su",
     "name": "Chuyên viên nhân sự",
     "category_id": "business",
     "short_description": "Tiếp nhận nhu cầu tuyển dụng, hỗ trợ quy trình nhân sự.",
-    "description": "Chuyên viên nhân sự tập trung vào tiếp nhận nhu cầu tuyển dụng. Công việc còn bao gồm hỗ trợ quy trình nhân sự, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên nhân sự tổ chức chính sách và quy trình nhân sự để quan hệ giữa người lao động và tổ chức rõ ràng. Kết quả công việc gắn với tiếp nhận nhu cầu tuyển dụng và hỗ trợ quy trình nhân sự.",
     "daily_tasks": [
       "Tiếp nhận nhu cầu tuyển dụng",
-      "Hỗ trợ quy trình nhân sự"
+      "Hỗ trợ quy trình nhân sự",
+      "Quản lý hồ sơ và thay đổi nhân sự",
+      "Phối hợp đào tạo và đánh giá",
+      "Tiếp nhận vấn đề về chính sách lao động"
     ],
     "skills": [
       "Tổ chức công việc",
@@ -810,9 +1802,11 @@
       "Ngữ văn",
       "Tiếng Anh"
     ],
-    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "work_environment": "Phòng nhân sự, làm việc với quản lý và người lao động.",
     "challenges": [
-      "Cân bằng quyền lợi các bên"
+      "Cân bằng quyền lợi các bên",
+      "Thông tin lương và hồ sơ rất nhạy cảm",
+      "Cần cân bằng quyền lợi và quy định"
     ],
     "keywords": [
       "Chuyên viên nhân sự",
@@ -822,17 +1816,61 @@
       "Toán",
       "Ngữ văn",
       "Tiếng Anh"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Tiếp nhận nhu cầu tuyển dụng."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Quản lý hồ sơ và thay đổi nhân sự; phối hợp đào tạo và đánh giá."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Tiếp nhận vấn đề về chính sách lao động."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tổ chức công việc",
+        "reason": "Đọc và đối chiếu hồ sơ giúp phát hiện thông tin thiếu trước khi xử lý thay đổi nhân sự hoặc quyền lợi."
+      },
+      {
+        "skill": "Giao tiếp và phân tích nhu cầu",
+        "reason": "Lắng nghe và giải thích chính sách giúp xử lý thắc mắc giữa người lao động và tổ chức mà vẫn bảo vệ thông tin riêng."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Ngữ văn, Tiếng Anh qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử quản lý hồ sơ và thay đổi nhân sự ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Thiết kế quy tắc làm việc nhóm công bằng cho câu lạc bộ. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [
+      {
+        "label": "BLS: phạm vi công việc nhân sự (tham khảo quốc tế)",
+        "url": "https://www.bls.gov/ooh/business-and-financial/human-resources-specialists.htm"
+      }
+    ],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-tuyen-dung",
     "name": "Chuyên viên tuyển dụng",
     "category_id": "business",
     "short_description": "Trao đổi với ứng viên, đánh giá thông tin ứng tuyển.",
-    "description": "Chuyên viên tuyển dụng tập trung vào trao đổi với ứng viên. Công việc còn bao gồm đánh giá thông tin ứng tuyển, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên tuyển dụng kết nối nhu cầu tuyển người với ứng viên qua quy trình đánh giá công bằng. Kết quả công việc gắn với trao đổi với ứng viên và đánh giá thông tin ứng tuyển.",
     "daily_tasks": [
       "Trao đổi với ứng viên",
-      "Đánh giá thông tin ứng tuyển"
+      "Đánh giá thông tin ứng tuyển",
+      "Làm rõ tiêu chí vị trí tuyển",
+      "Sàng lọc và tổ chức phỏng vấn",
+      "Theo dõi phản hồi và nhận việc"
     ],
     "skills": [
       "Tổ chức công việc",
@@ -843,9 +1881,11 @@
       "Ngữ văn",
       "Tiếng Anh"
     ],
-    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "work_environment": "Nhóm tuyển dụng, các buổi phỏng vấn và ngày hội nghề nghiệp.",
     "challenges": [
-      "Nhận định công bằng và tránh thiên kiến"
+      "Nhận định công bằng và tránh thiên kiến",
+      "Thiên lệch đánh giá có thể loại sai người",
+      "Dữ liệu ứng viên cần được bảo vệ"
     ],
     "keywords": [
       "Chuyên viên tuyển dụng",
@@ -855,17 +1895,56 @@
       "Toán",
       "Ngữ văn",
       "Tiếng Anh"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Trao đổi với ứng viên."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Làm rõ tiêu chí vị trí tuyển; sàng lọc và tổ chức phỏng vấn."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi phản hồi và nhận việc."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tổ chức công việc",
+        "reason": "Hỗ trợ việc trao đổi với ứng viên; cần kiểm tra kết quả vì thiên lệch đánh giá có thể loại sai người."
+      },
+      {
+        "skill": "Giao tiếp và phân tích nhu cầu",
+        "reason": "Hỗ trợ việc làm rõ tiêu chí vị trí tuyển; cần kiểm tra kết quả vì dữ liệu ứng viên cần được bảo vệ."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Ngữ văn, Tiếng Anh qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử làm rõ tiêu chí vị trí tuyển ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Viết mô tả vai trò câu lạc bộ không phân biệt đối xử. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-phat-trien-kinh-doanh",
     "name": "Chuyên viên phát triển kinh doanh",
     "category_id": "business",
     "short_description": "Tìm đối tác tiềm năng, xây dựng đề xuất hợp tác.",
-    "description": "Chuyên viên phát triển kinh doanh tập trung vào tìm đối tác tiềm năng. Công việc còn bao gồm xây dựng đề xuất hợp tác, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên phát triển kinh doanh tìm cơ hội thị trường và quan hệ hợp tác để mở hướng tăng trưởng. Kết quả công việc gắn với tìm đối tác tiềm năng và xây dựng đề xuất hợp tác.",
     "daily_tasks": [
       "Tìm đối tác tiềm năng",
-      "Xây dựng đề xuất hợp tác"
+      "Xây dựng đề xuất hợp tác",
+      "Nghiên cứu khách hàng mục tiêu",
+      "Đánh giá phương án hợp tác",
+      "Thử đề xuất giá trị với đối tác"
     ],
     "skills": [
       "Tổ chức công việc",
@@ -876,9 +1955,11 @@
       "Ngữ văn",
       "Tiếng Anh"
     ],
-    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "work_environment": "Bộ phận phát triển thị trường, có các buổi gặp đối tác.",
     "challenges": [
-      "Nhu cầu thị trường biến đổi"
+      "Nhu cầu thị trường biến đổi",
+      "Cơ hội mới có thể không sinh lợi",
+      "Cam kết vượt khả năng làm mất uy tín"
     ],
     "keywords": [
       "Chuyên viên phát triển kinh doanh",
@@ -888,17 +1969,56 @@
       "Toán",
       "Ngữ văn",
       "Tiếng Anh"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Tìm đối tác tiềm năng."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Nghiên cứu khách hàng mục tiêu; đánh giá phương án hợp tác."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Thử đề xuất giá trị với đối tác."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tổ chức công việc",
+        "reason": "Hỗ trợ việc tìm đối tác tiềm năng; cần kiểm tra kết quả vì cơ hội mới có thể không sinh lợi."
+      },
+      {
+        "skill": "Giao tiếp và phân tích nhu cầu",
+        "reason": "Hỗ trợ việc nghiên cứu khách hàng mục tiêu; cần kiểm tra kết quả vì cam kết vượt khả năng làm mất uy tín."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Ngữ văn, Tiếng Anh qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử nghiên cứu khách hàng mục tiêu ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Lập đề án hợp tác giữa hai câu lạc bộ không thu tiền. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "nhan-vien-kinh-doanh",
     "name": "Nhân viên kinh doanh",
     "category_id": "business",
     "short_description": "Tìm hiểu nhu cầu khách, theo dõi quá trình bán hàng.",
-    "description": "Nhân viên kinh doanh tập trung vào tìm hiểu nhu cầu khách. Công việc còn bao gồm theo dõi quá trình bán hàng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Nhân viên kinh doanh tìm hiểu nhu cầu và tư vấn sản phẩm để giao dịch phù hợp cả khách hàng và doanh nghiệp. Kết quả công việc gắn với tìm hiểu nhu cầu khách và theo dõi quá trình bán hàng.",
     "daily_tasks": [
       "Tìm hiểu nhu cầu khách",
-      "Theo dõi quá trình bán hàng"
+      "Theo dõi quá trình bán hàng",
+      "Tiếp cận khách hàng đúng đối tượng",
+      "Giải thích điều khoản và giải pháp",
+      "Theo dõi đơn hàng và hỗ trợ sau bán"
     ],
     "skills": [
       "Tổ chức công việc",
@@ -909,9 +2029,11 @@
       "Ngữ văn",
       "Tiếng Anh"
     ],
-    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "work_environment": "Văn phòng bán hàng, cửa hàng hoặc địa bàn khách hàng.",
     "challenges": [
-      "Áp lực mục tiêu và từ chối"
+      "Áp lực mục tiêu và từ chối",
+      "Áp lực doanh số có thể dẫn đến tư vấn sai",
+      "Phải tránh hứa quá khả năng sản phẩm"
     ],
     "keywords": [
       "Nhân viên kinh doanh",
@@ -921,17 +2043,56 @@
       "Toán",
       "Ngữ văn",
       "Tiếng Anh"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Tìm hiểu nhu cầu khách."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Tiếp cận khách hàng đúng đối tượng; giải thích điều khoản và giải pháp."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi đơn hàng và hỗ trợ sau bán."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tổ chức công việc",
+        "reason": "Hỗ trợ việc tìm hiểu nhu cầu khách; cần kiểm tra kết quả vì áp lực doanh số có thể dẫn đến tư vấn sai."
+      },
+      {
+        "skill": "Giao tiếp và phân tích nhu cầu",
+        "reason": "Hỗ trợ việc tiếp cận khách hàng đúng đối tượng; cần kiểm tra kết quả vì phải tránh hứa quá khả năng sản phẩm."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Ngữ văn, Tiếng Anh qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử tiếp cận khách hàng đúng đối tượng ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Nhập vai tư vấn đồ dùng học tập với thông tin minh bạch. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "quan-ly-san-pham",
     "name": "Quản lý sản phẩm",
     "category_id": "business",
     "short_description": "Ưu tiên nhu cầu người dùng, điều phối kế hoạch sản phẩm.",
-    "description": "Quản lý sản phẩm tập trung vào ưu tiên nhu cầu người dùng. Công việc còn bao gồm điều phối kế hoạch sản phẩm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Quản lý sản phẩm xác định vấn đề người dùng và ưu tiên tính năng để sản phẩm tạo giá trị. Kết quả công việc gắn với ưu tiên nhu cầu người dùng và điều phối kế hoạch sản phẩm.",
     "daily_tasks": [
       "Ưu tiên nhu cầu người dùng",
-      "Điều phối kế hoạch sản phẩm"
+      "Điều phối kế hoạch sản phẩm",
+      "Phỏng vấn người sử dụng",
+      "Sắp xếp lộ trình và đánh đổi",
+      "Đo hiệu quả tính năng sau phát hành"
     ],
     "skills": [
       "Tổ chức công việc",
@@ -942,9 +2103,11 @@
       "Ngữ văn",
       "Tiếng Anh"
     ],
-    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "work_environment": "Nhóm sản phẩm cùng thiết kế, kỹ thuật và kinh doanh.",
     "challenges": [
-      "Đánh đổi giữa các ưu tiên"
+      "Đánh đổi giữa các ưu tiên",
+      "Nhiều nhu cầu cạnh tranh nguồn lực",
+      "Số lượt dùng chưa phản ánh giá trị thật"
     ],
     "keywords": [
       "Quản lý sản phẩm",
@@ -954,17 +2117,56 @@
       "Toán",
       "Ngữ văn",
       "Tiếng Anh"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Ưu tiên nhu cầu người dùng."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Phỏng vấn người sử dụng; sắp xếp lộ trình và đánh đổi."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Đo hiệu quả tính năng sau phát hành."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tổ chức công việc",
+        "reason": "Hỗ trợ việc ưu tiên nhu cầu người dùng; cần kiểm tra kết quả vì nhiều nhu cầu cạnh tranh nguồn lực."
+      },
+      {
+        "skill": "Giao tiếp và phân tích nhu cầu",
+        "reason": "Hỗ trợ việc phỏng vấn người sử dụng; cần kiểm tra kết quả vì số lượt dùng chưa phản ánh giá trị thật."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Ngữ văn, Tiếng Anh qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử phỏng vấn người sử dụng ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Chọn một vấn đề ở trường và phác thảo giải pháp nhỏ. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "quan-ly-du-an",
     "name": "Quản lý dự án",
     "category_id": "business",
     "short_description": "Lập kế hoạch công việc, theo dõi tiến độ và rủi ro.",
-    "description": "Quản lý dự án tập trung vào lập kế hoạch công việc. Công việc còn bao gồm theo dõi tiến độ và rủi ro, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Quản lý dự án điều phối phạm vi, thời gian và nguồn lực để nhóm hoàn thành kết quả đã thống nhất. Kết quả công việc gắn với lập kế hoạch công việc và theo dõi tiến độ và rủi ro.",
     "daily_tasks": [
       "Lập kế hoạch công việc",
-      "Theo dõi tiến độ và rủi ro"
+      "Theo dõi tiến độ và rủi ro",
+      "Chia mốc và người phụ trách",
+      "Theo dõi rủi ro và phụ thuộc",
+      "Xử lý thay đổi phạm vi với các bên"
     ],
     "skills": [
       "Tổ chức công việc",
@@ -975,9 +2177,11 @@
       "Ngữ văn",
       "Tiếng Anh"
     ],
-    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "work_environment": "Nhóm dự án liên phòng ban, họp ngắn và theo dõi kế hoạch.",
     "challenges": [
-      "Phụ thuộc giữa nhiều nhóm"
+      "Phụ thuộc giữa nhiều nhóm",
+      "Trễ một hạng mục ảnh hưởng chuỗi công việc",
+      "Báo cáo đẹp có thể che tiến độ thật"
     ],
     "keywords": [
       "Quản lý dự án",
@@ -987,17 +2191,56 @@
       "Toán",
       "Ngữ văn",
       "Tiếng Anh"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Lập kế hoạch công việc."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Chia mốc và người phụ trách; theo dõi rủi ro và phụ thuộc."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Xử lý thay đổi phạm vi với các bên."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tổ chức công việc",
+        "reason": "Hỗ trợ việc lập kế hoạch công việc; cần kiểm tra kết quả vì trễ một hạng mục ảnh hưởng chuỗi công việc."
+      },
+      {
+        "skill": "Giao tiếp và phân tích nhu cầu",
+        "reason": "Hỗ trợ việc chia mốc và người phụ trách; cần kiểm tra kết quả vì báo cáo đẹp có thể che tiến độ thật."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Ngữ văn, Tiếng Anh qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử chia mốc và người phụ trách ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Lập bảng tiến độ cho buổi triển lãm của lớp. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-van-hanh",
     "name": "Chuyên viên vận hành",
     "category_id": "business",
     "short_description": "Theo dõi quy trình dịch vụ, xử lý điểm nghẽn.",
-    "description": "Chuyên viên vận hành tập trung vào theo dõi quy trình dịch vụ. Công việc còn bao gồm xử lý điểm nghẽn, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên vận hành duy trì quy trình dịch vụ hoặc sản xuất hằng ngày và cải thiện điểm nghẽn. Kết quả công việc gắn với theo dõi quy trình dịch vụ và xử lý điểm nghẽn.",
     "daily_tasks": [
       "Theo dõi quy trình dịch vụ",
-      "Xử lý điểm nghẽn"
+      "Xử lý điểm nghẽn",
+      "Theo dõi khối lượng và thời gian xử lý",
+      "Phân tích sự cố trong quy trình",
+      "Điều chỉnh phân công theo năng lực"
     ],
     "skills": [
       "Tổ chức công việc",
@@ -1008,9 +2251,11 @@
       "Ngữ văn",
       "Tiếng Anh"
     ],
-    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "work_environment": "Bộ phận vận hành, gắn với hệ thống đặt hàng hoặc cung cấp dịch vụ.",
     "challenges": [
-      "Giữ chất lượng khi khối lượng tăng"
+      "Giữ chất lượng khi khối lượng tăng",
+      "Tối ưu một khâu có thể gây tắc khâu khác",
+      "Biến động nhu cầu làm thiếu nguồn lực"
     ],
     "keywords": [
       "Chuyên viên vận hành",
@@ -1020,17 +2265,56 @@
       "Toán",
       "Ngữ văn",
       "Tiếng Anh"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Theo dõi quy trình dịch vụ."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Theo dõi khối lượng và thời gian xử lý; phân tích sự cố trong quy trình."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Điều chỉnh phân công theo năng lực."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tổ chức công việc",
+        "reason": "Hỗ trợ việc theo dõi quy trình dịch vụ; cần kiểm tra kết quả vì tối ưu một khâu có thể gây tắc khâu khác."
+      },
+      {
+        "skill": "Giao tiếp và phân tích nhu cầu",
+        "reason": "Hỗ trợ việc theo dõi khối lượng và thời gian xử lý; cần kiểm tra kết quả vì biến động nhu cầu làm thiếu nguồn lực."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Ngữ văn, Tiếng Anh qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử theo dõi khối lượng và thời gian xử lý ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Vẽ luồng phát dụng cụ học tập và tìm điểm ùn tắc. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-mua-hang",
     "name": "Chuyên viên mua hàng",
     "category_id": "business",
     "short_description": "So sánh đề xuất nhà cung cấp, theo dõi đơn mua.",
-    "description": "Chuyên viên mua hàng tập trung vào so sánh đề xuất nhà cung cấp. Công việc còn bao gồm theo dõi đơn mua, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên mua hàng chọn nguồn cung đáp ứng chất lượng, thời hạn và chi phí minh bạch. Kết quả công việc gắn với so sánh đề xuất nhà cung cấp và theo dõi đơn mua.",
     "daily_tasks": [
       "So sánh đề xuất nhà cung cấp",
-      "Theo dõi đơn mua"
+      "Theo dõi đơn mua",
+      "So sánh báo giá theo cùng tiêu chí",
+      "Kiểm tra năng lực nhà cung cấp",
+      "Theo dõi giao hàng và xử lý sai lệch"
     ],
     "skills": [
       "Tổ chức công việc",
@@ -1041,9 +2325,11 @@
       "Ngữ văn",
       "Tiếng Anh"
     ],
-    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "work_environment": "Phòng mua hàng, trao đổi với nhà cung cấp và bộ phận sử dụng.",
     "challenges": [
-      "Cân đối chất lượng và thời gian giao"
+      "Cân đối chất lượng và thời gian giao",
+      "Giá rẻ chưa phản ánh tổng chi phí",
+      "Xung đột lợi ích ảnh hưởng lựa chọn"
     ],
     "keywords": [
       "Chuyên viên mua hàng",
@@ -1053,17 +2339,56 @@
       "Toán",
       "Ngữ văn",
       "Tiếng Anh"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "So sánh đề xuất nhà cung cấp."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "So sánh báo giá theo cùng tiêu chí; kiểm tra năng lực nhà cung cấp."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi giao hàng và xử lý sai lệch."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tổ chức công việc",
+        "reason": "Hỗ trợ việc so sánh đề xuất nhà cung cấp; cần kiểm tra kết quả vì giá rẻ chưa phản ánh tổng chi phí."
+      },
+      {
+        "skill": "Giao tiếp và phân tích nhu cầu",
+        "reason": "Hỗ trợ việc so sánh báo giá theo cùng tiêu chí; cần kiểm tra kết quả vì xung đột lợi ích ảnh hưởng lựa chọn."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Ngữ văn, Tiếng Anh qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử so sánh báo giá theo cùng tiêu chí ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Lập bảng so sánh ba vật liệu làm mô hình từ báo giá công khai. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-logistics",
     "name": "Chuyên viên logistics",
     "category_id": "business",
     "short_description": "Điều phối luồng hàng, theo dõi vận chuyển.",
-    "description": "Chuyên viên logistics tập trung vào điều phối luồng hàng. Công việc còn bao gồm theo dõi vận chuyển, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên logistics tổ chức dòng vận chuyển và lưu chuyển hàng hóa giữa các điểm trong chuỗi cung ứng. Kết quả công việc gắn với điều phối luồng hàng và theo dõi vận chuyển.",
     "daily_tasks": [
       "Điều phối luồng hàng",
-      "Theo dõi vận chuyển"
+      "Theo dõi vận chuyển",
+      "Chọn tuyến và phương thức vận chuyển",
+      "Theo dõi lô hàng và thời gian giao",
+      "Xử lý lệch lịch với kho và hãng vận tải"
     ],
     "skills": [
       "Tổ chức công việc",
@@ -1074,9 +2399,11 @@
       "Ngữ văn",
       "Tiếng Anh"
     ],
-    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "work_environment": "Văn phòng điều phối, kho và đầu mối vận tải.",
     "challenges": [
-      "Gián đoạn ở nhiều mắt xích"
+      "Gián đoạn ở nhiều mắt xích",
+      "Tắc tuyến làm chậm nhiều đơn",
+      "Hàng dễ hỏng cần điều kiện vận chuyển"
     ],
     "keywords": [
       "Chuyên viên logistics",
@@ -1086,17 +2413,56 @@
       "Toán",
       "Ngữ văn",
       "Tiếng Anh"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Điều phối luồng hàng."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Chọn tuyến và phương thức vận chuyển; theo dõi lô hàng và thời gian giao."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Xử lý lệch lịch với kho và hãng vận tải."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tổ chức công việc",
+        "reason": "Hỗ trợ việc điều phối luồng hàng; cần kiểm tra kết quả vì tắc tuyến làm chậm nhiều đơn."
+      },
+      {
+        "skill": "Giao tiếp và phân tích nhu cầu",
+        "reason": "Hỗ trợ việc chọn tuyến và phương thức vận chuyển; cần kiểm tra kết quả vì hàng dễ hỏng cần điều kiện vận chuyển."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Ngữ văn, Tiếng Anh qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử chọn tuyến và phương thức vận chuyển ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Lập tuyến giao sách giả định bằng bản đồ khu vực mẫu. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-xuat-nhap-khau",
     "name": "Chuyên viên xuất nhập khẩu",
     "category_id": "business",
     "short_description": "Chuẩn bị chứng từ hàng hóa, phối hợp giao nhận quốc tế.",
-    "description": "Chuyên viên xuất nhập khẩu tập trung vào chuẩn bị chứng từ hàng hóa. Công việc còn bao gồm phối hợp giao nhận quốc tế, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên xuất nhập khẩu chuẩn bị và theo dõi chứng từ để hàng hóa đi qua biên giới đúng quy định. Kết quả công việc gắn với chuẩn bị chứng từ hàng hóa và phối hợp giao nhận quốc tế.",
     "daily_tasks": [
       "Chuẩn bị chứng từ hàng hóa",
-      "Phối hợp giao nhận quốc tế"
+      "Phối hợp giao nhận quốc tế",
+      "Kiểm tra hóa đơn và vận đơn",
+      "Đối chiếu điều kiện giao hàng",
+      "Phối hợp khai báo và xử lý vướng mắc"
     ],
     "skills": [
       "Tổ chức công việc",
@@ -1107,9 +2473,11 @@
       "Ngữ văn",
       "Tiếng Anh"
     ],
-    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "work_environment": "Doanh nghiệp thương mại, hãng giao nhận và bộ phận chứng từ.",
     "challenges": [
-      "Chứng từ và lịch vận chuyển thay đổi"
+      "Chứng từ và lịch vận chuyển thay đổi",
+      "Sai chứng từ có thể chậm thông quan",
+      "Quy định khác nhau theo mặt hàng"
     ],
     "keywords": [
       "Chuyên viên xuất nhập khẩu",
@@ -1119,17 +2487,56 @@
       "Toán",
       "Ngữ văn",
       "Tiếng Anh"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Chuẩn bị chứng từ hàng hóa."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Kiểm tra hóa đơn và vận đơn; đối chiếu điều kiện giao hàng."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Phối hợp khai báo và xử lý vướng mắc."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tổ chức công việc",
+        "reason": "Hỗ trợ việc chuẩn bị chứng từ hàng hóa; cần kiểm tra kết quả vì sai chứng từ có thể chậm thông quan."
+      },
+      {
+        "skill": "Giao tiếp và phân tích nhu cầu",
+        "reason": "Hỗ trợ việc kiểm tra hóa đơn và vận đơn; cần kiểm tra kết quả vì quy định khác nhau theo mặt hàng."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Ngữ văn, Tiếng Anh qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử kiểm tra hóa đơn và vận đơn ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: So sánh bộ chứng từ mẫu không có giao dịch thật. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "quan-ly-kho",
     "name": "Quản lý kho",
     "category_id": "business",
     "short_description": "Kiểm tra tồn kho, tổ chức vị trí lưu hàng.",
-    "description": "Quản lý kho tập trung vào kiểm tra tồn kho. Công việc còn bao gồm tổ chức vị trí lưu hàng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Quản lý kho tổ chức vị trí, luân chuyển và kiểm soát hàng tồn trong kho. Kết quả công việc gắn với kiểm tra tồn kho và tổ chức vị trí lưu hàng.",
     "daily_tasks": [
       "Kiểm tra tồn kho",
-      "Tổ chức vị trí lưu hàng"
+      "Tổ chức vị trí lưu hàng",
+      "Sắp vị trí theo đặc tính hàng",
+      "Đối chiếu kiểm kê với hệ thống",
+      "Điều phối nhập xuất và hạn dùng"
     ],
     "skills": [
       "Tổ chức công việc",
@@ -1140,9 +2547,11 @@
       "Ngữ văn",
       "Tiếng Anh"
     ],
-    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "work_environment": "Kho hàng với lối đi, giá kệ và khu nhận xuất riêng.",
     "challenges": [
-      "Sai lệch giữa sổ sách và hàng thực"
+      "Sai lệch giữa sổ sách và hàng thực",
+      "Sai tồn kho làm thiếu hàng bất ngờ",
+      "Xếp dỡ có rủi ro va chạm"
     ],
     "keywords": [
       "Quản lý kho",
@@ -1152,17 +2561,56 @@
       "Toán",
       "Ngữ văn",
       "Tiếng Anh"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Kiểm tra tồn kho."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Sắp vị trí theo đặc tính hàng; đối chiếu kiểm kê với hệ thống."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Điều phối nhập xuất và hạn dùng."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tổ chức công việc",
+        "reason": "Hỗ trợ việc kiểm tra tồn kho; cần kiểm tra kết quả vì sai tồn kho làm thiếu hàng bất ngờ."
+      },
+      {
+        "skill": "Giao tiếp và phân tích nhu cầu",
+        "reason": "Hỗ trợ việc sắp vị trí theo đặc tính hàng; cần kiểm tra kết quả vì xếp dỡ có rủi ro va chạm."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Ngữ văn, Tiếng Anh qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử sắp vị trí theo đặc tính hàng ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Sắp kho dụng cụ lớp bằng thẻ mã và kiểm kê thử. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-thuong-mai-dien-tu",
     "name": "Chuyên viên thương mại điện tử",
     "category_id": "business",
     "short_description": "Quản lý gian hàng số, theo dõi hành trình đặt hàng.",
-    "description": "Chuyên viên thương mại điện tử tập trung vào quản lý gian hàng số. Công việc còn bao gồm theo dõi hành trình đặt hàng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên thương mại điện tử vận hành gian hàng trực tuyến từ nội dung sản phẩm đến đơn hàng và chăm sóc. Kết quả công việc gắn với quản lý gian hàng số và theo dõi hành trình đặt hàng.",
     "daily_tasks": [
       "Quản lý gian hàng số",
-      "Theo dõi hành trình đặt hàng"
+      "Theo dõi hành trình đặt hàng",
+      "Cập nhật thông tin và tồn hàng",
+      "Theo dõi chuyển đổi và hoàn đơn",
+      "Phối hợp đóng gói và giao nhận"
     ],
     "skills": [
       "Tổ chức công việc",
@@ -1173,9 +2621,11 @@
       "Ngữ văn",
       "Tiếng Anh"
     ],
-    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "work_environment": "Nhóm bán hàng số kết nối nền tảng, kho và dịch vụ khách hàng.",
     "challenges": [
-      "Thay đổi nền tảng và hành vi mua"
+      "Thay đổi nền tảng và hành vi mua",
+      "Thông tin sai gây khiếu nại",
+      "Khuyến mãi không tính kỹ làm lỗ"
     ],
     "keywords": [
       "Chuyên viên thương mại điện tử",
@@ -1185,17 +2635,56 @@
       "Toán",
       "Ngữ văn",
       "Tiếng Anh"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Quản lý gian hàng số."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Cập nhật thông tin và tồn hàng; theo dõi chuyển đổi và hoàn đơn."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Phối hợp đóng gói và giao nhận."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tổ chức công việc",
+        "reason": "Hỗ trợ việc quản lý gian hàng số; cần kiểm tra kết quả vì thông tin sai gây khiếu nại."
+      },
+      {
+        "skill": "Giao tiếp và phân tích nhu cầu",
+        "reason": "Hỗ trợ việc cập nhật thông tin và tồn hàng; cần kiểm tra kết quả vì khuyến mãi không tính kỹ làm lỗ."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Ngữ văn, Tiếng Anh qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử cập nhật thông tin và tồn hàng ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Thiết kế gian hàng mô phỏng không nhận thanh toán. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-cham-soc-khach-hang",
     "name": "Chuyên viên chăm sóc khách hàng",
     "category_id": "business",
     "short_description": "Tiếp nhận phản hồi, phối hợp xử lý yêu cầu.",
-    "description": "Chuyên viên chăm sóc khách hàng tập trung vào tiếp nhận phản hồi. Công việc còn bao gồm phối hợp xử lý yêu cầu, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên chăm sóc khách hàng giải thích dịch vụ và xử lý phản hồi để khách hàng được hỗ trợ nhất quán. Kết quả công việc gắn với tiếp nhận phản hồi và phối hợp xử lý yêu cầu.",
     "daily_tasks": [
       "Tiếp nhận phản hồi",
-      "Phối hợp xử lý yêu cầu"
+      "Phối hợp xử lý yêu cầu",
+      "Xác minh nhu cầu và mã yêu cầu",
+      "Hướng dẫn giải pháp theo chính sách",
+      "Theo dõi vụ việc đến khi kết thúc"
     ],
     "skills": [
       "Tổ chức công việc",
@@ -1206,9 +2695,11 @@
       "Ngữ văn",
       "Tiếng Anh"
     ],
-    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "work_environment": "Tổng đài, kênh trực tuyến hoặc quầy dịch vụ theo ca.",
     "challenges": [
-      "Giao tiếp khi khách đang bức xúc"
+      "Giao tiếp khi khách đang bức xúc",
+      "Phản hồi căng thẳng tạo áp lực tâm lý",
+      "Không được tiết lộ dữ liệu khách khác"
     ],
     "keywords": [
       "Chuyên viên chăm sóc khách hàng",
@@ -1218,17 +2709,56 @@
       "Toán",
       "Ngữ văn",
       "Tiếng Anh"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Tiếp nhận phản hồi."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Xác minh nhu cầu và mã yêu cầu; hướng dẫn giải pháp theo chính sách."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi vụ việc đến khi kết thúc."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tổ chức công việc",
+        "reason": "Hỗ trợ việc tiếp nhận phản hồi; cần kiểm tra kết quả vì phản hồi căng thẳng tạo áp lực tâm lý."
+      },
+      {
+        "skill": "Giao tiếp và phân tích nhu cầu",
+        "reason": "Hỗ trợ việc xác minh nhu cầu và mã yêu cầu; cần kiểm tra kết quả vì không được tiết lộ dữ liệu khách khác."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Ngữ văn, Tiếng Anh qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử xác minh nhu cầu và mã yêu cầu ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Viết hội thoại hỗ trợ đổi sách mô phỏng, không dùng dữ liệu thật. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-nghien-cuu-thi-truong",
     "name": "Chuyên viên nghiên cứu thị trường",
     "category_id": "business",
     "short_description": "Thiết kế khảo sát, phân tích nhu cầu tiêu dùng.",
-    "description": "Chuyên viên nghiên cứu thị trường tập trung vào thiết kế khảo sát. Công việc còn bao gồm phân tích nhu cầu tiêu dùng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên nghiên cứu thị trường tìm bằng chứng về nhu cầu và hành vi khách hàng để hỗ trợ lựa chọn kinh doanh. Kết quả công việc gắn với thiết kế khảo sát và phân tích nhu cầu tiêu dùng.",
     "daily_tasks": [
       "Thiết kế khảo sát",
-      "Phân tích nhu cầu tiêu dùng"
+      "Phân tích nhu cầu tiêu dùng",
+      "Thiết kế câu hỏi không dẫn dắt",
+      "Chọn mẫu và thu thập phản hồi",
+      "Phân tích kết quả cùng giới hạn mẫu"
     ],
     "skills": [
       "Tổ chức công việc",
@@ -1239,9 +2769,11 @@
       "Ngữ văn",
       "Tiếng Anh"
     ],
-    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "work_environment": "Đơn vị nghiên cứu hoặc bộ phận marketing, kết hợp bàn giấy và thực địa.",
     "challenges": [
-      "Mẫu khảo sát không đại diện"
+      "Mẫu khảo sát không đại diện",
+      "Mẫu thuận tiện dễ thiếu đại diện",
+      "Câu hỏi thiên lệch làm sai kết luận"
     ],
     "keywords": [
       "Chuyên viên nghiên cứu thị trường",
@@ -1251,17 +2783,56 @@
       "Toán",
       "Ngữ văn",
       "Tiếng Anh"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thiết kế khảo sát."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Thiết kế câu hỏi không dẫn dắt; chọn mẫu và thu thập phản hồi."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Phân tích kết quả cùng giới hạn mẫu."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tổ chức công việc",
+        "reason": "Hỗ trợ việc thiết kế khảo sát; cần kiểm tra kết quả vì mẫu thuận tiện dễ thiếu đại diện."
+      },
+      {
+        "skill": "Giao tiếp và phân tích nhu cầu",
+        "reason": "Hỗ trợ việc thiết kế câu hỏi không dẫn dắt; cần kiểm tra kết quả vì câu hỏi thiên lệch làm sai kết luận."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Ngữ văn, Tiếng Anh qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử thiết kế câu hỏi không dẫn dắt ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Khảo sát ẩn danh nhu cầu sách với sự đồng ý của người trả lời. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-quan-ly-chat-luong",
     "name": "Chuyên viên quản lý chất lượng",
     "category_id": "business",
     "short_description": "Rà soát quy trình, theo dõi hành động cải tiến.",
-    "description": "Chuyên viên quản lý chất lượng tập trung vào rà soát quy trình. Công việc còn bao gồm theo dõi hành động cải tiến, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên quản lý chất lượng xây quy trình kiểm soát để sản phẩm và dịch vụ đáp ứng tiêu chí đã công bố. Kết quả công việc gắn với rà soát quy trình và theo dõi hành động cải tiến.",
     "daily_tasks": [
       "Rà soát quy trình",
-      "Theo dõi hành động cải tiến"
+      "Theo dõi hành động cải tiến",
+      "Lập tiêu chí kiểm tra đầu vào",
+      "Phân tích nguyên nhân sai lỗi",
+      "Theo dõi hành động khắc phục"
     ],
     "skills": [
       "Tổ chức công việc",
@@ -1272,9 +2843,11 @@
       "Ngữ văn",
       "Tiếng Anh"
     ],
-    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "work_environment": "Phòng chất lượng, chuyền sản xuất và đợt đánh giá quy trình.",
     "challenges": [
-      "Thay đổi thói quen làm việc"
+      "Thay đổi thói quen làm việc",
+      "Kiểm tra hình thức bỏ sót lỗi hệ thống",
+      "Tiêu chuẩn khác nhau theo ngành"
     ],
     "keywords": [
       "Chuyên viên quản lý chất lượng",
@@ -1284,17 +2857,56 @@
       "Toán",
       "Ngữ văn",
       "Tiếng Anh"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Rà soát quy trình."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Lập tiêu chí kiểm tra đầu vào; phân tích nguyên nhân sai lỗi."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi hành động khắc phục."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tổ chức công việc",
+        "reason": "Hỗ trợ việc rà soát quy trình; cần kiểm tra kết quả vì kiểm tra hình thức bỏ sót lỗi hệ thống."
+      },
+      {
+        "skill": "Giao tiếp và phân tích nhu cầu",
+        "reason": "Hỗ trợ việc lập tiêu chí kiểm tra đầu vào; cần kiểm tra kết quả vì tiêu chuẩn khác nhau theo ngành."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Ngữ văn, Tiếng Anh qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử lập tiêu chí kiểm tra đầu vào ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Đặt tiêu chí kiểm tra mô hình giấy và ghi lỗi theo nhóm. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "quan-ly-cua-hang",
     "name": "Quản lý cửa hàng",
     "category_id": "business",
     "short_description": "Điều phối ca bán hàng, kiểm tra trải nghiệm mua sắm.",
-    "description": "Quản lý cửa hàng tập trung vào điều phối ca bán hàng. Công việc còn bao gồm kiểm tra trải nghiệm mua sắm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Quản lý cửa hàng điều phối nhân viên, hàng hóa và trải nghiệm mua sắm tại điểm bán. Kết quả công việc gắn với điều phối ca bán hàng và kiểm tra trải nghiệm mua sắm.",
     "daily_tasks": [
       "Điều phối ca bán hàng",
-      "Kiểm tra trải nghiệm mua sắm"
+      "Kiểm tra trải nghiệm mua sắm",
+      "Lập lịch ca và phân công quầy",
+      "Theo dõi tồn và trưng bày hàng",
+      "Đối soát doanh thu và khiếu nại"
     ],
     "skills": [
       "Tổ chức công việc",
@@ -1305,9 +2917,11 @@
       "Ngữ văn",
       "Tiếng Anh"
     ],
-    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "work_environment": "Cửa hàng bán lẻ, thường làm theo lịch mở cửa và cuối tuần.",
     "challenges": [
-      "Xử lý đồng thời nhiều tình huống"
+      "Xử lý đồng thời nhiều tình huống",
+      "Thiếu nhân sự giờ cao điểm",
+      "Sai lệch tiền hàng cần xử lý minh bạch"
     ],
     "keywords": [
       "Quản lý cửa hàng",
@@ -1317,17 +2931,56 @@
       "Toán",
       "Ngữ văn",
       "Tiếng Anh"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Điều phối ca bán hàng."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Lập lịch ca và phân công quầy; theo dõi tồn và trưng bày hàng."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Đối soát doanh thu và khiếu nại."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tổ chức công việc",
+        "reason": "Hỗ trợ việc điều phối ca bán hàng; cần kiểm tra kết quả vì thiếu nhân sự giờ cao điểm."
+      },
+      {
+        "skill": "Giao tiếp và phân tích nhu cầu",
+        "reason": "Hỗ trợ việc lập lịch ca và phân công quầy; cần kiểm tra kết quả vì sai lệch tiền hàng cần xử lý minh bạch."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Ngữ văn, Tiếng Anh qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử lập lịch ca và phân công quầy ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Lập sơ đồ quầy sách thiện nguyện của lớp. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-hoach-dinh-chuoi-cung-ung",
     "name": "Chuyên viên hoạch định chuỗi cung ứng",
     "category_id": "business",
     "short_description": "Dự báo nhu cầu hàng, lập kế hoạch cung ứng.",
-    "description": "Chuyên viên hoạch định chuỗi cung ứng tập trung vào dự báo nhu cầu hàng. Công việc còn bao gồm lập kế hoạch cung ứng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên hoạch định chuỗi cung ứng cân đối nhu cầu với nguồn cung để hạn chế thiếu hàng và tồn kho dư. Kết quả công việc gắn với dự báo nhu cầu hàng và lập kế hoạch cung ứng.",
     "daily_tasks": [
       "Dự báo nhu cầu hàng",
-      "Lập kế hoạch cung ứng"
+      "Lập kế hoạch cung ứng",
+      "Dự báo nhu cầu từ dữ liệu",
+      "Lập kế hoạch bổ sung hàng",
+      "Điều chỉnh kế hoạch khi nhà cung cấp trễ"
     ],
     "skills": [
       "Tổ chức công việc",
@@ -1338,9 +2991,11 @@
       "Ngữ văn",
       "Tiếng Anh"
     ],
-    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "work_environment": "Nhóm kế hoạch phối hợp mua hàng, sản xuất và kho vận.",
     "challenges": [
-      "Dự báo sai gây thiếu hoặc tồn hàng"
+      "Dự báo sai gây thiếu hoặc tồn hàng",
+      "Dự báo luôn có sai số",
+      "Tồn quá nhiều làm tăng chi phí"
     ],
     "keywords": [
       "Chuyên viên hoạch định chuỗi cung ứng",
@@ -1350,17 +3005,56 @@
       "Toán",
       "Ngữ văn",
       "Tiếng Anh"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Dự báo nhu cầu hàng."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Dự báo nhu cầu từ dữ liệu; lập kế hoạch bổ sung hàng."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Điều chỉnh kế hoạch khi nhà cung cấp trễ."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tổ chức công việc",
+        "reason": "Hỗ trợ việc dự báo nhu cầu hàng; cần kiểm tra kết quả vì dự báo luôn có sai số."
+      },
+      {
+        "skill": "Giao tiếp và phân tích nhu cầu",
+        "reason": "Hỗ trợ việc dự báo nhu cầu từ dữ liệu; cần kiểm tra kết quả vì tồn quá nhiều làm tăng chi phí."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Ngữ văn, Tiếng Anh qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử dự báo nhu cầu từ dữ liệu ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Dự báo số giấy cần cho câu lạc bộ qua ba kịch bản. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-tu-van-quan-tri",
     "name": "Chuyên viên tư vấn quản trị",
     "category_id": "business",
     "short_description": "Phân tích vấn đề tổ chức, đề xuất phương án cải tiến.",
-    "description": "Chuyên viên tư vấn quản trị tập trung vào phân tích vấn đề tổ chức. Công việc còn bao gồm đề xuất phương án cải tiến, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên tư vấn quản trị phân tích vấn đề tổ chức và đề xuất thay đổi có bằng chứng, khả năng thực thi. Kết quả công việc gắn với phân tích vấn đề tổ chức và đề xuất phương án cải tiến.",
     "daily_tasks": [
       "Phân tích vấn đề tổ chức",
-      "Đề xuất phương án cải tiến"
+      "Đề xuất phương án cải tiến",
+      "Phỏng vấn và mô tả hiện trạng",
+      "So sánh phương án cải tiến",
+      "Thử giải pháp và bàn giao cách đo"
     ],
     "skills": [
       "Tổ chức công việc",
@@ -1371,9 +3065,11 @@
       "Ngữ văn",
       "Tiếng Anh"
     ],
-    "work_environment": "Doanh nghiệp, văn phòng vận hành và địa điểm gặp khách hàng.",
+    "work_environment": "Nhóm tư vấn làm việc tại văn phòng và cơ sở khách hàng.",
     "challenges": [
-      "Hiểu thực tế vận hành trước khi tư vấn"
+      "Hiểu thực tế vận hành trước khi tư vấn",
+      "Thiếu hiểu biết nội bộ dẫn đến đề xuất xa thực tế",
+      "Thay đổi có thể gặp phản ứng"
     ],
     "keywords": [
       "Chuyên viên tư vấn quản trị",
@@ -1383,17 +3079,56 @@
       "Toán",
       "Ngữ văn",
       "Tiếng Anh"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Phân tích vấn đề tổ chức."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Phỏng vấn và mô tả hiện trạng; so sánh phương án cải tiến."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Thử giải pháp và bàn giao cách đo."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tổ chức công việc",
+        "reason": "Hỗ trợ việc phân tích vấn đề tổ chức; cần kiểm tra kết quả vì thiếu hiểu biết nội bộ dẫn đến đề xuất xa thực tế."
+      },
+      {
+        "skill": "Giao tiếp và phân tích nhu cầu",
+        "reason": "Hỗ trợ việc phỏng vấn và mô tả hiện trạng; cần kiểm tra kết quả vì thay đổi có thể gặp phản ứng."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Ngữ văn, Tiếng Anh qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử phỏng vấn và mô tả hiện trạng ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Phân tích quy trình sinh hoạt câu lạc bộ trước khi đề xuất cải tiến. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ke-toan-vien",
     "name": "Kế toán viên",
     "category_id": "finance",
     "short_description": "Ghi nhận nghiệp vụ, đối chiếu chứng từ.",
-    "description": "Kế toán viên tập trung vào ghi nhận nghiệp vụ. Công việc còn bao gồm đối chiếu chứng từ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kế toán viên ghi nhận và đối chiếu nghiệp vụ để số liệu tài chính có căn cứ và có thể kiểm tra. Kết quả công việc gắn với ghi nhận nghiệp vụ và đối chiếu chứng từ.",
     "daily_tasks": [
       "Ghi nhận nghiệp vụ",
-      "Đối chiếu chứng từ"
+      "Đối chiếu chứng từ",
+      "Kiểm tra chứng từ trước ghi sổ",
+      "Đối chiếu công nợ và tài khoản",
+      "Lập báo cáo theo kỳ"
     ],
     "skills": [
       "Đối chiếu số liệu",
@@ -1404,9 +3139,11 @@
       "Tin học",
       "Giáo dục kinh tế và pháp luật"
     ],
-    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "work_environment": "Phòng kế toán doanh nghiệp hoặc đơn vị dịch vụ, cao điểm cuối kỳ.",
     "challenges": [
-      "Sai số nhỏ ảnh hưởng báo cáo"
+      "Sai số nhỏ ảnh hưởng báo cáo",
+      "Sai phân loại làm lệch báo cáo",
+      "Phải bảo quản chứng từ và thông tin tài chính"
     ],
     "keywords": [
       "Kế toán viên",
@@ -1416,17 +3153,61 @@
       "Toán",
       "Tin học",
       "Giáo dục kinh tế và pháp luật"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Ghi nhận nghiệp vụ."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Kiểm tra chứng từ trước ghi sổ; đối chiếu công nợ và tài khoản."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Lập báo cáo theo kỳ."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đối chiếu số liệu",
+        "reason": "Hỗ trợ việc ghi nhận nghiệp vụ; cần kiểm tra kết quả vì sai phân loại làm lệch báo cáo."
+      },
+      {
+        "skill": "Phân tích và bảo mật thông tin",
+        "reason": "Hỗ trợ việc kiểm tra chứng từ trước ghi sổ; cần kiểm tra kết quả vì phải bảo quản chứng từ và thông tin tài chính."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Tin học, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử kiểm tra chứng từ trước ghi sổ ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Ghi sổ thu chi giả định của một sự kiện lớp. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "regulated_or_role_specific",
+      "note": "Phân biệt nhân viên kế toán nội bộ với hành nghề dịch vụ kế toán có điều kiện.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [
+      {
+        "label": "Chứng chỉ kế toán và kiểm toán",
+        "url": "https://chinhphu.vn/?classid=2629&docid=211019&pageid=27160"
+      }
+    ],
+    "profile_version": 2
   },
   {
     "career_id": "kiem-toan-vien",
     "name": "Kiểm toán viên",
     "category_id": "finance",
     "short_description": "Kiểm tra bằng chứng tài chính, đánh giá sai lệch báo cáo.",
-    "description": "Kiểm toán viên tập trung vào kiểm tra bằng chứng tài chính. Công việc còn bao gồm đánh giá sai lệch báo cáo, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kiểm toán viên thu thập bằng chứng để đánh giá thông tin tài chính theo phạm vi và chuẩn mực áp dụng. Kết quả công việc gắn với kiểm tra bằng chứng tài chính và đánh giá sai lệch báo cáo.",
     "daily_tasks": [
       "Kiểm tra bằng chứng tài chính",
-      "Đánh giá sai lệch báo cáo"
+      "Đánh giá sai lệch báo cáo",
+      "Đánh giá rủi ro và lập kế hoạch",
+      "Chọn mẫu và kiểm tra bằng chứng",
+      "Trao đổi phát hiện trước báo cáo"
     ],
     "skills": [
       "Đối chiếu số liệu",
@@ -1437,9 +3218,11 @@
       "Tin học",
       "Giáo dục kinh tế và pháp luật"
     ],
-    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "work_environment": "Nhóm kiểm toán tại văn phòng và cơ sở đơn vị được kiểm toán.",
     "challenges": [
-      "Giữ tính độc lập trong đánh giá"
+      "Giữ tính độc lập trong đánh giá",
+      "Bằng chứng không đầy đủ làm sai nhận định",
+      "Độc lập nghề nghiệp dễ bị tác động"
     ],
     "keywords": [
       "Kiểm toán viên",
@@ -1449,17 +3232,61 @@
       "Toán",
       "Tin học",
       "Giáo dục kinh tế và pháp luật"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Kiểm tra bằng chứng tài chính."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Đánh giá rủi ro và lập kế hoạch; chọn mẫu và kiểm tra bằng chứng."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Trao đổi phát hiện trước báo cáo."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đối chiếu số liệu",
+        "reason": "Hỗ trợ việc kiểm tra bằng chứng tài chính; cần kiểm tra kết quả vì bằng chứng không đầy đủ làm sai nhận định."
+      },
+      {
+        "skill": "Phân tích và bảo mật thông tin",
+        "reason": "Hỗ trợ việc đánh giá rủi ro và lập kế hoạch; cần kiểm tra kết quả vì độc lập nghề nghiệp dễ bị tác động."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Tin học, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử đánh giá rủi ro và lập kế hoạch ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Đối chiếu sổ thu chi mẫu với hóa đơn giả định. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "regulated_or_role_specific",
+      "note": "Chứng chỉ và đăng ký hành nghề có yêu cầu riêng; bằng chuyên ngành không tự đủ.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [
+      {
+        "label": "Đăng ký hành nghề kiểm toán",
+        "url": "https://xaydungchinhsach.chinhphu.vn/nhung-nguoi-nao-khong-duoc-dang-ky-hanh-nghe-kiem-toan-119241225162613927.htm"
+      }
+    ],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-phan-tich-tai-chinh",
     "name": "Chuyên viên phân tích tài chính",
     "category_id": "finance",
     "short_description": "Phân tích dòng tiền, so sánh kịch bản kinh doanh.",
-    "description": "Chuyên viên phân tích tài chính tập trung vào phân tích dòng tiền. Công việc còn bao gồm so sánh kịch bản kinh doanh, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên phân tích tài chính đọc số liệu doanh nghiệp và các giả định để đánh giá hiệu quả, khả năng tài chính. Kết quả công việc gắn với phân tích dòng tiền và so sánh kịch bản kinh doanh.",
     "daily_tasks": [
       "Phân tích dòng tiền",
-      "So sánh kịch bản kinh doanh"
+      "So sánh kịch bản kinh doanh",
+      "Phân tích dòng tiền và tỷ số",
+      "Lập kịch bản doanh thu chi phí",
+      "Giải thích độ nhạy của mô hình"
     ],
     "skills": [
       "Đối chiếu số liệu",
@@ -1470,9 +3297,11 @@
       "Tin học",
       "Giáo dục kinh tế và pháp luật"
     ],
-    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "work_environment": "Bộ phận tài chính, dùng bảng tính và báo cáo doanh nghiệp.",
     "challenges": [
-      "Giả định có thể thay đổi kết quả"
+      "Giả định có thể thay đổi kết quả",
+      "Giả định thiếu căn cứ làm sai dự báo",
+      "Kết quả lịch sử không bảo đảm tương lai"
     ],
     "keywords": [
       "Chuyên viên phân tích tài chính",
@@ -1482,17 +3311,56 @@
       "Toán",
       "Tin học",
       "Giáo dục kinh tế và pháp luật"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Phân tích dòng tiền."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Phân tích dòng tiền và tỷ số; lập kịch bản doanh thu chi phí."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Giải thích độ nhạy của mô hình."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đối chiếu số liệu",
+        "reason": "Hỗ trợ việc phân tích dòng tiền; cần kiểm tra kết quả vì giả định thiếu căn cứ làm sai dự báo."
+      },
+      {
+        "skill": "Phân tích và bảo mật thông tin",
+        "reason": "Hỗ trợ việc phân tích dòng tiền và tỷ số; cần kiểm tra kết quả vì kết quả lịch sử không bảo đảm tương lai."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Tin học, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử phân tích dòng tiền và tỷ số ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Lập ba kịch bản ngân sách sự kiện, không tư vấn đầu tư thật. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "giao-dich-vien-ngan-hang",
     "name": "Giao dịch viên ngân hàng",
     "category_id": "finance",
     "short_description": "Tiếp nhận yêu cầu giao dịch, kiểm tra thông tin hồ sơ.",
-    "description": "Giao dịch viên ngân hàng tập trung vào tiếp nhận yêu cầu giao dịch. Công việc còn bao gồm kiểm tra thông tin hồ sơ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Giao dịch viên ngân hàng thực hiện giao dịch tại quầy sau khi xác minh khách hàng và hồ sơ. Kết quả công việc gắn với tiếp nhận yêu cầu giao dịch và kiểm tra thông tin hồ sơ.",
     "daily_tasks": [
       "Tiếp nhận yêu cầu giao dịch",
-      "Kiểm tra thông tin hồ sơ"
+      "Kiểm tra thông tin hồ sơ",
+      "Kiểm tra chứng từ và định danh",
+      "Thực hiện nghiệp vụ theo phân quyền",
+      "Đối soát quỹ và giao dịch cuối ca"
     ],
     "skills": [
       "Đối chiếu số liệu",
@@ -1503,9 +3371,11 @@
       "Tin học",
       "Giáo dục kinh tế và pháp luật"
     ],
-    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "work_environment": "Quầy giao dịch có kiểm soát tiền mặt và quy trình bảo mật.",
     "challenges": [
-      "Độ chính xác khi phục vụ liên tục"
+      "Độ chính xác khi phục vụ liên tục",
+      "Giả mạo giấy tờ cần nhận diện",
+      "Sai số tiền ảnh hưởng trực tiếp khách hàng"
     ],
     "keywords": [
       "Giao dịch viên ngân hàng",
@@ -1515,17 +3385,56 @@
       "Toán",
       "Tin học",
       "Giáo dục kinh tế và pháp luật"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Tiếp nhận yêu cầu giao dịch."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Kiểm tra chứng từ và định danh; thực hiện nghiệp vụ theo phân quyền."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Đối soát quỹ và giao dịch cuối ca."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đối chiếu số liệu",
+        "reason": "Hỗ trợ việc tiếp nhận yêu cầu giao dịch; cần kiểm tra kết quả vì giả mạo giấy tờ cần nhận diện."
+      },
+      {
+        "skill": "Phân tích và bảo mật thông tin",
+        "reason": "Hỗ trợ việc kiểm tra chứng từ và định danh; cần kiểm tra kết quả vì sai số tiền ảnh hưởng trực tiếp khách hàng."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Tin học, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử kiểm tra chứng từ và định danh ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Nhập vai giao dịch bằng tiền giấy mô phỏng. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-tin-dung",
     "name": "Chuyên viên tín dụng",
     "category_id": "finance",
     "short_description": "Tìm hiểu nhu cầu vay, đánh giá thông tin hồ sơ tín dụng.",
-    "description": "Chuyên viên tín dụng tập trung vào tìm hiểu nhu cầu vay. Công việc còn bao gồm đánh giá thông tin hồ sơ tín dụng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên tín dụng đánh giá nhu cầu vay và khả năng trả nợ để đề xuất khoản cấp tín dụng phù hợp. Kết quả công việc gắn với tìm hiểu nhu cầu vay và đánh giá thông tin hồ sơ tín dụng.",
     "daily_tasks": [
       "Tìm hiểu nhu cầu vay",
-      "Đánh giá thông tin hồ sơ tín dụng"
+      "Đánh giá thông tin hồ sơ tín dụng",
+      "Phân tích thu nhập hoặc dòng tiền",
+      "Kiểm tra hồ sơ và mục đích vay",
+      "Theo dõi nghĩa vụ trả nợ"
     ],
     "skills": [
       "Đối chiếu số liệu",
@@ -1536,9 +3445,11 @@
       "Tin học",
       "Giáo dục kinh tế và pháp luật"
     ],
-    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "work_environment": "Bộ phận tín dụng ngân hàng và các buổi khảo sát khách hàng được phép.",
     "challenges": [
-      "Nhận diện khả năng trả nợ"
+      "Nhận diện khả năng trả nợ",
+      "Hồ sơ không phản ánh đủ rủi ro",
+      "Cần tránh xung đột lợi ích khi đánh giá"
     ],
     "keywords": [
       "Chuyên viên tín dụng",
@@ -1548,17 +3459,56 @@
       "Toán",
       "Tin học",
       "Giáo dục kinh tế và pháp luật"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Tìm hiểu nhu cầu vay."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Phân tích thu nhập hoặc dòng tiền; kiểm tra hồ sơ và mục đích vay."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi nghĩa vụ trả nợ."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đối chiếu số liệu",
+        "reason": "Hỗ trợ việc tìm hiểu nhu cầu vay; cần kiểm tra kết quả vì hồ sơ không phản ánh đủ rủi ro."
+      },
+      {
+        "skill": "Phân tích và bảo mật thông tin",
+        "reason": "Hỗ trợ việc phân tích thu nhập hoặc dòng tiền; cần kiểm tra kết quả vì cần tránh xung đột lợi ích khi đánh giá."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Tin học, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử phân tích thu nhập hoặc dòng tiền ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Đánh giá khả năng cân đối ngân sách bằng tình huống giả định. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-quan-tri-rui-ro",
     "name": "Chuyên viên quản trị rủi ro",
     "category_id": "finance",
     "short_description": "Theo dõi chỉ báo rủi ro, xây dựng kịch bản kiểm soát.",
-    "description": "Chuyên viên quản trị rủi ro tập trung vào theo dõi chỉ báo rủi ro. Công việc còn bao gồm xây dựng kịch bản kiểm soát, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên quản trị rủi ro nhận diện và đo lường nguy cơ để tổ chức lựa chọn biện pháp kiểm soát phù hợp. Kết quả công việc gắn với theo dõi chỉ báo rủi ro và xây dựng kịch bản kiểm soát.",
     "daily_tasks": [
       "Theo dõi chỉ báo rủi ro",
-      "Xây dựng kịch bản kiểm soát"
+      "Xây dựng kịch bản kiểm soát",
+      "Lập danh mục rủi ro và chỉ báo",
+      "Thử kịch bản bất lợi",
+      "Theo dõi giới hạn và báo vi phạm"
     ],
     "skills": [
       "Đối chiếu số liệu",
@@ -1569,9 +3519,11 @@
       "Tin học",
       "Giáo dục kinh tế và pháp luật"
     ],
-    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "work_environment": "Khối rủi ro tại tổ chức tài chính hoặc doanh nghiệp.",
     "challenges": [
-      "Rủi ro mới khó dự báo"
+      "Rủi ro mới khó dự báo",
+      "Dữ liệu quá khứ bỏ sót sự kiện mới",
+      "Mô hình không thay thế phán đoán"
     ],
     "keywords": [
       "Chuyên viên quản trị rủi ro",
@@ -1581,17 +3533,56 @@
       "Toán",
       "Tin học",
       "Giáo dục kinh tế và pháp luật"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Theo dõi chỉ báo rủi ro."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Lập danh mục rủi ro và chỉ báo; thử kịch bản bất lợi."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi giới hạn và báo vi phạm."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đối chiếu số liệu",
+        "reason": "Hỗ trợ việc theo dõi chỉ báo rủi ro; cần kiểm tra kết quả vì dữ liệu quá khứ bỏ sót sự kiện mới."
+      },
+      {
+        "skill": "Phân tích và bảo mật thông tin",
+        "reason": "Hỗ trợ việc lập danh mục rủi ro và chỉ báo; cần kiểm tra kết quả vì mô hình không thay thế phán đoán."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Tin học, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử lập danh mục rủi ro và chỉ báo ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Lập ma trận rủi ro cho chuyến tham quan do trường tổ chức. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-bao-hiem",
     "name": "Chuyên viên bảo hiểm",
     "category_id": "finance",
     "short_description": "Giải thích phạm vi sản phẩm, hỗ trợ xử lý hồ sơ.",
-    "description": "Chuyên viên bảo hiểm tập trung vào giải thích phạm vi sản phẩm. Công việc còn bao gồm hỗ trợ xử lý hồ sơ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên bảo hiểm giải thích và xử lý nghiệp vụ hợp đồng bảo hiểm đúng sản phẩm và vai trò được giao. Kết quả công việc gắn với giải thích phạm vi sản phẩm và hỗ trợ xử lý hồ sơ.",
     "daily_tasks": [
       "Giải thích phạm vi sản phẩm",
-      "Hỗ trợ xử lý hồ sơ"
+      "Hỗ trợ xử lý hồ sơ",
+      "Làm rõ nhu cầu và phạm vi bảo hiểm",
+      "Giải thích điều khoản loại trừ",
+      "Theo dõi hồ sơ yêu cầu quyền lợi"
     ],
     "skills": [
       "Đối chiếu số liệu",
@@ -1602,9 +3593,11 @@
       "Tin học",
       "Giáo dục kinh tế và pháp luật"
     ],
-    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "work_environment": "Doanh nghiệp bảo hiểm, đại lý hoặc bộ phận bồi thường tùy vị trí.",
     "challenges": [
-      "Diễn đạt rõ điều khoản và giới hạn"
+      "Diễn đạt rõ điều khoản và giới hạn",
+      "Khách dễ hiểu nhầm quyền lợi",
+      "Tư vấn sai tạo thiệt hại dài hạn"
     ],
     "keywords": [
       "Chuyên viên bảo hiểm",
@@ -1614,17 +3607,56 @@
       "Toán",
       "Tin học",
       "Giáo dục kinh tế và pháp luật"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Giải thích phạm vi sản phẩm."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Làm rõ nhu cầu và phạm vi bảo hiểm; giải thích điều khoản loại trừ."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi hồ sơ yêu cầu quyền lợi."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đối chiếu số liệu",
+        "reason": "Hỗ trợ việc giải thích phạm vi sản phẩm; cần kiểm tra kết quả vì khách dễ hiểu nhầm quyền lợi."
+      },
+      {
+        "skill": "Phân tích và bảo mật thông tin",
+        "reason": "Hỗ trợ việc làm rõ nhu cầu và phạm vi bảo hiểm; cần kiểm tra kết quả vì tư vấn sai tạo thiệt hại dài hạn."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Tin học, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử làm rõ nhu cầu và phạm vi bảo hiểm ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: So sánh điều khoản của hợp đồng mẫu, không bán sản phẩm thật. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-dinh-phi-bao-hiem",
     "name": "Chuyên viên định phí bảo hiểm",
     "category_id": "finance",
     "short_description": "Xây mô hình xác suất, ước tính nghĩa vụ bảo hiểm.",
-    "description": "Chuyên viên định phí bảo hiểm tập trung vào xây mô hình xác suất. Công việc còn bao gồm ước tính nghĩa vụ bảo hiểm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên định phí bảo hiểm dùng toán và dữ liệu rủi ro để ước tính phí, dự phòng và khả năng đáp ứng nghĩa vụ. Kết quả công việc gắn với xây mô hình xác suất và ước tính nghĩa vụ bảo hiểm.",
     "daily_tasks": [
       "Xây mô hình xác suất",
-      "Ước tính nghĩa vụ bảo hiểm"
+      "Ước tính nghĩa vụ bảo hiểm",
+      "Kiểm tra dữ liệu tần suất tổn thất",
+      "Xây giả định xác suất và chi phí",
+      "Thử độ nhạy và ghi giới hạn mô hình"
     ],
     "skills": [
       "Đối chiếu số liệu",
@@ -1635,9 +3667,11 @@
       "Tin học",
       "Giáo dục kinh tế và pháp luật"
     ],
-    "work_environment": "Bộ phận tài chính, tổ chức dịch vụ hoặc văn phòng chuyên môn.",
+    "work_environment": "Bộ phận định phí, làm việc với thống kê, tài chính và quản lý rủi ro.",
     "challenges": [
-      "Dữ liệu lịch sử không phản ánh mọi biến cố"
+      "Dữ liệu lịch sử không phản ánh mọi biến cố",
+      "Thiếu dữ liệu làm bất định lớn",
+      "Giả định sai ảnh hưởng nghĩa vụ nhiều năm"
     ],
     "keywords": [
       "Chuyên viên định phí bảo hiểm",
@@ -1647,6 +3681,42 @@
       "Toán",
       "Tin học",
       "Giáo dục kinh tế và pháp luật"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Xây mô hình xác suất."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Kiểm tra dữ liệu tần suất tổn thất; xây giả định xác suất và chi phí."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Thử độ nhạy và ghi giới hạn mô hình."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đối chiếu số liệu",
+        "reason": "Hỗ trợ việc xây mô hình xác suất; cần kiểm tra kết quả vì thiếu dữ liệu làm bất định lớn."
+      },
+      {
+        "skill": "Phân tích và bảo mật thông tin",
+        "reason": "Hỗ trợ việc kiểm tra dữ liệu tần suất tổn thất; cần kiểm tra kết quả vì giả định sai ảnh hưởng nghĩa vụ nhiều năm."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Tin học, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử kiểm tra dữ liệu tần suất tổn thất ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Mô phỏng xác suất tung xúc xắc và quỹ dự phòng giả định. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   }
 ]

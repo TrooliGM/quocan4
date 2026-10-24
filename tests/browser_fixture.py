@@ -67,6 +67,7 @@ const auth = {currentUser:stored==='1'?profile:['guest','linked'].includes(store
 const listeners = new Set();
 const update=(user,state)=>{auth.currentUser=user;sessionStorage.setItem('__fixture_login',state);listeners.forEach(cb=>cb(user));return {user};};
 const sdk = {
+  async getRedirectResult(){if(sessionStorage.getItem('__fixture_redirect')==='1'){sessionStorage.removeItem('__fixture_redirect');return {user:profile};}return null;},
   browserLocalPersistence:{}, browserSessionPersistence:{}, setPersistence:async()=>{},
   onAuthStateChanged(a,callback) { listeners.add(callback); queueMicrotask(()=>callback(a.currentUser)); return ()=>listeners.delete(callback); },
   async signInWithEmailAndPassword() {auth.currentUser=profile;sessionStorage.setItem('__fixture_login','1');listeners.forEach(cb=>cb(profile));return {user:profile};},
@@ -82,7 +83,7 @@ const sdk = {
   },
   GoogleAuthProvider: class {setCustomParameters(){} static credentialFromError(e){return e.credential;}},
   async signInWithCredential(){return update(profile,'1');},
-  async signInWithPopup() {auth.currentUser=profile;sessionStorage.setItem('__fixture_login','1');listeners.forEach(cb=>cb(profile));return {user:profile};},
+  async signInWithPopup() {if(sessionStorage.getItem('__fixture_cancel_google')==='1')throw {code:'auth/popup-closed-by-user'};auth.currentUser=profile;sessionStorage.setItem('__fixture_login','1');listeners.forEach(cb=>cb(profile));return {user:profile};},
   async signOut() {auth.currentUser=null;sessionStorage.removeItem('__fixture_login');listeners.forEach(cb=>cb(null));}
 };
 export async function getFirebase(){if(new URLSearchParams(location.search).has('fixture_no_firebase'))throw new Error('Firebase unavailable fixture');return {auth,sdk};}

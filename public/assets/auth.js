@@ -1,14 +1,22 @@
 import {getFirebase} from './firebase-client.js';
-import {signInEmailPreservingGuest,signInGooglePreservingGuest,hasPendingGuestClaim,retryGuestClaim} from './account-link.js';
+import {signInEmailPreservingGuest,signInGooglePreservingGuest,hasPendingGuestClaim,resumeGuestTransfer} from './account-link.js';
+import {beginLogin, finishLogin} from './chat-journey.js';
 const select = (s) => document.querySelector(s);
 const dialog = select('#auth-dialog');
-const chatAfterLogin = '/ai-career-advisor?start=1';
+let navigating=false;
+async function completeLogin(user) {
+  if (navigating) return;
+  navigating=true;
+  try { await resumeGuestTransfer(auth); await backendProfile(user,true); location.assign(finishLogin()); }
+  catch(error) { navigating=false; claimRetry.hidden=!hasPendingGuestClaim(); throw error; }
+}
 const claimRetry = document.createElement('button');
+claimRetry.id = 'guest-claim-retry';
 claimRetry.type = 'button';claimRetry.className = 'btn btn-ink';claimRetry.hidden = true;claimRetry.textContent = 'Thử giữ lịch sử';
 select('#auth-status').after(claimRetry);
 claimRetry.addEventListener('click',async()=>{
   setBusy(true);
-  try {await retryGuestClaim(auth);await backendProfile(auth.currentUser,true);location.assign(chatAfterLogin);}
+  try {await completeLogin(auth.currentUser);}
   catch(error){status(errorMessage(error),true);}
   finally{claimRetry.hidden=!hasPendingGuestClaim();setBusy(false);}
 });
@@ -103,11 +111,13 @@ async function ensureAuth() {
     try {
       ({auth, sdk} = await getFirebase());
       ready = true; select('#auth-setup-message').hidden = true; setBusy(false);
+      // Consume a Firebase redirect result before deciding where to return.
+      if (sdk.getRedirectResult) await sdk.getRedirectResult(auth);
       sdk.onAuthStateChanged(auth, (user) => {
         const epoch = ++profileEpoch;
         displayUser(user);
         if (user && !user.isAnonymous) backendProfile(user).then(() => {
-          if (epoch === profileEpoch && !busy && !hasPendingGuestClaim() && new URLSearchParams(location.search).get('login') === '1') location.replace(chatAfterLogin);
+          if (epoch === profileEpoch && !busy && new URLSearchParams(location.search).get('login') === '1') completeLogin(user).catch(error=>status(errorMessage(error),true));
         }).catch((error) => { if (epoch === profileEpoch) status(errorMessage(error), true); });
       });
       return true;
@@ -120,7 +130,7 @@ async function ensureAuth() {
   if (!result) configTask = null;
   return result;
 }
-document.querySelectorAll('[data-open-auth]').forEach((button) => button.addEventListener('click', () => { if (!dialog.open) dialog.showModal(); ensureAuth(); }));
+document.querySelectorAll('[data-open-auth]').forEach((button) => button.addEventListener('click', () => { if (new URLSearchParams(location.search).get('login')!=='1') beginLogin(); if (!dialog.open) dialog.showModal(); ensureAuth(); }));
 select('#mode-login').addEventListener('click', () => setMode('login'));
 select('#mode-register').addEventListener('click', () => setMode('register'));
 select('#toggle-password').addEventListener('click', () => {
@@ -148,7 +158,7 @@ select('#auth-form').addEventListener('submit', async (event) => {
       catch { status('Tài khoản đã tạo. Bạn có thể bấm “Gửi email xác minh” để thử lại.'); }
     } else { status('Đăng nhập thành công. Chào mừng bạn trở lại!'); }
     await backendProfile(credential.user, true);
-    location.assign(chatAfterLogin);
+    await completeLogin(credential.user);
   } catch (error) { status(errorMessage(error), true); }
   finally { claimRetry.hidden=!hasPendingGuestClaim();select('#auth-password').value = ''; select('#auth-confirm-password').value = ''; setBusy(false); }
 });
@@ -164,7 +174,7 @@ select('#google-signin').addEventListener('click', () => {
       await persistence();
       await backendProfile(credential.user);
       status('Đăng nhập Google thành công. Chào bạn!');
-      location.assign(chatAfterLogin);
+      await completeLogin(credential.user);
     } catch (error) { status(errorMessage(error), true); }
     finally { claimRetry.hidden=!hasPendingGuestClaim();setBusy(false); }
   })();
@@ -209,7 +219,7 @@ if (new URLSearchParams(location.search).get('login') === '1') {
   dialog.showModal();
   ensureAuth().then(async (ok) => {
     if (ok && auth.currentUser && !auth.currentUser.isAnonymous) {
-      try { await backendProfile(auth.currentUser); location.replace(chatAfterLogin); }
+      try { await completeLogin(auth.currentUser); }
       catch (error) { status(errorMessage(error), true); }
     }
   });

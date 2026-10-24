@@ -40,6 +40,12 @@ class Career(BaseModel):
     work_environment: str = Field(min_length=10)
     challenges: list[str] = Field(min_length=1)
     keywords: list[str] = Field(min_length=1)
+    typical_day: list[dict[str, str]] = Field(default_factory=list)
+    skill_details: list[dict[str, str]] = Field(default_factory=list)
+    learning_path: list[str] = Field(default_factory=list)
+    professional_requirements: dict[str, str] = Field(default_factory=dict)
+    sources: list[dict[str, str]] = Field(default_factory=list)
+    profile_version: int = 1
 
     @field_validator('category_id')
     @classmethod

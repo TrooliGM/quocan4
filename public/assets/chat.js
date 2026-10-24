@@ -1,6 +1,8 @@
 import {getFirebase, restoredUser} from './firebase-client.js';
 import {GoogleMic, BrowserMic} from './mic-recorder.js';
 import {guestSession} from './ai-access.js';
+import {beginLogin, saveDraft, loadDraft} from './chat-journey.js';
+import {explorationQuestion} from './career-question.js';
 
 const $ = (selector) => document.querySelector(selector);
 let auth, sdk, user, config, active = null, sessions = [], pending = null;
@@ -10,23 +12,23 @@ let guestQuota = null;
 let micMode = null, recorder = null, micTurn = 0, transcriptAbort = null;
 const loginURL = '/?login=1';
 let entryContext = null;
-let explorationName = '';
 const analysisMessage = 'Hãy phân tích khảo sát của em, gợi ý khoảng 3 nhóm nghề cùng lý do, môn học, kỹ năng và trải nghiệm để thử.';
 const surveyQuestions = [
-  ['Em yêu thích lĩnh vực nào?', ['Công nghệ', 'Nghệ thuật', 'Y tế', 'Kinh doanh', 'Em chưa rõ']],
-  ['Em thích làm những hoạt động gì?', ['Vẽ và sáng tạo', 'Tìm hiểu máy tính', 'Giúp đỡ mọi người', 'Làm việc ngoài trời']],
-  ['Em nhận thấy điểm mạnh của mình là gì?', ['Kiên nhẫn', 'Tư duy logic', 'Lắng nghe', 'Sáng tạo', 'Em muốn tìm hiểu thêm']],
-  ['Em mong muốn công việc tương lai như thế nào?', ['Có ích cho cộng đồng', 'Được sáng tạo', 'Ổn định', 'Có cơ hội khám phá']],
-  ['Em muốn AI tư vấn điều gì?', ['Nhóm nghề nên tìm hiểu', 'Môn học cần chú ý', 'Kỹ năng cần luyện', 'Một hoạt động để thử']]
+  ['Em yêu thích lĩnh vực nào?', ['Em tò mò về máy tính và cách các ứng dụng hoạt động.', 'Em thích sáng tạo, thiết kế và thể hiện ý tưởng qua hình ảnh.', 'Em quan tâm đến việc giúp đỡ và chăm sóc người khác.', 'Em muốn hiểu cách kinh doanh và tổ chức công việc.', 'Em thích tìm hiểu thiên nhiên, môi trường và khoa học.', 'Em chưa rõ sở thích và muốn khám phá nhiều lĩnh vực.']],
+  ['Em thích làm những hoạt động gì?', ['Em thích vẽ, làm đồ thủ công hoặc thử thiết kế một sản phẩm.', 'Em thích tìm hiểu một ứng dụng hoặc giải một câu đố.', 'Em thích lắng nghe, giải thích bài và giúp đỡ bạn bè.', 'Em thích chăm cây, quan sát động vật hoặc hoạt động ngoài trời.', 'Em thích tổ chức việc nhóm và trình bày ý tưởng.', 'Em chưa có hoạt động yêu thích rõ ràng, nhưng sẵn sàng thử.']],
+  ['Em nhận thấy điểm mạnh của mình là gì?', ['Em thường kiên nhẫn thử lại khi chưa làm được một việc.', 'Em thích đặt câu hỏi và tìm cách giải thích vấn đề.', 'Em biết lắng nghe và cố gắng hiểu cảm xúc của người khác.', 'Em hay nghĩ ra cách làm hoặc ý tưởng khác nhau.', 'Em cố gắng giữ lời hẹn và hoàn thành phần việc của mình.', 'Em chưa nhận ra điểm mạnh và muốn tìm hiểu qua trải nghiệm.']],
+  ['Em mong muốn công việc tương lai như thế nào?', ['Em mong công việc tạo ra điều có ích cho mọi người.', 'Em muốn có không gian sáng tạo và thử những ý tưởng mới.', 'Em mong một nhịp làm việc ổn định, cân bằng với cuộc sống.', 'Em muốn được học hỏi và khám phá những vấn đề mới.', 'Em thích làm việc cùng người khác và thấy kết quả cụ thể.', 'Em chưa có hình dung rõ và muốn hiểu nhiều môi trường làm việc.']],
+  ['Em muốn AI tư vấn điều gì?', ['Em muốn biết những nhóm nghề nào đáng để mình khám phá.', 'Em muốn hiểu công việc thực tế, không chỉ tên của một nghề.', 'Em muốn biết môn học và kỹ năng có thể bắt đầu rèn luyện.', 'Em muốn tìm một hoạt động nhỏ, an toàn để thử sức.', 'Em muốn hiểu cả khó khăn và trách nhiệm của nghề.', 'Em chưa biết nên hỏi gì, hãy giúp em bắt đầu từng bước.']]
 ];
 const surveyDrafts = new Map();
+const preparedQuestions = new Set();
 const needsSurvey = () => Boolean(active?.messages?.[0]?.survey_required && !active.messages[0].survey);
 function renderSurvey() {
   const form = $('#career-survey'); form.hidden = !needsSurvey();
   $('#message-form').hidden = needsSurvey();
   if (!needsSurvey()) return;
   let draft = surveyDrafts.get(active.id);
-  if (!draft) { draft = {step:0, answers:['','','','',''], address:'chị'}; surveyDrafts.set(active.id, draft); }
+  if (!draft) { draft = loadDraft(user.uid,active.id)?.survey || {step:0, answers:['','','','',''], address:'chị'}; surveyDrafts.set(active.id, draft); }
   const [question, suggestions] = surveyQuestions[draft.step];
   $('#survey-step').textContent = `Câu ${draft.step + 1} / 5`;
   $('#survey-progress').value = draft.step + 1;
@@ -42,19 +44,19 @@ function renderSurvey() {
     chip.addEventListener('click', () => {
       const input = $('#survey-answer');
       input.value = [input.value.trim(), text].filter(Boolean).join(', ').slice(0,400);
-      draft.answers[draft.step] = input.value; input.focus();
+      draft.answers[draft.step] = input.value; persistJourney(); input.focus();
     }); chips.append(chip);
   }
 }
-$('#survey-answer').addEventListener('input', () => { if (active) surveyDrafts.get(active.id).answers[surveyDrafts.get(active.id).step] = $('#survey-answer').value; });
-$('#survey-address').addEventListener('change', () => { if (active) surveyDrafts.get(active.id).address = $('#survey-address').value; });
-$('#survey-back').addEventListener('click', () => { const draft = surveyDrafts.get(active.id); if (!busy && draft.step > 0) { draft.step--; renderSurvey(); $('#survey-question').focus(); } });
+$('#survey-answer').addEventListener('input', () => { if (active) { surveyDrafts.get(active.id).answers[surveyDrafts.get(active.id).step] = $('#survey-answer').value; persistJourney(); } });
+$('#survey-address').addEventListener('change', () => { if (active) { surveyDrafts.get(active.id).address = $('#survey-address').value; persistJourney(); } });
+$('#survey-back').addEventListener('click', () => { const draft = surveyDrafts.get(active.id); if (!busy && draft.step > 0) { draft.step--; persistJourney(); renderSurvey(); $('#survey-question').focus(); } });
 $('#career-survey').addEventListener('submit', async event => {
   event.preventDefault(); if (busy || !active) return;
   const draft = surveyDrafts.get(active.id);
   draft.answers[draft.step] = $('#survey-answer').value.trim();
   if (!draft.answers[draft.step]) return $('#survey-answer').focus();
-  if (draft.step < 4) { draft.step++; renderSurvey(); $('#survey-question').focus(); return; }
+  if (draft.step < 4) { draft.step++; persistJourney(); renderSurvey(); $('#survey-question').focus(); return; }
   const id = active.id, epoch = identityEpoch;
   busy = true; updateControls(); renderSurvey(); notice();
   try {
@@ -63,9 +65,7 @@ $('#career-survey').addEventListener('submit', async event => {
     active = data.session; surveyDrafts.delete(id); renderMessages();
     const context = active.messages[0].career_context;
     if (context?.mode === 'career_exploration') {
-      const career = await jsonAPI('/api/career-library/'+encodeURIComponent(context.career_id));
-      explorationName = career.name;
-      $('#message-input').value = `Em muốn tìm hiểu nghề ${career.name}: công việc hằng ngày, kỹ năng, môi trường, thử thách và cách bắt đầu.`;
+      await prepareExplorationDraft();
       notice('Em có thể sửa câu hỏi trước khi gửi.');
     } else $('#message-input').value = analysisMessage;
   } catch (error) { notice(failure(error)); }
@@ -138,6 +138,7 @@ async function api(path, options = {}, retried = false) {
     }
     error.status = response.status;
     if (response.status === 401) {
+      persistJourney(); beginLogin();
       clearPrivateUI();
       location.replace(loginURL);
     }
@@ -155,8 +156,20 @@ function failure(error) {
   return ['TimeoutError', 'AbortError'].includes(error.name) ? 'Phản hồi hơi lâu. Bạn có thể thử lại nhé.' : error.message || 'Chưa kết nối được. Bạn thử lại nhé.';
 }
 function storageKey() { return `laban.advisor.${user.uid}`; }
+function persistJourney() {
+  if (active && user) saveDraft(user.uid, active.id, {survey:needsSurvey() ? surveyDrafts.get(active.id) : null, message:$('#message-input').value,explorationPrepared:preparedQuestions.has(active.id)});
+}
+async function prepareExplorationDraft() {
+  const id=active?.id, epoch=identityEpoch, context=active?.messages?.[0]?.career_context;
+  if (context?.mode!=='career_exploration' || needsSurvey() || active.messages.length!==1 || $('#message-input').value || preparedQuestions.has(id)) return;
+  const career=await jsonAPI('/api/career-library/'+encodeURIComponent(context.career_id));
+  if (epoch!==identityEpoch || active?.id!==id || $('#message-input').value) return;
+  $('#message-input').value=explorationQuestion(career,active.messages[0].survey);
+  preparedQuestions.add(id);
+  persistJourney(); resizeInput();
+}
 function rememberActive() {
-  try { if (active) sessionStorage.setItem(storageKey(), active.id); else sessionStorage.removeItem(storageKey()); } catch { /* Tab riêng tư có thể chặn storage. */ }
+  try { if (active) { sessionStorage.setItem(storageKey(), active.id); persistJourney(); } else sessionStorage.removeItem(storageKey()); } catch { /* Tab riêng tư có thể chặn storage. */ }
 }
 function setSidebar(open) {
   const mobile = window.innerWidth <= 760;
@@ -218,7 +231,9 @@ function messageRow(message) {
   const body = document.createElement('div'); body.className = 'message-body';
   const label = document.createElement('span'); label.className = 'message-label'; label.textContent = message.role === 'assistant' ? `La Bàn AI${message.mode === 'demo' ? ' · Trả lời mẫu' : ''}` : 'Bạn';
   const bubble = document.createElement('div'); bubble.className = 'message-bubble';
-  if (message.role === 'assistant') markdown(bubble, message.content); else bubble.textContent = message.content;
+  if (message.role === 'assistant') markdown(bubble, message.content);
+  else bubble.textContent = message.request_id === active?.messages?.[0]?.survey?.analysis_request_id
+    ? 'Em đã hoàn thành khảo sát và muốn khám phá những hướng nghề đáng tìm hiểu.' : message.content;
   if (message.recommendations?.length) {
     const cards = document.createElement('div'); cards.className = 'recommendations';
     for (const [index, career] of message.recommendations.entries()) {
@@ -257,7 +272,7 @@ function renderMessages() {
   const context = active?.messages?.[0]?.career_context;
   if (context?.mode === 'career_exploration') $('#session-note').textContent += ` · Tìm hiểu: ${context.career_name || context.career_id}`;
   if (context?.mode === 'career_exploration' && active.messages[0].survey && active.messages.length === 1 && !$('#message-input').value) {
-    $('#message-input').value = `Em muốn tìm hiểu nghề ${context.career_name || context.career_id}: công việc hằng ngày, kỹ năng, môi trường, thử thách và cách bắt đầu.`;
+    prepareExplorationDraft().catch(error=>notice(failure(error)));
   }
   renderSurvey();
   list.hidden = !active || needsSurvey();
@@ -288,14 +303,19 @@ async function startChat(prompt = '') {
 }
 async function loadSession(id) {
   if (busy) return notice('Đợi La Bàn trả lời xong rồi mở cuộc trò chuyện khác nhé.');
-  cancelMic();
+  cancelMic(); persistJourney();
   notice(); pending = null; busy = true; updateControls();
   const epoch = identityEpoch;
   try {
     const data = await jsonAPI(`/api/ai/sessions/${id}`);
     if (epoch !== identityEpoch) return;
     $('#message-input').value = '';
-    active = data.session; rememberActive(); renderMessages(); resizeInput();
+    active = data.session;
+    const saved=loadDraft(user.uid,active.id);
+    if (saved?.explorationPrepared) preparedQuestions.add(active.id);
+    if (needsSurvey() && saved?.survey) surveyDrafts.set(active.id,saved.survey);
+    $('#message-input').value = saved?.message || '';
+    rememberActive(); renderMessages(); resizeInput();
     if (window.innerWidth <= 760) setSidebar(false);
   } catch (error) { notice(failure(error)); if (error.status === 404) await refreshHistory(); }
   finally { busy = false; updateControls(); }
@@ -323,7 +343,7 @@ async function send(retry = false) {
     $('#message-input').value = ''; resizeInput();
     const data = await jsonAPI('/api/ai/chat', {method:'POST', body:JSON.stringify(request)});
     if (epoch !== identityEpoch || active?.id !== request.session_id) return;
-    active = data.session; pending = null; renderMessages();
+    active = data.session; pending = null; persistJourney(); renderMessages();
     if(data.guest_quota) guestQuota=data.guest_quota;
     await refreshHistory().catch(() => notice('Câu trả lời đã có, nhưng danh sách lịch sử chưa tải lại được.'));
     busy = false; phase = 'idle'; updateControls();
@@ -455,7 +475,7 @@ async function openProfile() {
 }
 
 function clearPrivateUI() {
-  identityEpoch++; entryContext = null; cancelMic(); surveyDrafts.clear(); $('#career-survey').hidden = true;
+  identityEpoch++; entryContext = null; cancelMic(); surveyDrafts.clear(); preparedQuestions.clear(); $('#career-survey').hidden = true;
   $('#survey-answer').value = '';
   $('#survey-suggestions').replaceChildren();
   $('#survey-question').textContent = '';
@@ -483,7 +503,12 @@ $('#chat-sidebar').addEventListener('keydown', (event) => {
 matchMedia('(max-width:760px)').addEventListener('change', () => setSidebar(false));
 $('#start-chat').addEventListener('click', () => startChat());
 document.querySelectorAll('[data-prompt]').forEach((button) => button.addEventListener('click', () => startChat(button.dataset.prompt)));
-$('#message-input').addEventListener('input', resizeInput);
+$('#message-input').addEventListener('input', () => { if (active?.messages?.[0]?.career_context?.mode==='career_exploration') preparedQuestions.add(active.id); resizeInput(); persistJourney(); });
+$('#guest-login').addEventListener('click', event => {
+  if (busy || ['starting-mic','listening','transcribing'].includes(phase)) { event.preventDefault(); return; }
+  persistJourney(); beginLogin();
+});
+window.addEventListener('pagehide', persistJourney);
 $('#message-input').addEventListener('keydown', (event) => { if (event.key === 'Enter' && !event.shiftKey && !event.isComposing) { event.preventDefault(); send(); } });
 $('#message-form').addEventListener('submit', (event) => { event.preventDefault(); send(); });
 $('#retry-send').addEventListener('click', () => send(true));
@@ -516,7 +541,7 @@ async function initialize() {
     catch { /* Server guest works without Firebase configuration/network. */ }
     if (!user) user = await guestSession();
     const owner = user.uid;
-    if (!user.server_guest) sdk.onAuthStateChanged(auth, (current) => { if (!current || current.uid !== owner) { clearPrivateUI(); location.replace(loginURL); } });
+    if (!user.server_guest) sdk.onAuthStateChanged(auth, (current) => { if (!current || current.uid !== owner) { persistJourney(); beginLogin(); clearPrivateUI(); location.replace(loginURL); } });
     await jsonAPI('/api/auth/me');
     config = await jsonAPI('/api/ai/config');
     guestQuota = config.guest_quota;

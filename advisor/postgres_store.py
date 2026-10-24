@@ -207,8 +207,8 @@ def save_messages_atomic(uid, session_id, request_id, message, reply, mode, gues
         })
 
         title = row["title"]
-        if len(messages) == 3 and title == "Một hướng đi mới":
-            title = message[:60]
+        from .titles import first_chat_title
+        title = first_chat_title({'messages':messages,'title':title},message,request_id)
 
         timestamp = now()
 

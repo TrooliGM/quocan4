@@ -137,6 +137,8 @@ class ConversationStore:
         with self.lock:
             row = self.get(uid, session_id)
             row["title"] = title
+            from .titles import mark_manual
+            mark_manual(row['messages'])
             return self.write(uid, row)
 
     def delete(self, uid, session_id):

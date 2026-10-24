@@ -4,10 +4,13 @@
     "name": "Cán bộ tư pháp hộ tịch",
     "category_id": "public-service",
     "short_description": "Hướng dẫn hồ sơ hộ tịch, kiểm tra thông tin đăng ký.",
-    "description": "Cán bộ tư pháp hộ tịch tập trung vào hướng dẫn hồ sơ hộ tịch. Công việc còn bao gồm kiểm tra thông tin đăng ký, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Cán bộ tư pháp hộ tịch thực hiện công việc tư pháp, đăng ký và quản lý hộ tịch theo vị trí, phân cấp và thẩm quyền. Kết quả công việc gắn với hướng dẫn hồ sơ hộ tịch và kiểm tra thông tin đăng ký.",
     "daily_tasks": [
       "Hướng dẫn hồ sơ hộ tịch",
-      "Kiểm tra thông tin đăng ký"
+      "Kiểm tra thông tin đăng ký",
+      "Đối chiếu giấy tờ và thông tin đăng ký",
+      "Hướng dẫn bổ sung hồ sơ đúng căn cứ",
+      "Ghi sổ và cập nhật dữ liệu hộ tịch"
     ],
     "skills": [
       "Đọc hiểu hồ sơ",
@@ -18,9 +21,11 @@
       "Ngữ văn",
       "Giáo dục kinh tế và pháp luật"
     ],
-    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "work_environment": "Bộ phận tiếp nhận hành chính và cơ quan quản lý hộ tịch.",
     "challenges": [
-      "Thông tin nhân thân phải chính xác"
+      "Thông tin nhân thân phải chính xác",
+      "Sai thông tin ảnh hưởng giấy tờ cá nhân",
+      "Không được giải quyết vượt thẩm quyền"
     ],
     "keywords": [
       "Cán bộ tư pháp hộ tịch",
@@ -30,17 +35,56 @@
       "Lịch sử",
       "Ngữ văn",
       "Giáo dục kinh tế và pháp luật"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Hướng dẫn hồ sơ hộ tịch."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Đối chiếu giấy tờ và thông tin đăng ký; hướng dẫn bổ sung hồ sơ đúng căn cứ."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Ghi sổ và cập nhật dữ liệu hộ tịch."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc hiểu hồ sơ",
+        "reason": "Hỗ trợ việc hướng dẫn hồ sơ hộ tịch; cần kiểm tra kết quả vì sai thông tin ảnh hưởng giấy tờ cá nhân."
+      },
+      {
+        "skill": "Lập luận và bảo mật",
+        "reason": "Hỗ trợ việc đối chiếu giấy tờ và thông tin đăng ký; cần kiểm tra kết quả vì không được giải quyết vượt thẩm quyền."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Lịch sử, Ngữ văn, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử đối chiếu giấy tờ và thông tin đăng ký ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Vẽ quy trình đăng ký khai sinh từ tài liệu công khai. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "can-bo-hai-quan",
     "name": "Cán bộ hải quan",
     "category_id": "public-service",
     "short_description": "Kiểm tra hồ sơ hàng hóa, thực hiện kiểm soát theo phân công.",
-    "description": "Cán bộ hải quan tập trung vào kiểm tra hồ sơ hàng hóa. Công việc còn bao gồm thực hiện kiểm soát theo phân công, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Cán bộ hải quan kiểm tra và giám sát hàng hóa xuất nhập khẩu theo pháp luật hải quan. Kết quả công việc gắn với kiểm tra hồ sơ hàng hóa và thực hiện kiểm soát theo phân công.",
     "daily_tasks": [
       "Kiểm tra hồ sơ hàng hóa",
-      "Thực hiện kiểm soát theo phân công"
+      "Thực hiện kiểm soát theo phân công",
+      "Đối chiếu khai báo với chứng từ",
+      "Phân loại hồ sơ theo mức rủi ro",
+      "Kiểm tra hàng hoặc phối hợp kiểm tra theo phân công"
     ],
     "skills": [
       "Đọc hiểu hồ sơ",
@@ -51,9 +95,11 @@
       "Ngữ văn",
       "Giáo dục kinh tế và pháp luật"
     ],
-    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "work_environment": "Cửa khẩu, cảng, sân bay hoặc đơn vị xử lý hồ sơ hải quan.",
     "challenges": [
-      "Khối lượng hàng và hồ sơ lớn"
+      "Khối lượng hàng và hồ sơ lớn",
+      "Hàng cấm có thể che giấu tinh vi",
+      "Phải cân bằng kiểm soát với thông quan"
     ],
     "keywords": [
       "Cán bộ hải quan",
@@ -63,17 +109,56 @@
       "Lịch sử",
       "Ngữ văn",
       "Giáo dục kinh tế và pháp luật"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Kiểm tra hồ sơ hàng hóa."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Đối chiếu khai báo với chứng từ; phân loại hồ sơ theo mức rủi ro."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Kiểm tra hàng hoặc phối hợp kiểm tra theo phân công."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc hiểu hồ sơ",
+        "reason": "Hỗ trợ việc kiểm tra hồ sơ hàng hóa; cần kiểm tra kết quả vì hàng cấm có thể che giấu tinh vi."
+      },
+      {
+        "skill": "Lập luận và bảo mật",
+        "reason": "Hỗ trợ việc đối chiếu khai báo với chứng từ; cần kiểm tra kết quả vì phải cân bằng kiểm soát với thông quan."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Lịch sử, Ngữ văn, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử đối chiếu khai báo với chứng từ ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Phân loại mặt hàng giả định theo biểu mô tả, không tiếp xúc hàng thật. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-ngoai-giao",
     "name": "Chuyên viên ngoại giao",
     "category_id": "public-service",
     "short_description": "Chuẩn bị thông tin đối ngoại, hỗ trợ hoạt động hợp tác.",
-    "description": "Chuyên viên ngoại giao tập trung vào chuẩn bị thông tin đối ngoại. Công việc còn bao gồm hỗ trợ hoạt động hợp tác, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên ngoại giao nghiên cứu và triển khai quan hệ đối ngoại theo nhiệm vụ của cơ quan đại diện hoặc đơn vị phụ trách. Kết quả công việc gắn với chuẩn bị thông tin đối ngoại và hỗ trợ hoạt động hợp tác.",
     "daily_tasks": [
       "Chuẩn bị thông tin đối ngoại",
-      "Hỗ trợ hoạt động hợp tác"
+      "Hỗ trợ hoạt động hợp tác",
+      "Tổng hợp thông tin đối tác và địa bàn",
+      "Chuẩn bị nội dung tiếp xúc đối ngoại",
+      "Theo dõi cam kết và báo cáo kết quả"
     ],
     "skills": [
       "Đọc hiểu hồ sơ",
@@ -84,9 +169,11 @@
       "Ngữ văn",
       "Giáo dục kinh tế và pháp luật"
     ],
-    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "work_environment": "Cơ quan đối ngoại, hội nghị hoặc cơ quan đại diện ở nước ngoài.",
     "challenges": [
-      "Khác biệt văn hóa và nghi thức"
+      "Khác biệt văn hóa và nghi thức",
+      "Sai sắc thái ngôn ngữ ảnh hưởng quan hệ",
+      "Thông tin đối ngoại có mức bảo mật khác nhau"
     ],
     "keywords": [
       "Chuyên viên ngoại giao",
@@ -96,17 +183,56 @@
       "Lịch sử",
       "Ngữ văn",
       "Giáo dục kinh tế và pháp luật"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Chuẩn bị thông tin đối ngoại."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Tổng hợp thông tin đối tác và địa bàn; chuẩn bị nội dung tiếp xúc đối ngoại."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi cam kết và báo cáo kết quả."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc hiểu hồ sơ",
+        "reason": "Hỗ trợ việc chuẩn bị thông tin đối ngoại; cần kiểm tra kết quả vì sai sắc thái ngôn ngữ ảnh hưởng quan hệ."
+      },
+      {
+        "skill": "Lập luận và bảo mật",
+        "reason": "Hỗ trợ việc tổng hợp thông tin đối tác và địa bàn; cần kiểm tra kết quả vì thông tin đối ngoại có mức bảo mật khác nhau."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Lịch sử, Ngữ văn, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử tổng hợp thông tin đối tác và địa bàn ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Thực hành phiên họp mô phỏng về hợp tác môi trường. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "nhan-vien-cong-tac-xa-hoi",
     "name": "Nhân viên công tác xã hội",
     "category_id": "public-service",
     "short_description": "Đánh giá nhu cầu hỗ trợ, kết nối nguồn lực cộng đồng.",
-    "description": "Nhân viên công tác xã hội tập trung vào đánh giá nhu cầu hỗ trợ. Công việc còn bao gồm kết nối nguồn lực cộng đồng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Nhân viên công tác xã hội kết nối người cần hỗ trợ với nguồn lực và cùng xây kế hoạch cải thiện hoàn cảnh. Kết quả công việc gắn với đánh giá nhu cầu hỗ trợ và kết nối nguồn lực cộng đồng.",
     "daily_tasks": [
       "Đánh giá nhu cầu hỗ trợ",
-      "Kết nối nguồn lực cộng đồng"
+      "Kết nối nguồn lực cộng đồng",
+      "Đánh giá nhu cầu có sự đồng ý",
+      "Kết nối dịch vụ xã hội phù hợp",
+      "Theo dõi tiến độ hỗ trợ và quyền lợi"
     ],
     "skills": [
       "Đọc hiểu hồ sơ",
@@ -117,9 +243,11 @@
       "Ngữ văn",
       "Giáo dục kinh tế và pháp luật"
     ],
-    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "work_environment": "Trường, bệnh viện, trung tâm bảo trợ hoặc chương trình cộng đồng.",
     "challenges": [
-      "Hoàn cảnh người được hỗ trợ phức tạp"
+      "Hoàn cảnh người được hỗ trợ phức tạp",
+      "Dễ vượt ranh giới giữa giúp đỡ và áp đặt",
+      "Thông tin hoàn cảnh cần bảo vệ"
     ],
     "keywords": [
       "Nhân viên công tác xã hội",
@@ -129,17 +257,56 @@
       "Lịch sử",
       "Ngữ văn",
       "Giáo dục kinh tế và pháp luật"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Đánh giá nhu cầu hỗ trợ."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Đánh giá nhu cầu có sự đồng ý; kết nối dịch vụ xã hội phù hợp."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi tiến độ hỗ trợ và quyền lợi."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc hiểu hồ sơ",
+        "reason": "Hỗ trợ việc đánh giá nhu cầu hỗ trợ; cần kiểm tra kết quả vì dễ vượt ranh giới giữa giúp đỡ và áp đặt."
+      },
+      {
+        "skill": "Lập luận và bảo mật",
+        "reason": "Hỗ trợ việc đánh giá nhu cầu có sự đồng ý; cần kiểm tra kết quả vì thông tin hoàn cảnh cần bảo vệ."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Lịch sử, Ngữ văn, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử đánh giá nhu cầu có sự đồng ý ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Tìm hiểu mạng lưới trợ giúp công khai, không thu hồ sơ người yếu thế. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "linh-cuu-hoa",
     "name": "Lính cứu hỏa",
     "category_id": "public-service",
     "short_description": "Kiểm tra trang bị cứu nạn, tham gia xử lý cháy và cứu hộ.",
-    "description": "Lính cứu hỏa tập trung vào kiểm tra trang bị cứu nạn. Công việc còn bao gồm tham gia xử lý cháy và cứu hộ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Lính cứu hỏa phòng ngừa và ứng phó cháy, cứu nạn theo huấn luyện và tổ chức chỉ huy. Kết quả công việc gắn với kiểm tra trang bị cứu nạn và tham gia xử lý cháy và cứu hộ.",
     "daily_tasks": [
       "Kiểm tra trang bị cứu nạn",
-      "Tham gia xử lý cháy và cứu hộ"
+      "Tham gia xử lý cháy và cứu hộ",
+      "Kiểm tra phương tiện và trang bị",
+      "Diễn tập tiếp cận, thoát nạn và phối hợp",
+      "Đánh giá nguy cơ tại hiện trường theo phân công"
     ],
     "skills": [
       "Đọc hiểu hồ sơ",
@@ -150,9 +317,11 @@
       "Ngữ văn",
       "Giáo dục kinh tế và pháp luật"
     ],
-    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "work_environment": "Đơn vị chữa cháy, lịch trực và hiện trường khẩn cấp.",
     "challenges": [
-      "Môi trường nguy hiểm và thể lực cao"
+      "Môi trường nguy hiểm và thể lực cao",
+      "Khói và kết cấu sập đe dọa tính mạng",
+      "Hành động đơn lẻ có thể tăng nguy hiểm"
     ],
     "keywords": [
       "Lính cứu hỏa",
@@ -162,17 +331,56 @@
       "Lịch sử",
       "Ngữ văn",
       "Giáo dục kinh tế và pháp luật"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Kiểm tra trang bị cứu nạn."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Kiểm tra phương tiện và trang bị; diễn tập tiếp cận, thoát nạn và phối hợp."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Đánh giá nguy cơ tại hiện trường theo phân công."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc hiểu hồ sơ",
+        "reason": "Hỗ trợ việc kiểm tra trang bị cứu nạn; cần kiểm tra kết quả vì khói và kết cấu sập đe dọa tính mạng."
+      },
+      {
+        "skill": "Lập luận và bảo mật",
+        "reason": "Hỗ trợ việc kiểm tra phương tiện và trang bị; cần kiểm tra kết quả vì hành động đơn lẻ có thể tăng nguy hiểm."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Lịch sử, Ngữ văn, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử kiểm tra phương tiện và trang bị ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Tập sơ đồ thoát nạn theo hướng dẫn nhà trường, không thử lửa. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "can-bo-canh-sat-giao-thong",
     "name": "Cán bộ cảnh sát giao thông",
     "category_id": "public-service",
     "short_description": "Theo dõi trật tự giao thông, xử lý tình huống theo phân công.",
-    "description": "Cán bộ cảnh sát giao thông tập trung vào theo dõi trật tự giao thông. Công việc còn bao gồm xử lý tình huống theo phân công, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Cán bộ cảnh sát giao thông thực hiện tuần tra, điều khiển và xử lý vi phạm giao thông trong phạm vi nhiệm vụ được giao. Kết quả công việc gắn với theo dõi trật tự giao thông và xử lý tình huống theo phân công.",
     "daily_tasks": [
       "Theo dõi trật tự giao thông",
-      "Xử lý tình huống theo phân công"
+      "Xử lý tình huống theo phân công",
+      "Hướng dẫn dòng xe tại điểm ùn tắc",
+      "Kiểm tra vi phạm theo quy trình",
+      "Bảo vệ hiện trường và phối hợp xử lý tai nạn"
     ],
     "skills": [
       "Đọc hiểu hồ sơ",
@@ -183,9 +391,11 @@
       "Ngữ văn",
       "Giáo dục kinh tế và pháp luật"
     ],
-    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "work_environment": "Tuyến đường, trạm công tác và vị trí điều tiết ngoài trời.",
     "challenges": [
-      "Làm việc ngoài trời và ứng phó sự cố"
+      "Làm việc ngoài trời và ứng phó sự cố",
+      "Tiếp xúc đường đông có nguy cơ tai nạn",
+      "Xử lý phải đúng căn cứ và thẩm quyền"
     ],
     "keywords": [
       "Cán bộ cảnh sát giao thông",
@@ -195,17 +405,56 @@
       "Lịch sử",
       "Ngữ văn",
       "Giáo dục kinh tế và pháp luật"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Theo dõi trật tự giao thông."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Hướng dẫn dòng xe tại điểm ùn tắc; kiểm tra vi phạm theo quy trình."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Bảo vệ hiện trường và phối hợp xử lý tai nạn."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc hiểu hồ sơ",
+        "reason": "Hỗ trợ việc theo dõi trật tự giao thông; cần kiểm tra kết quả vì tiếp xúc đường đông có nguy cơ tai nạn."
+      },
+      {
+        "skill": "Lập luận và bảo mật",
+        "reason": "Hỗ trợ việc hướng dẫn dòng xe tại điểm ùn tắc; cần kiểm tra kết quả vì xử lý phải đúng căn cứ và thẩm quyền."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Lịch sử, Ngữ văn, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử hướng dẫn dòng xe tại điểm ùn tắc ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Nhận diện biển báo qua trò chơi mô phỏng trong lớp. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-chinh-sach-cong",
     "name": "Chuyên viên chính sách công",
     "category_id": "public-service",
     "short_description": "Phân tích vấn đề xã hội, đánh giá tác động phương án chính sách.",
-    "description": "Chuyên viên chính sách công tập trung vào phân tích vấn đề xã hội. Công việc còn bao gồm đánh giá tác động phương án chính sách, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên chính sách công phân tích vấn đề xã hội và phương án can thiệp để hỗ trợ quyết định công có bằng chứng. Kết quả công việc gắn với phân tích vấn đề xã hội và đánh giá tác động phương án chính sách.",
     "daily_tasks": [
       "Phân tích vấn đề xã hội",
-      "Đánh giá tác động phương án chính sách"
+      "Đánh giá tác động phương án chính sách",
+      "Thu thập dữ liệu và ý kiến các nhóm",
+      "So sánh tác động và chi phí phương án",
+      "Theo dõi kết quả thực hiện chính sách"
     ],
     "skills": [
       "Đọc hiểu hồ sơ",
@@ -216,9 +465,11 @@
       "Ngữ văn",
       "Giáo dục kinh tế và pháp luật"
     ],
-    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "work_environment": "Cơ quan chính sách, viện nghiên cứu và các cuộc tham vấn.",
     "challenges": [
-      "Cân đối lợi ích nhiều nhóm"
+      "Cân đối lợi ích nhiều nhóm",
+      "Lợi ích giữa các nhóm có thể xung đột",
+      "Dữ liệu thiếu khiến tác động khó đo"
     ],
     "keywords": [
       "Chuyên viên chính sách công",
@@ -228,17 +479,56 @@
       "Lịch sử",
       "Ngữ văn",
       "Giáo dục kinh tế và pháp luật"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Phân tích vấn đề xã hội."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Thu thập dữ liệu và ý kiến các nhóm; so sánh tác động và chi phí phương án."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi kết quả thực hiện chính sách."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc hiểu hồ sơ",
+        "reason": "Hỗ trợ việc phân tích vấn đề xã hội; cần kiểm tra kết quả vì lợi ích giữa các nhóm có thể xung đột."
+      },
+      {
+        "skill": "Lập luận và bảo mật",
+        "reason": "Hỗ trợ việc thu thập dữ liệu và ý kiến các nhóm; cần kiểm tra kết quả vì dữ liệu thiếu khiến tác động khó đo."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Lịch sử, Ngữ văn, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử thu thập dữ liệu và ý kiến các nhóm ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: So sánh hai phương án giảm rác ở trường bằng tiêu chí rõ. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-so-huu-tri-tue",
     "name": "Chuyên viên sở hữu trí tuệ",
     "category_id": "public-service",
     "short_description": "Tra cứu thông tin quyền sở hữu, hỗ trợ hồ sơ bảo hộ.",
-    "description": "Chuyên viên sở hữu trí tuệ tập trung vào tra cứu thông tin quyền sở hữu. Công việc còn bao gồm hỗ trợ hồ sơ bảo hộ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên sở hữu trí tuệ hỗ trợ xác định, bảo hộ và quản lý quyền đối với sáng tạo hoặc dấu hiệu thương mại. Kết quả công việc gắn với tra cứu thông tin quyền sở hữu và hỗ trợ hồ sơ bảo hộ.",
     "daily_tasks": [
       "Tra cứu thông tin quyền sở hữu",
-      "Hỗ trợ hồ sơ bảo hộ"
+      "Hỗ trợ hồ sơ bảo hộ",
+      "Tra cứu dấu hiệu hoặc giải pháp đã có",
+      "Chuẩn bị hồ sơ theo loại quyền",
+      "Theo dõi thời hạn và phản hồi thẩm định"
     ],
     "skills": [
       "Đọc hiểu hồ sơ",
@@ -249,9 +539,11 @@
       "Ngữ văn",
       "Giáo dục kinh tế và pháp luật"
     ],
-    "work_environment": "Cơ quan, tổ chức chuyên môn hoặc địa bàn phục vụ cộng đồng.",
+    "work_environment": "Bộ phận sở hữu trí tuệ, tổ chức đại diện hoặc nhóm pháp chế.",
     "challenges": [
-      "Phân biệt ý tưởng với đối tượng được bảo hộ"
+      "Phân biệt ý tưởng với đối tượng được bảo hộ",
+      "Tra cứu không bảo đảm được cấp quyền",
+      "Phạm vi tư vấn và đại diện có điều kiện riêng"
     ],
     "keywords": [
       "Chuyên viên sở hữu trí tuệ",
@@ -261,17 +553,56 @@
       "Lịch sử",
       "Ngữ văn",
       "Giáo dục kinh tế và pháp luật"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Tra cứu thông tin quyền sở hữu."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Tra cứu dấu hiệu hoặc giải pháp đã có; chuẩn bị hồ sơ theo loại quyền."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi thời hạn và phản hồi thẩm định."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc hiểu hồ sơ",
+        "reason": "Hỗ trợ việc tra cứu thông tin quyền sở hữu; cần kiểm tra kết quả vì tra cứu không bảo đảm được cấp quyền."
+      },
+      {
+        "skill": "Lập luận và bảo mật",
+        "reason": "Hỗ trợ việc tra cứu dấu hiệu hoặc giải pháp đã có; cần kiểm tra kết quả vì phạm vi tư vấn và đại diện có điều kiện riêng."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Lịch sử, Ngữ văn, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử tra cứu dấu hiệu hoặc giải pháp đã có ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Phân biệt nhãn hiệu, sáng chế và bản quyền bằng ví dụ tự tạo. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-su-moi-truong",
     "name": "Kỹ sư môi trường",
     "category_id": "environment",
     "short_description": "Đánh giá dòng chất thải, đề xuất quy trình xử lý.",
-    "description": "Kỹ sư môi trường tập trung vào đánh giá dòng chất thải. Công việc còn bao gồm đề xuất quy trình xử lý, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ sư môi trường thiết kế giải pháp kỹ thuật để hạn chế ô nhiễm và quản lý dòng thải. Kết quả công việc gắn với đánh giá dòng chất thải và đề xuất quy trình xử lý.",
     "daily_tasks": [
       "Đánh giá dòng chất thải",
-      "Đề xuất quy trình xử lý"
+      "Đề xuất quy trình xử lý",
+      "Tính tải lượng chất ô nhiễm",
+      "Chọn công nghệ xử lý phù hợp",
+      "Theo dõi hiệu quả và vận hành thử"
     ],
     "skills": [
       "Quan sát thực địa",
@@ -282,9 +613,11 @@
       "Địa lý",
       "Hóa học"
     ],
-    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "work_environment": "Đơn vị tư vấn, nhà máy xử lý và khu khảo sát được phép.",
     "challenges": [
-      "Dữ liệu quan trắc và điều kiện thực địa"
+      "Dữ liệu quan trắc và điều kiện thực địa",
+      "Đầu vào thay đổi làm giảm hiệu suất",
+      "Không được đánh giá chỉ bằng một mẫu"
     ],
     "keywords": [
       "Kỹ sư môi trường",
@@ -294,17 +627,61 @@
       "Sinh học",
       "Địa lý",
       "Hóa học"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Đánh giá dòng chất thải."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Tính tải lượng chất ô nhiễm; chọn công nghệ xử lý phù hợp."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi hiệu quả và vận hành thử."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Quan sát thực địa",
+        "reason": "Phân tích số liệu giúp xác định tải lượng ô nhiễm và nhận ra kết quả đo không đại diện trước khi chọn giải pháp."
+      },
+      {
+        "skill": "Phân tích mẫu và dữ liệu",
+        "reason": "Tư duy hệ thống giúp hiểu công nghệ xử lý, chi phí và vận hành liên quan nhau; thay đổi một công đoạn có thể ảnh hưởng đầu ra."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Sinh học, Địa lý, Hóa học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử tính tải lượng chất ô nhiễm ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Vẽ sơ đồ xử lý nước bằng hình minh họa, không dùng nước thải. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [
+      {
+        "label": "BLS: kỹ thuật môi trường (tham khảo quốc tế)",
+        "url": "https://www.bls.gov/ooh/architecture-and-engineering/environmental-engineers.htm"
+      }
+    ],
+    "profile_version": 2
   },
   {
     "career_id": "ky-su-nong-hoc",
     "name": "Kỹ sư nông học",
     "category_id": "environment",
     "short_description": "Theo dõi cây trồng, thử phương án canh tác.",
-    "description": "Kỹ sư nông học tập trung vào theo dõi cây trồng. Công việc còn bao gồm thử phương án canh tác, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ sư nông học nghiên cứu và điều chỉnh kỹ thuật trồng trọt phù hợp cây, đất và điều kiện khí hậu. Kết quả công việc gắn với theo dõi cây trồng và thử phương án canh tác.",
     "daily_tasks": [
       "Theo dõi cây trồng",
-      "Thử phương án canh tác"
+      "Thử phương án canh tác",
+      "Khảo sát đất và sinh trưởng cây",
+      "Bố trí thử nghiệm giống hoặc chăm sóc",
+      "Theo dõi sâu bệnh và hiệu quả mùa vụ"
     ],
     "skills": [
       "Quan sát thực địa",
@@ -315,9 +692,11 @@
       "Địa lý",
       "Hóa học"
     ],
-    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "work_environment": "Trang trại, trạm nghiên cứu và phòng kỹ thuật nông nghiệp.",
     "challenges": [
-      "Thời tiết và sâu bệnh biến đổi"
+      "Thời tiết và sâu bệnh biến đổi",
+      "Thời tiết gây biến động thử nghiệm",
+      "Thuốc bảo vệ thực vật cần kiểm soát"
     ],
     "keywords": [
       "Kỹ sư nông học",
@@ -327,17 +706,56 @@
       "Sinh học",
       "Địa lý",
       "Hóa học"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Theo dõi cây trồng."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Khảo sát đất và sinh trưởng cây; bố trí thử nghiệm giống hoặc chăm sóc."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi sâu bệnh và hiệu quả mùa vụ."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Quan sát thực địa",
+        "reason": "Hỗ trợ việc theo dõi cây trồng; cần kiểm tra kết quả vì thời tiết gây biến động thử nghiệm."
+      },
+      {
+        "skill": "Phân tích mẫu và dữ liệu",
+        "reason": "Hỗ trợ việc khảo sát đất và sinh trưởng cây; cần kiểm tra kết quả vì thuốc bảo vệ thực vật cần kiểm soát."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Sinh học, Địa lý, Hóa học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử khảo sát đất và sinh trưởng cây ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Trồng hai chậu cây và ghi số lá, không sử dụng hóa chất. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-su-chan-nuoi",
     "name": "Kỹ sư chăn nuôi",
     "category_id": "environment",
     "short_description": "Theo dõi đàn vật nuôi, điều chỉnh quy trình chăm sóc.",
-    "description": "Kỹ sư chăn nuôi tập trung vào theo dõi đàn vật nuôi. Công việc còn bao gồm điều chỉnh quy trình chăm sóc, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ sư chăn nuôi tổ chức dinh dưỡng, giống và chăm sóc đàn vật nuôi theo mục tiêu và phúc lợi động vật. Kết quả công việc gắn với theo dõi đàn vật nuôi và điều chỉnh quy trình chăm sóc.",
     "daily_tasks": [
       "Theo dõi đàn vật nuôi",
-      "Điều chỉnh quy trình chăm sóc"
+      "Điều chỉnh quy trình chăm sóc",
+      "Lập khẩu phần theo giai đoạn",
+      "Theo dõi tăng trưởng và điều kiện chuồng",
+      "Phối hợp kế hoạch an toàn sinh học"
     ],
     "skills": [
       "Quan sát thực địa",
@@ -348,9 +766,11 @@
       "Địa lý",
       "Hóa học"
     ],
-    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "work_environment": "Trang trại, cơ sở giống và đơn vị kỹ thuật thức ăn.",
     "challenges": [
-      "Kiểm soát dịch bệnh trong trang trại"
+      "Kiểm soát dịch bệnh trong trang trại",
+      "Dịch bệnh có thể lan nhanh trong đàn",
+      "Mật độ nuôi ảnh hưởng phúc lợi"
     ],
     "keywords": [
       "Kỹ sư chăn nuôi",
@@ -360,17 +780,56 @@
       "Sinh học",
       "Địa lý",
       "Hóa học"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Theo dõi đàn vật nuôi."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Lập khẩu phần theo giai đoạn; theo dõi tăng trưởng và điều kiện chuồng."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Phối hợp kế hoạch an toàn sinh học."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Quan sát thực địa",
+        "reason": "Hỗ trợ việc theo dõi đàn vật nuôi; cần kiểm tra kết quả vì dịch bệnh có thể lan nhanh trong đàn."
+      },
+      {
+        "skill": "Phân tích mẫu và dữ liệu",
+        "reason": "Hỗ trợ việc lập khẩu phần theo giai đoạn; cần kiểm tra kết quả vì mật độ nuôi ảnh hưởng phúc lợi."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Sinh học, Địa lý, Hóa học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử lập khẩu phần theo giai đoạn ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Đọc sơ đồ khẩu phần mẫu, không tự thử thức ăn trên vật nuôi. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "bac-si-thu-y",
     "name": "Bác sĩ thú y",
     "category_id": "environment",
     "short_description": "Thăm khám động vật, hướng dẫn chăm sóc và phòng bệnh.",
-    "description": "Bác sĩ thú y tập trung vào thăm khám động vật. Công việc còn bao gồm hướng dẫn chăm sóc và phòng bệnh, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Bác sĩ thú y phòng, chẩn đoán và điều trị bệnh động vật trong phạm vi chuyên môn được phép. Kết quả công việc gắn với thăm khám động vật và hướng dẫn chăm sóc và phòng bệnh.",
     "daily_tasks": [
       "Thăm khám động vật",
-      "Hướng dẫn chăm sóc và phòng bệnh"
+      "Hướng dẫn chăm sóc và phòng bệnh",
+      "Khám và thu thập tiền sử vật nuôi",
+      "Thực hiện kế hoạch phòng bệnh",
+      "Hướng dẫn chăm sóc và theo dõi sau điều trị"
     ],
     "skills": [
       "Quan sát thực địa",
@@ -381,9 +840,11 @@
       "Địa lý",
       "Hóa học"
     ],
-    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "work_environment": "Phòng khám, trang trại hoặc cơ quan thú y với quy trình an toàn.",
     "challenges": [
-      "Động vật không thể tự mô tả triệu chứng"
+      "Động vật không thể tự mô tả triệu chứng",
+      "Động vật có thể cắn hoặc gây thương tích",
+      "Một số bệnh lây giữa động vật và người"
     ],
     "keywords": [
       "Bác sĩ thú y",
@@ -393,17 +854,61 @@
       "Sinh học",
       "Địa lý",
       "Hóa học"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thăm khám động vật."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Khám và thu thập tiền sử vật nuôi; thực hiện kế hoạch phòng bệnh."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Hướng dẫn chăm sóc và theo dõi sau điều trị."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Quan sát thực địa",
+        "reason": "Hỗ trợ việc thăm khám động vật; cần kiểm tra kết quả vì động vật có thể cắn hoặc gây thương tích."
+      },
+      {
+        "skill": "Phân tích mẫu và dữ liệu",
+        "reason": "Hỗ trợ việc khám và thu thập tiền sử vật nuôi; cần kiểm tra kết quả vì một số bệnh lây giữa động vật và người."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Sinh học, Địa lý, Hóa học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử khám và thu thập tiền sử vật nuôi ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Quan sát buổi giới thiệu nghề, không tự dùng thuốc cho động vật. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "regulated_or_role_specific",
+      "note": "Hoạt động hành nghề thú y thuộc phạm vi luật cần đáp ứng điều kiện và chứng chỉ tương ứng.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [
+      {
+        "label": "Luật Thú y",
+        "url": "https://vanban.chinhphu.vn/?classid=1&docid=180584&orggroupid=1&pageid=27160"
+      }
+    ],
+    "profile_version": 2
   },
   {
     "career_id": "ky-su-nuoi-trong-thuy-san",
     "name": "Kỹ sư nuôi trồng thủy sản",
     "category_id": "environment",
     "short_description": "Theo dõi môi trường nước, điều chỉnh chăm sóc thủy sản.",
-    "description": "Kỹ sư nuôi trồng thủy sản tập trung vào theo dõi môi trường nước. Công việc còn bao gồm điều chỉnh chăm sóc thủy sản, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ sư nuôi trồng thủy sản tổ chức môi trường và quy trình nuôi để thủy sản phát triển khỏe, kiểm soát tác động môi trường. Kết quả công việc gắn với theo dõi môi trường nước và điều chỉnh chăm sóc thủy sản.",
     "daily_tasks": [
       "Theo dõi môi trường nước",
-      "Điều chỉnh chăm sóc thủy sản"
+      "Điều chỉnh chăm sóc thủy sản",
+      "Đo chất lượng nước theo lịch",
+      "Điều chỉnh mật độ và lượng thức ăn",
+      "Theo dõi sức khỏe và thời điểm thu hoạch"
     ],
     "skills": [
       "Quan sát thực địa",
@@ -414,9 +919,11 @@
       "Địa lý",
       "Hóa học"
     ],
-    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "work_environment": "Ao nuôi, trại giống, lồng bè và phòng kỹ thuật thủy sản.",
     "challenges": [
-      "Chất lượng nước thay đổi nhanh"
+      "Chất lượng nước thay đổi nhanh",
+      "Mật độ và thức ăn ảnh hưởng môi trường ao",
+      "Bệnh trong hệ nuôi khó kiểm soát"
     ],
     "keywords": [
       "Kỹ sư nuôi trồng thủy sản",
@@ -426,17 +933,56 @@
       "Sinh học",
       "Địa lý",
       "Hóa học"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Theo dõi môi trường nước."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Đo chất lượng nước theo lịch; điều chỉnh mật độ và lượng thức ăn."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi sức khỏe và thời điểm thu hoạch."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Quan sát thực địa",
+        "reason": "Hỗ trợ việc theo dõi môi trường nước; cần kiểm tra kết quả vì mật độ và thức ăn ảnh hưởng môi trường ao."
+      },
+      {
+        "skill": "Phân tích mẫu và dữ liệu",
+        "reason": "Hỗ trợ việc đo chất lượng nước theo lịch; cần kiểm tra kết quả vì bệnh trong hệ nuôi khó kiểm soát."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Sinh học, Địa lý, Hóa học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử đo chất lượng nước theo lịch ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Theo dõi thông số bể mô phỏng bằng dữ liệu mẫu. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-lam-nghiep",
     "name": "Chuyên viên lâm nghiệp",
     "category_id": "environment",
     "short_description": "Theo dõi tài nguyên rừng, lập kế hoạch chăm sóc rừng.",
-    "description": "Chuyên viên lâm nghiệp tập trung vào theo dõi tài nguyên rừng. Công việc còn bao gồm lập kế hoạch chăm sóc rừng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên lâm nghiệp lập và theo dõi hoạt động trồng, chăm sóc hoặc sử dụng rừng theo mục tiêu quản lý. Kết quả công việc gắn với theo dõi tài nguyên rừng và lập kế hoạch chăm sóc rừng.",
     "daily_tasks": [
       "Theo dõi tài nguyên rừng",
-      "Lập kế hoạch chăm sóc rừng"
+      "Lập kế hoạch chăm sóc rừng",
+      "Điều tra đặc điểm lâm phần",
+      "Lập phương án trồng và chăm sóc",
+      "Theo dõi tái sinh và tác động khai thác"
     ],
     "skills": [
       "Quan sát thực địa",
@@ -447,9 +993,11 @@
       "Địa lý",
       "Hóa học"
     ],
-    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "work_environment": "Ban quản lý rừng, cơ sở trồng rừng và đợt khảo sát thực địa.",
     "challenges": [
-      "Địa bàn rộng và điều kiện hiện trường"
+      "Địa bàn rộng và điều kiện hiện trường",
+      "Chu kỳ rừng kéo dài nhiều năm",
+      "Hoạt động phải cân bằng sinh kế và bảo tồn"
     ],
     "keywords": [
       "Chuyên viên lâm nghiệp",
@@ -459,17 +1007,56 @@
       "Sinh học",
       "Địa lý",
       "Hóa học"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Theo dõi tài nguyên rừng."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Điều tra đặc điểm lâm phần; lập phương án trồng và chăm sóc."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi tái sinh và tác động khai thác."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Quan sát thực địa",
+        "reason": "Hỗ trợ việc theo dõi tài nguyên rừng; cần kiểm tra kết quả vì chu kỳ rừng kéo dài nhiều năm."
+      },
+      {
+        "skill": "Phân tích mẫu và dữ liệu",
+        "reason": "Hỗ trợ việc điều tra đặc điểm lâm phần; cần kiểm tra kết quả vì hoạt động phải cân bằng sinh kế và bảo tồn."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Sinh học, Địa lý, Hóa học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử điều tra đặc điểm lâm phần ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Nhận diện cây trong sân trường và lập sổ theo dõi. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "nhan-vien-kiem-lam",
     "name": "Nhân viên kiểm lâm",
     "category_id": "environment",
     "short_description": "Tuần tra địa bàn rừng, theo dõi dấu hiệu vi phạm.",
-    "description": "Nhân viên kiểm lâm tập trung vào tuần tra địa bàn rừng. Công việc còn bao gồm theo dõi dấu hiệu vi phạm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Nhân viên kiểm lâm kiểm tra và bảo vệ tài nguyên rừng theo nhiệm vụ, phối hợp cộng đồng và cơ quan chức năng. Kết quả công việc gắn với tuần tra địa bàn rừng và theo dõi dấu hiệu vi phạm.",
     "daily_tasks": [
       "Tuần tra địa bàn rừng",
-      "Theo dõi dấu hiệu vi phạm"
+      "Theo dõi dấu hiệu vi phạm",
+      "Tuần tra địa bàn theo kế hoạch",
+      "Ghi nhận dấu hiệu xâm hại rừng",
+      "Tuyên truyền phòng cháy và bảo vệ động vật"
     ],
     "skills": [
       "Quan sát thực địa",
@@ -480,9 +1067,11 @@
       "Địa lý",
       "Hóa học"
     ],
-    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "work_environment": "Trạm kiểm lâm, vùng rừng và các đợt phối hợp địa phương.",
     "challenges": [
-      "Thời tiết và địa hình khó khăn"
+      "Thời tiết và địa hình khó khăn",
+      "Địa hình xa có nguy cơ lạc và tai nạn",
+      "Xử lý vi phạm có thể gặp chống đối"
     ],
     "keywords": [
       "Nhân viên kiểm lâm",
@@ -492,17 +1081,56 @@
       "Sinh học",
       "Địa lý",
       "Hóa học"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Tuần tra địa bàn rừng."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Tuần tra địa bàn theo kế hoạch; ghi nhận dấu hiệu xâm hại rừng."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Tuyên truyền phòng cháy và bảo vệ động vật."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Quan sát thực địa",
+        "reason": "Hỗ trợ việc tuần tra địa bàn rừng; cần kiểm tra kết quả vì địa hình xa có nguy cơ lạc và tai nạn."
+      },
+      {
+        "skill": "Phân tích mẫu và dữ liệu",
+        "reason": "Hỗ trợ việc tuần tra địa bàn theo kế hoạch; cần kiểm tra kết quả vì xử lý vi phạm có thể gặp chống đối."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Sinh học, Địa lý, Hóa học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử tuần tra địa bàn theo kế hoạch ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Tìm hiểu biển cảnh báo rừng, không tự tuần tra hoặc tiếp cận động vật. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-su-thuy-loi",
     "name": "Kỹ sư thủy lợi",
     "category_id": "environment",
     "short_description": "Tính toán hệ thống tưới, theo dõi công trình dẫn nước.",
-    "description": "Kỹ sư thủy lợi tập trung vào tính toán hệ thống tưới. Công việc còn bao gồm theo dõi công trình dẫn nước, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ sư thủy lợi thiết kế và quản lý công trình điều tiết nước phục vụ sản xuất, sinh hoạt và phòng chống thiên tai. Kết quả công việc gắn với tính toán hệ thống tưới và theo dõi công trình dẫn nước.",
     "daily_tasks": [
       "Tính toán hệ thống tưới",
-      "Theo dõi công trình dẫn nước"
+      "Theo dõi công trình dẫn nước",
+      "Tính dòng chảy và nhu cầu nước",
+      "Thiết kế kênh hoặc công trình điều tiết",
+      "Theo dõi an toàn và phương án vận hành"
     ],
     "skills": [
       "Quan sát thực địa",
@@ -513,9 +1141,11 @@
       "Địa lý",
       "Hóa học"
     ],
-    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "work_environment": "Đơn vị thủy lợi, kênh trạm và công trường khảo sát.",
     "challenges": [
-      "Nguồn nước biến động theo mùa"
+      "Nguồn nước biến động theo mùa",
+      "Dự báo mưa lũ có bất định",
+      "Sự cố đập kênh ảnh hưởng diện rộng"
     ],
     "keywords": [
       "Kỹ sư thủy lợi",
@@ -525,17 +1155,56 @@
       "Sinh học",
       "Địa lý",
       "Hóa học"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Tính toán hệ thống tưới."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Tính dòng chảy và nhu cầu nước; thiết kế kênh hoặc công trình điều tiết."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi an toàn và phương án vận hành."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Quan sát thực địa",
+        "reason": "Hỗ trợ việc tính toán hệ thống tưới; cần kiểm tra kết quả vì dự báo mưa lũ có bất định."
+      },
+      {
+        "skill": "Phân tích mẫu và dữ liệu",
+        "reason": "Hỗ trợ việc tính dòng chảy và nhu cầu nước; cần kiểm tra kết quả vì sự cố đập kênh ảnh hưởng diện rộng."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Sinh học, Địa lý, Hóa học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử tính dòng chảy và nhu cầu nước ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Làm mô hình kênh tưới trên khay nhỏ. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-quan-trac-moi-truong",
     "name": "Chuyên viên quan trắc môi trường",
     "category_id": "environment",
     "short_description": "Lấy mẫu hiện trường, kiểm tra số liệu đo.",
-    "description": "Chuyên viên quan trắc môi trường tập trung vào lấy mẫu hiện trường. Công việc còn bao gồm kiểm tra số liệu đo, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên quan trắc môi trường thu và xử lý số liệu môi trường theo phương pháp để kết quả có thể so sánh và truy vết. Kết quả công việc gắn với lấy mẫu hiện trường và kiểm tra số liệu đo.",
     "daily_tasks": [
       "Lấy mẫu hiện trường",
-      "Kiểm tra số liệu đo"
+      "Kiểm tra số liệu đo",
+      "Lập lịch và vị trí lấy mẫu",
+      "Hiệu chuẩn thiết bị trước đo",
+      "Ghi chuỗi bàn giao và kiểm soát mẫu"
     ],
     "skills": [
       "Quan sát thực địa",
@@ -546,9 +1215,11 @@
       "Địa lý",
       "Hóa học"
     ],
-    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "work_environment": "Trạm quan trắc, phòng phân tích và các điểm lấy mẫu được phép.",
     "challenges": [
-      "Độ chính xác của mẫu và thiết bị"
+      "Độ chính xác của mẫu và thiết bị",
+      "Mẫu sai vị trí không đại diện hiện trạng",
+      "Nhiễm chéo làm sai kết quả"
     ],
     "keywords": [
       "Chuyên viên quan trắc môi trường",
@@ -558,17 +1229,56 @@
       "Sinh học",
       "Địa lý",
       "Hóa học"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Lấy mẫu hiện trường."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Lập lịch và vị trí lấy mẫu; hiệu chuẩn thiết bị trước đo."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Ghi chuỗi bàn giao và kiểm soát mẫu."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Quan sát thực địa",
+        "reason": "Hỗ trợ việc lấy mẫu hiện trường; cần kiểm tra kết quả vì mẫu sai vị trí không đại diện hiện trạng."
+      },
+      {
+        "skill": "Phân tích mẫu và dữ liệu",
+        "reason": "Hỗ trợ việc lập lịch và vị trí lấy mẫu; cần kiểm tra kết quả vì nhiễm chéo làm sai kết quả."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Sinh học, Địa lý, Hóa học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử lập lịch và vị trí lấy mẫu ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Đo nhiệt độ bóng râm và ngoài nắng theo cùng thời điểm. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-bao-ton-da-dang-sinh-hoc",
     "name": "Chuyên viên bảo tồn đa dạng sinh học",
     "category_id": "environment",
     "short_description": "Khảo sát loài và sinh cảnh, theo dõi chương trình bảo tồn.",
-    "description": "Chuyên viên bảo tồn đa dạng sinh học tập trung vào khảo sát loài và sinh cảnh. Công việc còn bao gồm theo dõi chương trình bảo tồn, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên bảo tồn đa dạng sinh học nghiên cứu và triển khai hoạt động giữ gìn loài, sinh cảnh và tương tác sinh thái. Kết quả công việc gắn với khảo sát loài và sinh cảnh và theo dõi chương trình bảo tồn.",
     "daily_tasks": [
       "Khảo sát loài và sinh cảnh",
-      "Theo dõi chương trình bảo tồn"
+      "Theo dõi chương trình bảo tồn",
+      "Khảo sát loài bằng phương pháp ít xâm hại",
+      "Theo dõi nguy cơ mất sinh cảnh",
+      "Phối hợp cộng đồng bảo vệ khu vực"
     ],
     "skills": [
       "Quan sát thực địa",
@@ -579,9 +1289,11 @@
       "Địa lý",
       "Hóa học"
     ],
-    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "work_environment": "Khu bảo tồn, viện nghiên cứu và hoạt động cộng đồng ven rừng.",
     "challenges": [
-      "Nguồn lực hạn chế trên địa bàn rộng"
+      "Nguồn lực hạn chế trên địa bàn rộng",
+      "Quan sát có thể làm xáo trộn động vật",
+      "Vị trí loài quý cần hạn chế công bố"
     ],
     "keywords": [
       "Chuyên viên bảo tồn đa dạng sinh học",
@@ -591,17 +1303,56 @@
       "Sinh học",
       "Địa lý",
       "Hóa học"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Khảo sát loài và sinh cảnh."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Khảo sát loài bằng phương pháp ít xâm hại; theo dõi nguy cơ mất sinh cảnh."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Phối hợp cộng đồng bảo vệ khu vực."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Quan sát thực địa",
+        "reason": "Hỗ trợ việc khảo sát loài và sinh cảnh; cần kiểm tra kết quả vì quan sát có thể làm xáo trộn động vật."
+      },
+      {
+        "skill": "Phân tích mẫu và dữ liệu",
+        "reason": "Hỗ trợ việc khảo sát loài bằng phương pháp ít xâm hại; cần kiểm tra kết quả vì vị trí loài quý cần hạn chế công bố."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Sinh học, Địa lý, Hóa học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử khảo sát loài bằng phương pháp ít xâm hại ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Ghi nhận chim từ xa, không bắt hoặc cho ăn động vật hoang dã. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "nha-dia-chat",
     "name": "Nhà địa chất",
     "category_id": "environment",
     "short_description": "Khảo sát cấu trúc địa tầng, phân tích mẫu đất đá.",
-    "description": "Nhà địa chất tập trung vào khảo sát cấu trúc địa tầng. Công việc còn bao gồm phân tích mẫu đất đá, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Nhà địa chất nghiên cứu vật chất và quá trình tạo nên Trái Đất để hiểu tài nguyên và nguy cơ địa chất. Kết quả công việc gắn với khảo sát cấu trúc địa tầng và phân tích mẫu đất đá.",
     "daily_tasks": [
       "Khảo sát cấu trúc địa tầng",
-      "Phân tích mẫu đất đá"
+      "Phân tích mẫu đất đá",
+      "Mô tả lớp đá và cấu trúc",
+      "Lập bản đồ và lấy mẫu được phép",
+      "Giải thích lịch sử hoặc nguy cơ khu vực"
     ],
     "skills": [
       "Quan sát thực địa",
@@ -612,9 +1363,11 @@
       "Địa lý",
       "Hóa học"
     ],
-    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "work_environment": "Viện nghiên cứu, nhóm khảo sát và phòng phân tích mẫu.",
     "challenges": [
-      "Điều kiện thực địa và dữ liệu không đầy đủ"
+      "Điều kiện thực địa và dữ liệu không đầy đủ",
+      "Lộ trình khảo sát có địa hình nguy hiểm",
+      "Suy luận cần nhiều loại bằng chứng"
     ],
     "keywords": [
       "Nhà địa chất",
@@ -624,17 +1377,56 @@
       "Sinh học",
       "Địa lý",
       "Hóa học"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Khảo sát cấu trúc địa tầng."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Mô tả lớp đá và cấu trúc; lập bản đồ và lấy mẫu được phép."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Giải thích lịch sử hoặc nguy cơ khu vực."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Quan sát thực địa",
+        "reason": "Hỗ trợ việc khảo sát cấu trúc địa tầng; cần kiểm tra kết quả vì lộ trình khảo sát có địa hình nguy hiểm."
+      },
+      {
+        "skill": "Phân tích mẫu và dữ liệu",
+        "reason": "Hỗ trợ việc mô tả lớp đá và cấu trúc; cần kiểm tra kết quả vì suy luận cần nhiều loại bằng chứng."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Sinh học, Địa lý, Hóa học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử mô tả lớp đá và cấu trúc ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Quan sát bộ mẫu đá giáo dục, không vào mỏ hoặc vách núi. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-khi-tuong",
     "name": "Chuyên viên khí tượng",
     "category_id": "environment",
     "short_description": "Theo dõi dữ liệu thời tiết, phân tích diễn biến khí quyển.",
-    "description": "Chuyên viên khí tượng tập trung vào theo dõi dữ liệu thời tiết. Công việc còn bao gồm phân tích diễn biến khí quyển, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên khí tượng quan trắc và phân tích khí quyển để dự báo thời tiết và cảnh báo hiện tượng nguy hiểm. Kết quả công việc gắn với theo dõi dữ liệu thời tiết và phân tích diễn biến khí quyển.",
     "daily_tasks": [
       "Theo dõi dữ liệu thời tiết",
-      "Phân tích diễn biến khí quyển"
+      "Phân tích diễn biến khí quyển",
+      "Kiểm tra số liệu trạm và radar",
+      "So sánh các mô hình dự báo",
+      "Cập nhật bản tin cùng mức bất định"
     ],
     "skills": [
       "Quan sát thực địa",
@@ -645,9 +1437,11 @@
       "Địa lý",
       "Hóa học"
     ],
-    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "work_environment": "Trung tâm dự báo và trạm khí tượng có chế độ trực.",
     "challenges": [
-      "Dự báo luôn có độ bất định"
+      "Dự báo luôn có độ bất định",
+      "Dự báo luôn có sai số",
+      "Cảnh báo cần đúng thời điểm và dễ hiểu"
     ],
     "keywords": [
       "Chuyên viên khí tượng",
@@ -657,17 +1451,56 @@
       "Sinh học",
       "Địa lý",
       "Hóa học"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Theo dõi dữ liệu thời tiết."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Kiểm tra số liệu trạm và radar; so sánh các mô hình dự báo."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Cập nhật bản tin cùng mức bất định."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Quan sát thực địa",
+        "reason": "Hỗ trợ việc theo dõi dữ liệu thời tiết; cần kiểm tra kết quả vì dự báo luôn có sai số."
+      },
+      {
+        "skill": "Phân tích mẫu và dữ liệu",
+        "reason": "Hỗ trợ việc kiểm tra số liệu trạm và radar; cần kiểm tra kết quả vì cảnh báo cần đúng thời điểm và dễ hiểu."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Sinh học, Địa lý, Hóa học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử kiểm tra số liệu trạm và radar ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Ghi mây và nhiệt độ rồi so với bản tin chính thức. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-khi-hau",
     "name": "Chuyên viên khí hậu",
     "category_id": "environment",
     "short_description": "Phân tích chuỗi khí hậu, đánh giá kịch bản biến đổi.",
-    "description": "Chuyên viên khí hậu tập trung vào phân tích chuỗi khí hậu. Công việc còn bao gồm đánh giá kịch bản biến đổi, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên khí hậu phân tích biến động dài hạn của khí hậu và các kịch bản phục vụ thích ứng. Kết quả công việc gắn với phân tích chuỗi khí hậu và đánh giá kịch bản biến đổi.",
     "daily_tasks": [
       "Phân tích chuỗi khí hậu",
-      "Đánh giá kịch bản biến đổi"
+      "Đánh giá kịch bản biến đổi",
+      "Kiểm tra chuỗi số liệu nhiều năm",
+      "So sánh xu thế và kịch bản",
+      "Giải thích bất định cho bên sử dụng"
     ],
     "skills": [
       "Quan sát thực địa",
@@ -678,9 +1511,11 @@
       "Địa lý",
       "Hóa học"
     ],
-    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "work_environment": "Viện khí tượng khí hậu và nhóm nghiên cứu tác động.",
     "challenges": [
-      "Phân biệt xu hướng dài hạn với dao động"
+      "Phân biệt xu hướng dài hạn với dao động",
+      "Không thể suy khí hậu từ một ngày nóng",
+      "Kịch bản không phải dự báo chắc chắn"
     ],
     "keywords": [
       "Chuyên viên khí hậu",
@@ -690,17 +1525,56 @@
       "Sinh học",
       "Địa lý",
       "Hóa học"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Phân tích chuỗi khí hậu."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Kiểm tra chuỗi số liệu nhiều năm; so sánh xu thế và kịch bản."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Giải thích bất định cho bên sử dụng."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Quan sát thực địa",
+        "reason": "Hỗ trợ việc phân tích chuỗi khí hậu; cần kiểm tra kết quả vì không thể suy khí hậu từ một ngày nóng."
+      },
+      {
+        "skill": "Phân tích mẫu và dữ liệu",
+        "reason": "Hỗ trợ việc kiểm tra chuỗi số liệu nhiều năm; cần kiểm tra kết quả vì kịch bản không phải dự báo chắc chắn."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Sinh học, Địa lý, Hóa học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử kiểm tra chuỗi số liệu nhiều năm ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Vẽ xu hướng từ bộ số liệu khí hậu công khai. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-quan-ly-dat-dai",
     "name": "Chuyên viên quản lý đất đai",
     "category_id": "environment",
     "short_description": "Đối chiếu thông tin thửa đất, hỗ trợ cập nhật hồ sơ đất.",
-    "description": "Chuyên viên quản lý đất đai tập trung vào đối chiếu thông tin thửa đất. Công việc còn bao gồm hỗ trợ cập nhật hồ sơ đất, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên quản lý đất đai tổ chức thông tin thửa đất và hỗ trợ quản lý sử dụng đất theo vị trí chuyên môn. Kết quả công việc gắn với đối chiếu thông tin thửa đất và hỗ trợ cập nhật hồ sơ đất.",
     "daily_tasks": [
       "Đối chiếu thông tin thửa đất",
-      "Hỗ trợ cập nhật hồ sơ đất"
+      "Hỗ trợ cập nhật hồ sơ đất",
+      "Đối chiếu hồ sơ với bản đồ thửa",
+      "Cập nhật biến động được xác nhận",
+      "Hỗ trợ thống kê và quy hoạch sử dụng đất"
     ],
     "skills": [
       "Quan sát thực địa",
@@ -711,9 +1585,11 @@
       "Địa lý",
       "Hóa học"
     ],
-    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "work_environment": "Đơn vị đăng ký, quy hoạch hoặc quản lý tài nguyên đất.",
     "challenges": [
-      "Ranh giới và nguồn hồ sơ khác nhau"
+      "Ranh giới và nguồn hồ sơ khác nhau",
+      "Ranh giới sai có thể gây tranh chấp",
+      "Hồ sơ pháp lý và hiện trạng có thể khác"
     ],
     "keywords": [
       "Chuyên viên quản lý đất đai",
@@ -723,17 +1599,56 @@
       "Sinh học",
       "Địa lý",
       "Hóa học"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Đối chiếu thông tin thửa đất."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Đối chiếu hồ sơ với bản đồ thửa; cập nhật biến động được xác nhận."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Hỗ trợ thống kê và quy hoạch sử dụng đất."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Quan sát thực địa",
+        "reason": "Hỗ trợ việc đối chiếu thông tin thửa đất; cần kiểm tra kết quả vì ranh giới sai có thể gây tranh chấp."
+      },
+      {
+        "skill": "Phân tích mẫu và dữ liệu",
+        "reason": "Hỗ trợ việc đối chiếu hồ sơ với bản đồ thửa; cần kiểm tra kết quả vì hồ sơ pháp lý và hiện trạng có thể khác."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Sinh học, Địa lý, Hóa học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử đối chiếu hồ sơ với bản đồ thửa ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Đọc bản đồ thửa minh họa không chứa thông tin người thật. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-thuat-vien-xu-ly-nuoc",
     "name": "Kỹ thuật viên xử lý nước",
     "category_id": "environment",
     "short_description": "Theo dõi bể và thiết bị xử lý, kiểm tra chỉ tiêu vận hành.",
-    "description": "Kỹ thuật viên xử lý nước tập trung vào theo dõi bể và thiết bị xử lý. Công việc còn bao gồm kiểm tra chỉ tiêu vận hành, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ thuật viên xử lý nước vận hành công đoạn xử lý để chất lượng nước đáp ứng mục tiêu hệ thống. Kết quả công việc gắn với theo dõi bể và thiết bị xử lý và kiểm tra chỉ tiêu vận hành.",
     "daily_tasks": [
       "Theo dõi bể và thiết bị xử lý",
-      "Kiểm tra chỉ tiêu vận hành"
+      "Kiểm tra chỉ tiêu vận hành",
+      "Theo dõi lưu lượng và thông số nước",
+      "Điều chỉnh thiết bị theo quy trình",
+      "Ghi vận hành và báo dấu hiệu bất thường"
     ],
     "skills": [
       "Quan sát thực địa",
@@ -744,9 +1659,11 @@
       "Địa lý",
       "Hóa học"
     ],
-    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "work_environment": "Trạm hoặc nhà máy xử lý với khu bơm, bể và phòng điều khiển.",
     "challenges": [
-      "Chất lượng nước đầu vào biến động"
+      "Chất lượng nước đầu vào biến động",
+      "Hóa chất cần bảo quản và sử dụng đúng",
+      "Một sự cố có thể làm mất chất lượng đầu ra"
     ],
     "keywords": [
       "Kỹ thuật viên xử lý nước",
@@ -756,17 +1673,56 @@
       "Sinh học",
       "Địa lý",
       "Hóa học"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Theo dõi bể và thiết bị xử lý."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Theo dõi lưu lượng và thông số nước; điều chỉnh thiết bị theo quy trình."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Ghi vận hành và báo dấu hiệu bất thường."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Quan sát thực địa",
+        "reason": "Hỗ trợ việc theo dõi bể và thiết bị xử lý; cần kiểm tra kết quả vì hóa chất cần bảo quản và sử dụng đúng."
+      },
+      {
+        "skill": "Phân tích mẫu và dữ liệu",
+        "reason": "Hỗ trợ việc theo dõi lưu lượng và thông số nước; cần kiểm tra kết quả vì một sự cố có thể làm mất chất lượng đầu ra."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Sinh học, Địa lý, Hóa học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử theo dõi lưu lượng và thông số nước ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Lọc nước màu bằng vật liệu học tập, không uống nước sau lọc. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-phat-trien-nong-thon",
     "name": "Chuyên viên phát triển nông thôn",
     "category_id": "environment",
     "short_description": "Khảo sát sinh kế cộng đồng, phối hợp dự án phát triển địa phương.",
-    "description": "Chuyên viên phát triển nông thôn tập trung vào khảo sát sinh kế cộng đồng. Công việc còn bao gồm phối hợp dự án phát triển địa phương, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên phát triển nông thôn phối hợp cộng đồng để cải thiện sinh kế và dịch vụ phù hợp điều kiện địa phương. Kết quả công việc gắn với khảo sát sinh kế cộng đồng và phối hợp dự án phát triển địa phương.",
     "daily_tasks": [
       "Khảo sát sinh kế cộng đồng",
-      "Phối hợp dự án phát triển địa phương"
+      "Phối hợp dự án phát triển địa phương",
+      "Khảo sát nhu cầu cùng người dân",
+      "Thiết kế hoạt động thử có tham gia",
+      "Theo dõi kết quả và phân bổ lợi ích"
     ],
     "skills": [
       "Quan sát thực địa",
@@ -777,9 +1733,11 @@
       "Địa lý",
       "Hóa học"
     ],
-    "work_environment": "Trang trại, địa bàn khảo sát, phòng phân tích hoặc cơ quan quản lý.",
+    "work_environment": "Dự án cộng đồng, hợp tác xã và các buổi làm việc tại địa bàn.",
     "challenges": [
-      "Giải pháp cần phù hợp điều kiện địa phương"
+      "Giải pháp cần phù hợp điều kiện địa phương",
+      "Giải pháp từ ngoài có thể không phù hợp",
+      "Nhóm yếu thế dễ bị bỏ sót"
     ],
     "keywords": [
       "Chuyên viên phát triển nông thôn",
@@ -789,17 +1747,56 @@
       "Sinh học",
       "Địa lý",
       "Hóa học"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Khảo sát sinh kế cộng đồng."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Khảo sát nhu cầu cùng người dân; thiết kế hoạt động thử có tham gia."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi kết quả và phân bổ lợi ích."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Quan sát thực địa",
+        "reason": "Hỗ trợ việc khảo sát sinh kế cộng đồng; cần kiểm tra kết quả vì giải pháp từ ngoài có thể không phù hợp."
+      },
+      {
+        "skill": "Phân tích mẫu và dữ liệu",
+        "reason": "Hỗ trợ việc khảo sát nhu cầu cùng người dân; cần kiểm tra kết quả vì nhóm yếu thế dễ bị bỏ sót."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Sinh học, Địa lý, Hóa học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử khảo sát nhu cầu cùng người dân ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Tìm hiểu một sản phẩm địa phương qua nguồn công khai. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "huong-dan-vien-du-lich",
     "name": "Hướng dẫn viên du lịch",
     "category_id": "hospitality",
     "short_description": "Chuẩn bị nội dung điểm đến, dẫn và hỗ trợ đoàn khách.",
-    "description": "Hướng dẫn viên du lịch tập trung vào chuẩn bị nội dung điểm đến. Công việc còn bao gồm dẫn và hỗ trợ đoàn khách, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Hướng dẫn viên du lịch diễn giải điểm đến và đồng hành cùng đoàn theo chương trình, đồng thời hỗ trợ an toàn và trải nghiệm. Kết quả công việc gắn với chuẩn bị nội dung điểm đến và dẫn và hỗ trợ đoàn khách.",
     "daily_tasks": [
       "Chuẩn bị nội dung điểm đến",
-      "Dẫn và hỗ trợ đoàn khách"
+      "Dẫn và hỗ trợ đoàn khách",
+      "Chuẩn bị kiến thức và lịch tuyến",
+      "Thuyết minh phù hợp đối tượng khách",
+      "Xử lý thay đổi và kiểm tra đủ người"
     ],
     "skills": [
       "Giao tiếp dịch vụ",
@@ -810,9 +1807,11 @@
       "Địa lý",
       "Công nghệ"
     ],
-    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "work_environment": "Điểm tham quan, xe tour và hành trình thay đổi theo đoàn.",
     "challenges": [
-      "Lịch trình thay đổi và khác biệt nhu cầu"
+      "Lịch trình thay đổi và khác biệt nhu cầu",
+      "Thông tin sai làm méo văn hóa địa phương",
+      "Khách lạc đoàn cần phương án hỗ trợ"
     ],
     "keywords": [
       "Hướng dẫn viên du lịch",
@@ -822,17 +1821,61 @@
       "Tiếng Anh",
       "Địa lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Chuẩn bị nội dung điểm đến."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Chuẩn bị kiến thức và lịch tuyến; thuyết minh phù hợp đối tượng khách."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Xử lý thay đổi và kiểm tra đủ người."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Giao tiếp dịch vụ",
+        "reason": "Hỗ trợ việc chuẩn bị nội dung điểm đến; cần kiểm tra kết quả vì thông tin sai làm méo văn hóa địa phương."
+      },
+      {
+        "skill": "Phối hợp trong ca làm việc",
+        "reason": "Hỗ trợ việc chuẩn bị kiến thức và lịch tuyến; cần kiểm tra kết quả vì khách lạc đoàn cần phương án hỗ trợ."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Tiếng Anh, Địa lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử chuẩn bị kiến thức và lịch tuyến ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Thuyết minh một di tích qua tài liệu chính thức cho nhóm lớp. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "regulated_or_role_specific",
+      "note": "Hướng dẫn viên cần thẻ và điều kiện tương ứng loại hình hướng dẫn.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [
+      {
+        "label": "Luật Du lịch",
+        "url": "https://vbpl.vn/haiphong/Pages/vbpq-toanvan.aspx?ItemID=129350"
+      }
+    ],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-dieu-hanh-tour",
     "name": "Chuyên viên điều hành tour",
     "category_id": "hospitality",
     "short_description": "Thiết kế hành trình, phối hợp dịch vụ chuyến đi.",
-    "description": "Chuyên viên điều hành tour tập trung vào thiết kế hành trình. Công việc còn bao gồm phối hợp dịch vụ chuyến đi, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên điều hành tour kết nối lịch trình, dịch vụ và nhân sự để chương trình du lịch có thể thực hiện. Kết quả công việc gắn với thiết kế hành trình và phối hợp dịch vụ chuyến đi.",
     "daily_tasks": [
       "Thiết kế hành trình",
-      "Phối hợp dịch vụ chuyến đi"
+      "Phối hợp dịch vụ chuyến đi",
+      "Thiết kế tuyến theo thời gian và ngân sách",
+      "Đặt và xác nhận dịch vụ",
+      "Theo dõi đoàn và xử lý phát sinh"
     ],
     "skills": [
       "Giao tiếp dịch vụ",
@@ -843,9 +1886,11 @@
       "Địa lý",
       "Công nghệ"
     ],
-    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "work_environment": "Văn phòng lữ hành, liên lạc liên tục với hướng dẫn và đối tác.",
     "challenges": [
-      "Gián đoạn giao thông và nhà cung cấp"
+      "Gián đoạn giao thông và nhà cung cấp",
+      "Nhà cung cấp có thể đổi lịch",
+      "Thời tiết làm hủy hoạt động đã đặt"
     ],
     "keywords": [
       "Chuyên viên điều hành tour",
@@ -855,17 +1900,56 @@
       "Tiếng Anh",
       "Địa lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thiết kế hành trình."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Thiết kế tuyến theo thời gian và ngân sách; đặt và xác nhận dịch vụ."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi đoàn và xử lý phát sinh."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Giao tiếp dịch vụ",
+        "reason": "Hỗ trợ việc thiết kế hành trình; cần kiểm tra kết quả vì nhà cung cấp có thể đổi lịch."
+      },
+      {
+        "skill": "Phối hợp trong ca làm việc",
+        "reason": "Hỗ trợ việc thiết kế tuyến theo thời gian và ngân sách; cần kiểm tra kết quả vì thời tiết làm hủy hoạt động đã đặt."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Tiếng Anh, Địa lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử thiết kế tuyến theo thời gian và ngân sách ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Lập lịch tham quan giả định kèm phương án mưa. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "le-tan-khach-san",
     "name": "Lễ tân khách sạn",
     "category_id": "hospitality",
     "short_description": "Tiếp nhận đặt phòng, hỗ trợ khách lưu trú.",
-    "description": "Lễ tân khách sạn tập trung vào tiếp nhận đặt phòng. Công việc còn bao gồm hỗ trợ khách lưu trú, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Lễ tân khách sạn tiếp nhận và hỗ trợ khách lưu trú qua thủ tục, thông tin và phối hợp dịch vụ. Kết quả công việc gắn với tiếp nhận đặt phòng và hỗ trợ khách lưu trú.",
     "daily_tasks": [
       "Tiếp nhận đặt phòng",
-      "Hỗ trợ khách lưu trú"
+      "Hỗ trợ khách lưu trú",
+      "Kiểm tra đặt phòng và nhận phòng",
+      "Giải thích dịch vụ và điều kiện lưu trú",
+      "Bàn giao yêu cầu giữa các ca"
     ],
     "skills": [
       "Giao tiếp dịch vụ",
@@ -876,9 +1960,11 @@
       "Địa lý",
       "Công nghệ"
     ],
-    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "work_environment": "Sảnh khách sạn và bàn lễ tân có lịch làm ca.",
     "challenges": [
-      "Giao tiếp trong ca làm việc liên tục"
+      "Giao tiếp trong ca làm việc liên tục",
+      "Không được lộ thông tin phòng khách",
+      "Phàn nàn cần xử lý bình tĩnh"
     ],
     "keywords": [
       "Lễ tân khách sạn",
@@ -888,17 +1974,56 @@
       "Tiếng Anh",
       "Địa lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Tiếp nhận đặt phòng."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Kiểm tra đặt phòng và nhận phòng; giải thích dịch vụ và điều kiện lưu trú."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Bàn giao yêu cầu giữa các ca."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Giao tiếp dịch vụ",
+        "reason": "Hỗ trợ việc tiếp nhận đặt phòng; cần kiểm tra kết quả vì không được lộ thông tin phòng khách."
+      },
+      {
+        "skill": "Phối hợp trong ca làm việc",
+        "reason": "Hỗ trợ việc kiểm tra đặt phòng và nhận phòng; cần kiểm tra kết quả vì phàn nàn cần xử lý bình tĩnh."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Tiếng Anh, Địa lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử kiểm tra đặt phòng và nhận phòng ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Nhập vai nhận phòng với giấy tờ hoàn toàn giả định. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "quan-ly-khach-san",
     "name": "Quản lý khách sạn",
     "category_id": "hospitality",
     "short_description": "Điều phối bộ phận dịch vụ, theo dõi trải nghiệm khách.",
-    "description": "Quản lý khách sạn tập trung vào điều phối bộ phận dịch vụ. Công việc còn bao gồm theo dõi trải nghiệm khách, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Quản lý khách sạn điều phối các bộ phận để chất lượng lưu trú, nguồn lực và hiệu quả kinh doanh thống nhất. Kết quả công việc gắn với điều phối bộ phận dịch vụ và theo dõi trải nghiệm khách.",
     "daily_tasks": [
       "Điều phối bộ phận dịch vụ",
-      "Theo dõi trải nghiệm khách"
+      "Theo dõi trải nghiệm khách",
+      "Theo dõi công suất và chất lượng dịch vụ",
+      "Phân bổ nhân sự theo nhu cầu",
+      "Xử lý sự cố liên bộ phận"
     ],
     "skills": [
       "Giao tiếp dịch vụ",
@@ -909,9 +2034,11 @@
       "Địa lý",
       "Công nghệ"
     ],
-    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "work_environment": "Khách sạn với nhiều bộ phận và lịch vận hành cả ngày.",
     "challenges": [
-      "Cân đối chất lượng và vận hành"
+      "Cân đối chất lượng và vận hành",
+      "Dịch vụ hoạt động liên tục",
+      "Lỗi một bộ phận ảnh hưởng trải nghiệm chung"
     ],
     "keywords": [
       "Quản lý khách sạn",
@@ -921,17 +2048,56 @@
       "Tiếng Anh",
       "Địa lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Điều phối bộ phận dịch vụ."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Theo dõi công suất và chất lượng dịch vụ; phân bổ nhân sự theo nhu cầu."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Xử lý sự cố liên bộ phận."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Giao tiếp dịch vụ",
+        "reason": "Hỗ trợ việc điều phối bộ phận dịch vụ; cần kiểm tra kết quả vì dịch vụ hoạt động liên tục."
+      },
+      {
+        "skill": "Phối hợp trong ca làm việc",
+        "reason": "Hỗ trợ việc theo dõi công suất và chất lượng dịch vụ; cần kiểm tra kết quả vì lỗi một bộ phận ảnh hưởng trải nghiệm chung."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Tiếng Anh, Địa lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử theo dõi công suất và chất lượng dịch vụ ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Vẽ sơ đồ phối hợp lễ tân, buồng phòng và kỹ thuật. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "nhan-vien-buong-phong",
     "name": "Nhân viên buồng phòng",
     "category_id": "hospitality",
     "short_description": "Chuẩn bị phòng lưu trú, kiểm tra vật dụng và vệ sinh.",
-    "description": "Nhân viên buồng phòng tập trung vào chuẩn bị phòng lưu trú. Công việc còn bao gồm kiểm tra vật dụng và vệ sinh, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Nhân viên buồng phòng chuẩn bị và duy trì phòng lưu trú sạch, an toàn, đúng tiêu chuẩn cơ sở. Kết quả công việc gắn với chuẩn bị phòng lưu trú và kiểm tra vật dụng và vệ sinh.",
     "daily_tasks": [
       "Chuẩn bị phòng lưu trú",
-      "Kiểm tra vật dụng và vệ sinh"
+      "Kiểm tra vật dụng và vệ sinh",
+      "Kiểm tra tình trạng phòng trước dọn",
+      "Thay vải và vệ sinh theo thứ tự",
+      "Báo vật thất lạc hoặc thiết bị hỏng"
     ],
     "skills": [
       "Giao tiếp dịch vụ",
@@ -942,9 +2108,11 @@
       "Địa lý",
       "Công nghệ"
     ],
-    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "work_environment": "Tầng phòng, kho vải và khu hậu cần khách sạn.",
     "challenges": [
-      "Thời gian xử lý phòng có giới hạn"
+      "Thời gian xử lý phòng có giới hạn",
+      "Hóa chất không được trộn tùy tiện",
+      "Phải tôn trọng đồ dùng và riêng tư khách"
     ],
     "keywords": [
       "Nhân viên buồng phòng",
@@ -954,17 +2122,56 @@
       "Tiếng Anh",
       "Địa lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Chuẩn bị phòng lưu trú."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Kiểm tra tình trạng phòng trước dọn; thay vải và vệ sinh theo thứ tự."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Báo vật thất lạc hoặc thiết bị hỏng."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Giao tiếp dịch vụ",
+        "reason": "Hỗ trợ việc chuẩn bị phòng lưu trú; cần kiểm tra kết quả vì hóa chất không được trộn tùy tiện."
+      },
+      {
+        "skill": "Phối hợp trong ca làm việc",
+        "reason": "Hỗ trợ việc kiểm tra tình trạng phòng trước dọn; cần kiểm tra kết quả vì phải tôn trọng đồ dùng và riêng tư khách."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Tiếng Anh, Địa lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử kiểm tra tình trạng phòng trước dọn ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Lập checklist sắp xếp góc học tập, không dùng hóa chất mạnh. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "dau-bep",
     "name": "Đầu bếp",
     "category_id": "hospitality",
     "short_description": "Chuẩn bị nguyên liệu, chế biến và kiểm soát món ăn.",
-    "description": "Đầu bếp tập trung vào chuẩn bị nguyên liệu. Công việc còn bao gồm chế biến và kiểm soát món ăn, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Đầu bếp chế biến món ăn đáp ứng chất lượng, thời gian phục vụ và an toàn thực phẩm. Kết quả công việc gắn với chuẩn bị nguyên liệu và chế biến và kiểm soát món ăn.",
     "daily_tasks": [
       "Chuẩn bị nguyên liệu",
-      "Chế biến và kiểm soát món ăn"
+      "Chế biến và kiểm soát món ăn",
+      "Chuẩn bị nguyên liệu và phân khu sạch",
+      "Điều chỉnh nhiệt và thời gian nấu",
+      "Kiểm tra món trước khi phục vụ"
     ],
     "skills": [
       "Giao tiếp dịch vụ",
@@ -975,9 +2182,11 @@
       "Địa lý",
       "Công nghệ"
     ],
-    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "work_environment": "Bếp nhà hàng, khách sạn hoặc bếp tập thể với ca cao điểm.",
     "challenges": [
-      "An toàn thực phẩm và nhịp phục vụ nhanh"
+      "An toàn thực phẩm và nhịp phục vụ nhanh",
+      "Dao và bề mặt nóng gây tai nạn",
+      "Dị ứng và nhiễm chéo cần kiểm soát"
     ],
     "keywords": [
       "Đầu bếp",
@@ -987,17 +2196,56 @@
       "Tiếng Anh",
       "Địa lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Chuẩn bị nguyên liệu."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Chuẩn bị nguyên liệu và phân khu sạch; điều chỉnh nhiệt và thời gian nấu."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Kiểm tra món trước khi phục vụ."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Giao tiếp dịch vụ",
+        "reason": "Hỗ trợ việc chuẩn bị nguyên liệu; cần kiểm tra kết quả vì dao và bề mặt nóng gây tai nạn."
+      },
+      {
+        "skill": "Phối hợp trong ca làm việc",
+        "reason": "Hỗ trợ việc chuẩn bị nguyên liệu và phân khu sạch; cần kiểm tra kết quả vì dị ứng và nhiễm chéo cần kiểm soát."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Tiếng Anh, Địa lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử chuẩn bị nguyên liệu và phân khu sạch ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Làm món không nhiệt đơn giản dưới giám sát người lớn. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "tho-lam-banh",
     "name": "Thợ làm bánh",
     "category_id": "hospitality",
     "short_description": "Cân nguyên liệu, theo dõi ủ và nướng.",
-    "description": "Thợ làm bánh tập trung vào cân nguyên liệu. Công việc còn bao gồm theo dõi ủ và nướng, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Thợ làm bánh tạo bánh bằng phối trộn, tạo hình và kiểm soát lên men hoặc nhiệt nướng. Kết quả công việc gắn với cân nguyên liệu và theo dõi ủ và nướng.",
     "daily_tasks": [
       "Cân nguyên liệu",
-      "Theo dõi ủ và nướng"
+      "Theo dõi ủ và nướng",
+      "Cân nguyên liệu theo công thức",
+      "Theo dõi bột và điều kiện ủ",
+      "Đánh giá ruột bánh và mặt bánh sau nướng"
     ],
     "skills": [
       "Giao tiếp dịch vụ",
@@ -1008,9 +2256,11 @@
       "Địa lý",
       "Công nghệ"
     ],
-    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "work_environment": "Xưởng bánh, bếp khách sạn hoặc cửa hàng, có thể làm ca sớm.",
     "challenges": [
-      "Độ chính xác và nhiệt độ ảnh hưởng thành phẩm"
+      "Độ chính xác và nhiệt độ ảnh hưởng thành phẩm",
+      "Sai tỷ lệ làm đổi kết cấu",
+      "Lò nóng và dị nguyên cần chú ý"
     ],
     "keywords": [
       "Thợ làm bánh",
@@ -1020,17 +2270,56 @@
       "Tiếng Anh",
       "Địa lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Cân nguyên liệu."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Cân nguyên liệu theo công thức; theo dõi bột và điều kiện ủ."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Đánh giá ruột bánh và mặt bánh sau nướng."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Giao tiếp dịch vụ",
+        "reason": "Hỗ trợ việc cân nguyên liệu; cần kiểm tra kết quả vì sai tỷ lệ làm đổi kết cấu."
+      },
+      {
+        "skill": "Phối hợp trong ca làm việc",
+        "reason": "Hỗ trợ việc cân nguyên liệu theo công thức; cần kiểm tra kết quả vì lò nóng và dị nguyên cần chú ý."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Tiếng Anh, Địa lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử cân nguyên liệu theo công thức ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: So sánh công thức qua phép tính tỉ lệ, nướng chỉ khi có người lớn. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "nhan-vien-pha-che",
     "name": "Nhân viên pha chế",
     "category_id": "hospitality",
     "short_description": "Chuẩn bị đồ uống, kiểm tra nguyên liệu quầy.",
-    "description": "Nhân viên pha chế tập trung vào chuẩn bị đồ uống. Công việc còn bao gồm kiểm tra nguyên liệu quầy, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Nhân viên pha chế chuẩn bị đồ uống theo công thức, nhu cầu khách và quy trình vệ sinh. Kết quả công việc gắn với chuẩn bị đồ uống và kiểm tra nguyên liệu quầy.",
     "daily_tasks": [
       "Chuẩn bị đồ uống",
-      "Kiểm tra nguyên liệu quầy"
+      "Kiểm tra nguyên liệu quầy",
+      "Sắp nguyên liệu và kiểm hạn dùng",
+      "Định lượng và phối hợp hương vị",
+      "Vệ sinh dụng cụ giữa các lượt"
     ],
     "skills": [
       "Giao tiếp dịch vụ",
@@ -1041,9 +2330,11 @@
       "Địa lý",
       "Công nghệ"
     ],
-    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "work_environment": "Quầy đồ uống, quán cà phê hoặc nhà hàng theo ca.",
     "challenges": [
-      "Giữ chất lượng khi đông khách"
+      "Giữ chất lượng khi đông khách",
+      "Dị ứng và nhiễm chéo ảnh hưởng khách",
+      "Thức uống nóng có thể gây bỏng"
     ],
     "keywords": [
       "Nhân viên pha chế",
@@ -1053,17 +2344,56 @@
       "Tiếng Anh",
       "Địa lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Chuẩn bị đồ uống."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Sắp nguyên liệu và kiểm hạn dùng; định lượng và phối hợp hương vị."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Vệ sinh dụng cụ giữa các lượt."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Giao tiếp dịch vụ",
+        "reason": "Hỗ trợ việc chuẩn bị đồ uống; cần kiểm tra kết quả vì dị ứng và nhiễm chéo ảnh hưởng khách."
+      },
+      {
+        "skill": "Phối hợp trong ca làm việc",
+        "reason": "Hỗ trợ việc sắp nguyên liệu và kiểm hạn dùng; cần kiểm tra kết quả vì thức uống nóng có thể gây bỏng."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Tiếng Anh, Địa lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử sắp nguyên liệu và kiểm hạn dùng ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Pha đồ uống không cồn bằng nguyên liệu quen thuộc, có giám sát. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "nhan-vien-phuc-vu-nha-hang",
     "name": "Nhân viên phục vụ nhà hàng",
     "category_id": "hospitality",
     "short_description": "Tiếp nhận yêu cầu món, phối hợp phục vụ bàn.",
-    "description": "Nhân viên phục vụ nhà hàng tập trung vào tiếp nhận yêu cầu món. Công việc còn bao gồm phối hợp phục vụ bàn, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Nhân viên phục vụ nhà hàng kết nối khách với bếp và dịch vụ để bữa ăn được phục vụ đúng yêu cầu. Kết quả công việc gắn với tiếp nhận yêu cầu món và phối hợp phục vụ bàn.",
     "daily_tasks": [
       "Tiếp nhận yêu cầu món",
-      "Phối hợp phục vụ bàn"
+      "Phối hợp phục vụ bàn",
+      "Ghi món và lưu ý dị ứng",
+      "Theo dõi thứ tự phục vụ",
+      "Kiểm tra hóa đơn và phản hồi khách"
     ],
     "skills": [
       "Giao tiếp dịch vụ",
@@ -1074,9 +2404,11 @@
       "Địa lý",
       "Công nghệ"
     ],
-    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "work_environment": "Phòng ăn, khu phục vụ và đường di chuyển giữa bếp với bàn.",
     "challenges": [
-      "Nhiều yêu cầu phát sinh đồng thời"
+      "Nhiều yêu cầu phát sinh đồng thời",
+      "Ghi nhầm lưu ý dị ứng gây nguy hiểm",
+      "Giờ cao điểm đòi hỏi phối hợp nhịp nhàng"
     ],
     "keywords": [
       "Nhân viên phục vụ nhà hàng",
@@ -1086,17 +2418,56 @@
       "Tiếng Anh",
       "Địa lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Tiếp nhận yêu cầu món."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Ghi món và lưu ý dị ứng; theo dõi thứ tự phục vụ."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Kiểm tra hóa đơn và phản hồi khách."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Giao tiếp dịch vụ",
+        "reason": "Hỗ trợ việc tiếp nhận yêu cầu món; cần kiểm tra kết quả vì ghi nhầm lưu ý dị ứng gây nguy hiểm."
+      },
+      {
+        "skill": "Phối hợp trong ca làm việc",
+        "reason": "Hỗ trợ việc ghi món và lưu ý dị ứng; cần kiểm tra kết quả vì giờ cao điểm đòi hỏi phối hợp nhịp nhàng."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Tiếng Anh, Địa lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử ghi món và lưu ý dị ứng ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Nhập vai phục vụ bữa ăn gia đình bằng thực đơn mẫu. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "tiep-vien-hang-khong",
     "name": "Tiếp viên hàng không",
     "category_id": "hospitality",
     "short_description": "Kiểm tra trang bị khoang khách, hướng dẫn an toàn và hỗ trợ hành khách.",
-    "description": "Tiếp viên hàng không tập trung vào kiểm tra trang bị khoang khách. Công việc còn bao gồm hướng dẫn an toàn và hỗ trợ hành khách, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Tiếp viên hàng không thực hiện nhiệm vụ an toàn khoang khách và hỗ trợ hành khách theo huấn luyện của hãng. Kết quả công việc gắn với kiểm tra trang bị khoang khách và hướng dẫn an toàn và hỗ trợ hành khách.",
     "daily_tasks": [
       "Kiểm tra trang bị khoang khách",
-      "Hướng dẫn an toàn và hỗ trợ hành khách"
+      "Hướng dẫn an toàn và hỗ trợ hành khách",
+      "Kiểm tra thiết bị an toàn trước chuyến",
+      "Hướng dẫn và giám sát quy tắc khoang khách",
+      "Phối hợp xử lý tình huống khẩn"
     ],
     "skills": [
       "Giao tiếp dịch vụ",
@@ -1107,9 +2478,11 @@
       "Địa lý",
       "Công nghệ"
     ],
-    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "work_environment": "Khoang máy bay, lịch bay thay đổi và phối hợp với tổ bay.",
     "challenges": [
-      "Lịch bay và tình huống khẩn cấp"
+      "Lịch bay và tình huống khẩn cấp",
+      "Sức khỏe chịu ảnh hưởng lịch bay",
+      "An toàn phải ưu tiên hơn phục vụ"
     ],
     "keywords": [
       "Tiếp viên hàng không",
@@ -1119,17 +2492,56 @@
       "Tiếng Anh",
       "Địa lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Kiểm tra trang bị khoang khách."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Kiểm tra thiết bị an toàn trước chuyến; hướng dẫn và giám sát quy tắc khoang khách."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Phối hợp xử lý tình huống khẩn."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Giao tiếp dịch vụ",
+        "reason": "Hỗ trợ việc kiểm tra trang bị khoang khách; cần kiểm tra kết quả vì sức khỏe chịu ảnh hưởng lịch bay."
+      },
+      {
+        "skill": "Phối hợp trong ca làm việc",
+        "reason": "Hỗ trợ việc kiểm tra thiết bị an toàn trước chuyến; cần kiểm tra kết quả vì an toàn phải ưu tiên hơn phục vụ."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Tiếng Anh, Địa lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử kiểm tra thiết bị an toàn trước chuyến ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Tìm hiểu hướng dẫn an toàn hành khách từ hãng hàng không. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "phi-cong",
     "name": "Phi công",
     "category_id": "hospitality",
     "short_description": "Chuẩn bị kế hoạch chuyến bay, theo dõi và điều khiển máy bay.",
-    "description": "Phi công tập trung vào chuẩn bị kế hoạch chuyến bay. Công việc còn bao gồm theo dõi và điều khiển máy bay, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Phi công điều khiển tàu bay trong phạm vi giấy phép và năng định, phối hợp tổ bay bảo đảm chuyến bay an toàn. Kết quả công việc gắn với chuẩn bị kế hoạch chuyến bay và theo dõi và điều khiển máy bay.",
     "daily_tasks": [
       "Chuẩn bị kế hoạch chuyến bay",
-      "Theo dõi và điều khiển máy bay"
+      "Theo dõi và điều khiển máy bay",
+      "Đánh giá thời tiết và kế hoạch bay",
+      "Kiểm tra tàu bay theo checklist",
+      "Theo dõi và trao đổi với kiểm soát không lưu"
     ],
     "skills": [
       "Giao tiếp dịch vụ",
@@ -1140,9 +2552,11 @@
       "Địa lý",
       "Công nghệ"
     ],
-    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "work_environment": "Buồng lái, phòng lập kế hoạch và thiết bị mô phỏng huấn luyện.",
     "challenges": [
-      "Đòi hỏi tập trung và phối hợp chặt chẽ"
+      "Đòi hỏi tập trung và phối hợp chặt chẽ",
+      "Áp lực ra quyết định trong điều kiện thay đổi",
+      "Mệt mỏi ảnh hưởng an toàn bay"
     ],
     "keywords": [
       "Phi công",
@@ -1152,17 +2566,61 @@
       "Tiếng Anh",
       "Địa lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Chuẩn bị kế hoạch chuyến bay."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Đánh giá thời tiết và kế hoạch bay; kiểm tra tàu bay theo checklist."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi và trao đổi với kiểm soát không lưu."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Giao tiếp dịch vụ",
+        "reason": "Hỗ trợ việc chuẩn bị kế hoạch chuyến bay; cần kiểm tra kết quả vì áp lực ra quyết định trong điều kiện thay đổi."
+      },
+      {
+        "skill": "Phối hợp trong ca làm việc",
+        "reason": "Hỗ trợ việc đánh giá thời tiết và kế hoạch bay; cần kiểm tra kết quả vì mệt mỏi ảnh hưởng an toàn bay."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Tiếng Anh, Địa lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử đánh giá thời tiết và kế hoạch bay ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Dùng mô phỏng giáo dục để hiểu nguyên lý, không điều khiển thiết bị bay thật. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "regulated_or_role_specific",
+      "note": "Cần giấy phép và năng định phù hợp, cùng điều kiện sức khỏe và huấn luyện.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [
+      {
+        "label": "Cấp giấy phép, năng định người lái tàu bay",
+        "url": "https://caa.gov.vn/van-ban/1004289-28792.htm"
+      }
+    ],
+    "profile_version": 2
   },
   {
     "career_id": "nhan-vien-dieu-phoi-van-tai",
     "name": "Nhân viên điều phối vận tải",
     "category_id": "hospitality",
     "short_description": "Sắp xếp lịch phương tiện, theo dõi chuyến đi.",
-    "description": "Nhân viên điều phối vận tải tập trung vào sắp xếp lịch phương tiện. Công việc còn bao gồm theo dõi chuyến đi, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Nhân viên điều phối vận tải bố trí phương tiện và lịch vận chuyển để hàng hoặc hành khách đến nơi đúng kế hoạch. Kết quả công việc gắn với sắp xếp lịch phương tiện và theo dõi chuyến đi.",
     "daily_tasks": [
       "Sắp xếp lịch phương tiện",
-      "Theo dõi chuyến đi"
+      "Theo dõi chuyến đi",
+      "Ghép chuyến theo tải và tuyến",
+      "Theo dõi vị trí cùng thời gian dự kiến",
+      "Điều chỉnh khi xe hoặc đường gặp sự cố"
     ],
     "skills": [
       "Giao tiếp dịch vụ",
@@ -1173,9 +2631,11 @@
       "Địa lý",
       "Công nghệ"
     ],
-    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "work_environment": "Trung tâm điều độ, liên lạc với lái xe và đầu mối giao nhận.",
     "challenges": [
-      "Thời tiết và lưu lượng giao thông"
+      "Thời tiết và lưu lượng giao thông",
+      "Lịch quá sát tạo áp lực không an toàn",
+      "Thông tin trễ làm lỡ kết nối"
     ],
     "keywords": [
       "Nhân viên điều phối vận tải",
@@ -1185,17 +2645,56 @@
       "Tiếng Anh",
       "Địa lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Sắp xếp lịch phương tiện."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Ghép chuyến theo tải và tuyến; theo dõi vị trí cùng thời gian dự kiến."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Điều chỉnh khi xe hoặc đường gặp sự cố."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Giao tiếp dịch vụ",
+        "reason": "Hỗ trợ việc sắp xếp lịch phương tiện; cần kiểm tra kết quả vì lịch quá sát tạo áp lực không an toàn."
+      },
+      {
+        "skill": "Phối hợp trong ca làm việc",
+        "reason": "Hỗ trợ việc ghép chuyến theo tải và tuyến; cần kiểm tra kết quả vì thông tin trễ làm lỡ kết nối."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Tiếng Anh, Địa lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử ghép chuyến theo tải và tuyến ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Lập lịch xe buýt giả định có thời gian nghỉ hợp lý. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-cham-soc-sac-dep",
     "name": "Chuyên viên chăm sóc sắc đẹp",
     "category_id": "hospitality",
     "short_description": "Tìm hiểu nhu cầu khách, thực hiện dịch vụ trong phạm vi đào tạo.",
-    "description": "Chuyên viên chăm sóc sắc đẹp tập trung vào tìm hiểu nhu cầu khách. Công việc còn bao gồm thực hiện dịch vụ trong phạm vi đào tạo, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên chăm sóc sắc đẹp thực hiện chăm sóc thẩm mỹ không xâm lấn trong phạm vi đào tạo và điều kiện cơ sở. Kết quả công việc gắn với tìm hiểu nhu cầu khách và thực hiện dịch vụ trong phạm vi đào tạo.",
     "daily_tasks": [
       "Tìm hiểu nhu cầu khách",
-      "Thực hiện dịch vụ trong phạm vi đào tạo"
+      "Thực hiện dịch vụ trong phạm vi đào tạo",
+      "Làm rõ nhu cầu và chống chỉ định liên quan",
+      "Chuẩn bị dụng cụ vệ sinh",
+      "Hướng dẫn chăm sóc và chuyển chuyên môn khi cần"
     ],
     "skills": [
       "Giao tiếp dịch vụ",
@@ -1206,9 +2705,11 @@
       "Địa lý",
       "Công nghệ"
     ],
-    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "work_environment": "Cơ sở dịch vụ làm đẹp, phân biệt với phòng khám chuyên khoa.",
     "challenges": [
-      "Vệ sinh dụng cụ và kỳ vọng khách"
+      "Vệ sinh dụng cụ và kỳ vọng khách",
+      "Sản phẩm có thể gây kích ứng",
+      "Không được làm thủ thuật y tế ngoài phạm vi"
     ],
     "keywords": [
       "Chuyên viên chăm sóc sắc đẹp",
@@ -1218,17 +2719,56 @@
       "Tiếng Anh",
       "Địa lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Tìm hiểu nhu cầu khách."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Làm rõ nhu cầu và chống chỉ định liên quan; chuẩn bị dụng cụ vệ sinh."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Hướng dẫn chăm sóc và chuyển chuyên môn khi cần."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Giao tiếp dịch vụ",
+        "reason": "Hỗ trợ việc tìm hiểu nhu cầu khách; cần kiểm tra kết quả vì sản phẩm có thể gây kích ứng."
+      },
+      {
+        "skill": "Phối hợp trong ca làm việc",
+        "reason": "Hỗ trợ việc làm rõ nhu cầu và chống chỉ định liên quan; cần kiểm tra kết quả vì không được làm thủ thuật y tế ngoài phạm vi."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Tiếng Anh, Địa lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử làm rõ nhu cầu và chống chỉ định liên quan ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Đọc nhãn mỹ phẩm và kiểm tra nguồn gốc, không thử hóa chất lên người khác. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "tho-cat-toc",
     "name": "Thợ cắt tóc",
     "category_id": "hospitality",
     "short_description": "Tư vấn kiểu tóc, cắt và tạo kiểu.",
-    "description": "Thợ cắt tóc tập trung vào tư vấn kiểu tóc. Công việc còn bao gồm cắt và tạo kiểu, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Thợ cắt tóc tạo kiểu tóc phù hợp mong muốn, chất tóc và điều kiện chăm sóc của khách. Kết quả công việc gắn với tư vấn kiểu tóc và cắt và tạo kiểu.",
     "daily_tasks": [
       "Tư vấn kiểu tóc",
-      "Cắt và tạo kiểu"
+      "Cắt và tạo kiểu",
+      "Trao đổi kiểu và cách giữ nếp",
+      "Cắt theo vùng và kiểm cân đối",
+      "Vệ sinh dụng cụ giữa khách"
     ],
     "skills": [
       "Giao tiếp dịch vụ",
@@ -1239,9 +2779,11 @@
       "Địa lý",
       "Công nghệ"
     ],
-    "work_environment": "Cơ sở dịch vụ, điểm đến hoặc phương tiện vận chuyển tùy nghề.",
+    "work_environment": "Salon với khu gội, cắt và hóa chất tách hợp lý.",
     "challenges": [
-      "Điều chỉnh theo chất tóc và mong muốn"
+      "Điều chỉnh theo chất tóc và mong muốn",
+      "Kéo và dao có thể gây thương tích",
+      "Thuốc tóc cần quản lý nguy cơ dị ứng"
     ],
     "keywords": [
       "Thợ cắt tóc",
@@ -1251,17 +2793,56 @@
       "Tiếng Anh",
       "Địa lý",
       "Công nghệ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Tư vấn kiểu tóc."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Trao đổi kiểu và cách giữ nếp; cắt theo vùng và kiểm cân đối."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Vệ sinh dụng cụ giữa khách."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Giao tiếp dịch vụ",
+        "reason": "Hỗ trợ việc tư vấn kiểu tóc; cần kiểm tra kết quả vì kéo và dao có thể gây thương tích."
+      },
+      {
+        "skill": "Phối hợp trong ca làm việc",
+        "reason": "Hỗ trợ việc trao đổi kiểu và cách giữ nếp; cần kiểm tra kết quả vì thuốc tóc cần quản lý nguy cơ dị ứng."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Tiếng Anh, Địa lý, Công nghệ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử trao đổi kiểu và cách giữ nếp ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Thiết kế kiểu trên giấy hoặc tóc giả, không dùng thuốc nhuộm. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "nha-toan-hoc",
     "name": "Nhà toán học",
     "category_id": "science",
     "short_description": "Xây dựng mô hình toán, kiểm tra lập luận và chứng minh.",
-    "description": "Nhà toán học tập trung vào xây dựng mô hình toán. Công việc còn bao gồm kiểm tra lập luận và chứng minh, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Nhà toán học phát triển lập luận và mô hình toán để giải bài toán lý thuyết hoặc ứng dụng. Kết quả công việc gắn với xây dựng mô hình toán và kiểm tra lập luận và chứng minh.",
     "daily_tasks": [
       "Xây dựng mô hình toán",
-      "Kiểm tra lập luận và chứng minh"
+      "Kiểm tra lập luận và chứng minh",
+      "Đặt giả thuyết và định nghĩa",
+      "Xây chứng minh hoặc phản ví dụ",
+      "Trao đổi kết quả để kiểm tra lập luận"
     ],
     "skills": [
       "Đặt câu hỏi nghiên cứu",
@@ -1272,9 +2853,11 @@
       "Khoa học tự nhiên",
       "Ngoại ngữ"
     ],
-    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "work_environment": "Trường đại học, viện nghiên cứu hoặc nhóm mô hình ứng dụng.",
     "challenges": [
-      "Bài toán có thể chưa có hướng giải"
+      "Bài toán có thể chưa có hướng giải",
+      "Một bước thiếu chặt chẽ làm hỏng chứng minh",
+      "Bài toán có thể chưa có lời giải"
     ],
     "keywords": [
       "Nhà toán học",
@@ -1284,17 +2867,56 @@
       "Toán",
       "Khoa học tự nhiên",
       "Ngoại ngữ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Xây dựng mô hình toán."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Đặt giả thuyết và định nghĩa; xây chứng minh hoặc phản ví dụ."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Trao đổi kết quả để kiểm tra lập luận."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đặt câu hỏi nghiên cứu",
+        "reason": "Hỗ trợ việc xây dựng mô hình toán; cần kiểm tra kết quả vì một bước thiếu chặt chẽ làm hỏng chứng minh."
+      },
+      {
+        "skill": "Ghi chép và phân tích bằng chứng",
+        "reason": "Hỗ trợ việc đặt giả thuyết và định nghĩa; cần kiểm tra kết quả vì bài toán có thể chưa có lời giải."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Khoa học tự nhiên, Ngoại ngữ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử đặt giả thuyết và định nghĩa ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Tìm và giải thích quy luật từ bài toán tổ hợp nhỏ. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "nha-vat-ly",
     "name": "Nhà vật lý",
     "category_id": "science",
     "short_description": "Thiết kế phép đo, phân tích hiện tượng vật lý.",
-    "description": "Nhà vật lý tập trung vào thiết kế phép đo. Công việc còn bao gồm phân tích hiện tượng vật lý, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Nhà vật lý xây và kiểm tra mô hình về vật chất, năng lượng và các tương tác tự nhiên. Kết quả công việc gắn với thiết kế phép đo và phân tích hiện tượng vật lý.",
     "daily_tasks": [
       "Thiết kế phép đo",
-      "Phân tích hiện tượng vật lý"
+      "Phân tích hiện tượng vật lý",
+      "Thiết kế phép đo kiểm giả thuyết",
+      "Phân tích sai số thiết bị",
+      "So sánh mô hình với dữ liệu thực nghiệm"
     ],
     "skills": [
       "Đặt câu hỏi nghiên cứu",
@@ -1305,9 +2927,11 @@
       "Khoa học tự nhiên",
       "Ngoại ngữ"
     ],
-    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "work_environment": "Phòng thí nghiệm, nhóm tính toán hoặc cơ sở nghiên cứu.",
     "challenges": [
-      "Tách tín hiệu thật khỏi nhiễu"
+      "Tách tín hiệu thật khỏi nhiễu",
+      "Kết quả đo luôn có sai số",
+      "Thiết bị đặc thù cần huấn luyện an toàn"
     ],
     "keywords": [
       "Nhà vật lý",
@@ -1317,17 +2941,56 @@
       "Toán",
       "Khoa học tự nhiên",
       "Ngoại ngữ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thiết kế phép đo."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Thiết kế phép đo kiểm giả thuyết; phân tích sai số thiết bị."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "So sánh mô hình với dữ liệu thực nghiệm."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đặt câu hỏi nghiên cứu",
+        "reason": "Hỗ trợ việc thiết kế phép đo; cần kiểm tra kết quả vì kết quả đo luôn có sai số."
+      },
+      {
+        "skill": "Ghi chép và phân tích bằng chứng",
+        "reason": "Hỗ trợ việc thiết kế phép đo kiểm giả thuyết; cần kiểm tra kết quả vì thiết bị đặc thù cần huấn luyện an toàn."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Khoa học tự nhiên, Ngoại ngữ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử thiết kế phép đo kiểm giả thuyết ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Đo chu kỳ con lắc nhỏ dưới hướng dẫn giáo viên. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "nha-hoa-hoc",
     "name": "Nhà hóa học",
     "category_id": "science",
     "short_description": "Thiết kế thí nghiệm hóa học, phân tích thành phần mẫu.",
-    "description": "Nhà hóa học tập trung vào thiết kế thí nghiệm hóa học. Công việc còn bao gồm phân tích thành phần mẫu, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Nhà hóa học nghiên cứu thành phần, cấu trúc và biến đổi chất để giải thích hoặc tạo tính chất mong muốn. Kết quả công việc gắn với thiết kế thí nghiệm hóa học và phân tích thành phần mẫu.",
     "daily_tasks": [
       "Thiết kế thí nghiệm hóa học",
-      "Phân tích thành phần mẫu"
+      "Phân tích thành phần mẫu",
+      "Chuẩn bị thí nghiệm theo quy trình",
+      "Phân tích sản phẩm và mẫu chất",
+      "Ghi điều kiện để tái lập kết quả"
     ],
     "skills": [
       "Đặt câu hỏi nghiên cứu",
@@ -1338,9 +3001,11 @@
       "Khoa học tự nhiên",
       "Ngoại ngữ"
     ],
-    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "work_environment": "Phòng thí nghiệm hóa với hút khí và quy trình quản lý chất thải.",
     "challenges": [
-      "An toàn và khả năng tái lập"
+      "An toàn và khả năng tái lập",
+      "Hóa chất có nguy cơ độc và cháy",
+      "Tạp chất có thể làm sai kết luận"
     ],
     "keywords": [
       "Nhà hóa học",
@@ -1350,17 +3015,56 @@
       "Toán",
       "Khoa học tự nhiên",
       "Ngoại ngữ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thiết kế thí nghiệm hóa học."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Chuẩn bị thí nghiệm theo quy trình; phân tích sản phẩm và mẫu chất."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Ghi điều kiện để tái lập kết quả."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đặt câu hỏi nghiên cứu",
+        "reason": "Hỗ trợ việc thiết kế thí nghiệm hóa học; cần kiểm tra kết quả vì hóa chất có nguy cơ độc và cháy."
+      },
+      {
+        "skill": "Ghi chép và phân tích bằng chứng",
+        "reason": "Hỗ trợ việc chuẩn bị thí nghiệm theo quy trình; cần kiểm tra kết quả vì tạp chất có thể làm sai kết luận."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Khoa học tự nhiên, Ngoại ngữ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử chuẩn bị thí nghiệm theo quy trình ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Quan sát hòa tan muối ăn trong tiết học, không pha hóa chất lạ. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "nha-sinh-hoc",
     "name": "Nhà sinh học",
     "category_id": "science",
     "short_description": "Quan sát hệ sống, phân tích kết quả thí nghiệm sinh học.",
-    "description": "Nhà sinh học tập trung vào quan sát hệ sống. Công việc còn bao gồm phân tích kết quả thí nghiệm sinh học, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Nhà sinh học nghiên cứu sinh vật và cơ chế sống bằng quan sát, thí nghiệm và phân tích có kiểm soát. Kết quả công việc gắn với quan sát hệ sống và phân tích kết quả thí nghiệm sinh học.",
     "daily_tasks": [
       "Quan sát hệ sống",
-      "Phân tích kết quả thí nghiệm sinh học"
+      "Phân tích kết quả thí nghiệm sinh học",
+      "Đặt câu hỏi về quá trình sinh học",
+      "Thiết kế nhóm đối chứng",
+      "Đối chiếu kết quả với điều kiện nuôi hoặc môi trường"
     ],
     "skills": [
       "Đặt câu hỏi nghiên cứu",
@@ -1371,9 +3075,11 @@
       "Khoa học tự nhiên",
       "Ngoại ngữ"
     ],
-    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "work_environment": "Phòng nghiên cứu, trại thực nghiệm hoặc khảo sát sinh thái tùy chuyên ngành.",
     "challenges": [
-      "Biến thiên tự nhiên giữa các mẫu"
+      "Biến thiên tự nhiên giữa các mẫu",
+      "Biến thiên tự nhiên làm khó suy luận",
+      "Đạo đức nghiên cứu phải được tuân thủ"
     ],
     "keywords": [
       "Nhà sinh học",
@@ -1383,17 +3089,56 @@
       "Toán",
       "Khoa học tự nhiên",
       "Ngoại ngữ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Quan sát hệ sống."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Đặt câu hỏi về quá trình sinh học; thiết kế nhóm đối chứng."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Đối chiếu kết quả với điều kiện nuôi hoặc môi trường."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đặt câu hỏi nghiên cứu",
+        "reason": "Hỗ trợ việc quan sát hệ sống; cần kiểm tra kết quả vì biến thiên tự nhiên làm khó suy luận."
+      },
+      {
+        "skill": "Ghi chép và phân tích bằng chứng",
+        "reason": "Hỗ trợ việc đặt câu hỏi về quá trình sinh học; cần kiểm tra kết quả vì đạo đức nghiên cứu phải được tuân thủ."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Khoa học tự nhiên, Ngoại ngữ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử đặt câu hỏi về quá trình sinh học ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Quan sát nảy mầm với đối chứng nước và ánh sáng. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-thong-ke",
     "name": "Chuyên viên thống kê",
     "category_id": "science",
     "short_description": "Thiết kế phương án lấy mẫu, phân tích sai số thống kê.",
-    "description": "Chuyên viên thống kê tập trung vào thiết kế phương án lấy mẫu. Công việc còn bao gồm phân tích sai số thống kê, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên thống kê thiết kế thu thập và phân tích dữ liệu để ước lượng có cơ sở cùng mức bất định. Kết quả công việc gắn với thiết kế phương án lấy mẫu và phân tích sai số thống kê.",
     "daily_tasks": [
       "Thiết kế phương án lấy mẫu",
-      "Phân tích sai số thống kê"
+      "Phân tích sai số thống kê",
+      "Chọn thiết kế mẫu",
+      "Kiểm tra giả định phương pháp",
+      "Báo cáo ước lượng và khoảng bất định"
     ],
     "skills": [
       "Đặt câu hỏi nghiên cứu",
@@ -1404,9 +3149,11 @@
       "Khoa học tự nhiên",
       "Ngoại ngữ"
     ],
-    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "work_environment": "Cơ quan thống kê, viện nghiên cứu hoặc nhóm phân tích.",
     "challenges": [
-      "Tránh diễn giải vượt dữ liệu"
+      "Tránh diễn giải vượt dữ liệu",
+      "Mẫu thiếu đại diện gây sai lệch",
+      "Cách trình bày có thể che bất định"
     ],
     "keywords": [
       "Chuyên viên thống kê",
@@ -1416,17 +3163,56 @@
       "Toán",
       "Khoa học tự nhiên",
       "Ngoại ngữ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thiết kế phương án lấy mẫu."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Chọn thiết kế mẫu; kiểm tra giả định phương pháp."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Báo cáo ước lượng và khoảng bất định."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đặt câu hỏi nghiên cứu",
+        "reason": "Hỗ trợ việc thiết kế phương án lấy mẫu; cần kiểm tra kết quả vì mẫu thiếu đại diện gây sai lệch."
+      },
+      {
+        "skill": "Ghi chép và phân tích bằng chứng",
+        "reason": "Hỗ trợ việc chọn thiết kế mẫu; cần kiểm tra kết quả vì cách trình bày có thể che bất định."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Khoa học tự nhiên, Ngoại ngữ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử chọn thiết kế mẫu ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Lấy mẫu màu hạt giả định rồi so sánh với toàn bộ tập. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "nha-xa-hoi-hoc",
     "name": "Nhà xã hội học",
     "category_id": "science",
     "short_description": "Thiết kế nghiên cứu xã hội, phân tích hành vi nhóm.",
-    "description": "Nhà xã hội học tập trung vào thiết kế nghiên cứu xã hội. Công việc còn bao gồm phân tích hành vi nhóm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Nhà xã hội học nghiên cứu quan hệ và tổ chức xã hội qua dữ liệu và phương pháp khoa học xã hội. Kết quả công việc gắn với thiết kế nghiên cứu xã hội và phân tích hành vi nhóm.",
     "daily_tasks": [
       "Thiết kế nghiên cứu xã hội",
-      "Phân tích hành vi nhóm"
+      "Phân tích hành vi nhóm",
+      "Xây câu hỏi nghiên cứu và khung phân tích",
+      "Phỏng vấn có đồng ý và ẩn danh",
+      "So sánh kết quả giữa các nhóm và bối cảnh"
     ],
     "skills": [
       "Đặt câu hỏi nghiên cứu",
@@ -1437,9 +3223,11 @@
       "Khoa học tự nhiên",
       "Ngoại ngữ"
     ],
-    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "work_environment": "Viện nghiên cứu, đại học và các địa bàn được phép khảo sát.",
     "challenges": [
-      "Bảo vệ người tham gia nghiên cứu"
+      "Bảo vệ người tham gia nghiên cứu",
+      "Câu hỏi nhạy cảm có thể gây khó chịu",
+      "Không được gán đặc điểm cá nhân từ nhóm"
     ],
     "keywords": [
       "Nhà xã hội học",
@@ -1449,17 +3237,56 @@
       "Toán",
       "Khoa học tự nhiên",
       "Ngoại ngữ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thiết kế nghiên cứu xã hội."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Xây câu hỏi nghiên cứu và khung phân tích; phỏng vấn có đồng ý và ẩn danh."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "So sánh kết quả giữa các nhóm và bối cảnh."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đặt câu hỏi nghiên cứu",
+        "reason": "Hỗ trợ việc thiết kế nghiên cứu xã hội; cần kiểm tra kết quả vì câu hỏi nhạy cảm có thể gây khó chịu."
+      },
+      {
+        "skill": "Ghi chép và phân tích bằng chứng",
+        "reason": "Hỗ trợ việc xây câu hỏi nghiên cứu và khung phân tích; cần kiểm tra kết quả vì không được gán đặc điểm cá nhân từ nhóm."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Khoa học tự nhiên, Ngoại ngữ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử xây câu hỏi nghiên cứu và khung phân tích ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Quan sát cách sử dụng thư viện bằng dữ liệu đếm không định danh. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "nha-khao-co-hoc",
     "name": "Nhà khảo cổ học",
     "category_id": "science",
     "short_description": "Khảo sát di tích, ghi chép và phân tích hiện vật.",
-    "description": "Nhà khảo cổ học tập trung vào khảo sát di tích. Công việc còn bao gồm ghi chép và phân tích hiện vật, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Nhà khảo cổ học nghiên cứu dấu tích vật chất để hiểu cộng đồng trong quá khứ, giữ nguyên bối cảnh bằng chứng. Kết quả công việc gắn với khảo sát di tích và ghi chép và phân tích hiện vật.",
     "daily_tasks": [
       "Khảo sát di tích",
-      "Ghi chép và phân tích hiện vật"
+      "Ghi chép và phân tích hiện vật",
+      "Khảo sát và định vị di tích được phép",
+      "Ghi lớp đất và vị trí hiện vật",
+      "Phối hợp bảo quản và diễn giải phát hiện"
     ],
     "skills": [
       "Đặt câu hỏi nghiên cứu",
@@ -1470,9 +3297,11 @@
       "Khoa học tự nhiên",
       "Ngoại ngữ"
     ],
-    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "work_environment": "Di chỉ được cấp phép, phòng xử lý tư liệu và bảo tàng.",
     "challenges": [
-      "Bảo tồn bối cảnh khi khai quật"
+      "Bảo tồn bối cảnh khi khai quật",
+      "Đào sai làm mất bối cảnh không phục hồi",
+      "Hiện vật cần bảo quản chuyên môn"
     ],
     "keywords": [
       "Nhà khảo cổ học",
@@ -1482,17 +3311,56 @@
       "Toán",
       "Khoa học tự nhiên",
       "Ngoại ngữ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Khảo sát di tích."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Khảo sát và định vị di tích được phép; ghi lớp đất và vị trí hiện vật."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Phối hợp bảo quản và diễn giải phát hiện."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đặt câu hỏi nghiên cứu",
+        "reason": "Hỗ trợ việc khảo sát di tích; cần kiểm tra kết quả vì đào sai làm mất bối cảnh không phục hồi."
+      },
+      {
+        "skill": "Ghi chép và phân tích bằng chứng",
+        "reason": "Hỗ trợ việc khảo sát và định vị di tích được phép; cần kiểm tra kết quả vì hiện vật cần bảo quản chuyên môn."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Khoa học tự nhiên, Ngoại ngữ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử khảo sát và định vị di tích được phép ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Mô phỏng lớp đất bằng khay cát, không tự đào di tích. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "nha-su-hoc",
     "name": "Nhà sử học",
     "category_id": "science",
     "short_description": "Đối chiếu tư liệu lịch sử, xây dựng lập luận từ chứng cứ.",
-    "description": "Nhà sử học tập trung vào đối chiếu tư liệu lịch sử. Công việc còn bao gồm xây dựng lập luận từ chứng cứ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Nhà sử học nghiên cứu quá khứ qua đối chiếu tư liệu và giải thích trong bối cảnh thời đại. Kết quả công việc gắn với đối chiếu tư liệu lịch sử và xây dựng lập luận từ chứng cứ.",
     "daily_tasks": [
       "Đối chiếu tư liệu lịch sử",
-      "Xây dựng lập luận từ chứng cứ"
+      "Xây dựng lập luận từ chứng cứ",
+      "Kiểm tra xuất xứ và niên đại nguồn",
+      "So sánh tư liệu có quan điểm khác nhau",
+      "Viết diễn giải phân biệt bằng chứng và giả thuyết"
     ],
     "skills": [
       "Đặt câu hỏi nghiên cứu",
@@ -1503,9 +3371,11 @@
       "Khoa học tự nhiên",
       "Ngoại ngữ"
     ],
-    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "work_environment": "Kho tư liệu, thư viện, bảo tàng và môi trường nghiên cứu.",
     "challenges": [
-      "Tư liệu thiếu hoặc mâu thuẫn"
+      "Tư liệu thiếu hoặc mâu thuẫn",
+      "Nguồn có thể thiếu hoặc thiên lệch",
+      "Tránh áp chuẩn hiện tại vào mọi bối cảnh"
     ],
     "keywords": [
       "Nhà sử học",
@@ -1515,17 +3385,56 @@
       "Toán",
       "Khoa học tự nhiên",
       "Ngoại ngữ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Đối chiếu tư liệu lịch sử."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Kiểm tra xuất xứ và niên đại nguồn; so sánh tư liệu có quan điểm khác nhau."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Viết diễn giải phân biệt bằng chứng và giả thuyết."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đặt câu hỏi nghiên cứu",
+        "reason": "Hỗ trợ việc đối chiếu tư liệu lịch sử; cần kiểm tra kết quả vì nguồn có thể thiếu hoặc thiên lệch."
+      },
+      {
+        "skill": "Ghi chép và phân tích bằng chứng",
+        "reason": "Hỗ trợ việc kiểm tra xuất xứ và niên đại nguồn; cần kiểm tra kết quả vì tránh áp chuẩn hiện tại vào mọi bối cảnh."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Khoa học tự nhiên, Ngoại ngữ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử kiểm tra xuất xứ và niên đại nguồn ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Đối chiếu hai nguồn công khai về một sự kiện địa phương. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "bien-dich-vien",
     "name": "Biên dịch viên",
     "category_id": "science",
     "short_description": "Chuyển ngữ tài liệu, đối chiếu thuật ngữ.",
-    "description": "Biên dịch viên tập trung vào chuyển ngữ tài liệu. Công việc còn bao gồm đối chiếu thuật ngữ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Biên dịch viên chuyển văn bản giữa các ngôn ngữ để giữ nghĩa, giọng điệu và mục đích sử dụng. Kết quả công việc gắn với chuyển ngữ tài liệu và đối chiếu thuật ngữ.",
     "daily_tasks": [
       "Chuyển ngữ tài liệu",
-      "Đối chiếu thuật ngữ"
+      "Đối chiếu thuật ngữ",
+      "Làm rõ độc giả và thuật ngữ",
+      "Soát bản dịch với văn bản gốc",
+      "Kiểm nhất quán và chú thích chỗ cần hỏi"
     ],
     "skills": [
       "Đặt câu hỏi nghiên cứu",
@@ -1536,9 +3445,11 @@
       "Khoa học tự nhiên",
       "Ngoại ngữ"
     ],
-    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "work_environment": "Đơn vị xuất bản, công ty dịch thuật hoặc nhóm sản phẩm đa ngôn ngữ.",
     "challenges": [
-      "Giữ ý nghĩa và giọng văn nguồn"
+      "Giữ ý nghĩa và giọng văn nguồn",
+      "Dịch từng từ có thể sai hàm ý",
+      "Văn bản chuyên ngành cần hiểu lĩnh vực"
     ],
     "keywords": [
       "Biên dịch viên",
@@ -1548,17 +3459,56 @@
       "Toán",
       "Khoa học tự nhiên",
       "Ngoại ngữ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Chuyển ngữ tài liệu."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Làm rõ độc giả và thuật ngữ; soát bản dịch với văn bản gốc."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Kiểm nhất quán và chú thích chỗ cần hỏi."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đặt câu hỏi nghiên cứu",
+        "reason": "Hỗ trợ việc chuyển ngữ tài liệu; cần kiểm tra kết quả vì dịch từng từ có thể sai hàm ý."
+      },
+      {
+        "skill": "Ghi chép và phân tích bằng chứng",
+        "reason": "Hỗ trợ việc làm rõ độc giả và thuật ngữ; cần kiểm tra kết quả vì văn bản chuyên ngành cần hiểu lĩnh vực."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Khoa học tự nhiên, Ngoại ngữ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử làm rõ độc giả và thuật ngữ ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Dịch đoạn truyện được phép rồi giải thích hai lựa chọn diễn đạt. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "phien-dich-vien",
     "name": "Phiên dịch viên",
     "category_id": "science",
     "short_description": "Chuẩn bị thuật ngữ buổi làm việc, chuyển lời nói giữa các ngôn ngữ.",
-    "description": "Phiên dịch viên tập trung vào chuẩn bị thuật ngữ buổi làm việc. Công việc còn bao gồm chuyển lời nói giữa các ngôn ngữ, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Phiên dịch viên chuyển lời nói giữa ngôn ngữ trong thời gian thực với độ chính xác và tính trung lập. Kết quả công việc gắn với chuẩn bị thuật ngữ buổi làm việc và chuyển lời nói giữa các ngôn ngữ.",
     "daily_tasks": [
       "Chuẩn bị thuật ngữ buổi làm việc",
-      "Chuyển lời nói giữa các ngôn ngữ"
+      "Chuyển lời nói giữa các ngôn ngữ",
+      "Chuẩn bị chủ đề và bảng thuật ngữ",
+      "Nghe, ghi chú và chuyển ý",
+      "Xin làm rõ khi thông tin không rõ"
     ],
     "skills": [
       "Đặt câu hỏi nghiên cứu",
@@ -1569,9 +3519,11 @@
       "Khoa học tự nhiên",
       "Ngoại ngữ"
     ],
-    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "work_environment": "Hội nghị, cuộc họp hoặc buổi làm việc có yêu cầu bảo mật.",
     "challenges": [
-      "Xử lý thông tin trong thời gian ngắn"
+      "Xử lý thông tin trong thời gian ngắn",
+      "Tốc độ nói tạo áp lực ghi nhớ",
+      "Sai con số hoặc phủ định đổi nghĩa"
     ],
     "keywords": [
       "Phiên dịch viên",
@@ -1581,17 +3533,56 @@
       "Toán",
       "Khoa học tự nhiên",
       "Ngoại ngữ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Chuẩn bị thuật ngữ buổi làm việc."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Chuẩn bị chủ đề và bảng thuật ngữ; nghe, ghi chú và chuyển ý."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Xin làm rõ khi thông tin không rõ."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đặt câu hỏi nghiên cứu",
+        "reason": "Hỗ trợ việc chuẩn bị thuật ngữ buổi làm việc; cần kiểm tra kết quả vì tốc độ nói tạo áp lực ghi nhớ."
+      },
+      {
+        "skill": "Ghi chép và phân tích bằng chứng",
+        "reason": "Hỗ trợ việc chuẩn bị chủ đề và bảng thuật ngữ; cần kiểm tra kết quả vì sai con số hoặc phủ định đổi nghĩa."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Khoa học tự nhiên, Ngoại ngữ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử chuẩn bị chủ đề và bảng thuật ngữ ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Phiên dịch nối tiếp một đoạn giới thiệu ngắn giữa bạn bè. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "chuyen-vien-nghien-cuu-vat-lieu-sinh-hoc",
     "name": "Chuyên viên nghiên cứu vật liệu sinh học",
     "category_id": "science",
     "short_description": "Thử đặc tính vật liệu tương tác sinh học, phân tích kết quả thử nghiệm.",
-    "description": "Chuyên viên nghiên cứu vật liệu sinh học tập trung vào thử đặc tính vật liệu tương tác sinh học. Công việc còn bao gồm phân tích kết quả thử nghiệm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Chuyên viên nghiên cứu vật liệu sinh học nghiên cứu vật liệu tương tác với hệ sinh học cho các hướng ứng dụng y sinh. Kết quả công việc gắn với thử đặc tính vật liệu tương tác sinh học và phân tích kết quả thử nghiệm.",
     "daily_tasks": [
       "Thử đặc tính vật liệu tương tác sinh học",
-      "Phân tích kết quả thử nghiệm"
+      "Phân tích kết quả thử nghiệm",
+      "Chọn thành phần theo chức năng mục tiêu",
+      "Đánh giá tính chất và tương hợp trong mô hình",
+      "Phân tích giới hạn trước ứng dụng tiếp theo"
     ],
     "skills": [
       "Đặt câu hỏi nghiên cứu",
@@ -1602,9 +3593,11 @@
       "Khoa học tự nhiên",
       "Ngoại ngữ"
     ],
-    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "work_environment": "Phòng nghiên cứu liên ngành giữa vật liệu, sinh học và y sinh.",
     "challenges": [
-      "Khác biệt giữa thí nghiệm và ứng dụng"
+      "Khác biệt giữa thí nghiệm và ứng dụng",
+      "Kết quả phòng lab chưa chứng minh dùng được trên người",
+      "Thử sinh học cần quy trình đạo đức"
     ],
     "keywords": [
       "Chuyên viên nghiên cứu vật liệu sinh học",
@@ -1614,17 +3607,56 @@
       "Toán",
       "Khoa học tự nhiên",
       "Ngoại ngữ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thử đặc tính vật liệu tương tác sinh học."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Chọn thành phần theo chức năng mục tiêu; đánh giá tính chất và tương hợp trong mô hình."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Phân tích giới hạn trước ứng dụng tiếp theo."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đặt câu hỏi nghiên cứu",
+        "reason": "Hỗ trợ việc thử đặc tính vật liệu tương tác sinh học; cần kiểm tra kết quả vì kết quả phòng lab chưa chứng minh dùng được trên người."
+      },
+      {
+        "skill": "Ghi chép và phân tích bằng chứng",
+        "reason": "Hỗ trợ việc chọn thành phần theo chức năng mục tiêu; cần kiểm tra kết quả vì thử sinh học cần quy trình đạo đức."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Khoa học tự nhiên, Ngoại ngữ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử chọn thành phần theo chức năng mục tiêu ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: So sánh độ hút nước của gel giáo dục, không thử trên cơ thể. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   },
   {
     "career_id": "ky-thuat-vien-phong-thi-nghiem",
     "name": "Kỹ thuật viên phòng thí nghiệm",
     "category_id": "science",
     "short_description": "Chuẩn bị mẫu và dụng cụ, ghi chép quy trình thí nghiệm.",
-    "description": "Kỹ thuật viên phòng thí nghiệm tập trung vào chuẩn bị mẫu và dụng cụ. Công việc còn bao gồm ghi chép quy trình thí nghiệm, phối hợp với người liên quan và ghi lại kết quả để kiểm tra chất lượng.",
+    "description": "Kỹ thuật viên phòng thí nghiệm chuẩn bị và vận hành công việc thí nghiệm để mẫu, thiết bị và hồ sơ có thể truy vết. Kết quả công việc gắn với chuẩn bị mẫu và dụng cụ và ghi chép quy trình thí nghiệm.",
     "daily_tasks": [
       "Chuẩn bị mẫu và dụng cụ",
-      "Ghi chép quy trình thí nghiệm"
+      "Ghi chép quy trình thí nghiệm",
+      "Kiểm tra thiết bị và vật tư",
+      "Chuẩn bị mẫu theo quy trình đã duyệt",
+      "Ghi số liệu và xử lý chất thải đúng loại"
     ],
     "skills": [
       "Đặt câu hỏi nghiên cứu",
@@ -1635,9 +3667,11 @@
       "Khoa học tự nhiên",
       "Ngoại ngữ"
     ],
-    "work_environment": "Viện nghiên cứu, phòng thí nghiệm hoặc đơn vị dịch vụ chuyên môn.",
+    "work_environment": "Phòng thí nghiệm trường, viện hoặc doanh nghiệp với phân khu an toàn.",
     "challenges": [
-      "Duy trì độ sạch và khả năng truy xuất"
+      "Duy trì độ sạch và khả năng truy xuất",
+      "Gắn nhãn sai làm nhầm mẫu",
+      "Dụng cụ nhiễm bẩn ảnh hưởng toàn phép đo"
     ],
     "keywords": [
       "Kỹ thuật viên phòng thí nghiệm",
@@ -1647,6 +3681,42 @@
       "Toán",
       "Khoa học tự nhiên",
       "Ngoại ngữ"
-    ]
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Chuẩn bị mẫu và dụng cụ."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Kiểm tra thiết bị và vật tư; chuẩn bị mẫu theo quy trình đã duyệt."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Ghi số liệu và xử lý chất thải đúng loại."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đặt câu hỏi nghiên cứu",
+        "reason": "Hỗ trợ việc chuẩn bị mẫu và dụng cụ; cần kiểm tra kết quả vì gắn nhãn sai làm nhầm mẫu."
+      },
+      {
+        "skill": "Ghi chép và phân tích bằng chứng",
+        "reason": "Hỗ trợ việc kiểm tra thiết bị và vật tư; cần kiểm tra kết quả vì dụng cụ nhiễm bẩn ảnh hưởng toàn phép đo."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Khoa học tự nhiên, Ngoại ngữ qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử kiểm tra thiết bị và vật tư ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Lập sổ mẫu nước sạch giả định và thực hành ghi chép trong lớp. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
   }
 ]

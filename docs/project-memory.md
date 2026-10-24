@@ -147,6 +147,10 @@ Khi người dùng yêu cầu triển khai, tham khảo `docs/decisions.md`, xá
 
 ## Nhiệm vụ 2 — 2026-10-24
 
+### AI Chat 2.1 và hồ sơ200 nghề — cập nhật24/10/2026
+
+Yêu cầu trực tiếp mới cho phép phát triển và commit nhánh riêng, giữ giao diện, không merge/deploy Production/Task3. Đã xác minh domain thực hiện đang trỏ d5f10cc/deployment dpl_6KpjeYiZ7wseuyo7ussQ7eA2ZQbM, khác7c trong báo cáo trước. Làm tại feat/ai-chat-2-1, worktree ai-chat-21 từ đúng source đó. Đã nâng gợi ý6/câu, bản nháp nghề theo dữ liệu và mục tiêu khảo sát, quay lại đúng nơi sau login, draft tab có TTL/owner, retry claim và title có marker manual trong JSON không migration.200 hồ sơ được biên tập4x50, modal disclosure giữ links/IDs. Backend60 method cuối PASS, Node6, Chrome12+2 checkpoint PASS bằng fixture/demo/localPG; Firebase/DeepSeek thật chưa kiểm chứng. Có localhost8004 demo riêng, không Neon/Production/secret changes; xem docs/ai-chat-21-checkpoint.md. Chỉ coi dữ liệu là bản biên tập có đối chiếu mẫu, chưa có thẩm định chuyên gia cho toàn bộ200 nghề.
+
 Thư viện 200 nghề/12 nhóm, modal chung, hai mode AI và liên kết truyện theo ID đã triển khai trên feat/task-2-career-library. Preview localhost:8003 riêng dùng PostgreSQL local và AI demo. 17 test backend và browser desktop/mobile PASS có fixture; Firebase/DeepSeek thật cho flow mới chưa kiểm chứng. Không push/merge/deploy/Neon; Nhiệm vụ 3 chưa bắt đầu. Xem docs/task-2-checkpoint.md.
 
 ### QA hồi quy Nhiệm vụ 1 + 2 — 2026-10-24

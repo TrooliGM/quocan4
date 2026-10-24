@@ -69,7 +69,14 @@ class PostgresConversationStore:
         table = 'advisor_sessions' if row['remember'] else 'advisor_temporary_sessions'
         # Chỉ đổi title, tránh ghi đè messages vừa được chat commit đồng thời.
         with postgres_store.postgres_connection() as db:
-            db.execute(f'UPDATE {table} SET title=%s WHERE id=%s AND owner=%s', (title, session_id, uid))
+            import json
+            from .titles import mark_manual
+            locked=db.execute(f'SELECT messages FROM {table} WHERE id=%s AND owner=%s FOR UPDATE',(session_id,uid)).fetchone()
+            if not locked:
+                raise HTTPException(404,'Không tìm thấy cuộc trò chuyện của bạn.')
+            messages=json.loads(locked['messages'])
+            mark_manual(messages)
+            db.execute(f'UPDATE {table} SET title=%s,messages=%s WHERE id=%s AND owner=%s', (title,json.dumps(messages,ensure_ascii=False), session_id, uid))
         return self.get(uid, session_id)
 
     def delete(self, uid, session_id):

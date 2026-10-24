@@ -72,6 +72,10 @@ Yêu cầu đã xác nhận qua tài liệu Nhiệm vụ 1: được phát tri�
 
 ## Nhiệm vụ 2 — 2026-10-24
 
+### Quyết định được xác nhận: AI Chat2.1 và hồ sơ nghề sâu —24/10/2026
+
+Người dùng yêu cầu làm trọn Chat2.1 và mở rộng200 hồ sơ theo đợt25–50, commit nhánh phát triển từ Production hiện hành; không merge/deploy Production hay tự migration. Đã chọn nền Vercel xác minh d5f10cc, nhánh feat/ai-chat-2-1, giữ các worktree dirty nguyên trạng. Dùng dữ liệu nghề để tạo câu nháp, không gọi LLM chỉ để mở modal/đặt tên. Dùng metadata messages cho tên thủ công và sessionStorage tab cóTTL cho draft; không lưu token khách trong storage. Claim chỉ bằng chứng server hiện có và ràng buộc tài khoản; kết quả không chắc chắn phải xác minh ownership trước phục hồi. Kết quả fixture/local không thay chứng nhận dịch vụ thật. Cần người dùng duyệt bản vá và cấp môi trường thử trước phát hành; không coi commit/localPreview là quyền push hoặc deploy.
+
 Thư viện 200 nghề/12 nhóm, modal chung, hai mode AI và liên kết truyện theo ID đã triển khai trên feat/task-2-career-library. Preview localhost:8003 riêng dùng PostgreSQL local và AI demo. 17 test backend và browser desktop/mobile PASS có fixture; Firebase/DeepSeek thật cho flow mới chưa kiểm chứng. Không push/merge/deploy/Neon; Nhiệm vụ 3 chưa bắt đầu. Xem docs/task-2-checkpoint.md.
 
 ### Quyết định QA Nhiệm vụ 1 + 2 — 2026-10-24
