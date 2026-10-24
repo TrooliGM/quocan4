@@ -1,13 +1,15 @@
 import {getFirebase} from './firebase-client.js';
 import {signInEmailPreservingGuest,signInGooglePreservingGuest,hasPendingGuestClaim,resumeGuestTransfer} from './account-link.js';
-import {beginLogin, finishLogin} from './chat-journey.js';
+import {beginLogin, finishLogin, loginDestination} from './chat-journey.js';
 const select = (s) => document.querySelector(s);
 const dialog = select('#auth-dialog');
 let navigating=false;
+// Capture before Firebase listeners/redirect completion can change sessionStorage.
+let returnTarget=loginDestination();
 async function completeLogin(user) {
   if (navigating) return;
   navigating=true;
-  try { await resumeGuestTransfer(auth); await backendProfile(user,true); location.assign(finishLogin()); }
+  try { await resumeGuestTransfer(auth); await backendProfile(user,true); location.assign(finishLogin(returnTarget)); }
   catch(error) { navigating=false; claimRetry.hidden=!hasPendingGuestClaim(); throw error; }
 }
 const claimRetry = document.createElement('button');
@@ -116,9 +118,10 @@ async function ensureAuth() {
       sdk.onAuthStateChanged(auth, (user) => {
         const epoch = ++profileEpoch;
         displayUser(user);
-        if (user && !user.isAnonymous) backendProfile(user).then(() => {
-          if (epoch === profileEpoch && !busy && new URLSearchParams(location.search).get('login') === '1') completeLogin(user).catch(error=>status(errorMessage(error),true));
-        }).catch((error) => { if (epoch === profileEpoch) status(errorMessage(error), true); });
+        if (user && !user.isAnonymous && !busy) {
+          const action=new URLSearchParams(location.search).get('login')==='1' ? completeLogin(user) : backendProfile(user);
+          action.catch(error=>{if(epoch===profileEpoch)status(errorMessage(error),true);});
+        }
       });
       return true;
     } catch {
@@ -130,7 +133,7 @@ async function ensureAuth() {
   if (!result) configTask = null;
   return result;
 }
-document.querySelectorAll('[data-open-auth]').forEach((button) => button.addEventListener('click', () => { if (new URLSearchParams(location.search).get('login')!=='1') beginLogin(); if (!dialog.open) dialog.showModal(); ensureAuth(); }));
+document.querySelectorAll('[data-open-auth]').forEach((button) => button.addEventListener('click', () => { if (new URLSearchParams(location.search).get('login')!=='1') {beginLogin();returnTarget=loginDestination();} if (!dialog.open) dialog.showModal(); ensureAuth(); }));
 select('#mode-login').addEventListener('click', () => setMode('login'));
 select('#mode-register').addEventListener('click', () => setMode('register'));
 select('#toggle-password').addEventListener('click', () => {
@@ -157,7 +160,6 @@ select('#auth-form').addEventListener('submit', async (event) => {
       try { await sdk.sendEmailVerification(credential.user); status('Tài khoản đã tạo! Kiểm tra hộp thư để xác minh email.'); }
       catch { status('Tài khoản đã tạo. Bạn có thể bấm “Gửi email xác minh” để thử lại.'); }
     } else { status('Đăng nhập thành công. Chào mừng bạn trở lại!'); }
-    await backendProfile(credential.user, true);
     await completeLogin(credential.user);
   } catch (error) { status(errorMessage(error), true); }
   finally { claimRetry.hidden=!hasPendingGuestClaim();select('#auth-password').value = ''; select('#auth-confirm-password').value = ''; setBusy(false); }
@@ -172,7 +174,6 @@ select('#google-signin').addEventListener('click', () => {
     try {
       const credential = await popup;
       await persistence();
-      await backendProfile(credential.user);
       status('Đăng nhập Google thành công. Chào bạn!');
       await completeLogin(credential.user);
     } catch (error) { status(errorMessage(error), true); }

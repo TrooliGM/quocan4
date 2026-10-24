@@ -31,6 +31,12 @@ session_locks = weakref.WeakValueDictionary()
 
 
 def require_user(request: Request, authorization: str | None = Header(default=None)):
+    from .performance import measure
+    with measure('auth_verify'):
+        return _require_user(request,authorization)
+
+
+def _require_user(request, authorization):
     if authorization is None:
         return server_guest(request)
     parts = authorization.split() if authorization else []

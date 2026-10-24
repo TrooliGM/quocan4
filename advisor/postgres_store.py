@@ -2,7 +2,7 @@
 """Kết nối PostgreSQL (Neon) cho La Bàn."""
 
 import os
-from contextlib import contextmanager
+from contextlib import contextmanager, nullcontext
 
 import psycopg
 from psycopg.rows import dict_row
@@ -15,14 +15,26 @@ def postgres_connection():
     if not database_url.startswith(("postgresql://", "postgres://")):
         raise RuntimeError("DATABASE_URL chưa được cấu hình cho PostgreSQL.")
 
-    with psycopg.connect(
-        database_url,
-        row_factory=dict_row,
-        connect_timeout=10,
-    ) as connection:
-        # Giới hạn thời gian chờ trong từng kết nối, không mở pool theo mỗi instance.
-        connection.execute('SET statement_timeout = 10000; SET lock_timeout = 3000; SET idle_in_transaction_session_timeout = 15000')
-        yield connection
+    from .performance import current, measure, TimingCursor
+    state=current.get()
+    reuse=state is not None and state.reuse and not state.closed
+    # Serialize reuse within one request. No global pool, identity cache or open transaction during AI.
+    with state.lock if reuse else nullcontext():
+        connection=state.db if reuse else None
+        own=connection is None
+        if own:
+            with measure('db_connect'):
+                connection=psycopg.connect(database_url,row_factory=dict_row,connect_timeout=10,autocommit=True,cursor_factory=TimingCursor)
+            if state is not None:state.connections+=1
+            if reuse:state.db=connection
+        try:
+            # Each existing context remains an independent transaction; nested contexts use savepoints.
+            with connection.transaction():
+                # Transaction-local settings also work with Neon transaction pooling.
+                connection.execute('SET LOCAL statement_timeout = 10000; SET LOCAL lock_timeout = 3000; SET LOCAL idle_in_transaction_session_timeout = 15000')
+                yield connection
+        finally:
+            if own and not reuse:connection.close()
 
 
 def initialize_postgres():
@@ -75,7 +87,7 @@ def get_postgres_session(uid, session_id):
 
     return row
 
-def create_postgres_session(uid, context=None):
+def create_postgres_session(uid, context=None, connection=None):
     """Tạo cuộc trò chuyện mới trên Neon PostgreSQL."""
     import json
     from uuid import uuid4
@@ -103,7 +115,7 @@ def create_postgres_session(uid, context=None):
         "remember": True,
     }
 
-    with postgres_connection() as db:
+    with nullcontext(connection) if connection is not None else postgres_connection() as db:
         db.execute(
             """
             INSERT INTO advisor_sessions
@@ -456,7 +468,7 @@ def cleanup_expired_sessions():
 
         return result.rowcount
 
-def create_temporary_session(uid, context=None):
+def create_temporary_session(uid, context=None, connection=None):
     """Tạo cuộc trò chuyện tạm, hết hạn sau 2 giờ."""
     import json
     from datetime import datetime, timedelta, timezone
@@ -487,7 +499,7 @@ def create_temporary_session(uid, context=None):
         "summary": "",
     }
 
-    with postgres_connection() as db:
+    with nullcontext(connection) if connection is not None else postgres_connection() as db:
         db.execute(
             """
             INSERT INTO advisor_temporary_sessions

@@ -98,10 +98,12 @@ async def checks(url,origin):
             await b.wait_for("document.querySelector('#career-survey')?.hidden===false && !document.querySelector('#survey-next').disabled")
             await b.evaluate("document.querySelector('#survey-answer').value='Nội dung chờ đăng nhập Google';document.querySelector('#survey-answer').dispatchEvent(new Event('input'));document.querySelector('#guest-login').click()")
             await b.wait_for("location.pathname==='/' && document.querySelector('#auth-dialog')?.open && !document.querySelector('#google-signin').disabled")
+            # Reproduce the old fallback-to-home path: loss of only the return-intent record.
+            await b.evaluate("sessionStorage.removeItem('laban.login-return')")
             if method=='popup':
                 await b.evaluate("sessionStorage.setItem('__fixture_cancel_google','1');document.querySelector('#google-signin').click()")
                 await b.wait_for("document.querySelector('#auth-status').textContent.includes('đóng') && !document.querySelector('#google-signin').disabled")
-                assert await b.evaluate("!!sessionStorage.getItem('laban.login-return')")
+                assert await b.evaluate("new URLSearchParams(location.search).get('return_to').includes('/ai-career-advisor')")
                 await b.evaluate("sessionStorage.removeItem('__fixture_cancel_google');document.querySelector('#google-signin').click()")
             else:
                 await b.evaluate("sessionStorage.setItem('__fixture_login','1');sessionStorage.setItem('__fixture_redirect','1')")

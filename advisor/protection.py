@@ -106,9 +106,8 @@ def server_guest(request, required=True):
             raise HTTPException(401, 'Bạn hãy mở phiên khách trước khi trò chuyện.')
         return None
     with connection() as db:
-        row = db.execute('SELECT uid FROM advisor_guest_sessions WHERE token_hash=%s AND expires_at>NOW()', (hashlib.sha256(token.encode()).hexdigest(),)).fetchone()
-        if row and db.execute('SELECT 1 FROM advisor_guest_claims WHERE guest_uid=%s', (row['uid'],)).fetchone():
-            row = None
+        row = db.execute('''SELECT uid FROM advisor_guest_sessions g WHERE token_hash=%s AND expires_at>NOW()
+            AND NOT EXISTS(SELECT 1 FROM advisor_guest_claims c WHERE c.guest_uid=g.uid)''', (hashlib.sha256(token.encode()).hexdigest(),)).fetchone()
     if not row:
         if required:
             raise HTTPException(401, 'Phiên khách đã hết hạn hoặc được chuyển sang tài khoản.')

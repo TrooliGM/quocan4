@@ -29,6 +29,21 @@ from advisor.protection import server_guest
 from advisor.legacy_ai import run_legacy
 
 app = FastAPI(title="La Bàn — KHKT 2027", version="0.1.0")
+@app.middleware('http')
+async def request_performance(request, call_next):
+    from advisor.performance import current, RequestPerformance, measure
+    state=RequestPerformance(reuse=request.url.path=='/api/ai/sessions' or request.url.path.startswith('/api/ai/sessions/'))
+    token=current.set(state)
+    try:
+        with measure('app'):
+            response=await call_next(request)
+        if request.url.path.startswith('/api/ai/'):
+            response.headers['Server-Timing']=state.header()
+        return response
+    finally:
+        await asyncio.to_thread(state.close)
+        current.reset(token)
+
 app.include_router(advisor_router)
 ai_slots = asyncio.Semaphore(4)
 logger = logging.getLogger(__name__)

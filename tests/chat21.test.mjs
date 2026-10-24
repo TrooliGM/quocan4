@@ -25,6 +25,15 @@ test('login origin homepage versus exact chat context',()=>{
   Object.assign(location,{pathname:'/',search:'',hash:'#careers'});journey.beginLogin();assert.equal(journey.finishLogin(),'/#careers');
   Object.assign(location,{pathname:'/ai-career-advisor',search:'',hash:''});journey.beginLogin();assert.equal(journey.finishLogin(),'/ai-career-advisor');
 });
+test('explicit chat destination survives missing/overwritten intent and validates conversation ID',()=>{
+  const id='00000000-0000-4000-8000-000000000001';
+  const url=journey.chatLoginURL(id);Object.assign(location,{pathname:'/',search:url.slice(url.indexOf('?')),hash:''});
+  values.delete('laban.login-return');const target=journey.loginDestination();journey.beginLogin('/');
+  assert.equal(journey.finishLogin(target),'/ai-career-advisor?conversation='+id);
+  assert.equal(journey.safeReturnPath('/ai-career-advisor?conversation=invalid'),'/ai-career-advisor');
+  Object.assign(location,{pathname:'/',search:'?return_to=https%3A%2F%2Fevil.test',hash:''});assert.equal(journey.loginDestination(),'/');
+  Object.assign(location,{pathname:'/',search:'',hash:''});
+});
 test('200 career drafts are distinct, grounded and respond only to stated survey goal',()=>{
   const drafts=rows.map(c=>explorationQuestion(c,{answers:['','','','','']}));assert.equal(new Set(drafts).size,200);
   for (let i=0;i<rows.length;i++){assert.ok(drafts[i].includes(rows[i].name));assert.ok(drafts[i].includes(rows[i].daily_tasks[2]));assert.ok(drafts[i].length<=1800);}

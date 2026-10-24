@@ -26,35 +26,32 @@ class PostgresConversationStore:
         self.lock = threading.RLock()
 
     def get(self, uid, session_id):
-        try:
-            return get_postgres_session(uid, session_id)
-        except HTTPException as error:
-            if error.status_code != 404:
-                raise
-
-        return get_temporary_session(uid, session_id)
+        import json
+        with postgres_store.postgres_connection() as db:
+            row=db.execute('''SELECT id,title,created_at,updated_at,messages,profile,summary,TRUE AS remember
+                FROM advisor_sessions WHERE id=%s AND owner=%s
+                UNION ALL SELECT id,title,created_at,updated_at,messages,profile,summary,FALSE AS remember
+                FROM advisor_temporary_sessions WHERE id=%s AND owner=%s AND expires_at>NOW()
+                ORDER BY remember DESC LIMIT 1''',(session_id,uid,session_id,uid)).fetchone()
+        if row is None:raise HTTPException(404,'Không tìm thấy cuộc trò chuyện hoặc phiên đã hết hạn.')
+        row=dict(row);row['messages']=json.loads(row['messages']);row['profile']=json.loads(row['profile'])
+        return row
 
     def list(self, uid):
-        saved = list_postgres_sessions(uid)
-        temporary = list_temporary_sessions(uid)
-
-        return sorted(
-            saved + temporary,
-            key=lambda row: row["updated_at"],
-            reverse=True,
-        )
+        with postgres_store.postgres_connection() as db:
+            return [dict(row) for row in db.execute('''SELECT id,title,created_at,updated_at,TRUE AS remember
+                FROM advisor_sessions WHERE owner=%s
+                UNION ALL SELECT id,title,created_at,updated_at,FALSE AS remember
+                FROM advisor_temporary_sessions WHERE owner=%s AND expires_at>NOW()
+                ORDER BY updated_at DESC''',(uid,uid)).fetchall()]
 
     def create(self, uid, remember, context=None):
-        if len(self.list(uid)) >= 100:
-            raise HTTPException(
-                status_code=409,
-                detail="Bạn đã có 100 cuộc trò chuyện. Hãy xóa bớt nhé.",
-            )
-
-        if remember:
-            return create_postgres_session(uid, context)
-
-        return create_temporary_session(uid, context)
+        with postgres_store.postgres_connection() as db:
+            db.execute("SELECT pg_advisory_xact_lock(hashtextextended(%s,0))",('conversation-create:'+uid,))
+            count=db.execute('''SELECT (SELECT COUNT(*) FROM advisor_sessions WHERE owner=%s)
+                +(SELECT COUNT(*) FROM advisor_temporary_sessions WHERE owner=%s AND expires_at>NOW()) AS total''',(uid,uid)).fetchone()['total']
+            if count>=100:raise HTTPException(409,'Bạn đã có 100 cuộc trò chuyện. Hãy xóa bớt nhé.')
+            return (create_postgres_session if remember else create_temporary_session)(uid,context,connection=db)
 
     def write(self, uid, row):
         current = self.get(uid, row["id"])

@@ -11,11 +11,18 @@ export function safeReturnPath(value) {
     const v = url.searchParams.get(key);
     if (v && /^[a-z0-9_-]{1,80}$/.test(v)) allowed.set(key,v);
   }
+  const conversation=url.searchParams.get('conversation');
+  if (conversation && /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(conversation)) allowed.set('conversation',conversation);
   return url.pathname + (allowed.size ? '?'+allowed : '') + (/^#[a-zA-Z0-9_-]{1,80}$/.test(url.hash) ? url.hash : '');
 }
-export function beginLogin() { write('laban.login-return', {path:safeReturnPath(location.pathname+location.search+location.hash)}); }
-export function loginDestination() { return safeReturnPath(read('laban.login-return')?.path || '/'); }
-export function finishLogin() { const path=loginDestination(); try { sessionStorage.removeItem('laban.login-return'); } catch {} return path; }
+export function beginLogin(path=location.pathname+location.search+location.hash) { write('laban.login-return', {path:safeReturnPath(path)}); }
+export function loginDestination() { return safeReturnPath(new URLSearchParams(location.search).get('return_to') || read('laban.login-return')?.path || '/'); }
+export function finishLogin(target=loginDestination()) { const path=safeReturnPath(target); try { sessionStorage.removeItem('laban.login-return'); } catch {} return path; }
+export function chatLoginURL(id) {
+  const path=safeReturnPath('/ai-career-advisor'+(id?'?conversation='+encodeURIComponent(id):''));
+  beginLogin(path);
+  return '/?login=1&return_to='+encodeURIComponent(path);
+}
 export function saveDraft(uid, id, value) { if (uid && id) write(`laban.draft.${uid}.${id}`,value); }
 export function loadDraft(uid, id) {
   const draft=read(`laban.draft.${uid}.${id}`);

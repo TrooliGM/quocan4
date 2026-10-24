@@ -91,3 +91,7 @@ Người dùng đã duyệt sửa auth/quota/rate chung thay vì tắt legacy, s
 ### Tích hợp bản chính — 2026-10-24
 
 Yêu cầu mới cho phép chuẩn bị tích hợp và chỉ PR/merge/phát hành sau khi các kiểm tra bắt buộc đạt. Chọn nền Production thực7c07d33, fast-forward candidate349ff92, giữ migration002 nguyên byte; chưa nối lịch sử main không liên quan. Đã kiểm004 trên staging riêng theo yêu cầu, không ghi Production. Dữ liệu Production còn legacy UUID và1 request completed thiếu phiên nên chưa cho phép tiếp tục phát hành; không tự phê duyệt ngoại lệ, tạo phiên giả hoặc đổi DATABASE_URL khi binding chưa xác minh. Phương án đưa patch đã đối chiếu vào nhánh xuất phát origin/main chỉ là kế hoạch, chưa thực hiện. Chi tiết docs/release-task12-readiness.md.
+
+## Quyết định hotfix được duyệt —24/10/2026
+
+Cho phép nhánh riêng và phát hành hotfix performance/login khi an toàn; không sửa thư viện/thiết kế/Production credentials hoặc schema. Chọn connection reuse trong phạm vi request quản lý session và SET LOCAL, không pool toàn cục/auth cache. Cache nội dung chỉ RAM20phiên/30s và xóa khi đổi identity, mọi API vẫn xác minhserver. Return target allowlist/UUID không cấp quyền dữ liệu. Thử Production chỉ dữ liệu tổng hợp của phiên khách riêng,0AIcalls trong tạo/mở; latency member/Firebase Google thật phải ghi chưa kiểm chứng khi chưa có người dùng thao tác. Rollback là deployment6c trước hotfix, không reverse schema hoặc restore dữ liệu.
