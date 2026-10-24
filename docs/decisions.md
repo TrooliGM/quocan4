@@ -1,5 +1,9 @@
 # Quyết định và việc còn mở
 
+## Truyện nghề2.0 — xác nhận24/10/2026
+
+Người dùng giao triển khai Task3, cho phép checkpointcommit4đợt và VercelPreview để duyệt; chưa cho phép Production. Nền5aaed6e Vercel thực, không quay về6c5ce23. Chọn dữ liệu tĩnh200ID hiện hành,5cảnh/2tìnhhuống, không migration hay lưu lựa chọn vàoDB.6legacy giữAPIversion1. Bản thảo riêng có phản hồi/hệ quả; component hiện có được mở rộng, không đổi hồ sơ200/ngôn ngữ thiết kế. AIhandoff tab TTL2h có scopephiên, khôngtoken trongURL/storagehandoff, chỉ gửi theo thao tác chủ động qua lớp bảo vệ cũ. Preview chưa cóDBriêng nên khóa AI/Firebase bằng overridedeployment và ghi nhãn chỉđọc, không dùngsecrets/DBProduction. Không đòi hỏi cài dịch vụ trả phí hoặc kết nối lạiProduction. Nội dung cần người dùng duyệt; validator không chứng nhậnchuyên gia toàn bộ200nghề. Quyết định hoãnTask3 ở checkpointcũ được yêu cầu mới thay thế.
+
 ## Đã xác nhận trong phiên làm việc
 
 | Ngày | Nội dung | Cơ sở |

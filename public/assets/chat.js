@@ -182,10 +182,6 @@ async function prepareExplorationDraft() {
   if (epoch!==identityEpoch || active?.id!==id || $('#message-input').value) return;
   const fromStory=storyQuestion(context.career_id,id);
   $('#message-input').value=fromStory?.text || explorationQuestion(career,active.messages[0].survey);
-  if (fromStory) {
-    const back=document.createElement('a');back.href=fromStory.path;back.textContent=' · Quay lại tình huống trong truyện ↗';
-    $('#session-note').append(back);
-  }
   preparedQuestions.add(id);
   persistJourney(); resizeInput();
 }
@@ -295,6 +291,11 @@ function renderMessages() {
   $('#session-note').textContent = active ? active.remember ? 'Lịch sử đã bật · Bạn có thể xóa bất cứ lúc nào.' : 'Phiên tạm · Không ghi nhớ cho lần đăng nhập sau.' : 'Một góc trò chuyện riêng, theo nhịp của bạn.';
   const context = active?.messages?.[0]?.career_context;
   if (context?.mode === 'career_exploration') $('#session-note').textContent += ` · Tìm hiểu: ${context.career_name || context.career_id}`;
+  const storyReturn=context?.mode==='career_exploration' ? storyQuestion(context.career_id,active.id) : null;
+  if (storyReturn) {
+    const back=document.createElement('a');back.href=storyReturn.path;back.textContent=' · Quay lại tình huống trong truyện ↗';
+    $('#session-note').append(back);
+  }
   if (context?.mode === 'career_exploration' && active.messages[0].survey && active.messages.length === 1 && !$('#message-input').value) {
     prepareExplorationDraft().catch(error=>notice(failure(error)));
   }

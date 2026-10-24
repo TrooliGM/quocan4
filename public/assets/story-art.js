@@ -37,6 +37,7 @@ function paperPile(x=307,y=282) {return `<g transform="translate(${x} ${y})" ${l
 const staff=(x,y,flip=false)=>person(x,y,'#e7b670','talk',true,flip);
 const pair=(color='#d59a79')=>person(210,167,'#84ad9b','work')+person(524,177,color,'talk',false,true);
 const scenes={
+  records:()=>board(375,122,'chart')+person(220,170,'#d0ba72','work')+desk(286,309)+laptop(347,258,'chart')+paperPile(438,289),
   consult:()=>board(344,142,'medical')+person(458,180,'#d5b268','talk',false,true)+staff(237,158)+desk(284,306)+paperPile(310,294),
   conference:()=>board(311,121,'chart')+staff(201,170)+staff(533,174,true)+desk(286,311)+paperPile(304,298),
   prescription:()=>person(490,186,'#c79b74','talk',false,true)+staff(214,171)+desk(288,311)+paperPile(320,292)+'<path class="draw-line" d="M377 271l-22 24" stroke="#b56747" stroke-width="5"/>',

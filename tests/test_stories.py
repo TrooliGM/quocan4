@@ -15,9 +15,9 @@ class StoryTests(ProtectedAPIFixture, unittest.TestCase):
         with TestClient(app) as client:
             self.assertEqual(client.get('/mot-ngay-lam-viec').status_code, 200)
             items = client.get('/api/career-stories').json()['items']
-            self.assertEqual({c['id'] for c in items}, {c['id'] for c in CAREERS})
-            for career in items:
-                story = client.get('/api/career-stories/' + career['id']).json()
+            self.assertTrue({c['id'] for c in CAREERS}.issubset({c['id'] for c in items}))
+            for career in CAREERS:
+                story = client.get('/api/career-stories/' + career['id']+'?version=1').json()
                 self.assertEqual(len(story['scenes']), 4)
                 self.assertEqual(len({s['art'] for s in story['scenes']}), 4)
                 self.assertTrue(story['source_url'].startswith('https://www.bls.gov/'))
@@ -31,7 +31,7 @@ class StoryTests(ProtectedAPIFixture, unittest.TestCase):
         with patch.dict(os.environ, {'DEEPSEEK_API_KEY': ''}), TestClient(app,client=('127.0.0.1',1)) as client:
             url = '/api/career-stories/bac-si/ask'
             self.assertEqual(client.post(url, json={'question': '   '}).status_code, 422)
-            self.assertEqual(client.post(url, json={'question': 'Hỏi về nghề', 'scene_index': 4}).status_code, 422)
+            self.assertEqual(client.post(url, json={'question': 'Hỏi về nghề', 'scene_index': 5}).status_code, 422)
             self.assertEqual(client.post(url, json={'question': 'Hỏi về nghề', 'scene_index': -1}).status_code, 422)
             self.assertEqual(client.post('/api/career-stories/unknown/ask', json={'question': 'Hỏi về nghề'}).status_code, 404)
             self.assertEqual(client.post(url, json={'question': 'Hỏi về nghề'}).status_code, 503)
@@ -61,6 +61,7 @@ class StoryGraphTests(unittest.IsolatedAsyncioTestCase):
             return httpx.Response(200, json={'choices': [{'message': {'content': 'Cùng kiểm tra dữ liệu nhé.'}}]}, request=httpx.Request('POST', url))
         with patch.dict(os.environ, {'DEEPSEEK_API_KEY': 'test-key'}), patch.object(httpx.AsyncClient, 'post', fake_post):
             await story_graph.ainvoke({'career_id': 'ky-su-moi-truong', 'scene_index': 1, 'question': 'Vì sao phải kiểm tra lại?', 'context': '', 'answer': ''})
-        self.assertIn('Đọc điều dữ liệu kể', captured['messages'][0]['content'])
+        from career_stories import get_story
+        self.assertIn(get_story('ky-su-moi-truong')['scenes'][1]['title'], captured['messages'][0]['content'])
         self.assertIn('Kỹ sư môi trường', captured['messages'][0]['content'])
         self.assertEqual(captured['messages'][1]['content'], 'Vì sao phải kiểm tra lại?')

@@ -1,5 +1,9 @@
 # Bộ nhớ dự án: Website Hướng nghiệp KHKT 2027
 
+## Nhiệm vụ3 Truyện nghề2.0 —24/10/2026, mới nhất
+
+Theo đặc tả mới, bắt đầu Task3 tại feat/task-3-career-stories-2-0/worktree task-3 từ Production5aaed6e, được Vercel xác minh; giữ hotfix2b4de6e và Chat2.1.200 truyện tĩnh biên tập4x50,1000cảnh/400quyếtđịnh;0video xác minh. Reader tương tác, trạng thái tab, ngữ cảnh AI có câu nháp sửa được và quay lại đúng hồ sơ.6truyệncũ cóAPIversion1.33backend/10Node/Chrome10+Chat2.1 12 checkpoint PASS với localPG/Firebasefixture/AIdemo; không coi là kiểm thử provider thật. Không đổi200hồsơ/UItrangchủ/auth/quota/schema. User cho phép checkpointcommit và Preview, không Production trước duyệt. Nhánh Preview chưa cóDBriêng, chọn Preview chỉđọc với credentials/DB trống, không sao chépProduction. Trạng thái build/URL ghi sau khi thực hiện; xem docs/task-3-checkpoint.md và docs/task-3-editorial-review.md. Các mục Task1/2 không làmTask3 bên dưới là checkpoint cũ, đã được yêu cầu mới thay thế.
+
 ## Chuẩn bị Vercel — 2026-10-13
 
 - Người dùng yêu cầu chuẩn bị cấu hình Vercel từ GitHub; không commit/push, không đổi Firebase project hoặc hệ thống đăng nhập, không xóa dữ liệu. Chưa yêu cầu tạo deployment trong lần chuẩn bị này.

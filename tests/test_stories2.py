@@ -10,6 +10,18 @@ from story_library import Story, get_story, batch
 from scripts.validate_stories import validate
 
 class Stories2Tests(unittest.TestCase):
+    def test_all_200_ids_scenes_and_unique_editorial_content(self):
+        result=validate();self.assertEqual(result['stories'],200);self.assertEqual(result['scenes'],1000)
+        self.assertEqual(result['decisions'],400);self.assertEqual(result['verified_videos'],0)
+
+    def test_every_story_public_and_bounded_payload(self):
+        with TestClient(app) as client:
+            for c in catalog().careers:
+                with self.subTest(career=c.career_id):
+                    r=client.get('/api/career-stories/'+c.career_id)
+                    self.assertEqual(r.status_code,200);self.assertEqual(r.json()['name'],c.name)
+                    self.assertLess(len(r.content),20000)
+
     def test_first_editorial_batch(self):
         self.assertEqual(validate([1])['stories'],50)
 
@@ -44,5 +56,34 @@ class Stories2Tests(unittest.TestCase):
         batch.cache_clear();get_story('lap-trinh')
         self.assertEqual(batch.cache_info().misses,1)
         get_story('bac-si');self.assertEqual(batch.cache_info().misses,1)
+
+    def test_preview_readonly_label_does_not_weaken_security(self):
+        import os
+        with patch.dict(os.environ,{'STORIES_PREVIEW_READ_ONLY':'true','VERCEL':'1','DATABASE_URL':'','DEEPSEEK_API_KEY':'','AI_DEMO_MODE':'false'}), TestClient(app) as client:
+            self.assertTrue(client.get('/api/career-stories').json()['preview_read_only'])
+            self.assertEqual(client.post('/api/ai/chat',json={'message':'test','session_id':'00000000-0000-0000-0000-000000000000'}).status_code,401)
+            self.assertEqual(client.post('/api/advice',json={'question':'Hỏi về nghề'}).status_code,401)
+            self.assertEqual(client.post('/api/career-stories/bac-si/ask',json={'question':'Hỏi về nghề'}).status_code,401)
+            self.assertEqual(client.post('/api/ai/guest/session').status_code,503)
+
+    def test_art_keys_exist_and_non_health_is_not_a_doctor(self):
+        import re
+        from pathlib import Path
+        keys=set(re.findall(r'^  (\w+):',Path('public/assets/story-art.js').read_text(encoding='utf8'),re.M))
+        for c in catalog().careers:
+            story=get_story(c.career_id)
+            self.assertTrue({s['art'] for s in story['scenes']}.issubset(keys))
+            if c.category_id!='health':self.assertFalse({s['art'] for s in story['scenes']}&{'analysis','consult','conference','prescription','emergency'})
+
+    def test_domain_review_samples_in_twelve_groups(self):
+        samples={'lap-trinh':'lỗi','bac-si':'thuốc','giao-vien':'học sinh','ky-su-co-khi':'rung',
+                 'chuyen-vien-nhan-su':'chính sách','ke-toan-vien':'chứng từ','hoa-si-truyen-tranh':'khung',
+                 'nha-bao':'nguồn','kiem-sat-vien':'gỡ tội','chuyen-vien-bao-ton-da-dang-sinh-hoc':'vị trí',
+                 'phi-cong':'thời tiết','nha-toan-hoc':'chứng minh'}
+        groups=set()
+        for cid,word in samples.items():
+            s=get_story(cid);groups.add(s['category_id'])
+            self.assertIn(word,' '.join([s['intro'],s['takeaway'],*[p['caption'] for p in s['scenes']]]).lower())
+        self.assertEqual(len(groups),12)
 
 if __name__=='__main__': unittest.main()

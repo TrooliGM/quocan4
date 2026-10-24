@@ -88,6 +88,7 @@ class ReleaseRuntimeTests(ProtectedAPIFixture, unittest.TestCase):
             (target/'data').mkdir()
             for index in range(1, 5):
                 shutil.copy2(ROOT/'data'/f'careers-{index}.json', target/'data'/f'careers-{index}.json')
+            shutil.copytree(ROOT/'data'/'stories', target/'data'/'stories')
             (target/'.env').write_text('LABAN_BUNDLE_SENTINEL=should-not-load\n', encoding='utf-8')
             script = '''
 import os
@@ -100,6 +101,10 @@ with TestClient(app,client=('127.0.0.1',1)) as client:
  assert client.get('/api/ai/sessions').status_code == 401
  assert client.get('/api/career-library').json()['total'] == 200
  assert len(client.get('/api/career-library/categories').json()['items']) == 12
+ assert len(client.get('/api/career-stories').json()['items']) == 200
+ for career in ('lap-trinh','ky-su-co-khi','kiem-sat-vien','ky-thuat-vien-phong-thi-nghiem'):
+  r=client.get('/api/career-stories/'+career)
+  assert r.status_code==200 and len(r.json()['scenes'])==5
 print('isolated-runtime-ok')
 '''
             environment = {**os.environ, 'VERCEL': '1', 'DATABASE_URL': '', 'DEEPSEEK_API_KEY': ''}
@@ -110,6 +115,7 @@ print('isolated-runtime-ok')
             self.assertEqual(config['framework'], 'fastapi')
             self.assertNotIn('rewrites', config)
             self.assertIn('advisor/*.txt', config['functions']['app.py']['includeFiles'])
+            for index in range(1,5):self.assertIn(f'data/stories/batch-{index}.json',config['functions']['app.py']['includeFiles'])
 
     def test_provider_failure_matrix_for_public_endpoints(self):
         for url in ('/api/advice', '/api/career-stories/bac-si/ask'):

@@ -56,4 +56,6 @@ $('#library-reset').addEventListener('click',reset);
 try{
   categories=(await json('/api/career-library/categories')).items;
   categories.forEach((c,i)=>{const button=document.createElement('button');button.dataset.field=c.category_id;button.setAttribute('aria-pressed','false');button.innerHTML=`<span class="field-symbol" aria-hidden="true">${symbols[i]}</span><strong>${escape(c.name)}</strong><small>${c.count} nghề <span aria-hidden="true">↗</span></small>`;button.addEventListener('click',()=>{category=c.category_id;selected=true;$('#career-search').value='';categoryState();load();});$('#library-categories').append(button);});reset();
+  const returnCareer=new URLSearchParams(location.search).get('career');
+  if(returnCareer && /^[a-z0-9-]{1,80}$/.test(returnCareer))await openCareer(returnCareer);
 }catch(e){$('#career-status').textContent=e.message;}

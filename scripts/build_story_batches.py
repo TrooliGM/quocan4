@@ -9,18 +9,18 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from career_library import catalog
 
-ARTS = {'technology':['requirements','code','debug','demo','review'],
-        'health':['reception','consult','team','care','review'],
+ARTS = {'technology':['planning','coding','testing','demo','review'],
+        'health':['consult','conference','prescription','consult','review'],
         'education':['lesson','classroom','mentoring','marking','review'],
-        'engineering':['brief','system','analysis','monitoring','review'],
-        'business':['brief','interview','analysis','feedback','review'],
-        'finance':['brief','analysis','system','monitoring','review'],
+        'engineering':['brief','system','records','monitoring','review'],
+        'business':['brief','planning','records','feedback','review'],
+        'finance':['brief','records','system','records','review'],
         'design':['brief','sketch','layout','feedback','review'],
         'media':['editorial','interview','editing','feedback','review'],
-        'public-service':['brief','analysis','team','review','monitoring'],
-        'environment':['sampling','analysis','system','monitoring','review'],
-        'hospitality':['brief','team','care','feedback','review'],
-        'science':['sampling','analysis','system','review','monitoring']}
+        'public-service':['brief','records','planning','review','records'],
+        'environment':['sampling','records','system','monitoring','review'],
+        'hospitality':['brief','planning','planning','feedback','review'],
+        'science':['records','records','system','review','records']}
 
 def compile_batch(number):
     careers = catalog().careers[(number-1)*50:number*50]
@@ -33,6 +33,9 @@ def compile_batch(number):
         if len(fields)!=13: raise ValueError(f'Wrong field count {len(fields)}: {career.career_id}')
         cid,title,name,place,opening,q1,a1,b1,q2,a2,b2,ending,reflection=fields
         if cid!=career.career_id: raise ValueError('Draft order/ID mismatch: '+cid)
+        arts=ARTS[career.category_id]
+        if career.category_id=='health' and cid!='bac-si':
+            arts=['brief','records','planning','records','review']
         def choices(a,b):
             out=[]
             for i,text in enumerate((a,b)):
@@ -44,7 +47,7 @@ def compile_batch(number):
         def panel(i,heading,caption,speech,question='',options=None):
             detail=skill[i%len(skill)]
             return dict(scene_id=f'scene-{i+1}',title=heading,time=['07:45','09:15','11:00','14:00','16:30'][i],
-                art=ARTS[career.category_id][i],caption=caption,speech=speech,
+                art=arts[i],caption=caption,speech=speech,
                 skill=detail['skill'],skill_reason=detail['reason'],question=question,choices=options or [],
                 next_scene_id=f'scene-{i+2}' if i<4 else None)
         scenes=[panel(0,title,opening,f'{name}: Hôm nay, mình cùng xem việc này được làm như thế nào nhé.'),

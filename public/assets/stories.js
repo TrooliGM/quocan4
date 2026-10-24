@@ -50,8 +50,9 @@ function render() {
   $('#decision-question').textContent=s.question||'Em nhận thấy điều gì trong công việc ở cảnh này?';
   $('#decision-choices').innerHTML=s.choices.map(c=>`<button data-choice="${esc(c.choice_id)}" aria-pressed="${choice===c}">${esc(c.text)}</button>`).join('');
   $('#decision-feedback').hidden=!choice;$('#decision-feedback').textContent=choice?choice.feedback+' '+choice.consequence:'';
-  $('#story-question').value=story.ai_questions[0].slice(0,600);
+  $('#story-question').value=`Trong cảnh “${s.title}”, người làm nghề cần cân nhắc những gì? Em có thể rèn kỹ năng này qua hoạt động an toàn nào?`.slice(0,600);
   $('#story-answer').hidden=true;store();
+  if(!$('#day-summary').hidden)summary(false);
 }
 function go(i) {if(story&&Number.isInteger(i)){index=Math.max(0,Math.min(i,story.scenes.length-1));render();}}
 function view(value) {
@@ -59,7 +60,7 @@ function view(value) {
   for(const m of ['play','comic']){$('#mode-'+m).setAttribute('aria-pressed',String(mode===m));$('#mode-'+m).classList.toggle('selected',mode===m);}
 }
 function shelf() {
-  const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').toLowerCase();
+  const norm=s=>s.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d');
   const q=norm($('#story-search').value),category=$('#story-category-filter').value;
   const matches=catalog.filter(c=>(!category||c.category_id===category)&&norm(c.name).includes(q));
   $('#career-shelf').innerHTML=matches.slice(0,24).map(c=>`<button data-career-id="${esc(c.id)}" aria-pressed="${c.id===story?.id}">${esc(c.name)}</button>`).join('');
@@ -104,7 +105,7 @@ document.addEventListener('click',e=>{
   const scene=e.target.closest('[data-scene], [data-open-scene]');if(scene){view('play');go(Number(scene.dataset.scene??scene.dataset.openScene));return;}
   const button=e.target.closest('[data-choice]');if(button&&story){
     const s=story.scenes[index];if(!s.choices.some(c=>c.choice_id===button.dataset.choice))return;
-    answers.set(s.scene_id,button.dataset.choice);render();
+    const draft=$('#story-question').value;answers.set(s.scene_id,button.dataset.choice);render();$('#story-question').value=draft;
   }
 });
 $('#player').addEventListener('keydown',e=>{
@@ -124,7 +125,13 @@ function fromURL(resume=false){const p=new URLSearchParams(location.search);retu
 window.addEventListener('popstate',()=>fromURL(true));
 async function initialize(){
   try {
-    catalog=(await json('/api/career-stories')).items;
+    const data=await json('/api/career-stories');catalog=data.items;
+    if(data.preview_read_only){
+      $('#story-ask-submit').disabled=true;
+      $('#story-answer').hidden=false;$('#story-answer').textContent='Preview duyệt truyện: AI và đăng nhập đang khóa; chưa có database thử riêng cho nhánh này. Không gọi DeepSeek hay dùng dữ liệu Production.';
+      $('#story-ask-form').hidden=true;
+      $('.ask-card .decision-note').textContent=$('#story-answer').textContent;
+    }
     const categories=new Map(catalog.map(c=>[c.category_id,c.category]));
     $('#story-category-filter').innerHTML='<option value="">Tất cả nhóm nghề</option>'+[...categories].map(([id,name])=>`<option value="${esc(id)}">${esc(name)}</option>`).join('');
     shelf();await fromURL(performance.getEntriesByType('navigation')[0]?.type==='back_forward');

@@ -23,7 +23,7 @@ def validate(numbers=(1,2,3,4)):
             result.append(row)
     assert len({s['title'] for s in result})==len(result), 'Duplicate titles'
     # Tình huống/mở/kết phải độc lập, không dùng bài giống nhau thay tên.
-    for i in [0,1,3,4]:
+    for i in range(5):
         assert max(Counter(s['scenes'][i]['caption'] for s in result).values())==1, 'Repeated story content'
     if len(numbers)==4:
         assert len(result)==200

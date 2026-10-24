@@ -103,7 +103,7 @@ def career_comics():
 @app.get("/api/career-stories")
 def story_catalog():
     from story_library import summaries
-    return {"items": summaries()}
+    return {"items": summaries(), "preview_read_only": os.getenv('STORIES_PREVIEW_READ_ONLY')=='true'}
 
 
 @app.get("/api/career-stories/{career_id}")
