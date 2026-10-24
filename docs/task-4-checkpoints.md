@@ -17,3 +17,5 @@ Adapter Brave thực qua httpx, không có provider giả. Thiếu SEARCH_API_KE
 ## 4.4 — tích hợp và cách ly
 
 Backend tổng 86 trường hợp riêng biệt đạt qua các lượt trọng tâm, 11 Node, Chrome 7 nhóm/PG local. Đã sửa 204 JSON parser, giữ từ chối proposal sau reload, rate ghi profile UID/IP chung không trừ quota, TTL cleanup có lô. Navigation 5 tạo/5 mở/rapid không gọi AI, 7 request như baseline; visual max local 16,7 ms, không cam kết nhanh hơn hoặc SLA mạng Production. Read-only Preview chỉ bật khi VERCEL_ENV=preview + flag server; client ?preview=1 không bật bypass trên Production. Người dùng chọn không có môi trường thử/provider riêng, nên không ghi Neon hoặc sao chép secret Production. LIVE vẫn BLOCKED; xem bảng 53 yêu cầu và báo cáo cuối.
+
+Preview 5bbc282 / dpl_FuHqTyMmFEaAam7x6ipEYAJ2CBxX READY tại https://quocan4-gbxablhb0-khkt3.vercel.app/ai-career-advisor?preview=1. HTTP/Chrome desktop-mobile và isolation PASS. Tracking đủ53: 19 PASS/34 BLOCKED/0 FAIL/0 TODO. Production vẫn df1c300, không ghi/migrate/merge/deploy Production.

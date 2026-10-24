@@ -6,7 +6,7 @@
 - Xác minh Production df1c300 rồi tạo worktree riêng; không lấy checkout chính đang dirty hoặc main làm nguồn.
 - Hồ sơ trích xuất cũ không tự thành consent: giữ dữ liệu phiên cũ, bảng confirmed mới có xác nhận từng mục/evidence/version. Profile opt-in theo cuộc trò chuyện; guest TTL không tự nâng thành lưu lâu dài sau claim.
 - User xác nhận chưa có môi trường thử mới/Search key, chọn hoàn thiện code và Preview cách ly; LIVE ghi BLOCKED, không dùng secrets/DB Production. Neon Preview cũ chỉ đọc metadata/count, không áp006 vào đó.
-- Preview readonly dựa envserver+VERCEL_ENVpreview, khóa mutation và không tạo guest/token/AI demo; module chat bình thường không thêm request preview-info.
+- Preview readonly dựa envserver+VERCEL_ENVpreview, khóa mutation và không tạo guest/token/AI demo; module chat bình thường không thêm request preview-info. Đã deploy5bbc282 Preview, hậu kiểmREADY/desktop-mobile/isolationPASS;19PASS/34BLOCKED tiêu chí. Chưa cấp phép Production.
 
 ## Task 3.1 — quyết định mới 24/10/2026
 

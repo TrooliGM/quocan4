@@ -2,6 +2,8 @@
 
 Nền Production đã xác minh df1c300, deployment dpl_6Q6muJBTW7kK7owh4m5TJ7XgU2dN. Nhánh feat/task-4-ai-advisor-3-0. PASS không đồng nghĩa LIVE PASS nếu bằng chứng ghi local/mock.
 
+Kết quả cuối: **19 PASS · 34 BLOCKED · 0 FAIL · 0 TODO**. BLOCKED bao gồm chất lượng AI và tích hợp LIVE, không phải thiếu tên yêu cầu trong bảng.
+
 ID | Yêu cầu | File triển khai | Trạng thái | Bằng chứng kiểm thử | Ghi chú
 ---|---|---|---|---|---
 1 | Tích hợp khả năng tìm kiếm web THỰC SỰ cho AI hướng nghiệp. | advisor/search_provider.py; advisor/graph.py; public/assets/chat.js | BLOCKED | test_advisor30_search (5 PASS); provider không cấu hình trả unavailable; snippet/link checked, không coi đã đọc toàn trang | BLOCKED LIVE: thiếu Brave Search key + DeepSeek thử riêng
@@ -56,4 +58,4 @@ ID | Yêu cầu | File triển khai | Trạng thái | Bằng chứng kiểm th�
 50 | Không viết lại toàn bộ AI Chat. | advisor/graph.py; advisor/routes.py; advisor/confirmed_profile.py; public/assets/chat.js | PASS | Tái sử dụng store/auth/quota/survey/DeepSeek adapter; regression 56 trường hợp đạt qua các lượt kiểm thử | PASS kiến trúc giữ framework, API mở rộng có kiểm thử
 51 | Không làm mất các hotfix Google Login và hiệu năng chuyển hội thoại. | public/assets/chat.js; public/assets/chat-journey.js; public/assets/account-link.js | PASS | Navigation hotfix/cache/race, 11 Node, Chrome Google fixture/giữ khảo sát; auth modules diff bằng 0 | PASS bảo toàn hotfix; không cam kết LIVE Google Task4
 52 | Kiểm thử thật ở những chức năng phụ thuộc: | docs/task-4-final-report.md | BLOCKED | Không gọi DeepSeek/Search/Firebase LIVE; Neon Preview chỉ đọc metadata/count | BLOCKED LIVE theo lựa chọn người dùng: chưa có môi trường riêng
-53 | Triển khai trên nhánh riêng, tạo Vercel Preview để người dùng nghiệm thu trước Production. | vercel.json; app.py; public/assets/chat.js | IN_PROGRESS | Chưa deploy tại thời điểm tạo bảng; cập nhật sau hậu kiểm | Preview chỉ đọc, không database/providers, không dùng AI demo
+53 | Triển khai trên nhánh riêng, tạo Vercel Preview để người dùng nghiệm thu trước Production. | vercel.json; app.py; public/assets/chat.js | PASS | Vercel dpl_FuHqTyMmFEaAam7x6ipEYAJ2CBxX READY, runtime 5bbc282; Chrome desktop/mobile + HTTP isolation PASS | Preview chỉ đọc theo lựa chọn người dùng; toàn bộ tích hợp LIVE vẫn BLOCKED

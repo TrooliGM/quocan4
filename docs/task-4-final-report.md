@@ -7,7 +7,7 @@ Ngày 25/10/2026, Asia/Bangkok. **Chưa sẵn sàng Production.** Người dùng
 - Worktree `D:/khkt/.claude/worktrees/task-4`, nhánh `feat/task-4-ai-advisor-3-0`.
 - Xác minh Vercel Production thực tế trước tạo nhánh: `df1c300d0fb8f63462642c9673fc5911139adca7`, deployment `dpl_6Q6muJBTW7kK7owh4m5TJ7XgU2dN`. Không giả định main hoặc 5aaed6e còn là Production.
 - Backup Git `backup/task-4-before-advisor-3` trỏ đúng nền df1c300. Không đổi checkout chính có thay đổi chưa commit và không sửa nhánh Task 3.
-- Checkpoint 4.1 `a0f08dc`; 4.2 `1a48619`; 4.3 `b3e385b`. Checkpoint 4.4 và Preview được ghi sau bước build/hậu kiểm.
+- Checkpoint 4.1 `a0f08dc`; 4.2 `1a48619`; 4.3 `b3e385b`. Checkpoint 4.4/bàn giao code **5bbc282ac36706ee0c75cf5de701c0d48e28285c**. Đây là commit đang chạy trên Preview; commit tài liệu hậu kiểm sau đó không thay runtime. Worktree sạch trước push/deploy; trạng thái cuối kiểm tra sau commit tài liệu.
 - Không đổi 200 hồ sơ/career_id, truyện/video, Firebase verifier hoặc auth/account-link/chat-journey. Không sửa hoặc chạy lại migration 001–005. Không ghi Neon Production.
 
 ## B. Bảng 53 yêu cầu
@@ -16,7 +16,7 @@ Theo dõi từng ID, file và bằng chứng tại [task-4-requirements.md](task
 
 Phần phụ thuộc chất lượng AI, Search, phân tích thực và đồng bộ tài khoản trên Neon/Firebase được đánh **BLOCKED** dù code/kiểm thử local đã có. Đặc biệt không dùng câu trả lời giả lập để kết luận AI tư vấn tốt, không coi Firebase fixture là Google Login thật. Không có yêu cầu bị bỏ khỏi bảng.
 
-Tại checkpoint trước Preview: 18 PASS, 34 BLOCKED, 0 FAIL, 0 TODO, 1 IN_PROGRESS (ID 53). Số cuối được cập nhật sau hậu kiểm.
+Kết quả cuối: **19 PASS, 34 BLOCKED, 0 FAIL, 0 TODO (đủ 53 ID)**. ID 1–32, 42 và 52 còn BLOCKED ở tiêu chí nghiệm thu thật; code và bài thử local tương ứng đã có. Không kết luận hoàn thành 100% hoặc READY FOR PRODUCTION.
 
 ## C. Code và API
 
@@ -77,6 +77,7 @@ Chat messages có thêm sources/search_status/survey_analysis/analysis_status; m
 
 - Backend **86 test riêng biệt PASS** qua các lượt trọng tâm (29 mới, 56 hồi quy, một runtime bundle; không cộng lại các lượt chạy trùng). PostgreSQL thật chỉ trên loopback, mỗi fixture schema/cluster riêng; model/auth là stub có nhãn. Một lượt hồi quy trước có hai assert theo contract cũ, đã cập nhật và kiểm lại thành công; không bỏ bảo mật để qua test.
 - Lỗi test mới sau khi thêm profile limiter do TestClient dùng peer `testclient` không phải IP; đổi fixture sang loopback thực, không nới proxy validation. 20 test phân tích/hồ sơ cuối PASS.
+- Đã đưa nút phân tích dùng chung adapter post_completion để mock bao phủ đầy đủ. Ở lượt đầu, test mới dùng khóa placeholder có thể chạm HTTP thật khi chưa mock đúng nút; đã sửa, không dùng khóa thật hoặc coi là nghiệm thu LIVE.
 - Node: **11 PASS** (return path, draft, account claim, TTL, story/video handoff).
 - Chrome thật + PG local + auth/model fixture: **7 nhóm PASS**: survey/analysis/header/bubble; chọn/sửa/từ chối; refresh/opt-in/out; timeout/refund/retry; Google fixture claim và responsive; xóa từng mục; đồng ý lưu hội thoại giữ ID sau reload. `artifacts/advisor30-browser.json`, ảnh `advisor30-*.png`. Các response fixture ghi rõ chưa gọi DeepSeek.
 - Bảo toàn 200 nghề/Truyện nghề bằng git diff df1c300 bằng 0 và validator 200 truyện/1.000 cảnh/400 tình huống. Runtime bundle không public/dotenv PASS.
@@ -118,7 +119,27 @@ Rollback candidate: tắt profile flag và trở về deployment/checkpoint trư
 
 Preview sẽ push riêng nhánh Task4 và deploy CLI Preview. Git auto-deploy bị tắt **chỉ nhánh Task4** để gắn các override an toàn sau khi nhánh xuất hiện trên GitHub. Không đổi Production Branch, không force push/PR/merge. Giữ Deployment Protection; URL có thể cần tài khoản Vercel được cấp quyền.
 
-URL/build/commit thực tế và tổng trạng thái được bổ sung sau hậu kiểm, không ghi PASS trước khi truy cập thật.
+### Preview đã xác minh
+
+- URL: https://quocan4-gbxablhb0-khkt3.vercel.app/ai-career-advisor?preview=1
+- Deployment **dpl_FuHqTyMmFEaAam7x6ipEYAJ2CBxX**, **READY**, target Preview (Vercel target=null), commit **5bbc282ac36706ee0c75cf5de701c0d48e28285c**.
+- 89 file đóng gói, đủ module/runtime/assets và bốn batch career/bốn batch story; không dotenv/artifacts/tests/scripts/docs hoặc secret files.
+- HTTP trang chủ/chat/thư viện/truyện/assets PASS; dữ liệu 200 nghề/12 nhóm/200 truyện và video có sẵn không đổi.
+- Preview info read_only=true; health ai_configured=false/auth_configured=false. Cả ba API AI, tạo guest và ghi profile **503**, không đến provider/database. Private paths `.env`, Python source, migration SQL, data, artifacts và endpoint fixture `/__qa/advisor30` **404**.
+- Chrome thật 1440/390: PASS header/phụ đề/logo, responsive, controls disabled, không có tin nhắn demo. Chỉ một fetch preview-info, không tạo phiên/đọc lịch sử/gọi AI/Firebase. Vercel Deployment Protection vẫn bật; đã kiểm bằng quyền Vercel được cấp, không công khai bypass token.
+- Ảnh Preview: `artifacts/advisor30-preview-1440.png`, `advisor30-preview-390.png`. Ảnh local đã có chức năng (auth/model fixture được ghi rõ): `advisor30-chat-desktop.png`, `advisor30-proposals-desktop.png`, `advisor30-account-profile-desktop.png`, `advisor30-profile-mobile.png`.
+- Evidence: `artifacts/task4-preview-results.json`, `task4-preview-isolation.json`, `task4-performance-summary.json`, `advisor30-browser.json`; không commit artifacts.
+- Hậu kiểm Production alias vẫn **dpl_6Q6muJBTW7kK7owh4m5TJ7XgU2dN / df1c300**, metadata env Production không đổi. Không merge/PR/force push hoặc Production deploy; chỉ nhánh Task4 đã push.
+
+**READY FOR ISOLATED PREVIEW REVIEW — NOT READY FOR PRODUCTION.** Preview chỉ để xem UI, không thể nghiệm thu luồng tư vấn/hồ sơ thật khi chưa có môi trường dịch vụ riêng.
+
+### Điều kiện mở khóa LIVE
+
+1. Cấp Neon staging rỗng, tách Production/backup/dữ liệu học sinh, xác minh project/branch/database rồi kiểm thử migration 006 trên đó; không áp vào database test cũ chỉ vì có kết nối.
+2. Cấp DeepSeek test credential và Brave Search key hợp lệ ở biến Preview riêng nhánh, không gửi key qua chat hoặc sao chép Production.
+3. Cấp Firebase test project/cấu hình được phép, kiểm authorized domain Preview và thao tác Google popup thật; không thay Firebase Production.
+4. Chỉ sau các bước trên mới bật profile/services trên một Preview có kiểm soát, kiểm lại quota/Origin/cookie/proxy/rate cùng 34 yêu cầu LIVE đang BLOCKED, gồm phân tích theo năm/chất lượng tư vấn/xưng hô/đồng bộ qua đăng nhập; cấu hình lịch dọn profile hết TTL cho khách không quay lại.
+5. Người dùng duyệt lại trước bất kỳ phát hành Production hoặc migration Production nào.
 
 ## File thay đổi
 

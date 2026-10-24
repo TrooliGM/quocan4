@@ -1,8 +1,8 @@
 # Bộ nhớ dự án: Website Hướng nghiệp KHKT 2027
 
-## Task 4 — 25/10/2026, đang chuẩn bị Preview cách ly
+## Task 4 — 25/10/2026, Preview cách ly đã xác minh
 
-Production trước tạo nhánh đã xác minh df1c300/dpl_6Q6muJBTW7kK7owh4m5TJ7XgU2dN (đã có Task3.1), không còn 5aaed6e. Nhánh feat/task-4-ai-advisor-3-0/worktree task-4 từ đúng nền, backup task-4-before-advisor-3. Đã triển khai code giao tiếp/header, Brave adapter/citation/SSRF, phân tích năm câu có schema/evidence và hồ sơ chỉ lưu từng mục đã đồng ý. Migration006 chỉ chạy PG local, không Neon. 86 test backend khác nhau qua các lượt trọng tâm, 11 Node/Chrome7 nhóm PASS với auth/model fixture; không LIVE. Người dùng xác nhận chưa có môi trường/provider thử, chọn Preview cách ly và BLOCKED LIVE. Không đổi Production/200 nghề/Truyện nghề hoặc auth modules, không copy Production secrets. Xem docs/task-4-final-report.md và bảng đủ53ID; URL Preview ghi sau hậu kiểm.
+Production trước tạo nhánh đã xác minh df1c300/dpl_6Q6muJBTW7kK7owh4m5TJ7XgU2dN (đã có Task3.1), không còn 5aaed6e. Nhánh feat/task-4-ai-advisor-3-0/worktree task-4 từ đúng nền, backup task-4-before-advisor-3. Đã triển khai code giao tiếp/header, Brave adapter/citation/SSRF, phân tích năm câu có schema/evidence và hồ sơ chỉ lưu từng mục đã đồng ý. Migration006 chỉ chạy PG local, không Neon. 86 test backend khác nhau qua các lượt trọng tâm, 11 Node/Chrome7 nhóm PASS với auth/model fixture; không LIVE. Người dùng xác nhận chưa có môi trường/provider thử, chọn Preview cách ly và BLOCKED LIVE. Không đổi Production/200 nghề/Truyện nghề hoặc auth modules, không copy Production secrets. Xem docs/task-4-final-report.md và bảng đủ53ID; Preview5bbc282/dpl_FuHqTyMmFEaAam7x6ipEYAJ2CBxX READY: https://quocan4-gbxablhb0-khkt3.vercel.app/ai-career-advisor?preview=1; HTTP/Chrome desktop-mobile, providers disabled/mutations503 PASS; Production/env không đổi. Tracking19PASS/34BLOCKED, không khẳng định53PASS. NhánhTask4 đã push, chưa PR/merge/Production; checkpoint4.1a0f08dc/4.2 1a48619/4.3 b3e385b/4.4 5bbc282.
 
 ## Task 3.1 — 24/10/2026, đang hoàn thiện Preview
 
