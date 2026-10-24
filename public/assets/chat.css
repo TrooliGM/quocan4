@@ -345,3 +345,6 @@
 .career-survey textarea{width:100%;border:1px solid #adc4b8;border-radius:14px;padding:15px;resize:vertical;background:#fff;min-height:112px;font:inherit;box-sizing:border-box}.career-survey :focus-visible{outline:3px solid #df957b;outline-offset:3px}
 .survey-note{font-size:12px;color:#64736b;margin:14px 0 24px}.survey-actions{display:flex;justify-content:space-between;gap:10px}.survey-top select{padding:7px;border:1px solid #cbdcd3;border-radius:9px;background:#fff}.survey-actions button:disabled{opacity:.45}
 @media(max-width:600px){.career-survey{margin:12px 0;border-radius:20px}.survey-actions .btn{padding:11px;font-size:13px}}
+
+/* Task 4: bỏ avatar lặp lại, giữ nguyên toàn bộ màu/khung bubble. */
+.assistant .message-body{max-width:100%}

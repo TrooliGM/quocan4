@@ -245,9 +245,6 @@ function plainMessage(message) {
 }
 function messageRow(message) {
   const row = document.createElement('article'); row.className = `message-row ${message.role}`;
-  if (message.role === 'assistant') {
-    const image = document.createElement('img'); image.src = '/assets/compass.svg'; image.alt = ''; image.className = 'assistant-avatar'; row.append(image);
-  }
   const body = document.createElement('div'); body.className = 'message-body';
   const label = document.createElement('span'); label.className = 'message-label'; label.textContent = message.role === 'assistant' ? `La Bàn AI${message.mode === 'demo' ? ' · Trả lời mẫu' : ''}` : 'Bạn';
   const bubble = document.createElement('div'); bubble.className = 'message-bubble';
@@ -268,7 +265,9 @@ function messageRow(message) {
     }
     bubble.append(cards);
   }
-  body.append(label, bubble);
+  if(message.role==='user')body.append(label);
+  body.append(bubble);
+  if(message.mode==='demo'){const note=document.createElement('p');note.className='quiet-note';note.textContent='Trả lời mẫu · chưa gọi DeepSeek';body.append(note);}
   if (message.role === 'assistant') {
     const actions = document.createElement('div'); actions.className = 'message-actions';
     const copy = document.createElement('button'); copy.textContent = '▣ Sao chép';
