@@ -60,9 +60,14 @@ class Story(BaseModel):
 
 def summaries():
     # Không parse nội dung 200 truyện để dựng danh sách.
-    return [dict(id=c.career_id, name=c.name, category=CATEGORIES[c.category_id],
-                 category_id=c.category_id, scenes=5, version=2)
-            for c in catalog().careers]
+    from career_videos import public_for
+    result=[]
+    for c in catalog().careers:
+        approved=public_for(c.career_id)
+        result.append(dict(id=c.career_id,name=c.name,category=CATEGORIES[c.category_id],
+            category_id=c.category_id,scenes=5,version=2,short_description=c.short_description,
+            video_count=len(approved),cover_video=approved[0] if approved else None))
+    return result
 
 @lru_cache(maxsize=4)
 def batch(number):
@@ -78,7 +83,7 @@ def get_story(career_id):
     if not row:
         return None
     career = careers[position]
-    return {**row, 'id': career_id, 'category': CATEGORIES[career.category_id],
+    return {**row, 'id': career_id, 'category': CATEGORIES[career.category_id], 'short_description':career.short_description,
             'category_id': career.category_id, 'skills': career.skills,
             'first_step': career.learning_path[-1], 'sources': career.sources,
             'note': 'Nhân vật và tình huống hư cấu do La Bàn biên soạn. Giờ làm minh họa; nhiệm vụ thay đổi theo vị trí và nơi làm việc. Đây là trải nghiệm hướng nghiệp, không phải hướng dẫn hành nghề.'}

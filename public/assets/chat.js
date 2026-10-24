@@ -293,7 +293,7 @@ function renderMessages() {
   if (context?.mode === 'career_exploration') $('#session-note').textContent += ` · Tìm hiểu: ${context.career_name || context.career_id}`;
   const storyReturn=context?.mode==='career_exploration' ? storyQuestion(context.career_id,active.id) : null;
   if (storyReturn) {
-    const back=document.createElement('a');back.href=storyReturn.path;back.textContent=' · Quay lại tình huống trong truyện ↗';
+    const back=document.createElement('a');back.href=storyReturn.path;back.textContent=' · '+(storyReturn.label || 'Quay lại tình huống trong truyện')+' ↗';
     $('#session-note').append(back);
   }
   if (context?.mode === 'career_exploration' && active.messages[0].survey && active.messages.length === 1 && !$('#message-input').value) {

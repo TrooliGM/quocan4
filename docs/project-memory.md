@@ -1,5 +1,9 @@
 # Bộ nhớ dự án: Website Hướng nghiệp KHKT 2027
 
+## Task 3.1 — 24/10/2026, đang hoàn thiện Preview
+
+Nhánh feat/task-3-1-video-library/worktree task-3-1 từ f95cfde; backup task-3-before-redesign. Đã tách thư viện và chi tiết nghề, reader một cảnh, tab video/comic, schema/import YouTube và handoff video sang AI. Giữ nguyên 200 hồ sơ, 200 truyện/1000 cảnh/400 lựa chọn và auth/quota/DB. Ba ứng viên, hai video CareerOneStop rà metadata/mô tả/toàn bộ storyboard (chưa nghe hết âm thanh), một VTV7 KIDS pending không xuất bản. 26 backend/11 Node/Chrome10 nhóm PASS; hai YouTube player thật ready, một playback PASS, một playback chưa xác minh. Preview cần cách ly DB/providers, chưa có URL mới tại thời điểm ghi. Không Production/Neon/migration. Xem docs/task-3-1-checkpoint.md để phân biệt fixture, provider thật và giới hạn thẩm định.
+
 ## Nhiệm vụ3 Truyện nghề2.0 —24/10/2026, mới nhất
 
 Hậu kiểm: Preview c23cdf3/dpl_GpkogjBB59CqFzJ1JEJyUQe3hdsp READY tại https://quocan4-2dx6bup90-khkt3.vercel.app/mot-ngay-lam-viec.200/200HTTP truyện PASS, Chrome desktop/mobile thật PASS qua bảo vệ Vercel. AI/Firebase tắt, guestcreate503/AI401, không dùngDBProduction. Production vẫn5aaed6e/dpl_8SWMtQHuQ7nFnkt3EEs5YVc1tAyQ. READY FOR PREVIEW REVIEW, chưa Production/push/merge. Báo cáo hậu kiểm commit riêng chỉdocs, runtime không đổi sau c23cdf3. Chi tiết checkpoint có URL, kiểm thử và giới hạn provider/thẩm định nội dung.

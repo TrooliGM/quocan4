@@ -1,142 +1,171 @@
 ﻿import {storyArt} from './story-art.js';
-import {offerStoryQuestion} from './story-journey.js';
-const $=s=>document.querySelector(s);
-const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let story, index=0, mode='play', answers=new Map(), controller, requestedId, catalog=[];
-const TTL=24*60*60*1000;
-function store() {
-  if(!story)return;
-  try {sessionStorage.setItem('laban.story.'+story.id,JSON.stringify({at:Date.now(),version:story.version,index,answers:[...answers]}));}catch{}
+import {comicCover} from './story-thumbnails.js';
+import {offerStoryQuestion,offerVideoQuestion} from './story-journey.js';
+import {YouTubePlayer} from './youtube-player.js';
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const normalize=s=>s.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d');
+let catalog=null,story=null,index=0,answers=new Map(),shown=12,view='comic',videoRows=[],selectedVideo=null;
+let controller,epoch=0,readonly=false,requestedURL=location.href,ended=false,searchTimer;
+const player=new YouTubePlayer($('#youtube-host'),message=>{
+  $('#video-fallback-text').textContent=message;$('#video-fallback').hidden=false;
+});
+async function json(url,signal){
+  const r=await fetch(url,{signal});const b=await r.json();
+  if(!r.ok)throw Error(typeof b.detail==='string'?b.detail:'Nội dung chưa tải được. Em thử lại nhé.');return b;
 }
-function restore(data) {
-  try {
-    const v=JSON.parse(sessionStorage.getItem('laban.story.'+data.id));
-    if(!v||v.version!==data.version||Date.now()<v.at||Date.now()-v.at>TTL)return;
-    if(Number.isInteger(v.index)&&v.index>=0&&v.index<data.scenes.length)index=v.index;
-    if(Array.isArray(v.answers))for(const pair of v.answers) {
+function remember(){
+  if(!story)return;
+  try{sessionStorage.setItem('laban.story.'+story.id,JSON.stringify({at:Date.now(),version:story.version,index,answers:[...answers]}));}catch{}
+}
+function restore(){
+  try{
+    const saved=JSON.parse(sessionStorage.getItem('laban.story.'+story.id));
+    if(!saved||saved.version!==story.version||!Number.isFinite(saved.at)||Date.now()<saved.at||Date.now()-saved.at>86400000)return;
+    if(Number.isInteger(saved.index)&&saved.index>=0&&saved.index<story.scenes.length)index=saved.index;
+    if(Array.isArray(saved.answers))for(const pair of saved.answers){
       if(!Array.isArray(pair)||pair.length!==2)continue;
-      const [id,choice]=pair,s=data.scenes.find(s=>s.scene_id===id);
-      if(s?.choices.some(c=>c.choice_id===choice))answers.set(id,choice);
+      const [id,choice]=pair;if(story.scenes.find(s=>s.scene_id===id)?.choices.some(c=>c.choice_id===choice))answers.set(id,choice);
     }
   }catch{}
 }
-async function json(url,signal) {
-  const r=await fetch(url,{signal});const body=await r.json();
-  if(!r.ok)throw Error(typeof body.detail==='string'?body.detail:'Chưa tải được truyện. Em thử lại nhé.');
-  return body;
+function chosen(s){return s.choices.find(c=>c.choice_id===answers.get(s.scene_id));}
+function resetAsk(){
+  $('#story-ask-form').hidden=true;$('#story-answer').hidden=true;
+  $('#ask-scene').disabled=readonly;
+  $('#ask-note').textContent=readonly?'Preview: AI đang tạm khóa. Em vẫn có thể xem video và đọc đủ 200 truyện.':'Câu hỏi sẽ mở ở AI Chat để em chỉnh sửa và xác nhận gửi.';
 }
-function selected(s) {return s.choices.find(c=>c.choice_id===answers.get(s.scene_id));}
-function summary(focus=true) {
-  $('#day-summary').hidden=false;
-  $('#summary-decisions').innerHTML=story.scenes.filter(s=>s.choices.length).map(s=>{
-    const c=selected(s);return `<li><strong>${esc(s.title)}:</strong> ${c?esc(c.text)+' — '+esc(c.consequence):'Em chưa chọn. Có thể quay lại thử cả hai hướng.'}</li>`;
-  }).join('');
-  if(focus){$('#day-summary').focus({preventScroll:true});$('#day-summary').scrollIntoView({block:'start',behavior:'instant'});}
-}
-function render() {
-  if(!story)return;
-  const s=story.scenes[index], choice=selected(s), previous=index>0?selected(story.scenes[index-1]):null;
-  $('#scene-art').innerHTML=storyArt(s.art);
-  $('#scene-time').textContent=s.time;$('#frame-number').textContent=`KHUNG ${String(index+1).padStart(2,'0')}`;
-  $('#scene-kicker').textContent=`CẢNH ${index+1} · CÙNG ${story.character.toLocaleUpperCase('vi')}`;
-  $('#scene-title').textContent=s.title;$('#scene-caption').textContent=s.caption;$('#scene-speech').textContent=s.speech;
-  $('#scene-skill').textContent=s.skill;$('#scene-skill-reason').textContent=s.skill_reason;$('#character-name').textContent=story.character;
-  $('#scene-consequence').hidden=!previous;$('#scene-consequence').textContent=previous?'Từ lựa chọn trước: '+previous.consequence:'';
-  $('#scene-counter').textContent=`Cảnh ${index+1} / ${story.scenes.length}`;
+function renderScene(){
+  const s=story.scenes[index],choice=chosen(s),prior=index?chosen(story.scenes[index-1]):null;
+  $('#comic-reader').hidden=ended;$('#day-summary').hidden=!ended;
+  $('#comic-person').textContent=`Một ngày cùng ${story.character} · ${story.workplace}`;
+  $('#scene-counter').textContent=`${index+1} / ${story.scenes.length}`;
   $('#reading-progress').max=story.scenes.length;$('#reading-progress').value=index+1;
-  $('#prev-scene').disabled=index===0;$('#next-scene').textContent=index===story.scenes.length-1?'✓':'→';
-  $('#next-scene').setAttribute('aria-label',index===story.scenes.length-1?'Xem tổng kết ngày':'Cảnh tiếp theo');
-  $('#scene-timeline').innerHTML=story.scenes.map((p,i)=>`<button data-scene="${i}" ${index===i?'aria-current="step"':''}><small>${esc(p.time)}</small><strong>${esc(p.title)}</strong></button>`).join('');
-  $('#decision-question').textContent=s.question||'Em nhận thấy điều gì trong công việc ở cảnh này?';
+  $('#scene-art').innerHTML=storyArt(s.art);$('#scene-time').textContent=s.time;$('#character-name').textContent=story.character;
+  $('#scene-kicker').textContent=`CẢNH ${String(index+1).padStart(2,'0')}`;
+  $('#scene-title').textContent=s.title;$('#scene-caption').textContent=s.caption;
+  $('#scene-consequence').hidden=!prior;$('#scene-consequence').textContent=prior?'Từ lựa chọn trước: '+prior.consequence:'';
+  $('#decision-card').hidden=!s.choices.length;$('#decision-question').textContent=s.question;
   $('#decision-choices').innerHTML=s.choices.map(c=>`<button data-choice="${esc(c.choice_id)}" aria-pressed="${choice===c}">${esc(c.text)}</button>`).join('');
   $('#decision-feedback').hidden=!choice;$('#decision-feedback').textContent=choice?choice.feedback+' '+choice.consequence:'';
-  $('#story-question').value=`Trong cảnh “${s.title}”, người làm nghề cần cân nhắc những gì? Em có thể rèn kỹ năng này qua hoạt động an toàn nào?`.slice(0,600);
-  $('#story-answer').hidden=true;store();
-  if(!$('#day-summary').hidden)summary(false);
+  $('#skill-details').open=false;$('#scene-skill').textContent=s.skill;$('#scene-skill-reason').textContent=s.skill_reason;$('#scene-speech').textContent=s.speech;
+  $('#prev-scene').disabled=index===0;$('#next-scene').textContent=index===story.scenes.length-1?'Khép lại một ngày ✓':'Tiếp theo →';
+  $('#story-question').value=`Trong cảnh “${s.title}”, người làm nghề cần cân nhắc điều gì? Em có thể rèn kỹ năng này thế nào?`;
+  remember();if(ended)renderSummary();
 }
-function go(i) {if(story&&Number.isInteger(i)){index=Math.max(0,Math.min(i,story.scenes.length-1));render();}}
-function view(value) {
-  mode=value;$('#player').hidden=mode!=='play';$('#comic-grid').hidden=mode!=='comic';$('#explore-scene').hidden=mode==='comic';
-  for(const m of ['play','comic']){$('#mode-'+m).setAttribute('aria-pressed',String(mode===m));$('#mode-'+m).classList.toggle('selected',mode===m);}
+function renderSummary(){
+  $('#summary-text').textContent=story.takeaway;$('#summary-step').textContent=story.first_step;
+  $('#summary-reflection').innerHTML=story.reflection.map(s=>`<li>${esc(s)}</li>`).join('');
+  $('#summary-decisions').innerHTML=story.scenes.filter(s=>s.choices.length).map(s=>{
+    const c=chosen(s);return `<li>${c?esc(c.text)+' — '+esc(c.consequence):'Em chưa chọn ở tình huống này; có thể quay lại thử.'}</li>`;
+  }).join('');
 }
-function shelf() {
-  const norm=s=>s.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d');
-  const q=norm($('#story-search').value),category=$('#story-category-filter').value;
-  const matches=catalog.filter(c=>(!category||c.category_id===category)&&norm(c.name).includes(q));
-  $('#career-shelf').innerHTML=matches.slice(0,24).map(c=>`<button data-career-id="${esc(c.id)}" aria-pressed="${c.id===story?.id}">${esc(c.name)}</button>`).join('');
-  $('#story-count').textContent=matches.length?`${matches.length} truyện phù hợp · Hiển thị tối đa 24, tìm theo tên để mở đúng nghề.`:'Chưa có kết quả. Em thử từ khóa khác nhé.';
+function go(next){if(!story)return;ended=false;index=Math.max(0,Math.min(next,story.scenes.length-1));resetAsk();renderScene();}
+function chooseTab(next,update=true){
+  view=next;player.clear();$('#video-panel').hidden=next!=='video';$('#comic-panel').hidden=next!=='comic';
+  for(const t of ['video','comic']){$('#tab-'+t).setAttribute('aria-selected',String(t===next));$('#tab-'+t).tabIndex=t===next?0:-1;}
+  $('#ask-scene').textContent=next==='video'?'Hỏi AI về video này ↗':'Hỏi AI về cảnh này ↗';
+  $('#ask-scene').hidden=next==='video'&&!selectedVideo;resetAsk();
+  if(next==='video')renderVideo();else renderScene();
+  if(update){const u=new URL(location.href);u.searchParams.set('tab',next);history.replaceState(null,'',u);}
 }
-async function loadStory(id,{push=false,resume=false,scene=null}={}) {
-  store();controller?.abort();const current=new AbortController();controller=current;requestedId=id;
-  if(push){const url=new URL(location.href);url.search='';url.searchParams.set('nghe',id);history.pushState({},'',url);}
-  $('#story-content').hidden=true;$('#story-error').hidden=true;$('#story-loading').hidden=false;
-  try {
-    const data=await json('/api/career-stories/'+encodeURIComponent(id),current.signal);
-    if(controller!==current)return;
-    story=data;index=0;answers=new Map();
-    if(resume)restore(data);
-    if(scene){const i=data.scenes.findIndex(s=>s.scene_id===scene);if(i>=0)index=i;}
-    document.title=data.title+' · La Bàn';
-    $('#career-title').textContent=data.title;$('#career-intro').textContent=data.intro;
-    $('#story-category').textContent=data.name+' · '+data.scenes.length+' CẢNH';
-    $('#story-person-name').textContent=data.character;$('#story-workplace').textContent=data.workplace;
+function renderVideo(){
+  const v=selectedVideo;
+  $('#video-empty').hidden=Boolean(v);$('#video-content').hidden=!v;$('#video-fallback').hidden=true;
+  if(!v)return;
+  $('#play-video').hidden=false;$('#video-thumbnail').src=v.thumbnail_url;$('#video-thumbnail').alt='Ảnh thu nhỏ của video '+v.title;
+  $('#video-title').textContent=v.title;
+  const duration=v.duration_seconds?`${Math.floor(v.duration_seconds/60)}:${String(v.duration_seconds%60).padStart(2,'0')}`:'';
+  $('#video-channel').textContent=[v.channel_name,v.language==='en'?'Tiếng Anh · Bối cảnh quốc tế':v.language==='vi'?'Tiếng Việt':v.language||'',duration].filter(Boolean).join(' · ');
+  $('#video-description').textContent=v.description;$('#youtube-link').href=v.youtube_url;
+  if(v.embeddable!==true||v.availability_status==='region_restricted'){
+    $('#play-video').disabled=true;$('#video-fallback').hidden=false;
+    $('#video-fallback-text').textContent='Video chưa phát nhúng tại đây hoặc có giới hạn khu vực. Em có thể kiểm tra trực tiếp trên YouTube.';
+  }else $('#play-video').disabled=false;
+  $('#story-question').value='Video cho thấy những nhiệm vụ và kỹ năng nào của nghề này? Em nên tìm hiểu thêm điều gì trước khi lựa chọn?';
+}
+function libraryCards(){
+  if(!catalog)return;
+  const query=normalize($('#story-search').value),category=$('#story-category-filter').value;
+  const matches=catalog.filter(c=>(!category||c.category_id===category)&&normalize(c.name).includes(query));
+  $('#story-count').textContent=matches.length?`${matches.length} nghề · ${matches.filter(c=>c.video_count>0).length} nghề có video đã rà soát`:'Chưa tìm thấy nghề. Em thử từ khóa hoặc nhóm khác nhé.';
+  $('#story-grid').innerHTML=matches.slice(0,shown).map(c=>{
+    const v=c.cover_video;
+    const cover=v?`<img src="${esc(v.thumbnail_url)}" width="640" height="360" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Ảnh thu nhỏ YouTube: ${esc(v.title)}"><span class="cover-play" aria-hidden="true">▶</span>`:comicCover(c.category_id);
+    return `<a class="story-card" href="/mot-ngay-lam-viec?nghe=${encodeURIComponent(c.id)}" data-story="${esc(c.id)}"><div class="card-cover">${cover}</div><p class="card-label">${v?'VIDEO YOUTUBE':'TRUYỆN TƯƠNG TÁC · 5 CẢNH'}</p><h2>${esc(c.name)}</h2><p>${esc(c.short_description)}</p></a>`;
+  }).join('');$('#story-more').hidden=shown>=matches.length;
+}
+function filterURL(){
+  shown=12;libraryCards();const u=new URL(location.href);u.search='';
+  if($('#story-search').value.trim())u.searchParams.set('q',$('#story-search').value.trim());
+  if($('#story-category-filter').value)u.searchParams.set('category',$('#story-category-filter').value);
+  history.replaceState(null,'',u);
+}
+async function route({push=null,resume=false}={}){
+  remember();controller?.abort();player.clear();const turn=++epoch;
+  if(push)history.pushState({},'',push);
+  const url=new URL(location.href),id=url.searchParams.get('nghe')||url.searchParams.get('career_id');requestedURL=url.href;
+  const current=new AbortController();controller=current;
+  $('#story-library').hidden=true;$('#story-detail').hidden=true;$('#story-error').hidden=true;$('#story-loading').hidden=false;
+  resetAsk();
+  try{
+    if(!id){
+      story=null;
+      if(!catalog){const data=await json('/api/career-stories',current.signal);if(turn!==epoch)return;catalog=data.items;readonly=data.preview_read_only;}
+      const categories=new Map(catalog.map(c=>[c.category_id,c.category]));
+      $('#story-category-filter').innerHTML='<option value="">Tất cả nhóm nghề</option>'+[...categories].map(([id,name])=>`<option value="${esc(id)}">${esc(name)}</option>`).join('');
+      $('#story-search').value=(url.searchParams.get('q')||'').slice(0,120);$('#story-category-filter').value=categories.has(url.searchParams.get('category'))?url.searchParams.get('category'):'';
+      shown=12;libraryCards();$('#story-library').hidden=false;document.title='Thế giới nghề nghiệp · La Bàn';return;
+    }
+    if(!/^[a-z0-9-]{1,80}$/.test(id))throw Error('Đường dẫn nghề không hợp lệ.');
+    const [data,videos]=await Promise.all([json('/api/career-stories/'+encodeURIComponent(id),current.signal),json('/api/career-videos/'+encodeURIComponent(id),current.signal)]);
+    if(turn!==epoch)return;
+    story=data;videoRows=videos.items;readonly=videos.preview_read_only;index=0;answers=new Map();ended=false;
+    if(resume||url.searchParams.has('scene'))restore();
+    const requestedScene=data.scenes.findIndex(s=>s.scene_id===url.searchParams.get('scene'));if(requestedScene>=0)index=requestedScene;
+    selectedVideo=videoRows.find(v=>v.youtube_video_id===url.searchParams.get('video'))||videoRows[0]||null;
+    document.title=data.name+' · Thế giới nghề nghiệp · La Bàn';
+    $('#career-title').textContent=data.name;$('#breadcrumb-name').textContent=data.name;$('#career-intro').textContent=data.short_description;$('#story-category').textContent=data.category;
     $('#back-career').href='/?career='+encodeURIComponent(id)+'#careers';
-    $('#comic-grid').innerHTML=data.scenes.map((s,i)=>`<article class="comic-panel"><div class="comic-art">${storyArt(s.art)}</div><div class="comic-panel-content"><span class="eyebrow">${esc(s.time)} · CẢNH ${i+1}</span><h3>${esc(s.title)}</h3><p>${esc(s.caption)}</p><button data-open-scene="${i}">Đọc và thử lựa chọn ↗</button></div></article>`).join('');
-    $('#summary-character').textContent=data.character;$('#summary-text').textContent=data.takeaway;$('#summary-step').textContent=data.first_step;
-    $('#summary-skills').innerHTML=data.skills.map(s=>`<span>${esc(s)}</span>`).join('');
-    $('#summary-reflection').innerHTML=data.reflection.map(s=>`<li>${esc(s)}</li>`).join('');
-    $('#story-note').textContent=data.note;$('#story-source-link').hidden=true;
+    $('#video-count').textContent=videoRows.length?String(videoRows.length):'đang cập nhật';
+    $('#video-selector-label').hidden=videoRows.length<2;
+    $('#video-selector').innerHTML=videoRows.map(v=>`<option value="${esc(v.id)}">${esc(v.title)}</option>`).join('');
+    if(selectedVideo)$('#video-selector').value=selectedVideo.id;
+    $('#story-note').textContent=data.note;
     $('#story-sources').innerHTML=data.sources.filter(s=>/^https:\/\//.test(s.url)).map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.label)}</a></li>`).join('');
-    $('#day-summary').hidden=true;render();view(mode);shelf();$('#story-content').hidden=false;
+    const explicit=url.searchParams.get('tab');
+    chooseTab(requestedScene>=0?'comic':['video','comic'].includes(explicit)?explicit:selectedVideo?'video':'comic',false);
+    $('#story-detail').hidden=false;
   }catch(error){
-    if(error.name==='AbortError'||controller!==current)return;
-    $('#story-error-text').textContent=error.message||'Chưa tải được truyện. Em thử lại nhé.';$('#story-error').hidden=false;
-  }finally{if(controller===current)$('#story-loading').hidden=true;}
+    if(turn!==epoch||error.name==='AbortError')return;
+    $('#story-error-text').textContent=error.message||'Chưa mở được nội dung. Em thử lại nhé.';$('#story-error').hidden=false;
+  }finally{if(turn===epoch)$('#story-loading').hidden=true;}
 }
+$('#story-filters').addEventListener('submit',e=>{e.preventDefault();clearTimeout(searchTimer);filterURL();});
+$('#story-search').addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(filterURL,160);});
+$('#story-category-filter').addEventListener('change',filterURL);
+$('#story-more').addEventListener('click',()=>{shown+=12;libraryCards();});
+$('#tab-video').addEventListener('click',()=>chooseTab('video'));$('#tab-comic').addEventListener('click',()=>chooseTab('comic'));
+$('.story-tabs').addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const next=e.key==='Home'?'video':e.key==='End'?'comic':view==='video'?'comic':'video';chooseTab(next);$('#tab-'+next).focus();}});
+$('#play-video').addEventListener('click',()=>{if(!selectedVideo||$('#play-video').disabled)return;$('#play-video').hidden=true;$('#video-fallback').hidden=true;player.open(selectedVideo);});
+$('#video-selector').addEventListener('change',()=>{selectedVideo=videoRows.find(v=>v.id===$('#video-selector').value);player.clear();resetAsk();renderVideo();});
 $('#prev-scene').addEventListener('click',()=>go(index-1));
-$('#next-scene').addEventListener('click',()=>index===story?.scenes.length-1?summary():go(index+1));
-$('#mode-play').addEventListener('click',()=>view('play'));$('#mode-comic').addEventListener('click',()=>view('comic'));
-$('#finish-story').addEventListener('click',()=>summary());
-$('#restart-story').addEventListener('click',()=>{answers=new Map();$('#day-summary').hidden=true;view('play');go(0);$('#player').focus();});
-$('#retry-story').addEventListener('click',()=>catalog.length?loadStory(requestedId):initialize());
-$('#story-search').addEventListener('input',shelf);$('#story-category-filter').addEventListener('change',shelf);
-document.addEventListener('click',e=>{
-  const career=e.target.closest('[data-career-id]');if(career){loadStory(career.dataset.careerId,{push:true});return;}
-  const scene=e.target.closest('[data-scene], [data-open-scene]');if(scene){view('play');go(Number(scene.dataset.scene??scene.dataset.openScene));return;}
-  const button=e.target.closest('[data-choice]');if(button&&story){
-    const s=story.scenes[index];if(!s.choices.some(c=>c.choice_id===button.dataset.choice))return;
-    const draft=$('#story-question').value;answers.set(s.scene_id,button.dataset.choice);render();$('#story-question').value=draft;
-  }
-});
-$('#player').addEventListener('keydown',e=>{
-  if(e.target!==$('#player'))return;
-  if(e.key==='ArrowRight'){e.preventDefault();go(index+1);}if(e.key==='ArrowLeft'){e.preventDefault();go(index-1);}
-});
+$('#next-scene').addEventListener('click',()=>{if(index===story.scenes.length-1){ended=true;renderScene();$('#day-summary').focus({preventScroll:true});}else go(index+1);});
+$('#restart-story').addEventListener('click',()=>{answers=new Map();go(0);});$('#return-last-scene').addEventListener('click',()=>go(story.scenes.length-1));
+$('#ask-scene').addEventListener('click',()=>{$('#story-ask-form').hidden=!$('#story-ask-form').hidden;if(!$('#story-ask-form').hidden)$('#story-question').focus();});
+$('#retry-story').addEventListener('click',()=>route());
 $('#story-ask-form').addEventListener('submit',e=>{
-  e.preventDefault();if(!story)return;
-  const s=story.scenes[index],question=$('#story-question').value.trim();if(question.length<3)return;store();
-  if(!offerStoryQuestion(story,s,question)){
-    $('#story-answer').hidden=false;$('#story-answer').textContent='Trình duyệt đang chặn lưu trong tab. Em sao chép câu hỏi rồi mở AI Chat để gửi nhé.';return;
-  }
+  e.preventDefault();if(readonly||!story)return;
+  const question=$('#story-question').value.trim();if(question.length<3)return;remember();
+  const saved=view==='video'&&selectedVideo?offerVideoQuestion(selectedVideo,question):offerStoryQuestion(story,story.scenes[index],question);
+  if(!saved){$('#story-answer').hidden=false;$('#story-answer').textContent='Trình duyệt đang chặn lưu trong tab. Em sao chép câu hỏi trước khi mở AI Chat nhé.';return;}
   location.assign('/ai-career-advisor?mode=career_exploration&career_id='+encodeURIComponent(story.id));
 });
-window.addEventListener('pagehide',()=>{store();controller?.abort();});
-function fromURL(resume=false){const p=new URLSearchParams(location.search);return loadStory(p.get('nghe')||'bac-si',{resume:resume||p.has('scene'),scene:p.get('scene')});}
-window.addEventListener('popstate',()=>fromURL(true));
-async function initialize(){
-  try {
-    const data=await json('/api/career-stories');catalog=data.items;
-    if(data.preview_read_only){
-      $('#story-ask-submit').disabled=true;
-      $('#story-answer').hidden=false;$('#story-answer').textContent='Preview duyệt truyện: AI và đăng nhập đang khóa; chưa có database thử riêng cho nhánh này. Không gọi DeepSeek hay dùng dữ liệu Production.';
-      $('#story-ask-form').hidden=true;
-      $('.ask-card .decision-note').textContent=$('#story-answer').textContent;
-    }
-    const categories=new Map(catalog.map(c=>[c.category_id,c.category]));
-    $('#story-category-filter').innerHTML='<option value="">Tất cả nhóm nghề</option>'+[...categories].map(([id,name])=>`<option value="${esc(id)}">${esc(name)}</option>`).join('');
-    shelf();await fromURL(performance.getEntriesByType('navigation')[0]?.type==='back_forward');
-  }catch{
-    $('#story-loading').hidden=true;$('#story-error').hidden=false;$('#story-error-text').textContent='Chưa tải được thư viện truyện. Em kiểm tra kết nối rồi thử lại nhé.';
-  }
-}
-initialize();
+document.addEventListener('click',e=>{
+  const link=e.target.closest('[data-story],[data-library]');
+  if(link&&!e.ctrlKey&&!e.metaKey&&!e.shiftKey&&e.button===0){e.preventDefault();route({push:link.getAttribute('href')});window.scrollTo({top:0,behavior:'instant'});return;}
+  const choice=e.target.closest('[data-choice]');
+  if(choice&&story){const s=story.scenes[index];if(!s.choices.some(c=>c.choice_id===choice.dataset.choice))return;const draft=$('#story-question').value;answers.set(s.scene_id,choice.dataset.choice);renderScene();$('#story-question').value=draft;}
+});
+window.addEventListener('popstate',()=>route({resume:true}));
+window.addEventListener('pagehide',()=>{remember();controller?.abort();player.clear();});
+route({resume:performance.getEntriesByType('navigation')[0]?.type==='back_forward'});

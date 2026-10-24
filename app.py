@@ -114,6 +114,14 @@ def career_story(career_id: str, version: int = Query(2, ge=1, le=2)):
     return story
 
 
+@app.get('/api/career-videos/{career_id}')
+def career_video_list(career_id: str):
+    from career_library import find_career
+    from career_videos import public_for
+    if not find_career(career_id):raise HTTPException(404,'Không tìm thấy nghề.')
+    return {'items':public_for(career_id),'preview_read_only':os.getenv('STORIES_PREVIEW_READ_ONLY')=='true'}
+
+
 @app.get("/api/health")
 def health():
     return {"status": "ok", "ai_configured": bool(os.getenv("DEEPSEEK_API_KEY", "").strip()),

@@ -1,5 +1,12 @@
 # Quyết định và việc còn mở
 
+## Task 3.1 — quyết định mới 24/10/2026
+
+- Người dùng yêu cầu trực tiếp redesign Truyện nghề/video YouTube, commit và push nhánh riêng để tạo Preview; chưa cho phát hành Production.
+- Chọn thư viện tải thêm 12 nghề/lượt, chi tiết hai tab, reader một cảnh; giữ dữ liệu truyện và 200 hồ sơ nguyên trạng.
+- Chỉ public video đã rà với phương pháp trung thực; chưa có Data API thì import URL thủ công vào candidate/pending, không tự duyệt. Hai video tiếng Anh cần người dùng nghe/duyệt trước Production.
+- Preview thiếu DB/provider thử riêng: giữ read-only, không sao chép Production. Tắt Git auto-deploy đúng nhánh Task 3.1 để cấu hình cách ly sau khi nhánh tồn tại, rồi deploy Preview qua CLI; không đổi cấu hình Production.
+
 ## Truyện nghề2.0 — xác nhận24/10/2026
 
 Đã thực hiện Preview chỉđọc c23cdf3, không thay Production và không push. Vercel giữ bảo vệ truy cập; không phát link có token.200truyệnHTTP và desktop/mobile Preview PASS. Còn cần duyệt người dùng và môi trường staging riêng nếu muốn kiểm provider thật trước phát hành. Bản commit báo cáo sau Preview chỉdocs, không phát hành thêm vì code không đổi. Không coi0video hoặc kiểm định chuỗi là200video/chứng nhậnchuyên gia hoàn tất.
