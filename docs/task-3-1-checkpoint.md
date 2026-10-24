@@ -58,6 +58,34 @@ API Data YouTube chưa có credential được cấp cho nhiệm vụ này, khô
 - Override: `DATABASE_URL`, `DEEPSEEK_API_KEY`, `FIREBASE_API_KEY`, `FIREBASE_PROJECT_ID` rỗng; `AI_DEMO_MODE=false`; `STORIES_PREVIEW_READ_ONLY=true`. Không copy secret Production.
 - Không tắt Vercel Deployment Protection. Người xem có thể cần đăng nhập Vercel được cấp quyền. Firebase/DeepSeek thật và quota end-to-end trên Preview **BLOCKED** tới khi có môi trường thử riêng được phép.
 - Lần deploy đầu bị Vercel từ chối vì includeFiles vượt 256 ký tự. Rút gọn bằng glob careers/batch, giữ whitelist bốn file trong `.vercelignore`; bổ sung test độ dài cấu hình và kiểm tra runtime. Không đổi dữ liệu hoặc mở rộng tập file bí mật.
-- Chưa merge/deploy Production, không kết nối Neon hoặc chạy migration. Trạng thái URL/build/hậu kiểm sẽ bổ sung sau khi deployment thực tế hoàn thành.
+- Chưa merge/deploy Production, không kết nối Neon hoặc chạy migration.
+
+## Bàn giao Preview đã xác minh
+
+- URL: https://quocan4-bpd83224i-khkt3.vercel.app/mot-ngay-lam-viec
+- Nhánh GitHub: `feat/task-3-1-video-library`, đã push, không tạo PR hoặc merge.
+- Code: `0203938`; sửa giới hạn đóng gói: **`df1c300d0fb8f63462642c9673fc5911139adca7`**, là commit thực tế của deployment. Commit tài liệu sau đó không thay runtime, không cần deploy lại.
+- Vercel: **`dpl_AKAfhkswejbHfohhtM9beNrNrq1Q`, READY, Preview (target=null)**. Không phải Production.
+- Dry manifest: 83 file, đủ bốn batch career/bốn batch story và catalog video, không dotenv/artifacts/tests/scripts/docs/credentials.
+- Runtime HTTP: 200 nghề/12 nhóm, hai video public, pending Đầu bếp bị loại, bốn nghề đại diện qua bốn batch trả năm cảnh, assets 200. Không chạy lại 200 HTTP của Task 3 vì dữ liệu không đổi; đã tái xác nhận validator 200/1.000/400 offline.
+- Bảo vệ Preview: health ai_configured=false/auth_configured=false, Firebase config disabled; `/api/advice`, `/api/career-stories/lap-trinh/ask`, `/api/ai/chat` trả **401**, guest create **503** do DB cách ly. `.env`, JSON data và artifacts trực tiếp **404**. Không gọi AI hoặc ghi dữ liệu Production.
+- Chrome trên Preview: desktop/tablet/mobile PASS, tìm kiếm không dấu, đúng hồ sơ nghề, comic/feedback/tổng kết, tab mặc định và tháo player PASS. **YouTube thật Thiết kế đồ họa: ready và thời gian phát tăng PASS ngay trên Preview**; không dùng player fixture trong phép thử này.
+- Vercel Production alias hậu kiểm vẫn `dpl_8SWMtQHuQ7nFnkt3EEs5YVc1tAyQ`/`5aaed6e`, không đổi.
+- Preview có Deployment Protection; truy cập cần tài khoản Vercel được cấp quyền. Không tạo link chia sẻ chứa bypass token. Báo cáo không chứa session hoặc thông tin truy cập.
+
+Ảnh Preview thực tế (local, không commit): `artifacts/stories31-preview-library-desktop.png`, `stories31-preview-library-tablet.png`, `stories31-preview-library-mobile.png`, `stories31-preview-comic-desktop.png`, `stories31-preview-comic-mobile.png`, `stories31-preview-video-desktop.png`, `stories31-preview-video-mobile.png`. Evidence `artifacts/task31-preview-results.json`.
+
+**READY FOR PREVIEW REVIEW. Chưa phát hành Production.** Chờ duyệt giao diện thư viện/reader và ngôn ngữ/âm thanh hai video. Muốn thử AI/Firebase thật cần DB và credentials thử nghiệm riêng được cấp phép; chưa đủ điều kiện xác minh provider/quota live trên Preview này.
+
+## File thay đổi (24 file)
+
+| Nhóm | File |
+| --- | --- |
+| Runtime và dữ liệu video | `app.py`, `career_videos.py`, `story_library.py`, `data/career-videos.json` |
+| Giao diện và liên kết | `stories.html`, `public/stories.html`, `public/assets/stories.js`, `public/assets/stories-31.css`, `public/assets/youtube-player.js`, `public/assets/story-thumbnails.js`, `public/assets/story-journey.js`, `public/assets/chat.js` (một dòng nhãn quay lại) |
+| Import/validation | `scripts/import_youtube.py`, `scripts/validate_videos.py` |
+| Kiểm thử | `tests/test_story_videos.py`, `tests/browser_stories31.py`, `tests/stories2.test.mjs`, `tests/test_release_runtime.py` |
+| Đóng gói/cấu hình mẫu | `vercel.json`, `.vercelignore`, `.env.example` |
+| Tài liệu | `docs/task-3-1-checkpoint.md`, `docs/project-memory.md`, `docs/decisions.md` |
 
 Nguồn vận hành: [Vercel Git deploymentEnabled](https://vercel.com/docs/project-configuration/git-configuration), [env theo nhánh](https://vercel.com/docs/environment-variables), [YouTube IFrame API](https://developers.google.com/youtube/iframe_api_reference).

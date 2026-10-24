@@ -1,8 +1,8 @@
 # Bộ nhớ dự án: Website Hướng nghiệp KHKT 2027
 
-## Task 3.1 — 24/10/2026, đang hoàn thiện Preview
+## Task 3.1 — 24/10/2026, Preview đã sẵn sàng duyệt
 
-Nhánh feat/task-3-1-video-library/worktree task-3-1 từ f95cfde; backup task-3-before-redesign. Đã tách thư viện và chi tiết nghề, reader một cảnh, tab video/comic, schema/import YouTube và handoff video sang AI. Giữ nguyên 200 hồ sơ, 200 truyện/1000 cảnh/400 lựa chọn và auth/quota/DB. Ba ứng viên, hai video CareerOneStop rà metadata/mô tả/toàn bộ storyboard (chưa nghe hết âm thanh), một VTV7 KIDS pending không xuất bản. 26 backend/11 Node/Chrome10 nhóm PASS; hai YouTube player thật ready, một playback PASS, một playback chưa xác minh. Preview cần cách ly DB/providers, chưa có URL mới tại thời điểm ghi. Không Production/Neon/migration. Xem docs/task-3-1-checkpoint.md để phân biệt fixture, provider thật và giới hạn thẩm định.
+Nhánh feat/task-3-1-video-library/worktree task-3-1 từ f95cfde; backup task-3-before-redesign. Đã tách thư viện và chi tiết nghề, reader một cảnh, tab video/comic, schema/import YouTube và handoff video sang AI. Giữ nguyên 200 hồ sơ, 200 truyện/1000 cảnh/400 lựa chọn và auth/quota/DB. Ba ứng viên, hai video CareerOneStop rà metadata/mô tả/toàn bộ storyboard (chưa nghe hết âm thanh), một VTV7 KIDS pending không xuất bản. 26 backend/11 Node/Chrome10 nhóm PASS; hai YouTube player thật ready, một playback PASS, một playback chưa xác minh. Preview df1c300/dpl_AKAfhkswejbHfohhtM9beNrNrq1Q READY tại https://quocan4-bpd83224i-khkt3.vercel.app/mot-ngay-lam-viec; cách ly DB/providers, AI/Firebase tắt, API AI401/guest503. Chrome desktop/tablet/mobile trên Preview PASS; YouTube Thiết kế đồ họa phát thật PASS. Sáu override chỉ nhánh Preview, Production alias/env không đổi. Nhánh đã push theo yêu cầu, chưa PR/merge/Production. Không Production/Neon/migration. Xem docs/task-3-1-checkpoint.md để phân biệt fixture, provider thật và giới hạn thẩm định.
 
 ## Nhiệm vụ3 Truyện nghề2.0 —24/10/2026, mới nhất
 
