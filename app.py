@@ -13,7 +13,7 @@ from pydantic import BaseModel, Field, field_validator, ConfigDict
 from uuid import UUID, uuid4
 
 from content import CAREERS
-from career_stories import STORIES, get_story
+from career_stories import get_story, get_legacy_story
 from firebase_auth import verify_user, web_config
 from advisor.store import StorageConfigurationError
 from advisor.storage_errors import storage_error
@@ -102,14 +102,13 @@ def career_comics():
 
 @app.get("/api/career-stories")
 def story_catalog():
-    return {"items": [{"id": c["id"], "name": c["name"], "category": c["category"],
-                       "color": c["color"], "scenes": len(STORIES[c["id"]]["scenes"])}
-                      for c in CAREERS if c["id"] in STORIES]}
+    from story_library import summaries
+    return {"items": summaries()}
 
 
 @app.get("/api/career-stories/{career_id}")
-def career_story(career_id: str):
-    story = get_story(career_id)
+def career_story(career_id: str, version: int = Query(2, ge=1, le=2)):
+    story = get_legacy_story(career_id) if version == 1 else get_story(career_id)
     if not story:
         raise HTTPException(404, "Truyện nghề này đang được cập nhật.")
     return story
@@ -185,7 +184,9 @@ class StoryQuestion(AdviceRequest):
 @app.post("/api/career-stories/{career_id}/ask")
 async def ask_about_story(career_id: str, payload: StoryQuestion, response: Response, request: Request, user=Depends(require_user)):
     response.headers["Cache-Control"] = "no-store"
-    story = career_story(career_id)
+    story = get_story(career_id)
+    if not story:
+        raise HTTPException(404, "Truyện nghề này đang được cập nhật.")
     if payload.scene_index >= len(story["scenes"]):
         raise HTTPException(422, "Cảnh truyện không hợp lệ.")
     if not os.getenv("DEEPSEEK_API_KEY", "").strip():

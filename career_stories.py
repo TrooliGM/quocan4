@@ -77,7 +77,7 @@ STORIES = {
 }
 
 
-def get_story(career_id):
+def get_legacy_story(career_id):
     if career_id not in STORIES:
         return None
     career = next(c for c in CAREERS if c["id"] == career_id)
@@ -85,3 +85,8 @@ def get_story(career_id):
     return {**career, **story, "source_url": "https://www.bls.gov/ooh/" + story["source"],
             "source_label": "Tham khảo nhiệm vụ nghề: BLS Occupational Outlook Handbook",
             "note": "Câu chuyện và nhân vật hư cấu do La Bàn biên soạn. Giờ làm minh họa; công việc thay đổi theo vị trí và nơi làm việc. Nguồn tham khảo mô tả nghề tại Hoa Kỳ, không dùng làm lộ trình đào tạo tại Việt Nam."}
+
+
+def get_story(career_id):
+    from story_library import get_story as current_story
+    return current_story(career_id)

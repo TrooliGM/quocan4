@@ -3,6 +3,7 @@ import {GoogleMic, BrowserMic} from './mic-recorder.js';
 import {guestSession} from './ai-access.js';
 import {chatLoginURL, saveDraft, loadDraft} from './chat-journey.js';
 import {explorationQuestion} from './career-question.js';
+import {storyQuestion} from './story-journey.js';
 
 const $ = (selector) => document.querySelector(selector);
 let auth, sdk, user, config, active = null, sessions = [], pending = null;
@@ -179,7 +180,12 @@ async function prepareExplorationDraft() {
   if (context?.mode!=='career_exploration' || needsSurvey() || active.messages.length!==1 || $('#message-input').value || preparedQuestions.has(id)) return;
   const career=await jsonAPI('/api/career-library/'+encodeURIComponent(context.career_id));
   if (epoch!==identityEpoch || active?.id!==id || $('#message-input').value) return;
-  $('#message-input').value=explorationQuestion(career,active.messages[0].survey);
+  const fromStory=storyQuestion(context.career_id,id);
+  $('#message-input').value=fromStory?.text || explorationQuestion(career,active.messages[0].survey);
+  if (fromStory) {
+    const back=document.createElement('a');back.href=fromStory.path;back.textContent=' · Quay lại tình huống trong truyện ↗';
+    $('#session-note').append(back);
+  }
   preparedQuestions.add(id);
   persistJourney(); resizeInput();
 }
