@@ -5,3 +5,5 @@ Nền Production được đọc trực tiếp từ Vercel: `5aaed6e`, deploymen
 Đợt 1: 50 bản thảo có biên tập, dữ liệu JSON tĩnh, 5 cảnh/truyện, hai quyết định/truyện có phản hồi và hệ quả riêng. Bộ biên dịch tái sử dụng nhiệm vụ/kỹ năng từ hồ sơ đã có; không tự tạo kịch bản bằng cách thay tên. Validator là kiểm tra kỹ thuật, không chứng nhận chuyên gia cho toàn bộ nội dung. 0 video được xác minh, không có URL video giả. Sáu truyện cũ giữ nguyên dữ liệu, mở lại bằng `?version=1` trên API; giao diện 2.0 dùng bản mới.
 
 Đang hoàn thiện các đợt 2–4 và kiểm thử tích hợp. Chưa được coi 200/200 hoàn tất ở checkpoint đợt 1. Không migration, không đổi database/Firebase/quota/rate limit, không tự deploy Production. Người dùng cho phép checkpoint commit và Vercel Preview để duyệt; không cho phát hành Production trước duyệt Preview. Không chạy Super Board.
+
+Đợt 2: thêm đúng 50 nghề tiếp theo, tổng 100 truyện/500 cảnh/200 quyết định; còn hai đợt sau. Đã sửa lỗi encoding khi tạo một số nhãn HTML qua PowerShell; dữ liệu bản thảo viết bằng apply_patch không bị ảnh hưởng.
