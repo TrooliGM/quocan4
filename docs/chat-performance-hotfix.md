@@ -43,3 +43,9 @@ Thư viện/data/CSS/migration/vercel.json đối chiếu nguyên byte với6c5c
 ## Còn cần xác minh trực tiếp
 
 Đo lại HTTP/Chrome và Server-Timing sau build/deploy; ghi kết quả thật vào artifacts/perf. Google popup thật và latency xác minh token của tài khoản thật cần người dùng thao tác; chưa có token/account thử được cấp, không dùng mock để báo live PASS. Mục tiêu <200ms cho phản hồi trực quan, không hứa mọi request mạng <200ms.
+
+## Phát hiện từ candidate có Server-Timing
+
+Candidate2b4de6e tại dpl_5KcUNBSbDrrATHA3zUfB71pQijHU đã READY, chưa chuyển domain. Smoke1 create/list/open:6016/3609/3516ms, đều chỉ1connection. Tạo có db_connect1391ms, db_sql2782ms, app5559ms; db_sql gồm round-trip, không chỉ CPU Postgres.
+
+Metadata trực tiếp xác nhận Function regions=[iad1] và endpoint của branch Production Neon region_id=aws-ap-southeast-1. Vì vậy còn mạng xuyên vùng Mỹ–Singapore trong các transaction. Bổ sung duy nhất regions=[sin1] vào vercel.json, giữ framework/includeFiles và mọi env. Đây là thay đổi vị trí Function phục vụ hotfix sau bằng chứng mới, không chuyển/ghi schema database hoặc nâng plan/mở nhiều region. [Vercel khuyến nghị đặt Function gần database](https://vercel.com/docs/functions/configuring-functions/region); [sin1 tương ứng Singapore](https://vercel.com/docs/regions). Build và probe lại candidate Singapore trước khi promote, rollback giữ6c/iad1 hiện hành.
