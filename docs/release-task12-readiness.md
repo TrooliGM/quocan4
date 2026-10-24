@@ -49,3 +49,15 @@ Trước phát hành cần: đối soát/phê duyệt xử lý chính xác reque
 Điểm khôi phục code/deployment đã ghi ở trên; backup Neon có sẵn chưa bị sửa. Sau khi bản mới phát sinh member lease `charge_quota=false`, không blind rollback về 7c/b8 khi còn request reserved: cần dừng admission, đối soát/settle bằng code hiểu cột mới, ưu tiên forward-fix; giữ schema và dữ liệu, không DROP/reset. Xem `docs/shared-ai-protection.md`.
 
 Bằng chứng vận hành cục bộ (ignored, không có secrets): `D:/khkt/artifacts/release-integration-20261024/`; kết quả backend: worktree này `artifacts/qa/backend-*.json`. Không push, PR, merge main, deploy hoặc bắt đầu Nhiệm vụ 3.
+
+## Tiếp tục gỡ blocker — 24/10/2026
+
+Vercel Production Branch thực là `main`; live target vẫn7c07d33, `source=redeploy` của ref integrate/premium-preview. Production Branch điều khiển Git auto-deploy; một deployment từ ref khác đã redeploy lên target Production nên live không bằng main. Không đổi branch setting hoặc alias.
+
+Chuẩn bị005 chuyển đúng hai UUID sang TEXT, giữ tất cả records/quota/constraints/default/index. Đã chạy9 test mới local PASS và staging synthetic005→004 PASS, không dùng dữ liệu thật. Mã store/quota thực7c07d33 ghi thành công trước/sau chuyển và store mới ghi sau chuyển. Chi tiết/rollback tại docs/uuid-text-upgrade.md. Chưa chạy005/004 trên Production.
+
+Request mồ côi đã completed từ2026-10-15 và đã thiếu session ngay trong backup-before-5220429. Không có audit/lifecycle/tombstone table; old code có physical DELETE/TTL cleanup nhưng không có bằng chứng gắn một thao tác với record này. Nguyên nhân UNVERIFIED; quota vẫn khớp, không hoàn/xóa request hoặc khôi phục nội dung. 005 không làm tăng số ngoại lệ và không tự phê duyệt ngoại lệ đó.
+
+API Vercel xác nhận DATABASE_URL Production Sensitive, không trả value; scope Preview là các branch riêng, candidate chưa có binding riêng. Thêm checker vận hành --runtime với expected host/db và read-only startup; test URL sai/target sai/redaction PASS. Chưa thể chứng nhận binding/format thực của biến Sensitive Production.
+
+Build Preview candidate và dịch vụ thật đang được kiểm tra theo bước riêng; chưa đánh dấu PASS. Không merge/deploy Production.
