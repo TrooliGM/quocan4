@@ -1,3 +1,4 @@
+import {showProfile} from './profile-panel.js';
 import {getFirebase, restoredUser} from './firebase-client.js';
 import {GoogleMic, BrowserMic} from './mic-recorder.js';
 import {guestSession} from './ai-access.js';
@@ -112,6 +113,9 @@ function renderGuestQuota() {
   label.replaceChildren(document.createTextNode('Bạn đang dùng thử · còn '), count, document.createTextNode(' câu hỏi miễn phí.'));
 }
 function updateControls() {
+  $('#use-profile').disabled=busy||!active||!config?.profile_enabled;
+  $('#keep-conversation').disabled=busy||!active;
+
   $('#survey-next').disabled = busy;
   $('#survey-back').disabled = busy || !active || !surveyDrafts.get(active.id)?.step;
   $('#survey-answer').disabled = busy;
@@ -246,7 +250,7 @@ function plainMessage(message) {
 function messageRow(message) {
   const row = document.createElement('article'); row.className = `message-row ${message.role}`;
   const body = document.createElement('div'); body.className = 'message-body';
-  const label = document.createElement('span'); label.className = 'message-label'; label.textContent = message.role === 'assistant' ? `La Bàn AI${message.mode === 'demo' ? ' · Trả lời mẫu' : ''}` : 'Bạn';
+  const label = document.createElement('span'); label.className = 'message-label'; label.textContent = 'Bạn';
   const bubble = document.createElement('div'); bubble.className = 'message-bubble';
   if (message.role === 'assistant') markdown(bubble, message.content);
   else bubble.textContent = message.request_id === active?.messages?.[0]?.survey?.analysis_request_id
@@ -267,6 +271,9 @@ function messageRow(message) {
   }
   if(message.role==='user')body.append(label);
   body.append(bubble);
+  if(message.survey_analysis){const review=document.createElement('button');review.className='profile-review-button';review.textContent='Xem nhận định và chọn thông tin muốn lưu';review.onclick=openProfile;body.append(review);}
+  else if(message.analysis_status==='unavailable'){const note=document.createElement('p');note.className='profile-empty';note.textContent='Chưa phân tích được khảo sát. Câu trả lời gốc vẫn được giữ; mở Hồ sơ để thử phân tích lại.';body.append(note);}
+
   if(message.sources?.length){
     const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent='Nguồn tra cứu · đoạn trích, chưa đọc toàn trang';details.className='source-list';details.append(summary);
     for(const source of message.sources){
@@ -298,7 +305,9 @@ function renderMessages() {
     for (const message of active.messages) list.append(messageRow(message));
     if (pending && pending.session_id === active.id && !active.messages.some((item) => item.request_id === pending.request_id)) list.append(messageRow({role:'user', content:pending.message}));
   }
-  $('#session-note').textContent = active ? active.remember ? 'Lịch sử đã bật · Bạn có thể xóa bất cứ lúc nào.' : 'Phiên tạm · Không ghi nhớ cho lần đăng nhập sau.' : 'Một góc trò chuyện riêng, theo nhịp của bạn.';
+  $('#session-note').textContent = active ? active.remember ? 'Lịch sử đã bật · Bạn có thể xóa bất cứ lúc nào.' : (config?.is_guest?'Phiên khách · lưu tạm, chưa gắn tài khoản.':'Đã gắn tài khoản · đang lưu tạm, chưa bật lưu lâu dài.') : 'Một góc trò chuyện riêng, theo nhịp của bạn.';
+  $('#use-profile').checked=Boolean(active?.messages?.[0]?.use_confirmed_profile);
+  $('#keep-conversation').hidden=!active||active.remember||config?.is_guest;
   const context = active?.messages?.[0]?.career_context;
   if (context?.mode === 'career_exploration') $('#session-note').textContent += ` · Tìm hiểu: ${context.career_name || context.career_id}`;
   const storyReturn=context?.mode==='career_exploration' ? storyQuestion(context.career_id,active.id) : null;
@@ -512,16 +521,10 @@ async function deleteSession(item) {
   } catch (error) { notice(failure(error)); }
 }
 async function openProfile() {
-  try {
-    const data = await jsonAPI('/api/ai/career-profile'); const content = $('#profile-content'); content.replaceChildren();
-    for (const [key, label] of [['interests','Sở thích'], ['strengths','Điểm mạnh tự chia sẻ'], ['growth_skills','Kỹ năng muốn phát triển'], ['careers','Nghề bạn quan tâm']]) {
-      const heading = document.createElement('h3'); heading.textContent = label; content.append(heading);
-      const values = data.profile[key];
-      if (!values.length) { const empty = document.createElement('p'); empty.className = 'profile-empty'; empty.textContent = 'Chưa có điều bạn chọn ghi nhớ.'; content.append(empty); }
-      else { const tags = document.createElement('div'); tags.className = 'profile-tags'; for (const value of values) { const tag = document.createElement('span'); tag.textContent = value; tags.append(tag); } content.append(tags); }
-    }
-    $('#profile-dialog').showModal();
-  } catch (error) { notice(failure(error)); }
+  const epoch=identityEpoch;
+  await showProfile({api:jsonAPI,session:active,isGuest:config?.is_guest,isCurrent:()=>epoch===identityEpoch,
+    onAnalyze:async()=>{if(busy||!active)return;$('#message-input').value=analysisMessage;pending={session_id:active.id,request_id:crypto.randomUUID(),message:analysisMessage};await send(true);},
+    onDraft:text=>{$('#message-input').value=text;resizeInput();persistJourney();$('#message-input').focus();}});
 }
 
 function clearPrivateUI() {
@@ -646,3 +649,20 @@ async function initialize() {
   }
 }
 initialize();
+
+$('#use-profile').addEventListener('change',async()=>{
+  if(!active||busy)return;const id=active.id,epoch=identityEpoch,use=$('#use-profile').checked;
+  $('#use-profile').disabled=true;
+  try{const data=await jsonAPI(`/api/ai/sessions/${id}/profile-use`,{method:'PUT',body:JSON.stringify({use_profile:use})});if(epoch===identityEpoch&&active?.id===id){active=data.session;cacheSession(active);renderMessages();}}
+  catch(error){if(epoch===identityEpoch)notice(failure(error));}
+  finally{if(epoch===identityEpoch){$('#use-profile').checked=Boolean(active?.messages?.[0]?.use_confirmed_profile);updateControls();}}
+});
+$('#keep-conversation').addEventListener('click',async()=>{
+  if(!active||busy)return;const id=active.id,epoch=identityEpoch;
+  const agreed=await askAction({title:'Lưu cuộc trò chuyện vào tài khoản?',description:'Giữ nguyên ID, khảo sát và tin nhắn để mở lại lần sau. Bạn có thể xóa sau này. Việc này không đồng ý lưu suy luận vào hồ sơ.',confirm:'Đồng ý lưu hội thoại'});
+  if(!agreed||epoch!==identityEpoch||active?.id!==id)return;
+  busy=true;updateControls();
+  try{const data=await jsonAPI(`/api/ai/sessions/${id}/retain`,{method:'POST'});if(epoch===identityEpoch&&active?.id===id){active=data.session;upsertSession(active);renderMessages();}}
+  catch(error){if(epoch===identityEpoch)notice(failure(error));}
+  finally{if(epoch===identityEpoch){busy=false;updateControls();}}
+});

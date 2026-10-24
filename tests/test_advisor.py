@@ -154,12 +154,16 @@ class AdvisorTests(unittest.TestCase):
             self.assertEqual(first.status_code, 200, first.text)
             self.assertIn("thiết kế đồ họa", first.json()["session"]["messages"][-1]["content"])
             self.assertEqual(self.send(session, "Mình còn biết một chút máy tính").status_code, 200)
-        self.assertEqual(len(seen), 4)
-        self.assertEqual(seen[0][0], "https://api.deepseek.com/chat/completions")
-        self.assertEqual(seen[0][1]["model"], "deepseek-flash")
-        self.assertEqual(seen[0][1]["response_format"]["type"], "text")
-        self.assertIn("Mình thích vẽ", [message["content"] for message in seen[2][1]["messages"]])
-        self.assertEqual(self.client.get("/api/ai/career-profile", headers=self.a).json()["profile"]["interests"], ["vẽ"])
+        # Một lần phân tích khảo sát riêng; lỗi JSON không tự chạy lại mỗi lượt.
+        self.assertEqual(len(seen), 5)
+        main=[call for call in seen if call[1]['messages'][0]['content'].startswith('Bạn là trợ lý đồng hành')]
+        self.assertEqual(len(main),2)
+        self.assertEqual(main[0][0], "https://api.deepseek.com/chat/completions")
+        self.assertEqual(main[0][1]["model"], "deepseek-flash")
+        self.assertEqual(main[0][1]["response_format"]["type"], "text")
+        self.assertIn("Mình thích vẽ", [message["content"] for message in main[1][1]["messages"]])
+        # Trích xuất LLM trong phiên không đồng nghĩa đồng ý lưu hồ sơ dài hạn.
+        self.assertEqual(self.client.get("/api/ai/career-profile", headers=self.a).json()["profile"]["interests"], [])
         self.assertEqual(self.client.get("/api/ai/career-profile", headers=self.b).json()["profile"], empty_profile())
 
     @patch('advisor.routes.check_ai_rate', lambda *args, **kwargs: None)

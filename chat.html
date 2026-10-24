@@ -38,6 +38,7 @@
       <div class="assistant-identity"><h1>Trợ lý hướng nghiệp <span class="private-badge">1:1</span></h1><p>Đồng hành cùng bạn khám phá nghề nghiệp</p></div>
       <div class="header-actions"><span id="connection-status" class="connection-status" role="status">Đang kết nối</span><button id="end-session" class="end-session" title="Trở về màn hình bắt đầu">Kết thúc</button></div>
     </header>
+    <div class="profile-use-control"><label><input id="use-profile" type="checkbox" disabled> Dùng hồ sơ đã xác nhận trong cuộc trò chuyện này</label><button id="keep-conversation" type="button" class="text-link" hidden>Lưu hội thoại vào tài khoản</button><small>Áp dụng cho lượt tiếp theo; không xóa nội dung đã trao đổi.</small></div>
     <div id="mode-banner" class="mode-banner" role="status" hidden></div>
     <div id="guest-banner" class="guest-banner" role="status" hidden><span id="guest-quota-text"></span><a id="guest-login" class="text-link" href="/?login=1&amp;upgrade=1">Đăng nhập Google / email ↗</a></div>
     <section class="chat-scroll" id="chat-scroll" aria-label="Nội dung tư vấn">
@@ -87,7 +88,7 @@
     </div>
   </main>
 </div>
-<dialog id="profile-dialog" class="chat-dialog" aria-labelledby="profile-title"><button data-close-dialog class="dialog-close" aria-label="Đóng hồ sơ">×</button><span class="eyebrow">NHỮNG ĐIỀU BẠN ĐÃ CHIA SẺ</span><h2 id="profile-title">Hồ sơ hướng nghiệp của tôi</h2><p>Ghi nhớ từ những cuộc trò chuyện bạn chọn lưu. Đây là thông tin tự chia sẻ, không phải kết quả đánh giá năng lực.</p><div id="profile-content"></div><button id="delete-all-data" class="danger-button">Xóa toàn bộ lịch sử và ghi nhớ</button></dialog>
+<dialog id="profile-dialog" class="chat-dialog" aria-labelledby="profile-title"><button data-close-dialog class="dialog-close" aria-label="Đóng hồ sơ">×</button><span class="eyebrow">NHỮNG ĐIỀU BẠN ĐÃ CHIA SẺ</span><h2 id="profile-title">Hồ sơ hướng nghiệp của tôi</h2><p>Ghi nhớ từ những cuộc trò chuyện bạn chọn lưu. Đề xuất của AI chỉ được lưu sau khi bạn chấp nhận từng mục. Đây không phải kết quả đánh giá năng lực.</p><div id="profile-content"></div><button id="delete-all-data" class="danger-button">Xóa toàn bộ lịch sử và ghi nhớ</button></dialog>
 <dialog id="action-dialog" class="chat-dialog" aria-labelledby="action-title"><form id="action-form"><button type="button" data-close-dialog class="dialog-close" aria-label="Đóng">×</button><h2 id="action-title"></h2><p id="action-description"></p><label for="rename-input" id="rename-label" hidden>Tên cuộc trò chuyện</label><input id="rename-input" maxlength="80" hidden><div class="dialog-actions"><button type="button" data-close-dialog class="btn btn-light">Hủy</button><button id="confirm-action" class="btn btn-coral" type="submit">Xác nhận</button></div><p id="action-error" role="status"></p></form></dialog>
 
 </body>

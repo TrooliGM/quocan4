@@ -169,6 +169,8 @@ def claim_guest_history(guest_uid, account_uid):
         recover_expired(db, guest_uid)
         if db.execute("SELECT 1 FROM guest_ai_requests WHERE uid=%s AND status='reserved' LIMIT 1", (guest_uid,)).fetchone():
             raise HTTPException(409, {'code': 'GUEST_REQUEST_PENDING', 'message': 'AI đang xử lý tin nhắn của khách. Chờ xong rồi thử giữ lịch sử lại nhé.'})
+        from .confirmed_profile import transfer
+        transfer(db,guest_uid,account_uid)
         db.execute('INSERT INTO advisor_guest_claims(guest_uid,account_uid) VALUES(%s,%s)', (guest_uid, account_uid))
         ids = []
         for table in ('advisor_sessions', 'advisor_temporary_sessions'):

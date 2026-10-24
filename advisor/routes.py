@@ -97,6 +97,7 @@ def config(user=Depends(require_user)):
             "model": "demo" if demo_mode() else model_name(),
             "microphone": {"google": voice.google_stt_configured()},
             "is_guest": user.get('provider') == 'anonymous',
+            "profile_enabled": __import__('advisor.confirmed_profile',fromlist=['enabled']).enabled(),
             "guest_quota": guest_usage(user)}
 
 
@@ -174,7 +175,71 @@ def delete_session(session_id: UUID, user=Depends(require_user)):
 
 @router.get("/api/ai/career-profile")
 def profile(user=Depends(require_user)):
-    return {"profile": get_store().profile(user["uid"])}
+    from .confirmed_profile import read
+    return read(user['uid'])
+
+class ProfileConfirmInput(BaseModel):
+    model_config=ConfigDict(extra='forbid')
+    session_id:UUID
+    proposal_id:UUID
+    value:str=Field(min_length=3,max_length=160)
+    confirmed:Literal[True]
+    @field_validator('value',mode='before')
+    @classmethod
+    def trimmed(cls,value):return value.strip() if isinstance(value,str) else value
+
+class ProfileEditInput(BaseModel):
+    model_config=ConfigDict(extra='forbid')
+    value:str=Field(min_length=3,max_length=160)
+    version:int=Field(ge=1)
+    retain:bool=False
+    @field_validator('value',mode='before')
+    @classmethod
+    def trimmed(cls,value):return value.strip() if isinstance(value,str) else value
+
+class ProfileUseInput(BaseModel):
+    model_config=ConfigDict(extra='forbid')
+    use_profile:bool
+
+@router.post('/api/ai/career-profile/items')
+def confirm_profile(payload:ProfileConfirmInput,user=Depends(require_user)):
+    from .confirmed_profile import confirm
+    session=get_store().get(user['uid'],str(payload.session_id))
+    return confirm(user['uid'],user['provider'],session,str(payload.proposal_id),payload.value.strip())
+
+@router.patch('/api/ai/career-profile/items/{item_id}')
+def edit_profile(item_id:UUID,payload:ProfileEditInput,user=Depends(require_user)):
+    from .confirmed_profile import edit
+    return edit(user['uid'],user['provider'],str(item_id),payload.value.strip(),payload.version,payload.retain)
+
+@router.delete('/api/ai/career-profile/items/{item_id}',status_code=204)
+def remove_profile(item_id:UUID,user=Depends(require_user)):
+    from .confirmed_profile import remove
+    remove(user['uid'],str(item_id));return Response(status_code=204)
+
+@router.put('/api/ai/sessions/{session_id}/profile-use')
+def profile_use(session_id:UUID,payload:ProfileUseInput,user=Depends(require_user)):
+    from .confirmed_profile import use_profile,require_enabled
+    if payload.use_profile:require_enabled()
+    return {'session':use_profile(get_store(),user['uid'],str(session_id),payload.use_profile)}
+
+@router.post('/api/ai/sessions/{session_id}/retain')
+def retain_session(session_id:UUID,user=Depends(require_user)):
+    if user.get('provider')=='anonymous':raise HTTPException(403,'Đăng nhập trước khi lưu lâu dài.')
+    store=get_store();sid=str(session_id);row=store.get(user['uid'],sid)
+    if row['remember']:return {'session':row}
+    if not isinstance(store,PostgresConversationStore):raise HTTPException(503,'Lưu phiên đang mở cần PostgreSQL.')
+    from .postgres_store import postgres_connection
+    from .guest_quota import lock_usage
+    with postgres_connection() as db:
+        lock_usage(db,user['uid'])
+        if db.execute("SELECT 1 FROM guest_ai_requests WHERE uid=%s AND session_id=%s AND status='reserved' LIMIT 1",(user['uid'],sid)).fetchone():raise HTTPException(409,'Chờ AI xử lý xong trước khi lưu hội thoại.')
+        row=db.execute('SELECT id FROM advisor_temporary_sessions WHERE id=%s AND owner=%s AND expires_at>NOW() FOR UPDATE',(sid,user['uid'])).fetchone()
+        if row:
+            db.execute('''INSERT INTO advisor_sessions(id,owner,title,created_at,updated_at,messages,profile,summary)
+                SELECT id,owner,title,created_at,updated_at,messages,profile,summary FROM advisor_temporary_sessions WHERE id=%s AND owner=%s''',(sid,user['uid']))
+            db.execute('DELETE FROM advisor_temporary_sessions WHERE id=%s AND owner=%s',(sid,user['uid']))
+    return {'session':store.get(user['uid'],sid)}
 
 
 @router.delete("/api/ai/data", status_code=204)

@@ -92,3 +92,7 @@ export async function restoredUser(){return auth.currentUser;}
 
 
 app.router.routes.insert(0, APIRoute("/assets/firebase-client.js", firebase_stub, methods=["GET"]))
+
+if os.getenv('LABAN_BROWSER_ADVISOR30')=='1':
+    from browser_advisor30_fixture import install
+    install()

@@ -94,9 +94,9 @@ class SurveyTests(unittest.TestCase):
         with patch('advisor.graph.post_completion', new_callable=AsyncMock, return_value=response) as provider:
             result = self.client.post('/api/ai/chat',headers=self.headers,json=payload)
         self.assertEqual(result.status_code,200,result.text)
-        sent = provider.call_args_list[0].args[0]
+        sent = next(call.args[0] for call in provider.call_args_list if call.args[0]['response_format']['type']=='text')
         text = json.dumps(sent,ensure_ascii=False)
-        self.assertIn('xưng anh',text)
+        self.assertIn('anh–em',text)
         self.assertIn(ANSWERS[0],text)
         self.assertIn('khoảng 3',text)
         self.assertEqual(survey_data(result.json()['session'])['answers'],ANSWERS)

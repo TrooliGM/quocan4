@@ -39,6 +39,7 @@ async def request_performance(request, call_next):
             response=await call_next(request)
         if request.url.path.startswith('/api/ai/'):
             response.headers['Server-Timing']=state.header()
+            response.headers['Cache-Control']='no-store'
         return response
     finally:
         await asyncio.to_thread(state.close)
