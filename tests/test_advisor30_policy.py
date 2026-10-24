@@ -12,3 +12,11 @@ class PolicyTests(unittest.TestCase):
     def test_only_user_turns_in_this_conversation(self):
         s={'messages':[{'role':'assistant','content':'xưng tôi–bạn'}]}
         self.assertEqual(address_style(s),'mình–bạn')
+
+    def test_negated_pair_cannot_override_explicit_choice(self):
+        s={'messages':[{'role':'assistant','content':'hello','survey':{'address':'chị'}}]}
+        msg='Từ bây giờ hãy xưng tôi–bạn, không dùng chị–em.'
+        self.assertEqual(address_style(s,msg),'tôi–bạn')
+        s['messages'].append({'role':'user','content':msg})
+        self.assertEqual(address_style(s,'Tôi nên bắt đầu ra sao?'),'tôi–bạn')
+        self.assertEqual(address_style(s,'Đừng dùng anh–em, hãy xưng mình–bạn'),'mình–bạn')
