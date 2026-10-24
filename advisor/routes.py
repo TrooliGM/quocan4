@@ -52,6 +52,15 @@ def lock_for(session_id):
         session_locks[session_id] = lock
     return lock
 
+def profile_actor(request:Request,user=Depends(require_user)):
+    """Giới hạn ghi dữ liệu riêng, không lấy lượt chat/quota 8 câu."""
+    if isinstance(get_store(),PostgresConversationStore):
+        from .protection import connection,limit,setting,client_ip
+        with connection() as db:
+            limit(db,'profile:ip:minute',client_ip(request),setting('PROFILE_IP_WRITES_PER_MINUTE',90),60)
+            limit(db,'profile:uid:minute',user['uid'],setting('PROFILE_USER_WRITES_PER_MINUTE',30),60)
+    return user
+
 
 class SessionInput(BaseModel):
     model_config = ConfigDict(extra="forbid")
@@ -93,11 +102,12 @@ class ChatInput(BaseModel):
 
 @router.get("/api/ai/config")
 def config(user=Depends(require_user)):
+    from .confirmed_profile import enabled
     return {"mode": "demo" if demo_mode() else "live", "configured": demo_mode() or bool(os.getenv("DEEPSEEK_API_KEY", "").strip()),
             "model": "demo" if demo_mode() else model_name(),
             "microphone": {"google": voice.google_stt_configured()},
             "is_guest": user.get('provider') == 'anonymous',
-            "profile_enabled": __import__('advisor.confirmed_profile',fromlist=['enabled']).enabled(),
+            "profile_enabled": enabled(),
             "guest_quota": guest_usage(user)}
 
 
@@ -202,29 +212,34 @@ class ProfileUseInput(BaseModel):
     use_profile:bool
 
 @router.post('/api/ai/career-profile/items')
-def confirm_profile(payload:ProfileConfirmInput,user=Depends(require_user)):
+def confirm_profile(payload:ProfileConfirmInput,user=Depends(profile_actor)):
     from .confirmed_profile import confirm
     session=get_store().get(user['uid'],str(payload.session_id))
     return confirm(user['uid'],user['provider'],session,str(payload.proposal_id),payload.value.strip())
 
 @router.patch('/api/ai/career-profile/items/{item_id}')
-def edit_profile(item_id:UUID,payload:ProfileEditInput,user=Depends(require_user)):
+def edit_profile(item_id:UUID,payload:ProfileEditInput,user=Depends(profile_actor)):
     from .confirmed_profile import edit
     return edit(user['uid'],user['provider'],str(item_id),payload.value.strip(),payload.version,payload.retain)
 
 @router.delete('/api/ai/career-profile/items/{item_id}',status_code=204)
-def remove_profile(item_id:UUID,user=Depends(require_user)):
+def remove_profile(item_id:UUID,user=Depends(profile_actor)):
     from .confirmed_profile import remove
     remove(user['uid'],str(item_id));return Response(status_code=204)
 
+@router.post('/api/ai/sessions/{session_id}/profile-proposals/{proposal_id}/reject')
+def reject_profile_proposal(session_id:UUID,proposal_id:UUID,user=Depends(profile_actor)):
+    from .confirmed_profile import reject_proposal
+    return {'session':reject_proposal(get_store(),user['uid'],str(session_id),str(proposal_id))}
+
 @router.put('/api/ai/sessions/{session_id}/profile-use')
-def profile_use(session_id:UUID,payload:ProfileUseInput,user=Depends(require_user)):
+def profile_use(session_id:UUID,payload:ProfileUseInput,user=Depends(profile_actor)):
     from .confirmed_profile import use_profile,require_enabled
     if payload.use_profile:require_enabled()
     return {'session':use_profile(get_store(),user['uid'],str(session_id),payload.use_profile)}
 
 @router.post('/api/ai/sessions/{session_id}/retain')
-def retain_session(session_id:UUID,user=Depends(require_user)):
+def retain_session(session_id:UUID,user=Depends(profile_actor)):
     if user.get('provider')=='anonymous':raise HTTPException(403,'Đăng nhập trước khi lưu lâu dài.')
     store=get_store();sid=str(session_id);row=store.get(user['uid'],sid)
     if row['remember']:return {'session':row}

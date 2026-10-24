@@ -59,7 +59,7 @@ class ProfileTests(unittest.TestCase):
             db.execute((Path(__file__).resolve().parents[1]/'migrations/006_confirmed_career_profile.sql').read_text(encoding='utf8'))
         self.identity={'uid':'owner-one','provider':'password'}
         app.dependency_overrides[require_user]=lambda:self.identity
-        self.client=TestClient(app);self.client.__enter__()
+        self.client=TestClient(app,client=('127.0.0.1',41011));self.client.__enter__()
         self.session=get_store().create(self.identity['uid'],False)
         self.session=save_survey(get_store(),self.identity['uid'],self.session['id'],SurveyInput(answers=ANSWERS))
         survey=self.session['messages'][0]['survey'];self.analysis=validate_analysis(RAW,survey,self.session['id'])
@@ -135,5 +135,25 @@ class ProfileTests(unittest.TestCase):
         with self.assertRaises(psycopg.Error):
             with self.connection() as db:db.execute((Path(__file__).resolve().parents[1]/'migrations/006_confirmed_career_profile.sql').read_text(encoding='utf8'))
         self.assertEqual(counts(),before)
+    def test_rejection_survives_reload_and_cannot_modify_other_session(self):
+        sid=self.session['id'];pid=self.analysis['proposed_profile_items'][1]['id']
+        r=self.client.post(f'/api/ai/sessions/{sid}/profile-proposals/{pid}/reject');self.assertEqual(r.status_code,200)
+        self.assertIn(pid,self.client.get('/api/ai/sessions/'+sid).json()['session']['messages'][0]['profile_rejections'])
+        self.identity={'uid':'other','provider':'password'}
+        self.assertEqual(self.client.post(f'/api/ai/sessions/{sid}/profile-proposals/{pid}/reject').status_code,404)
+    def test_bounded_expiry_cleanup_does_not_remove_account_items(self):
+        self.accept()
+        self.identity['uid']='other-owner'
+        with self.connection() as db:
+            db.execute('''INSERT INTO advisor_profile_items(id,owner,category,value,confirmed_by,source_session_id,source_proposal_id,metadata,expires_at)
+                VALUES(%s,'expired','interests','Vẽ tranh','expired','s','p','{}',NOW()-INTERVAL '1 minute')''',(str(uuid4()),))
+        self.assertEqual(cp.purge_expired(1),1);self.assertEqual(len(cp.read('owner-one')['items']),1)
+        self.assertEqual(cp.purge_expired(1),0)
+    def test_profile_write_rate_uses_shared_state_without_charging_chat_quota(self):
+        with patch.dict(os.environ,{'PROFILE_USER_WRITES_PER_MINUTE':'1'}):
+            self.accept()
+            self.assertEqual(self.client.post('/api/ai/career-profile/items',json=self.body()).status_code,429)
+        with self.connection() as db:
+            self.assertEqual(db.execute('SELECT count(*) AS n FROM guest_ai_requests').fetchone()['n'],0)
 
 if __name__=='__main__':unittest.main()

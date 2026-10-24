@@ -13,6 +13,7 @@ import re
 import socket
 import ssl
 import time
+import unicodedata
 from typing import Protocol
 from urllib.parse import urlsplit
 import httpx
@@ -28,6 +29,7 @@ class Source(BaseModel):
     supporting_excerpt: str = Field(max_length=700)
     verification_level: str = 'search_snippet_link_checked'
     target_year: int | None = None
+    temporal_relation: str = 'not_requested'
 
 class SearchUnavailable(RuntimeError):pass
 class SearchProvider(Protocol):
@@ -35,6 +37,13 @@ class SearchProvider(Protocol):
 
 def needs_search(text):
     return bool(re.search(r'\b(?:19|20)\d{2}\b|hiện nay|mới nhất|tra cứu|tìm (?:nguồn|kiếm)|thống kê|mức lương|điểm chuẩn|tuyển sinh|nhu cầu nhân lực',text,re.I))
+
+def relevant(query,title,excerpt):
+    def plain(t):return ''.join(c for c in unicodedata.normalize('NFD',t.lower()) if unicodedata.category(c)!='Mn').replace('đ','d')
+    stop={'hay','tong','hop','thong','tin','nam','nganh','cua','toi','minh','ban','cho','tra','cuu','tim','kiem','ve','hien','nay','moi','nhat','tinh','hinh','lieu','bao','cao'}
+    words={w for w in re.findall(r'[a-z]+',plain(query)) if len(w)>2 and w not in stop}
+    text=plain(title+' '+excerpt)
+    return bool(words) and any(re.search(r'\b'+re.escape(w)+r'\b',text) for w in words)
 
 def safe_url(url):
     try:
@@ -95,6 +104,8 @@ def provider():
 
 async def retrieve(uid,text):
     if not needs_search(text):return {'status':'not_needed','sources':[]}
+    if re.search(r'sk-[\w-]{16,}|eyJ[\w-]+\.[\w-]+\.[\w-]+|PRIVATE KEY|DATABASE_URL|mật khẩu|password|(?:tôi|em|mình) tên là',text,re.I):
+        return {'status':'privacy_blocked','sources':[]}
     year_match=re.search(r'\b((?:19|20)\d{2})\b',text);year=int(year_match[1]) if year_match else None
     # Không gửi profile/khảo sát/UID. Chặn định danh rõ ràng trong câu tra cứu.
     query=re.sub(r'[\w.+-]+@[\w.-]+|\+?\d[\d .-]{8,}\d','[đã bỏ thông tin cá nhân]',text)[:300]
@@ -107,8 +118,10 @@ async def retrieve(uid,text):
             async def validate(row):
                 try:
                     url=row['url'];_,host=safe_url(url)
+                    excerpt=re.sub('<[^>]+>','',row.get('description',''))[:700]
+                    if not relevant(query,row['title'],excerpt):return None
                     if not await asyncio.to_thread(check_link,url):return None
-                    return Source(title=row['title'][:240],url=url,domain=host,publisher=host,published_at=row.get('page_age') if isinstance(row.get('page_age'),str) else None,retrieved_at=datetime.now(timezone.utc).isoformat(),supporting_excerpt=re.sub('<[^>]+>','',row.get('description',''))[:700],target_year=year).model_dump()
+                    return Source(title=row['title'][:240],url=url,domain=host,publisher=host,published_at=row.get('page_age') if isinstance(row.get('page_age'),str) else None,retrieved_at=datetime.now(timezone.utc).isoformat(),supporting_excerpt=excerpt,target_year=year,temporal_relation='year_mentioned_only' if year and str(year) in excerpt else 'not_established' if year else 'not_requested').model_dump()
                 except (ValueError,KeyError,TypeError,OSError,http.client.HTTPException,SearchUnavailable):return None
             candidates=await asyncio.gather(*(validate(row) for row in rows[:6]))
             def rank(s):return any(s['domain'].endswith(t) for t in ('.gov.vn','.edu.vn','.gov','.edu'))

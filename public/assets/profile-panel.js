@@ -1,7 +1,7 @@
 // Chỉ thao tác trên proposal do server trả về, không coi khảo sát là đồng ý lưu.
 const labels={interests:'Sở thích',strengths:'Điểm mạnh tự nhận',growth_skills:'Kỹ năng muốn phát triển',work_preferences:'Môi trường mong muốn',careers:'Nghề chủ động quan tâm',uncertainties:'Điều còn cần làm rõ'};
 function node(tag,text,cls){const n=document.createElement(tag);if(text)n.textContent=text;if(cls)n.className=cls;return n;}
-export async function showProfile({api,session,isGuest,isCurrent,onAnalyze,onDraft}){
+export async function showProfile({api,session,isGuest,isCurrent,onAnalyze,onDraft,onSession}){
   const dialog=document.querySelector('#profile-dialog'),host=document.querySelector('#profile-content');
   host.replaceChildren(node('p','Đang mở hồ sơ…','profile-empty'));if(!dialog.open)dialog.showModal();
   let data;
@@ -20,6 +20,7 @@ export async function showProfile({api,session,isGuest,isCurrent,onAnalyze,onDra
       const row=node('section','','profile-item');row.append(node('h4',labels[item.category]||item.category));
       const input=node('input');input.value=item.value;input.maxLength=160;input.minLength=3;input.setAttribute('aria-label','Sửa '+(labels[item.category]||item.category));row.append(input);
       row.append(node('small','Đã xác nhận · cập nhật '+new Date(item.updated_at).toLocaleDateString('vi-VN')+(item.expires_at?' · đang lưu tạm':'')));
+      if(item.metadata?.evidence?.length){const details=node('details');details.append(node('summary','Căn cứ của thông tin đã xác nhận'));for(const e of item.metadata.evidence)details.append(node('p',`Câu ${e.question_id}: «${e.excerpt}»`,'profile-evidence'));row.append(details);}
       const update=node('button','Lưu chỉnh sửa'),remove=node('button','Xóa mục');
       update.type=remove.type='button';
       update.onclick=()=>action(update,async()=>{if(input.value.trim().length<3)throw Error();const result=await api('/api/ai/career-profile/items/'+item.id,{method:'PATCH',body:JSON.stringify({value:input.value.trim(),version:item.version})});if(isCurrent()){data=result;renderSaved();}});
@@ -39,13 +40,13 @@ export async function showProfile({api,session,isGuest,isCurrent,onAnalyze,onDra
   for(const question of analysis.clarification_questions||[])proposals.append(node('p','Cần làm rõ: '+question));
   if(analysis.clarification_questions?.length){const clarify=node('button','Soạn câu hỏi để làm rõ');clarify.onclick=()=>{dialog.close();onDraft(analysis.clarification_questions.join('\n'));};proposals.append(clarify);}
   for(const proposal of analysis.proposed_profile_items){
-    if(data.items.some(i=>i.source_proposal_id===proposal.id))continue;
+    if(data.items.some(i=>i.source_proposal_id===proposal.id)||session.messages[0].profile_rejections?.includes(proposal.id))continue;
     const row=node('section','','profile-proposal');row.append(node('h4',labels[proposal.category]||proposal.category));
     const value=node('textarea');value.value=proposal.value;value.maxLength=160;value.rows=2;value.setAttribute('aria-label','Xem và chỉnh nhận định');row.append(value);
     row.append(node('small',proposal.confidence+' · '+proposal.inference_type));
     for(const evidence of proposal.evidence)row.append(node('p',`Câu ${evidence.question_id}: «${evidence.excerpt}»`,'profile-evidence'));
     const accept=node('button','Chấp nhận và lưu mục này'),reject=node('button','Từ chối');accept.disabled=!data.enabled||proposal.proposed_action!=='confirm';
     accept.onclick=()=>action(accept,async()=>{if(value.value.trim().length<3)throw Error();const result=await api('/api/ai/career-profile/items',{method:'POST',body:JSON.stringify({session_id:session.id,proposal_id:proposal.id,value:value.value.trim(),confirmed:true})});if(isCurrent()){data=result;row.remove();renderSaved();}});
-    reject.onclick=()=>row.remove();row.append(accept,reject);proposals.append(row);
+    reject.onclick=()=>action(reject,async()=>{const result=await api(`/api/ai/sessions/${session.id}/profile-proposals/${proposal.id}/reject`,{method:'POST'});if(isCurrent()){onSession?.(result.session);row.remove();}});row.append(accept,reject);proposals.append(row);
   }
 }

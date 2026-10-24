@@ -1,5 +1,13 @@
 # Quyết định và việc còn mở
 
+## Task 4 — xác nhận 25/10/2026
+
+- User giao đủ53 yêu cầu theo4giaiđoạn; cho commit checkpoint, push nhánh Task4 và Preview, chưa Production.
+- Xác minh Production df1c300 rồi tạo worktree riêng; không lấy checkout chính đang dirty hoặc main làm nguồn.
+- Hồ sơ trích xuất cũ không tự thành consent: giữ dữ liệu phiên cũ, bảng confirmed mới có xác nhận từng mục/evidence/version. Profile opt-in theo cuộc trò chuyện; guest TTL không tự nâng thành lưu lâu dài sau claim.
+- User xác nhận chưa có môi trường thử mới/Search key, chọn hoàn thiện code và Preview cách ly; LIVE ghi BLOCKED, không dùng secrets/DB Production. Neon Preview cũ chỉ đọc metadata/count, không áp006 vào đó.
+- Preview readonly dựa envserver+VERCEL_ENVpreview, khóa mutation và không tạo guest/token/AI demo; module chat bình thường không thêm request preview-info.
+
 ## Task 3.1 — quyết định mới 24/10/2026
 
 - Người dùng yêu cầu trực tiếp redesign Truyện nghề/video YouTube, commit và push nhánh riêng để tạo Preview; chưa cho phát hành Production.

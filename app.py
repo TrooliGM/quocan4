@@ -35,6 +35,10 @@ async def request_performance(request, call_next):
     state=RequestPerformance(reuse=request.url.path=='/api/ai/sessions' or request.url.path.startswith('/api/ai/sessions/'))
     token=current.set(state)
     try:
+        if (os.getenv('VERCEL_ENV')=='preview' and os.getenv('ADVISOR_READ_ONLY_PREVIEW')=='true'
+            and request.method not in ('GET','HEAD','OPTIONS')
+            and (request.url.path.startswith('/api/ai/') or request.url.path=='/api/advice' or request.url.path.startswith('/api/career-stories/') and request.url.path.endswith('/ask'))):
+            return JSONResponse({'detail':'Preview cách ly chỉ để xem giao diện; AI, hồ sơ và ghi dữ liệu chưa được bật.'},status_code=503,headers={'Cache-Control':'no-store'})
         with measure('app'):
             response=await call_next(request)
         if request.url.path.startswith('/api/ai/'):
@@ -46,6 +50,10 @@ async def request_performance(request, call_next):
         current.reset(token)
 
 app.include_router(advisor_router)
+
+@app.get('/api/ai/preview-info')
+def advisor_preview_info():
+    return {'read_only':os.getenv('VERCEL_ENV')=='preview' and os.getenv('ADVISOR_READ_ONLY_PREVIEW')=='true'}
 ai_slots = asyncio.Semaphore(4)
 logger = logging.getLogger(__name__)
 

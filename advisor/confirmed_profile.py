@@ -13,6 +13,19 @@ def enabled():return os.getenv('ADVISOR_PROFILE_ENABLED','false').lower()=='true
 def require_enabled():
     if not enabled():raise HTTPException(503,'Hồ sơ có xác nhận chưa được bật. Cần migration 006 và cấu hình môi trường thử được duyệt.')
 
+def purge_expired(limit=500):
+    """Cho job bảo trì được phê duyệt; không có public endpoint/tự chạy startup.
+
+    Xóa từng lô nội dung khách hết TTL, không trả dữ liệu riêng tư hoặc chạm quota.
+    """
+    require_enabled()
+    if not 1<=limit<=500:raise ValueError('invalid_cleanup_limit')
+    with postgres_connection() as db:
+        rows=db.execute('''DELETE FROM advisor_profile_items WHERE id IN
+            (SELECT id FROM advisor_profile_items WHERE expires_at<=NOW() ORDER BY expires_at
+             LIMIT %s FOR UPDATE SKIP LOCKED) RETURNING id''',(limit,)).fetchall()
+    return len(rows)
+
 def owner_lock(db,uid):
     db.execute('SELECT pg_advisory_xact_lock(hashtextextended(%s,0))',('profile-owner:'+uid,))
     if db.execute('SELECT 1 FROM advisor_guest_claims WHERE guest_uid=%s',(uid,)).fetchone():raise HTTPException(409,'Phiên khách đã được chuyển. Hãy đăng nhập lại.')
@@ -83,7 +96,7 @@ def transfer(db,guest,account):
         db.execute('SELECT pg_advisory_xact_lock(hashtextextended(%s,0))',('profile-owner:'+uid,))
     db.execute('UPDATE advisor_profile_items SET owner=%s WHERE owner=%s',(account,guest))
 
-def use_profile(store,uid,session_id,use):
+def update_session_metadata(store,uid,session_id,change):
     """Chỉ cập nhật metadata, không ghi đè messages đồng thời."""
     from .postgres_adapter import PostgresConversationStore
     if isinstance(store,PostgresConversationStore):
@@ -92,9 +105,22 @@ def use_profile(store,uid,session_id,use):
                 expiry=' AND expires_at>NOW()' if table.endswith('temporary_sessions') else ''
                 row=db.execute(f'SELECT messages FROM {table} WHERE id=%s AND owner=%s{expiry} FOR UPDATE',(session_id,uid)).fetchone()
                 if row:
-                    messages=json.loads(row['messages']);messages[0]['use_confirmed_profile']=use
+                    messages=json.loads(row['messages']);change(messages)
                     db.execute(f'UPDATE {table} SET messages=%s WHERE id=%s AND owner=%s',(json.dumps(messages,ensure_ascii=False),session_id,uid));break
             else:raise HTTPException(404,'Không tìm thấy cuộc trò chuyện của bạn.')
         return store.get(uid,session_id)
     with store.lock:
-        row=store.get(uid,session_id);row['messages'][0]['use_confirmed_profile']=use;return store.write(uid,row)
+        row=store.get(uid,session_id);change(row['messages']);return store.write(uid,row)
+
+def use_profile(store,uid,session_id,use):
+    return update_session_metadata(store,uid,session_id,lambda messages:messages[0].update(use_confirmed_profile=use))
+
+def reject_proposal(store,uid,session_id,proposal_id):
+    def reject(messages):
+        found=any(p['id']==proposal_id for m in messages if m.get('survey_analysis') for p in m['survey_analysis']['proposed_profile_items'])
+        if not found:raise HTTPException(404,'Không tìm thấy đề xuất trong cuộc trò chuyện của bạn.')
+        rejected=messages[0].setdefault('profile_rejections',[])
+        if proposal_id not in rejected:
+            if len(rejected)>=80:raise HTTPException(409,'Danh sách đề xuất đã dài. Hãy bắt đầu một cuộc trò chuyện mới.')
+            rejected.append(proposal_id)
+    return update_session_metadata(store,uid,session_id,reject)

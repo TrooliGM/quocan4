@@ -31,6 +31,7 @@ class Analysis(BaseModel):
 
 def validate_analysis(raw,survey,session_id):
     parsed=Analysis.model_validate(raw)
+    if all(answer in parsed.summary for answer in survey['answers']):raise ValueError('verbatim_whole_survey')
     items=[];seen=set()
     for item in parsed.proposed_profile_items:
         row=item.model_dump()

@@ -30,4 +30,5 @@ CREATE TABLE advisor_profile_items (
  UNIQUE(owner,source_session_id,source_proposal_id)
 );
 CREATE INDEX advisor_profile_owner_updated ON advisor_profile_items(owner,updated_at DESC);
+CREATE INDEX advisor_profile_expiry ON advisor_profile_items(expires_at) WHERE expires_at IS NOT NULL;
 COMMIT;

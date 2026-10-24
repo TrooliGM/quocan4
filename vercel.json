@@ -4,7 +4,8 @@
   "regions": ["sin1"],
   "git": {
     "deploymentEnabled": {
-      "feat/task-3-1-video-library": false
+      "feat/task-3-1-video-library": false,
+      "feat/task-4-ai-advisor-3-0": false
     }
   },
   "functions": {

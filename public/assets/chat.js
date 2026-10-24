@@ -168,7 +168,8 @@ async function api(path, options = {}, retried = false) {
 }
 async function jsonAPI(path, options = {}) {
   const epoch = identityEpoch;
-  const data = await (await api(path, options)).json();
+  const response=await api(path,options);
+  const data=response.status===204?null:await response.json();
   if (epoch !== identityEpoch) throw new Error('Phiên đăng nhập đã thay đổi.');
   return data;
 }
@@ -219,7 +220,7 @@ function renderHistory() {
     open.setAttribute('aria-current', item.id === (selectedSession || active?.id) ? 'true' : 'false');
     open.dataset.sessionId=item.id;
     const title = document.createElement('strong'); title.textContent = item.title;
-    const caption = document.createElement('small'); caption.textContent = item.remember ? new Date(item.updated_at).toLocaleDateString('vi-VN', {day:'numeric', month:'short'}) : 'Phiên tạm · không lưu lâu dài';
+    const caption = document.createElement('small'); caption.textContent = item.remember ? new Date(item.updated_at).toLocaleDateString('vi-VN', {day:'numeric', month:'short'}) : config?.is_guest?'Khách · lưu tạm':'Gắn tài khoản · lưu tạm';
     open.append(title, caption); open.addEventListener('click', () => loadSession(item.id));
     const rename = document.createElement('button'); rename.className = 'icon-button'; rename.textContent = '✎'; rename.setAttribute('aria-label', `Đổi tên: ${item.title}`);
     rename.addEventListener('click', () => renameSession(item));
@@ -281,6 +282,7 @@ function messageRow(message) {
         const a=document.createElement('a');a.href=url.href;a.textContent=source.title+' · '+source.domain;a.target='_blank';a.rel='noopener noreferrer';
         const p=document.createElement('p');p.textContent=source.supporting_excerpt;
         const meta=document.createElement('small');meta.textContent=`Truy xuất: ${source.retrieved_at}${source.published_at?' · Xuất bản: '+source.published_at:''}${source.target_year?' · Năm cần đối chiếu: '+source.target_year:''}`;
+        if(source.temporal_relation==='not_established')meta.textContent+=' · Chưa xác lập dữ liệu theo năm yêu cầu';
         details.append(a,meta,p);
       }catch{}
     }body.append(details);
@@ -512,7 +514,7 @@ async function renameSession(item) {
 }
 async function deleteSession(item) {
   if (busy) return;
-  const confirmed = await askAction({title:'Xóa cuộc trò chuyện này?', description:'Tin nhắn và phần ghi nhớ của cuộc trò chuyện sẽ bị xóa. Bạn không thể khôi phục thao tác này.', confirm:'Xóa cuộc trò chuyện'});
+  const confirmed = await askAction({title:'Xóa cuộc trò chuyện này?', description:'Tin nhắn và ngữ cảnh phiên sẽ bị xóa, không thể khôi phục. Các mục hồ sơ bạn đã xác nhận riêng vẫn còn; bạn có thể xóa từng mục trong Hồ sơ.', confirm:'Xóa cuộc trò chuyện'});
   if (!confirmed) return;
   try {
     await api(`/api/ai/sessions/${item.id}`, {method:'DELETE'});
@@ -523,11 +525,13 @@ async function deleteSession(item) {
 async function openProfile() {
   const epoch=identityEpoch;
   await showProfile({api:jsonAPI,session:active,isGuest:config?.is_guest,isCurrent:()=>epoch===identityEpoch,
+    onSession:row=>{if(epoch===identityEpoch&&active?.id===row.id){active=row;cacheSession(row);}},
     onAnalyze:async()=>{if(busy||!active)return;$('#message-input').value=analysisMessage;pending={session_id:active.id,request_id:crypto.randomUUID(),message:analysisMessage};await send(true);},
     onDraft:text=>{$('#message-input').value=text;resizeInput();persistJourney();$('#message-input').focus();}});
 }
 
 function clearPrivateUI() {
+  $('#profile-dialog').close();
   navigation++;navigationAbort?.abort();navigationAbort=null;loadingSession=null;selectedSession=null;sessionCache.clear();creation=null;
   identityEpoch++; entryContext = null; cancelMic(); surveyDrafts.clear(); preparedQuestions.clear(); $('#career-survey').hidden = true;
   $('#survey-answer').value = '';
@@ -591,6 +595,19 @@ $('#logout').addEventListener('click', async () => {
 
 async function initialize() {
   try {
+    // Chỉ hỏi trạng thái Preview khi mở URL xem trước rõ ràng; Production không thêm request.
+    if(new URLSearchParams(location.search).get('preview')==='1'){
+      const preview=await fetch('/api/ai/preview-info',{cache:'no-store'}).then(r=>r.json());
+      if(preview.read_only){
+        config={configured:false,profile_enabled:false,is_guest:false,mode:'read_only'};
+        $('#auth-loading').hidden=true;$('#chat-app').hidden=false;
+        $('#mode-banner').hidden=false;$('#mode-banner').textContent='PREVIEW CÁCH LY · Chỉ xem giao diện. AI, phân tích khảo sát, đăng nhập và lưu hồ sơ chưa bật vì thiếu môi trường thử riêng. Đây không phải AI demo hoặc kết quả DeepSeek thật.';
+        $('#user-name').textContent='Preview cách ly';$('#user-initial').textContent='P';$('#account-caption').textContent='Không tạo tài khoản/phiên khách';
+        renderMessages();updateControls();
+        document.querySelectorAll('button:not(#open-sidebar):not(#close-sidebar),input,textarea,select').forEach(el=>el.disabled=true);
+        setSidebar(false);return;
+      }
+    }
     try { ({auth, sdk} = await getFirebase()); user = await restoredUser(auth, sdk); }
     catch { /* Server guest works without Firebase configuration/network. */ }
     if (!user) user = await guestSession();

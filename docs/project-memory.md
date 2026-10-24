@@ -1,5 +1,9 @@
 # Bộ nhớ dự án: Website Hướng nghiệp KHKT 2027
 
+## Task 4 — 25/10/2026, đang chuẩn bị Preview cách ly
+
+Production trước tạo nhánh đã xác minh df1c300/dpl_6Q6muJBTW7kK7owh4m5TJ7XgU2dN (đã có Task3.1), không còn 5aaed6e. Nhánh feat/task-4-ai-advisor-3-0/worktree task-4 từ đúng nền, backup task-4-before-advisor-3. Đã triển khai code giao tiếp/header, Brave adapter/citation/SSRF, phân tích năm câu có schema/evidence và hồ sơ chỉ lưu từng mục đã đồng ý. Migration006 chỉ chạy PG local, không Neon. 86 test backend khác nhau qua các lượt trọng tâm, 11 Node/Chrome7 nhóm PASS với auth/model fixture; không LIVE. Người dùng xác nhận chưa có môi trường/provider thử, chọn Preview cách ly và BLOCKED LIVE. Không đổi Production/200 nghề/Truyện nghề hoặc auth modules, không copy Production secrets. Xem docs/task-4-final-report.md và bảng đủ53ID; URL Preview ghi sau hậu kiểm.
+
 ## Task 3.1 — 24/10/2026, đang hoàn thiện Preview
 
 Nhánh feat/task-3-1-video-library/worktree task-3-1 từ f95cfde; backup task-3-before-redesign. Đã tách thư viện và chi tiết nghề, reader một cảnh, tab video/comic, schema/import YouTube và handoff video sang AI. Giữ nguyên 200 hồ sơ, 200 truyện/1000 cảnh/400 lựa chọn và auth/quota/DB. Ba ứng viên, hai video CareerOneStop rà metadata/mô tả/toàn bộ storyboard (chưa nghe hết âm thanh), một VTV7 KIDS pending không xuất bản. 26 backend/11 Node/Chrome10 nhóm PASS; hai YouTube player thật ready, một playback PASS, một playback chưa xác minh. Preview cần cách ly DB/providers, chưa có URL mới tại thời điểm ghi. Không Production/Neon/migration. Xem docs/task-3-1-checkpoint.md để phân biệt fixture, provider thật và giới hạn thẩm định.

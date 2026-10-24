@@ -4,56 +4,56 @@ Nền Production đã xác minh df1c300, deployment dpl_6Q6muJBTW7kK7owh4m5TJ7Xg
 
 ID | Yêu cầu | File triển khai | Trạng thái | Bằng chứng kiểm thử | Ghi chú
 ---|---|---|---|---|---
-1 | Tích hợp khả năng tìm kiếm web THỰC SỰ cho AI hướng nghiệp. | — | TODO | — | —
-2 | Hỗ trợ truy vấn theo mốc thời gian. | — | TODO | — | —
-3 | Ưu tiên nguồn đáng tin cậy: | — | TODO | — | —
-4 | Trả lời đúng yêu cầu ban đầu. | — | TODO | — | —
-5 | Phân biệt trong câu trả lời: | — | TODO | — | —
-6 | AI biết hỏi bổ sung khi thiếu thông tin quan trọng. | — | TODO | — | —
-7 | Khi gợi ý nghề, AI phải giải thích căn cứ. | — | TODO | — | —
-8 | Đề xuất lộ trình thực tế, phù hợp độ tuổi. | — | TODO | — | —
-9 | AI phân tích TOÀN BỘ 5 câu khảo sát. | — | TODO | — | —
-10 | Đối chiếu thông tin giữa các câu để nhận diện: | — | TODO | — | —
-11 | Phân biệt: | — | TODO | — | —
-12 | Không suy diễn năng lực hoặc tính cách khi chưa đủ căn cứ. | — | TODO | — | —
-13 | Nếu khảo sát quá ngắn, mơ hồ hoặc có điểm cần làm rõ, AI có thể hỏi thêm một số câu bổ sung có mục đích. | — | TODO | — | —
-14 | Mỗi nhận định đề xuất phải có căn cứ. | — | TODO | — | —
-15 | Không sao chép nguyên văn toàn bộ khảo sát thành hồ sơ. | — | TODO | — | —
-16 | Kết nối dữ liệu khảo sát với chức năng "Hồ sơ hướng nghiệp của tôi". | — | TODO | — | —
-17 | Chỉ tạo ĐỀ XUẤT hồ sơ sau khi đã phân tích kỹ. | — | TODO | — | —
-18 | Hiển thị cho học sinh xem xét từng nhận định. | — | TODO | — | —
-19 | Chỉ lưu những thông tin được người dùng xác nhận. | — | TODO | — | —
-20 | Cho phép chỉnh sửa và xóa từng mục hồ sơ đã lưu. | — | TODO | — | —
-21 | Hồ sơ của tài khoản đăng nhập phải tồn tại sau khi: | — | TODO | — | —
-22 | Guest Mode có cơ chế chuyển dữ liệu phù hợp sang tài khoản sau đăng nhập. | — | TODO | — | —
-23 | Cho phép AI sử dụng Hồ sơ hướng nghiệp đã xác nhận để cá nhân hóa những cuộc trò chuyện sau. | — | TODO | — | —
-24 | Cho phép học sinh tắt sử dụng hồ sơ cho từng cuộc trò chuyện. | — | TODO | — | —
-25 | Hồ sơ có thể thay đổi theo thời gian. | — | TODO | — | —
-26 | AI có khả năng thay đổi cách xưng hô theo yêu cầu người dùng. | — | TODO | — | —
-27 | Khi người dùng yêu cầu thay đổi, ghi nhận trong ngữ cảnh hội thoại và áp dụng cho phản hồi tiếp theo. | — | TODO | — | —
-28 | Không bắt buộc cố định anh–em hoặc chị–em. | — | TODO | — | —
-29 | Bỏ thói quen AI tự giới thiệu "La Bàn AI" trong nội dung trả lời. | — | TODO | — | —
-30 | Không nói những câu như: | — | TODO | — | —
-31 | Giao tiếp tự nhiên, không đọc lại quy tắc hệ thống. | — | TODO | — | —
-32 | Độ dài, mức độ giải thích và giọng điệu cần phù hợp câu hỏi. | — | TODO | — | —
-33 | Đổi tên header AI Chat từ `La Bàn AI` thành: | — | TODO | — | —
-34 | Đổi dòng phụ thành: | — | TODO | — | —
-35 | Loại bỏ logo/avatar trợ lý xuất hiện phía trên từng câu trả lời AI. | — | TODO | — | —
-36 | Loại bỏ tên `La Bàn AI` hoặc nhãn người gửi phía trên từng câu trả lời AI. | — | TODO | — | —
-37 | GIỮ NGUYÊN khung hội thoại AI bo góc hiện tại: | — | TODO | — | —
-38 | Giữ các nút Sao chép, thao tác tin nhắn và chức năng hiện có. | — | TODO | — | —
-39 | Giữ nguyên logo La Bàn trong header và nhận diện thương hiệu website. | — | TODO | — | —
-40 | Kiểm tra hiện tượng người dùng đã đăng nhập nhưng hội thoại vẫn hiển thị: | — | TODO | — | —
-41 | Lịch sử hội thoại phải được lưu và khôi phục theo đúng quyền người dùng. | — | TODO | — | —
-42 | Khi đăng nhập Google từ AI Chat: | — | TODO | — | —
-43 | Khi đổi giữa hội thoại cũ/mới: | — | TODO | — | —
-44 | Xử lý lỗi từ: | — | TODO | — | —
-45 | Có cơ chế thử lại an toàn. | — | TODO | — | —
-46 | Bảo toàn quota và rate limit hiện có. | — | TODO | — | —
-47 | Bảo vệ: | — | TODO | — | —
-48 | Giữ nguyên 200 hồ sơ nghề trong Khám phá nghề. | — | TODO | — | —
-49 | Không phá Nhiệm vụ 3 — Truyện nghề 2.0 đang phát triển. | — | TODO | — | —
-50 | Không viết lại toàn bộ AI Chat. | — | TODO | — | —
-51 | Không làm mất các hotfix Google Login và hiệu năng chuyển hội thoại. | — | TODO | — | —
-52 | Kiểm thử thật ở những chức năng phụ thuộc: | — | TODO | — | —
-53 | Triển khai trên nhánh riêng, tạo Vercel Preview để người dùng nghiệm thu trước Production. | — | TODO | — | —
+1 | Tích hợp khả năng tìm kiếm web THỰC SỰ cho AI hướng nghiệp. | advisor/search_provider.py; advisor/graph.py; public/assets/chat.js | BLOCKED | test_advisor30_search (5 PASS); provider không cấu hình trả unavailable; snippet/link checked, không coi đã đọc toàn trang | BLOCKED LIVE: thiếu Brave Search key + DeepSeek thử riêng
+2 | Hỗ trợ truy vấn theo mốc thời gian. | advisor/search_provider.py; advisor/graph.py; public/assets/chat.js | BLOCKED | test_advisor30_search (5 PASS); provider không cấu hình trả unavailable; snippet/link checked, không coi đã đọc toàn trang | BLOCKED LIVE: thiếu Brave Search key + DeepSeek thử riêng
+3 | Ưu tiên nguồn đáng tin cậy: | advisor/search_provider.py; advisor/graph.py; public/assets/chat.js | BLOCKED | test_advisor30_search (5 PASS); provider không cấu hình trả unavailable; snippet/link checked, không coi đã đọc toàn trang | BLOCKED LIVE: thiếu Brave Search key + DeepSeek thử riêng
+4 | Trả lời đúng yêu cầu ban đầu. | advisor/search_provider.py; advisor/graph.py; public/assets/chat.js | BLOCKED | test_advisor30_search (5 PASS); provider không cấu hình trả unavailable; snippet/link checked, không coi đã đọc toàn trang | BLOCKED LIVE: thiếu Brave Search key + DeepSeek thử riêng
+5 | Phân biệt trong câu trả lời: | advisor/search_provider.py; advisor/graph.py; public/assets/chat.js | BLOCKED | test_advisor30_search (5 PASS); provider không cấu hình trả unavailable; snippet/link checked, không coi đã đọc toàn trang | BLOCKED LIVE: thiếu Brave Search key + DeepSeek thử riêng
+6 | AI biết hỏi bổ sung khi thiếu thông tin quan trọng. | advisor/graph.py; advisor/prompt.txt | BLOCKED | test_task1; test_task2.ModeTests; graph payload tests PASS | BLOCKED LIVE: cần đánh giá câu trả lời DeepSeek thật
+7 | Khi gợi ý nghề, AI phải giải thích căn cứ. | advisor/graph.py; advisor/prompt.txt | BLOCKED | test_task1; test_task2.ModeTests; graph payload tests PASS | BLOCKED LIVE: cần đánh giá câu trả lời DeepSeek thật
+8 | Đề xuất lộ trình thực tế, phù hợp độ tuổi. | advisor/graph.py; advisor/prompt.txt | BLOCKED | test_task1; test_task2.ModeTests; graph payload tests PASS | BLOCKED LIVE: cần đánh giá câu trả lời DeepSeek thật
+9 | AI phân tích TOÀN BỘ 5 câu khảo sát. | advisor/survey_analysis.py | BLOCKED | test_advisor30_profile.AnalysisTests (4 PASS), schema/evidence Q1–5, thiếu/mâu thuẫn/JSON lỗi | BLOCKED LIVE: phân tích thực bằng DeepSeek chưa thử
+10 | Đối chiếu thông tin giữa các câu để nhận diện: | advisor/survey_analysis.py | BLOCKED | test_advisor30_profile.AnalysisTests (4 PASS), schema/evidence Q1–5, thiếu/mâu thuẫn/JSON lỗi | BLOCKED LIVE: phân tích thực bằng DeepSeek chưa thử
+11 | Phân biệt: | advisor/survey_analysis.py | BLOCKED | test_advisor30_profile.AnalysisTests (4 PASS), schema/evidence Q1–5, thiếu/mâu thuẫn/JSON lỗi | BLOCKED LIVE: phân tích thực bằng DeepSeek chưa thử
+12 | Không suy diễn năng lực hoặc tính cách khi chưa đủ căn cứ. | advisor/survey_analysis.py | BLOCKED | test_advisor30_profile.AnalysisTests (4 PASS), schema/evidence Q1–5, thiếu/mâu thuẫn/JSON lỗi | BLOCKED LIVE: phân tích thực bằng DeepSeek chưa thử
+13 | Nếu khảo sát quá ngắn, mơ hồ hoặc có điểm cần làm rõ, AI có thể hỏi thêm một số câu bổ sung có mục đích. | advisor/survey_analysis.py | BLOCKED | test_advisor30_profile.AnalysisTests (4 PASS), schema/evidence Q1–5, thiếu/mâu thuẫn/JSON lỗi | BLOCKED LIVE: phân tích thực bằng DeepSeek chưa thử
+14 | Mỗi nhận định đề xuất phải có căn cứ. | advisor/survey_analysis.py | BLOCKED | test_advisor30_profile.AnalysisTests (4 PASS), schema/evidence Q1–5, thiếu/mâu thuẫn/JSON lỗi | BLOCKED LIVE: phân tích thực bằng DeepSeek chưa thử
+15 | Không sao chép nguyên văn toàn bộ khảo sát thành hồ sơ. | advisor/survey_analysis.py | BLOCKED | test_advisor30_profile.AnalysisTests (4 PASS), schema/evidence Q1–5, thiếu/mâu thuẫn/JSON lỗi | BLOCKED LIVE: phân tích thực bằng DeepSeek chưa thử
+16 | Kết nối dữ liệu khảo sát với chức năng "Hồ sơ hướng nghiệp của tôi". | advisor/confirmed_profile.py; advisor/routes.py; migrations/006_confirmed_career_profile.sql; public/assets/profile-panel.js | BLOCKED | test_advisor30_profile.ProfileTests (16 PASS); Chrome 7 nhóm với PG local, auth/model fixture | BLOCKED LIVE: chưa áp 006 lên Neon thử riêng; Firebase/DeepSeek chưa nghiệm thu
+17 | Chỉ tạo ĐỀ XUẤT hồ sơ sau khi đã phân tích kỹ. | advisor/confirmed_profile.py; advisor/routes.py; migrations/006_confirmed_career_profile.sql; public/assets/profile-panel.js | BLOCKED | test_advisor30_profile.ProfileTests (16 PASS); Chrome 7 nhóm với PG local, auth/model fixture | BLOCKED LIVE: chưa áp 006 lên Neon thử riêng; Firebase/DeepSeek chưa nghiệm thu
+18 | Hiển thị cho học sinh xem xét từng nhận định. | advisor/confirmed_profile.py; advisor/routes.py; migrations/006_confirmed_career_profile.sql; public/assets/profile-panel.js | BLOCKED | test_advisor30_profile.ProfileTests (16 PASS); Chrome 7 nhóm với PG local, auth/model fixture | BLOCKED LIVE: chưa áp 006 lên Neon thử riêng; Firebase/DeepSeek chưa nghiệm thu
+19 | Chỉ lưu những thông tin được người dùng xác nhận. | advisor/confirmed_profile.py; advisor/routes.py; migrations/006_confirmed_career_profile.sql; public/assets/profile-panel.js | BLOCKED | test_advisor30_profile.ProfileTests (16 PASS); Chrome 7 nhóm với PG local, auth/model fixture | BLOCKED LIVE: chưa áp 006 lên Neon thử riêng; Firebase/DeepSeek chưa nghiệm thu
+20 | Cho phép chỉnh sửa và xóa từng mục hồ sơ đã lưu. | advisor/confirmed_profile.py; advisor/routes.py; migrations/006_confirmed_career_profile.sql; public/assets/profile-panel.js | BLOCKED | test_advisor30_profile.ProfileTests (16 PASS); Chrome 7 nhóm với PG local, auth/model fixture | BLOCKED LIVE: chưa áp 006 lên Neon thử riêng; Firebase/DeepSeek chưa nghiệm thu
+21 | Hồ sơ của tài khoản đăng nhập phải tồn tại sau khi: | advisor/confirmed_profile.py; advisor/routes.py; migrations/006_confirmed_career_profile.sql; public/assets/profile-panel.js | BLOCKED | test_advisor30_profile.ProfileTests (16 PASS); Chrome 7 nhóm với PG local, auth/model fixture | BLOCKED LIVE: chưa áp 006 lên Neon thử riêng; Firebase/DeepSeek chưa nghiệm thu
+22 | Guest Mode có cơ chế chuyển dữ liệu phù hợp sang tài khoản sau đăng nhập. | advisor/confirmed_profile.py; advisor/routes.py; migrations/006_confirmed_career_profile.sql; public/assets/profile-panel.js | BLOCKED | test_advisor30_profile.ProfileTests (16 PASS); Chrome 7 nhóm với PG local, auth/model fixture | BLOCKED LIVE: chưa áp 006 lên Neon thử riêng; Firebase/DeepSeek chưa nghiệm thu
+23 | Cho phép AI sử dụng Hồ sơ hướng nghiệp đã xác nhận để cá nhân hóa những cuộc trò chuyện sau. | advisor/confirmed_profile.py; advisor/routes.py; migrations/006_confirmed_career_profile.sql; public/assets/profile-panel.js | BLOCKED | test_advisor30_profile.ProfileTests (16 PASS); Chrome 7 nhóm với PG local, auth/model fixture | BLOCKED LIVE: chưa áp 006 lên Neon thử riêng; Firebase/DeepSeek chưa nghiệm thu
+24 | Cho phép học sinh tắt sử dụng hồ sơ cho từng cuộc trò chuyện. | advisor/confirmed_profile.py; advisor/routes.py; migrations/006_confirmed_career_profile.sql; public/assets/profile-panel.js | BLOCKED | test_advisor30_profile.ProfileTests (16 PASS); Chrome 7 nhóm với PG local, auth/model fixture | BLOCKED LIVE: chưa áp 006 lên Neon thử riêng; Firebase/DeepSeek chưa nghiệm thu
+25 | Hồ sơ có thể thay đổi theo thời gian. | advisor/confirmed_profile.py; advisor/routes.py; migrations/006_confirmed_career_profile.sql; public/assets/profile-panel.js | BLOCKED | test_advisor30_profile.ProfileTests (16 PASS); Chrome 7 nhóm với PG local, auth/model fixture | BLOCKED LIVE: chưa áp 006 lên Neon thử riêng; Firebase/DeepSeek chưa nghiệm thu
+26 | AI có khả năng thay đổi cách xưng hô theo yêu cầu người dùng. | advisor/conversation_policy.py; advisor/graph.py; advisor/prompt.txt | BLOCKED | test_advisor30_policy (2 PASS); payload ưu tiên yêu cầu mới, không gán cố định | BLOCKED LIVE: cần hội thoại nhiều lượt DeepSeek thật
+27 | Khi người dùng yêu cầu thay đổi, ghi nhận trong ngữ cảnh hội thoại và áp dụng cho phản hồi tiếp theo. | advisor/conversation_policy.py; advisor/graph.py; advisor/prompt.txt | BLOCKED | test_advisor30_policy (2 PASS); payload ưu tiên yêu cầu mới, không gán cố định | BLOCKED LIVE: cần hội thoại nhiều lượt DeepSeek thật
+28 | Không bắt buộc cố định anh–em hoặc chị–em. | advisor/conversation_policy.py; advisor/graph.py; advisor/prompt.txt | BLOCKED | test_advisor30_policy (2 PASS); payload ưu tiên yêu cầu mới, không gán cố định | BLOCKED LIVE: cần hội thoại nhiều lượt DeepSeek thật
+29 | Bỏ thói quen AI tự giới thiệu "La Bàn AI" trong nội dung trả lời. | advisor/conversation_policy.py; advisor/graph.py; advisor/prompt.txt | BLOCKED | test_advisor30_policy (2 PASS); payload ưu tiên yêu cầu mới, không gán cố định | BLOCKED LIVE: cần hội thoại nhiều lượt DeepSeek thật
+30 | Không nói những câu như: | advisor/conversation_policy.py; advisor/graph.py; advisor/prompt.txt | BLOCKED | test_advisor30_policy (2 PASS); payload ưu tiên yêu cầu mới, không gán cố định | BLOCKED LIVE: cần hội thoại nhiều lượt DeepSeek thật
+31 | Giao tiếp tự nhiên, không đọc lại quy tắc hệ thống. | advisor/conversation_policy.py; advisor/graph.py; advisor/prompt.txt | BLOCKED | test_advisor30_policy (2 PASS); payload ưu tiên yêu cầu mới, không gán cố định | BLOCKED LIVE: cần hội thoại nhiều lượt DeepSeek thật
+32 | Độ dài, mức độ giải thích và giọng điệu cần phù hợp câu hỏi. | advisor/conversation_policy.py; advisor/graph.py; advisor/prompt.txt | BLOCKED | test_advisor30_policy (2 PASS); payload ưu tiên yêu cầu mới, không gán cố định | BLOCKED LIVE: cần hội thoại nhiều lượt DeepSeek thật
+33 | Đổi tên header AI Chat từ `La Bàn AI` thành: | chat.html; public/chat.html; public/assets/chat.js; public/assets/chat.css | PASS | tests/browser_advisor30.py: header, bubble/copy/logo, không avatar/nhãn, desktop/mobile PASS | PASS giao diện Chrome thực; không dùng kết quả AI fixture để đánh giá chất lượng model
+34 | Đổi dòng phụ thành: | chat.html; public/chat.html; public/assets/chat.js; public/assets/chat.css | PASS | tests/browser_advisor30.py: header, bubble/copy/logo, không avatar/nhãn, desktop/mobile PASS | PASS giao diện Chrome thực; không dùng kết quả AI fixture để đánh giá chất lượng model
+35 | Loại bỏ logo/avatar trợ lý xuất hiện phía trên từng câu trả lời AI. | chat.html; public/chat.html; public/assets/chat.js; public/assets/chat.css | PASS | tests/browser_advisor30.py: header, bubble/copy/logo, không avatar/nhãn, desktop/mobile PASS | PASS giao diện Chrome thực; không dùng kết quả AI fixture để đánh giá chất lượng model
+36 | Loại bỏ tên `La Bàn AI` hoặc nhãn người gửi phía trên từng câu trả lời AI. | chat.html; public/chat.html; public/assets/chat.js; public/assets/chat.css | PASS | tests/browser_advisor30.py: header, bubble/copy/logo, không avatar/nhãn, desktop/mobile PASS | PASS giao diện Chrome thực; không dùng kết quả AI fixture để đánh giá chất lượng model
+37 | GIỮ NGUYÊN khung hội thoại AI bo góc hiện tại: | chat.html; public/chat.html; public/assets/chat.js; public/assets/chat.css | PASS | tests/browser_advisor30.py: header, bubble/copy/logo, không avatar/nhãn, desktop/mobile PASS | PASS giao diện Chrome thực; không dùng kết quả AI fixture để đánh giá chất lượng model
+38 | Giữ các nút Sao chép, thao tác tin nhắn và chức năng hiện có. | chat.html; public/chat.html; public/assets/chat.js; public/assets/chat.css | PASS | tests/browser_advisor30.py: header, bubble/copy/logo, không avatar/nhãn, desktop/mobile PASS | PASS giao diện Chrome thực; không dùng kết quả AI fixture để đánh giá chất lượng model
+39 | Giữ nguyên logo La Bàn trong header và nhận diện thương hiệu website. | chat.html; public/chat.html; public/assets/chat.js; public/assets/chat.css | PASS | tests/browser_advisor30.py: header, bubble/copy/logo, không avatar/nhãn, desktop/mobile PASS | PASS giao diện Chrome thực; không dùng kết quả AI fixture để đánh giá chất lượng model
+40 | Kiểm tra hiện tượng người dùng đã đăng nhập nhưng hội thoại vẫn hiển thị: | advisor/routes.py; advisor/postgres_adapter.py; public/assets/chat.js; account-link.js/chat-journey.js (giữ nguyên) | PASS | Chrome profile/login fixture + retain; test_chat_performance (5 PASS); Node login/claim; 5 new/5 old + rapid navigation | PASS logic/storage PG local, kế thừa hotfix; riêng Google popup thật Task 4 chưa thử
+41 | Lịch sử hội thoại phải được lưu và khôi phục theo đúng quyền người dùng. | advisor/routes.py; advisor/postgres_adapter.py; public/assets/chat.js; account-link.js/chat-journey.js (giữ nguyên) | PASS | Chrome profile/login fixture + retain; test_chat_performance (5 PASS); Node login/claim; 5 new/5 old + rapid navigation | PASS logic/storage PG local, kế thừa hotfix; riêng Google popup thật Task 4 chưa thử
+42 | Khi đăng nhập Google từ AI Chat: | advisor/routes.py; advisor/postgres_adapter.py; public/assets/chat.js; account-link.js/chat-journey.js (giữ nguyên) | BLOCKED | Chrome profile/login fixture + retain; test_chat_performance (5 PASS); Node login/claim; 5 new/5 old + rapid navigation | BLOCKED LIVE: Google Task4 chỉ có fixture; source hotfix được bảo toàn
+43 | Khi đổi giữa hội thoại cũ/mới: | advisor/routes.py; advisor/postgres_adapter.py; public/assets/chat.js; account-link.js/chat-journey.js (giữ nguyên) | PASS | Chrome profile/login fixture + retain; test_chat_performance (5 PASS); Node login/claim; 5 new/5 old + rapid navigation | PASS logic/storage PG local, kế thừa hotfix; riêng Google popup thật Task 4 chưa thử
+44 | Xử lý lỗi từ: | advisor/routes.py; advisor/guest_quota.py; advisor/protection.py; advisor/search_provider.py; advisor/confirmed_profile.py | PASS | test_shared_ai_protection (15 PASS), test_guest_postgres, test_advisor30_profile; timeout/retry Chrome PASS | PASS security/transaction/error boundaries; không coi Firebase stub là xác thực LIVE
+45 | Có cơ chế thử lại an toàn. | advisor/routes.py; advisor/guest_quota.py; advisor/protection.py; advisor/search_provider.py; advisor/confirmed_profile.py | PASS | test_shared_ai_protection (15 PASS), test_guest_postgres, test_advisor30_profile; timeout/retry Chrome PASS | PASS security/transaction/error boundaries; không coi Firebase stub là xác thực LIVE
+46 | Bảo toàn quota và rate limit hiện có. | advisor/routes.py; advisor/guest_quota.py; advisor/protection.py; advisor/search_provider.py; advisor/confirmed_profile.py | PASS | test_shared_ai_protection (15 PASS), test_guest_postgres, test_advisor30_profile; timeout/retry Chrome PASS | PASS security/transaction/error boundaries; không coi Firebase stub là xác thực LIVE
+47 | Bảo vệ: | advisor/routes.py; advisor/guest_quota.py; advisor/protection.py; advisor/search_provider.py; advisor/confirmed_profile.py | PASS | test_shared_ai_protection (15 PASS), test_guest_postgres, test_advisor30_profile; timeout/retry Chrome PASS | PASS security/transaction/error boundaries; không coi Firebase stub là xác thực LIVE
+48 | Giữ nguyên 200 hồ sơ nghề trong Khám phá nghề. | data/careers-*.json; career_library.py (không đổi) | PASS | git diff df1c300 -- data/career_library: không đổi; catalog runtime 200/12 PASS | PASS bảo toàn dữ liệu/ID/link/tìm kiếm
+49 | Không phá Nhiệm vụ 3 — Truyện nghề 2.0 đang phát triển. | stories.html; public/assets/stories*.js/css; data/stories (không đổi) | PASS | git diff df1c300: không đổi; validate_stories PASS 200/1000/400; runtime bundle PASS | PASS bảo toàn Truyện nghề, không ghi đè nhánh Task 3
+50 | Không viết lại toàn bộ AI Chat. | advisor/graph.py; advisor/routes.py; advisor/confirmed_profile.py; public/assets/chat.js | PASS | Tái sử dụng store/auth/quota/survey/DeepSeek adapter; regression 56 trường hợp đạt qua các lượt kiểm thử | PASS kiến trúc giữ framework, API mở rộng có kiểm thử
+51 | Không làm mất các hotfix Google Login và hiệu năng chuyển hội thoại. | public/assets/chat.js; public/assets/chat-journey.js; public/assets/account-link.js | PASS | Navigation hotfix/cache/race, 11 Node, Chrome Google fixture/giữ khảo sát; auth modules diff bằng 0 | PASS bảo toàn hotfix; không cam kết LIVE Google Task4
+52 | Kiểm thử thật ở những chức năng phụ thuộc: | docs/task-4-final-report.md | BLOCKED | Không gọi DeepSeek/Search/Firebase LIVE; Neon Preview chỉ đọc metadata/count | BLOCKED LIVE theo lựa chọn người dùng: chưa có môi trường riêng
+53 | Triển khai trên nhánh riêng, tạo Vercel Preview để người dùng nghiệm thu trước Production. | vercel.json; app.py; public/assets/chat.js | IN_PROGRESS | Chưa deploy tại thời điểm tạo bảng; cập nhật sau hậu kiểm | Preview chỉ đọc, không database/providers, không dùng AI demo
