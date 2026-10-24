@@ -156,3 +156,7 @@ Thư viện 200 nghề/12 nhóm, modal chung, hai mode AI và liên kết truy�
 ### Shared AI protection — 2026-10-24, trạng thái mới nhất
 
 High legacy đã được sửa và hai boundary retest401/graph0 PASS; chat/advice/story dùng identity/rate/quota/row lease chung, guest cookie không bắt Firebase, claim giữ lịch sử; voice rate nhưng không trừ quota8. Tổng197 PASS/0 FAIL/5 BLOCKED/3 chưa kiểm chứng, không cộng trùng batch90+security15 (94 method backend), browser101 và2boundary. Chỉ local/mock/demo, chưa live Firebase/DeepSeek. Migration004 nguồn cần phê duyệt riêng; legacy003 và proxy Vercel còn gate, nên NOT READY FOR VERCEL PREVIEW. Server8003 local mới PID16800, không dữ liệu Production. Chi tiết docs/shared-ai-protection.md và checkpoint task-2; không push/merge/deploy/Task3.
+
+### Chuẩn bị tích hợp Production — 2026-10-24
+
+Đã xác minh Production đang chạy 7c07d33, tạo nhánh/worktree integrate/task-12-production từ nền đó và fast-forward đủ Task1+2/349ff92, giữ nguyên migration002; backup Git local và deployment đã ghi. 004 đã PASS trên nhánh thử ticket-7-premium-preview, dữ liệu cũ checksum/counts không đổi; 31 test backend chọn lọc PASS. Production chỉ đọc: request/session ID còn UUID, thiếu004 và có1 completed request thiếu phiên, quota khớp; chưa đủ điều kiện phát hành. DATABASE_URL có tên trong scope/snapshot nhưng binding/định dạng thực chưa xác minh, không tự sửa config bằng suy đoán. Dừng trước PR/merge/deploy; xem docs/release-task12-readiness.md. Checkout chính và mọi thay đổi người dùng giữ nguyên, không sửa Production/backup, không Task3.
