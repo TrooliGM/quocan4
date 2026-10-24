@@ -2,6 +2,8 @@
 
 ## Truyện nghề2.0 — xác nhận24/10/2026
 
+Đã thực hiện Preview chỉđọc c23cdf3, không thay Production và không push. Vercel giữ bảo vệ truy cập; không phát link có token.200truyệnHTTP và desktop/mobile Preview PASS. Còn cần duyệt người dùng và môi trường staging riêng nếu muốn kiểm provider thật trước phát hành. Bản commit báo cáo sau Preview chỉdocs, không phát hành thêm vì code không đổi. Không coi0video hoặc kiểm định chuỗi là200video/chứng nhậnchuyên gia hoàn tất.
+
 Người dùng giao triển khai Task3, cho phép checkpointcommit4đợt và VercelPreview để duyệt; chưa cho phép Production. Nền5aaed6e Vercel thực, không quay về6c5ce23. Chọn dữ liệu tĩnh200ID hiện hành,5cảnh/2tìnhhuống, không migration hay lưu lựa chọn vàoDB.6legacy giữAPIversion1. Bản thảo riêng có phản hồi/hệ quả; component hiện có được mở rộng, không đổi hồ sơ200/ngôn ngữ thiết kế. AIhandoff tab TTL2h có scopephiên, khôngtoken trongURL/storagehandoff, chỉ gửi theo thao tác chủ động qua lớp bảo vệ cũ. Preview chưa cóDBriêng nên khóa AI/Firebase bằng overridedeployment và ghi nhãn chỉđọc, không dùngsecrets/DBProduction. Không đòi hỏi cài dịch vụ trả phí hoặc kết nối lạiProduction. Nội dung cần người dùng duyệt; validator không chứng nhậnchuyên gia toàn bộ200nghề. Quyết định hoãnTask3 ở checkpointcũ được yêu cầu mới thay thế.
 
 ## Đã xác nhận trong phiên làm việc

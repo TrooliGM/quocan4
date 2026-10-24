@@ -2,6 +2,8 @@
 
 ## Nhiệm vụ3 Truyện nghề2.0 —24/10/2026, mới nhất
 
+Hậu kiểm: Preview c23cdf3/dpl_GpkogjBB59CqFzJ1JEJyUQe3hdsp READY tại https://quocan4-2dx6bup90-khkt3.vercel.app/mot-ngay-lam-viec.200/200HTTP truyện PASS, Chrome desktop/mobile thật PASS qua bảo vệ Vercel. AI/Firebase tắt, guestcreate503/AI401, không dùngDBProduction. Production vẫn5aaed6e/dpl_8SWMtQHuQ7nFnkt3EEs5YVc1tAyQ. READY FOR PREVIEW REVIEW, chưa Production/push/merge. Báo cáo hậu kiểm commit riêng chỉdocs, runtime không đổi sau c23cdf3. Chi tiết checkpoint có URL, kiểm thử và giới hạn provider/thẩm định nội dung.
+
 Theo đặc tả mới, bắt đầu Task3 tại feat/task-3-career-stories-2-0/worktree task-3 từ Production5aaed6e, được Vercel xác minh; giữ hotfix2b4de6e và Chat2.1.200 truyện tĩnh biên tập4x50,1000cảnh/400quyếtđịnh;0video xác minh. Reader tương tác, trạng thái tab, ngữ cảnh AI có câu nháp sửa được và quay lại đúng hồ sơ.6truyệncũ cóAPIversion1.33backend/10Node/Chrome10+Chat2.1 12 checkpoint PASS với localPG/Firebasefixture/AIdemo; không coi là kiểm thử provider thật. Không đổi200hồsơ/UItrangchủ/auth/quota/schema. User cho phép checkpointcommit và Preview, không Production trước duyệt. Nhánh Preview chưa cóDBriêng, chọn Preview chỉđọc với credentials/DB trống, không sao chépProduction. Trạng thái build/URL ghi sau khi thực hiện; xem docs/task-3-checkpoint.md và docs/task-3-editorial-review.md. Các mục Task1/2 không làmTask3 bên dưới là checkpoint cũ, đã được yêu cầu mới thay thế.
 
 ## Chuẩn bị Vercel — 2026-10-13
