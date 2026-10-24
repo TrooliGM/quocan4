@@ -54,6 +54,8 @@ def lock_for(session_id):
 
 def profile_actor(request:Request,user=Depends(require_user)):
     """Giới hạn ghi dữ liệu riêng, không lấy lượt chat/quota 8 câu."""
+    from .rollout import require
+    require(user)
     if isinstance(get_store(),PostgresConversationStore):
         from .protection import connection,limit,setting,client_ip
         with connection() as db:
@@ -103,11 +105,13 @@ class ChatInput(BaseModel):
 @router.get("/api/ai/config")
 def config(user=Depends(require_user)):
     from .confirmed_profile import enabled
+    from .rollout import allowed
     return {"mode": "demo" if demo_mode() else "live", "configured": demo_mode() or bool(os.getenv("DEEPSEEK_API_KEY", "").strip()),
             "model": "demo" if demo_mode() else model_name(),
             "microphone": {"google": voice.google_stt_configured()},
             "is_guest": user.get('provider') == 'anonymous',
-            "profile_enabled": enabled(),
+            "profile_enabled": enabled() and allowed(user),
+            "task4_enabled": allowed(user),
             "guest_quota": guest_usage(user)}
 
 
@@ -185,6 +189,8 @@ def delete_session(session_id: UUID, user=Depends(require_user)):
 
 @router.get("/api/ai/career-profile")
 def profile(user=Depends(require_user)):
+    from .rollout import allowed
+    if not allowed(user):return {'profile':get_store().profile(user['uid'])}
     from .confirmed_profile import read
     return read(user['uid'])
 
@@ -305,7 +311,11 @@ async def chat(payload: ChatInput, request: Request, user=Depends(require_user))
                     state = {"uid": uid, "session_id": session_id, "request_id": request_id, "message": payload.message}
                     if reservation and reservation['new_reservation']:
                         state['guest_reservation_token'] = reservation['reservation_token']
-                    result = await advisor_graph.ainvoke(state)
+                    from .rollout import allowed
+                    selected_graph=advisor_graph
+                    if not allowed(user):
+                        from .stable_graph import advisor_graph as selected_graph
+                    result = await selected_graph.ainvoke(state)
                 return {"session": result["session"], "duplicate": False, "guest_quota": guest_usage(user)}
     except BaseException as error:
         # Lỗi sau COMMIT có thể xảy ra do mạng/response/graph. Đọc lại trước khi

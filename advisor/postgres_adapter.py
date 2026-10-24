@@ -90,7 +90,8 @@ class PostgresConversationStore:
     def delete_all(self, uid):
         with postgres_store.postgres_connection() as db:
             from .confirmed_profile import enabled,owner_lock
-            if enabled():
+            from .rollout import uid_allowed
+            if enabled() and uid_allowed(uid):
                 owner_lock(db,uid)
                 db.execute('DELETE FROM advisor_profile_items WHERE owner=%s',(uid,))
             db.execute(

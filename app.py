@@ -67,6 +67,12 @@ async def storage_failure(request, error):
 
 
 def html_page(filename):
+    from advisor.rollout import controlled
+    if filename=='chat.html' and controlled():
+        text=(ROOT/'stable-chat.html').read_text(encoding='utf8')
+        import re
+        text=re.sub(r'/assets/stable-chat\.js\?[^"\s]+','/assets/advisor-entry.js?v=canary-1',text)
+        return HTMLResponse(text,headers={'Cache-Control':'no-store'})
     # HTML runtime ở gốc, assets trong public/ do Vercel CDN phục vụ.
     # Bản public là fallback cho checkout cũ/local; không giả định nó có trong Function.
     for path in (ROOT / filename, ROOT / 'public' / filename):
@@ -92,6 +98,12 @@ async def auth_cache_control(request, call_next):
 def normalize(text: str) -> str:
     text = unicodedata.normalize("NFD", text.casefold().replace("đ", "d"))
     return "".join(c for c in text if unicodedata.category(c) != "Mn")
+
+@app.get('/api/ai/task4-shell')
+def task4_shell(user=Depends(require_user)):
+    from advisor.rollout import require
+    require(user)
+    return HTMLResponse((ROOT/'chat.html').read_text(encoding='utf8'),headers={'Cache-Control':'no-store'})
 
 
 @app.get("/", include_in_schema=False)

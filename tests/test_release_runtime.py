@@ -86,6 +86,7 @@ class ReleaseRuntimeTests(ProtectedAPIFixture, unittest.TestCase):
                 shutil.copy2(ROOT/name, target/name)
                 self.assertEqual((ROOT/name).read_bytes(), (ROOT/'public'/name).read_bytes())
             (target/'data').mkdir()
+            shutil.copy2(ROOT/'stable-chat.html',target/'stable-chat.html')
             for index in range(1, 5):
                 shutil.copy2(ROOT/'data'/f'careers-{index}.json', target/'data'/f'careers-{index}.json')
             shutil.copytree(ROOT/'data'/'stories', target/'data'/'stories')
@@ -110,7 +111,7 @@ with TestClient(app,client=('127.0.0.1',1)) as client:
   assert r.status_code==200 and len(r.json()['scenes'])==5
 print('isolated-runtime-ok')
 '''
-            environment = {**os.environ, 'VERCEL': '1', 'DATABASE_URL': '', 'DEEPSEEK_API_KEY': ''}
+            environment = {**os.environ, 'VERCEL': '1', 'VERCEL_ENV':'production','ADVISOR_CONTROLLED_ROLLOUT':'true', 'DATABASE_URL': '', 'DEEPSEEK_API_KEY': ''}
             environment.pop('LABAN_BUNDLE_SENTINEL', None)
             result = subprocess.run([sys.executable, '-c', script], cwd=directory, env=environment, capture_output=True, text=True, timeout=30)
             self.assertEqual(result.returncode, 0, result.stderr[-1500:])

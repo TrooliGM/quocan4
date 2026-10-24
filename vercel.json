@@ -10,7 +10,7 @@
   },
   "functions": {
     "app.py": {
-      "includeFiles": "{index.html,chat.html,stories.html,advisor/*.txt,data/careers-*.json,data/career-videos.json,data/stories/batch-*.json}"
+      "includeFiles": "{index.html,chat.html,stable-chat.html,stories.html,advisor/*.txt,data/careers-*.json,data/career-videos.json,data/stories/batch-*.json}"
     }
   }
 }

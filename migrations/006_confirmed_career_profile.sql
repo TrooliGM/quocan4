@@ -1,11 +1,12 @@
--- Chỉ chạy trên staging được phê duyệt, không tự chạy lúc app startup.
+-- Chỉ chạy trên target đã phê duyệt và xác minh qua control plane; không startup.
 -- Không thay đổi bảng cũ, không backfill suy luận LLM thành dữ liệu đã đồng ý.
 BEGIN;
 SET LOCAL lock_timeout='3s';
 SET LOCAL statement_timeout='15s';
 DO $$ BEGIN
-  IF current_setting('laban.profile_migration_target',true) IS DISTINCT FROM 'task4-staging-approved' THEN
-    RAISE EXCEPTION 'Thiếu xác nhận đúng staging được duyệt';
+  IF coalesce(current_setting('laban.profile_migration_target',true),'') NOT IN
+    ('task4-staging-approved','task4-production:frosty-math-90753534/br-delicate-wave-azxcb1jo/neondb') THEN
+    RAISE EXCEPTION 'Thiếu xác nhận đúng target được duyệt';
   END IF;
   IF to_regclass('advisor_sessions') IS NULL OR to_regclass('advisor_guest_claims') IS NULL THEN
     RAISE EXCEPTION 'Cần schema conversation/claim hiện có';

@@ -90,6 +90,8 @@ def remove(uid,item_id):
         db.execute('DELETE FROM advisor_profile_items WHERE id=%s AND owner=%s',(item_id,uid))
 
 def transfer(db,guest,account):
+    from .rollout import uid_allowed
+    if not uid_allowed(account):return
     if not enabled():return
     # Cùng transaction với claim lịch sử. Giữ TTL, không tự đổi đồng ý tạm thành lâu dài.
     for uid in sorted([guest,account]):

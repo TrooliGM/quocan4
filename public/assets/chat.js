@@ -618,7 +618,9 @@ async function initialize() {
       }
     });
     const historyTask=refreshHistory().catch(error=>{if(user?.uid===owner)notice(failure(error));});
-    config = await jsonAPI('/api/ai/config');
+    const bootstrap=window.__labanBootstrapConfig;delete window.__labanBootstrapConfig;
+    config = bootstrap?.uid===user.uid ? bootstrap.data : await jsonAPI('/api/ai/config');
+    if(config.task4_enabled===false){location.replace('/ai-career-advisor'+location.search+location.hash);return;}
     guestQuota = config.guest_quota;
     micMode = config.microphone?.google && window.isSecureContext && navigator.mediaDevices?.getUserMedia && window.AudioContext ? 'google'
       : window.isSecureContext && (window.SpeechRecognition || window.webkitSpeechRecognition) ? 'browser' : null;

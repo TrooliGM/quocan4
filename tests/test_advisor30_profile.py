@@ -155,5 +155,10 @@ class ProfileTests(unittest.TestCase):
             self.assertEqual(self.client.post('/api/ai/career-profile/items',json=self.body()).status_code,429)
         with self.connection() as db:
             self.assertEqual(db.execute('SELECT count(*) AS n FROM guest_ai_requests').fetchone()['n'],0)
+    def test_controlled_rollout_keeps_ordinary_chat_on_stable_graph(self):
+        with patch.dict(os.environ,{'ADVISOR_CONTROLLED_ROLLOUT':'true','ADVISOR_TEST_UIDS':'different-qa','AI_DEMO_MODE':'true'}),patch('advisor.routes.advisor_graph.ainvoke',side_effect=AssertionError('must not run Task4 for ordinary member')):
+            result=self.client.post('/api/ai/chat',json={'session_id':self.session['id'],'request_id':str(uuid4()),'message':'Thích vẽ'})
+        self.assertEqual(result.status_code,200,result.text)
+        self.assertNotIn('survey_analysis',result.json()['session']['messages'][-1])
 
 if __name__=='__main__':unittest.main()
