@@ -9,7 +9,7 @@
   },
   "functions": {
     "app.py": {
-      "includeFiles": "{index.html,chat.html,stories.html,advisor/*.txt,data/careers-1.json,data/careers-2.json,data/careers-3.json,data/careers-4.json,data/career-videos.json,data/stories/batch-1.json,data/stories/batch-2.json,data/stories/batch-3.json,data/stories/batch-4.json}"
+      "includeFiles": "{index.html,chat.html,stories.html,advisor/*.txt,data/careers-*.json,data/career-videos.json,data/stories/batch-*.json}"
     }
   }
 }

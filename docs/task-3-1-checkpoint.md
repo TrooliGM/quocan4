@@ -57,6 +57,7 @@ API Data YouTube chưa có credential được cấp cho nhiệm vụ này, khô
 - Vercel từ chối tạo env cho nhánh chưa có trên GitHub. Vì vậy `vercel.json` chỉ tắt Git auto-deploy cho đúng `feat/task-3-1-video-library`; các nhánh khác giữ mặc định. Sau push sẽ tạo sáu override Preview riêng nhánh rồi CLI deploy với cùng override lần nữa. Không đổi Production Branch hoặc env Production.
 - Override: `DATABASE_URL`, `DEEPSEEK_API_KEY`, `FIREBASE_API_KEY`, `FIREBASE_PROJECT_ID` rỗng; `AI_DEMO_MODE=false`; `STORIES_PREVIEW_READ_ONLY=true`. Không copy secret Production.
 - Không tắt Vercel Deployment Protection. Người xem có thể cần đăng nhập Vercel được cấp quyền. Firebase/DeepSeek thật và quota end-to-end trên Preview **BLOCKED** tới khi có môi trường thử riêng được phép.
+- Lần deploy đầu bị Vercel từ chối vì includeFiles vượt 256 ký tự. Rút gọn bằng glob careers/batch, giữ whitelist bốn file trong `.vercelignore`; bổ sung test độ dài cấu hình và kiểm tra runtime. Không đổi dữ liệu hoặc mở rộng tập file bí mật.
 - Chưa merge/deploy Production, không kết nối Neon hoặc chạy migration. Trạng thái URL/build/hậu kiểm sẽ bổ sung sau khi deployment thực tế hoàn thành.
 
 Nguồn vận hành: [Vercel Git deploymentEnabled](https://vercel.com/docs/project-configuration/git-configuration), [env theo nhánh](https://vercel.com/docs/environment-variables), [YouTube IFrame API](https://developers.google.com/youtube/iframe_api_reference).

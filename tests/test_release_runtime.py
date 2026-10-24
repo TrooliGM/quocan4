@@ -118,7 +118,9 @@ print('isolated-runtime-ok')
             self.assertEqual(config['framework'], 'fastapi')
             self.assertNotIn('rewrites', config)
             self.assertIn('advisor/*.txt', config['functions']['app.py']['includeFiles'])
-            for index in range(1,5):self.assertIn(f'data/stories/batch-{index}.json',config['functions']['app.py']['includeFiles'])
+            self.assertIn('data/stories/batch-*.json',config['functions']['app.py']['includeFiles'])
+            self.assertLessEqual(len(config['functions']['app.py']['includeFiles']),256)
+            self.assertIn('data/career-videos.json',config['functions']['app.py']['includeFiles'])
 
     def test_provider_failure_matrix_for_public_endpoints(self):
         for url in ('/api/advice', '/api/career-stories/bac-si/ask'):
