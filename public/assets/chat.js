@@ -267,6 +267,17 @@ function messageRow(message) {
   }
   if(message.role==='user')body.append(label);
   body.append(bubble);
+  if(message.sources?.length){
+    const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent='Nguồn tra cứu · đoạn trích, chưa đọc toàn trang';details.className='source-list';details.append(summary);
+    for(const source of message.sources){
+      try{const url=new URL(source.url);if(url.protocol!=='https:'||url.username||url.password)continue;
+        const a=document.createElement('a');a.href=url.href;a.textContent=source.title+' · '+source.domain;a.target='_blank';a.rel='noopener noreferrer';
+        const p=document.createElement('p');p.textContent=source.supporting_excerpt;
+        const meta=document.createElement('small');meta.textContent=`Truy xuất: ${source.retrieved_at}${source.published_at?' · Xuất bản: '+source.published_at:''}${source.target_year?' · Năm cần đối chiếu: '+source.target_year:''}`;
+        details.append(a,meta,p);
+      }catch{}
+    }body.append(details);
+  }
   if(message.mode==='demo'){const note=document.createElement('p');note.className='quiet-note';note.textContent='Trả lời mẫu · chưa gọi DeepSeek';body.append(note);}
   if (message.role === 'assistant') {
     const actions = document.createElement('div'); actions.className = 'message-actions';

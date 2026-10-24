@@ -348,3 +348,5 @@
 
 /* Task 4: bỏ avatar lặp lại, giữ nguyên toàn bộ màu/khung bubble. */
 .assistant .message-body{max-width:100%}
+
+.source-list{margin-top:12px;font-size:12px;line-height:1.8}.source-list summary{cursor:pointer}.source-list a,.source-list small{display:block}.source-list p{margin:6px 0 16px;color:var(--chat-muted)}

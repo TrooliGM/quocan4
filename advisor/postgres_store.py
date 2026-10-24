@@ -216,6 +216,8 @@ def save_messages_atomic(uid, session_id, request_id, message, reply, mode, gues
             "recommendations": reply["recommendations"],
             "request_id": request_id,
             "mode": mode,
+            "sources": reply.get('sources',[]),
+            "search_status": reply.get('search_status','not_needed'),
         })
 
         title = row["title"]
