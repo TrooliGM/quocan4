@@ -29,7 +29,7 @@ def plan_turn(session, message):
 
 
 def bounded_history(messages, budget=12000):
-    """Giữ phần gần nhất và tối đa hai lời chia sẻ đầu; không tải toàn bộ chat vào model."""
+    """Giữ phần gần nhất trong ngân sách; tham chiếu xa dùng summary của đúng phiên."""
     rows=[];used=0
     for item in reversed(messages[-40:]):
         text=item['content']

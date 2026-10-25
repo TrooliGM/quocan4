@@ -258,6 +258,10 @@ async def compress_context(state):
         return {}
     context = {"profile": state["profile"], "summary": state["session"]["summary"],
                "latest_user": state["message"], "latest_assistant": state["reply"]["answer"]}
+    from .conversation_context import bounded_history
+    # Compression is periodic: include intervening turns, otherwise turns 1–5
+    # never reach the cumulative summary when the first compression runs on turn 6.
+    context['recent_turns']=bounded_history(state['session']['messages'][-12:],budget=6000)
     payload = {"model": model_name(summary=True),
                "messages": [{"role": "system", "content": ""},
                             {"role": "user", "content": json.dumps(context, ensure_ascii=False)}],
