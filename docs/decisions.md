@@ -134,3 +134,9 @@ Cho phép nhánh riêng và phát hành hotfix performance/login khi an toàn; k
 ### Quyết định bổ sung UI công khai trên Preview
 
 Đã xác nhận theo yêu cầu mới: UI Premium cho Guest/member/QA không cần quyền QA, backendanalysis/profilecanary không mở rộng. Flag ADVISOR_PREMIUM_UI_PREVIEW chỉPreview, Productionfailclosed; HTMLassetnewkhôngtrộnbackendeligibility. NonQA panel giải thích chưa phân tích, khảo sát vẫn lưu và chatđược qua stablegraph/DeepSeek thật. e933f98/Previewmới đã Chrome3persona LIVE PASS,5unitmới+3regressionPASS,12ảnh. Đãpush cáccheckpoint trên đúngfeaturebranch; không merge/Production/DBreset/migration. Giữ BraveBLOCKED nếuchưakey và khôngclaimGooglepopupPASS khi chỉ dùngSDKpassword. Xem docs/task41-preview-ui-fix.md.
+
+### Quyết định thay thế: không giới hạn trí tuệ theo QA
+
+Đã xác nhận theo yêu cầu mới nhất: mọi phiên hợp lệ dùng cùng pipeline Task4.1. Gỡ fallback stable theoUID, thay2promptcompatibility bằng core chung, UI không còn cần QAflag; analysisdraft mở với ngân sách riêng PG. Giữ canary chỉ cho bankprofile chưapháthành và context phải có quyền server, Guest không đọc confirmedbank. Không mở vôhạn API/quota, không đổi model theo vai trò. Những câu trả lời đã lưu vẫn cached để không mất lịch sử/charge lại, ghi rõ saved_response, không giả mới.
+
+Preview dee7785 đã nghiệm thu ở mức mô tả docs/task41-unified-preview.md:57localPASS,3persona autoanalysisLIVE,18sharedturnLIVE+focusedstylefix/exploration,security/quota/rateLIVE. Không hợp thức hóa Brave hayGooglepopup chưa kiểm thànhPASS. Production vẫn957ffde. Chưa cho phép deployProduction; cần phêduyệt và build riêng envProduction, không promote Previewstaging hoặc chạy migration. Rollback ứng dụng về deployment đãghi, khôngreset/restoređèDB. Quyết định này thay thế chính sách “Guest/member dùng AIlegacy” của báo cáo trước.
