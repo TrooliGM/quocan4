@@ -216,7 +216,7 @@ def save_messages_atomic(uid, session_id, request_id, message, reply, mode, gues
             "recommendations": reply["recommendations"],
             "request_id": request_id,
             "mode": mode,
-            **{key:reply[key] for key in ('sources','search_status','survey_analysis','analysis_status') if key in reply},
+            **{key:reply[key] for key in ('sources','search_status','survey_analysis','analysis_status','navigation_actions') if key in reply},
         })
 
         title = row["title"]

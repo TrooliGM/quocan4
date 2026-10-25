@@ -7,7 +7,7 @@ export function safeReturnPath(value) {
   const url = new URL(value, location.origin);
   if (url.origin !== location.origin || !['/','/ai-career-advisor','/chat','/mot-ngay-lam-viec'].includes(url.pathname)) return '/';
   const allowed = new URLSearchParams();
-  for (const key of ['mode','career_id','nghe','scene']) {
+  for (const key of ['mode','career_id','career','nghe','scene']) {
     const v = url.searchParams.get(key);
     if (v && /^[a-z0-9_-]{1,80}$/.test(v)) allowed.set(key,v);
   }

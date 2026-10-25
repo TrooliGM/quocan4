@@ -32,7 +32,7 @@ async def run_legacy(request, user, request_id, message, scope, graph, state):
                 raise HTTPException(409, 'Mã tin nhắn đã được sử dụng cho nội dung khác.')
         cached = next((m for m in current['messages'] if m.get('request_id') == request_id and m['role'] == 'assistant'), None)
         if cached is not None:
-            return {'answer':cached['content'],'sources':cached.get('sources',[]),'search_status':cached.get('search_status','not_needed'),
+            return {'answer':cached['content'],'sources':cached.get('sources',[]),'search_status':cached.get('search_status','not_needed'),'navigation_actions':cached.get('navigation_actions',[]),
                     'duplicate':True,'pipeline':'saved_response','request_id':request_id,
                     'guest_quota':get_guest_usage(uid) if user.get('provider') == 'anonymous' else None}
     await asyncio.to_thread(check_ai_rate, request, user)
@@ -48,7 +48,7 @@ async def run_legacy(request, user, request_id, message, scope, graph, state):
     cached = next((m for m in current['messages'] if m.get('request_id') == request_id and m['role'] == 'assistant'), None)
     guest = user.get('provider') == 'anonymous'
     if cached is not None:
-        return {'answer': cached['content'],'sources':cached.get('sources',[]),'search_status':cached.get('search_status','not_needed'),
+        return {'answer': cached['content'],'sources':cached.get('sources',[]),'search_status':cached.get('search_status','not_needed'),'navigation_actions':cached.get('navigation_actions',[]),
                 'duplicate': True, 'pipeline':'saved_response','request_id': request_id,
                 'guest_quota': get_guest_usage(uid) if guest else None}
     reservation = None
@@ -68,7 +68,7 @@ async def run_legacy(request, user, request_id, message, scope, graph, state):
         reply = result.get('reply') or {'answer':answer,'profile':empty_profile(),'summary':'','recommendations':[]}
         await asyncio.to_thread(save_messages_atomic, uid, sid, request_id, message, reply, 'live', reservation['reservation_token'])
         return {'answer':answer,'duplicate':False,'request_id':request_id,'pipeline':'task41',
-                'sources':reply.get('sources',[]),'search_status':reply.get('search_status','not_needed'),
+                'sources':reply.get('sources',[]),'search_status':reply.get('search_status','not_needed'),'navigation_actions':reply.get('navigation_actions',[]),
                 'guest_quota': get_guest_usage(uid) if guest else None}
     except BaseException:
         if reservation and reservation.get('new_reservation'):

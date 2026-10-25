@@ -5,6 +5,7 @@ import {guestSession} from './ai-access.js';
 import {chatLoginURL, saveDraft, loadDraft} from './chat-journey.js';
 import {explorationQuestion} from './career-question.js';
 import {storyQuestion} from './story-journey.js';
+import {navigationButtons} from './navigation-actions.js?v=task43-1';
 
 const $ = (selector) => document.querySelector(selector);
 let auth, sdk, user, config, active = null, sessions = [], pending = null;
@@ -300,6 +301,8 @@ function messageRow(message) {
   }
   if(message.mode==='demo'){const note=document.createElement('p');note.className='quiet-note';note.textContent='Trả lời mẫu · chưa gọi DeepSeek';body.append(note);}
   if (message.role === 'assistant') {
+    const navigation=navigationButtons(message.navigation_actions,persistJourney);
+    if(navigation)body.append(navigation);
     const actions = document.createElement('div'); actions.className = 'message-actions';
     const copy = document.createElement('button'); copy.textContent = '▣ Sao chép';
     copy.addEventListener('click', async () => {
