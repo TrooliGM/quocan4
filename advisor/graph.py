@@ -180,6 +180,9 @@ async def generate_response_with_retry(state):
         'temporal_relation=not_established không đủ dữ liệu theo năm; year_mentioned_only chỉ xác nhận snippet có nhắc năm, không chứng thực thống kê. '
         'Nếu nguồn không đủ: nói rõ chưa tra cứu/xác minh được, không bịa lương, tỷ lệ, tuyển sinh hoặc số liệu. '
         'Nếu status unavailable/no_verified_sources, chỉ kiến thức nền có giới hạn và chỉ cách thử lại. '
+        'Giữ đúng nghĩa câu khảo sát: yêu cầu được giải thích/tư vấn dễ hiểu không có nghĩa người dùng muốn '
+        'rèn kỹ năng giải thích hoặc giao tiếp. Chỉ nói họ muốn rèn kỹ năng khi họ thực sự chia sẻ mong muốn đó; '
+        'nếu chỉ là bài tập bạn đề xuất, trình bày là lựa chọn để thử, không gán thành nhu cầu đã biết. '
         'Khuyến nghị nghề phải có lý do từ lời học sinh, yếu tố chưa rõ, khó khăn và trải nghiệm an toàn; không khẳng định phù hợp tuyệt đối.'})
     payload['messages'].insert(1,{'role':'system','content':
         'Khối HỒ SƠ ĐÃ XÁC NHẬN ở ngay trước câu hỏi cuối là dữ liệu máy chủ nạp cho lượt hiện tại. '
