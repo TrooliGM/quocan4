@@ -70,3 +70,7 @@ Rà soát liên kết Markdown: DOMPurify ngăn script, nhưng href tương đ�
 - Báo cáo/bộ nhớ: tài liệu này, docs/project-memory.md, docs/decisions.md.
 
 Các checkpoint sau runtime nếu có chỉ cập nhật báo cáo, không đồng nghĩa Preview build lại code. Khi tiếp tục, kế thừa các PASS trên và chỉ chạy lại phần bị ảnh hưởng hoặc còn BLOCKED.
+
+## Cập nhật quyền và trạng thái Production
+
+Theo yêu cầu trực tiếp mới, ngày26/10/2026 đã phát hành Task4.3 sau kiểm thử hợp lệ cả Guest/Member/QA trên candidate Production và Chrome. Runtime608146c /dpl_G11k5MKTVWNhEAcszbhqGEZm1KiW phục vụ domain chính; không còn kết luận chỉ Preview. Guest staging vẫn hết8 nhưng phiên Guest QA Production có sẵn còn4 được dùng đúng chính sách, cuối cùng7/8, không reset/bypass. Google popup mới vẫn chưa kiểm. Chi tiết chính thức và rollback: docs/task43-production-release.md. Không migration, đổi secrets, merge main hoặc xóa dữ liệu.
