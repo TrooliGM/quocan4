@@ -149,6 +149,18 @@ def public_search_plan(session, message):
         for pattern in [r'\b(?:nữ|nam)\b',r'miền (?:Bắc|Nam)',r'\b[A-D]\d{2}\b',r'Nghiệp vụ (?:Cảnh sát|An ninh)|An toàn thông tin']:
             if re.search(pattern,current_selectors):selectors=re.sub(pattern,'',selectors)
         selectors=re.sub(r'\s+',' ',selectors+' '+current_selectors).strip()
+    # A chain may contain several school/cohort-only clarifications. The latest
+    # explicit topic can be found before its year; retain the most recent public
+    # year without reviving a subject across a topic-change barrier.
+    if not (years or recent_year or previous_year):
+        for row in reversed(history):
+            previous=row.get('content','')
+            if row.get('role')!='user':continue
+            if re.search(r'doi chu de|nam nhuan|bao nhieu ngay',plain(previous)):break
+            if private_query(previous):continue
+            found=re.search(r'\b(?:19|20)\d{2}\b',previous)
+            if found:
+                recent_year=found[0];break
     year=years[0] if years else recent_year or previous_year
     if police_topic(topic) and (is_score or assistant_score):
         query='điểm chuẩn '+topic

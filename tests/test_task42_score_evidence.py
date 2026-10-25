@@ -105,5 +105,18 @@ class ScoreEvidenceTests(unittest.TestCase):
         answer=s.constrain_links('[Cổng thông tin Bộ Công an]('+URL+')',[source])
         self.assertNotIn('Cổng thông tin Bộ Công an',answer);self.assertIn('Thông báo của Học viện',answer)
 
+    def test_chained_school_and_combination_clarifications_retain_year(self):
+        from advisor.conversation_context import public_search_plan
+        session={'messages':[
+            {'role':'user','content':'Điểm chuẩn các trường đại học Công an năm 2020?'},
+            {'role':'assistant','content':'Bạn muốn trường/ngành nào?'},
+            {'role':'user','content':'Học viện Cảnh sát nhân dân, nam, tổ hợp A01 nhé.'},
+            {'role':'assistant','content':'Học viện Cảnh sát nhân dân 2020, nam A01: 23,09.'}]}
+        plan=public_search_plan(session,'Còn tổ hợp C03 thì sao ạ?')
+        self.assertEqual(plan['query'],'điểm chuẩn Học viện Cảnh sát nhân dân nam C03 năm 2020')
+        self.assertEqual(self.row(plan['query'])['score'],'18.88')
+        session['messages'].insert(2,{'role':'user','content':'Đổi chủ đề: giải thích lập trình.'})
+        self.assertNotIn('2020',public_search_plan(session,'Còn tổ hợp C03 thì sao ạ?')['query'])
+
 
 if __name__=='__main__':unittest.main()

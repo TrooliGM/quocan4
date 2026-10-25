@@ -24,3 +24,9 @@ Nguyên nhân: snippet tổng hợp đưa dải 19,61–23,09 cho nam Học vi�
 ## Còn kiểm tra
 
 Build/Preview mới, DeepSeek LIVE số liệu và injection nguồn. Guest Search LIVE còn BLOCKED đến khi có hạn mức hợp lệ; không dùng PASS mock thay cho LIVE. Không mở Search mọi người ở Production trước khi điều kiện này và các điều kiện an toàn hoàn tất. Không migration hoặc ghi thử Production.
+
+## Preview đầu và sửa ngữ cảnh nối nhiều lượt
+
+Preview 58af80c / dpl_6tSqKtWz8XxGpWe2SYeW8LE3AJkL READY. Sáu lượt DeepSeek LIVE thực tế (member/QA × 3): câu rộng hỏi làm rõ, A01 nam 2020 trả đúng 23,09 từ nội dung công bố, attribution chính xác. Lượt đổi tiếp C03 đã mất năm do gặp câu làm rõ trường/tổ hợp trước khi duyệt tới năm ở xa hơn; guard từ chối đưa số nên không trả sai. Đây là FAIL ngữ cảnh cần sửa, không đánh dấu PASS.
+
+Bổ sung duyệt năm công khai gần nhất trong giới hạn lịch sử, không đi qua mốc đổi chủ đề hoặc dữ liệu riêng tư. Thêm regression chuỗi hai lần làm rõ và mốc đổi chủ đề. 30 test số liệu/ngữ cảnh PASS sau sửa (tổng 56 phương thức liên quan đã kiểm, gồm các nhóm trước). Cần xác minh lại riêng lượt C03 trên Preview mới; không chạy lại các ca đã PASS.
