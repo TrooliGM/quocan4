@@ -6,16 +6,19 @@ import asyncio
 from collections import OrderedDict
 from datetime import datetime, timezone
 import hashlib
+from concurrent.futures import ThreadPoolExecutor
 import http.client
 import ipaddress
+import logging
 import os
 import re
 import socket
 import ssl
 import time
+import threading
 import unicodedata
 from typing import Protocol
-from urllib.parse import urlsplit
+from urllib.parse import urlsplit, quote
 import httpx
 from pydantic import BaseModel, Field
 
@@ -37,7 +40,22 @@ class SearchProvider(Protocol):
 
 def needs_search(text):
     from .conversation_context import plain
-    return bool(re.search(r'\b(?:19|20)\d{2}\b|hien nay|moi nhat|tra cuu|tim (?:nguon|kiem)|thong ke|muc luong|diem chuan|tuyen sinh|nhu cau nhan luc|quy dinh|chinh sach|chung chi hanh nghe|bao cao|nghien cuu moi',plain(text)))
+    text=plain(text)
+    if re.search(r'\b(?:khong|ko|k|dung) (?:can )?(?:tra (?:cuu|web)|tim (?:kiem|nguon)|search)\b',text):return False
+    return bool(re.search(
+        r'\b(?:19|20)\d{2}\b|hien nay|hien tai|moi nhat|moi nt|tra (?:cuu|giup|ho|web)|'
+        r'tim (?:nguon|kiem|tren (?:google|web|mang))|\bsearch\b|thong ke|muc luong|luong .*?(?:bao nhieu|khoang|hien)|'
+        r'diem chuan|tuyen sinh|nhu cau nhan luc|quy dinh|chinh sach|chung chi hanh nghe|bao cao|nghien cuu moi|'
+        r'nguon .*?(?:dau|nao)|(?:dan|cho|xin) nguon|(?:dang|hien) phat trien|xu huong',text))
+
+def private_query(text):
+    """Fail closed on identifiers/self disclosures; never receive profile/survey objects."""
+    from .conversation_context import plain
+    return bool(re.search(
+        r'sk-[\w-]{16,}|eyJ[\w-]+\.[\w-]+\.[\w-]+|private key|database_url|password|mat khau|'
+        r'[\w.+-]+@[\w.-]+|\+?\d[\d .-]{8,}\d|https?://|'
+        r'\b(?:toi|em|minh|mk|anh|chi|chau|con) (?:ten|o|hoc tai|hoc lop|hoc truong|song|bi benh|mac benh|thich|gioi|yeu|kem)|'
+        r'ho ten|dia chi|so dien thoai|so can cuoc|cccd|ngay sinh|ho so (?:cua|ca nhan)|benh an',plain(text)))
 
 def relevant(query,title,excerpt):
     def plain(t):return ''.join(c for c in unicodedata.normalize('NFD',t.lower()) if unicodedata.category(c)!='Mn').replace('đ','d')
@@ -74,8 +92,8 @@ def check_link(url):
             except BaseException:sock.close();raise
     conn=PinnedHTTPS(host,timeout=2.5,context=ssl.create_default_context())
     try:
-        path=u.path or '/'
-        if u.query:path+='?'+u.query
+        path=quote(u.path or '/',safe='/%:@!$&\'()*+,;=-._~')
+        if u.query:path+='?'+quote(u.query,safe='/%?:@!$&\'()*+,;=-._~')
         conn.request('HEAD',path,headers={'User-Agent':'LaBan-Career-SourceCheck/1.0'})
         response=conn.getresponse()
         return 200<=response.status<300
@@ -98,19 +116,48 @@ class BraveSearch:
                     return json.loads(raw).get('web',{}).get('results',[])[:6]
         raise SearchUnavailable('unavailable')
 
+# Slots are released on actual worker completion, even after caller cancellation.
+# PostgreSQL rate/quota protection remains shared across serverless instances.
+_ddgs_pool=ThreadPoolExecutor(max_workers=2,thread_name_prefix='laban-search')
+_ddgs_slots=threading.BoundedSemaphore(2)
+
+class DDGSSearch:
+    @staticmethod
+    def _search(query):
+        try:
+            from ddgs import DDGS
+            logger=logging.getLogger('ddgs');logger.handlers=[logging.NullHandler()];logger.propagate=False
+            with DDGS(timeout=5,verify=True) as client:
+                rows=client.text(query,max_results=5,safesearch='on',backend='auto',region='vn-vi')
+            return [{'title':str(r.get('title',''))[:240],'url':str(r.get('href',''))[:1500],
+                     'description':str(r.get('body',''))[:700]} for r in rows[:5]]
+        except Exception:
+            # Upstream exceptions may include raw queries. Never echo or log them.
+            raise SearchUnavailable('ddgs_unavailable') from None
+
+    async def search(self,query):
+        if not _ddgs_slots.acquire(blocking=False):raise SearchUnavailable('busy')
+        try:future=_ddgs_pool.submit(self._search,query)
+        except BaseException:
+            _ddgs_slots.release();raise
+        future.add_done_callback(lambda _: _ddgs_slots.release())
+        async with asyncio.timeout(7):return await asyncio.wrap_future(future)
+
 _cache=OrderedDict()
 def provider():
-    if os.getenv('SEARCH_PROVIDER','').strip()=='brave':return BraveSearch()
+    name=os.getenv('SEARCH_PROVIDER','').strip().lower()
+    if name=='brave':return BraveSearch()
+    if name=='ddgs':return DDGSSearch()
     raise SearchUnavailable('not_configured')
 
 async def retrieve(uid,text):
     if not needs_search(text):return {'status':'not_needed','sources':[]}
-    if re.search(r'sk-[\w-]{16,}|eyJ[\w-]+\.[\w-]+\.[\w-]+|PRIVATE KEY|DATABASE_URL|mật khẩu|password|(?:tôi|em|mình) tên là',text,re.I):
+    if private_query(text):
         return {'status':'privacy_blocked','sources':[]}
     year_match=re.search(r'\b((?:19|20)\d{2})\b',text);year=int(year_match[1]) if year_match else None
     # Không gửi profile/khảo sát/UID. Chặn định danh rõ ràng trong câu tra cứu.
-    query=re.sub(r'[\w.+-]+@[\w.-]+|\+?\d[\d .-]{8,}\d','[đã bỏ thông tin cá nhân]',text)[:300]
-    cache_key=hashlib.sha256((uid+'\0'+query).encode()).hexdigest()
+    query=text[:300]
+    cache_key=hashlib.sha256((os.getenv('SEARCH_PROVIDER','')+'\0'+uid+'\0'+query).encode()).hexdigest()
     hit=_cache.get(cache_key)
     if hit and hit[0]>time.monotonic():return {**hit[1],'cached':True}
     try:

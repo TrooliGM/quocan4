@@ -7,3 +7,4 @@ google-auth[cryptography]>=2.38,<3
 requests>=2.32,<3
 pydantic>=2.10,<3
 psycopg[binary]>=3.2,<4
+ddgs==9.16.1

@@ -30,9 +30,10 @@ async def run_legacy(request, user, request_id, message, scope, graph, state):
         for item in current['messages']:
             if item.get('request_id') == request_id and item['role'] == 'user' and item['content'] != message:
                 raise HTTPException(409, 'Mã tin nhắn đã được sử dụng cho nội dung khác.')
-        cached = next((m['content'] for m in current['messages'] if m.get('request_id') == request_id and m['role'] == 'assistant'), None)
+        cached = next((m for m in current['messages'] if m.get('request_id') == request_id and m['role'] == 'assistant'), None)
         if cached is not None:
-            return {'answer':cached,'duplicate':True,'pipeline':'saved_response','request_id':request_id,
+            return {'answer':cached['content'],'sources':cached.get('sources',[]),'search_status':cached.get('search_status','not_needed'),
+                    'duplicate':True,'pipeline':'saved_response','request_id':request_id,
                     'guest_quota':get_guest_usage(uid) if user.get('provider') == 'anonymous' else None}
     await asyncio.to_thread(check_ai_rate, request, user)
     with connection() as db:
@@ -44,10 +45,11 @@ async def run_legacy(request, user, request_id, message, scope, graph, state):
     for item in current['messages']:
         if item.get('request_id') == request_id and item['role'] == 'user' and item['content'] != message:
             raise HTTPException(409, 'Mã tin nhắn đã được sử dụng cho nội dung khác.')
-    cached = next((m['content'] for m in current['messages'] if m.get('request_id') == request_id and m['role'] == 'assistant'), None)
+    cached = next((m for m in current['messages'] if m.get('request_id') == request_id and m['role'] == 'assistant'), None)
     guest = user.get('provider') == 'anonymous'
     if cached is not None:
-        return {'answer': cached, 'duplicate': True, 'pipeline':'saved_response','request_id': request_id,
+        return {'answer': cached['content'],'sources':cached.get('sources',[]),'search_status':cached.get('search_status','not_needed'),
+                'duplicate': True, 'pipeline':'saved_response','request_id': request_id,
                 'guest_quota': get_guest_usage(uid) if guest else None}
     reservation = None
     try:

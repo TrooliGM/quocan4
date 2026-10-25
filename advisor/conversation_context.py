@@ -47,17 +47,17 @@ def bounded_history(messages, budget=12000):
 def public_search_query(session, message):
     """Chỉ thêm chủ đề công khai của nghề/câu tra cứu trước, không thêm survey/profile."""
     text=plain(message)
-    reference=bool(re.search(r'nganh (do|nay)|nghe (do|nay)|nam (ay|do)',text))
+    reference=bool(re.search(r'nganh (do|nay)|nghe (do|nay)|nam (ay|do)|nguon .*?(?:dau|nao)|(?:dan|cho|xin) nguon|con nam',text))
     if not reference:return message
     career=(session.get('messages') or [{}])[0].get('career_context',{})
     topic=career.get('career_name')
     year=None
-    from .search_provider import needs_search
+    from .search_provider import needs_search,private_query
     for row in reversed(session.get('messages',[])):
         if row['role']!='user':continue
         previous=row['content']
         # Không dùng một đoạn tự giới thiệu/hồ sơ cá nhân làm truy vấn trước.
-        if re.search(r'ten la|dia chi|mat khau|toi thich|em thich|minh thich',plain(previous)):continue
+        if private_query(previous):continue
         if needs_search(previous):
             topic=topic or previous[:200]
             match=re.search(r'\b(?:19|20)\d{2}\b',previous)
@@ -66,4 +66,6 @@ def public_search_query(session, message):
     result=message
     if topic:result=re.sub(r'(?i)(ngành|nganh|nghề|nghe)\s+(đó|do|này|nay)',lambda _:topic,result)
     if year:result=re.sub(r'(?i)(?:năm|nam)\s+(ấy|ay|đó|do)','năm '+year,result)
+    if topic and not re.search(r'nganh (do|nay)|nghe (do|nay)|nam (ay|do)',text):
+        result+=' — chủ đề: '+topic
     return result
