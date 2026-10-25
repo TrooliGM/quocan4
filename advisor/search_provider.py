@@ -33,6 +33,9 @@ class Source(BaseModel):
     verification_level: str = 'search_snippet_link_checked'
     target_year: int | None = None
     temporal_relation: str = 'not_requested'
+    information_provider: str | None = None
+    credited_source: str | None = None
+    original_publication_url: str | None = None
 
 class SearchUnavailable(RuntimeError):pass
 class SearchProvider(Protocol):
@@ -106,11 +109,8 @@ def public_addresses(host):
     if not addresses or any(not ipaddress.ip_address(ip).is_global for ip in addresses):raise SearchUnavailable('unsafe_source')
     return addresses
 
-def check_link(url):
-    """HEAD trên IP đã xác minh và ghim kết nối; giữ SNI/TLS hostname gốc.
-
-    Không follow redirect, không tải body, không có DNS lần hai/rebinding.
-    """
+def _source_request(url, read=False):
+    """Pinned public TLS, no redirects. GET is bounded and HTML only."""
     u,host=safe_url(url);addresses=public_addresses(host)
     class PinnedHTTPS(http.client.HTTPSConnection):
         def connect(self):
@@ -121,10 +121,28 @@ def check_link(url):
     try:
         path=quote(u.path or '/',safe='/%:@!$&\'()*+,;=-._~')
         if u.query:path+='?'+quote(u.query,safe='/%?:@!$&\'()*+,;=-._~')
-        conn.request('HEAD',path,headers={'User-Agent':'LaBan-Career-SourceCheck/1.0'})
+        conn.request('GET' if read else 'HEAD',path,headers={'User-Agent':'LaBan-Career-SourceCheck/1.0','Accept-Encoding':'identity'})
         response=conn.getresponse()
-        return 200<=response.status<300
+        if not read:return 200<=response.status<300
+        if response.status!=200 or response.getheader('Content-Encoding','identity').lower() not in ('','identity'):
+            raise SearchUnavailable('unsupported_source')
+        if response.getheader('Content-Type','').split(';')[0].lower() not in ('text/html','application/xhtml+xml'):
+            raise SearchUnavailable('unsupported_source')
+        if int(response.getheader('Content-Length','0'))>256000:raise SearchUnavailable('oversize')
+        raw=bytearray();deadline=time.monotonic()+2.5
+        while len(raw)<=256000:
+            remaining=deadline-time.monotonic()
+            if remaining<=0:raise SearchUnavailable('source_timeout')
+            if conn.sock:conn.sock.settimeout(min(2.5,remaining))
+            part=response.read1(min(16384,256001-len(raw)))
+            if not part:break
+            raw.extend(part)
+        if len(raw)>256000:raise SearchUnavailable('oversize')
+        return bytes(raw).decode('utf-8',errors='strict')
     finally:conn.close()
+
+def check_link(url):
+    return _source_request(url)
 
 class BraveSearch:
     async def search(self,query):
@@ -222,7 +240,8 @@ async def retrieve(uid,text):
 
 def constrain_links(answer,sources):
     allowed={s['url'] for s in sources}
-    answer=re.sub(r'\[([^\]]+)\]\((https?://[^\s)]+)\)',lambda m:m[0] if m[2] in allowed else m[1]+' (chưa có nguồn đã kiểm tra)',answer)
+    titles={s['url']:re.sub(r'[\[\]<>\\]','',s.get('title') or urlsplit(s['url']).hostname or 'Nguồn đã kiểm tra') for s in sources}
+    answer=re.sub(r'\[([^\]]+)\]\((https?://[^\s)]+)\)',lambda m:'['+titles[m[2]]+']('+m[2]+')' if m[2] in allowed else m[1]+' (chưa có nguồn đã kiểm tra)',answer)
     return re.sub(r'https?://[^\s<>\])]+',lambda m:m[0] if m[0].rstrip('.,;') in allowed else '[đường dẫn chưa xác minh]',answer)
 
 async def search_context(state):
@@ -235,7 +254,16 @@ async def search_context(state):
     plan=public_search_plan(state.get('session',{'messages':[]}),state['message'])
     if plan['ambiguous']:
         return {'retrieval':{'status':'needs_clarification','sources':[],'clarification_question':'Bạn đang hỏi số liệu nào của năm đó?'}}
-    with measure('web_search'):result=await retrieve(state['uid'],plan['query'])
+    from .score_evidence import ground_scores,score_lookup
+    with measure('web_search'):
+        try:
+            async with asyncio.timeout(12):
+                result=await retrieve(state['uid'],plan['query'])
+                # Same total budget as Search, bounded reader, no extra AI/quota.
+                result=await ground_scores(plan['query'],result,state.get('session',{}))
+        except TimeoutError:
+            result={'status':'unavailable','sources':[]}
+            if score_lookup(plan['query']):result['score_evidence']={'status':'unverified','query':plan['query']}
     if plan['follow_up'] and result['status']!='privacy_blocked':
         result={**result,'resolved_query':plan['query']}
     return {'retrieval':result}

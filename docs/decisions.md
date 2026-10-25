@@ -157,3 +157,7 @@ Google Login QA và hiển thị nguồn trên domain chính đã được chủ
 ## Quyền phát hành có điều kiện — Search mọi role
 
 Theo yêu cầu mới nhất, Search có thể mở cho Guest/member/QA trên Production chỉ sau LIVE và an toàn đạt; không còn yêu cầu giữQA-only vĩnh viễn. Điều kiện chưa đạt: Preview đã thử DeepSeek thật và sửa ngữ cảnh, nhưng nguồn số liệu thứ cấp có sai khác với thông báo chính thức, attribution chưa ổn và Guest LIVE thiếu quota hợp lệ. Không coi thông sốenabled hoặc testmock làPASS. Vì vậy chỉ có checkpointlocal và Preview; chưapush/pháthành hay mởSearchmọirole trênmain. Không lách/reset hạn mức. Tạm giữ Productioncanary hiệnhành; bước tiếp là reader bảng chính thức an toàn, metadata nguồn đượcxácminh và nghiệmthu lại đúng các ca thiếu. Docs/task42-context-live-validation.md là trạng thái mới nhất.
+
+
+## Điểm chuẩn cần chứng cứ từ dòng công bố
+Theo yêu cầu người dùng, snippet hoặc link đã kiểm không đủ cấp phép trả số điểm/dải điểm. Reader nhận diện bố cục công bố đã kiểm và đối chiếu tuple năm/trường/ngành/giới/khu vực/tổ hợp; thiếu chứng cứ thì hỏi lại hoặc báo chưa xác minh, không suy rộng. Metadata phân biệt nơi đăng, đơn vị cung cấp và nguồn được ghi; chưa có URL văn bản gốc thì để trống. Không thay bằng LLM tự điền. Mở Search đại trà chỉ sau LIVE/an toàn đạt, Guest hết hạn mức vẫn BLOCKED và không lách.

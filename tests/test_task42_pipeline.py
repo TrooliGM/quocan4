@@ -120,3 +120,31 @@ class SearchPipelineTests(unittest.TestCase):
         retrieval=json.loads(context.split('\n',1)[1])['web_search']
         self.assertEqual(retrieval['resolved_query'],'điểm chuẩn các trường đại học Công an nhân dân năm 2020')
         self.assertEqual(retrieval['attempts'],2)
+
+    def test_verified_table_overrides_wrong_model_range_for_every_role_and_saved_retry(self):
+        from advisor import score_evidence as evidence
+        from test_task42_score_evidence import DOCUMENT,URL,QUERY,SOURCE
+        rows=[{'title':SOURCE['title'],'url':URL,'description':'Điểm chuẩn Học viện Cảnh sát nhân dân năm 2020, nam từ 19,61 đến 23,09.'}]
+        external=type('P',(),{'search':AsyncMock(return_value=rows)})()
+        async def bad_llm(payload,**kwargs):
+            self.payloads.append(payload)
+            return httpx.Response(200,json={'choices':[{'message':{'content':'Điểm chuẩn nam là 19,61–23,09, nguồn Cổng thông tin Bộ Công an.'},'finish_reason':'stop'}]})
+        with (patch.dict(os.environ,{'SEARCH_QA_ONLY':'false'}),patch.object(s,'provider',return_value=external),
+              patch.object(s,'check_link',return_value=True),patch.object(s,'_source_request',return_value=DOCUMENT),
+              patch('advisor.graph.post_completion',bad_llm)):
+            evidence._pages.clear()
+            for uid,provider in [('guest-table','anonymous'),('member-table','password'),('qa-search','password')]:
+                self.f.identity={'uid':uid,'provider':provider}
+                sid=self.client.post('/api/ai/sessions',json={'remember':False}).json()['session']['id']
+                self.client.put('/api/ai/sessions/'+sid+'/survey',json={'answers':base.ANSWERS})
+                body={'session_id':sid,'request_id':str(uuid4()),'message':QUERY}
+                reply=self.client.post('/api/ai/chat',json=body);self.assertEqual(reply.status_code,200)
+                data=reply.json();row=data['session']['messages'][-1]
+                self.assertIn('23,09 điểm',row['content']);self.assertNotIn('19,61',row['content'])
+                self.assertNotIn('Cổng thông tin Bộ Công an',row['content'])
+                self.assertEqual(row['sources'][0]['verification_level'],'official_score_table_read')
+                before=len(self.payloads);again=self.client.post('/api/ai/chat',json=body)
+                self.assertTrue(again.json()['duplicate']);self.assertEqual(len(self.payloads),before)
+                self.assertEqual(again.json()['session']['messages'][-1]['content'],row['content'])
+                if provider=='anonymous':self.assertEqual(again.json()['guest_quota']['used_questions'],1)
+        self.assertEqual(len(self.payloads),3)
