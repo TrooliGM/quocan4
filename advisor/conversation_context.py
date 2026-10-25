@@ -53,8 +53,10 @@ def police_topic(text):
            ('dai hoc canh sat nhan dan','Đại học Cảnh sát nhân dân'),
            ('hoc vien an ninh nhan dan','Học viện An ninh nhân dân'),
            ('hoc vien canh sat nhan dan','Học viện Cảnh sát nhân dân'),
+           ('hoc vien annd','Học viện An ninh nhân dân'),
+           ('hoc vien csnd','Học viện Cảnh sát nhân dân'),
            ('dai hoc phong chay chua chay','Đại học Phòng cháy chữa cháy')]
-    found=[name for key,name in names if key in t]
+    found=list(dict.fromkeys(name for key,name in names if key in t))
     return found[0] if len(found)==1 else 'các trường đại học Công an nhân dân'
 
 
@@ -64,12 +66,14 @@ def score_topic(text):
 
 def admission_selectors(text):
     """Public cohort selectors only; don't copy arbitrary history into a query."""
-    t=plain(text);parts=[]
+    t=re.sub(r'\s+',' ',re.sub(r'[^\w\s]',' ',plain(text)));parts=[]
     if re.search(r'\bnu\b',t):parts.append('nữ')
     elif re.search(r'(?:thi sinh|doi tuong|danh cho) nam\b|\bnam (?=mien|to hop)',t):parts.append('nam')
     for key,label in [('mien bac','miền Bắc'),('mien nam','miền Nam')]:
         if key in t:parts.append(label)
     parts+=list(dict.fromkeys(re.findall(r'\b[A-D]\d{2}\b',text.upper())))
+    for key,label in [('nghiep vu canh sat','Nghiệp vụ Cảnh sát'),('nghiep vu an ninh','Nghiệp vụ An ninh'),('an toan thong tin','An toàn thông tin')]:
+        if key in t:parts.append(label)
     return ' '.join(parts)
 
 
@@ -86,6 +90,9 @@ def public_search_plan(session, message):
     # An explicit new topic (including calendar questions) must never inherit police scores.
     calendar=bool(re.search(r'nam nhuan|bao nhieu ngay|lich (?:am|duong)',text))
     reference=bool(re.search(r'nganh (do|nay)|nghe (do|nay)|nam (ay|do)|nguon .*?(?:dau|nao)|(?:dan|cho|xin) nguon',text))
+    clarification=(bool(admission_selectors(message)) and not needs_search(message)
+                   and not re.search(r'doi chu de|giai thich|la gi|tim hieu|so sanh|viet (?:bai|truyen)',text))
+    reference=reference or clarification
     elliptical=bool(re.match(r'^(?:vay|the|con|the thi|vay thi|nam|bao nhieu|la bao nhieu)\b',text))
     # Strip question scaffolding to distinguish a year-only follow-up from a new topic.
     residue=re.sub(r'\b(?:19|20)\d{2}\b|\b(?:vay|thi|the|con|nam|la|bao|nhieu|a|ah|ha|nhi|duoc|co|the|cho|em|hoi|voi|sao|nao|diem|chuan|trung|tuyen)\b|[^a-z ]',' ',text)
@@ -93,7 +100,7 @@ def public_search_plan(session, message):
     if calendar or not (reference or elliptical):return plan
     plan['follow_up']=True
     history=session.get('messages',[])[-16:]
-    topic=None;previous_year=None;is_score=False;selectors=''
+    topic=None;previous_year=None;is_score=False;selectors='';recent_year=None
     assistant_topic=None;assistant_score=False
     for row in reversed(history):
         previous=row.get('content','');p=plain(previous)
@@ -106,18 +113,22 @@ def public_search_plan(session, message):
             assistant_score=assistant_score or score_topic(previous)
             continue
         if row.get('role')!='user' or private_query(previous):continue
+        if not recent_year:
+            found_year=re.search(r'\b(?:19|20)\d{2}\b',previous)
+            if found_year:recent_year=found_year[0]
         # Follow-up fillers aren't the actual subject; continue to its last explicit turn.
         candidate=police_topic(previous)
         if candidate:
-            topic=candidate;is_score=score_topic(previous) or assistant_score
+            topic=topic or candidate;is_score=is_score or score_topic(previous) or assistant_score
+            selectors=selectors or admission_selectors(previous)
         elif needs_search(previous) and re.search(r'[a-z]{3}',re.sub(r'\b(?:vay|nam|bao|nhieu|the|con|la)\b','',p)):
             topic=previous[:200];is_score=score_topic(previous)
         elif score_topic(previous) and assistant_topic:
             topic=assistant_topic;is_score=True
-        if topic:
+        if topic and (is_score or not clarification):
             prior=re.search(r'\b(?:19|20)\d{2}\b',previous)
             previous_year=prior[0] if prior else None
-            selectors=admission_selectors(previous)
+            selectors=selectors or admission_selectors(previous)
             break
     if not topic and elliptical and not assistant_score:
         # A career name alone does not identify a quantity (score, salary, intake...).
@@ -130,7 +141,15 @@ def public_search_plan(session, message):
     if not topic:
         plan['ambiguous']=elliptical
         return plan
-    year=years[0] if years else previous_year
+    if clarification:
+        if not (is_score or assistant_score):return {'query':message,'follow_up':False,'ambiguous':False}
+        topic=police_topic(message) or topic
+        current_selectors=admission_selectors(message)
+        # Replace only the fields just clarified; keep other known cohort fields.
+        for pattern in [r'\b(?:nữ|nam)\b',r'miền (?:Bắc|Nam)',r'\b[A-D]\d{2}\b',r'Nghiệp vụ (?:Cảnh sát|An ninh)|An toàn thông tin']:
+            if re.search(pattern,current_selectors):selectors=re.sub(pattern,'',selectors)
+        selectors=re.sub(r'\s+',' ',selectors+' '+current_selectors).strip()
+    year=years[0] if years else recent_year or previous_year
     if police_topic(topic) and (is_score or assistant_score):
         query='điểm chuẩn '+topic
         if selectors:query+=' '+selectors

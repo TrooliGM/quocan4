@@ -147,3 +147,19 @@ class ContextQualityTests(unittest.TestCase):
         with patch.object(s.DDGSSearch,'_search',side_effect=search),patch.object(s.asyncio,'timeout',side_effect=scaled_timeout):
             rows=asyncio.run(s.DDGSSearch().search('public synthetic query'))
         self.assertEqual(rows,[GOOD])
+
+    def test_clarification_carries_most_recent_followup_year_not_old_year(self):
+        session=self.session();session['messages'] += [
+            {'role':'user','content':'Vậy năm 2020 là bao nhiêu ạ?'},
+            {'role':'assistant','content':'Em hỏi điểm chuẩn trường/ngành Công an nào?'}]
+        plan=public_search_plan(session,'Học viện Cảnh sát nhân dân, nam, tổ hợp A01 nhé.')
+        self.assertEqual(plan['query'],'điểm chuẩn Học viện Cảnh sát nhân dân nam A01 năm 2020')
+        self.assertTrue(plan['follow_up']);self.assertTrue(plan['requires_score'])
+        session['messages'].append({'role':'user','content':'Học viện Cảnh sát nhân dân, nam, tổ hợp A01 nhé.'})
+        self.assertIn('năm 2020',public_search_query(session,'Ngành Nghiệp vụ Cảnh sát nhé.'))
+        question='Giải thích an toàn thông tin là gì?'
+        self.assertEqual(public_search_query(session,question),question)
+
+    def test_official_school_abbreviation_matches_same_entity_not_other_school(self):
+        self.assertTrue(s.relevant('điểm chuẩn Học viện Cảnh sát nhân dân năm 2020','Điểm chuẩn Học viện CSND 2020','Nam A01: 23,09 điểm.'))
+        self.assertFalse(s.relevant('điểm chuẩn Đại học Cảnh sát nhân dân năm 2020','Điểm chuẩn Học viện CSND 2020','Nam A01: 23,09 điểm.'))

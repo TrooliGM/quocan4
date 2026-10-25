@@ -64,7 +64,7 @@ def relevant(query,title,excerpt):
     topic=police_topic(query)
     if topic:
         if not police_topic(text):return False
-        if topic!='các trường đại học Công an nhân dân' and plain(topic) not in text:return False
+        if topic!='các trường đại học Công an nhân dân' and police_topic(text)!=topic and plain(topic) not in text:return False
         if score_topic(query):
             if not score_topic(text) or re.search(r'nam nhuan|bao nhieu ngay',text):return False
             years=re.findall(r'\b(?:19|20)\d{2}\b',query)
@@ -205,7 +205,7 @@ async def retrieve(uid,text):
                     return Source(title=row['title'][:240],url=url,domain=host,publisher=host,published_at=row.get('page_age') if isinstance(row.get('page_age'),str) else None,retrieved_at=datetime.now(timezone.utc).isoformat(),supporting_excerpt=excerpt,target_year=year,temporal_relation='year_mentioned_only' if year and str(year) in excerpt else 'not_established' if year else 'not_requested').model_dump()
                 except (ValueError,KeyError,TypeError,OSError,http.client.HTTPException,SearchUnavailable):return None
             candidates=await asyncio.gather(*(validate(row) for row in rows[:6]))
-            def rank(s):return s['domain'] in ('chinhphu.vn','cand.vn') or any(s['domain'].endswith(t) for t in ('.gov.vn','.edu.vn','.gov','.edu'))
+            def rank(s):return s['domain'] in ('chinhphu.vn','cand.vn') or any(s['domain'].endswith(t) for t in ('.chinhphu.vn','.cand.vn','.gov.vn','.edu.vn','.gov','.edu'))
             unique={s['url']:s for s in candidates if s and s['supporting_excerpt']}
             sources=sorted(unique.values(),key=rank,reverse=True)[:4]
             result={'status':'ok' if sources else 'no_verified_sources','target_year':year,'sources':sources,'cached':False,'attempts':attempts}
