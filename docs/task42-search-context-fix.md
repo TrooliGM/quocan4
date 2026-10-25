@@ -1,5 +1,7 @@
 # Task 4.2 — Sửa truy vấn nối tiếp và nguồn sai chủ đề
 
+Ghi chú: phần dưới mô tả checkpoint local ban đầu. Trạng thái mới hơn, Preview và các gate LIVE nằm ở [task42-context-live-validation.md](task42-context-live-validation.md); không dùng kết luận “chưa commit/Preview” ở giai đoạn cũ làm trạng thái hiện tại.
+
 ## Phạm vi
 
 Sửa local trên `feat/task-4-1-advisor-intelligence`, HEAD `fb2eca4`, worktree `.claude/worktrees/task-4-1`. Ba thay đổi tài liệu xác nhận Google Login của lượt trước đã có sẵn và được giữ nguyên. Không đổi DDGS/DeepSeek/dependency, Firebase, Neon, quota Guest, canary Search hay giao diện. Không gọi database hoặc deploy Production trong nhiệm vụ này; bản chính thức vẫn là runtime đã phát hành trước đó.

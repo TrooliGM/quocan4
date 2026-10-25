@@ -153,3 +153,7 @@ Google Login QA và hiển thị nguồn trên domain chính đã được chủ
 ## Sửa truy vấn nối tiếp — quyết định theo yêu cầu mới
 
 Ưu tiên sửa bước khôi phục query và lọc nguồn, không viết lại AI. Ngữ cảnh chỉ lấy chủ đề công khai từ lịch sử có giới hạn, không gửi survey/profile; câu mới có chủ đề rõ ràng không kế thừa chủ đề cũ. Chỉ tìm lại một lần khi các kết quả sai chủ đề, chung timeout hiện có; không tăng quota hoặc đổi provider. Nguồn có năm không tự trở thành bằng chứng điểm chuẩn. Bản sửa local đã có kiểm thử, nhưng DDGS LIVE gặp timeout và chưa nghiệm thu DeepSeek thật/Preview; không tự thay Production canary hoặc mở Search đại trà. Chi tiết docs/task42-search-context-fix.md.
+
+## Quyền phát hành có điều kiện — Search mọi role
+
+Theo yêu cầu mới nhất, Search có thể mở cho Guest/member/QA trên Production chỉ sau LIVE và an toàn đạt; không còn yêu cầu giữQA-only vĩnh viễn. Điều kiện chưa đạt: Preview đã thử DeepSeek thật và sửa ngữ cảnh, nhưng nguồn số liệu thứ cấp có sai khác với thông báo chính thức, attribution chưa ổn và Guest LIVE thiếu quota hợp lệ. Không coi thông sốenabled hoặc testmock làPASS. Vì vậy chỉ có checkpointlocal và Preview; chưapush/pháthành hay mởSearchmọirole trênmain. Không lách/reset hạn mức. Tạm giữ Productioncanary hiệnhành; bước tiếp là reader bảng chính thức an toàn, metadata nguồn đượcxácminh và nghiệmthu lại đúng các ca thiếu. Docs/task42-context-live-validation.md là trạng thái mới nhất.
