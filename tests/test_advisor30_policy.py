@@ -20,3 +20,12 @@ class PolicyTests(unittest.TestCase):
         s['messages'].append({'role':'user','content':msg})
         self.assertEqual(address_style(s,'Tôi nên bắt đầu ra sao?'),'tôi–bạn')
         self.assertEqual(address_style(s,'Đừng dùng anh–em, hãy xưng mình–bạn'),'mình–bạn')
+
+    def test_unaccented_requests_and_word_boundaries(self):
+        s={'messages':[{'role':'assistant','content':'hello','survey':{'address':'chị'}}]}
+        self.assertEqual(address_style(s,'Xung toi-ban, khong dung chi-em'),'tôi–bạn')
+        self.assertEqual(address_style(s,'Anh giai thich cho em'),'anh–em')
+        self.assertIn('không gọi em',address_style(s,'dung goi em nua'))
+        self.assertEqual(address_style(s,'Em chỉ muốn anh giải thích cho em'),'anh–em')
+        self.assertEqual(address_style(s,'Em chịu khó học cho em tự tin'),'chị–em')
+        self.assertEqual(address_style(s,'Xưng anh–em rồi đổi sang dùng tôi–bạn'),'tôi–bạn')

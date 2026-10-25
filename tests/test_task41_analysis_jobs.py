@@ -102,3 +102,13 @@ class JobTests(unittest.TestCase):
   with patch('advisor.survey_analysis.generate_analysis',AsyncMock(return_value=self.result)):self.post()
   state=jobs.attach_analysis({'session':get_store().get('owner-one',self.sid)})
   self.assertIsNone(state['survey_analysis']);self.assertNotIn('proposed_profile_items',state['survey_insights']);self.assertEqual(state['survey_insights']['summary'],self.result['summary'])
+ def test_lack_of_confidence_is_never_classified_as_strength(self):
+  survey={**self.survey,'answers':[*self.survey['answers']]};survey['answers'][2]='Em kiên nhẫn nhưng chưa tự tin giao tiếp'
+  raw={'summary':'Học sinh tự nhận kiên nhẫn, chưa tự tin giao tiếp; không phải đánh giá năng lực.',
+       'proposed_profile_items':[{'category':'strengths','value':'Chưa tự tin giao tiếp','evidence':[{'question_id':3,'excerpt':'chưa tự tin giao tiếp'}],'confidence':'rõ ràng','inference_type':'trực tiếp','proposed_action':'confirm'}],
+       'clarification_questions':[]}
+  with self.assertRaisesRegex(ValueError,'confidence_is_not_strength'):validate_analysis(raw,survey,self.sid)
+  p=raw['proposed_profile_items'][0];p.update(category='uncertainties',proposed_action='clarify')
+  self.assertEqual(validate_analysis(raw,survey,self.sid)['strengths'],[])
+  p.update(category='strengths',value='Tự nhận kiên nhẫn',evidence=[{'question_id':3,'excerpt':'kiên nhẫn'}],proposed_action='confirm')
+  self.assertEqual(validate_analysis(raw,survey,self.sid)['strengths'],['Tự nhận kiên nhẫn'])

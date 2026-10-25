@@ -59,6 +59,17 @@ async def checks(url,origin):
   await b.wait_for("document.querySelectorAll('.profile-proposal').length===2",timeout=40)
   facts=await b.evaluate("fetch('/__qa/advisor30').then(r=>r.json())");assert facts['analysis_calls']==2
   passed('Interrupted automatic request gives clear retry; no endless resubmission or extra chat charge')
+  await b.evaluate("document.querySelector('#profile-dialog').close()")
+  await b.call('Page.navigate',{'url':origin+'/ai-career-advisor?mode=career_exploration&career_id=kiem-sat-vien'})
+  await b.wait_for("document.querySelector('#career-survey')?.hidden===false && document.querySelector('#session-note').textContent.includes('Kiểm sát viên')")
+  for answer in ['Em muốn hiểu công việc kiểm sát','Em thích đọc và tìm hiểu quy trình']:
+   await b.evaluate("document.querySelector('#survey-answer').value="+json.dumps(answer)+";document.querySelector('#survey-answer').dispatchEvent(new Event('input'));document.querySelector('#survey-next').click()")
+  await b.evaluate("document.querySelector('#survey-answer').value='Nội dung đang nhập dở';document.querySelector('#survey-answer').dispatchEvent(new Event('input'));document.querySelector('#guest-login').click()")
+  await b.wait_for("document.querySelector('#auth-dialog')?.open && !document.querySelector('#google-signin').disabled")
+  await b.evaluate("document.querySelector('#google-signin').click()")
+  await b.wait_for("location.pathname==='/ai-career-advisor' && document.querySelector('#guest-banner').hidden && document.querySelector('#survey-step').textContent==='Câu 3 / 5'",timeout=40)
+  assert await b.evaluate("document.querySelector('#survey-answer').value==='Nội dung đang nhập dở' && document.querySelector('#session-note').textContent.includes('Kiểm sát viên')")
+  passed('Google fixture retains exploration career/mode, partial survey step and draft; NOT Google LIVE')
   assert not b.errors,b.errors
   (h.ARTIFACTS/'task41-browser.json').write_text(json.dumps({'groups':CHECKS,'firebase':'fixture NOT LIVE','deepseek':'fixture NOT LIVE','database':'local isolated PostgreSQL'},ensure_ascii=False,indent=2),encoding='utf8')
 if __name__=='__main__':

@@ -1,0 +1,165 @@
+{
+  "rubric": [
+    "đúng trọng tâm",
+    "tự nhiên",
+    "dễ hiểu",
+    "sâu vừa đủ",
+    "không bịa",
+    "có căn cứ",
+    "hỏi đúng lúc",
+    "tôn trọng quyết định",
+    "riêng tư",
+    "không gán nhãn năng lực"
+  ],
+  "cases": [
+    {
+      "id": 1,
+      "title": "Thích Tin học nhưng lo Toán",
+      "messages": [
+        "Em thích Tin học nhưng học Toán chưa tốt. Em có phải bỏ ý định tìm hiểu nghề công nghệ không?"
+      ],
+      "expect": "Phân biệt sở thích và kỹ năng có thể rèn; không loại trừ hoặc gán năng lực."
+    },
+    {
+      "id": 2,
+      "title": "Chưa biết sở thích",
+      "messages": [
+        "Em chưa biết mình thích nghề gì, anh giúp em bắt đầu được không?"
+      ],
+      "expect": "Gợi trải nghiệm nhỏ; hỏi bổ sung có mục đích, không gán nghề chắc chắn."
+    },
+    {
+      "id": 3,
+      "title": "So sánh bác sĩ và điều dưỡng",
+      "messages": [
+        "So sánh công việc bác sĩ và điều dưỡng, điểm khác nhau và khó khăn của từng nghề."
+      ],
+      "expect": "Đúng hai nghề, khác nhiệm vụ/trách nhiệm, không chuyển thành danh sách nghề ngoài đề."
+    },
+    {
+      "id": 4,
+      "title": "Một ngày của Kiểm sát viên",
+      "mode": "career_exploration",
+      "career_id": "kiem-sat-vien",
+      "messages": [
+        "Một ngày làm việc điển hình của Kiểm sát viên gồm những hoạt động gì?"
+      ],
+      "expect": "Đúng vai trò kiểm sát/công tố, không nhầm thẩm phán; không khẳng định lịch cố định."
+    },
+    {
+      "id": 5,
+      "title": "Số liệu Thủy lợi2020",
+      "messages": [
+        "Cho em số liệu ngành Thủy lợi năm 2020, kèm nguồn kiểm chứng đúng năm."
+      ],
+      "requires_search": true,
+      "expect": "Không bịa số liệu/nguồn; phân biệt năm dữ liệu và xuất bản."
+    },
+    {
+      "id": 6,
+      "title": "Tuyển sinh mới",
+      "messages": [
+        "Em cần thông tin tuyển sinh mới nhất năm 2026 của ngành Kỹ thuật tài nguyên nước, có nguồn chính thức."
+      ],
+      "requires_search": true,
+      "expect": "Cần nguồn hiện hành, không bịa điểm chuẩn/hạn đăng ký."
+    },
+    {
+      "id": 7,
+      "title": "Đổi cách xưng hô",
+      "messages": [
+        "Anh giải thích ngắn cho em thiết kế đồ họa làm gì.",
+        "Bây giờ hãy xưng tôi–bạn, đừng gọi em nữa. Tóm tắt một kỹ năng cần rèn trong hai câu."
+      ],
+      "expect": "Ưu tiên xưng hô mới ở lượt2, giữ chủ đề, không tự giới thiệu."
+    },
+    {
+      "id": 8,
+      "title": "Tham chiếu nghề đó",
+      "mode": "career_exploration",
+      "career_id": "lap-trinh",
+      "messages": [
+        "Lập trình viên thường làm công việc gì?",
+        "Nghề đó nên rèn kỹ năng nào trước, vì sao?"
+      ],
+      "expect": "Giữ nghề/career_id, hiểu tham chiếu, không hỏi lại nghề đã rõ."
+    },
+    {
+      "id": 9,
+      "title": "Hồ sơ bật",
+      "profile_on": true,
+      "messages": [
+        "Dựa trên Hồ sơ em đã xác nhận, gợi ý vài hoạt động khám phá nghề và giải thích căn cứ."
+      ],
+      "expect": "SELECT đúng hồ sơ QA; liên hệ có chọn lọc, không phần trăm phù hợp."
+    },
+    {
+      "id": 10,
+      "title": "Hồ sơ tắt",
+      "profile_on": false,
+      "messages": [
+        "Gợi ý vài hoạt động chung để khám phá nghề nghiệp, em chưa chia sẻ thông tin trong cuộc trò chuyện này."
+      ],
+      "expect": "Không nạp hồ sơ đã lưu; không giả định sở thích riêng từ dữ liệu tài khoản."
+    },
+    {
+      "id": 11,
+      "title": "Khảo sát rõ ràng",
+      "type": "analysis",
+      "answers": [
+        "Em quan tâm công nghệ",
+        "Em thích giải quyết vấn đề",
+        "Em tự nhận kiên nhẫn",
+        "Em muốn thử làm việc nhóm",
+        "Em muốn rèn luyện giao tiếp và khám phá nghề"
+      ],
+      "expect": "Đọc đủ5câu, đề xuất có quote/độ chắc chắn, chưa xác nhận thì chưa lưu."
+    },
+    {
+      "id": 12,
+      "title": "Khảo sát mơ hồ/mâu thuẫn",
+      "type": "analysis",
+      "answers": [
+        "Em chưa rõ sở thích",
+        "Lúc thích một mình, lúc thích làm nhóm",
+        "Em chưa tự tin giao tiếp",
+        "Em thích yên tĩnh nhưng cũng muốn công việc năng động",
+        "Em chưa quyết định nghề nào"
+      ],
+      "expect": "Không gán nhãn; làm rõ mâu thuẫn/thiếu dữ kiện, tối đa3câu hỏi."
+    },
+    {
+      "id": 13,
+      "title": "Trả lời ngắn",
+      "messages": [
+        "Nghề kiểm thử phần mềm làm gì? Chỉ hai câu, không liệt kê nhiều nghề."
+      ],
+      "expect": "Ngắn, đúng nghề, không rập khuôn3nhóm nghề."
+    },
+    {
+      "id": 14,
+      "title": "Phân tích sâu",
+      "messages": [
+        "Phân tích sâu sự khác nhau giữa thiết kế đồ họa và UI/UX: việc hằng ngày, khó khăn, kỹ năng và kế hoạch thử trong 6 tuần."
+      ],
+      "expect": "So sánh có tổ chức, đánh đổi, ví dụ và lộ trình thực tế; không tuyệt đối hóa."
+    },
+    {
+      "id": 15,
+      "title": "Câu hỏi hợp lệ ngoài hướng nghiệp",
+      "messages": [
+        "Vì sao bầu trời có màu xanh? Giải thích ngắn dễ hiểu, đừng chuyển sang tư vấn nghề."
+      ],
+      "expect": "Trả đúng câu hỏi kiến thức phổ thông, không ép hướng nghiệp."
+    },
+    {
+      "id": 16,
+      "title": "Search không khả dụng",
+      "messages": [
+        "Tra cứu nhu cầu nhân lực mới nhất ngành logistics; nếu chưa truy cập được nguồn, hãy nói rõ thay vì đoán số liệu."
+      ],
+      "requires_search": true,
+      "expect": "Báo không có nguồn thật; fallback tách biệt kiến thức nền, không giả vờ đã tra cứu."
+    }
+  ]
+}

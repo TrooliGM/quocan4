@@ -166,7 +166,7 @@ print('isolated-runtime-ok')
         from advisor.graph import compress_context
         from advisor.store import empty_profile
         import asyncio
-        state={'profile':empty_profile(),'session':{'summary':''},'message':'Em thích vẽ',
+        state={'profile':empty_profile(),'session':{'summary':'','messages':[{'role':'user','content':'fixture'} for _ in range(5)]},'message':'Em thích vẽ',
                'reply':{'answer':'Hãy thử thiết kế một poster.'}}
         with patch.dict(os.environ, {'AI_DEMO_MODE':'false'}), patch('advisor.graph.Path.read_text',side_effect=FileNotFoundError('private-path')):
             self.assertEqual(asyncio.run(compress_context(state)),{})
@@ -211,14 +211,38 @@ print('isolated-runtime-ok')
                 sid=client.post('/api/ai/sessions',json={'remember':True}).json()['session']['id']
                 self.assertEqual(client.put('/api/ai/sessions/'+sid+'/survey',json={
                     'answers':['Vẽ và công nghệ']*5,'address':'chị'}).status_code,200)
+                # Compression now runs every sixth turn, not on every short message.
+                store=get_store();row=store.get('release-test',sid)
+                row['messages'] += [{'role':role,'content':'Synthetic previous turn'} for _ in range(5) for role in ('user','assistant')]
+                store.write('release-test',row)
                 body={'session_id':sid,'request_id':str(uuid4()),'message':'Em thích vẽ'}
                 result=client.post('/api/ai/chat',json=body)
                 self.assertEqual(result.status_code,200,result.text)
-                self.assertEqual(len(result.json()['session']['messages']),3)
+                self.assertEqual(len(result.json()['session']['messages']),13)
                 self.assertIn('poster',result.json()['session']['messages'][-1]['content'])
                 self.assertTrue(client.post('/api/ai/chat',json=body).json()['duplicate'])
                 self.assertEqual(calls,2)
         finally:application.app.dependency_overrides.pop(require_user,None)
+
+    def test_usage_metrics_are_aggregate_only_and_malformed_usage_is_nonfatal(self):
+        import asyncio
+        from deepseek_client import post_completion, message_text
+        from advisor.performance import current, RequestPerformance
+        async def run():
+            for usage,expected in [({'prompt_tokens':123,'completion_tokens':45},(123,45)),
+                                   ({'prompt_tokens':'private-body','completion_tokens':-1},(0,0)),(None,(0,0))]:
+                async def fake_post(client,endpoint,**kwargs):
+                    return httpx.Response(200,json={'choices':[{'message':{'content':'valid answer'}}],'usage':usage},request=httpx.Request('POST',endpoint))
+                state=RequestPerformance();token=current.set(state)
+                try:
+                    with patch.dict(os.environ,{'DEEPSEEK_API_KEY':'test-key','DEEPSEEK_BASE_URL':'https://api.deepseek.com'}),patch.object(httpx.AsyncClient,'post',fake_post):
+                        response=await post_completion({'messages':[{'role':'user','content':'private-body'}]})
+                    self.assertEqual(message_text(response),'valid answer')
+                    self.assertEqual((state.prompt_tokens,state.completion_tokens),expected)
+                    self.assertEqual(state.provider_calls,1)
+                    self.assertNotIn('private-body',state.header());self.assertNotIn('test-key',state.header())
+                finally:current.reset(token)
+        asyncio.run(run())
 
 
 if __name__=='__main__':unittest.main()

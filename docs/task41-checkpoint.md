@@ -27,3 +27,13 @@ Preview metadata có DeepSeek/Firebase binding dùng chung targetProduction+Prev
 Sau5câu, UI tự gọi taskendpoint, không gửi technicalprompt vào chat/không trừquota8. Có analysisloading riêng, autorecoverpending khi mởlại; failed mới cóRetry. Không báo đangtìmweb khi chưa cótoolstatus thật. Profile thẻkem/xanh với căn cứ thu gọn, accept/edit/reject, RAMdraft theoowner cóversionfence và xóa khilogout; responsejob chỉmergeanalysismetadata, không ghi đè tinchat mới/flagcủaUI. Đồngbộchat.html/public copy vàcacheversionloader.
 
 Chrome+PGlocal/Firebase+LLMfixture:5 nhóm PASS autoanalysis0chat,0implicitconfirm; accept/edit/reject vàreuse; savefailuregiữdraft; bubble/Copy/mobile vàmanualchat1quota; retrynetworkfailure khônglặpvôhạn. Ảnhartifacts/task41-*; đã xemdesktop, tinhchỉnh nútLàmrõthêm đồngbộpalette. Không gọifixture làLIVE. Node syntaxPASS. CònPreviewbuild/LIVE16eval/GooglePreview cầnnghiệmthu.
+
+## Bước4a — nghiệm thu có kiểm soát
+
+Đã build Preview377a3d7 READY, database schema-only và role riêng; thêm đúng hostname Preview vào Firebase authorized domains, giữ miền cũ. Email/password Firebase SDK và DeepSeek thật qua UI PASS:5câu tự tạo1analysis/0chat,0confirmed trước click,1confirmed sau accept, mở hồ sơ không gọi AI lại, desktop/mobile không tràn. Google popup Preview chưa thử thật; fixture bổ sung giữ exploration/career/step/draft PASS. Tổng6 nhóm browser fixture PASS.
+
+Đã chạy32 mẫu thành công qua DeepSeek thật,16tình huống trước/sau trên hai Preview cùng model deepseek-flash và staging riêng. HTTP200 không đồng nghĩa chất lượng đạt. Đọc mẫu12 phát hiện thiếu tự tin bị xếp strengths dù summary thận trọng: bổ sung validator từ chối kiểu gán này và prompt phân biệt uncertainty với mong muốn rèn kỹ năng; chưa đánh dấu mẫu12 PASS trước khi thử lại bản sửa. Bổ sung parser xưng hô thiếu dấu, giữ ranh giới từ để không nhầm chỉ/chịu với chị.
+
+Hồi quy runtime phát hiện2 fixture cũ giả định compression mọi lượt; đã sửa fixture sang lượt6 để tiếp tục kiểm tra lỗi memory không mất câu trả lời, không thay hành vi mới để chiều test. Các test bị ảnh hưởng chạy lại PASS; thêm kiểm metrics chỉ aggregate và usage hỏng không chặn câu trả lời. Không chạy lại suite toàn diện.
+
+Tắt Git auto-deploy CHỈ nhánh Task4.1 để push checkpoint không tạo Preview thiếu binding database/canary; Preview dùng CLI với staging explicit. Không đổi Production Branch/routes/rewrites hoặc Production env. Còn thử lại mẫu12/xưng hô trên candidate cuối, chấm rubric, tổng hợp kết quả và xác minh Production không đổi. Brave vẫn BLOCKED vì chưa có cấu hình được phép; không giả nguồn.

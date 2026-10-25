@@ -8,10 +8,15 @@ def address_style(session, latest=''):
     for text in [m['content'] for m in session.get('messages',[]) if m['role']=='user']+[latest]:
         text=unicodedata.normalize('NFC',text).lower()
         # Cặp xưng hô bị phủ định không phải lựa chọn mới của người dùng.
-        text=re.sub(r'(?:không|đừng|dừng|khỏi)\s+(?:xưng|dùng|gọi)\s+(?:theo\s+)?(?:anh|chị|mình|tôi)\s*[-–—/,]\s*(?:em|bạn)', '', text)
-        if re.search(r'(đừng|không|dừng).{0,12}gọi.{0,6}em|trang trọng',text):style='tôi–bạn; diễn đạt trang trọng, không gọi em'
-        for pattern,value in [(r'(xưng|dùng|gọi).{0,18}mình\s*[-–—/,]\s*bạn','mình–bạn'),(r'(xưng|dùng|gọi).{0,18}tôi\s*[-–—/,]\s*bạn','tôi–bạn'),(r'anh.{0,25}(cho em|[-–—/]\s*em)','anh–em'),(r'chị.{0,25}(cho em|[-–—/]\s*em)','chị–em')]:
-            if re.search(pattern,text):style=value
+        text=re.sub(r'\b(?:không|khong|đừng|dung|dừng|khỏi|khoi)\s+(?:xưng|xung|dùng|dung|gọi|goi)\s+(?:theo\s+)?(?:anh|chị|chi|mình|minh|tôi|toi)\s*[-–—/,]\s*(?:em|bạn|ban)\b', '', text)
+        # Preserve accented words: folding "chỉ" into "chi" would invent a gender choice.
+        patterns=[(r'\b(?:đừng|dung|không|khong|dừng).{0,12}(?:gọi|goi).{0,6}em\b|\b(?:trang trọng|trang trong)\b','tôi–bạn; diễn đạt trang trọng, không gọi em'),
+                  (r'\b(?:xưng|xung|dùng|dung|gọi|goi).{0,18}(?:mình|minh)\s*[-–—/,]\s*(?:bạn|ban)\b','mình–bạn'),
+                  (r'\b(?:xưng|xung|dùng|dung|gọi|goi).{0,18}(?:tôi|toi)\s*[-–—/,]\s*(?:bạn|ban)\b','tôi–bạn'),
+                  (r'\banh\b.{0,25}(?:cho em|[-–—/]\s*em)\b','anh–em'),
+                  (r'\b(?:chị|chi)\b.{0,25}(?:cho em|[-–—/]\s*em)\b','chị–em')]
+        choices=[(match.start(),value) for pattern,value in patterns for match in re.finditer(pattern,text)]
+        if choices:style=max(choices,key=lambda pair:pair[0])[1]
     return style
 
 def address_instruction(session, latest):
