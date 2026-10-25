@@ -26,10 +26,10 @@ class Handler(SimpleHTTPRequestHandler):
         if self.path=='/fixture':
             body='''<!doctype html><meta charset="utf-8"><title>Navigation fixture</title><div id="result"></div>
             <script type="module">
-            import {navigationButtons,navigationPath} from '/public/assets/navigation-actions.js';
+            import {navigationButtons,navigationPath,keepVerifiedCitations} from '/public/assets/navigation-actions.js';
             import {beginLogin,loginDestination,finishLogin,safeReturnPath} from '/public/assets/chat-journey.js';
             window.clicked=0;window.attacked=0;
-            window.harness={navigationButtons,navigationPath,beginLogin,loginDestination,finishLogin,safeReturnPath};
+            window.harness={navigationButtons,navigationPath,keepVerifiedCitations,beginLogin,loginDestination,finishLogin,safeReturnPath};
             sessionStorage.setItem('fixture-draft','nội dung khảo sát và tin nhắn');
             window.ready=true;
             </script>'''.encode()
@@ -59,6 +59,10 @@ async def run(socket_url,origin):
         assert await b.evaluate("(()=>{const el=harness.navigationButtons("+json.dumps(items)+",()=>window.clicked++);document.querySelector('#result').append(el);return el.querySelectorAll('a').length})()") == 2
         assert await b.evaluate("document.querySelectorAll('#result img, #result script').length===0 && window.attacked===0")
         assert await b.evaluate("[...document.querySelectorAll('#result a')].every(a=>a.target==='_blank'&&a.rel.includes('noopener'))")
+        assert await b.evaluate("""(()=>{const box=document.createElement('div');
+        box.innerHTML='<a href="//evil.test">ngoài</a><a href="/?career=unknown">tự tạo</a><a href="https://example.gov.vn/report">nguồn</a>';
+        harness.keepVerifiedCitations(box,[{url:'https://example.gov.vn/report'}]);
+        return box.querySelectorAll('a').length===1&&box.querySelector('a').rel.includes('noopener')&&box.textContent==='ngoàitự tạonguồn';})()""")
         for width in [1440,390]:
             await b.call('Emulation.setDeviceMetricsOverride',{'width':width,'height':844,'deviceScaleFactor':1,'mobile':width<500})
             assert await b.evaluate('document.documentElement.scrollWidth<=innerWidth+1')

@@ -33,3 +33,11 @@ Thêm3 ca LIVE: source OWASP thực chứa lệnh prompt injection được xử
 Bản sửa: hàng rào tham chiếu hẹp dựa vào tên/ID thật vừa xuất hiện (không nghề hardcode), cung cấp reference.status=ambiguous cho model và bỏ hành động chọn nghề khi chưa rõ. Nếu model vẫn chọn, hỏi làm rõ bằng danh sách tên thật; không thêm lượt LLM. Ý định/nội dung hội thoại vẫn do DeepSeek xử lý, đây chỉ là kiểm tra tính nhất quán của tham chiếu. Unit mới với hai nghề ngẫu nhiên PASS; nhóm navigation11/11 PASS sau sửa, tổng62 phương thức đã kiểm. Cần kiểm lại đúng ca này trên Preview mới, không làm lại các ca đã PASS.
 
 Guest staging được xác minh chỉ đọc:8/8, ngân sách cấp phiên/IP10/10 còn khoảng49.733 giây tại lần kiểm tra. Không dùng Guest Production hoặc tạo định danh/staging khác để lách. Guest LIVE Task4.3 vẫn BLOCKED; role Guest được kiểm trong PostgreSQL local có mock model. Người dùng trả lời chưa kiểm tra được Google popup, giữ BLOCKED mục này. Chrome Member đã mở đúng thư viện/hồ sơ thật, reload nút và draft, desktop/mobile PASS; QA đang kiểm tra trang đích và khảo sát đúng nghề.
+
+## Hoàn thiện sau kiểm tra
+
+Preview ceef90d / dpl_8CamYvNpyftiMbMLnKVrg3XuzTHt đã kiểm lại3 lượt DeepSeek LIVE: nêu2 nghề, “nghề đó” hỏi làm rõ/không phát nút chọn thay, rồi “nghề thứ hai” mở đúng truyện Kỹ sư điện tử. Guard đạt đúng ca đã FAIL trước. Các luồng cũ không làm lại toàn bộ.
+
+Chrome thực trên Preview đầu đã mở đúng thư viện Truyện nghề, modal Chuyên viên phân tích nghiệp vụ, truyện Kỹ sư hàng không và AI Nhân viên buồng phòng. AI đích hiện khảo sát5 bước, đúng career_context và chỉ có lời chào, chưa gửi câu hỏi AI. Đổi trang/newtab giữ draft/tab cũ; metadata hiện sau reload, desktop/mobile PASS. Hai lỗi harness (selector dialog và so sánh URL trước khi ứng dụng đổi sang conversation) đã sửa trong script QA, không sửa sản phẩm để làm test PASS.
+
+Rà soát liên kết Markdown: DOMPurify ngăn script, nhưng href tương đối/protocol-relative cũ có thể đi vòng lớp nút điều hướng. Bổ sung kiểm tra chỉ giữ citation URL trong sources đã kiểm, mọi link Markdown tự tạo khác thành văn bản; nút điều hướng nội bộ vẫn qua metadata riêng. Chrome fixture với //evil.test, /?career=unknown và một citation HTTPS được kiểm: chỉ citation thật còn là link, navigation/draft/newtab không đổi. Tăng version asset tránh cache. Cần build Preview cuối và kiểm giao diện/citation thực tế.

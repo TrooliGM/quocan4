@@ -5,7 +5,7 @@ import {guestSession} from './ai-access.js';
 import {chatLoginURL, saveDraft, loadDraft} from './chat-journey.js';
 import {explorationQuestion} from './career-question.js';
 import {storyQuestion} from './story-journey.js';
-import {navigationButtons} from './navigation-actions.js?v=task43-1';
+import {navigationButtons,keepVerifiedCitations} from './navigation-actions.js?v=task43-2';
 
 const $ = (selector) => document.querySelector(selector);
 let auth, sdk, user, config, active = null, sessions = [], pending = null;
@@ -247,13 +247,13 @@ async function refreshHistory() {
   if (epoch !== identityEpoch) return;
   sessions = revision===historyRevision ? data.items : [...new Map([...data.items,...sessions].map(s=>[s.id,s])).values()].sort((a,b)=>b.updated_at.localeCompare(a.updated_at)); renderHistory();
 }
-function markdown(element, content) {
+function markdown(element, content, sources=[]) {
   if (window.marked && window.DOMPurify) {
     element.innerHTML = window.DOMPurify.sanitize(window.marked.parse(content, {breaks:true}), {
       ALLOWED_TAGS: ['p','br','strong','em','ul','ol','li','blockquote','h2','h3','h4','pre','code','hr','del','a'],
       ALLOWED_ATTR: ['href','title'], ALLOW_DATA_ATTR: false
     });
-    element.querySelectorAll('a').forEach((link) => { link.target = '_blank'; link.rel = 'noopener noreferrer'; });
+    keepVerifiedCitations(element,sources);
   } else { element.textContent = content; element.style.whiteSpace = 'pre-wrap'; }
 }
 function plainMessage(message) {
@@ -265,7 +265,7 @@ function messageRow(message) {
   const body = document.createElement('div'); body.className = 'message-body';
   const label = document.createElement('span'); label.className = 'message-label'; label.textContent = 'Bạn';
   const bubble = document.createElement('div'); bubble.className = 'message-bubble';
-  if (message.role === 'assistant') markdown(bubble, message.content);
+  if (message.role === 'assistant') markdown(bubble, message.content,message.sources);
   else bubble.textContent = message.request_id === active?.messages?.[0]?.survey?.analysis_request_id
     ? 'Em đã hoàn thành khảo sát và muốn khám phá những hướng nghề đáng tìm hiểu.' : message.content;
   if (message.recommendations?.length) {

@@ -1,4 +1,14 @@
 // Render server-validated metadata. URL shape is checked again before DOM use.
+export function keepVerifiedCitations(element,sources=[]) {
+  const allowed=new Set();
+  for(const source of Array.isArray(sources)?sources:[]){
+    try{const url=new URL(source.url);if(url.protocol==='https:'&&!url.username&&!url.password)allowed.add(source.url);}catch{}
+  }
+  for(const link of element.querySelectorAll('a')){
+    if(!allowed.has(link.getAttribute('href')))link.replaceWith(document.createTextNode(link.textContent));
+    else{link.target='_blank';link.rel='noopener noreferrer';}
+  }
+}
 export function navigationPath(kind,id) {
   if(id!==null && (typeof id!=='string'||!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id)||id.length>80))return null;
   if(kind==='career_profile')return id===null?'/#careers':'/?career='+id+'#careers';
