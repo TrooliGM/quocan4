@@ -41,3 +41,32 @@ Preview ceef90d / dpl_8CamYvNpyftiMbMLnKVrg3XuzTHt đã kiểm lại3 lượt De
 Chrome thực trên Preview đầu đã mở đúng thư viện Truyện nghề, modal Chuyên viên phân tích nghiệp vụ, truyện Kỹ sư hàng không và AI Nhân viên buồng phòng. AI đích hiện khảo sát5 bước, đúng career_context và chỉ có lời chào, chưa gửi câu hỏi AI. Đổi trang/newtab giữ draft/tab cũ; metadata hiện sau reload, desktop/mobile PASS. Hai lỗi harness (selector dialog và so sánh URL trước khi ứng dụng đổi sang conversation) đã sửa trong script QA, không sửa sản phẩm để làm test PASS.
 
 Rà soát liên kết Markdown: DOMPurify ngăn script, nhưng href tương đối/protocol-relative cũ có thể đi vòng lớp nút điều hướng. Bổ sung kiểm tra chỉ giữ citation URL trong sources đã kiểm, mọi link Markdown tự tạo khác thành văn bản; nút điều hướng nội bộ vẫn qua metadata riêng. Chrome fixture với //evil.test, /?career=unknown và một citation HTTPS được kiểm: chỉ citation thật còn là link, navigation/draft/newtab không đổi. Tăng version asset tránh cache. Cần build Preview cuối và kiểm giao diện/citation thực tế.
+
+## Bàn giao cuối — 26/10/2026 (Asia/Bangkok)
+
+- Nhánh feat/task-4-3-ecosystem-actions, worktree D:/khkt/.claude/worktrees/task-4-3. Runtime code cuối **04a67da7a8dc5c65d18a7b227f7eb8de491c7a68**. Preview **dpl_DahG7koM2gkszvbciy7C7XfkQqLc**, READY, target Preview: https://quocan4-dod5r4joj-khkt3.vercel.app/ai-career-advisor . Deployment Protection giữ nguyên, có thể yêu cầu đăng nhập Vercel.
+- Dùng đúng staging br-morning-tooth-aznv081q đã có, không sao chép dữ liệu Production. DeepSeek deepseek-flash và DDGS thật, không demo. Hai nhóm Member/QA dùng cùng function/pipeline; dữ liệu hồ sơ nhạy cảm giữ QA-only như trước, không gắn quyền navigation vào allowlist đó.
+- **62 phương thức Python local PASS**, 0 FAIL còn lại trong các nhóm đã chạy: navigation11, pipeline Task4.2 năm phương thức, shared protection15, score13, search-context18. Tình huống Firebase/provider trong unit là mock; PostgreSQL là cluster local thật. Không chạy Super Board toàn diện.
+- **16 phản hồi chat DeepSeek LIVE** ở các candidate: 10 ca đầu +3 ca bổ sung +3 lượt kiểm lại guard. Bao gồm yêu cầu viết tắt/không dấu, mở hồ sơ/truyện/AI của các nghề lấy ngẫu nhiên (Chuyên viên phân tích nghiệp vụ, Kỹ sư hàng không, Nhân viên buồng phòng, Nhà sử học), tham chiếu/thứ tự, gợi ý từ vẽ và Toán, chuyển chủ đề; mẫu source OWASP thật có lệnh injection không sinh hành động trái ý. Có một lỗi chọn thay khi mơ hồ ở candidate đầu, đã sửa và nghiệm thu riêng trên ceef90d; không gọi đó là PASS trước khi sửa. Không tuyên bố chống mọi kiểu injection hoặc mọi cách diễn đạt.
+- Gợi ý từ sở thích: model giải thích Kiến trúc sư/Thiết kế nội thất và hoạt động an toàn, hỏi học sinh muốn chọn nghề nào. Không ép mọi câu đó phải có nút. Khi chọn rõ, mở đúng truyện; với tham chiếu chưa rõ thì hỏi một câu, không tự lựa chọn.
+- Lịch sử/retry metadata đã kiểm qua API staging; giữ đúng dữ liệu đã lưu, không gọi lại model khi replay. JSON messages dùng schema cũ, không thêm bảng/cột hoặc migration.
+- **Chrome thật SDK email/password**: Member mở thư viện và modal nghề thật, QA mở truyện cụ thể và AI career_exploration đúng career_id. AI đích chỉ có greeting và khảo sát chưa hoàn tất (chưa gọi chat AI); tab cũ giữ draft. Nút còn sau reload. Viewport1440/390 PASS. Candidate cuối kiểm lại Member và citation OWASP qua DOM; các destination QA đã PASS được kế thừa vì frontend action schema/routes không đổi. Không dùng xác thực mock trong phép thử này. Ảnh local: artifacts/task43-member-1440.png, task43-member-390.png, task43-qa-1440.png, task43-qa-390.png (không commit).
+- Local Chrome fixture: XSS từ label hiển thị dạng text, href không canonical/protocol-relative bị chặn; Markdown chỉ giữ citation đã có trong nguồn; login-return giữ career/mode/career_id/conversation nội bộ và bỏ return_to ngoài allowlist; click mở tab mới, không POST API trong fixture. Hành vi Google popup thật không được suy ra từ fixture.
+- Bảo mật Preview cuối: token sai401; khác chủ session404; client tự gửi navigation_actions422; Origin khác403; Guest hết quota429; đường dẫn dotenv/backend/artifacts404. Thư viện200 nghề/12 nhóm, header/bubble và cả Search4.2 được bảo toàn. Không in/lưu secret trong tài liệu hoặc commit.
+- Chỉ thêm hostname các Preview trong đợt vào Firebase authorized domains, giữ tất cả miền cũ, không đổi project/key hoặc logic đăng nhập.
+
+### BLOCKED, chưa đủ nghiệm thu toàn bộ
+
+1. **Guest navigation LIVE**: Guest staging QA cũ đã8/8, ngân sách cấp phiên/IP/ngày10/10. Không reset, đổi IP/định danh/DB, hoặc mang Guest Production sang staging để vượt giới hạn. Local PostgreSQL kiểm cả Guest/Member/QA PASS nhưng không gọi đó là Guest LIVE.
+2. **Google popup mới**: người dùng trả lời chưa kiểm tra được. SDK password, draft/newtab và helper return-path PASS không thay thế bước popup Google thật. Cần thử trên Preview khi có thể: đăng nhập Google, mở hồ sơ nghề từ nút, quay lại chat và tải lại lịch sử; không gửi mật khẩu/token.
+
+**Preview sẵn sàng để người dùng duyệt; chưa nghiệm thu LIVE toàn bộ và KHÔNG phát hành Production.** Production vẫn dpl_CoeNba7iFQNA7412ibdQbCUqqfwP / bd906df (Task4.2 cho mọi role), đã xác minh lại bằng GET control plane. Không merge, push nhánh Task4.3 hoặc deploy Production. Các thay đổi cũ ở D:/khkt và worktree Task4.2 được giữ nguyên.
+
+### File thay đổi
+
+- Backend: advisor/navigation.py (schema/registry/validation/context), advisor/graph.py (cùng completion + metadata), advisor/prompt.txt, advisor/postgres_store.py và advisor/legacy_ai.py (lưu/retry metadata).
+- Frontend: public/assets/navigation-actions.js, public/assets/chat.js, public/assets/chat.css, public/assets/chat-journey.js; chat.html và public/assets/advisor-entry.js đổi version asset. Không sửa career_library.py, story_library.py hoặc dữ liệu200 nghề/Truyện nghề.
+- Kiểm thử: tests/test_navigation_actions.py, tests/browser_navigation.py.
+- Báo cáo/bộ nhớ: tài liệu này, docs/project-memory.md, docs/decisions.md.
+
+Các checkpoint sau runtime nếu có chỉ cập nhật báo cáo, không đồng nghĩa Preview build lại code. Khi tiếp tục, kế thừa các PASS trên và chỉ chạy lại phần bị ảnh hưởng hoặc còn BLOCKED.
