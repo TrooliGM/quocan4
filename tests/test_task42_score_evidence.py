@@ -73,6 +73,16 @@ class ScoreEvidenceTests(unittest.TestCase):
         self.assertIsNone(e.grounded_answer({'status':'not_needed'}))
         self.assertFalse(e.score_lookup('Giải thích điểm chuẩn Công an là gì?'))
 
+    def test_new_unsupported_links_do_not_crowd_out_previously_verified_announcement(self):
+        old={**SOURCE,'verification_level':'official_score_table_read'}
+        other=[{**SOURCE,'url':f'https://hvcsnd.edu.vn/image-notice-{i}','title':'Thông báo điểm chuẩn 2020'} for i in range(4)]
+        async def read(url):return {**self.page(),'cached':False} if url==URL else None
+        with patch.object(e,'read_announcement',new=AsyncMock(side_effect=read)) as reader:
+            result=asyncio.run(e.ground_scores(QUERY.replace('A01','C03'),{'status':'ok','sources':other},
+                              {'messages':[{'role':'assistant','sources':[old]}]}))
+        self.assertEqual(result['score_evidence']['row']['score'],'18.88')
+        self.assertEqual(reader.await_args_list[0].args,(URL,));self.assertEqual(reader.await_count,1)
+
     def test_safe_reader_cache_does_not_claim_new_fetch(self):
         with patch.object(s,'_source_request',return_value=DOCUMENT) as fetch:
             a=asyncio.run(e.read_announcement(URL));b=asyncio.run(e.read_announcement(URL))

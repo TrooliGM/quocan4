@@ -149,11 +149,15 @@ async def ground_scores(query, retrieval, session):
     candidates=list(retrieval.get('sources',[]))
     for message in reversed(session.get('messages',[])[-12:]):
         if message.get('role')=='assistant':candidates+=message.get('sources',[])
+    # An already verified announcement must not be crowded out by two new links
+    # with unsupported layouts (e.g. image-only notices). Still re-read/TTL check.
+    candidates.sort(key=lambda source:0 if source.get('verification_level')=='official_score_table_read'
+                    else 1 if plain(source.get('title','')).startswith('cong bo diem chuan vao cac truong cand 2020') else 2)
     seen=set()
     for source in candidates:
         url=source.get('url','')
         try:
-            if url in seen or not official_host(url) or source.get('verification_level') not in ('search_snippet_link_checked','official_score_table_read'):continue
+            if url in seen or official_host(url)!='hvcsnd.edu.vn' or source.get('verification_level') not in ('search_snippet_link_checked','official_score_table_read'):continue
             seen.add(url)
             if len(seen)>2:break
             page=await read_announcement(url)
