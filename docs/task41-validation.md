@@ -1,11 +1,11 @@
 # Task 4.1 — nghiệm thu Preview, 25/10/2026
 
-Checkpoint trung gian: đang chốt kiểm thử periodicmemory; URL/source cuối sẽ cập nhật sau khi build và kiểm tra runtime. Các kết quả dưới đây ghi đúng bản đã chạy.
+Kết luận: **READY FOR QA PREVIEW**, chưa đủ nghiệm thu Search/Google popup trên Preview để phát hành rộng. Không thay đổi kết luận43PASS/10BLOCKED của đợt Task4 cũ bằng số liệu Task4.1.
 
 ## Phạm vi và điểm khôi phục
 
-- Nhánh: `feat/task-4-1-advisor-intelligence`, nền `dba80a6` (runtime Production `957ffde` cùng tài liệu hotfix). Checkpoint: `b8b4179` → `56678c9` → `377a3d7` → `e2fc257` → `2d0a2ea`.
-- Candidate cuối: `2d0a2eafe97a029c9b1bad60050fc9e802beb05a`, deployment `dpl_84sKx2z9ZitNur6dB3or6zASdZfz`, **READY, Preview**, [mở bản thử](https://quocan4-9js0hucge-khkt3.vercel.app).
+- Nhánh: `feat/task-4-1-advisor-intelligence`, nền `dba80a6` (runtime Production `957ffde` cùng tài liệu hotfix). Checkpoint: `b8b4179` → `56678c9` → `377a3d7` → `e2fc257` → `2d0a2ea` → `a2a2f76`.
+- Candidate cuối: `a2a2f76fe3f68814174ebbe444a10398942edf90`, deployment `dpl_GCno2S2r4NQqqqZswEJVU4jNZej3`, **READY, Preview**, [mở bản thử](https://quocan4-7x3jqli76-khkt3.vercel.app).
 - Production được đối chiếu bằng Vercel API, vẫn `957ffde390f70acbcd63045bc21bf7f3459b5ca6` / `dpl_BwthFvvNpNDscwEuKPC744bVe38z`. Không promote, merge, deploy hoặc ghi dữ liệu thử vào Production.
 - Neon Preview: nhánh schema-only `task41-preview-schema-20261025` / `br-morning-tooth-aznv081q`, role riêng `task41_preview_app`, database `neondb`. Ban đầu cả 8 bảng đều 0 dòng; không sao chép dữ liệu học sinh. Schema006 được thừa hưởng qua schema clone; không chạy lại migration006 trên Neon.
 - Thử nghiệm chỉ dùng tài khoản QA/dữ liệu tổng hợp. Artifacts thô nằm ngoài Git, phản hồi/credentials QA được mã hóa DPAPI trên máy. Tài liệu không chứa UID/email/token/connection string.
@@ -16,7 +16,7 @@ Preview có Vercel Deployment Protection: cần tài khoản Vercel có quyền 
 
 Mã cũ phân tích khảo sát trong luồng chat, kèm lời gọi nén bộ nhớ thường xuyên; mở hồ sơ phải gửi một prompt kỹ thuật, dễ phát sinh thêm lượt chat. Context chứa nhiều dữ liệu nghề/đề xuất lặp và có chỉ thị gợi ý ba nhóm nghề khi người dùng đang hỏi cụ thể. Bộ phân loại xưng hô trước đây chủ yếu nhận câu có dấu. Không có Brave key nên câu cần số liệu mới không thể có nguồn thật.
 
-Đã bổ sung xử lý intent/detail không cần LLM router, lịch sử tối đa40 message/12.000 ký tự, giữ role và tên nghề gợi ý; chọn tối đa6 tham chiếu nghề. Ngữ cảnh khảo sát có question/answer, hồ sơ confirmed có block độc lập ngay trước câu hỏi mới. Chỉ attach bản phân tích đã có, không chèn cả danh sách proposal mỗi lượt. Nén bộ nhớ mỗi6turn hoặc lịch sử dài; câu ngắn không nén thêm. Quy tắc mới giữ chủ đề/career_id/mode, yêu cầu xưng hô mới nhất kể cả thiếu dấu và phân biệt yêu cầu được tư vấn với mong muốn rèn kỹ năng.
+Đã bổ sung xử lý intent/detail không cần LLM router, lịch sử tối đa40 message/12.000 ký tự, giữ role và tên nghề gợi ý; chọn tối đa6 tham chiếu nghề. Ngữ cảnh khảo sát có question/answer, hồ sơ confirmed có block độc lập ngay trước câu hỏi mới. Chỉ attach bản phân tích đã có, không chèn cả danh sách proposal mỗi lượt. Nén bộ nhớ mỗi6turn hoặc lịch sử dài; câu ngắn không nén thêm. Bộ nén nhận thêm recent_turns córole, tối đa6000ký tự, để giữ các chia sẻ giữa hai lần nén, không chỉ lượt cuối. Quy tắc mới giữ chủ đề/career_id/mode, yêu cầu xưng hô mới nhất kể cả thiếu dấu và phân biệt yêu cầu được tư vấn với mong muốn rèn kỹ năng.
 
 Giữ model `deepseek-flash` đã xác minh qua cấu hình/runtime thật, không thay bằng tên model chưa được cấp quyền, không tăng temperature. Budget đầu ra điều chỉnh theo intent (800–3500 token), analysis giữ3000. Cơ chế retry đầu ra hỏng và giới hạn9000 token đã có từ trước vẫn còn; không bảo đảm mỗi request chỉ một provider call khi xảy ra lỗi hoặc đến lượt nén. Thống kê LIVE bên dưới là các request không gặp retry.
 
@@ -35,6 +35,7 @@ Survey answers, analysis draft/proposals và confirmed profile tách về mặt 
 | Python trọng tâm | **56 test unique PASS, 0 FAIL còn lại, 0 SKIP**: context8, Search5, jobs14, policy4, personalization8, validator4, runtime/provider13. Tổng hợp các lượt; chỉ chạy lại ca bị ảnh hưởng, không chạy full Super Board. |
 | Browser local | **6 nhóm PASS**, PostgreSQL local/Firebase+LLM fixture: autoanalysis, consent/edit/reject/cache, lỗi lưu giữ draft, mobile/Copy/Guestquota, retry lỗi, Google fixture giữ exploration/career/step/draft. Không gọi fixture là Google LIVE. |
 | UI thật trên Preview377a3d7 | Firebase SDK email/password thật + DeepSeek thật:5câu→1analysis/0chat;0confirmed trước click→1 sau accept; mở lại không gọi thêm model; desktop1440/mobile390 PASS. Code UI không thay sau checkpoint này nên kế thừa kết quả. |
+| Nén bộ nhớ thật trên candidate cuối | Tiếp tục đúng phiên QA tổng hợp đã có2turn, gửi thêm4turn ngắn; lượt6 có2provider calls (main+nén), summary giữ thíchvẽ/biếtchútmáytính/chưabiếtlậptrình/chưachọnnghề/xưngtôibạn, câu trả lời không gán giỏi lập trình, không tự lưu confirmed profile: **PASS LIVE**. Đây là1mẫu kiểm ngữ cảnh dài, không bảo đảm mọi lịch sử dài đều nhớ đầy đủ. |
 | Gates candidate cuối | Vercel READY/Preview, config live, đúng staging role/schema chỉ đọc, Firebase token thật, auth sai401, clientuid422, khác owner404 ở GET/analysis, cachedanalysis0provider, guest Secure/HttpOnly/SameSite strict/hostcookie và Origin403, guest mới còn8, legacy AI token sai401, private paths404 và assets không chứa secrets: **PASS LIVE**. |
 | Bảo toàn phạm vi | 200nghề/12nhóm vẫn đúng API; không sửa data careers/Truyện nghề/stable graph/Firebase auth/Neon migration. Không chạy lại toàn bộ nội dung nghề hay8câu AI thật trên Preview; kế thừa kiểm thử stable trước đó và kiểm Guestquota ở local. |
 | Build/JS/Git | Vercel build thật READY; `node --check`, `git diff --check`, manifest100file không env/artifacts/docs/tests/secrets PASS. Git auto-deploy tắt riêng nhánhTask4.1 để không sinh bản thử thiếu binding; không đổi Production Branch/routes/rewrites. |
@@ -42,6 +43,8 @@ Survey answers, analysis draft/proposals và confirmed profile tách về mặt 
 | Brave Search LIVE | **BLOCKED**, thiếu cấu hình/key được cấp phép. Adapter thật, timeout/cache/budget/SSRF/citation đã có và unit PASS; không gọi đó là nghiệm thu LIVE. |
 
 Hai test runtime cũ ban đầu FAIL vì fixture giả định nén mọi lượt/không có messages; đã điều chỉnh fixture đúng lượt6, giữ phép kiểm provider nén lỗi vẫn không mất chat. Có một lỗi harness đường dẫn import và token QA hết hạn lúc chạy eval; đã sửa/refresh và chỉ chạy tiếp phần chưa thực thi, không tính là lỗi model hoặc PASS dịch vụ.
+
+Driver periodicLIVE ban đầu dùng nhầm key response sessions thay vì items và giả định title bằng câu đầu; đã dừng trước AIcall, sửa cách xác minh phiên bằng đúng nội dung2tin QA, không chọn mò hoặc sửa phiên khác. Sau đó4turn thực thi thành công. Không giấu các lần harness chưa chạy được thành PASS sản phẩm.
 
 ## 16 tình huống DeepSeek thật và rubric
 
@@ -84,3 +87,11 @@ Kết quả rubric: **13 PASS / 3 BLOCKED / 0 FAIL còn lại** sau hai bản s�
 - Mọi phát hành Production cần người dùng duyệt Preview và phê duyệt riêng. Không migration mới; giữ gate và schema hiện hữu. Nếu sau này triển khai lỗi, rollback deployment ứng dụng về957ffde, không DROP/reset quota/restore đè database.
 
 Chứng cứ trên máy: `artifacts/task41-browser.json`, `task41-live-browser.json`, `task41-final-gates.json`, `task41-firebase-domain-final.json`, `task41-preview-db.json`, ảnh `task41-live-profile-1440.png`/`390.png`; raw eval mã hóaDPAPI chỉ dùng QA. Các artifact này không commit.
+
+## File và trạng thái Git
+
+- Backend: `advisor/analysis_jobs.py`, `conversation_context.py`, `conversation_policy.py`, `graph.py`, `memory-prompt.txt`, `survey_analysis.py`, `confirmed_profile.py`, `routes.py`, `search_provider.py`, `performance.py`, `store.py`, cùng `deepseek_client.py`.
+- Frontend: `chat.html`, `public/chat.html`, `public/assets/advisor-entry.js`, `chat.js`, `chat.css`, `profile-panel.js`. Không sửa thư viện/Truyện nghề.
+- Kiểm thử/QA: `tests/test_task41_context.py`, `test_task41_analysis_jobs.py`, `test_advisor30_policy.py`, `test_task4_personalization.py`, `test_release_runtime.py`, `browser_task41.py`, `fixtures/task41-eval.json`, `scripts/evaluate_task41.py`.
+- Cấu hình/tài liệu: `.env.example`, `vercel.json` (chỉ chặn auto-build nhánh QA), checkpoint/báo cáo/bộ nhớ/quyết định dự án. Không migration mới.
+- Remote đã có377a3d7 từ checkpoint trước; các checkpoint cuối được commit local và deploy bằng CLI, **chưa push thêm**. Không coi quyền tạo Preview/commit là quyền merge hoặc phát hành Production. Worktree sẽ được kiểm sạch sau commit tài liệu cuối; root checkout và worktree khác được giữ nguyên.
