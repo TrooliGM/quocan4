@@ -1,5 +1,7 @@
 # Task 4 — Production canary, 25/10/2026
 
+**Checkpoint lịch sử trước hotfix.** Trạng thái mới:957ffde / dpl_BwthFvvNpNDscwEuKPC744bVe38z,43PASS/10BLOCKED/0FAIL, chỉ QA. ID23 đã sửa; xem [hotfix cá nhân hóa](task4-profile-hotfix.md). Các số liệu dưới đây thuộc đợt trước.
+
 Quyền mới: người dùng cho phép Production có kiểm soát và kiểm thử bằng dữ liệu QA riêng. Không mở tính năng chưa nghiệm thu cho mọi tài khoản. Chỉ migration additive 006 sau backup/schema check; không chạy lại 001–005, không reset quota.
 
 Production Branch cấu hình main; deployment thực tế df1c300 / dpl_6Q6muJBTW7kK7owh4m5TJ7XgU2dN từ feat/task-3-1-video-library. Task4 kế thừa đúng nền, không có hotfix mới hơn. Không merge lịch sử main không tương thích.

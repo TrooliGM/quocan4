@@ -1,5 +1,7 @@
 # Bàn giao Task 4 — Trợ lý hướng nghiệp 3.0
 
+**Mới nhất: hotfix cá nhân hóa957ffde đã phát hành QA-only;43PASS/10BLOCKED/0FAIL.** Xem [nghiệm thu hotfix](task4-profile-hotfix.md). Những mục bên dưới là lịch sử bàn giao trước hotfix.
+
 **Cập nhật sau bàn giao: đã phát hành Production canary giới hạn QA; 36 PASS / 16 BLOCKED / 1 FAIL. Xem [báo cáo Production](task-4-production-rollout.md). Phần dưới là checkpoint lịch sử trước phát hành, không đại diện trạng thái mới.**
 
 Ngày 25/10/2026, Asia/Bangkok. **Ở thời điểm bàn giao: chưa sẵn sàng Production.** Người dùng đã chọn hoàn thiện code và Preview cách ly, ghi BLOCKED phần LIVE vì chưa có môi trường thử riêng.
