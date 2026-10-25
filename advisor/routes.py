@@ -105,13 +105,14 @@ class ChatInput(BaseModel):
 @router.get("/api/ai/config")
 def config(user=Depends(require_user)):
     from .confirmed_profile import enabled
-    from .rollout import allowed
+    from .rollout import allowed, public_premium_ui
     return {"mode": "demo" if demo_mode() else "live", "configured": demo_mode() or bool(os.getenv("DEEPSEEK_API_KEY", "").strip()),
             "model": "demo" if demo_mode() else model_name(),
             "microphone": {"google": voice.google_stt_configured()},
             "is_guest": user.get('provider') == 'anonymous',
             "profile_enabled": enabled() and allowed(user),
             "task4_enabled": allowed(user),
+            "premium_ui_public": public_premium_ui(),
             "automatic_analysis": allowed(user),
             "analysis_policy": {"chat_quota_charge":0,"daily_limit":setting("ANALYSIS_USER_PER_DAY",6)},
             "guest_quota": guest_usage(user)}

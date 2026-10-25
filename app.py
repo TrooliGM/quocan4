@@ -67,8 +67,8 @@ async def storage_failure(request, error):
 
 
 def html_page(filename):
-    from advisor.rollout import controlled
-    if filename=='chat.html' and controlled():
+    from advisor.rollout import controlled, public_premium_ui
+    if filename=='chat.html' and controlled() and not public_premium_ui():
         text=(ROOT/'stable-chat.html').read_text(encoding='utf8')
         import re
         text=re.sub(r'/assets/stable-chat\.js\?[^"\s]+','/assets/advisor-entry.js?v=canary-1',text)

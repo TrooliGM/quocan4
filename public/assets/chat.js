@@ -1,4 +1,4 @@
-import {showProfile,clearProfileDrafts} from './profile-panel.js';
+import {showProfile,clearProfileDrafts} from './profile-panel.js?v=task41-public-ui-1';
 import {getFirebase, restoredUser} from './firebase-client.js';
 import {GoogleMic, BrowserMic} from './mic-recorder.js';
 import {guestSession} from './ai-access.js';
@@ -50,14 +50,16 @@ function renderSurvey() {
   let draft = surveyDrafts.get(active.id);
   if (!draft) { draft = loadDraft(user.uid,active.id)?.survey || {step:0, answers:['','','','',''], address:'chị'}; surveyDrafts.set(active.id, draft); }
   const [question, suggestions] = surveyQuestions[draft.step];
-  $('#analysis-budget-note').textContent=`Chỉ chia sẻ sở thích và mong muốn, không cần thông tin liên hệ. Phân tích tối đa ${config?.analysis_policy?.daily_limit??6} lần/ngày, gồm lần thử lại; không trừ lượt chat miễn phí.`;
+  $('#analysis-budget-note').textContent=config?.automatic_analysis
+    ? `Chỉ chia sẻ sở thích và mong muốn, không cần thông tin liên hệ. Phân tích tối đa ${config.analysis_policy?.daily_limit??6} lần/ngày, gồm lần thử lại; không trừ lượt chat miễn phí.`
+    : 'Khảo sát được lưu cùng cuộc trò chuyện. Phân tích tự động và Hồ sơ có xác nhận hiện chỉ mở cho tài khoản kiểm thử được cấp quyền; bạn vẫn có thể khảo sát và trò chuyện.';
   $('#survey-step').textContent = `Câu ${draft.step + 1} / 5`;
   $('#survey-progress').value = draft.step + 1;
   $('#survey-question').textContent = question;
   $('#survey-answer').value = draft.answers[draft.step];
   $('#survey-address').value = draft.address;
   $('#survey-back').disabled = draft.step === 0 || busy;
-  $('#survey-next').textContent = draft.step === 4 ? 'Xem phân tích ↗' : 'Tiếp tục →';
+  $('#survey-next').textContent = draft.step === 4 ? (config?.automatic_analysis?'Xem phân tích ↗':'Hoàn tất khảo sát') : 'Tiếp tục →';
   $('#survey-next').disabled = busy;
   const chips = $('#survey-suggestions'); chips.replaceChildren();
   for (const text of suggestions) {
@@ -92,6 +94,7 @@ $('#career-survey').addEventListener('submit', async event => {
   } catch (error) { notice(failure(error)); }
   finally { if (epoch === identityEpoch) { busy = false; updateControls(); renderSurvey(); } }
   if (epoch === identityEpoch && active?.id === id && !needsSurvey() && config?.automatic_analysis) await runAnalysis(id,false,true);
+  else if(epoch===identityEpoch&&active?.id===id&&!needsSurvey())notice('Khảo sát đã được lưu cùng cuộc trò chuyện, chưa được AI phân tích thành Hồ sơ. Bạn có thể đặt câu hỏi bên dưới; phân tích tự động hiện chỉ mở cho tài khoản kiểm thử.');
 });
 
 function notice(text = '', retry = false) {
@@ -565,7 +568,7 @@ async function runAnalysis(id,retry=false,show=false) {
 }
 async function openProfile() {
   const epoch=identityEpoch;
-  await showProfile({api:jsonAPI,session:active,isGuest:config?.is_guest,isCurrent:()=>epoch===identityEpoch,
+  await showProfile({api:jsonAPI,session:active,isGuest:config?.is_guest,backendEnabled:config?.task4_enabled!==false,isCurrent:()=>epoch===identityEpoch,
     onSession:row=>{if(epoch===identityEpoch&&active?.id===row.id){active=row;cacheSession(row);}},
     analysisFailure:analysisFailures.get(analysisKey(active?.id)),ownerKey:user?.uid,analysisLimit:config?.analysis_policy?.daily_limit,
     onRetry:async()=>{if(active)await runAnalysis(active.id,true,true);},
@@ -663,7 +666,7 @@ async function initialize() {
     const historyTask=refreshHistory().catch(error=>{if(user?.uid===owner)notice(failure(error));});
     const bootstrap=window.__labanBootstrapConfig;delete window.__labanBootstrapConfig;
     config = bootstrap?.uid===user.uid ? bootstrap.data : await jsonAPI('/api/ai/config');
-    if(config.task4_enabled===false){location.replace('/ai-career-advisor'+location.search+location.hash);return;}
+    if(config.task4_enabled===false&&!config.premium_ui_public){location.replace('/ai-career-advisor'+location.search+location.hash);return;}
     guestQuota = config.guest_quota;
     micMode = config.microphone?.google && window.isSecureContext && navigator.mediaDevices?.getUserMedia && window.AudioContext ? 'google'
       : window.isSecureContext && (window.SpeechRecognition || window.webkitSpeechRecognition) ? 'browser' : null;

@@ -4,6 +4,10 @@ from fastapi import HTTPException
 
 def controlled():
     return os.getenv('ADVISOR_CONTROLLED_ROLLOUT','true' if os.getenv('VERCEL_ENV')=='production' else 'false')=='true'
+
+def public_premium_ui():
+    """Presentation only, server-controlled and Preview-only; grants no API access."""
+    return os.getenv('VERCEL_ENV')=='preview' and os.getenv('ADVISOR_PREMIUM_UI_PREVIEW')=='true'
 def uid_allowed(uid):
     return not controlled() or uid in {s.strip() for s in os.getenv('ADVISOR_TEST_UIDS','').split(',') if s.strip()}
 def allowed(user):

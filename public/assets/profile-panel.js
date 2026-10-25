@@ -4,10 +4,18 @@ let draftOwner=null;const drafts=new Map();
 export function clearProfileDrafts(){draftOwner=null;drafts.clear();}
 function keepDraft(key,value,version){drafts.delete(key);drafts.set(key,{value,version});while(drafts.size>120)drafts.delete(drafts.keys().next().value);}
 function node(tag,text,cls){const n=document.createElement(tag);if(text)n.textContent=text;if(cls)n.className=cls;return n;}
-export async function showProfile({api,session,isGuest,isCurrent,onRetry,onDraft,onSession,analysisFailure,ownerKey,analysisLimit=6}){
+export async function showProfile({api,session,isGuest,backendEnabled=true,isCurrent,onRetry,onDraft,onSession,analysisFailure,ownerKey,analysisLimit=6}){
   if(draftOwner!==ownerKey){clearProfileDrafts();draftOwner=ownerKey;}
   const dialog=document.querySelector('#profile-dialog'),host=document.querySelector('#profile-content');
   host.replaceChildren(node('p','Đang mở hồ sơ…','profile-empty'));if(!dialog.open)dialog.showModal();
+  if(!backendEnabled){
+    const panel=node('section','','analysis-state');
+    panel.append(node('h3','Giao diện mới · Phân tích chưa mở cho tài khoản này'),
+      node('p','Phân tích khảo sát và lưu Hồ sơ hướng nghiệp hiện chỉ mở cho tài khoản kiểm thử được cấp quyền. Chưa có bản phân tích AI cho khảo sát này.'),
+      node('p',session?.messages?.[0]?.survey?'Câu trả lời khảo sát đã được lưu cùng cuộc trò chuyện. Bạn vẫn có thể dùng chat để tìm hiểu nghề.':'Bạn vẫn có thể hoàn thành khảo sát 5 câu và trò chuyện. Không cần tự nhập Hồ sơ từ đầu.'));
+    const close=node('button','Tiếp tục trò chuyện');close.type='button';close.onclick=()=>dialog.close();panel.append(close);
+    host.replaceChildren(panel);return; // No protected profile/analysis calls, no fabricated proposals.
+  }
   let data;
   try{data=await api('/api/ai/career-profile');}catch{if(isCurrent())host.replaceChildren(node('p','Chưa mở được hồ sơ. Đóng và mở lại để thử; dữ liệu không bị thay đổi.'));return;}
   if(!isCurrent())return;

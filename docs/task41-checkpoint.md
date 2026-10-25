@@ -45,3 +45,7 @@ Mẫu9 thử lại trên2d0a2ea PASS sau đọc nội dung: dùng Techinterest �
 ## Bước4 hoàn tất — bàn giao Preview
 
 Candidate a2a2f76 / dpl_GCno2S2r4NQqqqZswEJVU4jNZej3 READY tại https://quocan4-7x3jqli76-khkt3.vercel.app. Gates cuối PASS LIVE; periodicmemory thật thêm4turn vào phiên QA2turn đã xác minh, lượt6 main+nén2calls và summary giữ thông tin tự nhận/đính chính/xưnghô, không tựconfirm.56PythonuniquePASS/0FAILcuối/0SKIP,6nhómbrowserfixturePASS, UI FirebaseSDKpassword+DeepSeek LIVE PASS kếthừa377;16rubric13PASS/3BLOCKED sau sửa mẫu9/12, thêm17thiếudấuPASS. Median16chatrequest mỗi bản9,17→4,27s, không SLA. Brave/Googlepopup Preview vẫnBLOCKED; cơ chế canary QA-only giữ nguyên. Root checkout/careers/stories/migrations/Production không sửa. Remote đang377, chưapush checkpointcuối. Xem docs/task41-validation.md để duyệt; không merge/promoteProduction.
+
+## Sửa UI Guest Preview theo phản ánh mới
+
+Chrome ẩn danh xác nhận a2a2f76 thực sự tải stable-chat.js/headerlegacy vì UI bị gắn chung QAflag. Đã tách public_premium_ui Preview-only khỏi backendcanary, giữ API nhạy cảm QA-only/stable graph cho user khác; panel và khảo sát giải thích giới hạn thay vì trống/giảphântích, version assets mới.5test mới+3hồi quyPASS. Người dùng đã cho phép push checkpoint/Preview, không Production. Chờ build và nghiệm thu3persona thật; báo cáo docs/task41-preview-ui-fix.md.
