@@ -36,7 +36,8 @@ class SearchProvider(Protocol):
     async def search(self, query: str) -> list[dict]: ...
 
 def needs_search(text):
-    return bool(re.search(r'\b(?:19|20)\d{2}\b|hiện nay|mới nhất|tra cứu|tìm (?:nguồn|kiếm)|thống kê|mức lương|điểm chuẩn|tuyển sinh|nhu cầu nhân lực',text,re.I))
+    from .conversation_context import plain
+    return bool(re.search(r'\b(?:19|20)\d{2}\b|hien nay|moi nhat|tra cuu|tim (?:nguon|kiem)|thong ke|muc luong|diem chuan|tuyen sinh|nhu cau nhan luc|quy dinh|chinh sach|chung chi hanh nghe|bao cao|nghien cuu moi',plain(text)))
 
 def relevant(query,title,excerpt):
     def plain(t):return ''.join(c for c in unicodedata.normalize('NFD',t.lower()) if unicodedata.category(c)!='Mn').replace('đ','d')
@@ -141,5 +142,6 @@ def constrain_links(answer,sources):
 
 async def search_context(state):
     from .performance import measure
-    with measure('web_search'):result=await retrieve(state['uid'],state['message'])
+    from .conversation_context import public_search_query
+    with measure('web_search'):result=await retrieve(state['uid'],public_search_query(state.get('session',{'messages':[]}),state['message']))
     return {'retrieval':result}
