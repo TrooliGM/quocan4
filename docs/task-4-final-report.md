@@ -1,6 +1,8 @@
 # Bàn giao Task 4 — Trợ lý hướng nghiệp 3.0
 
-Ngày 25/10/2026, Asia/Bangkok. **Chưa sẵn sàng Production.** Người dùng đã chọn hoàn thiện code và Preview cách ly, ghi BLOCKED phần LIVE vì chưa có môi trường thử riêng.
+**Cập nhật sau bàn giao: đã phát hành Production canary giới hạn QA; 36 PASS / 16 BLOCKED / 1 FAIL. Xem [báo cáo Production](task-4-production-rollout.md). Phần dưới là checkpoint lịch sử trước phát hành, không đại diện trạng thái mới.**
+
+Ngày 25/10/2026, Asia/Bangkok. **Ở thời điểm bàn giao: chưa sẵn sàng Production.** Người dùng đã chọn hoàn thiện code và Preview cách ly, ghi BLOCKED phần LIVE vì chưa có môi trường thử riêng.
 
 ## A. Git và bảo toàn nguồn
 

@@ -92,7 +92,7 @@ class ProfileTests(unittest.TestCase):
         self.assertEqual(self.client.post('/api/ai/career-profile/items',json={**self.body(),'owner':'owner-one'}).status_code,422)
     def test_profile_opt_out_backend_and_confirmed_context_only(self):
         self.accept();state={'uid':'owner-one','session_id':self.session['id']}
-        with patch('advisor.confirmed_profile.read',side_effect=AssertionError('must not read profile')):self.assertEqual(load_profile(state)['confirmed_profile'],[])
+        with patch('advisor.confirmed_profile.context_items',side_effect=AssertionError('must not read profile')):self.assertEqual(load_profile(state)['confirmed_profile'],[])
         r=self.client.put('/api/ai/sessions/'+self.session['id']+'/profile-use',json={'use_profile':True});self.assertEqual(r.status_code,200)
         self.assertEqual(load_profile(state)['confirmed_profile'][0]['value'],self.body()['value'])
         self.client.put('/api/ai/sessions/'+self.session['id']+'/profile-use',json={'use_profile':False});self.assertEqual(load_profile(state)['confirmed_profile'],[])

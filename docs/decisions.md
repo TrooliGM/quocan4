@@ -116,3 +116,8 @@ Yêu cầu mới cho phép chuẩn bị tích hợp và chỉ PR/merge/phát hà
 ## Quyết định hotfix được duyệt —24/10/2026
 
 Cho phép nhánh riêng và phát hành hotfix performance/login khi an toàn; không sửa thư viện/thiết kế/Production credentials hoặc schema. Chọn connection reuse trong phạm vi request quản lý session và SET LOCAL, không pool toàn cục/auth cache. Cache nội dung chỉ RAM20phiên/30s và xóa khi đổi identity, mọi API vẫn xác minhserver. Return target allowlist/UUID không cấp quyền dữ liệu. Thử Production chỉ dữ liệu tổng hợp của phiên khách riêng,0AIcalls trong tạo/mở; latency member/Firebase Google thật phải ghi chưa kiểm chứng khi chưa có người dùng thao tác. Rollback là deployment6c trước hotfix, không reverse schema hoặc restore dữ liệu.
+
+
+## Task4 Production canary — 25/10/2026
+
+Đã xác nhận quyền triển khai có kiểm soát theo yêu cầu mới. Đã backup Neon READY/readback, áp migration006 additive trong transaction sau kiểm target/hash và bảng cũ/quota không đổi; không chạy001–005. Phát hành fde7ed2 / dpl_7ZaE94zBvSeBAps9HgTPkak9Q1aT lên domain chính thức, chỉ 1 UID QA Firebase đã verify được Task4; account khác/Guest giữ df1c300 ổn định, không sửa thư viện/Truyện nghề. Firebase email/password, DeepSeek, khảo sát/đề xuất/xác nhận/Neon và Guest8/concurrency LIVE có bằng chứng. Chưa Google popup/Brave; ID23 FAIL khi AI chưa dùng hồ sơ opt-in dù lưu/đọc đúng. 36PASS/16BLOCKED/1FAIL; không mở đại trà. Rollback deployment df1c300, giữ bảng additive/dữ liệu, không reset quota. Xem docs/task-4-production-rollout.md; không ghi secrets/UID/email học sinh vào memory.

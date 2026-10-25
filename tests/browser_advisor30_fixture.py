@@ -17,8 +17,8 @@ def install():
         else:
             EVIDENCE['main_calls']+=1
             for m in payload['messages']:
-                if m['role']=='system' and m['content'].startswith('Dữ liệu ngữ cảnh'):
-                    context=json.loads(m['content'].split('\n',1)[1]);EVIDENCE['last_context_has_profile']=bool(context.get('confirmed_profile'))
+                if m['role']=='system' and m['content'].startswith('HỒ SƠ ĐÃ XÁC NHẬN'):
+                    context=json.loads(m['content'].split('\n',1)[1]);EVIDENCE['last_context_has_profile']=context.get('enabled') and bool(context.get('items'))
             if payload['messages'][-1]['content']=='Kiểm thử timeout':
                 EVIDENCE['timeout_attempts']+=1
                 if EVIDENCE['timeout_attempts']==1:raise httpx.ReadTimeout('fixture timeout')

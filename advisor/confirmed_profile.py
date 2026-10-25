@@ -49,6 +49,17 @@ def read(uid):
         if item['category'] in profile:profile[item['category']].append(item['value'])
     return {'enabled':True,'profile':profile,'items':items}
 
+def context_items(uid):
+    """SELECT tối thiểu cho lượt chat; không cache, không dọn/xóa trong đường đọc AI."""
+    if not enabled():return []
+    with postgres_connection() as db:
+        rows=db.execute("""SELECT category,value FROM advisor_profile_items
+            WHERE owner=%s AND metadata->>'status'='confirmed'
+              AND (expires_at IS NULL OR expires_at>NOW())
+            ORDER BY updated_at DESC LIMIT 80""",(uid,)).fetchall()
+    return [dict(row) for row in rows]
+
+
 def confirm(uid,provider,session,proposal_id,value):
     require_enabled()
     analyses=[m['survey_analysis'] for m in session['messages'] if m.get('survey_analysis')]
