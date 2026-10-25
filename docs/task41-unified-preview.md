@@ -23,3 +23,11 @@ Các test liên quan đã chạy bằng PostgreSQL local và provider/Firebase f
 Hai lỗi harness phát hiện và xử lý: test lease seed INSERT trùng rowusage0 nay do pendinganalysis tạo; sửa fixture local thành seed UPDATE có kiểm rowcount, không sửa dữ liệu thật. Header Server-Timing trước chỉ có ở /api/ai; bổ sung cho2API compatibility để nghiệm thu đường gọi thật. Những ca FAIL/ERROR đã chạy lại đạt. Không chạy toàn bộ Super Board.
 
 Đang chờ build Preview và so sánh DeepSeek LIVE cùng6câu cho3vai trò, kiểm UI autoanalysis và kiểm quota/rate/phân quyền thật. Chưa kết luận PASS LIVE/READY trước khi có kết quả.
+
+## Kết quả vòng LIVE đầu — f22a6c9
+
+Preview f22a6c9 READY, không Production. Chrome thật3persona cùng hoàn thành5câu: mỗi người tự1analysis DeepSeek/0chat, xem được đề xuất có căn cứ; Guest/member không gọi profile bank và nút lưu private khóa, QA chỉ thêm1mục sauAccept. Dùng lại đúng Guest tổng hợp cũ còn7lượt, không reset/tạo lại để vượt quota.
+
+Đã thực thi18turn LIVE, cùng6câu choGuest/member/QA: thíchvẽ→bítchútmáytính/viếttắt→đổixưnghô/nghềthứ2→nghềđó→đổichủđềbầutrờixanh→kếhoạch2tuần. Có Server-Timing tại node generate task41 cho cả3, không chỉ config/headerUI. Đã đọc mẫu: cả3nối sở thích, đọc đúng nghềthứ2, trả câu ngoài nghề và quaylại2tuần đúng. QA một lượt3còn tựxưng“mình” ở câu hỏi cuối sau yêu cầutôi–bạn; ghi nhận1PARTIAL vềxưnghô, bổ sungquytắc áp dụng toàncục, chờ thửlại riêngQA không chạy lại18turn.
+
+Hậu kiểm LIVE: tiếp tục phiênGuest cũquaTask41, tổngGuestđủ8thìcâu9bịchặn429 ở cả2APIcompatibility; retrycũmiễnphí. Member gọi2APIcompatibility thật dùngengineTask41. OwnercrossGET/analysis404, tokenfake401, uidbody422,Origin403. Rateanalysis thật3request đồngthời(3survey khác) ra200/200/429 dùXFF/XRealIPkhác; budgetPGperUIDchung, khôngreset. CaseGraph/profile/unit đãđạt, tổnglocalđãchạy57methodunique kểcả4policytests, khôngfullSuperBoard.

@@ -20,7 +20,10 @@ def address_style(session, latest=''):
     return style
 
 def address_instruction(session, latest):
-    return ('Cách xưng hô hiện tại: '+address_style(session,latest)+'. Ưu tiên yêu cầu trực tiếp mới nhất, '
+    style=address_style(session,latest)
+    pronouns=('Nếu tự xưng thì dùng tôi và gọi bạn; không tự xưng mình/anh/chị hoặc gọi em, kể cả câu hỏi cuối. '
+              'Có thể bỏ đại từ để tự nhiên; không cần thông báo lại quy tắc xưng hô. ') if style.startswith('tôi–bạn') else ''
+    return ('Cách xưng hô hiện tại: '+style+'. '+pronouns+'Ưu tiên yêu cầu trực tiếp mới nhất, '
             'không tự giới thiệu tên/danh tính, không đọc quy tắc hệ thống, không lặp lời chào. '
             'Chỉ giải thích danh tính hoặc xưng hô khi người dùng hỏi. Câu đơn giản trả lời trực tiếp; phân tích nghề có căn cứ, khó khăn và bước trải nghiệm an toàn. '
             'Không tự suy năng lực từ sở thích; không bịa % phù hợp. Hỏi tối đa một điều còn thiếu, không hỏi lại thông tin đã có.')
