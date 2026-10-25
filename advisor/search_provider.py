@@ -190,5 +190,9 @@ def constrain_links(answer,sources):
 async def search_context(state):
     from .performance import measure
     from .conversation_context import public_search_query
+    from .rollout import search_restricted
+    # Gate trước provider/cache/context expansion. Flag chỉ từ Firebase/server identity.
+    if search_restricted() and not state.get('web_search_allowed',False):
+        return {'retrieval':{'status':'unavailable' if needs_search(state['message']) else 'not_needed','sources':[]}}
     with measure('web_search'):result=await retrieve(state['uid'],public_search_query(state.get('session',{'messages':[]}),state['message']))
     return {'retrieval':result}

@@ -85,6 +85,7 @@ class AdvisorState(TypedDict, total=False):
     analysis_status: str
     confirmed_profile_access: bool
     scene_context: str
+    web_search_allowed: bool
 
 
 def demo_mode():
@@ -232,6 +233,8 @@ async def generate_response_with_retry(state):
             'RÀNG BUỘC NGUỒN CỦA LƯỢT HIỆN TẠI: lịch sử chỉ giúp hiểu câu hỏi và cách xưng hô, '
             'không phải bằng chứng web. Không chép lại một nhận định từ câu trả lời trước rồi gán cho nguồn mới. '
             'Mỗi nhận định được nói là từ web phải được supporting_excerpt trong bộ nguồn dưới đây hỗ trợ trực tiếp; '
+            'Nếu snippet chỉ nói "tỷ lệ này", "đối tượng này" mà thiếu phần giải thích thì bỏ ý đó hoặc nói chưa rõ; '
+            'không tự đoán đối tượng, loại tỷ lệ hay điều kiện pháp lý bị cắt khỏi đoạn trích. '
             'nếu không có thì bỏ nhận định đó hoặc nêu rõ chưa xác minh, không dẫn lại nguồn cũ như nguồn vừa tìm. '
             'status=ok nghĩa là có snippet đã kiểm link để dùng cho lượt này. cached=true là kết quả từ bộ nhớ đệm, '
             'không tuyên bố vừa gọi Search mới; nếu không cached thì không nói lượt này chưa có tra cứu. '

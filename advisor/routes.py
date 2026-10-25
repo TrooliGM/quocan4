@@ -105,7 +105,7 @@ class ChatInput(BaseModel):
 @router.get("/api/ai/config")
 def config(user=Depends(require_user)):
     from .confirmed_profile import enabled
-    from .rollout import allowed
+    from .rollout import allowed, search_allowed
     return {"mode": "demo" if demo_mode() else "live", "configured": demo_mode() or bool(os.getenv("DEEPSEEK_API_KEY", "").strip()),
             "model": "demo" if demo_mode() else model_name(),
             "microphone": {"google": voice.google_stt_configured()},
@@ -114,6 +114,7 @@ def config(user=Depends(require_user)):
             "task4_enabled": True,
             "chat_pipeline": "task41",
             "premium_ui_public": True,
+            "web_search_enabled": search_allowed(user) and os.getenv('SEARCH_PROVIDER','').strip() in ('ddgs','brave'),
             "automatic_analysis": True,
             "analysis_policy": {"chat_quota_charge":0,"daily_limit":setting("ANALYSIS_USER_PER_DAY",6)},
             "guest_quota": guest_usage(user)}
@@ -320,8 +321,9 @@ async def chat(payload: ChatInput, request: Request, user=Depends(require_user))
                     state = {"uid": uid, "session_id": session_id, "request_id": request_id, "message": payload.message}
                     if reservation and reservation['new_reservation']:
                         state['guest_reservation_token'] = reservation['reservation_token']
-                    from .rollout import allowed
+                    from .rollout import allowed, search_allowed
                     state['confirmed_profile_access']=allowed(user) and not is_guest
+                    state['web_search_allowed']=search_allowed(user)
                     result = await advisor_graph.ainvoke(state)
                 return {"session": result["session"], "duplicate": False, "pipeline":"task41", "guest_quota": guest_usage(user)}
     except BaseException as error:

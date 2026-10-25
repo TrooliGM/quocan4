@@ -58,8 +58,10 @@ async def run_legacy(request, user, request_id, message, scope, graph, state):
             raise HTTPException(409, {'code':'AI_REQUEST_PENDING','message':'Yêu cầu đang xử lý hoặc đã hoàn thành. Bạn thử tải lại nhé.'})
         # Same row lease/fencing as chat, compatible with transaction pooling.
         # No database connection/transaction is held while the provider runs.
+        from .rollout import search_allowed
         result = await graph.ainvoke({**state,'uid':uid,'session_id':sid,'request_id':request_id,
-            'session':current,'profile':current['profile'],'confirmed_profile_access':False})
+            'session':current,'profile':current['profile'],'confirmed_profile_access':False,
+            'web_search_allowed':search_allowed(user)})
         answer = result.get('answer')
         if not isinstance(answer, str) or not answer.strip():
             raise ValueError('Invalid AI answer')

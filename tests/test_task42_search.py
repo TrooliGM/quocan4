@@ -147,3 +147,25 @@ class Search42Tests(unittest.TestCase):
         root=Path(__file__).resolve().parents[1]
         self.assertIn('ddgs==9.16.1',(root/'requirements.txt').read_text())
         self.assertIn('ddgs==9.16.1',tomllib.loads((root/'pyproject.toml').read_text(encoding='utf8'))['project']['dependencies'])
+
+    def test_canary_defaults_closed_and_independent_of_profile_rollout(self):
+        from advisor.rollout import search_allowed,search_restricted
+        with patch.dict(os.environ,{'VERCEL_ENV':'production','ADVISOR_TEST_UIDS':'qa','ADVISOR_CONTROLLED_ROLLOUT':'false'}):
+            with patch.dict(os.environ):
+                os.environ.pop('SEARCH_QA_ONLY',None)
+                self.assertTrue(search_restricted())
+                self.assertTrue(search_allowed({'uid':'qa','provider':'google.com'}))
+                for user in [{'uid':'qa','provider':'anonymous'},{'uid':'other','provider':'password'},{'uid':'qa','provider':'custom'},{}]:
+                    self.assertFalse(search_allowed(user))
+            with patch.dict(os.environ,{'SEARCH_QA_ONLY':'unexpected'}):self.assertTrue(search_restricted())
+            with patch.dict(os.environ,{'SEARCH_QA_ONLY':'false'}):self.assertTrue(search_allowed({'provider':'anonymous'}))
+            with patch.dict(os.environ,{'SEARCH_TEST_UIDS':'search-only'}):
+                self.assertTrue(search_allowed({'uid':'search-only','provider':'password'}))
+                self.assertFalse(search_allowed({'uid':'qa','provider':'password'}))
+            with patch.dict(os.environ,{'SEARCH_TEST_UIDS':''}):self.assertFalse(search_allowed({'uid':'qa','provider':'password'}))
+
+    def test_production_search_node_fails_closed_before_cache_or_provider(self):
+        with (patch.dict(os.environ,{'VERCEL_ENV':'production','SEARCH_QA_ONLY':'true'}),
+              patch.object(s,'retrieve',side_effect=AssertionError('no cache/provider access'))):
+            result=asyncio.run(s.search_context({'uid':'any','message':'Công an 2020','session':{'messages':[]}}))
+            self.assertEqual(result['retrieval'],{'status':'unavailable','sources':[]})
