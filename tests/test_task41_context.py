@@ -21,3 +21,6 @@ class ContextTests(unittest.TestCase):
  def test_search_routing_not_for_everything(self):
   self.assertTrue(needs_search('chinh sach va chung chi hanh nghe'));self.assertTrue(needs_search('thong tin tuyen sinh moi nhat'))
   for t in ['Chào bạn','Mình thích vẽ','2 + 2 bằng mấy?','Dựa trên hồ sơ của tôi']:self.assertFalse(needs_search(t))
+
+ def test_simple_math_does_not_pull_career_or_survey_context(self):
+  p=plan_turn({'messages':[]},'2 + 2 bằng mấy?');self.assertFalse(p['needs_career_reference']);self.assertFalse(p['needs_survey_context'])

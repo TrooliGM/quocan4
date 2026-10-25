@@ -18,7 +18,7 @@ if(eligible){
     const parsed=new DOMParser().parseFromString(await response.text(),'text/html');
     document.title=parsed.title;document.body.replaceWith(parsed.body);
     const css=[...document.querySelectorAll('link[rel=stylesheet]')].find(l=>l.href.includes('stable-chat.css'));
-    if(css)css.href='/assets/chat.css?v=task4-canary-1';
-    await import('./chat.js?v=task4-canary-1');
+    if(css)css.href='/assets/chat.css?v=task41-preview-1';
+    await import('./chat.js?v=task41-preview-1');
   }else await import('./stable-chat.js?v=stable-df1c300');
 }else await import('./stable-chat.js?v=stable-df1c300');

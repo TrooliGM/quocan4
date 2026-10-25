@@ -1,4 +1,4 @@
-import {showProfile} from './profile-panel.js';
+import {showProfile,clearProfileDrafts} from './profile-panel.js';
 import {getFirebase, restoredUser} from './firebase-client.js';
 import {GoogleMic, BrowserMic} from './mic-recorder.js';
 import {guestSession} from './ai-access.js';
@@ -29,6 +29,9 @@ function cachedSession(id) {
   return entry && Date.now()-entry.at<CACHE_TTL && (!header || header.title===entry.row.title && header.updated_at===entry.row.updated_at) ? structuredClone(entry.row) : null;
 }
 let entryContext = null;
+const analysisRequests=new Map();
+const analysisFailures=new Map();
+const analysisKey=id=>`${identityEpoch}:${id}`;
 const analysisMessage = 'Hãy phân tích khảo sát của em, gợi ý khoảng 3 nhóm nghề cùng lý do, môn học, kỹ năng và trải nghiệm để thử.';
 const surveyQuestions = [
   ['Em yêu thích lĩnh vực nào?', ['Em tò mò về máy tính và cách các ứng dụng hoạt động.', 'Em thích sáng tạo, thiết kế và thể hiện ý tưởng qua hình ảnh.', 'Em quan tâm đến việc giúp đỡ và chăm sóc người khác.', 'Em muốn hiểu cách kinh doanh và tổ chức công việc.', 'Em thích tìm hiểu thiên nhiên, môi trường và khoa học.', 'Em chưa rõ sở thích và muốn khám phá nhiều lĩnh vực.']],
@@ -47,13 +50,14 @@ function renderSurvey() {
   let draft = surveyDrafts.get(active.id);
   if (!draft) { draft = loadDraft(user.uid,active.id)?.survey || {step:0, answers:['','','','',''], address:'chị'}; surveyDrafts.set(active.id, draft); }
   const [question, suggestions] = surveyQuestions[draft.step];
+  $('#analysis-budget-note').textContent=`Chỉ chia sẻ sở thích và mong muốn, không cần thông tin liên hệ. Phân tích tối đa ${config?.analysis_policy?.daily_limit??6} lần/ngày, gồm lần thử lại; không trừ lượt chat miễn phí.`;
   $('#survey-step').textContent = `Câu ${draft.step + 1} / 5`;
   $('#survey-progress').value = draft.step + 1;
   $('#survey-question').textContent = question;
   $('#survey-answer').value = draft.answers[draft.step];
   $('#survey-address').value = draft.address;
   $('#survey-back').disabled = draft.step === 0 || busy;
-  $('#survey-next').textContent = draft.step === 4 ? 'Nhận gợi ý từ AI ↗' : 'Tiếp tục →';
+  $('#survey-next').textContent = draft.step === 4 ? 'Xem phân tích ↗' : 'Tiếp tục →';
   $('#survey-next').disabled = busy;
   const chips = $('#survey-suggestions'); chips.replaceChildren();
   for (const text of suggestions) {
@@ -84,10 +88,10 @@ $('#career-survey').addEventListener('submit', async event => {
     if (context?.mode === 'career_exploration') {
       await prepareExplorationDraft();
       notice('Em có thể sửa câu hỏi trước khi gửi.');
-    } else $('#message-input').value = analysisMessage;
+    }
   } catch (error) { notice(failure(error)); }
   finally { if (epoch === identityEpoch) { busy = false; updateControls(); renderSurvey(); } }
-  if (epoch === identityEpoch && active?.id === id && !needsSurvey() && active.messages[0].career_context?.mode !== 'career_exploration') await send();
+  if (epoch === identityEpoch && active?.id === id && !needsSurvey() && config?.automatic_analysis) await runAnalysis(id,false,true);
 });
 
 function notice(text = '', retry = false) {
@@ -131,7 +135,9 @@ function updateControls() {
   $('#microphone').classList.toggle('recording', phase === 'listening');
   $('#microphone').setAttribute('aria-label', phase === 'listening' ? 'Dừng mic và nhận diện' : 'Nói bằng micro');
   $('#mic-status').hidden = !listening;
-  $('#thinking').hidden = !busy || phase !== 'thinking';
+  const analyzing=Boolean(active&&analysisRequests.has(analysisKey(active.id)));
+  $('#thinking').hidden=!(busy&&phase==='thinking')&&!analyzing;
+  $('#thinking span').textContent=analyzing?'Đang phân tích câu trả lời của bạn...':'Đang suy nghĩ...';
   $('#guest-banner').hidden = !config?.is_guest;
   $('#guest-banner').classList.toggle('limit-reached',Boolean(exhausted));
   $('#guest-login').setAttribute('aria-disabled',String(busy || listening));
@@ -174,7 +180,9 @@ async function jsonAPI(path, options = {}) {
   return data;
 }
 function failure(error) {
-  return ['TimeoutError', 'AbortError'].includes(error.name) ? 'Phản hồi hơi lâu. Bạn có thể thử lại nhé.' : error.message || 'Chưa kết nối được. Bạn thử lại nhé.';
+  if(error.status===429)return error.message;
+  if(error.status===401)return 'Phiên đăng nhập đã thay đổi. Vui lòng đăng nhập lại.';
+  return error instanceof TypeError||['TimeoutError','AbortError'].includes(error.name)?'Kết nối đang gián đoạn. Bạn có thể thử lại.':'Chưa thể trả lời lúc này. Vui lòng thử lại.';
 }
 function storageKey() { return `laban.advisor.${user.uid}`; }
 function persistJourney() {
@@ -377,6 +385,7 @@ async function loadSession(id) {
     $('#message-input').value = saved?.message || '';
     rememberActive(); renderMessages(); resizeInput();
     notice();
+    if(config?.automatic_analysis&&!needsSurvey())queueMicrotask(()=>runAnalysis(id).catch(()=>{}));
     if (window.innerWidth <= 760) setSidebar(false);
   } catch (error) { if(ticket===navigation && epoch===identityEpoch && error.name!=='AbortError'){sessionCache.delete(id);notice(failure(error));} }
   finally { if(ticket===navigation && epoch===identityEpoch){busy = false;phase='idle';loadingSession=null;navigationAbort=null;updateControls();} }
@@ -522,15 +531,49 @@ async function deleteSession(item) {
     sessionCache.delete(item.id);sessions=sessions.filter(s=>s.id!==item.id);historyRevision++;renderHistory();
   } catch (error) { notice(failure(error)); }
 }
+function completedAnalysis(row) {
+  return row?.messages?.[0]?.analysis_job?.result || [...(row?.messages||[])].reverse().find(m=>m.survey_analysis)?.survey_analysis;
+}
+async function runAnalysis(id,retry=false,show=false) {
+  const epoch=identityEpoch,key=analysisKey(id);
+  if(!config?.automatic_analysis||active?.id!==id||needsSurvey())return;
+  if(analysisRequests.has(key))return analysisRequests.get(key);
+  if(!retry&&(completedAnalysis(active)||active.messages[0].analysis_job?.status==='failed'))return;
+  const task=(async()=>{
+    await Promise.resolve();updateControls();analysisFailures.delete(key);
+    try{
+      let result=await jsonAPI(`/api/ai/sessions/${id}/analysis`,{method:'POST',body:JSON.stringify({retry})});
+      const deadline=Date.now()+95000;
+      while(result.status==='processing'&&Date.now()<deadline&&epoch===identityEpoch){
+        await new Promise(resolve=>setTimeout(resolve,2500));
+        result=await jsonAPI(`/api/ai/sessions/${id}/analysis`);
+      }
+      if(epoch!==identityEpoch)return;
+      if(result.status==='failed'||result.status==='processing')analysisFailures.set(key,'Chưa thể phân tích lúc này. Bạn có thể thử lại.');
+      const data=await jsonAPI(`/api/ai/sessions/${id}`);
+      if(epoch===identityEpoch&&active?.id===id){
+        const job=data.session.messages[0].analysis_job;
+        if(job)active={...active,messages:[{...active.messages[0],analysis_job:job},...active.messages.slice(1)]};
+        cacheSession(active);renderMessages();
+        if(result.status==='completed')notice('Bản phân tích đã sẵn sàng. Chỉ những mục bạn chấp nhận mới được lưu.');}
+    }catch(error){if(epoch===identityEpoch&&active?.id===id){analysisFailures.set(key,failure(error));notice(failure(error));}}
+    finally{
+      analysisRequests.delete(key);
+      if(epoch===identityEpoch&&active?.id===id){updateControls();if(show||$('#profile-dialog').open)await openProfile();}
+    }
+  })();analysisRequests.set(key,task);updateControls();return task;
+}
 async function openProfile() {
   const epoch=identityEpoch;
   await showProfile({api:jsonAPI,session:active,isGuest:config?.is_guest,isCurrent:()=>epoch===identityEpoch,
     onSession:row=>{if(epoch===identityEpoch&&active?.id===row.id){active=row;cacheSession(row);}},
-    onAnalyze:async()=>{if(busy||!active)return;$('#message-input').value=analysisMessage;pending={session_id:active.id,request_id:crypto.randomUUID(),message:analysisMessage};await send(true);},
+    analysisFailure:analysisFailures.get(analysisKey(active?.id)),ownerKey:user?.uid,analysisLimit:config?.analysis_policy?.daily_limit,
+    onRetry:async()=>{if(active)await runAnalysis(active.id,true,true);},
     onDraft:text=>{$('#message-input').value=text;resizeInput();persistJourney();$('#message-input').focus();}});
 }
 
 function clearPrivateUI() {
+  analysisRequests.clear();analysisFailures.clear();clearProfileDrafts();
   $('#profile-dialog').close();
   navigation++;navigationAbort?.abort();navigationAbort=null;loadingSession=null;selectedSession=null;sessionCache.clear();creation=null;
   identityEpoch++; entryContext = null; cancelMic(); surveyDrafts.clear(); preparedQuestions.clear(); $('#career-survey').hidden = true;

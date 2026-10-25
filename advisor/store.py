@@ -16,7 +16,7 @@ from uuid import uuid4
 
 from fastapi import HTTPException
 
-GREETING = "Chào bạn, mình là La Bàn. Bạn có thể kể về một sở thích, hỏi về một nghề, hoặc nói điều đang băn khoăn. Mình sẽ cùng bạn tìm hiểu từng chút một."
+GREETING = "Bạn muốn khám phá điều gì hôm nay? Bạn có thể kể về một sở thích, hỏi về một nghề hoặc chia sẻ điều đang băn khoăn."
 PROFILE_KEYS = ("interests", "strengths", "growth_skills", "careers")
 
 

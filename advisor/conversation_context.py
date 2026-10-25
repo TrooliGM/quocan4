@@ -17,13 +17,15 @@ def plan_turn(session, message):
     elif re.search(r'ke hoach|lo trinh|tung buoc|bat dau tu dau', text):intent = 'plan'
     elif re.search(r'goi y|tu van|hoat dong|chua biet.*thich', text):intent = 'advise'
     elif re.fullmatch(r'(chao|hi|hello|cam on|ok)[! .]*', text):intent = 'social'
+    simple_math=bool(re.match(r'^\s*\d+\s*[+*/×÷-]\s*\d+',text)) and not needs_search(message)
     short = bool(re.search(r'ngan gon|ngan thoi|mot cau|[123] cau|chi.*mot so', text))
     deep = bool(re.search(r'phan tich sau|chi tiet|nghien cuu|ky hon', text))
     limit = 800 if short or intent == 'social' else 3500 if deep else 2600 if intent in ('compare', 'plan', 'research') else 2000
     career = (session.get('messages') or [{}])[0].get('career_context', {})
     return {'intent':intent, 'detail':'brief' if short else 'deep' if deep else 'adaptive',
             'max_tokens':limit, 'mode':career.get('mode','career_discovery'),
-            'career_id':career.get('career_id')}
+            'career_id':career.get('career_id'),'needs_career_reference':intent!='social' and not simple_math,
+            'needs_survey_context':intent!='social' and not simple_math}
 
 
 def bounded_history(messages, budget=12000):

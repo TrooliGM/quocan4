@@ -20,3 +20,10 @@ Preview metadata có DeepSeek/Firebase binding dùng chung targetProduction+Prev
 13 test jobs mới PASS (PGlocal/LLMfixture);8 personalization+4 validator đã PASS ở lượt trước, sau đó chỉ thêm compactinsights/fencing được kiểm riêng. Sửa false-positive khi5câu đềuEmchưarõ, không hạ kiểm tra quote căn cứ/strength. Analysis25s timeout configurable riêng, max3000tokens giữ nguyên; chưa kết luận latency/LIVE trước Preview.
 
 Đã tạo Neon root schema-only task41-preview-schema-20261025 (br-morning-tooth-aznv081q), mới role task41_preview_app. Kiểm TLS, endpoint đúng branchkhácProduction, cả8 bảng0rows, schema006 có sẵn do schema clone; không chạy migration006/không copy studentdata. Thử tạo đầu bị tài khoản từ chối suspendinterval; bỏ tùy chỉnh để dùng default, không đổi plan. Credential riêng DPAPI/artifacts, chưa bindVercel. Production vẫn957ffde.
+
+
+## Bước3 — frontend
+
+Sau5câu, UI tự gọi taskendpoint, không gửi technicalprompt vào chat/không trừquota8. Có analysisloading riêng, autorecoverpending khi mởlại; failed mới cóRetry. Không báo đangtìmweb khi chưa cótoolstatus thật. Profile thẻkem/xanh với căn cứ thu gọn, accept/edit/reject, RAMdraft theoowner cóversionfence và xóa khilogout; responsejob chỉmergeanalysismetadata, không ghi đè tinchat mới/flagcủaUI. Đồngbộchat.html/public copy vàcacheversionloader.
+
+Chrome+PGlocal/Firebase+LLMfixture:5 nhóm PASS autoanalysis0chat,0implicitconfirm; accept/edit/reject vàreuse; savefailuregiữdraft; bubble/Copy/mobile vàmanualchat1quota; retrynetworkfailure khônglặpvôhạn. Ảnhartifacts/task41-*; đã xemdesktop, tinhchỉnh nútLàmrõthêm đồngbộpalette. Không gọifixture làLIVE. Node syntaxPASS. CònPreviewbuild/LIVE16eval/GooglePreview cầnnghiệmthu.
