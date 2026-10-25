@@ -225,3 +225,5 @@ Người dùng cho phép Production cho mọi role chỉ sau LIVE/an toàn PASS,
 
 ## Task 4.2 — Reader điểm chuẩn (25/10/2026)
 Bản sửa tiếp nối 415e245: thêm đối chiếu nội dung công bố CAND2020 và guard số liệu theo đủ diện tuyển sinh; bố cục/năm chưa hỗ trợ từ chối ước lượng. 55 kiểm thử local liên quan PASS, reader HTTPS LIVE PASS; Preview/DeepSeek mới chờ xác minh. Guest staging vẫn hết 8/8 và ngân sách cấp phiên 10/10, không reset/bypass. Production chưa thay. Xem docs/task42-score-evidence-validation.md.
+
+Kết thúc đợt đối chiếu điểm chuẩn: code d8491be / Preview dpl_G2gH5FQvHqDpUGnD1Hyc4BXip98N READY. Sửa thêm mất năm ở chuỗi làm rõ và ưu tiên nguồn đã đối chiếu trong ngân sách reader. 57 test phương thức local liên quan PASS; LIVE A01=23,09 và C03=18,88 member/QA, Chrome desktop/mobile quan sát PASS; auth/ownership/Origin/quota/private-path LIVE PASS. Guest Search LIVE BLOCKED (QA và người dùng đều hết lượt), external-source injection LIVE chưa kiểm; không mở Production, không push. Main vẫn1b1b640/EJvYVHp. Báo cáo docs/task42-score-evidence-validation.md là trạng thái mới nhất; không coi metadataenabled hoặc mock là GuestLIVE.

@@ -161,3 +161,5 @@ Theo yêu cầu mới nhất, Search có thể mở cho Guest/member/QA trên Pr
 
 ## Điểm chuẩn cần chứng cứ từ dòng công bố
 Theo yêu cầu người dùng, snippet hoặc link đã kiểm không đủ cấp phép trả số điểm/dải điểm. Reader nhận diện bố cục công bố đã kiểm và đối chiếu tuple năm/trường/ngành/giới/khu vực/tổ hợp; thiếu chứng cứ thì hỏi lại hoặc báo chưa xác minh, không suy rộng. Metadata phân biệt nơi đăng, đơn vị cung cấp và nguồn được ghi; chưa có URL văn bản gốc thì để trống. Không thay bằng LLM tự điền. Mở Search đại trà chỉ sau LIVE/an toàn đạt, Guest hết hạn mức vẫn BLOCKED và không lách.
+
+Đã xác nhận cuối đợt: người dùng báo Guest cũng hết lượt. Không reset/đổi định danh/IP/DB hay tăng hạn mức để đạt test; GuestLIVE còn BLOCKED nên chưa phát hành Search mọi role. Bản Preview d8491be đã xác minh nội dung bảng và DeepSeek qua API member/QA, guard không đoán ở các bảng chưa hỗ trợ. Giữ nguyên Production1b1b640 và canary; chưa push các sửa local khi điều kiện phát hành còn thiếu. Không gộp popupGoogle trước đó hay unitinjection thành bằng chứng LIVE của Preview mới.
