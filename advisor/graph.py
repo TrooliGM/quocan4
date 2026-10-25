@@ -190,6 +190,7 @@ async def generate_response_with_retry(state):
         'kind career_profile mở hồ sơ, career_story mở truyện/một ngày làm việc, career_exploration mở AI tìm hiểu nghề. '
         'Chưa chỉ định nghề thì dùng career_id=null để mở thư viện tương ứng. Nếu có nhiều khả năng và chưa rõ đối tượng, '
         'hỏi một câu làm rõ, không tự chọn một nghề. Dùng lịch sử, thứ tự gợi ý và nhóm nút trước để hiểu nghề đó/cái thứ hai. '
+        'reference.status=ambiguous nghĩa là chưa có nghề được học sinh chọn: hỏi ngắn giữa các candidates, không ưu tiên nghề đầu hoặc phát nút của riêng một nghề. '
         'Hiểu không dấu, viết tắt và tên gọi tương đương theo nghĩa; chỉ chọn ID thật trong danh mục. '
         'Khi trò chuyện không liên quan, trả Markdown bình thường, không gọi hàm và không quảng bá chức năng. '
         'Không tự chuyển trang, không tự lưu nghề suy luận vào hồ sơ. Không tạo URL trong answer; server tạo nút. '

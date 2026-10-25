@@ -1,5 +1,6 @@
 """Model-proposed intent, server-owned destinations. No URL/tool execution from AI."""
 import json
+import re
 from functools import lru_cache
 from typing import Literal
 from pydantic import BaseModel, ConfigDict, Field, model_validator
@@ -7,6 +8,39 @@ from career_library import catalog, find_career, normalize_search
 
 Kind=Literal['career_profile','career_story','career_exploration']
 TOOL_NAME='present_laban_actions'
+
+
+@lru_cache(maxsize=1)
+def _names():
+    mapping={normalize_search(c.name):c.career_id for c in catalog().careers}
+    pattern=re.compile(r'(?<!\w)(?:'+'|'.join(re.escape(name) for name in sorted(mapping,key=len,reverse=True))+r')(?!\w)')
+    return mapping,pattern
+
+
+def mentioned_ids(text):
+    mapping,pattern=_names()
+    return list(dict.fromkeys(mapping[m[0]] for m in pattern.finditer(normalize_search(text))))
+
+
+def reference_context(state):
+    """A narrow ambiguity fence, not an intent router. Model still resolves intent.
+
+    Do not let a model/source silently choose one of several just-mentioned jobs.
+    Names and IDs come from the catalog; no profession-specific keyword rules.
+    """
+    text=normalize_search(state['message'])
+    if not re.search(r'\b(?:nghe|nganh|cai) (?:do|ay|nay)\b',text) or mentioned_ids(text):return {'status':'not_ambiguous'}
+    history=state.get('session',{}).get('messages',[])[-12:]
+    latest_user=next((m.get('content','') for m in reversed(history) if m.get('role')=='user'),'')
+    if len(mentioned_ids(latest_user))==1:return {'status':'not_ambiguous'}
+    last=next((m for m in reversed(history) if m.get('role')=='assistant'),{})
+    ids=mentioned_ids(last.get('content',''))
+    for action in last.get('navigation_actions',[]) or []:
+        try:
+            valid=NavigationAction.model_validate(action)
+            if valid.career_id and valid.career_id not in ids:ids.append(valid.career_id)
+        except (ValueError,TypeError):continue
+    return {'status':'ambiguous','candidates':[{'career_id':id,'name':find_career(id).name} for id in ids]} if len(ids)>1 else {'status':'not_ambiguous'}
 
 
 def destination(kind, career_id):
@@ -76,6 +110,13 @@ def decode_completion(message,state):
                     if isinstance(raw,dict) and isinstance(raw.get('answer'),str) and raw['answer'].strip():
                         content=raw['answer'];actions=actions_from_proposal(raw,state)
                 except (ValueError,TypeError):pass
+    reference=reference_context(state)
+    if reference['status']=='ambiguous':
+        # Preserve a model-written clarification if it refrained from choosing.
+        if calls or not isinstance(content,str) or '?' not in content:
+            names=[r['name'] for r in reference['candidates'][:4]]
+            content='Bạn đang nhắc đến '+', '.join(names)+' hay một nghề khác?'
+        actions=[]
     return content,actions
 
 
@@ -108,4 +149,4 @@ def context(state):
             except (ValueError,TypeError):continue
         if valid:refs.append(valid)
     career_context=(state.get('session',{}).get('messages') or [{}])[0].get('career_context',{})
-    return {'recent_action_groups':refs[-4:],'current_career':career_context.get('career_id')}
+    return {'recent_action_groups':refs[-4:],'current_career':career_context.get('career_id'),'reference':reference_context(state)}

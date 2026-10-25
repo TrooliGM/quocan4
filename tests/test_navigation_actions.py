@@ -72,6 +72,17 @@ class NavigationTests(unittest.TestCase):
         self.assertEqual(normalize_reply(raw,state)['navigation_actions'],actions)
         self.assertEqual(AdvisorReply(**raw).navigation_actions,[])
 
+    def test_ambiguous_pronoun_cannot_silently_choose_first_real_career(self):
+        a,b=random.Random(43).sample(catalog().careers,2)
+        state={'message':'Cho em xem một ngày của nghề đó.','session':{'messages':[
+            {'role':'user','content':'Em muốn tìm hiểu thêm nhưng chưa chọn nghề.'},
+            {'role':'assistant','content':f'Bạn có thể cân nhắc {a.name} hoặc {b.name}.'}]}}
+        ref=n.reference_context(state);self.assertEqual(ref['status'],'ambiguous')
+        answer,actions=n.decode_completion(proposed('Mình chọn nghề đầu nhé.',[{'kind':'career_story','career_id':a.career_id}],basis='nghề đó'),state)
+        self.assertEqual(actions,[]);self.assertIn(a.name,answer);self.assertIn(b.name,answer);self.assertTrue(answer.endswith('?'))
+        state['session']['messages'] += [{'role':'user','content':'Em chọn '+a.name}, {'role':'assistant','content':'Mình sẽ tập trung vào '+a.name}]
+        self.assertEqual(n.reference_context(state)['status'],'not_ambiguous')
+
 
 class NavigationPipelineTests(unittest.TestCase):
     @classmethod

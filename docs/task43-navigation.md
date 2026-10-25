@@ -23,3 +23,13 @@ Frontend dùng DOM textContent và kiểm lại hình dạng URL theo kind/ID, n
 Chỉ Preview dùng staging riêng và cấu hình Firebase/DeepSeek được cấp phép hiện có. Không dùng database Production để thử tính năng, không reset quota, không chạy migration, không push/deploy Production. Guest staging trước đó đã hết quota; chỉ thử LIVE nếu có hạn mức hợp lệ, không tạo/đổi định danh để lách. Google popup mới cần thao tác người dùng, báo BLOCKED nếu chưa xác minh. Chi tiết kết quả thực tế sẽ bổ sung sau Preview.
 
 Bổ sung checkpoint: nhóm regression bảo vệ/Search 46/46 PASS, tổng61 phương thức Python PASS. Các log storage/timeout là tình huống mock dự kiến, không lỗi dịch vụ thật.
+
+## Preview đầu và lỗi phát hiện qua LIVE
+
+Preview b2a5adf / dpl_B3hGcrwKwyrukJFADRuNDTGLb9aB READY (staging riêng). 10 phản hồi model thật: mở thư viện viết tắt không dấu, hồ sơ Chuyên viên phân tích nghiệp vụ, truyện Kỹ sư hàng không, AI Nhân viên buồng phòng; tham chiếu Nhà sử học và nghề thứ hai đều đúng ID. Gợi ý từ vẽ mặt bằng/thiết kế nhà đưa Kiến trúc sư, Thiết kế nội thất và trải nghiệm an toàn, hỏi chọn nghề trước, không mặc định nút ở lượt đó. Toán ngoài chủ đề không có nút; metadata giữ qua GET lịch sử/retry.
+
+Thêm3 ca LIVE: source OWASP thực chứa lệnh prompt injection được xử lý như dữ liệu, có nguồn và không có navigation_actions; chọn rõ Kiến trúc sư mở đúng truyện. Nhưng câu “nghề đó” sau hai lựa chọn còn ưu tiên Kiến trúc sư trước: FAIL yêu cầu làm rõ tham chiếu mơ hồ. Không đánh dấu toàn bộ LIVE là PASS.
+
+Bản sửa: hàng rào tham chiếu hẹp dựa vào tên/ID thật vừa xuất hiện (không nghề hardcode), cung cấp reference.status=ambiguous cho model và bỏ hành động chọn nghề khi chưa rõ. Nếu model vẫn chọn, hỏi làm rõ bằng danh sách tên thật; không thêm lượt LLM. Ý định/nội dung hội thoại vẫn do DeepSeek xử lý, đây chỉ là kiểm tra tính nhất quán của tham chiếu. Unit mới với hai nghề ngẫu nhiên PASS; nhóm navigation11/11 PASS sau sửa, tổng62 phương thức đã kiểm. Cần kiểm lại đúng ca này trên Preview mới, không làm lại các ca đã PASS.
+
+Guest staging được xác minh chỉ đọc:8/8, ngân sách cấp phiên/IP10/10 còn khoảng49.733 giây tại lần kiểm tra. Không dùng Guest Production hoặc tạo định danh/staging khác để lách. Guest LIVE Task4.3 vẫn BLOCKED; role Guest được kiểm trong PostgreSQL local có mock model. Người dùng trả lời chưa kiểm tra được Google popup, giữ BLOCKED mục này. Chrome Member đã mở đúng thư viện/hồ sơ thật, reload nút và draft, desktop/mobile PASS; QA đang kiểm tra trang đích và khảo sát đúng nghề.
