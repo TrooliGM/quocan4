@@ -147,3 +147,9 @@ Preview dee7785 đã nghiệm thu ở mức mô tả docs/task41-unified-preview
 ## Đã xác nhận — Production canary Task 4.2
 
 Theo yêu cầu mới, cho phép DDGS chỉ QA trên domain chính, không mở đại trà khi Guest Search/Google popup/injection LIVE chưa đạt. Mọi người giữ Task 4.1; chỉ giới hạn công cụ Search, không chuyển legacy. SEARCH_TEST_UIDS tách khỏi quyền profile; Production mặc định fail closed và controlled=false không tự mở Search. Source 1b1b640/deployment dpl_EJvYVHp8yYb4Ync29JPu91WXWa6c đã phát hành; rollback dee7785/deployment cũ. Canary smoke/bảo mật PASS nhưng nghiệm thu chất lượng Search PARTIAL (DDGS intermittent, ngữ cảnh ca4, nhãn cache ca3). Không đổi secrets, migration/reset hoặc merge. docs/task42-production-canary.md là trạng thái mới nhất, thay kết luận chỉ Preview/chưa có quyền Production trước đó; không cấp quyền mở Search cho tất cả.
+
+Google Login QA và hiển thị nguồn trên domain chính đã được chủ dự án xác nhận thành công ngày 25/10/2026. Chỉ đóng mục popup/hiển thị nguồn đã kiểm; không mở rộng allowlist, không xem đó là phê duyệt Search đại trà hoặc chứng minh fresh-search/cache. Các hạn chế chất lượng và injection LIVE giữ nguyên.
+
+## Sửa truy vấn nối tiếp — quyết định theo yêu cầu mới
+
+Ưu tiên sửa bước khôi phục query và lọc nguồn, không viết lại AI. Ngữ cảnh chỉ lấy chủ đề công khai từ lịch sử có giới hạn, không gửi survey/profile; câu mới có chủ đề rõ ràng không kế thừa chủ đề cũ. Chỉ tìm lại một lần khi các kết quả sai chủ đề, chung timeout hiện có; không tăng quota hoặc đổi provider. Nguồn có năm không tự trở thành bằng chứng điểm chuẩn. Bản sửa local đã có kiểm thử, nhưng DDGS LIVE gặp timeout và chưa nghiệm thu DeepSeek thật/Preview; không tự thay Production canary hoặc mở Search đại trà. Chi tiết docs/task42-search-context-fix.md.

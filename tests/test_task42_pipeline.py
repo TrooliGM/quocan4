@@ -96,3 +96,27 @@ class SearchPipelineTests(unittest.TestCase):
                 self.assertEqual(forged.status_code,422)
         self.assertEqual(len(self.payloads),9)  # Same DeepSeek graph for non-QA, no Search side effect.
         self.assertEqual(external.search.await_count,1)  # QA only, owner cache reused across endpoints.
+
+    def test_followup_rewrites_query_filters_calendar_and_charges_only_one_chat_turn(self):
+        from test_task42_search_context_quality import GOOD,LEAP
+        self.f.identity={'uid':'guest-followup','provider':'anonymous'}
+        sid=self.client.post('/api/ai/sessions',json={'remember':False}).json()['session']['id']
+        self.client.put('/api/ai/sessions/'+sid+'/survey',json={'answers':base.ANSWERS})
+        answers=[[{**GOOD,'title':GOOD['title'].replace('2020','2024'),'description':GOOD['description'].replace('2020','2024')}],[LEAP],[GOOD]]
+        external=type('P',(),{'search':AsyncMock(side_effect=answers)})()
+        with patch.dict(os.environ,{'SEARCH_QA_ONLY':'false'}),patch.object(s,'provider',return_value=external),patch.object(s,'check_link',return_value=True):
+            first=self.client.post('/api/ai/chat',json={'session_id':sid,'request_id':str(uuid4()),'message':'Điểm chuẩn các trường đại học Công an năm 2024 là bao nhiêu?'})
+            self.assertEqual(first.status_code,200)
+            body={'session_id':sid,'request_id':str(uuid4()),'message':'Vậy năm 2020 là bao nhiêu ạ?'}
+            reply=self.client.post('/api/ai/chat',json=body);self.assertEqual(reply.status_code,200)
+            self.assertEqual(reply.json()['guest_quota']['used_questions'],2)
+            row=reply.json()['session']['messages'][-1];self.assertEqual([x['url'] for x in row['sources']],[GOOD['url']])
+            again=self.client.post('/api/ai/chat',json=body);self.assertTrue(again.json()['duplicate'])
+            self.assertEqual(again.json()['guest_quota']['used_questions'],2)
+        self.assertEqual(external.search.await_count,3);self.assertEqual(len(self.payloads),2)
+        self.assertEqual(external.search.call_args_list[1].args[0],'điểm chuẩn các trường đại học Công an nhân dân năm 2020')
+        self.assertIn('site:bocongan.gov.vn',external.search.call_args_list[2].args[0])
+        context=next(m['content'] for m in self.payloads[-1]['messages'] if m['content'].startswith('Dữ liệu ngữ cảnh'))
+        retrieval=json.loads(context.split('\n',1)[1])['web_search']
+        self.assertEqual(retrieval['resolved_query'],'điểm chuẩn các trường đại học Công an nhân dân năm 2020')
+        self.assertEqual(retrieval['attempts'],2)

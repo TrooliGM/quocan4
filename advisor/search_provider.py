@@ -58,11 +58,38 @@ def private_query(text):
         r'ho ten|dia chi|so dien thoai|so can cuoc|cccd|ngay sinh|ho so (?:cua|ca nhan)|benh an',plain(text)))
 
 def relevant(query,title,excerpt):
-    def plain(t):return ''.join(c for c in unicodedata.normalize('NFD',t.lower()) if unicodedata.category(c)!='Mn').replace('đ','d')
-    stop={'hay','tong','hop','thong','tin','nam','nganh','cua','toi','minh','ban','cho','tra','cuu','tim','kiem','ve','hien','nay','moi','nhat','tinh','hinh','lieu','bao','cao'}
-    words={w for w in re.findall(r'[a-z]+',plain(query)) if len(w)>2 and w not in stop}
+    from .conversation_context import plain,police_topic,score_topic
     text=plain(title+' '+excerpt)
-    return bool(words) and any(re.search(r'\b'+re.escape(w)+r'\b',text) for w in words)
+    # A year, 'công' in 'công thức', or a question word is not the subject.
+    topic=police_topic(query)
+    if topic:
+        if not police_topic(text):return False
+        if topic!='các trường đại học Công an nhân dân' and plain(topic) not in text:return False
+        if score_topic(query):
+            if not score_topic(text) or re.search(r'nam nhuan|bao nhieu ngay',text):return False
+            years=re.findall(r'\b(?:19|20)\d{2}\b',query)
+            source_years=re.findall(r'\b(?:19|20)\d{2}\b',text)
+            if years and source_years and years[0] not in source_years:return False
+        return True
+    stop={'hay','tong','hop','thong','tin','nam','nganh','cua','toi','minh','ban','cho','tra','cuu','tim','kiem','ve','hien','nay','moi','nhat','tinh','hinh','lieu','bao','cao','vay','the','bao','nhieu','cac','truong','giup','lay','dau','nao','viet','nam','chinh','thuc'}
+    words={w for w in re.findall(r'[a-z]+',plain(query)) if len(w)>2 and w not in stop}
+    matched=sum(bool(re.search(r'\b'+re.escape(w)+r'\b',text)) for w in words)
+    return bool(words) and matched>=min(2,len(words))
+
+def retry_query(query):
+    from .conversation_context import police_topic,score_topic,admission_selectors
+    year=re.search(r'\b(?:19|20)\d{2}\b',query)
+    topic=police_topic(query)
+    if topic and score_topic(query):
+        selectors=admission_selectors(query)
+        return '"điểm chuẩn" '+topic+(' '+selectors if selectors else '')+(' năm '+year[0] if year else '')+' site:bocongan.gov.vn'
+    return query+' nguồn chính thức site:gov.vn'
+
+def score_in_snippet(excerpt):
+    from .conversation_context import plain,score_topic
+    text=plain(excerpt)
+    decimal=re.findall(r'(?<![\d/.])(?:[12]?\d|30)[.,]\d{1,2}(?![\d/]|\.\d)',text)
+    return bool(re.search(r'\b(?:[12]?\d|30)(?:[.,]\d{1,2})?\s*diem\b',text)) or bool(decimal and score_topic(text))
 
 def safe_url(url):
     try:
@@ -141,7 +168,9 @@ class DDGSSearch:
         except BaseException:
             _ddgs_slots.release();raise
         future.add_done_callback(lambda _: _ddgs_slots.release())
-        async with asyncio.timeout(7):return await asyncio.wrap_future(future)
+        # auto may outlive one engine's 5s timeout while another returns valid
+        # results. Leave 3s for link checks inside retrieve's unchanged 12s budget.
+        async with asyncio.timeout(9):return await asyncio.wrap_future(future)
 
 _cache=OrderedDict()
 def provider():
@@ -157,12 +186,16 @@ async def retrieve(uid,text):
     year_match=re.search(r'\b((?:19|20)\d{2})\b',text);year=int(year_match[1]) if year_match else None
     # Không gửi profile/khảo sát/UID. Chặn định danh rõ ràng trong câu tra cứu.
     query=text[:300]
-    cache_key=hashlib.sha256((os.getenv('SEARCH_PROVIDER','')+'\0'+uid+'\0'+query).encode()).hexdigest()
+    cache_key=hashlib.sha256(('topic-v2\0'+os.getenv('SEARCH_PROVIDER','')+'\0'+uid+'\0'+query).encode()).hexdigest()
     hit=_cache.get(cache_key)
     if hit and hit[0]>time.monotonic():return {**hit[1],'cached':True}
     try:
         async with asyncio.timeout(12):
-            rows=await provider().search(query)
+            searcher=provider();rows=await searcher.search(query);attempts=1
+            # One refinement only when returned rows are off-topic; the same 12s
+            # deadline covers both calls and pinned HEAD checks. No new LLM call.
+            if rows and not any(relevant(query,str(row.get('title','')),str(row.get('description',''))) for row in rows[:6]):
+                rows=await searcher.search(retry_query(query));attempts=2
             async def validate(row):
                 try:
                     url=row['url'];_,host=safe_url(url)
@@ -172,11 +205,16 @@ async def retrieve(uid,text):
                     return Source(title=row['title'][:240],url=url,domain=host,publisher=host,published_at=row.get('page_age') if isinstance(row.get('page_age'),str) else None,retrieved_at=datetime.now(timezone.utc).isoformat(),supporting_excerpt=excerpt,target_year=year,temporal_relation='year_mentioned_only' if year and str(year) in excerpt else 'not_established' if year else 'not_requested').model_dump()
                 except (ValueError,KeyError,TypeError,OSError,http.client.HTTPException,SearchUnavailable):return None
             candidates=await asyncio.gather(*(validate(row) for row in rows[:6]))
-            def rank(s):return any(s['domain'].endswith(t) for t in ('.gov.vn','.edu.vn','.gov','.edu'))
+            def rank(s):return s['domain'] in ('chinhphu.vn','cand.vn') or any(s['domain'].endswith(t) for t in ('.gov.vn','.edu.vn','.gov','.edu'))
             unique={s['url']:s for s in candidates if s and s['supporting_excerpt']}
             sources=sorted(unique.values(),key=rank,reverse=True)[:4]
-            result={'status':'ok' if sources else 'no_verified_sources','target_year':year,'sources':sources}
-            _cache[cache_key]=(time.monotonic()+(3600 if year and year<datetime.now().year else 300),result)
+            result={'status':'ok' if sources else 'no_verified_sources','target_year':year,'sources':sources,'cached':False,'attempts':attempts}
+            from .conversation_context import police_topic,score_topic
+            if police_topic(query) and score_topic(query):
+                result['data_status']='score_snippets_available' if any(score_in_snippet(s['supporting_excerpt']) for s in sources) else 'score_data_not_in_snippets'
+                result['clarification_question']='Bạn muốn điểm chuẩn trường/ngành Công an nào?'
+            ttl=(3600 if year and year<datetime.now().year else 300) if sources else 15
+            _cache[cache_key]=(time.monotonic()+ttl,result)
             while len(_cache)>64:_cache.popitem(last=False)
             return result
     except (SearchUnavailable,httpx.HTTPError,TimeoutError,ValueError,KeyError,TypeError):
@@ -189,10 +227,15 @@ def constrain_links(answer,sources):
 
 async def search_context(state):
     from .performance import measure
-    from .conversation_context import public_search_query
+    from .conversation_context import public_search_plan
     from .rollout import search_restricted
     # Gate trước provider/cache/context expansion. Flag chỉ từ Firebase/server identity.
     if search_restricted() and not state.get('web_search_allowed',False):
         return {'retrieval':{'status':'unavailable' if needs_search(state['message']) else 'not_needed','sources':[]}}
-    with measure('web_search'):result=await retrieve(state['uid'],public_search_query(state.get('session',{'messages':[]}),state['message']))
+    plan=public_search_plan(state.get('session',{'messages':[]}),state['message'])
+    if plan['ambiguous']:
+        return {'retrieval':{'status':'needs_clarification','sources':[],'clarification_question':'Bạn đang hỏi số liệu nào của năm đó?'}}
+    with measure('web_search'):result=await retrieve(state['uid'],plan['query'])
+    if plan['follow_up'] and result['status']!='privacy_blocked':
+        result={**result,'resolved_query':plan['query']}
     return {'retrieval':result}

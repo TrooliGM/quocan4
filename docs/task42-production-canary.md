@@ -59,7 +59,7 @@ Không xóa hai lần unavailable khỏi báo cáo, không retry vô hạn hoặ
 - Guest Production thử đúng một câu: used_questions=1, limit=8, remaining=7; retry không tính thêm. Không reset quota hoặc xóa dữ liệu. Đây là Guest CHAT Task 4.1 LIVE, không phải Guest SEARCH LIVE.
 - Firebase ID token và Chrome SDK email/password thật PASS. Chrome desktop 1440/mobile 390 trên main thấy header mới, footer nguồn HTTPS/noopener và lời giải thích snippet, không tràn ngang. Ảnh: artifacts/task42-production-search-1440.png và task42-production-search-390.png.
 - API vẫn có 200 nghề/12 nhóm. Diff HTML/CSS/JS/data so với Production cũ bằng không.
-- Google popup đang chờ chủ dự án xác nhận theo câu hỏi đã gửi. Không dùng password SDK thay bằng chứng Google popup. Guest Search chưa mở; injection LIVE chưa kiểm. Không tự đánh dấu các mục này PASS.
+- Google popup và hiển thị nguồn: **PASS do chủ dự án xác nhận ngày 25/10/2026**, sau khi đăng nhập Google bằng tài khoản QA trên domain chính và hỏi “Xu hướng ngành AI Việt Nam năm 2026”. Đây là xác nhận thao tác thật của người dùng, tách biệt kiểm thử password SDK. Không suy ra lần hỏi đó gọi Internet mới hay dùng cache, hoặc mọi luồng quay lại khảo sát/hội thoại đều đã được kiểm. Guest Search chưa mở; injection LIVE chưa kiểm, không đổi các mục này thành PASS.
 - DDGS có lúc unavailable. Còn lỗi diễn đạt về cache và ngữ cảnh ở bảng trên; không mở Search đại trà trước khi xử lý/nghiệm thu thêm. Mẫu QA nhỏ không phải SLA hoặc kiểm thử mọi tổ hợp role/mode/lịch sử.
 
 ## Rollback

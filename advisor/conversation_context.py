@@ -44,28 +44,107 @@ def bounded_history(messages, budget=12000):
     return rows
 
 
-def public_search_query(session, message):
-    """Chỉ thêm chủ đề công khai của nghề/câu tra cứu trước, không thêm survey/profile."""
-    text=plain(message)
-    reference=bool(re.search(r'nganh (do|nay)|nghe (do|nay)|nam (ay|do)|nguon .*?(?:dau|nao)|(?:dan|cho|xin) nguon|con nam',text))
-    if not reference:return message
-    career=(session.get('messages') or [{}])[0].get('career_context',{})
-    topic=career.get('career_name')
-    year=None
-    from .search_provider import needs_search,private_query
-    for row in reversed(session.get('messages',[])):
-        if row['role']!='user':continue
-        previous=row['content']
-        # Không dùng một đoạn tự giới thiệu/hồ sơ cá nhân làm truy vấn trước.
-        if private_query(previous):continue
-        if needs_search(previous):
-            topic=topic or previous[:200]
-            match=re.search(r'\b(?:19|20)\d{2}\b',previous)
-            if match:year=match[0]
+def police_topic(text):
+    """Chỉ trích tên chủ đề công khai, không sao chép câu trả lời/hồ sơ."""
+    t=plain(text)
+    if not re.search(r'cong an|\bcand\b|an ninh nhan dan|canh sat nhan dan|\bannd\b|\bcsnd\b',t):return None
+    # Tên cụ thể do người dùng nêu được giữ; không tự chọn một trường từ danh sách.
+    names=[('dai hoc an ninh nhan dan','Đại học An ninh nhân dân'),
+           ('dai hoc canh sat nhan dan','Đại học Cảnh sát nhân dân'),
+           ('hoc vien an ninh nhan dan','Học viện An ninh nhân dân'),
+           ('hoc vien canh sat nhan dan','Học viện Cảnh sát nhân dân'),
+           ('dai hoc phong chay chua chay','Đại học Phòng cháy chữa cháy')]
+    found=[name for key,name in names if key in t]
+    return found[0] if len(found)==1 else 'các trường đại học Công an nhân dân'
+
+
+def score_topic(text):
+    return bool(re.search(r'diem chuan|diem trung tuyen|diem xet tuyen|bao nhieu diem|lay .*?diem',plain(text)))
+
+
+def admission_selectors(text):
+    """Public cohort selectors only; don't copy arbitrary history into a query."""
+    t=plain(text);parts=[]
+    if re.search(r'\bnu\b',t):parts.append('nữ')
+    elif re.search(r'(?:thi sinh|doi tuong|danh cho) nam\b|\bnam (?=mien|to hop)',t):parts.append('nam')
+    for key,label in [('mien bac','miền Bắc'),('mien nam','miền Nam')]:
+        if key in t:parts.append(label)
+    parts+=list(dict.fromkeys(re.findall(r'\b[A-D]\d{2}\b',text.upper())))
+    return ' '.join(parts)
+
+
+def public_search_plan(session, message):
+    """Resolve elliptical public lookups from bounded history; never add survey/profile.
+
+    A complete new subject takes precedence. Assistant history can supply only
+    canonical police/score anchors, not arbitrary prose, numbers or source text.
+    """
+    from .search_provider import private_query,needs_search
+    text=plain(message);years=re.findall(r'\b(?:19|20)\d{2}\b',message)
+    plan={'query':message,'follow_up':False,'ambiguous':False}
+    if private_query(message):return plan
+    # An explicit new topic (including calendar questions) must never inherit police scores.
+    calendar=bool(re.search(r'nam nhuan|bao nhieu ngay|lich (?:am|duong)',text))
+    reference=bool(re.search(r'nganh (do|nay)|nghe (do|nay)|nam (ay|do)|nguon .*?(?:dau|nao)|(?:dan|cho|xin) nguon',text))
+    elliptical=bool(re.match(r'^(?:vay|the|con|the thi|vay thi|nam|bao nhieu|la bao nhieu)\b',text))
+    # Strip question scaffolding to distinguish a year-only follow-up from a new topic.
+    residue=re.sub(r'\b(?:19|20)\d{2}\b|\b(?:vay|thi|the|con|nam|la|bao|nhieu|a|ah|ha|nhi|duoc|co|the|cho|em|hoi|voi|sao|nao|diem|chuan|trung|tuyen)\b|[^a-z ]',' ',text)
+    elliptical=elliptical and not residue.strip()
+    if calendar or not (reference or elliptical):return plan
+    plan['follow_up']=True
+    history=session.get('messages',[])[-16:]
+    topic=None;previous_year=None;is_score=False;selectors=''
+    assistant_topic=None;assistant_score=False
+    for row in reversed(history):
+        previous=row.get('content','');p=plain(previous)
+        if previous==message:continue
+        # Never walk past an explicit topic switch to revive a stale subject.
+        if row.get('role')=='user' and re.search(r'doi chu de|nam nhuan|bao nhieu ngay',p):break
+        if row.get('role')=='assistant':
+            # Canonical extraction only: even URLs/PII in a reply are never copied.
+            if not assistant_topic:assistant_topic=police_topic(previous)
+            assistant_score=assistant_score or score_topic(previous)
+            continue
+        if row.get('role')!='user' or private_query(previous):continue
+        # Follow-up fillers aren't the actual subject; continue to its last explicit turn.
+        candidate=police_topic(previous)
+        if candidate:
+            topic=candidate;is_score=score_topic(previous) or assistant_score
+        elif needs_search(previous) and re.search(r'[a-z]{3}',re.sub(r'\b(?:vay|nam|bao|nhieu|the|con|la)\b','',p)):
+            topic=previous[:200];is_score=score_topic(previous)
+        elif score_topic(previous) and assistant_topic:
+            topic=assistant_topic;is_score=True
+        if topic:
+            prior=re.search(r'\b(?:19|20)\d{2}\b',previous)
+            previous_year=prior[0] if prior else None
+            selectors=admission_selectors(previous)
             break
-    result=message
-    if topic:result=re.sub(r'(?i)(ngành|nganh|nghề|nghe)\s+(đó|do|này|nay)',lambda _:topic,result)
+    if not topic and elliptical and not assistant_score:
+        # A career name alone does not identify a quantity (score, salary, intake...).
+        plan['ambiguous']=True
+        return plan
+    topic=topic or assistant_topic
+    if not topic:
+        career=(session.get('messages') or [{}])[0].get('career_context',{})
+        topic=career.get('career_name')
+    if not topic:
+        plan['ambiguous']=elliptical
+        return plan
+    year=years[0] if years else previous_year
+    if police_topic(topic) and (is_score or assistant_score):
+        query='điểm chuẩn '+topic
+        if selectors:query+=' '+selectors
+        if year:query+=' năm '+year
+        plan.update(query=query,requires_score=True,clarification_question='Bạn muốn điểm chuẩn trường/ngành Công an nào?')
+        return plan
+    # Replace the old year when the latest turn names a different one.
+    if year:topic=re.sub(r'\b(?:19|20)\d{2}\b',year,topic)
+    result=re.sub(r'(?i)(ngành|nganh|nghề|nghe)\s+(đó|do|này|nay)',lambda _:topic,message)
     if year:result=re.sub(r'(?i)(?:năm|nam)\s+(ấy|ay|đó|do)','năm '+year,result)
-    if topic and not re.search(r'nganh (do|nay)|nghe (do|nay)|nam (ay|do)',text):
-        result+=' — chủ đề: '+topic
-    return result
+    if result==message:result=topic+((' năm '+year) if year and year not in topic else '')
+    plan['query']=result
+    return plan
+
+
+def public_search_query(session, message):
+    return public_search_plan(session,message)['query']
