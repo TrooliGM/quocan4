@@ -1,49 +1,25 @@
-"""Luồng LangGraph: lấy ngữ cảnh nghề → tư vấn bằng DeepSeek."""
-import os
-from typing import TypedDict
-
+"""Compatibility response shape, with the same Task4.1 answer engine as chat."""
 from langgraph.graph import END, START, StateGraph
+from advisor.graph import AdvisorState, answer_graph
 
-from content import CAREERS
-from deepseek_client import post_completion, message_text, model_name
+class AdviceState(AdvisorState,total=False):
+    question:str
+    context:str
+    answer:str
+    sources:list
+    search_status:str
+    pipeline:str
 
+async def ask_deepseek(state):
+    # uid/session are supplied by the verified quota wrapper, never the client.
+    result=await answer_graph.ainvoke({**state,'message':state['question'],
+        'scene_context':state.get('context',''),'confirmed_profile':[],
+        'confirmed_profile_access':False})
+    reply=result['reply']
+    return {'answer':reply['answer'],'reply':reply,'sources':reply.get('sources',[]),
+            'search_status':reply.get('search_status','not_needed'),'pipeline':'task41'}
 
-class AdviceState(TypedDict):
-    question: str
-    context: str
-    answer: str
-
-
-def build_context(state: AdviceState):
-    context = "\n".join(f"{c['name']}: {c['description']} Kỹ năng: {', '.join(c['skills'])}. Bước đầu: {c['first_step']}" for c in CAREERS)
-    return {"context": context}
-
-
-async def ask_deepseek(state: AdviceState):
-    key = os.getenv("DEEPSEEK_API_KEY", "").strip()
-    if not key:
-        raise RuntimeError("missing_api_key")
-    prompt = (
-        "Bạn là La Bàn, trợ lý khám phá nghề cho học sinh THCS và THPT. "
-        "Trả lời bằng tiếng Việt, thân thiện, tối đa 220 từ. Giúp học sinh khám phá, "
-        "không khẳng định một nghề là số phận hay chẩn đoán tính cách. "
-        "Chỉ tư vấn học tập và nghề nghiệp; từ chối ngắn gọn yêu cầu ngoài phạm vi. "
-        "Không yêu cầu thông tin cá nhân nhạy cảm. Không bịa thu nhập, tuyển sinh, "
-        "số liệu thị trường hay nguồn; khi thiếu dữ liệu hãy nói rõ. "
-        "Gợi ý một hoạt động nhỏ và một câu hỏi tự suy ngẫm. "
-        "Nội dung tham khảo của dự án:\n" + state["context"]
-    )
-    response = await post_completion(
-            {"model": model_name(),
-                  "messages": [{"role": "system", "content": prompt}, {"role": "user", "content": state["question"]}],
-                  "max_tokens": 700, "thinking": {"type": "disabled"}, "stream": False}, timeout=25)
-    return {"answer": message_text(response)}
-
-
-builder = StateGraph(AdviceState)
-builder.add_node("career_context", build_context)
-builder.add_node("deepseek_advice", ask_deepseek)
-builder.add_edge(START, "career_context")
-builder.add_edge("career_context", "deepseek_advice")
-builder.add_edge("deepseek_advice", END)
-advice_graph = builder.compile()
+builder=StateGraph(AdviceState)
+builder.add_node('task41_answer',ask_deepseek)
+builder.add_edge(START,'task41_answer');builder.add_edge('task41_answer',END)
+advice_graph=builder.compile()

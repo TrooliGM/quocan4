@@ -4,7 +4,7 @@ let draftOwner=null;const drafts=new Map();
 export function clearProfileDrafts(){draftOwner=null;drafts.clear();}
 function keepDraft(key,value,version){drafts.delete(key);drafts.set(key,{value,version});while(drafts.size>120)drafts.delete(drafts.keys().next().value);}
 function node(tag,text,cls){const n=document.createElement(tag);if(text)n.textContent=text;if(cls)n.className=cls;return n;}
-export async function showProfile({api,session,isGuest,backendEnabled=true,isCurrent,onRetry,onDraft,onSession,analysisFailure,ownerKey,analysisLimit=6}){
+export async function showProfile({api,session,isGuest,backendEnabled=true,profileEnabled=true,isCurrent,onRetry,onDraft,onSession,analysisFailure,ownerKey,analysisLimit=6}){
   if(draftOwner!==ownerKey){clearProfileDrafts();draftOwner=ownerKey;}
   const dialog=document.querySelector('#profile-dialog'),host=document.querySelector('#profile-content');
   host.replaceChildren(node('p','Đang mở hồ sơ…','profile-empty'));if(!dialog.open)dialog.showModal();
@@ -16,12 +16,12 @@ export async function showProfile({api,session,isGuest,backendEnabled=true,isCur
     const close=node('button','Tiếp tục trò chuyện');close.type='button';close.onclick=()=>dialog.close();panel.append(close);
     host.replaceChildren(panel);return; // No protected profile/analysis calls, no fabricated proposals.
   }
-  let data;
-  try{data=await api('/api/ai/career-profile');}catch{if(isCurrent())host.replaceChildren(node('p','Chưa mở được hồ sơ. Đóng và mở lại để thử; dữ liệu không bị thay đổi.'));return;}
+  let data={enabled:false,items:[]};
+  if(profileEnabled){try{data=await api('/api/ai/career-profile');}catch{if(isCurrent())host.replaceChildren(node('p','Chưa mở được hồ sơ. Đóng và mở lại để thử; dữ liệu không bị thay đổi.'));return;}}
   if(!isCurrent())return;
   host.replaceChildren();
   host.append(node('p',isGuest?'Khách: các mục bạn xác nhận chỉ lưu tạm tối đa 2 giờ. Sau đăng nhập, chọn giữ lâu dài từng mục nếu muốn.':'Chỉ các mục bạn xác nhận mới được lưu. Bạn có thể sửa hoặc xóa bất cứ lúc nào.','profile-empty'));
-  if(!data.enabled)host.append(node('p','Hồ sơ có xác nhận chưa bật ở môi trường này; đề xuất vẫn có thể xem nếu AI phân tích thành công.','profile-empty'));
+  if(!data.enabled)host.append(node('p','Bạn được phân tích khảo sát và trò chuyện bằng cùng AI mới. Lưu Hồ sơ đã xác nhận hiện chỉ mở cho tài khoản kiểm thử được cấp quyền; các đề xuất dưới đây chưa được lưu thành Hồ sơ riêng tư.','profile-empty'));
   const status=node('p','','profile-status');status.setAttribute('role','status');host.append(status);
   async function action(button,fn){if(button.disabled)return;button.disabled=true;status.textContent='Đang xử lý…';try{await fn();if(isCurrent())status.textContent='Đã cập nhật.';}catch{if(isCurrent()){status.textContent='Chưa lưu được hồ sơ. Những lựa chọn của bạn vẫn được giữ lại.';button.disabled=false;}}}
   const saved=node('section');saved.append(node('h3','Hồ sơ bạn đã chọn'));
@@ -69,5 +69,6 @@ export async function showProfile({api,session,isGuest,backendEnabled=true,isCur
     const accept=node('button','Chấp nhận'),reject=node('button','Từ chối');accept.disabled=!data.enabled||proposal.proposed_action!=='confirm';
     accept.onclick=()=>action(accept,async()=>{if(value.value.trim().length<3)throw Error();const result=await api('/api/ai/career-profile/items',{method:'POST',body:JSON.stringify({session_id:session.id,proposal_id:proposal.id,value:value.value.trim(),confirmed:true})});if(isCurrent()){drafts.delete(key);data=result;row.remove();renderSaved();}});
     reject.onclick=()=>action(reject,async()=>{const result=await api(`/api/ai/sessions/${session.id}/profile-proposals/${proposal.id}/reject`,{method:'POST'});if(isCurrent()){onSession?.(result.session);row.remove();}});row.append(accept,reject);proposals.append(row);
+    if(!data.enabled)reject.disabled=true;
   }
 }

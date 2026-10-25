@@ -91,7 +91,7 @@ class ProfileTests(unittest.TestCase):
         self.client.delete('/api/ai/career-profile/items/'+item['id']);self.assertEqual(len(cp.read('owner-one')['items']),1)
         self.assertEqual(self.client.post('/api/ai/career-profile/items',json={**self.body(),'owner':'owner-one'}).status_code,422)
     def test_profile_opt_out_backend_and_confirmed_context_only(self):
-        self.accept();state={'uid':'owner-one','session_id':self.session['id']}
+        self.accept();state={'uid':'owner-one','session_id':self.session['id'],'confirmed_profile_access':True}
         with patch('advisor.confirmed_profile.context_items',side_effect=AssertionError('must not read profile')):self.assertEqual(load_profile(state)['confirmed_profile'],[])
         r=self.client.put('/api/ai/sessions/'+self.session['id']+'/profile-use',json={'use_profile':True});self.assertEqual(r.status_code,200)
         self.assertEqual(load_profile(state)['confirmed_profile'][0]['value'],self.body()['value'])
@@ -155,10 +155,10 @@ class ProfileTests(unittest.TestCase):
             self.assertEqual(self.client.post('/api/ai/career-profile/items',json=self.body()).status_code,429)
         with self.connection() as db:
             self.assertEqual(db.execute('SELECT count(*) AS n FROM guest_ai_requests').fetchone()['n'],0)
-    def test_controlled_rollout_keeps_ordinary_chat_on_stable_graph(self):
-        with patch.dict(os.environ,{'ADVISOR_CONTROLLED_ROLLOUT':'true','ADVISOR_TEST_UIDS':'different-qa','AI_DEMO_MODE':'true'}),patch('advisor.routes.advisor_graph.ainvoke',side_effect=AssertionError('must not run Task4 for ordinary member')):
+    def test_controlled_profile_rollout_does_not_restrict_new_chat_pipeline(self):
+        with patch.dict(os.environ,{'ADVISOR_CONTROLLED_ROLLOUT':'true','ADVISOR_TEST_UIDS':'different-qa','AI_DEMO_MODE':'true'}),patch('advisor.stable_graph.advisor_graph.ainvoke',side_effect=AssertionError('legacy graph must never run')):
             result=self.client.post('/api/ai/chat',json={'session_id':self.session['id'],'request_id':str(uuid4()),'message':'Thích vẽ'})
         self.assertEqual(result.status_code,200,result.text)
-        self.assertNotIn('survey_analysis',result.json()['session']['messages'][-1])
+        self.assertEqual(result.json()['pipeline'],'task41')
 
 if __name__=='__main__':unittest.main()

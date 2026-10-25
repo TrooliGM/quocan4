@@ -1,4 +1,4 @@
-import {showProfile,clearProfileDrafts} from './profile-panel.js?v=task41-public-ui-1';
+import {showProfile,clearProfileDrafts} from './profile-panel.js?v=task41-unified-1';
 import {getFirebase, restoredUser} from './firebase-client.js';
 import {GoogleMic, BrowserMic} from './mic-recorder.js';
 import {guestSession} from './ai-access.js';
@@ -568,7 +568,7 @@ async function runAnalysis(id,retry=false,show=false) {
 }
 async function openProfile() {
   const epoch=identityEpoch;
-  await showProfile({api:jsonAPI,session:active,isGuest:config?.is_guest,backendEnabled:config?.task4_enabled!==false,isCurrent:()=>epoch===identityEpoch,
+  await showProfile({api:jsonAPI,session:active,isGuest:config?.is_guest,backendEnabled:config?.automatic_analysis!==false,profileEnabled:config?.profile_enabled!==false,isCurrent:()=>epoch===identityEpoch,
     onSession:row=>{if(epoch===identityEpoch&&active?.id===row.id){active=row;cacheSession(row);}},
     analysisFailure:analysisFailures.get(analysisKey(active?.id)),ownerKey:user?.uid,analysisLimit:config?.analysis_policy?.daily_limit,
     onRetry:async()=>{if(active)await runAnalysis(active.id,true,true);},

@@ -32,7 +32,7 @@ async def run_legacy(request, user, request_id, message, scope, graph, state):
                 raise HTTPException(409, 'Mã tin nhắn đã được sử dụng cho nội dung khác.')
         cached = next((m['content'] for m in current['messages'] if m.get('request_id') == request_id and m['role'] == 'assistant'), None)
         if cached is not None:
-            return {'answer':cached,'duplicate':True,'request_id':request_id,
+            return {'answer':cached,'duplicate':True,'pipeline':'saved_response','request_id':request_id,
                     'guest_quota':get_guest_usage(uid) if user.get('provider') == 'anonymous' else None}
     await asyncio.to_thread(check_ai_rate, request, user)
     with connection() as db:
@@ -47,7 +47,7 @@ async def run_legacy(request, user, request_id, message, scope, graph, state):
     cached = next((m['content'] for m in current['messages'] if m.get('request_id') == request_id and m['role'] == 'assistant'), None)
     guest = user.get('provider') == 'anonymous'
     if cached is not None:
-        return {'answer': cached, 'duplicate': True, 'request_id': request_id,
+        return {'answer': cached, 'duplicate': True, 'pipeline':'saved_response','request_id': request_id,
                 'guest_quota': get_guest_usage(uid) if guest else None}
     reservation = None
     try:
@@ -56,13 +56,16 @@ async def run_legacy(request, user, request_id, message, scope, graph, state):
             raise HTTPException(409, {'code':'AI_REQUEST_PENDING','message':'Yêu cầu đang xử lý hoặc đã hoàn thành. Bạn thử tải lại nhé.'})
         # Same row lease/fencing as chat, compatible with transaction pooling.
         # No database connection/transaction is held while the provider runs.
-        result = await graph.ainvoke(state)
+        result = await graph.ainvoke({**state,'uid':uid,'session_id':sid,'request_id':request_id,
+            'session':current,'profile':current['profile'],'confirmed_profile_access':False})
         answer = result.get('answer')
         if not isinstance(answer, str) or not answer.strip():
             raise ValueError('Invalid AI answer')
-        reply = {'answer':answer,'profile':empty_profile(),'summary':'','recommendations':[]}
+        reply = result.get('reply') or {'answer':answer,'profile':empty_profile(),'summary':'','recommendations':[]}
         await asyncio.to_thread(save_messages_atomic, uid, sid, request_id, message, reply, 'live', reservation['reservation_token'])
-        return {'answer':answer,'duplicate':False,'request_id':request_id,'guest_quota': get_guest_usage(uid) if guest else None}
+        return {'answer':answer,'duplicate':False,'request_id':request_id,'pipeline':'task41',
+                'sources':reply.get('sources',[]),'search_status':reply.get('search_status','not_needed'),
+                'guest_quota': get_guest_usage(uid) if guest else None}
     except BaseException:
         if reservation and reservation.get('new_reservation'):
             # Reads saved pair before any refund; save + quota complete are atomic.

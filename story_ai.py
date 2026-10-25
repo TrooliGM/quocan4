@@ -1,11 +1,10 @@
 """LangGraph bổ sung ngữ cảnh của cảnh truyện trước khi gọi DeepSeek."""
-from typing import TypedDict
 from langgraph.graph import END, START, StateGraph
-from ai import ask_deepseek
+from ai import ask_deepseek, AdviceState
 from career_stories import get_story
 
 
-class StoryState(TypedDict):
+class StoryState(AdviceState,total=False):
     career_id: str
     scene_index: int
     question: str

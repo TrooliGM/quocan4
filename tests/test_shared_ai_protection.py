@@ -220,7 +220,8 @@ class SharedAIProtectionTests(unittest.TestCase):
     def test_member_expired_lease_fences_old_worker_and_cannot_refund_prior_guest_usage(self):
         from advisor.guest_quota import reserve_guest_request, finish_guest_request
         sid=self.chat_session(True);rid=str(uuid4())
-        with self.connection() as db:db.execute("INSERT INTO guest_ai_usage(uid,used_questions) VALUES('member',7)")
+        # Survey pending now creates the usage lock row (zero chat charge).
+        with self.connection() as db:self.assertEqual(db.execute("UPDATE guest_ai_usage SET used_questions=7 WHERE uid='member'").rowcount,1)
         old=reserve_guest_request('member',sid,rid,'same',False)
         with self.connection() as db:db.execute("UPDATE guest_ai_requests SET lease_until=NOW()-INTERVAL '1 second' WHERE request_id=%s",(rid,))
         new=reserve_guest_request('member',sid,rid,'same',False)

@@ -41,7 +41,8 @@ async def request_performance(request, call_next):
             return JSONResponse({'detail':'Preview cách ly chỉ để xem giao diện; AI, hồ sơ và ghi dữ liệu chưa được bật.'},status_code=503,headers={'Cache-Control':'no-store'})
         with measure('app'):
             response=await call_next(request)
-        if request.url.path.startswith('/api/ai/'):
+        if (request.url.path.startswith('/api/ai/') or request.url.path=='/api/advice'
+            or request.url.path.startswith('/api/career-stories/') and request.url.path.endswith('/ask')):
             response.headers['Server-Timing']=state.header()
             response.headers['Cache-Control']='no-store'
         return response
@@ -67,12 +68,6 @@ async def storage_failure(request, error):
 
 
 def html_page(filename):
-    from advisor.rollout import controlled, public_premium_ui
-    if filename=='chat.html' and controlled() and not public_premium_ui():
-        text=(ROOT/'stable-chat.html').read_text(encoding='utf8')
-        import re
-        text=re.sub(r'/assets/stable-chat\.js\?[^"\s]+','/assets/advisor-entry.js?v=canary-1',text)
-        return HTMLResponse(text,headers={'Cache-Control':'no-store'})
     # HTML runtime ở gốc, assets trong public/ do Vercel CDN phục vụ.
     # Bản public là fallback cho checkout cũ/local; không giả định nó có trong Function.
     for path in (ROOT / filename, ROOT / 'public' / filename):

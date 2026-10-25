@@ -25,6 +25,10 @@ class ContextTests(unittest.TestCase):
  def test_simple_math_does_not_pull_career_or_survey_context(self):
   p=plan_turn({'messages':[]},'2 + 2 bằng mấy?');self.assertFalse(p['needs_career_reference']);self.assertFalse(p['needs_survey_context'])
 
+ def test_explicit_topic_change_does_not_force_career_or_survey(self):
+  p=plan_turn({'messages':[]},'Đổi chủ đề: vì sao bầu trời xanh? Không tư vấn nghề.')
+  self.assertFalse(p['needs_career_reference']);self.assertFalse(p['needs_survey_context'])
+
  def test_periodic_memory_receives_intervening_user_disclosures(self):
   import asyncio,json,os,httpx
   from unittest.mock import patch

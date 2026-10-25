@@ -105,15 +105,16 @@ class ChatInput(BaseModel):
 @router.get("/api/ai/config")
 def config(user=Depends(require_user)):
     from .confirmed_profile import enabled
-    from .rollout import allowed, public_premium_ui
+    from .rollout import allowed
     return {"mode": "demo" if demo_mode() else "live", "configured": demo_mode() or bool(os.getenv("DEEPSEEK_API_KEY", "").strip()),
             "model": "demo" if demo_mode() else model_name(),
             "microphone": {"google": voice.google_stt_configured()},
             "is_guest": user.get('provider') == 'anonymous',
             "profile_enabled": enabled() and allowed(user),
-            "task4_enabled": allowed(user),
-            "premium_ui_public": public_premium_ui(),
-            "automatic_analysis": allowed(user),
+            "task4_enabled": True,
+            "chat_pipeline": "task41",
+            "premium_ui_public": True,
+            "automatic_analysis": True,
             "analysis_policy": {"chat_quota_charge":0,"daily_limit":setting("ANALYSIS_USER_PER_DAY",6)},
             "guest_quota": guest_usage(user)}
 
@@ -177,8 +178,7 @@ def session(session_id: UUID, user=Depends(require_user)):
 async def submit_survey(session_id: UUID, payload: SurveyInput, user=Depends(require_user)):
     async with lock_for(str(session_id)):
         row=await asyncio.to_thread(save_survey, get_store(), user['uid'], str(session_id), payload)
-        from .rollout import allowed
-        if allowed(user) and isinstance(get_store(),PostgresConversationStore):
+        if isinstance(get_store(),PostgresConversationStore):
             from .analysis_jobs import pending
             await asyncio.to_thread(pending,user['uid'],str(session_id))
             row=await asyncio.to_thread(get_store().get,user['uid'],str(session_id))
@@ -300,7 +300,7 @@ async def chat(payload: ChatInput, request: Request, user=Depends(require_user))
                 if needs_survey(current):
                     raise HTTPException(409, "Em hãy hoàn thành khảo sát trước khi tư vấn nhé.")
                 if completed_answer(current, request_id, payload.message):
-                    return {"session": current, "duplicate": True, "guest_quota": guest_usage(user)}
+                    return {"session": current, "duplicate": True, "pipeline":"saved_response", "guest_quota": guest_usage(user)}
                 if len(current["messages"]) >= 501:
                     raise HTTPException(409, "Phiên đã dài. Bạn hãy tạo cuộc trò chuyện mới nhé.")
                 if not demo_mode() and not os.getenv("DEEPSEEK_API_KEY", "").strip():
@@ -314,18 +314,16 @@ async def chat(payload: ChatInput, request: Request, user=Depends(require_user))
                         if not reservation["new_reservation"]:
                             current = store.get(uid, session_id)
                             if completed_answer(current, request_id, payload.message):
-                                return {"session": current, "duplicate": True, "guest_quota": guest_usage(user)}
+                                return {"session": current, "duplicate": True, "pipeline":"saved_response", "guest_quota": guest_usage(user)}
                             raise HTTPException(409, {"code": "GUEST_REQUEST_PENDING" if reservation['status'] == 'reserved' else "GUEST_REQUEST_COMPLETED",
                                 "message": "Yêu cầu này đang xử lý hoặc đã hoàn thành. Hãy tải lại cuộc trò chuyện trước khi thử gửi lại."})
                     state = {"uid": uid, "session_id": session_id, "request_id": request_id, "message": payload.message}
                     if reservation and reservation['new_reservation']:
                         state['guest_reservation_token'] = reservation['reservation_token']
                     from .rollout import allowed
-                    selected_graph=advisor_graph
-                    if not allowed(user):
-                        from .stable_graph import advisor_graph as selected_graph
-                    result = await selected_graph.ainvoke(state)
-                return {"session": result["session"], "duplicate": False, "guest_quota": guest_usage(user)}
+                    state['confirmed_profile_access']=allowed(user) and not is_guest
+                    result = await advisor_graph.ainvoke(state)
+                return {"session": result["session"], "duplicate": False, "pipeline":"task41", "guest_quota": guest_usage(user)}
     except BaseException as error:
         # Lỗi sau COMMIT có thể xảy ra do mạng/response/graph. Đọc lại trước khi
         # hoàn lượt; câu trả lời và status completed đã được commit nguyên tử.
@@ -336,7 +334,7 @@ async def chat(payload: ChatInput, request: Request, user=Depends(require_user))
                 if completed_answer(current, request_id, payload.message):
                     if isinstance(error, asyncio.CancelledError):
                         raise error
-                    return {"session": current, "duplicate": True, "guest_quota": guest_usage(user)}
+                    return {"session": current, "duplicate": True, "pipeline":"saved_response", "guest_quota": guest_usage(user)}
             except asyncio.CancelledError:
                 raise
             except Exception as settlement_error:
@@ -389,8 +387,7 @@ class AnalysisRetryInput(BaseModel):
 
 
 def analysis_user(user=Depends(require_user)):
-    from .rollout import require
-    require(user)
+    # Bounded, owner-scoped drafts grant no confirmed-profile rights.
     return user
 
 
