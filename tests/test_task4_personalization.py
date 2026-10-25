@@ -24,7 +24,7 @@ class PersonalizationTests(unittest.TestCase):
   with patch.dict(os.environ,{'AI_DEMO_MODE':'false','DEEPSEEK_API_KEY':'unit-test-key'}),patch('advisor.graph.post_completion',provider):
    r=self.client.post('/api/ai/chat',json={'session_id':sid or self.f.session['id'],'request_id':str(uuid4()),'message':'Anh gợi ý cho em một vài hoạt động khám phá nghề nhé.'})
   self.assertEqual(r.status_code,200)
-  return next(p for p in reversed(self.calls) if p['max_tokens']==5000)
+  return next(p for p in reversed(self.calls) if any(m['content'].startswith('HỒ SƠ ĐÃ XÁC NHẬN') for m in p['messages']))
  def context(self,payload):
   m=payload['messages'][-2];self.assertEqual(m['role'],'system');self.assertTrue(m['content'].startswith('HỒ SƠ ĐÃ XÁC NHẬN'))
   return json.loads(m['content'].split('\n',1)[1])

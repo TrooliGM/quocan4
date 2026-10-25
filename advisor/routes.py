@@ -21,7 +21,7 @@ from . import voice
 from .postgres_adapter import PostgresConversationStore
 from .guest_quota import (reserve_guest_request, finish_guest_request, get_guest_usage,
                           check_chat_rate, claim_guest_history)
-from .protection import server_guest, issue_guest, check_ai_rate, cookie_name
+from .protection import server_guest, issue_guest, check_ai_rate, cookie_name, setting
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -112,6 +112,8 @@ def config(user=Depends(require_user)):
             "is_guest": user.get('provider') == 'anonymous',
             "profile_enabled": enabled() and allowed(user),
             "task4_enabled": allowed(user),
+            "automatic_analysis": allowed(user),
+            "analysis_policy": {"chat_quota_charge":0,"daily_limit":setting("ANALYSIS_USER_PER_DAY",6)},
             "guest_quota": guest_usage(user)}
 
 
@@ -173,7 +175,13 @@ def session(session_id: UUID, user=Depends(require_user)):
 @router.put("/api/ai/sessions/{session_id}/survey")
 async def submit_survey(session_id: UUID, payload: SurveyInput, user=Depends(require_user)):
     async with lock_for(str(session_id)):
-        return {"session": await asyncio.to_thread(save_survey, get_store(), user['uid'], str(session_id), payload)}
+        row=await asyncio.to_thread(save_survey, get_store(), user['uid'], str(session_id), payload)
+        from .rollout import allowed
+        if allowed(user) and isinstance(get_store(),PostgresConversationStore):
+            from .analysis_jobs import pending
+            await asyncio.to_thread(pending,user['uid'],str(session_id))
+            row=await asyncio.to_thread(get_store().get,user['uid'],str(session_id))
+        return {"session":row}
 
 
 @router.patch("/api/ai/sessions/{session_id}")
@@ -372,3 +380,26 @@ async def transcribe(request: Request, user=Depends(require_user)):
     except (google.auth.exceptions.GoogleAuthError, httpx.HTTPError, ValueError, KeyError, IndexError):
         logger.warning("google_speech_failed")
         raise HTTPException(502, "Google Speech chưa nhận diện được. Bạn vẫn có thể gõ câu hỏi.") from None
+
+
+class AnalysisRetryInput(BaseModel):
+    model_config=ConfigDict(extra='forbid')
+    retry:bool=False
+
+
+def analysis_user(user=Depends(require_user)):
+    from .rollout import require
+    require(user)
+    return user
+
+
+@router.get('/api/ai/sessions/{session_id}/analysis')
+def analysis_state(session_id:UUID,user=Depends(analysis_user)):
+    from .analysis_jobs import state
+    return state(get_store().get(user['uid'],str(session_id)))
+
+
+@router.post('/api/ai/sessions/{session_id}/analysis')
+async def automatic_analysis(session_id:UUID,payload:AnalysisRetryInput,request:Request,user=Depends(analysis_user)):
+    from .analysis_jobs import execute
+    return await execute(request,user,get_store(),str(session_id),payload.retry)

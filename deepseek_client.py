@@ -40,6 +40,16 @@ async def post_completion(payload, timeout=40, connect=8):
             response = await client.post(base + '/chat/completions', json=payload,
                                          headers={'Authorization': 'Bearer ' + key})
             response.raise_for_status()
+            from advisor.performance import current
+            performance=current.get()
+            if performance is not None:
+                performance.provider_calls+=1
+                try:
+                    usage=response.json().get('usage',{})
+                    for name,field in [('prompt_tokens','prompt_tokens'),('completion_tokens','completion_tokens')]:
+                        value=usage.get(name,0)
+                        if type(value) is int and 0<=value<=1000000:setattr(performance,field,getattr(performance,field)+value)
+                except (ValueError,AttributeError,TypeError):pass
             return response
     except httpx.InvalidURL:
         raise ProviderConfigurationError('invalid_provider_url') from None

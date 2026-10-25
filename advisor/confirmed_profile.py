@@ -62,7 +62,9 @@ def context_items(uid):
 
 def confirm(uid,provider,session,proposal_id,value):
     require_enabled()
-    analyses=[m['survey_analysis'] for m in session['messages'] if m.get('survey_analysis')]
+    from .analysis_jobs import analysis_for_session
+    analysis=analysis_for_session(session)
+    analyses=[analysis] if analysis else []
     proposal=next((p for a in reversed(analyses) for p in a['proposed_profile_items'] if p['id']==proposal_id),None)
     if not proposal or proposal['proposed_action']!='confirm':raise HTTPException(422,'Nhận định chưa đủ căn cứ để lưu; hãy làm rõ trước.')
     metadata={'analysis_version':1,'survey_id':analyses[-1]['survey_id'],'evidence':proposal['evidence'],
@@ -130,7 +132,9 @@ def use_profile(store,uid,session_id,use):
 
 def reject_proposal(store,uid,session_id,proposal_id):
     def reject(messages):
-        found=any(p['id']==proposal_id for m in messages if m.get('survey_analysis') for p in m['survey_analysis']['proposed_profile_items'])
+        from .analysis_jobs import analysis_for_session
+        analysis=analysis_for_session({'messages':messages})
+        found=analysis and any(p['id']==proposal_id for p in analysis['proposed_profile_items'])
         if not found:raise HTTPException(404,'Không tìm thấy đề xuất trong cuộc trò chuyện của bạn.')
         rejected=messages[0].setdefault('profile_rejections',[])
         if proposal_id not in rejected:
