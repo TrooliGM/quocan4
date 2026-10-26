@@ -41,9 +41,9 @@ def analysis_for_session(session):
 
 def state(session):
     survey=survey_data(session)
-    if not survey:return {'status':'pending','ready':False,'chat_quota_charge':0}
     result=analysis_for_session(session)
     if result:return {'status':'completed','ready':True,'result':result,'chat_quota_charge':0}
+    if not survey:return {'status':'pending','ready':False,'chat_quota_charge':0}
     job=session['messages'][0].get('analysis_job',{})
     if job.get('survey_hash')!=fingerprint(survey):job={}
     import time

@@ -1,6 +1,7 @@
 """Model-proposed intent, server-owned destinations. No URL/tool execution from AI."""
 import json
 import re
+import logging
 from functools import lru_cache
 from typing import Literal
 from pydantic import BaseModel, ConfigDict, Field, model_validator
@@ -8,6 +9,9 @@ from career_library import catalog, find_career, normalize_search
 
 Kind=Literal['career_profile','career_story','career_exploration']
 TOOL_NAME='present_laban_actions'
+logger=logging.getLogger(__name__)
+class NavigationMetadataError(ValueError):
+    pass
 
 
 @lru_cache(maxsize=1)
@@ -111,6 +115,14 @@ def decode_completion(message,state):
                     raw=json.loads(arguments)
                     if isinstance(raw,dict) and isinstance(raw.get('answer'),str) and raw['answer'].strip():
                         content=raw['answer'];actions=actions_from_proposal(raw,state)
+                        supplied=raw.get('actions')
+                        if isinstance(supplied,list) and supplied and not actions and reference_context(state)['status']!='ambiguous':
+                            logger.warning('navigation_metadata_invalid supplied=%d accepted=0',len(supplied))
+                            raise NavigationMetadataError('navigation_metadata_invalid')
+                        if raw.get('intent') in ('navigate','explore_options') and not supplied and reference_context(state)['status']!='ambiguous':
+                            logger.warning('navigation_metadata_missing intent=navigate')
+                            raise NavigationMetadataError('navigation_metadata_invalid')
+                except NavigationMetadataError:raise
                 except (ValueError,TypeError):pass
     reference=reference_context(state)
     if reference['status']=='ambiguous':

@@ -116,3 +116,13 @@ class Task44Tests(unittest.TestCase):
             r=self.client.post('/api/ai/chat',json={'session_id':sid,'request_id':str(uuid4()),'message':text});self.assertEqual(r.status_code,200,r.text)
             self.assertEqual(model.await_count,2);self.assertEqual(r.json()['session']['messages'][-1]['navigation_actions'][0]['career_id'],current.career_id)
         self.assertEqual(get_guest_usage(self.identity['uid'])['used_questions'],before+1)
+
+    def test_old_session_without_survey_can_show_grounded_chat_proposals(self):
+        self.session['messages'][0].pop('survey',None);self.session['messages'][0].pop('survey_required',None)
+        self.add('Em thích môn Sinh',[self.update('Em thích môn Sinh',area='subjects')])
+        result=self.client.get('/api/ai/sessions/'+self.session['id']+'/analysis').json()
+        self.assertEqual(result['status'],'completed');self.assertTrue(any(p['area']=='subjects' for p in result['result']['proposed_profile_items']))
+    def test_declared_navigation_with_invalid_actions_requests_bounded_repair(self):
+        from advisor.navigation import decode_completion,NavigationMetadataError
+        raw={'answer':'Model fixture','intent':'navigate','basis':'Mở truyện','actions':[{'kind':'career_story','career_id':'unknown'}],'profile_updates':[]}
+        with self.assertRaises(NavigationMetadataError):decode_completion({'tool_calls':[{'function':{'name':TOOL_NAME,'arguments':json.dumps(raw)}}]},self.state('Mở truyện'))

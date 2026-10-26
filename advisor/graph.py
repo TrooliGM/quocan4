@@ -203,6 +203,7 @@ async def generate_response_with_retry(state):
         'Mỗi lượt tối đa một lần gọi hàm, gộp các nút vào cùng actions. '
         'Không nói không thể gửi liên kết/không có truyện nếu danh mục có nghề đó, không hướng dẫn ra Google thay nút nội bộ. '
         'kind career_profile mở hồ sơ, career_story mở truyện/một ngày làm việc, career_exploration mở AI tìm hiểu nghề. '
+        'Khi học sinh xin xem truyện hoặc một ngày làm việc, kèm nút career_story đúng nghề ngay cả khi đã giải thích bằng chữ; không chỉ mô tả rồi bỏ nút. '
         'Chưa chỉ định nghề thì dùng career_id=null để mở thư viện tương ứng. Nếu có nhiều khả năng và chưa rõ đối tượng, '
         'hỏi một câu làm rõ, không tự chọn một nghề. Dùng lịch sử, thứ tự gợi ý và nhóm nút trước để hiểu nghề đó/cái thứ hai. '
         'reference.status=ambiguous nghĩa là chưa có nghề được học sinh chọn: hỏi ngắn giữa các candidates, không ưu tiên nghề đầu hoặc phát nút của riêng một nghề. '
@@ -302,7 +303,7 @@ async def generate_response_with_retry(state):
             choice = data["choices"][0]
             if choice.get("finish_reason") not in (None, "stop", "tool_calls"):
                 raise AdvisorOutputError("incomplete_output")
-            from .navigation import decode_completion
+            from .navigation import decode_completion,NavigationMetadataError
             content,navigation_actions = decode_completion(choice['message'],state)
             from .navigation import mentioned_ids
             from .conversation_context import plain
@@ -328,7 +329,7 @@ async def generate_response_with_retry(state):
                                  survey_analysis=state.get('survey_analysis'),analysis_status=state.get('analysis_status','not_requested'),navigation_actions=navigation_actions,profile_updates=profile_updates)
             return {"reply": reply.model_dump(), "mode": "live"}
         except (ValueError, KeyError, IndexError, TypeError, AttributeError) as error:
-            code = str(error) if isinstance(error, AdvisorOutputError) else "invalid_json_output"
+            code = str(error) if isinstance(error, (AdvisorOutputError,NavigationMetadataError)) else "invalid_json_output"
             logger.warning("advisor_output_invalid reason=%s attempt=%d", code, attempt + 1)
             if attempt:
                 raise AdvisorOutputError(code) from None
@@ -337,6 +338,8 @@ async def generate_response_with_retry(state):
             payload["max_tokens"] = 9000
             if code=='journey_reference_mismatch':
                 payload['messages'].insert(-1,{'role':'system','content':'Lượt vừa rồi chọn sai nghề tham chiếu. Trả lời và tạo nút đúng nghề vừa khám phá, không lấy nghề từ câu trả lời cũ: '+json.dumps(context,ensure_ascii=False)})
+            if code=='navigation_metadata_invalid':
+                payload['messages'].insert(-1,{'role':'system','content':'Metadata điều hướng vừa rồi chưa hợp lệ. Dùng intent=navigate hoặc explore_options khi có nút, basis trích chính xác lời học sinh, career_id đúng từ danh mục; không thay bằng URL hoặc tên nghề. Trả cùng câu trả lời tự nhiên, không nhắc lỗi kỹ thuật.'})
             payload["messages"].insert(2, {"role": "system", "content":
                 "Hãy trả lời câu hỏi cuối bằng tiếng Việt tự nhiên và Markdown. "
                 "Viết nội dung đầy đủ; không xuất JSON và không nhắc lỗi kỹ thuật."})

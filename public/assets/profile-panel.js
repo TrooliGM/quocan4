@@ -47,7 +47,7 @@ export async function showProfile({api,session,isGuest,backendEnabled=true,profi
     }
   }renderSaved();
   let progress={status:'pending'};
-  if(session?.messages?.[0]?.survey){try{progress=await api(`/api/ai/sessions/${session.id}/analysis`);}catch{progress={status:'failed'};}}
+  if(session?.id){try{progress=await api(`/api/ai/sessions/${session.id}/analysis`);}catch{progress={status:'failed'};}}
   if(!isCurrent())return;
   const analysis=session?.analysis_view||progress.result||session?.messages?.[0]?.analysis_job?.result||[...(session?.messages||[])].reverse().find(m=>m.survey_analysis)?.survey_analysis;
   const proposals=node('section');proposals.append(node('h3','Đề xuất từ khảo sát và hội thoại · bạn quyết định'));host.append(proposals,saved);
