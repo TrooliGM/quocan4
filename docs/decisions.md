@@ -182,3 +182,7 @@ Yêu cầu mới thay quyết địnhTask4.3 mở tab mới: nội bộ mặc đ
 
 ## Task4.4 — Hồ sơ và ngữ cảnh nghề (27/10/2026)
 Đã nhận đặc tả đầy đủ; thêm đề xuất có căn cứ trong cùng completion,8area không schema mới, metadata nghề vừa xem và bản nháp theo UID. Không tự ghi đè confirmed profile hoặc tháo QA gate cho quyền lưu. 113 phương thức localPASS, Chrome Task41/journeyPASS; chưa Preview/LIVE/Production. Chi tiết docs/task44-single-tab-journey.md.
+
+
+## Task4.4 — Preview đủ điều kiện phát hành
+57b67e0/5QsxtNtq: LIVE và ChromeGuest/Member/QA PASS, same-tab1→1, không AI/quota do điều hướng. GuestQAstaging6/8 còn2, khôngreset. Google do người dùng xác nhận ởa02d201; quyền confirmed-profile giữQA gate, không tách trí tuệ. Chuẩn bị Productioncandidate kế thừa env, rollbackG11/608146c. Xem docs/task44-single-tab-journey.md.
