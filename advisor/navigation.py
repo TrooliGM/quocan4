@@ -128,14 +128,14 @@ def tool():
         'description':'Trả lời cuối, đề xuất nút nội bộ và cập nhật đề xuất hồ sơ từ lời học sinh khi có thông tin mới/đính chính. Không thực thi công cụ bên ngoài hoặc lưu hồ sơ chính thức.',
         'parameters':{'type':'object','properties':{
             'answer':{'type':'string','description':'Câu trả lời Markdown tự nhiên cho học sinh, không URL. Không tự kết luận phù hợp tuyệt đối.'},
-            'intent':{'type':'string','enum':['navigate','explore_options','profile_update']},
+            'intent':{'type':'string','enum':['navigate','explore_options','profile_update','reply']},
             'profile_updates':{'type':'array','maxItems':8,'items':Update.model_json_schema()},
             'basis':{'type':'string','description':'Trích nguyên một cụm từ lời học sinh trong câu hiện tại/lịch sử gần, không từ web hay lời AI.', 'maxLength':240},
             'actions':{'type':'array','maxItems':4,'items':{'type':'object','properties':{
                 'kind':{'type':'string','enum':['career_profile','career_story','career_exploration']},
                 'career_id':{'type':['string','null'],'description':'ID đúng từ danh mục; null chỉ để mở thư viện nghề/truyện khi chưa chỉ định nghề.'}},
                 'required':['kind','career_id'],'additionalProperties':False}}},
-            'required':['answer','intent','basis','actions'],'additionalProperties':False}}}
+            'required':['answer','intent','basis','actions','profile_updates'],'additionalProperties':False}}}
 
 
 @lru_cache(maxsize=1)

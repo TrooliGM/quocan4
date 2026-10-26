@@ -1,10 +1,12 @@
 """Grounded conversation proposals, never consent or a confirmed-profile write."""
 import json
 import re
+import logging
 from typing import Literal
 from uuid import uuid5,NAMESPACE_URL
 from pydantic import BaseModel,ConfigDict,Field
 from .survey_analysis import CATEGORIES
+logger=logging.getLogger(__name__)
 
 AREA_CATEGORY={'interests':'interests','self_reported_skills':'strengths','subjects':'interests','work_preferences':'work_preferences','goals':'growth_skills','experiences':'growth_skills','careers':'careers','uncertainties':'uncertainties'}
 class Update(BaseModel):
@@ -58,7 +60,10 @@ def decode_updates(message,state):
         arguments=fn.get('arguments','')
         if not isinstance(arguments,str) or len(arguments)>24000:return []
         raw=json.loads(arguments)
-        return validate_updates(raw.get('profile_updates'),state) if isinstance(raw,dict) else []
+        if not isinstance(raw,dict):return []
+        supplied=raw.get('profile_updates');accepted=validate_updates(supplied,state)
+        if isinstance(supplied,list) and len(accepted)<len(supplied):logger.warning('profile_proposals_rejected supplied=%d accepted=%d',len(supplied),len(accepted))
+        return accepted
     except (ValueError,TypeError):return []
 
 def merge(session,base):

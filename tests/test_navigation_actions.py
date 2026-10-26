@@ -124,7 +124,7 @@ class NavigationPipelineTests(unittest.TestCase):
         self.response=proposed('Mình có thể mở thư viện truyện để em chọn nghề.',[{'kind':'career_story','career_id':None}],basis='Cho e xem truyện nghề đc ko')
         r=self.client.post('/api/ai/chat',json={'session_id':sid,'request_id':str(uuid4()),'message':'Cho e xem truyện nghề đc ko'})
         self.assertEqual(r.status_code,200);self.assertEqual(r.json()['session']['messages'][-1]['navigation_actions'][0]['href'],'/mot-ngay-lam-viec')
-        payload=self.calls[0];self.assertEqual(payload['tool_choice'],'auto');self.assertEqual(len(payload['tools']),1)
+        payload=self.calls[0];self.assertEqual(payload['tool_choice'],{'type':'function','function':{'name':n.TOOL_NAME}});self.assertEqual(len(payload['tools']),1)
         context=next(m['content'] for m in payload['messages'] if m['content'].startswith('ĐIỀU HƯỚNG NỘI BỘ'))
         for career in random.Random(43).sample(catalog().careers,25):self.assertIn(career.career_id+' | '+career.name,context)
         self.response={'content':'Mình có thể giải thích bài toán này.'}
