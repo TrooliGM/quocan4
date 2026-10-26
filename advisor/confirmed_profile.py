@@ -53,7 +53,7 @@ def context_items(uid):
     """SELECT tối thiểu cho lượt chat; không cache, không dọn/xóa trong đường đọc AI."""
     if not enabled():return []
     with postgres_connection() as db:
-        rows=db.execute("""SELECT category,value FROM advisor_profile_items
+        rows=db.execute("""SELECT category,value,metadata->>'area' AS area FROM advisor_profile_items
             WHERE owner=%s AND metadata->>'status'='confirmed'
               AND (expires_at IS NULL OR expires_at>NOW())
             ORDER BY updated_at DESC LIMIT 80""",(uid,)).fetchall()

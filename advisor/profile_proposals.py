@@ -15,8 +15,8 @@ class Update(BaseModel):
     value:str=Field(min_length=3,max_length=160)
     excerpt:str=Field(min_length=3,max_length=200)
     inference_type:Literal['trực tiếp','diễn giải','suy luận']
-    operation:Literal['add','correct','withdraw']='add'
-    replaces:list[str]=Field(default_factory=list,max_length=6)
+    operation:Literal['add','correct','withdraw']
+    replaces:list[str]=Field(max_length=6)
 
 def norm(value):return ' '.join(value.casefold().split())
 
@@ -34,6 +34,12 @@ def validate_updates(raw,state):
             category=AREA_CATEGORY[u.area]
             if u.area in ('self_reported_skills','careers') and u.inference_type!='trực tiếp':continue
             if u.area=='self_reported_skills' and not re.search(r'biết|có thể|tự nhận|làm được|thường|đã|từng|giỏi|thành thạo|kiên nhẫn',u.excerpt,re.I):continue
+            # A narrow consistency fence: exact same statement with opposite
+            # polarity and an actual denial in the user quote. Never job rules.
+            positive=re.sub(r'^(?:không(?: còn)?|chưa)\s+','',norm(u.value))
+            if u.operation=='add' and positive!=norm(u.value) and len(positive.split())>=3 and re.search(r'\b(?:không|khong|chưa|chua)\b',u.excerpt,re.I):
+                matches=[id for id,p in existing.items() if p['category']==category and norm(p['value'])==positive]
+                if matches:u.operation='correct';u.replaces=matches[:6]
             if u.operation!='add' and (not u.replaces or any(x not in existing for x in u.replaces)):continue
             if u.operation=='add' and u.replaces:continue
             if any(existing[x]['category']!=category for x in u.replaces):continue

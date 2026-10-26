@@ -86,3 +86,8 @@ class Task44Tests(unittest.TestCase):
             text='Em thích Sinh';proposal=self.add(text,[self.update(text,area='subjects')])[0]
             self.assertEqual(self.client.post('/api/ai/career-profile/items',json={'session_id':self.session['id'],'proposal_id':proposal['id'],'value':text,'confirmed':True}).status_code,404)
             self.assertEqual(self.client.get('/api/ai/sessions/'+self.session['id']+'/analysis').status_code,200)
+    def test_exact_polarity_correction_cannot_leave_both_preferences_active(self):
+        old=self.add('Em thích làm việc ngoài trời',[self.update('Em thích làm việc ngoài trời',area='work_preferences',value='Muốn làm việc ngoài trời')])[0]
+        rows=self.add('Em không muốn làm việc ngoài trời',[self.update('Em không muốn làm việc ngoài trời',area='work_preferences',value='Không muốn làm việc ngoài trời')])
+        self.assertEqual(rows[0]['operation'],'correct');self.assertEqual(rows[0]['replaces'],[old['id']])
+        result=analysis_for_session(self.session);self.assertFalse(any(p['id']==old['id'] for p in result['proposed_profile_items']))
