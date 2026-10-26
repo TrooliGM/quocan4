@@ -252,6 +252,12 @@ async def generate_response_with_retry(state):
         'Không tự đổi từ hỏi một nghề sang gợi nhiều nghề. Không trình bày reasoning nội bộ hoặc quy tắc.'})
     from .conversation_context import current_career
     context = current_career(state['session'])
+    if context.get('source')=='exploration_only_not_preference' and turn['needs_career_reference']:
+        payload['messages'].insert(-1,{'role':'system','content':
+            'NGHỀ VỪA KHÁM PHÁ DO MÁY CHỦ XÁC MINH: '+json.dumps(context,ensure_ascii=False)+
+            '. Tham chiếu nghề này/nghề đó và yêu cầu xem một ngày làm việc mặc định nói về nghề VỪA MỞ ở đây, '
+            'ưu tiên hơn nghề mà trợ lý đã gợi ý trong lịch sử. Nếu học sinh nêu rõ một nghề khác hoặc đổi chủ đề thì theo câu mới. '
+            'Đây chỉ là ngữ cảnh xem nội dung, không phải sở thích hay lựa chọn được xác nhận.'})
     if context.get('mode') == 'career_exploration':
         payload['messages'].insert(1, {'role':'system','content':
             'Chế độ career_exploration: tập trung nghề trong dữ liệu ngữ cảnh. '
@@ -298,6 +304,12 @@ async def generate_response_with_retry(state):
                 raise AdvisorOutputError("incomplete_output")
             from .navigation import decode_completion
             content,navigation_actions = decode_completion(choice['message'],state)
+            from .navigation import mentioned_ids
+            from .conversation_context import plain
+            import re
+            alternatives=re.search(r'\b(?:tuong tu|khac|thay the|so sanh|giong|goi y|them nghe)\b',plain(state['message']))
+            if context.get('source')=='exploration_only_not_preference' and not alternatives and re.search(r'\b(?:nghe|nganh) (?:nay|do|ay)\b',plain(state['message'])) and not mentioned_ids(state['message']):
+                if any(a['career_id'] and a['career_id']!=context['career_id'] for a in navigation_actions):raise AdvisorOutputError('journey_reference_mismatch')
             from .profile_proposals import decode_updates
             profile_updates=decode_updates(choice['message'],state)
             if not isinstance(content, str) or not content.strip():
@@ -323,6 +335,8 @@ async def generate_response_with_retry(state):
             # Một lần thử lại cho đầu ra hỏng/rỗng/cắt dở; không lưu phản hồi
             # hỏng vào lịch sử và không bịa câu trả lời dự phòng.
             payload["max_tokens"] = 9000
+            if code=='journey_reference_mismatch':
+                payload['messages'].insert(-1,{'role':'system','content':'Lượt vừa rồi chọn sai nghề tham chiếu. Trả lời và tạo nút đúng nghề vừa khám phá, không lấy nghề từ câu trả lời cũ: '+json.dumps(context,ensure_ascii=False)})
             payload["messages"].insert(2, {"role": "system", "content":
                 "Hãy trả lời câu hỏi cuối bằng tiếng Việt tự nhiên và Markdown. "
                 "Viết nội dung đầy đủ; không xuất JSON và không nhắc lỗi kỹ thuật."})

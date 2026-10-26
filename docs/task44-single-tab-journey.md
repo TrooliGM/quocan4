@@ -51,3 +51,9 @@ MemberLIVE tạo2 sở thích/môi trường,2 môn học/trải nghiệm,1 ph�
 Kiểm tra chỉ đọc Guest staging cũ: có bản ghi, đã hết hạn TTL tự nhiên, chưa claim;401 hiện tại không phải quota được cấp lại. Không reset/xóa bản ghi đó.
 
 Bổ sung kiểm thử thứ tự commit: kết quả phân tích khảo sát về chậm không được làm sống lại mong muốn đã bị phủ nhận trong chat. Áp dụng cùng hàng rào đối cực khi hợp nhất ở đường đọc, không sửa lịch sử.9testTask44PASS; không có schema mới.
+
+
+### Đối chiếu ngữ cảnh nghề trên LIVE
+Member trả đúng nghề vừa xem; QA một lần trả nghề trong lời AI cũ dù metadata server đã cập nhật đúng. Sửa ưu tiên system ngữ cảnh ngay trước câu hỏi; kiểm tra nút deictic theo ID hiện tại, sai thì thử lại một lần trước khi lưu. Không ép nghề hiện tại khi câu mới so sánh/gợi ý nghề khác hoặc đổi chủ đề; không viết đáp án mẫu. Test PG chứng minh retry2 provider nhưng1 lượt Guest và chỉ lưu nút đúng PASS. Gộp10testTask44 +5testTask42 pipelinePASS. Giữ116 phương thức local đã chạy theo nhóm, không chạy lại toàn bộSuperBoard.
+
+Một mục git.deploymentEnabled=false riêng cho nhánhTask44 nhằm tránh GitHub push tự tạo Preview thiếu bindingDATABASE_URL; các nhánh/Production Branch khác giữ nguyên. CLI Preview vẫn dùng staging override được xác minh; CLI Production khi đủ điều kiện kế thừa môi trườngProduction. Theo https://vercel.com/docs/project-configuration/git-configuration .

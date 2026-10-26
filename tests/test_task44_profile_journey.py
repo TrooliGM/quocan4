@@ -97,3 +97,17 @@ class Task44Tests(unittest.TestCase):
         session={'id':self.session['id'],'messages':[{}, {'role':'assistant','profile_updates':[update]}]}
         result=p.merge(session,{'proposed_profile_items':[old]})
         self.assertEqual([x['id'] for x in result['proposed_profile_items']],[update['id']]);self.assertEqual(result['changes'][0]['replaces'],[old['id']]);self.assertEqual(update['replaces'],[])
+
+    def test_wrong_deictic_navigation_is_retried_before_save_and_charged_once(self):
+        from advisor.guest_quota import get_guest_usage
+        self.identity['provider']='anonymous';sid=self.session['id'];current,wrong=catalog().careers[22:24]
+        self.assertEqual(self.client.put('/api/ai/sessions/'+sid+'/exploration',json={'career_id':current.career_id}).status_code,200)
+        text='Nghề này làm gì? Cho em xem một ngày làm việc của nghề đó.'
+        def response(career):
+            arguments={'answer':'Nội dung minh họa từ model fixture.','intent':'navigate','basis':'Cho em xem một ngày làm việc của nghề đó','actions':[{'kind':'career_story','career_id':career.career_id}],'profile_updates':[]}
+            return httpx.Response(200,json={'choices':[{'message':{'content':None,'tool_calls':[{'function':{'name':TOOL_NAME,'arguments':json.dumps(arguments)}}]},'finish_reason':'tool_calls'}]})
+        before=get_guest_usage(self.identity['uid'])['used_questions']
+        with patch.dict(os.environ,{'AI_DEMO_MODE':'false','DEEPSEEK_API_KEY':'fixture-only'}),patch('advisor.graph.post_completion',AsyncMock(side_effect=[response(wrong),response(current)])) as model:
+            r=self.client.post('/api/ai/chat',json={'session_id':sid,'request_id':str(uuid4()),'message':text});self.assertEqual(r.status_code,200,r.text)
+            self.assertEqual(model.await_count,2);self.assertEqual(r.json()['session']['messages'][-1]['navigation_actions'][0]['career_id'],current.career_id)
+        self.assertEqual(get_guest_usage(self.identity['uid'])['used_questions'],before+1)
