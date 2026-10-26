@@ -57,3 +57,9 @@ Bổ sung kiểm thử thứ tự commit: kết quả phân tích khảo sát v�
 Member trả đúng nghề vừa xem; QA một lần trả nghề trong lời AI cũ dù metadata server đã cập nhật đúng. Sửa ưu tiên system ngữ cảnh ngay trước câu hỏi; kiểm tra nút deictic theo ID hiện tại, sai thì thử lại một lần trước khi lưu. Không ép nghề hiện tại khi câu mới so sánh/gợi ý nghề khác hoặc đổi chủ đề; không viết đáp án mẫu. Test PG chứng minh retry2 provider nhưng1 lượt Guest và chỉ lưu nút đúng PASS. Gộp10testTask44 +5testTask42 pipelinePASS. Giữ116 phương thức local đã chạy theo nhóm, không chạy lại toàn bộSuperBoard.
 
 Một mục git.deploymentEnabled=false riêng cho nhánhTask44 nhằm tránh GitHub push tự tạo Preview thiếu bindingDATABASE_URL; các nhánh/Production Branch khác giữ nguyên. CLI Preview vẫn dùng staging override được xác minh; CLI Production khi đủ điều kiện kế thừa môi trườngProduction. Theo https://vercel.com/docs/project-configuration/git-configuration .
+
+
+### Preview3608c17 — kiểm thử dịch vụ thật
+Member/QA giữ đề xuất bổ sung/đính chính có căn cứ và QA xác nhận/đọc lại/bỏ qua/chống trùngPASS; cả hai đã trả đúng nghề cuối cùng sau3lần đổi bằngmetadata riêng. QA DDGS+DeepSeek4nguồn thậtPASS. User xác nhận luồng Google/cùngtab trên a02d201, logic auth không thay đổi sau đó.
+Guest cũ đã hết TTL tự nhiên theo SELECT chỉ đọc, chưa claim. Một lần POST luồng mở phiên chuẩn được server chấp nhận, vẫn8câu/rate limit gốc; không sửa quota cũ, không đổiIP hoặc tạo liên tục danh tính. Guest mới nhận phân tích ban đầu và2lần bổ sungLIVE đúng, nhưng đính chính bị bộ căn cứ từ chối; runtime log chỉ ghi supplied1/accepted0, không ghi lời người dùng hay token. Chưa phát hànhProduction.
+Hàng rào căn cứ được mở đúng cho khác biệt chữ hoa/spacing, rồi lưu lại nguyên đoạn thực tế của người dùng; không bỏ từ, bỏ dấu câu hay chấp nhận diễn đạt lại. Thêm regression quote giữa câu và quote bị lược từ.11testTask44PASS. Sẽ kiểm lại trên cùng phiênGuest còn5/8, không cấp lại quota.

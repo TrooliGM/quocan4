@@ -34,7 +34,12 @@ def validate_updates(raw,state):
     for item in raw:
         try:
             u=Update.model_validate(item)
-            if u.excerpt not in state['message']:continue # Actual CURRENT user only, not assistant/web.
+            # Case/whitespace are formatting, not meaning. Keep the exact actual
+            # user slice after matching; never drop words or ignore punctuation.
+            quote=re.search(r'\s+'.join(re.escape(part) for part in u.excerpt.split()),state['message'],re.I)
+            if not quote:
+                logger.warning('profile_proposal_ignored code=quote_not_found');continue
+            u.excerpt=quote.group(0)
             if re.search(r'[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}|(?:\d[ .+-]?){9,}',u.value+' '+u.excerpt):continue
             category=AREA_CATEGORY[u.area]
             if u.area in ('self_reported_skills','careers') and u.inference_type!='trực tiếp':continue
@@ -44,9 +49,11 @@ def validate_updates(raw,state):
             if u.operation=='add':
                 matches=polarity_replacements(u.value,u.excerpt,category,existing)
                 if matches:u.operation='correct';u.replaces=matches
-            if u.operation!='add' and (not u.replaces or any(x not in existing for x in u.replaces)):continue
+            if u.operation!='add' and (not u.replaces or any(x not in existing for x in u.replaces)):
+                logger.warning('profile_proposal_ignored code=unknown_replacement');continue
             if u.operation=='add' and u.replaces:continue
-            if any(existing[x]['category']!=category for x in u.replaces):continue
+            if any(existing[x]['category']!=category for x in u.replaces):
+                logger.warning('profile_proposal_ignored code=replacement_category');continue
             key=(category,norm(u.value))
             if key in seen:continue
             seen.add(key)
@@ -57,7 +64,8 @@ def validate_updates(raw,state):
                 'inference_type':u.inference_type,'proposed_action':'confirm' if u.inference_type!='suy luận' and u.operation!='withdraw' else 'clarify',
                 'operation':u.operation,'replaces':u.replaces,
                 'previous_values':[existing[x]['value'] for x in u.replaces]})
-        except (ValueError,TypeError,KeyError):continue
+        except (ValueError,TypeError,KeyError):
+            logger.warning('profile_proposal_ignored code=invalid_fields');continue
     return result
 
 def decode_updates(message,state):

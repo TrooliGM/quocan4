@@ -97,6 +97,11 @@ class Task44Tests(unittest.TestCase):
         session={'id':self.session['id'],'messages':[{}, {'role':'assistant','profile_updates':[update]}]}
         result=p.merge(session,{'proposed_profile_items':[old]})
         self.assertEqual([x['id'] for x in result['proposed_profile_items']],[update['id']]);self.assertEqual(result['changes'][0]['replaces'],[old['id']]);self.assertEqual(update['replaces'],[])
+    def test_quote_formatting_keeps_actual_user_text_without_paraphrase(self):
+        text='Thật ra em không thích làm việc ngoài trời nữa.'
+        rows=p.validate_updates([self.update('Em không thích làm việc ngoài trời',area='work_preferences')],self.state(text))
+        self.assertEqual(rows[0]['evidence'][0]['excerpt'],'em không thích làm việc ngoài trời')
+        self.assertEqual(p.validate_updates([self.update('Em không thích ngoài trời',area='work_preferences')],self.state(text)),[])
 
     def test_wrong_deictic_navigation_is_retried_before_save_and_charged_once(self):
         from advisor.guest_quota import get_guest_usage
