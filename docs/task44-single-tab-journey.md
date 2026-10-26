@@ -49,3 +49,5 @@ Người dùng đã xác nhận trênPreviewa02d201: giữ đúng hội thoại/
 ### Preview7da1499 — LIVE đã sinh đề xuất, phát hiện thêm lỗi đối soát đính chính
 MemberLIVE tạo2 sở thích/môi trường,2 môn học/trải nghiệm,1 phủ định; excerpt đúng. Model dùng add thay vì correct nên cả hai mong muốn trái nhau còn trong đề xuất. Dừng phát hành. Sửa schema bắt buộc operation/replaces và prompt đối soát; thêm hàng rào hẹp: cùng chính xác nội dung, đối cực phủ định, và lời người dùng có phủ định nguyên văn thì cập nhật bản đề xuất bằng quan hệ correct. Không áp dụng tên nghề hay xóa/sửa hồ sơ đã xác nhận. Thêm regression ngoài trời,17 test thuộc nhóm mới+context PASS. Giữ area khi nạp confirmed context để không diễn giải môn học/trải nghiệm thành kỹ năng muốn rèn.
 Kiểm tra chỉ đọc Guest staging cũ: có bản ghi, đã hết hạn TTL tự nhiên, chưa claim;401 hiện tại không phải quota được cấp lại. Không reset/xóa bản ghi đó.
+
+Bổ sung kiểm thử thứ tự commit: kết quả phân tích khảo sát về chậm không được làm sống lại mong muốn đã bị phủ nhận trong chat. Áp dụng cùng hàng rào đối cực khi hợp nhất ở đường đọc, không sửa lịch sử.9testTask44PASS; không có schema mới.

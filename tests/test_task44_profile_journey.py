@@ -91,3 +91,9 @@ class Task44Tests(unittest.TestCase):
         rows=self.add('Em không muốn làm việc ngoài trời',[self.update('Em không muốn làm việc ngoài trời',area='work_preferences',value='Không muốn làm việc ngoài trời')])
         self.assertEqual(rows[0]['operation'],'correct');self.assertEqual(rows[0]['replaces'],[old['id']])
         result=analysis_for_session(self.session);self.assertFalse(any(p['id']==old['id'] for p in result['proposed_profile_items']))
+    def test_late_survey_result_cannot_resurrect_a_denied_preference(self):
+        old={'id':str(uuid4()),'category':'work_preferences','value':'Muốn làm việc ngoài trời'}
+        update={'id':str(uuid4()),'category':'work_preferences','value':'Không muốn làm việc ngoài trời','operation':'add','replaces':[],'evidence':[{'excerpt':'Em không muốn làm việc ngoài trời'}]}
+        session={'id':self.session['id'],'messages':[{}, {'role':'assistant','profile_updates':[update]}]}
+        result=p.merge(session,{'proposed_profile_items':[old]})
+        self.assertEqual([x['id'] for x in result['proposed_profile_items']],[update['id']]);self.assertEqual(result['changes'][0]['replaces'],[old['id']]);self.assertEqual(update['replaces'],[])

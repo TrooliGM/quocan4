@@ -20,6 +20,11 @@ class Update(BaseModel):
 
 def norm(value):return ' '.join(value.casefold().split())
 
+def polarity_replacements(value,excerpt,category,existing):
+    positive=re.sub(r'^(?:không(?: còn)?|chưa)\s+','',norm(value))
+    if positive==norm(value) or len(positive.split())<3 or not re.search(r'\b(?:không|khong|chưa|chua)\b',excerpt,re.I):return []
+    return [id for id,p in existing.items() if p['category']==category and norm(p['value'])==positive][:6]
+
 def validate_updates(raw,state):
     if not isinstance(raw,list) or len(raw)>8:return []
     from .analysis_jobs import analysis_for_session
@@ -36,10 +41,9 @@ def validate_updates(raw,state):
             if u.area=='self_reported_skills' and not re.search(r'biết|có thể|tự nhận|làm được|thường|đã|từng|giỏi|thành thạo|kiên nhẫn',u.excerpt,re.I):continue
             # A narrow consistency fence: exact same statement with opposite
             # polarity and an actual denial in the user quote. Never job rules.
-            positive=re.sub(r'^(?:không(?: còn)?|chưa)\s+','',norm(u.value))
-            if u.operation=='add' and positive!=norm(u.value) and len(positive.split())>=3 and re.search(r'\b(?:không|khong|chưa|chua)\b',u.excerpt,re.I):
-                matches=[id for id,p in existing.items() if p['category']==category and norm(p['value'])==positive]
-                if matches:u.operation='correct';u.replaces=matches[:6]
+            if u.operation=='add':
+                matches=polarity_replacements(u.value,u.excerpt,category,existing)
+                if matches:u.operation='correct';u.replaces=matches
             if u.operation!='add' and (not u.replaces or any(x not in existing for x in u.replaces)):continue
             if u.operation=='add' and u.replaces:continue
             if any(existing[x]['category']!=category for x in u.replaces):continue
@@ -79,6 +83,11 @@ def merge(session,base):
         if message.get('role')!='assistant':continue
         for p in message.get('profile_updates',[])[:8]:
             if not isinstance(p,dict) or p.get('category') not in CATEGORIES or not p.get('id'):continue
+            # Survey analysis may commit after the chat update. Reconcile the
+            # same grounded polarity fence at read time without changing history.
+            if p.get('operation')=='add':
+                matches=polarity_replacements(p['value'],' '.join(e.get('excerpt','') for e in p.get('evidence',[])),p['category'],rows)
+                if matches:p={**p,'operation':'correct','replaces':matches,'previous_values':[rows[id]['value'] for id in matches]}
             for old in p.get('replaces',[]):rows.pop(old,None)
             if p.get('operation')!='withdraw':
                 duplicate=next((key for key,value in rows.items() if value['category']==p['category'] and norm(value['value'])==norm(p['value'])),None)
