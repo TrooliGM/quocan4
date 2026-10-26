@@ -1,3 +1,5 @@
+import {installJourneyNavigation} from './chat-journey.js';
+installJourneyNavigation();
 const $ = s => document.querySelector(s);
 const escape = value => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let categories=[], category='', offset=0, generation=0, modalGeneration=0, selected=false;
@@ -29,7 +31,8 @@ async function load(append=false){
     $('#library-more').hidden=offset>=data.total;
   }catch(error){if(ticket===generation)$('#career-status').textContent=error.message+' Em có thể bấm Tìm kiếm để thử lại.';}
 }
-async function openCareer(id){
+async function openCareer(id,update=true){
+  if(update){const url=new URL(location.href);url.searchParams.set('career',id);url.hash='careers';if(url.href!==location.href)history.pushState(null,'',url);}
   const ticket=++modalGeneration;
   const dialog=$('#content-dialog'), content=$('#dialog-content');
   content.innerHTML='<h2 id="dialog-title">Đang mở nghề…</h2>';
@@ -57,5 +60,8 @@ try{
   categories=(await json('/api/career-library/categories')).items;
   categories.forEach((c,i)=>{const button=document.createElement('button');button.dataset.field=c.category_id;button.setAttribute('aria-pressed','false');button.innerHTML=`<span class="field-symbol" aria-hidden="true">${symbols[i]}</span><strong>${escape(c.name)}</strong><small>${c.count} nghề <span aria-hidden="true">↗</span></small>`;button.addEventListener('click',()=>{category=c.category_id;selected=true;$('#career-search').value='';categoryState();load();});$('#library-categories').append(button);});reset();
   const returnCareer=new URLSearchParams(location.search).get('career');
-  if(returnCareer && /^[a-z0-9-]{1,80}$/.test(returnCareer))await openCareer(returnCareer);
+  if(returnCareer && /^[a-z0-9-]{1,80}$/.test(returnCareer))await openCareer(returnCareer,false);
 }catch(e){$('#career-status').textContent=e.message;}
+
+window.addEventListener('popstate',()=>{const id=new URLSearchParams(location.search).get('career');if(id&&/^[a-z0-9-]{1,80}$/.test(id))openCareer(id,false);else{modalGeneration++;$('#content-dialog').close();}});
+window.addEventListener('pageshow',event=>{if(event.persisted)installJourneyNavigation();});

@@ -1,3 +1,4 @@
+import {journeyPath} from './chat-journey.js';
 // Render server-validated metadata. URL shape is checked again before DOM use.
 export function keepVerifiedCitations(element,sources=[]) {
   const allowed=new Set();
@@ -6,7 +7,7 @@ export function keepVerifiedCitations(element,sources=[]) {
   }
   for(const link of element.querySelectorAll('a')){
     if(!allowed.has(link.getAttribute('href')))link.replaceWith(document.createTextNode(link.textContent));
-    else{link.target='_blank';link.rel='noopener noreferrer';}
+    else{link.target=new URL(link.href).origin===location.origin?'_self':'_blank';link.rel='noopener noreferrer';}
   }
 }
 export function navigationPath(kind,id) {
@@ -25,13 +26,13 @@ export function navigationButtons(items,beforeOpen=()=>{}) {
     const path=navigationPath(item.kind,item.career_id);
     if(!path||item.href!==path||seen.has(path))continue;
     seen.add(path);
-    const link=document.createElement('a');link.className='career-navigation-link';link.href=path;link.target='_blank';link.rel='noopener noreferrer';
-    link.setAttribute('aria-label',item.label+'. Mở trong tab mới');
+    const link=document.createElement('a');link.className='career-navigation-link';link.href=journeyPath(path);
+    link.setAttribute('aria-label',item.label);
     const label=document.createElement('span');label.textContent=item.label;
-    const arrow=document.createElement('span');arrow.textContent='↗';arrow.setAttribute('aria-hidden','true');
+    const arrow=document.createElement('span');arrow.textContent='→';arrow.setAttribute('aria-hidden','true');
     link.append(label,arrow);link.addEventListener('click',beforeOpen);group.append(link);
   }
   if(!group.childElementCount)return null;
-  const note=document.createElement('small');note.textContent='Mở trong tab mới · cuộc trò chuyện này được giữ lại.';group.append(note);
+  const note=document.createElement('small');note.textContent='Tiếp tục trong tab này · giữ nguyên cuộc trò chuyện.';group.append(note);
   return group;
 }

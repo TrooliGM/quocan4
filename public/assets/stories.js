@@ -1,3 +1,5 @@
+import {journeyPath,installJourneyNavigation} from './chat-journey.js';
+installJourneyNavigation();
 ﻿import {storyArt} from './story-art.js';
 import {comicCover} from './story-thumbnails.js';
 import {offerStoryQuestion,offerVideoQuestion} from './story-journey.js';
@@ -95,14 +97,14 @@ function libraryCards(){
   }).join('');$('#story-more').hidden=shown>=matches.length;
 }
 function filterURL(){
-  shown=12;libraryCards();const u=new URL(location.href);u.search='';
+  shown=12;libraryCards();const u=new URL(location.href);const conversation=u.searchParams.get('conversation');u.search='';if(conversation)u.searchParams.set('conversation',conversation);
   if($('#story-search').value.trim())u.searchParams.set('q',$('#story-search').value.trim());
   if($('#story-category-filter').value)u.searchParams.set('category',$('#story-category-filter').value);
   history.replaceState(null,'',u);
 }
 async function route({push=null,resume=false}={}){
   remember();controller?.abort();player.clear();const turn=++epoch;
-  if(push)history.pushState({},'',push);
+  if(push)history.pushState({},'',journeyPath(push));
   const url=new URL(location.href),id=url.searchParams.get('nghe')||url.searchParams.get('career_id');requestedURL=url.href;
   const current=new AbortController();controller=current;
   $('#story-library').hidden=true;$('#story-detail').hidden=true;$('#story-error').hidden=true;$('#story-loading').hidden=false;
@@ -158,7 +160,7 @@ $('#story-ask-form').addEventListener('submit',e=>{
   const question=$('#story-question').value.trim();if(question.length<3)return;remember();
   const saved=view==='video'&&selectedVideo?offerVideoQuestion(selectedVideo,question):offerStoryQuestion(story,story.scenes[index],question);
   if(!saved){$('#story-answer').hidden=false;$('#story-answer').textContent='Trình duyệt đang chặn lưu trong tab. Em sao chép câu hỏi trước khi mở AI Chat nhé.';return;}
-  location.assign('/ai-career-advisor?mode=career_exploration&career_id='+encodeURIComponent(story.id));
+  location.assign(journeyPath('/ai-career-advisor?mode=career_exploration&career_id='+encodeURIComponent(story.id)));
 });
 document.addEventListener('click',e=>{
   const link=e.target.closest('[data-story],[data-library]');
@@ -167,5 +169,6 @@ document.addEventListener('click',e=>{
   if(choice&&story){const s=story.scenes[index];if(!s.choices.some(c=>c.choice_id===choice.dataset.choice))return;const draft=$('#story-question').value;answers.set(s.scene_id,choice.dataset.choice);renderScene();$('#story-question').value=draft;}
 });
 window.addEventListener('popstate',()=>route({resume:true}));
+window.addEventListener('pageshow',event=>{if(event.persisted)route({resume:true});});
 window.addEventListener('pagehide',()=>{remember();controller?.abort();player.clear();});
 route({resume:performance.getEntriesByType('navigation')[0]?.type==='back_forward'});

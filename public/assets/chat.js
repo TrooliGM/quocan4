@@ -2,11 +2,12 @@ import {showProfile,clearProfileDrafts} from './profile-panel.js?v=task41-unifie
 import {getFirebase, restoredUser} from './firebase-client.js';
 import {GoogleMic, BrowserMic} from './mic-recorder.js';
 import {guestSession} from './ai-access.js';
-import {chatLoginURL, saveDraft, loadDraft} from './chat-journey.js';
+import {chatLoginURL, saveDraft, loadDraft, rememberJourney, forgetJourney, currentJourney, installJourneyNavigation} from './chat-journey.js';
 import {explorationQuestion} from './career-question.js';
 import {storyQuestion} from './story-journey.js';
-import {navigationButtons,keepVerifiedCitations} from './navigation-actions.js?v=task43-2';
+import {navigationButtons,keepVerifiedCitations} from './navigation-actions.js?v=task44-1';
 
+installJourneyNavigation();
 const $ = (selector) => document.querySelector(selector);
 let auth, sdk, user, config, active = null, sessions = [], pending = null;
 let busy = false, phase = 'idle', identityEpoch = 0;
@@ -190,7 +191,8 @@ function failure(error) {
 }
 function storageKey() { return `laban.advisor.${user.uid}`; }
 function persistJourney() {
-  if (active && user) saveDraft(user.uid, active.id, {survey:needsSurvey() ? surveyDrafts.get(active.id) : null, message:$('#message-input').value,explorationPrepared:preparedQuestions.has(active.id)});
+  if(active&&user)rememberJourney(user.uid,active);
+  if (active && user) saveDraft(user.uid, active.id, {survey:needsSurvey() ? surveyDrafts.get(active.id) : null, message:$('#message-input').value, pending,explorationPrepared:preparedQuestions.has(active.id)});
 }
 async function prepareExplorationDraft() {
   const id=active?.id, epoch=identityEpoch, context=active?.messages?.[0]?.career_context;
@@ -205,7 +207,8 @@ async function prepareExplorationDraft() {
 function rememberActive() {
   try { if (active) { sessionStorage.setItem(storageKey(), active.id); persistJourney(); } else sessionStorage.removeItem(storageKey()); } catch { /* Tab riêng tư có thể chặn storage. */ }
   const url=new URL(location.href);
-  if(url.searchParams.has('conversation')){if(active)url.searchParams.set('conversation',active.id);else url.searchParams.delete('conversation');history.replaceState(null,'',url);}
+  if(active)url.searchParams.set('conversation',active.id);else url.searchParams.delete('conversation');
+  history.replaceState(null,'',url);
 }
 function setSidebar(open) {
   const mobile = window.innerWidth <= 760;
@@ -386,12 +389,13 @@ async function loadSession(id) {
     active = data.session;
     if(!savedCache)cacheSession(active);
     const saved=loadDraft(user.uid,active.id);
+    pending=saved?.pending&&!active.messages.some(m=>m.role==='assistant'&&m.request_id===saved.pending.request_id)?saved.pending:null;
     if (saved?.explorationPrepared) preparedQuestions.add(active.id);
     if (needsSurvey() && saved?.survey) surveyDrafts.set(active.id,saved.survey);
     $('#message-input').value = saved?.message || '';
     rememberActive(); renderMessages(); resizeInput();
-    notice();
-    if(config?.automatic_analysis&&!needsSurvey())queueMicrotask(()=>runAnalysis(id).catch(()=>{}));
+    notice(pending?'Tin nhắn đang chờ xác nhận. Bạn có thể thử gửi lại với cùng mã yêu cầu.':'',Boolean(pending));
+    // Opening a conversation is read-only; analysis starts only on survey submit or explicit retry.
     if (window.innerWidth <= 760) setSidebar(false);
   } catch (error) { if(ticket===navigation && epoch===identityEpoch && error.name!=='AbortError'){sessionCache.delete(id);notice(failure(error));} }
   finally { if(ticket===navigation && epoch===identityEpoch){busy = false;phase='idle';loadingSession=null;navigationAbort=null;updateControls();} }
@@ -400,7 +404,7 @@ function freshChat() {
   if (busy && phase!=='loading') return notice('Đợi La Bàn trả lời xong rồi bắt đầu cuộc trò chuyện mới nhé.');
   persistJourney();navigation++;navigationAbort?.abort();navigationAbort=null;loadingSession=null;selectedSession=null;busy=false;phase='idle';
   cancelMic();
-  active = null; entryContext = null; pending = null; rememberActive();
+  active = null; entryContext = null; pending = null; forgetJourney(user?.uid); rememberActive();
   $('#message-input').value = ''; $('#remember-chat').checked = false; notice(); renderMessages(); resizeInput(); updateControls();
   if (window.innerWidth <= 760) setSidebar(false);
 }
@@ -616,6 +620,8 @@ $('#guest-login').addEventListener('click', event => {
   event.preventDefault();persistJourney();location.assign(loginURL());
 });
 window.addEventListener('pagehide', persistJourney);
+window.addEventListener('laban:before-navigate', persistJourney);
+window.addEventListener('pageshow', event=>{if(event.persisted)location.reload();});
 $('#message-input').addEventListener('keydown', (event) => { if (event.key === 'Enter' && !event.shiftKey && !event.isComposing) { event.preventDefault(); send(); } });
 $('#message-form').addEventListener('submit', (event) => { event.preventDefault(); send(); });
 $('#retry-send').addEventListener('click', () => send(true));
@@ -638,7 +644,7 @@ $('#delete-all-data').addEventListener('click', async () => {
   catch (error) { notice(failure(error)); }
 });
 $('#logout').addEventListener('click', async () => {
-  try { if (!user?.server_guest) await sdk.signOut(auth); clearPrivateUI(); location.replace('/'); }
+  try { forgetJourney(user?.uid);if (!user?.server_guest) await sdk.signOut(auth); clearPrivateUI(); location.replace('/'); }
   catch (error) { notice(failure(error)); }
 });
 
@@ -661,6 +667,7 @@ async function initialize() {
     catch { /* Server guest works without Firebase configuration/network. */ }
     if (!user) user = await guestSession();
     const owner = user.uid;
+    if(currentJourney()?.uid!==owner)forgetJourney();
     if(auth && sdk) sdk.onAuthStateChanged(auth, (current) => {
       if (user?.server_guest ? current && !current.isAnonymous : !current || current.uid !== owner) {
         persistJourney();const target=loginURL();clearPrivateUI();location.replace(target);
@@ -694,18 +701,27 @@ async function initialize() {
       entryContext = {mode, ...(career_id ? {career_id} : {})};
       active = null; pending = null;
       await startChat();
-      if (active) { entryURL.searchParams.delete('mode'); entryURL.searchParams.delete('career_id'); history.replaceState(null,'',entryURL); }
+      if (active) { const canonical=new URL(location.href);canonical.searchParams.delete('mode');canonical.searchParams.delete('career_id');history.replaceState(null,'',canonical); }
     }
     let previous; try { previous = sessionStorage.getItem(storageKey()); } catch { /* Không bắt buộc storage. */ }
     if (!active && !requested && previous) await loadSession(previous);
     else renderMessages();
+    // Explicit career/story handoff reuses the verified original session and survey.
+    // Prepare a draft only; never overwrite typed text or send/charge on navigation.
+    const offeredCareer=entryURL.searchParams.get('career_id');
+    if(requested&&active?.id===requested&&entryURL.searchParams.get('mode')==='career_exploration'&&/^[a-z0-9-]{1,80}$/.test(offeredCareer||'')&&!needsSurvey()&&!$('#message-input').value&&!pending){
+      const offered=storyQuestion(offeredCareer,active.id);
+      if(offered)$('#message-input').value=offered.text;
+      else {const career=await jsonAPI('/api/career-library/'+encodeURIComponent(offeredCareer));$('#message-input').value=explorationQuestion(career,active.messages[0].survey);}
+      persistJourney();resizeInput();updateControls();
+    }
     const url = new URL(location.href);
     if (url.searchParams.get('start') === '1' || config.is_guest) {
       // Đăng nhập mở ngay phiên tạm; chỉ lưu lâu dài khi có lựa chọn đồng ý.
       if (!active && !requested) await startChat();
       if (active) {
-        url.searchParams.delete('start');
-        history.replaceState(null, '', url);
+        const canonical=new URL(location.href);canonical.searchParams.delete('start');
+        history.replaceState(null, '', canonical);
         $('#message-input').focus();
       }
     }

@@ -174,3 +174,7 @@ Task4.3 sau LIVE: bổ sung hàng rào tham chiếu mơ hồ bằng tên/ID từ
 
 ## Task4.3 — quyền phát hành Production mới đã thực hiện
 Yêu cầu mới ghi rõ commit/push/deploy sau kiểm thử, thay phạm vi chỉPreview trước đó. Dùng candidate Production build --skip-domain kế thừa env hiện có, kiểm thật3nhóm với phiên GuestQAProduction còn quota4/8 (không đổi danh tính hoặc ngân sách) trước promote. Đã mở Navigation mọi role, Source608146c/deploymentG11k5MKTVWNhEAcszbhqGEZm1KiW; giữ DDGS mọi role và quyền dữ liệu riêng như cũ. Sourcebranch có ancestor Production thực, không thay main/ProductionBranch. Không resetDB/quota hoặc chạy migration; rollback vềCoeNba7 giữ metadata/hội thoại/quota. Googlepopup chưa tựnghiệmthu mới, báo rõ giới hạn. Docs/task43-production-release.md là trạng thái hiện hành.
+
+
+## Task4.4 — Điều hướng liên tục
+Yêu cầu mới thay quyết địnhTask4.3 mở tab mới: nội bộ mặc định cùng tab, mang conversation đã xác minh; external citations vẫn tabmới. Giữ backendownership/quota/model và không tự gọi phân tích khi quay lại chat. Phải kiểm Preview trước Production; không coi authfixture là Googlepopup thật.

@@ -1,6 +1,6 @@
 import {getFirebase} from './firebase-client.js';
 import {signInEmailPreservingGuest,signInGooglePreservingGuest,hasPendingGuestClaim,resumeGuestTransfer} from './account-link.js';
-import {beginLogin, finishLogin, loginDestination} from './chat-journey.js';
+import {beginLogin, finishLogin, loginDestination, currentJourney, journeyPath, forgetJourney} from './chat-journey.js';
 const select = (s) => document.querySelector(s);
 const dialog = select('#auth-dialog');
 let navigating=false;
@@ -133,7 +133,7 @@ async function ensureAuth() {
   if (!result) configTask = null;
   return result;
 }
-document.querySelectorAll('[data-open-auth]').forEach((button) => button.addEventListener('click', () => { if (new URLSearchParams(location.search).get('login')!=='1') {beginLogin();returnTarget=loginDestination();} if (!dialog.open) dialog.showModal(); ensureAuth(); }));
+document.querySelectorAll('[data-open-auth]').forEach((button) => button.addEventListener('click', () => { if (new URLSearchParams(location.search).get('login')!=='1') {beginLogin(currentJourney()?journeyPath('/ai-career-advisor'):undefined);returnTarget=loginDestination();} if (!dialog.open) dialog.showModal(); ensureAuth(); }));
 select('#mode-login').addEventListener('click', () => setMode('login'));
 select('#mode-register').addEventListener('click', () => setMode('register'));
 select('#toggle-password').addEventListener('click', () => {
@@ -194,7 +194,7 @@ select('#forgot-password').addEventListener('click', async () => {
 select('#signout-button').addEventListener('click', async () => {
   if (busy || !ready) return;
   setBusy(true);
-  try { await sdk.signOut(auth); select('#auth-form').reset(); busy = false; setMode('login'); status('Bạn đã đăng xuất. Hẹn gặp lại!'); }
+  try { forgetJourney();await sdk.signOut(auth); select('#auth-form').reset(); busy = false; setMode('login'); status('Bạn đã đăng xuất. Hẹn gặp lại!'); }
   catch (error) { status(errorMessage(error), true); }
   finally { setBusy(false); }
 });

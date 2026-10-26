@@ -239,3 +239,7 @@ Runtime04a67da /dpl_DahG7koM2gkszvbciy7C7XfkQqLc tại https://quocan4-dod5r4joj
 
 ## Task 4.3 — Đã phát hành Production (26/10/2026)
 Yêu cầu mới cho phép Production. Runtime608146c /dpl_G11k5MKTVWNhEAcszbhqGEZm1KiW tại domain chính, Navigation Guest/Member/QA không QA-only; đã push featurebranch. Kế thừa62 localPASS, thêm6 phản hồi candidate thật/Chrome3nhóm PASS, hậu kiểm domain chính Guest mở thư viện, Member truyện đúng tham chiếu, QA toán không nút +DDGS4nguồn thật PASS. GuestQA có sẵnProduction4→6→7/8 qua3câu hợp lệ, replay không thêm, không reset/bypass. Firebase/Neon/biếnmôitrường/200nghề/schema giữ nguyên; Googlepopup mới chưa kiểm, không gộp SDKpassword thành popupPASS. RollbackCoeNba7/bd906df READY và localtag. Báo cáo docs/task43-production-release.md thay trạng thái Preview-only trước; không sửa rootcheckoutdirty, không merge/main/migration.
+
+
+## Task4.4 — Điều hướng liên tục
+Task4.4 bổ sung đang thực hiện trên nhánh riêng từ4118367: sửa cùng tab/ID/draft/BackForward;26testPython +2Chrome localPASS, chưaPreview/Production/Googlepopup thật. Không tìm thấy checkpoint4.4 trước; lỗi Hồ sơ riêng đang chờ mô tả. Xem docs/task44-single-tab-journey.md.
