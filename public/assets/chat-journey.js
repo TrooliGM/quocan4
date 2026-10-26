@@ -8,6 +8,14 @@ export function currentJourney() {
   const v=read(JOURNEY);
   return v&&typeof v.uid==='string'&&uuid(v.id)?v:null;
 }
+export function recordExploration(career) {
+  const journey=currentJourney();
+  if(journey&&/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(career)&&career.length<=80)write('laban.exploration.'+journey.uid+'.'+journey.id,{career});
+}
+export function exploredCareer(uid,id) {
+  const value=read('laban.exploration.'+uid+'.'+id)?.career;
+  return typeof value==='string'&&/^[a-z0-9-]{1,80}$/.test(value)?value:null;
+}
 // A tab-local return pointer, never proof of ownership. Chat GET still verifies UID.
 export function rememberJourney(uid,session) {
   if(uid&&uuid(session?.id)){write(JOURNEY,{uid,id:session.id});window.dispatchEvent(new Event('laban:journey-change'));}
@@ -80,10 +88,18 @@ export function transferDrafts(source, target) {
   try {
     const journey=currentJourney();
     if(journey?.uid===source)rememberJourney(target,{id:journey.id});
+    const profile=read('laban.profile-drafts.'+source),oldProfile=read('laban.profile-drafts.'+target);
+    if(Array.isArray(profile?.rows)){
+      const combined=new Map([...profile.rows,...(Array.isArray(oldProfile?.rows)?oldProfile.rows:[])]);
+      write('laban.profile-drafts.'+target,{rows:[...combined].slice(-120)});
+      sessionStorage.removeItem('laban.profile-drafts.'+source);
+    }
     const id=sessionStorage.getItem(`laban.advisor.${source}`);
     if (id) {
       const draft=loadDraft(source,id);
       if (draft) saveDraft(target,id,draft);
+      const explored=read('laban.exploration.'+source+'.'+id);
+      if(explored)write('laban.exploration.'+target+'.'+id,explored);
       sessionStorage.setItem(`laban.advisor.${target}`,id);
       sessionStorage.removeItem(`laban.draft.${source}.${id}`);
       sessionStorage.removeItem(`laban.advisor.${source}`);

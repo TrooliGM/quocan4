@@ -1,4 +1,4 @@
-import {installJourneyNavigation} from './chat-journey.js';
+import {installJourneyNavigation,recordExploration} from './chat-journey.js';
 installJourneyNavigation();
 const $ = s => document.querySelector(s);
 const escape = value => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -40,6 +40,7 @@ async function openCareer(id,update=true){
   try{
     const c=await json('/api/career-library/'+encodeURIComponent(id));
     if(ticket!==modalGeneration||!dialog.open)return;
+    recordExploration(c.career_id);
     const lists=(title,items)=>`<h3>${title}</h3><ul>${items.map(x=>`<li>${escape(x)}</li>`).join('')}</ul>`;
     const fold=(title,body)=>`<details class="career-profile-section"><summary>${title}</summary>${body}</details>`;
     const day=(c.typical_day||[]).map(x=>`${x.stage}: ${x.activity}`);

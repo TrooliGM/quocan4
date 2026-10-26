@@ -8,6 +8,24 @@ def plain(text):
                    if unicodedata.category(c) != 'Mn').replace('đ', 'd')
 
 
+def current_career(session):
+    header=(session.get('messages') or [{}])[0]
+    journey=header.get('exploration_journey',{})
+    from career_library import find_career
+    career=find_career(journey.get('current')) if journey.get('current') else None
+    return {'mode':'career_exploration','career_id':career.career_id,'career_name':career.name,'source':'exploration_only_not_preference'} if career else header.get('career_context',{})
+
+
+def journey_context(session):
+    from career_library import find_career
+    journey=(session.get('messages') or [{}])[0].get('exploration_journey',{})
+    visited=[]
+    for id in journey.get('visited',[])[-12:]:
+        career=find_career(id)
+        if career:visited.append({'career_id':id,'name':career.name})
+    return {'current':current_career(session),'visited':visited,'meaning':'Chỉ là nội dung vừa khám phá, không phải sở thích, đồng ý lưu hoặc kết luận phù hợp.'}
+
+
 def plan_turn(session, message):
     text = plain(message)
     from .search_provider import needs_search
@@ -22,7 +40,7 @@ def plan_turn(session, message):
     short = bool(re.search(r'ngan gon|ngan thoi|mot cau|[123] cau|chi.*mot so', text))
     deep = bool(re.search(r'phan tich sau|chi tiet|nghien cuu|ky hon', text))
     limit = 800 if short or intent == 'social' else 3500 if deep else 2600 if intent in ('compare', 'plan', 'research') else 2000
-    career = (session.get('messages') or [{}])[0].get('career_context', {})
+    career = current_career(session)
     return {'intent':intent, 'detail':'brief' if short else 'deep' if deep else 'adaptive',
             'max_tokens':limit, 'mode':career.get('mode','career_discovery'),
             'career_id':career.get('career_id'),'needs_career_reference':intent!='social' and not simple_math and not topic_change,
@@ -87,6 +105,10 @@ def public_search_plan(session, message):
     text=plain(message);years=re.findall(r'\b(?:19|20)\d{2}\b',message)
     plan={'query':message,'follow_up':False,'ambiguous':False}
     if private_query(message):return plan
+    selected=current_career(session)
+    if selected.get('source')=='exploration_only_not_preference' and re.search(r'\b(?:nghe|nganh) (?:do|nay|ay)\b',text):
+        query=re.sub(r'(?i)(?:nghề|nghe|ngành|nganh)\s+(?:đó|do|này|nay|ấy|ay)',lambda _:selected['career_name'],message)
+        if query!=message:return {'query':query,'follow_up':True,'ambiguous':False}
     # An explicit new topic (including calendar questions) must never inherit police scores.
     calendar=bool(re.search(r'nam nhuan|bao nhieu ngay|lich (?:am|duong)',text))
     reference=bool(re.search(r'nganh (do|nay)|nghe (do|nay)|nam (ay|do)|nguon .*?(?:dau|nao)|(?:dan|cho|xin) nguon',text))
@@ -136,7 +158,7 @@ def public_search_plan(session, message):
         return plan
     topic=topic or assistant_topic
     if not topic:
-        career=(session.get('messages') or [{}])[0].get('career_context',{})
+        career=current_career(session)
         topic=career.get('career_name')
     if not topic:
         plan['ambiguous']=elliptical

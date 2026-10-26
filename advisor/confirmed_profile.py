@@ -67,19 +67,34 @@ def confirm(uid,provider,session,proposal_id,value):
     analyses=[analysis] if analysis else []
     proposal=next((p for a in reversed(analyses) for p in a['proposed_profile_items'] if p['id']==proposal_id),None)
     if not proposal or proposal['proposed_action']!='confirm':raise HTTPException(422,'Nhận định chưa đủ căn cứ để lưu; hãy làm rõ trước.')
-    metadata={'analysis_version':1,'survey_id':analyses[-1]['survey_id'],'evidence':proposal['evidence'],
+    metadata={'analysis_version':analyses[-1].get('analysis_version',1),'survey_id':analyses[-1]['survey_id'],'evidence':proposal['evidence'],'area':proposal.get('area'),
               'confidence':proposal['confidence'],'inference_type':proposal['inference_type'],
               'original_proposal':proposal['value'],'edited_by_user':value!=proposal['value'],'status':'confirmed'}
     with postgres_connection() as db:
+        # Claim/recovery locks usage before session/profile. Match that order.
+        from .guest_quota import lock_usage,ensure_unclaimed
+        lock_usage(db,uid);ensure_unclaimed(db,uid)
         owner_lock(db,uid)
         db.execute('DELETE FROM advisor_profile_items WHERE owner=%s AND expires_at<=NOW()',(uid,))
         # Xác minh phiên vẫn thuộc UID sau khi khóa; không tin object client.
-        owned=db.execute('''SELECT id FROM advisor_sessions WHERE id=%s AND owner=%s UNION ALL
-            SELECT id FROM advisor_temporary_sessions WHERE id=%s AND owner=%s AND expires_at>NOW()''',(session['id'],uid,session['id'],uid)).fetchone()
+        owned=None
+        for table in ('advisor_sessions','advisor_temporary_sessions'):
+            expiry=' AND expires_at>NOW()' if table.endswith('temporary_sessions') else ''
+            owned=db.execute(f'SELECT messages FROM {table} WHERE id=%s AND owner=%s{expiry} FOR UPDATE',(session['id'],uid)).fetchone()
+            if owned:break
         if not owned:raise HTTPException(404,'Không tìm thấy phiên của bạn.')
+        current={'id':session['id'],'messages':json.loads(owned['messages'])}
+        latest=analysis_for_session(current)
+        latest_proposal=next((p for p in (latest or {}).get('proposed_profile_items',[]) if p['id']==proposal_id),None)
+        valid=latest_proposal and latest_proposal['proposed_action']=='confirm'
+        if not valid or proposal_id in current['messages'][0].get('profile_rejections',[]):raise HTTPException(409,'Đề xuất đã thay đổi hoặc được bỏ qua; hãy mở lại hồ sơ.')
         existing=db.execute('SELECT id FROM advisor_profile_items WHERE owner=%s AND source_session_id=%s AND source_proposal_id=%s',(uid,session['id'],proposal_id)).fetchone()
-        if not existing and db.execute('SELECT count(*) AS n FROM advisor_profile_items WHERE owner=%s AND (expires_at IS NULL OR expires_at>NOW())',(uid,)).fetchone()['n']>=80:raise HTTPException(409,'Hồ sơ đã có 80 mục; hãy xem lại trước khi thêm.')
-        db.execute('''INSERT INTO advisor_profile_items(id,owner,category,value,confirmed_by,source_session_id,source_proposal_id,metadata,expires_at)
+        from .profile_proposals import norm
+        values=db.execute('SELECT category,value,source_proposal_id FROM advisor_profile_items WHERE owner=%s AND (expires_at IS NULL OR expires_at>NOW())',(uid,)).fetchall()
+        if any(row['source_proposal_id'] in latest_proposal.get('replaces',[]) for row in values):raise HTTPException(409,'Mục cũ đã xác nhận. Hãy dùng Chỉnh sửa hoặc Xóa mục đó để xác nhận thay đổi, không tạo mục mâu thuẫn.')
+        duplicate=any(row['category']==proposal['category'] and norm(row['value'])==norm(value) for row in values)
+        if not existing and not duplicate and len(values)>=80:raise HTTPException(409,'Hồ sơ đã có 80 mục; hãy xem lại trước khi thêm.')
+        if not duplicate:db.execute('''INSERT INTO advisor_profile_items(id,owner,category,value,confirmed_by,source_session_id,source_proposal_id,metadata,expires_at)
             VALUES(%s,%s,%s,%s,%s,%s,%s,%s::jsonb,CASE WHEN %s THEN NOW()+INTERVAL '2 hours' ELSE NULL END)
             ON CONFLICT(owner,source_session_id,source_proposal_id) DO NOTHING''',(str(uuid4()),uid,proposal['category'],value,uid,session['id'],proposal_id,json.dumps(metadata,ensure_ascii=False),provider=='anonymous'))
     return read(uid)

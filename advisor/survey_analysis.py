@@ -17,6 +17,7 @@ class Evidence(BaseModel):
 class Proposal(BaseModel):
     model_config=ConfigDict(extra='forbid')
     category:Literal['interests','strengths','growth_skills','work_preferences','careers','uncertainties']
+    area:Literal['interests','self_reported_skills','subjects','work_preferences','goals','experiences','careers','uncertainties']|None=None
     value:str=Field(min_length=3,max_length=160)
     evidence:list[Evidence]=Field(min_length=1,max_length=5)
     confidence:Literal['rõ ràng','cần xác nhận','chưa đủ dữ liệu']
@@ -36,6 +37,9 @@ def validate_analysis(raw,survey,session_id):
     items=[];seen=set()
     for item in parsed.proposed_profile_items:
         row=item.model_dump()
+        if item.area:
+            from .profile_proposals import AREA_CATEGORY
+            if AREA_CATEGORY[item.area]!=item.category:raise ValueError('incompatible_profile_area')
         for evidence in item.evidence:
             answer=survey['answers'][evidence.question_id-1]
             if evidence.excerpt not in answer:raise ValueError('ungrounded_survey_evidence')
@@ -73,6 +77,8 @@ async def generate_analysis(survey,session_id):
         'Mỗi đề xuất có excerpt NGUYÊN VĂN ngắn trong đúng câu trả lời để đối chiếu, summary tổng hợp có chọn lọc, '
         'không chép cả năm câu. Không suy năng lực, không phần trăm. Không xin thông tin nhạy cảm. '
         'Trả JSON theo schema: '+json.dumps(Analysis.model_json_schema(),ensure_ascii=False))
+    from .profile_proposals import AREA_CATEGORY
+    prompt+=' Phân rõ 8 area môn học/mục tiêu/trải nghiệm/kỹ năng tự nhận; dùng category tương ứng: '+json.dumps(AREA_CATEGORY,ensure_ascii=False)
     from .performance import measure
     deadline=setting('ANALYSIS_TIMEOUT_SECONDS',25,5,45)
     with measure('survey_analysis'):

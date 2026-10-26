@@ -21,3 +21,21 @@ Preview/LIVE chưa thực hiện tại thời điểm checkpoint này. Productio
 
 ## Rollback dự kiến
 Giữ deployment ProductionTask4.3 G11k5MKTVWNhEAcszbhqGEZm1KiW, source608146c; xác minh alias lại trước phát hành. Nếu cần rollback chỉ đổi deployment về bản đã xác minh; không reset/restore DB, không xóa quota/hội thoại.
+
+
+## Mở rộng theo đặc tả đầy đủ người dùng gửi sau checkpoint93e657e
+
+Không còn chờ mô tả lỗi Hồ sơ: đã nhận đầy đủ Task4.4 và triển khai trên cùng nhánh, kế thừa bản vá điều hướng.
+
+- Mở rộng terminal function của cùng completion DeepSeek bằng profile_updates. Backend chỉ nhận excerpt nguyên văn trong lời nhắn HIỆN TẠI; từ chối nguồn web/lời AI, PII cơ bản, suy kỹ năng từ sở thích, ID thay thế lạ hoặc category không khớp. Không có lượt LLM trích xuất mới cho mỗi tin nhắn. Đề xuất lưu cùng message/quota trong transaction hiện hữu.
+- Hợp nhất khảo sát và các cập nhật hội thoại có thứ tự; add bổ sung, correct/withdraw ghi nhận đính chính, không sửa lịch sử hoặc tự sửa hồ sơ chính thức. ID ổn định chống lặp, max80 đề xuất hiện hành; trạng thái đã bỏ qua vẫn được giữ.
+- Phân loại8 nhóm bằng metadata area, giữ6 category của schema006 hiện hữu. Không migration, không chạy lại006. Giao diện phân biệt trực tiếp/diễn giải/suy luận, căn cứ hội thoại/khảo sát, nội dung thay đổi và dữ kiện còn thiếu.
+- Xác nhận kiểm lại proposal còn hiệu lực trong transaction, khóa cùng thứ tự với Guest claim/recovery, chống mục lặp khác proposal/session. Đính chính mục đã xác nhận yêu cầu Chỉnh sửa/Xóa bằng hành động riêng có version; không tự ghi đè hoặc thêm mục mâu thuẫn.
+- Giữ feature flag/QA allowlist cho lưu hồ sơ chính thức. Phân tích/đề xuất trong phiên dùng chung Guest/member/QA; không coi việc mở nghề là sở thích hoặc đồng ý lưu. Không nạp confirmed profile khi OFF.
+- PUT exploration xác minh UID/owner, Origin, rate limit chung PostgreSQL, catalog ID; chỉ cập nhật metadata hiện tại +12 nghề đã xem. Không tạo session, không sửa khảo sát, không gọi model, không trừ quota. Frontend chuyển hint theo tab vào phiên đã xác minh khi quay lại, kể cả Back/Forward; model/search nhận đúng nghề vừa khám phá, không suy phù hợp.
+- Bản nháp chỉnh sửa đề xuất/hồ sơ lưu trong sessionStorage theo UID và TTL2h, giới hạn120 mục; chuyển sau claim được server xác nhận. Không lưu token, không dùng storage làm bằng chứng quyền.
+
+### Bằng chứng local cập nhật
+113 phương thức Python duy nhất trong các nhóm navigation/profile/shared-protection/Task4.2 Search/Task4.1 jobs-context và Task4.4 PASS (có một số nhóm được chạy lại sau sửa đúng phạm vi). 7 ca Task4.4 mới bao gồm3 provider, persistence/retry/đính chính/owner403-404/Origin/quota; 28 profile+Task44 vừa chạy lại PASS sau thay đổi khóa. Chrome browser_task41 PASS6 nhóm, gồm auto analysis, edit/accept/reject, draft, retry và login claim fixture. Chrome journey PASS các trang thật+PG local,1tab; có PUT metadata exploration được phép, không có create/chat/analysis do điều hướng. Chưa gộp test fixture thành chứng cứ LIVE.
+
+Chưa deploy Task4.4, Production giữ nguyênTask4.3. Tiếp theo Preview staging riêng, LIVE member/QA và Guest trong hạn mức hợp lệ; Google popup thật cần thao tác người dùng. Nếu chưa đủ điều kiện thì không deploy Production.

@@ -28,7 +28,7 @@ async def checks(url,origin):
         await b.wait_for("document.querySelectorAll('.profile-proposal').length===2")
         assert await b.evaluate("document.querySelector('.profile-evidence').textContent.includes('Câu 1')")
         await b.screenshot('advisor30-proposals-desktop.png')
-        await b.evaluate("document.querySelectorAll('.profile-proposal')[1].querySelectorAll('button')[1].click();document.querySelector('.profile-proposal textarea').value='Vẽ đồ họa trên máy tính';document.querySelector('.profile-proposal button').click()")
+        await b.evaluate("document.querySelectorAll('.profile-proposal')[1].querySelectorAll('button')[2].click();document.querySelector('.profile-proposal textarea').value='Vẽ đồ họa trên máy tính';document.querySelector('.profile-proposal button').click()")
         await b.wait_for("document.querySelectorAll('.profile-item').length===1 && document.querySelectorAll('.profile-proposal').length===0")
         after=await b.evaluate("fetch('/__qa/advisor30').then(r=>r.json())");assert after['analysis_calls']==before['analysis_calls'] and after['main_calls']==before['main_calls']
         passed('Review grounds; reject one, edit/accept one; opening/saving profile does not call AI')

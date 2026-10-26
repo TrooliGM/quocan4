@@ -22,7 +22,7 @@ async def checks(url,origin):
   assert await b.evaluate("document.querySelectorAll('.profile-item').length===0 && !document.body.innerText.includes('Phân tích khảo sát qua AI Chat') && document.querySelector('#thinking').hidden")
   assert await b.evaluate("fetch('/api/ai/config').then(r=>r.json()).then(r=>r.guest_quota.remaining===8)")
   await b.screenshot('task41-auto-profile-desktop.png');passed('Five answers automatically produce proposals; zero chat questions charged; zero implicit confirmations')
-  await b.evaluate("document.querySelector('.profile-proposal details').open=true;document.querySelectorAll('.profile-proposal')[1].querySelectorAll('button')[1].click()")
+  await b.evaluate("document.querySelector('.profile-proposal details').open=true;document.querySelectorAll('.profile-proposal')[1].querySelectorAll('button')[2].click()")
   await b.wait_for("document.querySelectorAll('.profile-proposal').length===1")
   await b.evaluate("(()=>{let t=document.querySelector('.profile-proposal textarea');t.value='Thiết kế đồ họa trên máy tính';t.dispatchEvent(new Event('input'));document.querySelector('.profile-proposal button').click()})()")
   await b.wait_for("document.querySelectorAll('.profile-item').length===1 && document.querySelectorAll('.profile-proposal').length===0")

@@ -1,11 +1,11 @@
-import {showProfile,clearProfileDrafts} from './profile-panel.js?v=task41-unified-1';
+import {showProfile,clearProfileDrafts} from './profile-panel.js?v=task44-2';
 import {getFirebase, restoredUser} from './firebase-client.js';
 import {GoogleMic, BrowserMic} from './mic-recorder.js';
 import {guestSession} from './ai-access.js';
-import {chatLoginURL, saveDraft, loadDraft, rememberJourney, forgetJourney, currentJourney, installJourneyNavigation} from './chat-journey.js';
+import {chatLoginURL, saveDraft, loadDraft, rememberJourney, forgetJourney, currentJourney, installJourneyNavigation,exploredCareer,recordExploration} from './chat-journey.js';
 import {explorationQuestion} from './career-question.js';
 import {storyQuestion} from './story-journey.js';
-import {navigationButtons,keepVerifiedCitations} from './navigation-actions.js?v=task44-1';
+import {navigationButtons,keepVerifiedCitations} from './navigation-actions.js?v=task44-2';
 
 installJourneyNavigation();
 const $ = (selector) => document.querySelector(selector);
@@ -328,6 +328,8 @@ function renderMessages() {
   $('#use-profile').checked=Boolean(active?.messages?.[0]?.use_confirmed_profile);
   $('#keep-conversation').hidden=!active||active.remember||config?.is_guest;
   const context = active?.messages?.[0]?.career_context;
+  const journey=active?.messages?.[0]?.exploration_journey;
+  if(journey?.current)$('#session-note').textContent+=' · Vừa khám phá: '+(journey.current_name||journey.current)+' (chưa là lựa chọn nghề)';
   if (context?.mode === 'career_exploration') $('#session-note').textContent += ` · Tìm hiểu: ${context.career_name || context.career_id}`;
   const storyReturn=context?.mode==='career_exploration' ? storyQuestion(context.career_id,active.id) : null;
   if (storyReturn) {
@@ -427,6 +429,7 @@ async function send(retry = false) {
     active = data.session; pending = null; upsertSession(active);persistJourney(); renderMessages();
     if(data.guest_quota) guestQuota=data.guest_quota;
     busy = false; phase = 'idle'; updateControls();
+    if(data.session.messages.at(-1)?.profile_updates?.length)notice('Có đề xuất Hồ sơ mới từ điều bạn vừa chia sẻ. Chỉ lưu khi bạn xác nhận.');
   } catch (error) {
     if (epoch !== identityEpoch) return;
     notice(failure(error), Boolean(pending));
@@ -575,7 +578,8 @@ async function runAnalysis(id,retry=false,show=false) {
 }
 async function openProfile() {
   const epoch=identityEpoch;
-  await showProfile({api:jsonAPI,session:active,isGuest:config?.is_guest,backendEnabled:config?.automatic_analysis!==false,profileEnabled:config?.profile_enabled!==false,isCurrent:()=>epoch===identityEpoch,
+  const id=active?.id;
+  await showProfile({api:jsonAPI,session:active,isGuest:config?.is_guest,backendEnabled:config?.automatic_analysis!==false,profileEnabled:config?.profile_enabled!==false,isCurrent:()=>epoch===identityEpoch&&active?.id===id,
     onSession:row=>{if(epoch===identityEpoch&&active?.id===row.id){active=row;cacheSession(row);}},
     analysisFailure:analysisFailures.get(analysisKey(active?.id)),ownerKey:user?.uid,analysisLimit:config?.analysis_policy?.daily_limit,
     onRetry:async()=>{if(active)await runAnalysis(active.id,true,true);},
@@ -706,6 +710,11 @@ async function initialize() {
     let previous; try { previous = sessionStorage.getItem(storageKey()); } catch { /* Không bắt buộc storage. */ }
     if (!active && !requested && previous) await loadSession(previous);
     else renderMessages();
+    const explored=entryURL.searchParams.get('career_id')||exploredCareer(user.uid,active?.id);
+    if(active&&/^[a-z0-9-]{1,80}$/.test(explored||'')&&active.messages[0].exploration_journey?.current!==explored){
+      const result=await jsonAPI(`/api/ai/sessions/${active.id}/exploration`,{method:'PUT',body:JSON.stringify({career_id:explored})});
+      active=result.session;recordExploration(explored);cacheSession(active);renderMessages();
+    }
     // Explicit career/story handoff reuses the verified original session and survey.
     // Prepare a draft only; never overwrite typed text or send/charge on navigation.
     const offeredCareer=entryURL.searchParams.get('career_id');

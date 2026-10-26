@@ -21,7 +21,7 @@ def fingerprint(survey):
     return hashlib.sha256(json.dumps(survey['answers'],ensure_ascii=False).encode()).hexdigest()
 
 
-def analysis_for_session(session):
+def survey_analysis_for_session(session):
     survey=survey_data(session)
     if not survey:return None
     wanted=fingerprint(survey)
@@ -32,6 +32,11 @@ def analysis_for_session(session):
         result=message.get('survey_analysis')
         if result and result.get('survey_hash')==wanted:return result
     return None
+
+
+def analysis_for_session(session):
+    from .profile_proposals import merge
+    return merge(session,survey_analysis_for_session(session))
 
 
 def state(session):
@@ -67,7 +72,7 @@ def claim(uid,sid,ip,retry=False):
     with postgres_connection() as db:
         table,session=locked_session(db,uid,sid);survey=survey_data(session)
         if not survey:raise HTTPException(409,'Hoàn thành 5 câu khảo sát trước khi phân tích.')
-        if analysis_for_session(session):return state(session),None,None
+        if survey_analysis_for_session(session):return state(session),None,None
         now=float(db.execute('SELECT EXTRACT(EPOCH FROM NOW()) AS ts').fetchone()['ts'])
         job=session['messages'][0].get('analysis_job',{})
         same=job.get('survey_hash')==fingerprint(survey)

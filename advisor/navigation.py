@@ -29,6 +29,8 @@ def reference_context(state):
     Names and IDs come from the catalog; no profession-specific keyword rules.
     """
     text=normalize_search(state['message'])
+    if (state.get('session',{}).get('messages') or [{}])[0].get('exploration_journey',{}).get('current'):
+        return {'status':'not_ambiguous'} # Explicit owned journey selection resolves a deictic reference.
     if not re.search(r'\b(?:nghe|nganh|cai) (?:do|ay|nay)\b',text) or mentioned_ids(text):return {'status':'not_ambiguous'}
     history=state.get('session',{}).get('messages',[])[-12:]
     latest_user=next((m.get('content','') for m in reversed(history) if m.get('role')=='user'),'')
@@ -121,11 +123,13 @@ def decode_completion(message,state):
 
 
 def tool():
+    from .profile_proposals import Update
     return {'type':'function','function':{'name':TOOL_NAME,
-        'description':'Trả lời cuối bằng tiếng Việt và đề xuất nút nội bộ La Bàn khi lời học sinh yêu cầu hoặc nhu cầu khám phá có căn cứ. Không thực thi công cụ bên ngoài.',
+        'description':'Trả lời cuối, đề xuất nút nội bộ và cập nhật đề xuất hồ sơ từ lời học sinh khi có thông tin mới/đính chính. Không thực thi công cụ bên ngoài hoặc lưu hồ sơ chính thức.',
         'parameters':{'type':'object','properties':{
             'answer':{'type':'string','description':'Câu trả lời Markdown tự nhiên cho học sinh, không URL. Không tự kết luận phù hợp tuyệt đối.'},
-            'intent':{'type':'string','enum':['navigate','explore_options']},
+            'intent':{'type':'string','enum':['navigate','explore_options','profile_update']},
+            'profile_updates':{'type':'array','maxItems':8,'items':Update.model_json_schema()},
             'basis':{'type':'string','description':'Trích nguyên một cụm từ lời học sinh trong câu hiện tại/lịch sử gần, không từ web hay lời AI.', 'maxLength':240},
             'actions':{'type':'array','maxItems':4,'items':{'type':'object','properties':{
                 'kind':{'type':'string','enum':['career_profile','career_story','career_exploration']},
@@ -148,5 +152,6 @@ def context(state):
             try:valid.append(NavigationAction.model_validate(item).model_dump())
             except (ValueError,TypeError):continue
         if valid:refs.append(valid)
-    career_context=(state.get('session',{}).get('messages') or [{}])[0].get('career_context',{})
+    from .conversation_context import current_career
+    career_context=current_career(state.get('session',{}))
     return {'recent_action_groups':refs[-4:],'current_career':career_context.get('career_id'),'reference':reference_context(state)}

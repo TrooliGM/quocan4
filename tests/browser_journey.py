@@ -59,7 +59,7 @@ async def checks(wsurl,origin):
   await ready();await wait("document.querySelector('#message-input')?.value==='Bản nháp chưa gửi'")
   assert await b.evaluate("new URLSearchParams(location.search).get('conversation')==="+json.dumps(sid)+"&&document.querySelector('#career-survey').hidden")
   req=await b.evaluate("JSON.parse(sessionStorage.getItem('__journey_requests'))")
-  assert not [r for r in req if r['method']!='GET' and r['path']!='/api/ai/guest/session'],req
+  assert not [r for r in req if r['method']!='GET' and r['path']!='/api/ai/guest/session' and not(r['method']=='PUT' and r['path'].endswith('/exploration'))],req
   assert await tabs()==base
   # Firebase popup/claim fixture only; not a real Google human authentication.
   await click("document.querySelector('#guest-login')");await wait("document.querySelector('#auth-dialog')?.open&&!document.querySelector('#google-signin').disabled")
@@ -70,7 +70,7 @@ async def checks(wsurl,origin):
    await b.call('Emulation.setDeviceMetricsOverride',{'width':width,'height':844,'deviceScaleFactor':1,'mobile':width<500})
    assert await b.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
    await b.screenshot('task44-local-'+str(width)+'.png')
-  report={'actual_pages':'PASS local FastAPI+PG','same_tab_profile_story_scene':'PASS','multi_career_back_forward':'PASS','survey_draft_original_id':'PASS','zero_chat_create_analysis_write_requests':True,'guest_cookie_verification_posts':'allowed, existing identity only','tabs_before':base,'tabs_after':await tabs(),'firebase_google_claim':'PASS fixture only, real popup NOT TESTED','desktop_mobile':'PASS'}
+  report={'actual_pages':'PASS local FastAPI+PG','same_tab_profile_story_scene':'PASS','multi_career_back_forward':'PASS','survey_draft_original_id':'PASS','zero_chat_create_analysis_calls':True,'journey_metadata_put':'allowed, no quota charge','guest_cookie_verification_posts':'allowed, existing identity only','tabs_before':base,'tabs_after':await tabs(),'firebase_google_claim':'PASS fixture only, real popup NOT TESTED','desktop_mobile':'PASS'}
   (ROOT/'artifacts/task44-journey-local.json').write_text(json.dumps(report,indent=2));print(json.dumps(report),flush=True)
 if __name__=='__main__':
  for k in list(os.environ):

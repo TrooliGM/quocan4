@@ -243,3 +243,7 @@ Yêu cầu mới cho phép Production. Runtime608146c /dpl_G11k5MKTVWNhEAcszbhqG
 
 ## Task4.4 — Điều hướng liên tục
 Task4.4 bổ sung đang thực hiện trên nhánh riêng từ4118367: sửa cùng tab/ID/draft/BackForward;26testPython +2Chrome localPASS, chưaPreview/Production/Googlepopup thật. Không tìm thấy checkpoint4.4 trước; lỗi Hồ sơ riêng đang chờ mô tả. Xem docs/task44-single-tab-journey.md.
+
+
+## Task4.4 — Hồ sơ và ngữ cảnh nghề (27/10/2026)
+Đã nhận đặc tả đầy đủ; thêm đề xuất có căn cứ trong cùng completion,8area không schema mới, metadata nghề vừa xem và bản nháp theo UID. Không tự ghi đè confirmed profile hoặc tháo QA gate cho quyền lưu. 113 phương thức localPASS, Chrome Task41/journeyPASS; chưa Preview/LIVE/Production. Chi tiết docs/task44-single-tab-journey.md.

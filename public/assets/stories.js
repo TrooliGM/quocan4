@@ -1,4 +1,4 @@
-import {journeyPath,installJourneyNavigation} from './chat-journey.js';
+import {journeyPath,installJourneyNavigation,recordExploration} from './chat-journey.js';
 installJourneyNavigation();
 ﻿import {storyArt} from './story-art.js';
 import {comicCover} from './story-thumbnails.js';
@@ -122,6 +122,7 @@ async function route({push=null,resume=false}={}){
     const [data,videos]=await Promise.all([json('/api/career-stories/'+encodeURIComponent(id),current.signal),json('/api/career-videos/'+encodeURIComponent(id),current.signal)]);
     if(turn!==epoch)return;
     story=data;videoRows=videos.items;readonly=videos.preview_read_only;index=0;answers=new Map();ended=false;
+    recordExploration(id);
     if(resume||url.searchParams.has('scene'))restore();
     const requestedScene=data.scenes.findIndex(s=>s.scene_id===url.searchParams.get('scene'));if(requestedScene>=0)index=requestedScene;
     selectedVideo=videoRows.find(v=>v.youtube_video_id===url.searchParams.get('video'))||videoRows[0]||null;

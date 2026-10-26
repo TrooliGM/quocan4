@@ -244,7 +244,14 @@ def remove_profile(item_id:UUID,user=Depends(profile_actor)):
     remove(user['uid'],str(item_id));return Response(status_code=204)
 
 @router.post('/api/ai/sessions/{session_id}/profile-proposals/{proposal_id}/reject')
-def reject_profile_proposal(session_id:UUID,proposal_id:UUID,user=Depends(profile_actor)):
+def reject_profile_proposal(session_id:UUID,proposal_id:UUID,request:Request,user=Depends(require_user)):
+    from .protection import same_origin,connection,limit,client_ip
+    same_origin(request)
+    get_store().get(user['uid'],str(session_id))
+    if isinstance(get_store(),PostgresConversationStore):
+        with connection() as db:
+            limit(db,'profile:ip:minute',client_ip(request),setting('PROFILE_IP_WRITES_PER_MINUTE',90),60)
+            limit(db,'profile:uid:minute',user['uid'],setting('PROFILE_USER_WRITES_PER_MINUTE',30),60)
     from .confirmed_profile import reject_proposal
     return {'session':reject_proposal(get_store(),user['uid'],str(session_id),str(proposal_id))}
 
@@ -386,6 +393,32 @@ async def transcribe(request: Request, user=Depends(require_user)):
 class AnalysisRetryInput(BaseModel):
     model_config=ConfigDict(extra='forbid')
     retry:bool=False
+
+
+class ExplorationInput(BaseModel):
+    model_config=ConfigDict(extra='forbid')
+    career_id:str=Field(min_length=1,max_length=80,pattern=r'^[a-z0-9]+(?:-[a-z0-9]+)*$')
+
+
+@router.put('/api/ai/sessions/{session_id}/exploration')
+def exploration(session_id:UUID,payload:ExplorationInput,request:Request,user=Depends(require_user)):
+    from career_library import find_career
+    from .confirmed_profile import update_session_metadata
+    from .protection import same_origin,limit,client_ip
+    same_origin(request)
+    sid=str(session_id);store=get_store();store.get(user['uid'],sid)
+    career=find_career(payload.career_id)
+    if not career:raise HTTPException(422,'Nghề không có trong danh mục.')
+    if isinstance(store,PostgresConversationStore):
+        from .protection import connection
+        with connection() as db:
+            limit(db,'journey:ip:minute',client_ip(request),setting('PROFILE_IP_WRITES_PER_MINUTE',90),60)
+            limit(db,'journey:uid:minute',user['uid'],setting('PROFILE_USER_WRITES_PER_MINUTE',30),60)
+    def change(messages):
+        old=messages[0].get('exploration_journey',{})
+        visited=[id for id in old.get('visited',[]) if id!=payload.career_id]
+        messages[0]['exploration_journey']={'current':payload.career_id,'current_name':career.name,'visited':(visited+[payload.career_id])[-12:]}
+    return {'session':update_session_metadata(store,user['uid'],sid,change),'chat_quota_charge':0}
 
 
 def analysis_user(user=Depends(require_user)):
