@@ -214,3 +214,10 @@ Usermới chophépcậpnhậtmain, thayquyềnchỉPreviewtrướcđó, nhưngđ
 Userđãxácnhậnchophépmainfalse/tiếptụctíchhợp,pushmainkhiantoàn,khôngProd. Ápdụngguardởvercel.jsoncủachínhmergecommit,khôngđổiserviceconfig;giữhailịchsửvàkhôngforce. Giữpolicyđóchođếnkhiuserduyệtbậtlạiriêng. Sửanhỏimportexceptionvàcachefallbackđượckiểmregressiontrongintegration;khôngnhậnđólànguyênnhânValidationErrorlịchsử.
 
 Đãthựchiệnđồngbộmain8c1d26c vàverifyGitHub2parent/config;Production9TdB69Nsda6d146khôngđổi. TừđâygiữmainGitauto-deploytắtchođếnkhiđượcduyệtriêng. KhôngđồngnhấtđồngbộcodevớipháthànhProductionhoặchoànthànhTask4.
+
+
+### Phát hành Task 4.4 main — đã được xác nhận và thực hiện
+Người dùng cho phép riêng Production SHA 3b2f704, tạo --prod --skip-domain, smoke rồi promote; quyền này thay thế giới hạn chỉ đồng bộ main trước đó. Đã phát hành dpl_6avJjUZdcAS95Rg2BsDRqUqutHrE và xác minh domain chính, giữ nguyên Production bindings/allowlist/schema/quota và main:false. Rollback chỉ đổi deployment về dpl_9TdB69NsBqWmKssEUQbNhG92jsVS, không phục hồi/xóa DB. Không coi phát hành là xác định nguyên nhân Historical ValidationError hoặc hoàn thành Task 4. Không mở rộng quyền hồ sơ/khởi tạo Guest thay thế để thử vượt hạn mức. Chi tiết và giới hạn LIVE trong docs/task44-production-release.md.
+
+### Lưu GitHub sau phát hành — quyền đã xác nhận
+Người dùng yêu cầu lưu dự án lên GitHub. Đã xác minh origin/main có commit mới hơn 88d8fd9; không ghi đè hoặc lùi main về bản 3b2f704 đã phát hành. Lưu ba tài liệu còn lại bằng nhánh docs/task44-production-release từ origin/main, không đụng các worktree phát triển dở, không merge hoặc deploy. Báo cáo phát hành ghi nhận thời điểm kiểm tra 3b2f704; không coi commit 88d8fd9 là đã deploy.

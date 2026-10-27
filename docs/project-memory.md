@@ -280,3 +280,10 @@ Người dùngđãduyệtmain:falsevàtiếptụctíchhợp. Worktree/branchriê
 
 ### Main đã đồng bộ, Production giữ nguyên
 Đãpushfast-forwardmainmerge8c1d26c5497ba81268adcdc2e671e29d90978288,hai-parent346e975+1cd665ađãverifyGitHub; đủ3f77005/f581e39/36a0490/e55c84f. GitHubvercel.jsonmainfalseđãverify;VercelkhôngProddeploymentmớisaupush,domainvẫnda6d146/9TdB69NsREADY. Chỉpushmain,noforce/noPR/nootherbranches;defaultbranchbackup-la-bankhôngđổi. Backupmainlocaltag/bundleđãverify;rollbackbằngrevertgiữmainfalse,khôngDBreset. Báocáo docs/task44-main-integration.md; HistoricalValidationErrorvẫnundetermined,Task4chưahoànthành.
+
+
+### Production Task 4.4 — phát hành được người dùng duyệt ngày 27/10/2026
+Đã deploy CLI từ checkout origin/main sạch, SHA 3b2f7041530df3a220853f3f8537a0e94c4950db, target production bằng --prod --skip-domain; smoke đạt rồi promote. Domain labanhuongnghiep.vercel.app đã xác minh trỏ dpl_6avJjUZdcAS95Rg2BsDRqUqutHrE, READY. Candidate và official: 20 smoke API/runtime PASS mỗi phase, Chrome desktop/mobile giữ đúng nghề/hội thoại/khảo sát/bản nháp, Back/Forward, 1 tab và 0 lời gọi AI do điều hướng. DeepSeek thật một request QA riêng, domain chính đọc/replay không gọi lại. Env Production không đổi; không migration/reset/xóa dữ liệu học sinh; main auto-deploy vẫn tắt. Rollback dpl_9TdB69NsBqWmKssEUQbNhG92jsVS/da6d146 vẫn READY ở hậu kiểm phát hành. Google popup kế thừa user PASS; Guest LIVE chưa chạy lại, không thay phiên/reset quota. Historical ValidationError – root cause undetermined; Task 4 chưa hoàn thành. Xem docs/task44-production-release.md.
+
+### Lưu tài liệu lên GitHub sau phát hành
+Đã xác minh mã nguồn mới hơn nằm trên origin/main ở 88d8fd9. Ba tài liệu phát hành/ghi nhớ còn local được chuẩn bị ở nhánh docs/task44-production-release từ origin/main để lưu theo yêu cầu mới; không gom các thay đổi cũ ở checkout D:/khkt hoặc các worktree khác. Không merge, sửa dữ liệu hay deploy. Kết quả push được xác minh riêng sau commit.
