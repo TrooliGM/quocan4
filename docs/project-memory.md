@@ -251,3 +251,6 @@ Task4.4 bổ sung đang thực hiện trên nhánh riêng từ4118367: sửa cù
 
 ## Task4.4 — Preview đủ điều kiện phát hành
 57b67e0/5QsxtNtq: LIVE và ChromeGuest/Member/QA PASS, same-tab1→1, không AI/quota do điều hướng. GuestQAstaging6/8 còn2, khôngreset. Google do người dùng xác nhận ởa02d201; quyền confirmed-profile giữQA gate, không tách trí tuệ. Chuẩn bị Productioncandidate kế thừa env, rollbackG11/608146c. Xem docs/task44-single-tab-journey.md.
+
+## Task4.4 — Production 27/10/2026
+Đã push feature branch và promote Productionbuild riêng da6d146/dpl_9TdB69NsBqWmKssEUQbNhG92jsVS lên domain chính; không merge/main/env override/migration/reset. FirebaseIDtoken, DeepSeek thật, runtime store, history/replay, ownership/Origin/privatepaths và Chrome desktop/mobile same-tab1→1 PASS. Một lỗi modelmetadata502 được giữ fail-closed, retry cùngID đạt; cần theo dõi độ ổn định. GuestLIVEProduction mới BLOCKED cookieQA cũ hết hạn, không cấp phiên để vượt quota; PreviewGuest đã PASS6/8 khôngreset. Officialprofile vẫn quyền/allowlist hiện hành, không mở lưu đại trà. RollbackG11/608146c READY, chỉ đổi deployment không resetDB. Báo cáo docs/task44-single-tab-journey.md.
