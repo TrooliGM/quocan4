@@ -112,7 +112,8 @@ class Task44Tests(unittest.TestCase):
             arguments={'answer':'Nội dung minh họa từ model fixture.','intent':'navigate','basis':'Cho em xem một ngày làm việc của nghề đó','actions':[{'kind':'career_story','career_id':career.career_id}],'profile_updates':[]}
             return httpx.Response(200,json={'choices':[{'message':{'content':None,'tool_calls':[{'function':{'name':TOOL_NAME,'arguments':json.dumps(arguments)}}]},'finish_reason':'tool_calls'}]})
         before=get_guest_usage(self.identity['uid'])['used_questions']
-        with patch.dict(os.environ,{'AI_DEMO_MODE':'false','DEEPSEEK_API_KEY':'fixture-only'}),patch('advisor.graph.post_completion',AsyncMock(side_effect=[response(wrong),response(current)])) as model:
+        async def reviewed(state,answer,actions):return actions,'accepted'
+        with patch.dict(os.environ,{'AI_DEMO_MODE':'false','DEEPSEEK_API_KEY':'fixture-only'}),patch('advisor.graph.post_completion',AsyncMock(side_effect=[response(wrong),response(current)])) as model,patch('advisor.navigation_review.review_navigation',reviewed):
             r=self.client.post('/api/ai/chat',json={'session_id':sid,'request_id':str(uuid4()),'message':text});self.assertEqual(r.status_code,200,r.text)
             self.assertEqual(model.await_count,2);self.assertEqual(r.json()['session']['messages'][-1]['navigation_actions'][0]['career_id'],current.career_id)
         self.assertEqual(get_guest_usage(self.identity['uid'])['used_questions'],before+1)

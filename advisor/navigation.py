@@ -88,7 +88,7 @@ def actions_from_proposal(raw, state):
     if raw.get('intent') not in ('navigate','explore_options'):return []
     basis=raw.get('basis')
     if not isinstance(basis,str) or not 2<=len(basis)<=240:return []
-    users=[state['message']]+[m.get('content','') for m in state.get('session',{}).get('messages',[])[-12:] if m.get('role')=='user']
+    users=[state['message']] # Old requests cannot authorize a button for a new topic.
     if not any(normalize_search(basis) in normalize_search(text) for text in users):return []
     proposals=raw.get('actions');result=[];seen=set()
     if not isinstance(proposals,list) or len(proposals)>4:return []
@@ -102,7 +102,7 @@ def actions_from_proposal(raw, state):
     return result
 
 
-def decode_completion(message,state):
+def decode_completion(message,state,strict_navigation=True):
     """Same completion, optional terminal function; never dispatch arbitrary tools."""
     content=message.get('content');actions=[]
     calls=message.get('tool_calls') or []
@@ -116,10 +116,10 @@ def decode_completion(message,state):
                     if isinstance(raw,dict) and isinstance(raw.get('answer'),str) and raw['answer'].strip():
                         content=raw['answer'];actions=actions_from_proposal(raw,state)
                         supplied=raw.get('actions')
-                        if isinstance(supplied,list) and supplied and not actions and reference_context(state)['status']!='ambiguous':
+                        if strict_navigation and isinstance(supplied,list) and supplied and not actions and reference_context(state)['status']!='ambiguous':
                             logger.warning('navigation_metadata_invalid supplied=%d accepted=0',len(supplied))
                             raise NavigationMetadataError('navigation_metadata_invalid')
-                        if raw.get('intent') in ('navigate','explore_options') and not supplied and reference_context(state)['status']!='ambiguous':
+                        if strict_navigation and raw.get('intent') in ('navigate','explore_options') and not supplied and reference_context(state)['status']!='ambiguous':
                             logger.warning('navigation_metadata_missing intent=navigate')
                             raise NavigationMetadataError('navigation_metadata_invalid')
                 except NavigationMetadataError:raise
@@ -142,7 +142,7 @@ def tool():
             'answer':{'type':'string','description':'Câu trả lời Markdown tự nhiên cho học sinh, không URL. Không tự kết luận phù hợp tuyệt đối.'},
             'intent':{'type':'string','enum':['navigate','explore_options','profile_update','reply']},
             'profile_updates':{'type':'array','maxItems':8,'items':Update.model_json_schema()},
-            'basis':{'type':'string','description':'Trích nguyên một cụm từ lời học sinh trong câu hiện tại/lịch sử gần, không từ web hay lời AI.', 'maxLength':240},
+            'basis':{'type':'string','description':'Trích nguyên một cụm từ lời học sinh trong câu HIỆN TẠI, không lấy yêu cầu cũ, web hay lời AI.', 'maxLength':240},
             'actions':{'type':'array','maxItems':4,'items':{'type':'object','properties':{
                 'kind':{'type':'string','enum':['career_profile','career_story','career_exploration']},
                 'career_id':{'type':['string','null'],'description':'ID đúng từ danh mục; null chỉ để mở thư viện nghề/truyện khi chưa chỉ định nghề.'}},

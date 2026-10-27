@@ -189,3 +189,6 @@ Yêu cầu mới thay quyết địnhTask4.3 mở tab mới: nội bộ mặc đ
 
 ## Task4.4 — Đã thực hiện quyền phát hành có điều kiện
 Yêu cầu người dùng cho phép Production sau Preview đạt được áp dụng cho da6d146/9TdB69Ns, mọirole dùng chung phân tích và hành trình. Chỉ promote build targetProduction kế thừa bindings, không promote staging hoặc nới quyền confirmed-profile. Hậu kiểm domain chính thành công; GuestProduction/Googlepopup mới còn giới hạn bằng chứng đã ghi riêng, không tự đánh dấuPASS hay reset hạn mức. Rollback chỉ deployment G11, khôngDB. Không thay ProductionBranch/main.
+
+## Task4.4 — bản vá nút sai nghề, quyền mới
+Đặc tả mới yêu cầu Preview trước và **phê duyệt riêng trước Production**, thay quyền phát hành tự động của đợt trước cho bản vá này. Chọn kiểm định ngữ nghĩa độc lập, chỉ khi có nút, để không dựa riêng trên việc tìm tên nghề. Dịch vụ không xác minh được thì không hiện nút, không đoán nghề khác; boundedretry1, không trả502 chỉ vì metadata. Giữ nguyên main/Production, dữ liệu và quyền hồ sơ; không tự push nhánh làm phát sinh Preview thiếu binding. Kết quả LIVE còn chờ, không suy từ mock.

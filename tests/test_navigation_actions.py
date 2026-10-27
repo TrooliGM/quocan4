@@ -97,7 +97,10 @@ class NavigationPipelineTests(unittest.TestCase):
             self.calls.append(payload)
             return httpx.Response(200,json={'choices':[{'message':self.response,'finish_reason':'tool_calls' if self.response.get('tool_calls') else 'stop'}]})
         self.model=patch('advisor.graph.post_completion',model);self.model.start()
-    def tearDown(self):self.model.stop();self.env.stop();self.f.tearDown()
+        async def review(state,answer,actions):return actions,'accepted'
+        # Independent semantic-review contracts live in test_navigation_grounding.
+        self.review=patch('advisor.navigation_review.review_navigation',review);self.review.start()
+    def tearDown(self):self.review.stop();self.model.stop();self.env.stop();self.f.tearDown()
     def session(self,remember=False):
         id=self.client.post('/api/ai/sessions',json={'remember':remember}).json()['session']['id']
         self.client.put('/api/ai/sessions/'+id+'/survey',json={'answers':base.ANSWERS});return id
@@ -111,7 +114,7 @@ class NavigationPipelineTests(unittest.TestCase):
                 body={'session_id':sid,'request_id':str(uuid4()),'message':'Mở hồ sơ nghề giúp em'}
                 before=len(self.calls);r=self.client.post('/api/ai/chat',json=body);self.assertEqual(r.status_code,200)
                 row=r.json()['session']['messages'][-1];self.assertEqual(row['navigation_actions'][0]['career_id'],career.career_id)
-                self.assertEqual(len(self.calls),before+1) # Tool response is final; no second model round trip.
+                self.assertEqual(len(self.calls),before+1) # Main completion only; review mocked separately.
                 loaded=self.client.get('/api/ai/sessions/'+sid).json()['session']['messages'][-1]
                 self.assertEqual(loaded['navigation_actions'],row['navigation_actions'])
                 repeated=self.client.post('/api/ai/chat',json=body).json();self.assertTrue(repeated['duplicate']);self.assertEqual(len(self.calls),before+1)
