@@ -2,13 +2,45 @@
 import asyncio
 import hashlib
 import json
+import logging
+import traceback
+from pathlib import Path
 from typing import Literal
 from uuid import uuid5, NAMESPACE_URL
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, ValidationError
 from deepseek_client import model_name, message_text
 from .survey import survey_data, QUESTIONS
 
 CATEGORIES=('interests','strengths','growth_skills','work_preferences','careers','uncertainties')
+logger=logging.getLogger(__name__)
+
+class AnalysisValidationError(ValueError):
+    """Safe diagnostics only; never attach raw model output or survey values."""
+    def __init__(self,code,diagnostic):
+        super().__init__(code)
+        self.code=code
+        self.diagnostic=diagnostic
+
+def validation_diagnostic(error,raw=None):
+    fields={'summary','proposed_profile_items','clarification_questions','category','area','value',
+            'evidence','question_id','excerpt','confidence','inference_type','proposed_action'}
+    known={'interests','strengths','growth_skills','work_preferences','careers','uncertainties',
+           'self_reported_skills','subjects','goals','experiences','confirm','clarify',
+           'rõ ràng','cần xác nhận','chưa đủ dữ liệu','trực tiếp','diễn giải','suy luận'}
+    rows=[]
+    for item in error.errors(include_input=False,include_context=False,include_url=False)[:12]:
+        loc=item['loc'];value=raw
+        for part in loc:
+            try:value=value[part]
+            except (KeyError,IndexError,TypeError):value=None;break
+        row={'loc':[p if isinstance(p,int) or p in fields else '<extra>' for p in loc],
+             'type':item['type'],'input_type':type(value).__name__}
+        if isinstance(value,(str,list,dict)):row['input_length']=len(value)
+        if isinstance(value,str) and value in known:row['known_enum_value']=value
+        rows.append(row)
+    frames=[{'file':Path(f.filename).name,'line':f.lineno,'function':f.name}
+            for f in traceback.extract_tb(error.__traceback__) if Path(f.filename).name=='survey_analysis.py']
+    return {'exception':'pydantic.ValidationError','schema':'Analysis','errors':rows,'frames':frames}
 class Evidence(BaseModel):
     model_config=ConfigDict(extra='forbid')
     question_id:int=Field(ge=1,le=5)
@@ -87,7 +119,12 @@ async def generate_analysis(survey,session_id):
                 'response_format':{'type':'json_object'},'max_tokens':3000,'thinking':{'type':'disabled'},'stream':False},timeout=deadline-1,connect=3)
             text=message_text(r)
             if len(text)>18000:raise ValueError('oversize_analysis')
-            return validate_analysis(json.loads(text),survey,session_id)
+            raw=json.loads(text)
+            try:return validate_analysis(raw,survey,session_id)
+            except ValidationError as error:
+                diagnostic=validation_diagnostic(error,raw)
+                logger.warning('survey_analysis_invalid diagnostic=%s',json.dumps(diagnostic,ensure_ascii=False))
+                raise AnalysisValidationError('analysis_schema',diagnostic) from None
 
 
 async def analyze_survey(state):

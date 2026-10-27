@@ -123,7 +123,8 @@ async def execute(request,user,store,sid,retry=False):
         from .survey_analysis import generate_analysis
         result=await generate_analysis(survey,sid)
     except BaseException as error:
-        code=type(error).__name__
+        from .survey_analysis import AnalysisValidationError
+        code=error.code if isinstance(error,AnalysisValidationError) else type(error).__name__
         # Chỉ log loại lỗi, không prompt/response/survey/UID/connection string.
         logger.warning('survey_analysis_failed type=%s',code)
         await asyncio.shield(asyncio.to_thread(finish,user['uid'],sid,attempt,fingerprint(survey),None,code))
