@@ -195,3 +195,6 @@ Yêu cầu người dùng cho phép Production sau Preview đạt được áp d
 
 ## Nghiệm thu bản vá nút — phạm vi xác nhận
 Preview3f77005/33DRW8y có58testlocal+11chatLIVE+Chrome3rolePASS cho điều hướng; không đồng nhất với Task4hoànthành. Giữ lỗi phân tích khảo sátLIVEValidationError và Googlepopup mới ở trạng thái chưađạt/chưakiểm, không che bằng mock. Không thay quyền hồ sơ hoặc tạoGuestmới để vượtquota. Chỉ bàn giaoPreview và chờ quyềnProduction mới; main/domainchính/ngữcảnhdữliệucũgiữnguyên.
+
+## Final QA — giữ nguyên cổng phát hành
+UserchỉchoFinalQA, khôngProduction/push/merge. Chọnsafe diagnosticskhônginput/context/locals; boundedrepairdùngvalidatorcũvàcùngsurveyrequest_id, khôngnớicăn cứ. DùngaliasPreviewtargetnullđãauthorizedthayvìsửaFirebasehoặcaliascótargetProduction. KhôngsuynguyênnhânValidationErrorlịch sửtừfixture; khôngbypassanalysisday6/6. Source3df3897hồiphụcLIVEvà55localtestPASSnhưngGooglepopupvàchứngcứlỗicũcònBLOCKED, nênNOTREADYProduction; báo cáo docs/task44-final-qa.md.
