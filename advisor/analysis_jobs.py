@@ -5,6 +5,7 @@ import logging
 from uuid import uuid4
 from fastapi import HTTPException
 from .survey import survey_data
+from .survey_analysis import ANALYSIS_SCHEMA_VERSION,analysis_trace
 from .guest_quota import lock_usage, ensure_unclaimed
 from .protection import limit, setting, client_ip
 
@@ -43,15 +44,17 @@ def state(session):
     survey=survey_data(session)
     result=analysis_for_session(session)
     request_id=survey['analysis_request_id'] if survey else None
-    if result:return {'status':'completed','ready':True,'result':result,'chat_quota_charge':0,'request_id':request_id}
+    job=session['messages'][0].get('analysis_job',{}) if session['messages'] else {}
+    trace={'schema_version':ANALYSIS_SCHEMA_VERSION,'trace_id':job.get('trace_id')}
+    if result:return {'status':'completed','ready':True,'result':result,'chat_quota_charge':0,'request_id':request_id,**trace}
     if not survey:return {'status':'pending','ready':False,'chat_quota_charge':0}
     job=session['messages'][0].get('analysis_job',{})
     if job.get('survey_hash')!=fingerprint(survey):job={}
     import time
     if job.get('status')=='processing' and job.get('lease_until',0)<=time.time():
-        return {'status':'failed','ready':True,'error_code':'interrupted','chat_quota_charge':0,'request_id':request_id}
+        return {'status':'failed','ready':True,'error_code':'interrupted','chat_quota_charge':0,'request_id':request_id,**trace}
     return {'status':job.get('status','pending'),'ready':True,'error_code':job.get('error_code'),
-            'chat_quota_charge':0,'request_id':request_id}
+            'chat_quota_charge':0,'request_id':request_id,**trace}
 
 
 def locked_session(db,uid,sid):
@@ -95,7 +98,8 @@ def claim(uid,sid,ip,retry=False,request_id=None):
         attempt=str(uuid4())
         session['messages'][0]['analysis_job']={'status':'processing','survey_hash':fingerprint(survey),
             'survey_id':survey['analysis_request_id'],'attempt_id':attempt,'lease_until':now+LEASE,
-            'attempts':job.get('attempts',0)+1 if same else 1,'version':1}
+            'attempts':job.get('attempts',0)+1 if same else 1,'version':1,
+            'trace_id':uuid4().hex,'schema_version':ANALYSIS_SCHEMA_VERSION}
         write(db,table,uid,session)
         return state(session),attempt,session
 
@@ -122,6 +126,8 @@ async def execute(request,user,store,sid,retry=False,request_id=None):
     current,attempt,session=await asyncio.to_thread(claim,user['uid'],sid,client_ip(request),retry,request_id)
     if not attempt:return current
     survey=survey_data(session)
+    trace_id=session['messages'][0]['analysis_job']['trace_id']
+    trace_token=analysis_trace.set(trace_id)
     try:
         from .survey_analysis import generate_analysis
         result=await generate_analysis(survey,sid)
@@ -129,11 +135,14 @@ async def execute(request,user,store,sid,retry=False,request_id=None):
         from .survey_analysis import AnalysisValidationError
         code=error.code if isinstance(error,AnalysisValidationError) else type(error).__name__
         # Chỉ log loại lỗi, không prompt/response/survey/UID/connection string.
-        logger.warning('survey_analysis_failed type=%s',code)
+        logger.warning('survey_analysis_failed error_code=%s error_type=%s schema_version=%s trace_id=%s',
+                       code,type(error).__name__,ANALYSIS_SCHEMA_VERSION,trace_id)
         await asyncio.shield(asyncio.to_thread(finish,user['uid'],sid,attempt,fingerprint(survey),None,code))
         if isinstance(error,asyncio.CancelledError):raise
         return {'status':'failed','ready':True,'error_code':'invalid_analysis' if isinstance(error,AnalysisValidationError) else 'provider_unavailable',
-                'chat_quota_charge':0,'request_id':survey['analysis_request_id']}
+                'chat_quota_charge':0,'request_id':survey['analysis_request_id'],
+                'schema_version':ANALYSIS_SCHEMA_VERSION,'trace_id':trace_id}
+    finally:analysis_trace.reset(trace_token)
     return await asyncio.to_thread(finish,user['uid'],sid,attempt,fingerprint(survey),result)
 
 

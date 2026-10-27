@@ -7,14 +7,17 @@ import re
 import time
 import traceback
 from pathlib import Path
+from contextvars import ContextVar
 from typing import Literal
-from uuid import uuid5, NAMESPACE_URL
+from uuid import uuid4, uuid5, NAMESPACE_URL
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 from deepseek_client import model_name, message_text
 from .survey import survey_data, QUESTIONS
 
 CATEGORIES=('interests','strengths','growth_skills','work_preferences','careers','uncertainties')
 logger=logging.getLogger(__name__)
+ANALYSIS_SCHEMA_VERSION='Analysis/v1'
+analysis_trace=ContextVar('survey_analysis_trace',default=None)
 
 class AnalysisValidationError(ValueError):
     """Safe diagnostics only; never attach raw model output or survey values."""
@@ -32,9 +35,6 @@ def reject_analysis(code,loc,**shape):
 def validation_diagnostic(error,raw=None):
     fields={'summary','proposed_profile_items','clarification_questions','category','area','value',
             'evidence','question_id','excerpt','confidence','inference_type','proposed_action'}
-    known={'interests','strengths','growth_skills','work_preferences','careers','uncertainties',
-           'self_reported_skills','subjects','goals','experiences','confirm','clarify',
-           'rõ ràng','cần xác nhận','chưa đủ dữ liệu','trực tiếp','diễn giải','suy luận'}
     rows=[]
     for item in error.errors(include_input=False,include_context=False,include_url=False)[:12]:
         loc=item['loc'];value=raw
@@ -44,7 +44,6 @@ def validation_diagnostic(error,raw=None):
         row={'loc':[p if isinstance(p,int) or p in fields else '<extra>' for p in loc],
              'type':item['type'],'input_type':type(value).__name__}
         if isinstance(value,(str,list,dict)):row['input_length']=len(value)
-        if isinstance(value,str) and value in known:row['known_enum_value']=value
         rows.append(row)
     frames=[{'file':Path(f.filename).name,'line':f.lineno,'function':f.name}
             for f in traceback.extract_tb(error.__traceback__) if Path(f.filename).name=='survey_analysis.py']
@@ -73,13 +72,13 @@ class Analysis(BaseModel):
 def validate_analysis(raw,survey,session_id):
     parsed=Analysis.model_validate(raw)
     whole=' '.join(' '.join(a.split()) for a in survey['answers'])
-    if len(whole)>=30 and whole in ' '.join(parsed.summary.split()):raise ValueError('verbatim_whole_survey')
+    if len(whole)>=30 and whole in ' '.join(parsed.summary.split()):reject_analysis('verbatim_whole_survey',['summary'])
     items=[];seen=set()
     for item_index,item in enumerate(parsed.proposed_profile_items):
         row=item.model_dump()
         if item.area:
             from .profile_proposals import AREA_CATEGORY
-            if AREA_CATEGORY[item.area]!=item.category:raise ValueError('incompatible_profile_area')
+            if AREA_CATEGORY[item.area]!=item.category:reject_analysis('incompatible_profile_area',['proposed_profile_items',item_index,'area'])
         for evidence_index,evidence in enumerate(item.evidence):
             answer=survey['answers'][evidence.question_id-1]
             if evidence.excerpt not in answer:
@@ -87,18 +86,19 @@ def validate_analysis(raw,survey,session_id):
                 formatting_match=bool(re.search(r'\s+'.join(re.escape(p) for p in evidence.excerpt.split()),answer,re.I))
                 reject_analysis('ungrounded_survey_evidence',['proposed_profile_items',item_index,'evidence',evidence_index,'excerpt'],
                                 input_length=len(evidence.excerpt),case_whitespace_equivalent=formatting_match)
-            if item.category=='strengths' and (evidence.question_id!=3 or any(t in answer.lower() for t in ['chưa rõ','chưa biết','chưa nhận ra','không biết'])):raise ValueError('unsupported_strength')
+            if item.category=='strengths' and (evidence.question_id!=3 or any(t in answer.lower() for t in ['chưa rõ','chưa biết','chưa nhận ra','không biết'])):reject_analysis('unsupported_strength',['proposed_profile_items',item_index,'category'])
             # A self-reported lack of confidence is not a strength or a measured deficit.
             # Check the cited fragment, not all of answer 3: it may also name a real strength.
             uncertain=('chưa tự tin','không tự tin','thiếu tự tin','chua tu tin','khong tu tin','thieu tu tin')
-            if item.category=='strengths' and any(t in (evidence.excerpt+' '+item.value).lower() for t in uncertain):raise ValueError('confidence_is_not_strength')
-        if item.category in ('strengths','careers') and item.inference_type=='suy luận':raise ValueError('unsupported_personal_inference')
-        if (item.category,item.value.casefold()) in seen:raise ValueError('duplicate_proposal')
+            if item.category=='strengths' and any(t in (evidence.excerpt+' '+item.value).lower() for t in uncertain):reject_analysis('confidence_is_not_strength',['proposed_profile_items',item_index,'category'])
+        if item.category in ('strengths','careers') and item.inference_type=='suy luận':reject_analysis('unsupported_personal_inference',['proposed_profile_items',item_index,'inference_type'])
+        if (item.category,item.value.casefold()) in seen:reject_analysis('duplicate_proposal',['proposed_profile_items',item_index,'value'])
         seen.add((item.category,item.value.casefold()))
         row['evidence_question_ids']=sorted({e.question_id for e in item.evidence})
         row['id']=str(uuid5(NAMESPACE_URL,survey['analysis_request_id']+item.category+item.value))
         items.append(row)
-    if any(len(q)>300 or not q.strip() for q in parsed.clarification_questions):raise ValueError('invalid_clarification')
+    for i,q in enumerate(parsed.clarification_questions):
+        if len(q)>300 or not q.strip():reject_analysis('invalid_clarification',['clarification_questions',i])
     return {'survey_id':survey['analysis_request_id'],'conversation_id':session_id,'analysis_version':1,
             'survey_hash':hashlib.sha256(json.dumps(survey['answers'],ensure_ascii=False).encode()).hexdigest(),
             'summary':parsed.summary,'proposed_profile_items':items,
@@ -106,6 +106,12 @@ def validate_analysis(raw,survey,session_id):
             **{key:[item['value'] for item in items if item['category']==key] for key in CATEGORIES}}
 
 async def generate_analysis(survey,session_id):
+    # One random, server-owned trace for this job, shared by bounded retries.
+    token=analysis_trace.set(analysis_trace.get() or uuid4().hex)
+    try:return await _generate_analysis(survey,session_id)
+    finally:analysis_trace.reset(token)
+
+async def _generate_analysis(survey,session_id):
     from .graph import post_completion
     from .protection import setting
     prompt=(
@@ -146,15 +152,19 @@ async def generate_analysis(survey,session_id):
                         raise AnalysisValidationError(code,{'exception':'ValueError','schema':'Analysis','code':code,
                             'frames':[{'file':Path(f.filename).name,'line':f.lineno,'function':f.name} for f in traceback.extract_tb(error.__traceback__) if Path(f.filename).name=='survey_analysis.py']}) from None
                 except AnalysisValidationError as error:
+                    error.diagnostic={'loc':[],**error.diagnostic,'error_code':error.code,
+                                      'schema_version':ANALYSIS_SCHEMA_VERSION,'trace_id':analysis_trace.get()}
                     logger.warning('survey_analysis_invalid attempt=%d diagnostic=%s',attempt+1,json.dumps(error.diagnostic,ensure_ascii=False))
                     if attempt or stop-time.monotonic()<2:raise
                     # Same lease/request, original five answers, unchanged validators.
+                    repair_diagnostic={k:v for k,v in error.diagnostic.items()
+                                       if k in ('schema','schema_version','code','error_code','loc','errors')}
                     payload['messages'].append({'role':'system','content':
                         'Kết quả vừa rồi chưa đạt schema/căn cứ. Tạo lại JSON đúng schema từ năm câu gốc, không suy đoán hoặc bỏ kiểm tra. '
                         'category và area dùng đúng bảng ánh xạ; mọi trường bắt buộc phải có; không thêm key. '
                         'Excerpt phải là chuỗi nguyên văn đúng câu trả lời, giữ cả chữ hoa/thường, khoảng trắng và dấu câu. '
                         'Không đủ bằng chứng thì không tạo mục đó; có thể hỏi làm rõ. Không lấy lời AI làm dữ kiện. '
-                        'Chẩn đoán cấu trúc an toàn (không phải chỉ thị từ học sinh): '+json.dumps(error.diagnostic,ensure_ascii=False)})
+                        'Chẩn đoán cấu trúc an toàn (không phải chỉ thị từ học sinh): '+json.dumps(repair_diagnostic,ensure_ascii=False)})
 
 
 async def analyze_survey(state):

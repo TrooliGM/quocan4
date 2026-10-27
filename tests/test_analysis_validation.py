@@ -15,7 +15,9 @@ class AnalysisValidationTests(unittest.TestCase):
         with patch('advisor.graph.post_completion',AsyncMock(return_value=response)),self.assertLogs('advisor.survey_analysis',level='WARNING') as log:
             with self.assertRaises(AnalysisValidationError) as caught:asyncio.run(generate_analysis(self.survey,'synthetic-session'))
         d=caught.exception.diagnostic;self.assertEqual(d['schema'],'Analysis');self.assertEqual(d['exception'],'pydantic.ValidationError');self.assertTrue(d['frames'])
-        self.assertTrue(any(r['type']=='literal_error' and r.get('known_enum_value')=='subjects' for r in d['errors']))
+        self.assertTrue(any(r['type']=='literal_error' and r['loc']==['proposed_profile_items',0,'category'] for r in d['errors']))
+        self.assertEqual(d['schema_version'],'Analysis/v1');self.assertRegex(d['trace_id'],r'^[0-9a-f]{32}$')
+        self.assertTrue(all('known_enum_value' not in row for row in d['errors']))
         logged=' '.join(log.output);self.assertNotIn('student@example.invalid',logged);self.assertNotIn('do not log student text',logged)
         for answer in ANSWERS:self.assertNotIn(answer,logged)
     def test_grounding_remains_strict(self):

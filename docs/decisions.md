@@ -198,3 +198,9 @@ Preview3f77005/33DRW8y có58testlocal+11chatLIVE+Chrome3rolePASS cho điều hư
 
 ## Final QA — giữ nguyên cổng phát hành
 UserchỉchoFinalQA, khôngProduction/push/merge. Chọnsafe diagnosticskhônginput/context/locals; boundedrepairdùngvalidatorcũvàcùngsurveyrequest_id, khôngnớicăn cứ. DùngaliasPreviewtargetnullđãauthorizedthayvìsửaFirebasehoặcaliascótargetProduction. KhôngsuynguyênnhânValidationErrorlịch sửtừfixture; khôngbypassanalysisday6/6. Source3df3897hồiphụcLIVEvà55localtestPASSnhưngGooglepopupvàchứngcứlỗicũcònBLOCKED, nênNOTREADYProduction; báo cáo docs/task44-final-qa.md.
+
+### Google QA đã được xác nhận
+Phản hồi người dùng đóng blocker popup thật: thành công, đúng hội thoại và cùngtab. Chỉ nâng đúng mục Google thủ công lênPASS; không nâng mức xác minh lỗi lịch sử, phép đo quota hay quyền deploy. Giữ NOTREADYProduction trong khi còn blocker ValidationError; không push/merge/deploy.
+
+### Historical ValidationError — không suy nguyên nhân
+Yêu cầu mới cho phép kết luận root cause undetermined nếu không có bằng chứng. Dùng ma trậndữliệu giả đểkiểmhànhvihiện tại và theo dõi tái phát bằng schema_version/UUIDtrace, khôngdùngfieldvalue/UID/session làmtrace. Giữ schema/căn cứ/rate limit, không gọi lại Google đãPASS. ChỉPreview; khôngphát hànhProduction hoặcclaimđãsửalỗilịch sử.

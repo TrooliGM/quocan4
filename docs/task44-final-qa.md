@@ -2,7 +2,7 @@
 
 Ngày nghiệm thu: 27/10/2026. Worktree `D:/khkt/.claude/worktrees/task44-navigation-fix`, nhánh `hotfix/task44-navigation-grounding`. Kế thừa `3f77005` và báo cáo `f581e39`, không xây lại điều hướng.
 
-**Kết luận: NOT READY FOR PRODUCTION.** Hai mục chưa được xác minh đầy đủ: nguyên nhân chính xác của ValidationError lịch sử và Google popup thật. Task 4 tổng thể vẫn CHƯA hoàn thành. Không push, merge hoặc deploy Production.
+**Kết luận: NOT READY FOR PRODUCTION.** Nguyên nhân chính xác của ValidationError lịch sử vẫn chưa xác minh đầy đủ. Google popup thật đã được người dùng xác nhận thành công trên Preview; không đồng nhất xác nhận thủ công này với kiểm thử tự động hoặc phép đo quota. Task 4 tổng thể vẫn CHƯA hoàn thành. Không push, merge hoặc deploy Production.
 
 ## Candidate và môi trường
 
@@ -47,7 +47,7 @@ Một lỗi ứng dụng xác minh chắc chắn và đã sửa là: mọi excep
 | APIsecurity trên candidate mới | **PASS Preview** | Token401, owner404, Origin403, privatepaths404, câuGuestthứ9bị429. Ngân sách và quyềnprofilekhông bị mở rộng. |
 | Desktop/mobile và hành trình3nhóm | **PASS Preview Chrome** | Guestcookiecũ8/8, Member/QA FirebaseSDKpassword thật. SameID/survey/draft/reload,3nghề,Truyện nghề,Back/Forward;tab1→1;0POSTchat/create/analysisdođiều hướng. Guestvẫn8/8 trước/sau. Không nhận SDKpassword làGooglepopup. |
 | Khảo sát/frontendautoflow | **PASS Chrome local** |6nhóm browser_task41:5câuautoanalysis,edit/accept/reject,draftsavefailure,retrygiánđoạn,zerochatquota vàauthfixture. Mô hình/Firebaseởđây làfixture. |
-| Googlepopup QA thật | **BLOCKED — chờ người dùng** | Đã gửi URL aliasauthorized và yêu cầu thao tác popup. Chưa có kết quả người dùng trong checkpoint này; không dùng Googlefixture hoặc SDKpassword để đánh dấuPASS. |
+| Googlepopup QA thật | **PASS — người dùng xác nhận** | Người dùng trả lời “Popup thành công; giữ đúng hội thoại và cùng tab” cho luồng trên aliasPreview gồm bản nháp/khảo sát, Google popup và Truyện nghề/BackForward. Ghi nhận bằng chứng thủ công cho luồng đã hỏi; không dùng fixture/SDKpassword thay thế, không suy thành phép đo request/quota độc lập. Alias đã đối chiếu vẫn đúng candidate3df3897/DA5F6cd6 khi ghi nhận. |
 | Production không thay đổi | **PASS control-plane** | Domainchính vẫndeployment9TdB69Ns. Khôngpush/merge/deployProduction, migration, thayFirebase/secrets hoặcresetquota. |
 
 ## File sửa trong Final QA
@@ -62,8 +62,12 @@ Một lỗi ứng dụng xác minh chắc chắn và đã sửa là: mọi excep
 
 ## Điều kiện tiếp tục và rollback
 
-1. Người dùng hoàn tất GooglepopupQA trên aliasPreview ở trên: đúngID/survey/draft/history,Truyệnnghề/BackForward/cùngtab vàkhông tựgửiAI. Chỉ ghiPASSsaukhicóbằngchứng.
+1. GooglepopupQA đã được người dùng xác nhận thành công trên aliasPreview; đã cập nhật PASS thủ công. Các phép đo không gọi AI/quota do điều hướng giữ bằng chứng Chrome/API riêng, không suy từ thao tác popup của người dùng.
 2. Chờ ngân sách analysis tự hết cửa sổ rồi thử có kiểm soát, tối đa sốlần cần thiết, để thu diagnostic thực nếu lỗi tái diễn. Nếu không có rawinput/trace cũ thì ghi rõ giới hạn; không thể tuyên bố hồi tố nguyên nhân lịch sử. Không tạo tài khoản/IP/budgetkhác để né429.
 3. Chỉ đề xuất phát hành khi các mục liên quan được xác minh và người dùng duyệt; Task4tổngthể vẫnchưa hoànthành.
 4. Rollback Preview vềsource3f77005/deployment`dpl_33DRW8yLeySY1zSTb4QA7ns7VQfj` trêncùngstaging, hoặc khôi phục mappingaliasPreviewđãghi trướcQA. KhôngresetDB/survey/history/quota. Với quyền phát hànhProduction riêng sau này, giữ rollbackdeploymenthiệnhành9TdB69Ns; không tự thực hiện bâygiờ.
 5. Nếu rollbackbackendvềbảncũ, clientđangmởcần tải lại để dùngcachekey/scriptcũ vì schemaAPIcũkhôngnhậnrequest_id. Không xóa sessionStorage; bản nháp vẫn được giữ theo cơchếTask44.
+
+## Điều tra bổ sung theo yêu cầu mới
+
+Giữ GooglepopupPASS, không kiểm lại khi codeauthkhôngđổi. Bổ sung ma trận dữ liệu giả, schema version và trace server ngẫu nhiên; kiểm39testlocalPASS0SKIP, khôngnớivalidator. Kết luận cho lỗi cũ: **Historical ValidationError – root cause undetermined**. Bằng chứng và theo dõi lần sau nằm ở `docs/task44-validation-investigation.md`; không nhận fixture là tái hiện nguyên nhân lịch sử.

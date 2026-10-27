@@ -263,3 +263,9 @@ Source3f77005, dpl_33DRW8yLeySY1zSTb4QA7ns7VQfj, Preview https://quocan4-5lwowvr
 
 ## Final QA Task4.4 — 27/10/2026
 Source3df3897, PreviewDA5F6cd6, alias https://quocan4-git-fix-chat-vercel-khkt3.vercel.app/ai-career-advisor dùngdomainFirebaseauthorizedsẵn; khôngđổiFirebase/Production. Thêm safe diagnostics, boundedrepair1lần và analysisrequest_id cốđịnh;55PythonPASS0SKIP, ChromePreview3role+localautoflowPASS. RetrysessiontừnglỗiLIVEcompleted4,05s, replaykhôngattemptmới. LỗiValidationErrorlịch sử thiếuinput/tracegốc nênnguyênnhânchínhxácBLOCKED; lầnretrytrướcđóValueErrorkhôngđồngnhất. Mẫuthêm bị429, readonlyanalysisday6/6, khôngbypass/reset. Googlepopupthật chờngườidùng, khôngclaimfixturePASS. NOTREADYProduction; Task4chưa hoànthành; khôngpush/merge/deployProd. Xem docs/task44-final-qa.md, khôngPII/secrets.
+
+### Bổ sung xác nhận Google QA thật
+Người dùng đã xác nhận popup thành công, giữ đúng hội thoại và cùng tab cho luồng Preview được hỏi. Cập nhật Googlepopup thành PASS do người dùng xác nhận, không phải automation/đo quota. Đối chiếu alias vẫn3df3897/DA5F6cd6, Production vẫnda6d146/9TdB69Ns. Blocker nguyên nhân ValidationError lịch sử giữ nguyên; không coi xác nhận Google là quyền phát hành Production. Báo cáo docs/task44-final-qa.md đã cập nhật; không lưu thông tin tài khoản.
+
+### Điều tra ValidationError — giám sát lần tái phát
+Theo yêu cầu mới giữ GooglePASS, khôngkiểm lại. Thêm Analysis/v1 và UUIDtrace server cho attempt; cachekhôngsinhtrace, retrycùngrequest_idcótraceattemptmới; logsanitizekhônglưuinput/value/prompt/PII.39testlocalPASS0SKIPbaoquát đủ5câu/ngắn/mâuthuẫn/JSONthiếu/sai kiểu/sai schema, quota/idempotency vàcontextisolation. JSONSchemaAnalysis giữ nguyên. Historical ValidationError – root cause undetermined; khôngclaimfixlỗicũ. Staginganalysis6/6chưatựhếtcửa sổ, khôngbypass/reset; đangchuẩnbịPreview. Chi tiết docs/task44-validation-investigation.md. Khôngpush/merge/migration/deployProd.
