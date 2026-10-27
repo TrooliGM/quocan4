@@ -204,3 +204,5 @@ Phản hồi người dùng đóng blocker popup thật: thành công, đúng h�
 
 ### Historical ValidationError — không suy nguyên nhân
 Yêu cầu mới cho phép kết luận root cause undetermined nếu không có bằng chứng. Dùng ma trậndữliệu giả đểkiểmhànhvihiện tại và theo dõi tái phát bằng schema_version/UUIDtrace, khôngdùngfieldvalue/UID/session làmtrace. Giữ schema/căn cứ/rate limit, không gọi lại Google đãPASS. ChỉPreview; khôngphát hànhProduction hoặcclaimđãsửalỗilịch sử.
+
+Preview36a0490 kiểmAPI/cache/privacyPASS; chỉđổialiasPreview đãcấpphépsẵn,khôngauthconfig/Production. Tracecủa tácvụcũgiữnull,khôngbackfillgiả. Không đánhdấuPASSloglỗiLIVEvìanalysisbudget6/6; giữnguyênkếtluậnlịch sửundeterminedvàbằngchứnglocalriêng.

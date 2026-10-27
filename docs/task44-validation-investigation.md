@@ -61,3 +61,14 @@ Testschema có thể tạo PydanticValidationError thật từ dữ liệu giả
 File code: `advisor/survey_analysis.py`, `advisor/analysis_jobs.py`. Test: `tests/test_analysis_validation.py`, `tests/test_analysis_validation_matrix.py`. Tài liệu Google đã xác nhận được giữ và cập nhật cùng bộ nhớ/decisions. Artifacts/credentials không đưa vàoGit.
 
 Rollback chỉ code/Preview về3df3897/deploymentDA5F6cd6, không xóa/restore database, khảo sát, lịch sử hoặc quota. Production vẫnda6d146/9TdB69Ns và không được phát hành trong nhiệm vụ này.
+
+## Kết quả Preview đã xác minh
+
+- **Source36a049090157bed7d68bbcd13f952140f5de0eb7**, deployment `dpl_GdfGnSNvNnwdEejHDD4SniXFi9SH`, buildREADY. URL riêng: https://quocan4-dv0i9bg36-khkt3.vercel.app/ai-career-advisor . Manifest105filePASS, loại trừdotenv/artifacts/secrets.
+- Alias https://quocan4-git-fix-chat-vercel-khkt3.vercel.app/ai-career-advisor được trỏ từ candidate3df3897 sang candidate36a0490, cả hai targetPreview/cùngproject. Không thay Firebase authorized domains, ProductionBranch hoặc domain chính. GooglePASS người dùng được giữ; không chạy lại popup vì auth/frontend không đổi.
+- **PASS Preview**: trangchatHTTP200; GETanalysis trả schema_version=Analysis/v1; replayPOSTcùngrequest_id trả cache giốngGET, không thêm attempt/message/session; dữ liệu cached từ trước trảtrace_id=null, không backfilltrace giả.
+- **PASS Preview**: sai request_id409, trace_id do clienttựkhai422, tài khoản khácđọc phân tích404, tokenkhônghợplệ401; .env/module/artifacts404. Các phép thử chỉ dùng session QA tổng hợp đã tồn tại; không tạo Guest/session mới hoặc gọi AI thật để né ngân sách.
+- **BLOCKED phần lỗi LIVE mới**: ngân sách analysis hợp lệ vẫn6/6 trong cửa sổ ngày. Không có lỗi outputLIVE mới được cố tình kích hoạt, vì thế không gắnPASS cho việc thu trace của lỗiLIVE; hành vi đó được kiểm bằng fault-injection local. Không reset, đổiUID/IP hay nâng giới hạn.
+- Control-plane xác minh Production vẫn `dpl_9TdB69NsBqWmKssEUQbNhG92jsVS`. Khôngpush/merge/migration/deployProduction. Các JSON/DPAPI kiểm thử ởartifacts ngoàiGit.
+
+**Bàn giao:** bộ test tái hiện tổng hợp và monitoring hiện tại đã được bổ sung, kiểmlocal/Preview trong phạm vi trên. **Historical ValidationError – root cause undetermined** vẫn là kết luận cho lần lỗi cũ. Không tuyên bố đã sửa lỗi lịch sử hoặc hoàn thành Task4tổngthể; không đề xuất phát hànhProduction trong đợt này.
