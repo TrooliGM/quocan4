@@ -2,7 +2,7 @@
 
 ## Trạng thái đồng bộ Task 4.4
 
-Nhánh `main` đã được chuẩn bị đồng bộ từ bản Task 4.4 có PostgreSQL/Neon,
+Nhánh `main` đã được đồng bộ từ bản Task 4.4 có PostgreSQL/Neon,
 Firebase, Guest 8 câu, thư viện 200 nghề, DeepSeek + DDGS và hành trình cùng tab.
 Xem [báo cáo đồng bộ](docs/task44-main-integration.md),
 [QA Task 4.4](docs/task44-final-qa.md) và
