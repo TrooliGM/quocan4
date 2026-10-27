@@ -257,3 +257,6 @@ Task4.4 bổ sung đang thực hiện trên nhánh riêng từ4118367: sửa cù
 
 ## Sửa ngữ cảnh nút Task4.4 — đang kiểm Preview
 Yêu cầu mới chỉ cho phép phát hành Production sau phê duyệt riêng. Nhánh hotfix/task44-navigation-grounding từ7f45edd, worktree riêng; không có toàn bộ hội thoại gốc. Tái hiện backend cũ nhận nút sai ngữ cảnh với fixture tổng hợp. Thêm kiểm định ngữ nghĩa chỉ cho nút ứng viên và căn cứ câu hiện tại; retry1 rồi bỏ nút, không502 chỉ vì metadata. 58localPythonPASS/0SKIP,2Chrome suitesPASS; LIVE/Preview chưa chạy ởcheckpoint này. Không thay dữ liệu, UI, quyền, quota, Firebase/Neon hoặc sourceProduction. Xem docs/task44-navigation-grounding-fix.md.
+
+## Sửa nút Task4.4 — Preview đã kiểm
+Source3f77005, dpl_33DRW8yLeySY1zSTb4QA7ns7VQfj, Preview https://quocan4-5lwowvr7w-khkt3.vercel.app/ai-career-advisor READY. 11chatDeepSeekLIVE và Chrome3rolePASS đúng nghề/ngữ cảnh/cùngtab/ID/draft/BackForward; Guest cùngcookie6→8/8, câu9 bị429, khôngreset. Security và stagingreadonlyPASS. Một phân tích khảo sátMemberLIVE failed/ValidationError cần điều tra riêng, chưafix/khôngclaimPASS; Googlepopup mới chưakiểm. 58localtestsPASS0SKIP. Chỉ đủ duyệt bản vá điều hướng trênPreview, chưaTask4tổngthể; chờduyệtProduction, khôngpush/merge/deployProd. Prod vẫnda6d146/9TdB69Ns. KhônglưuPII/secretsvàomemory.

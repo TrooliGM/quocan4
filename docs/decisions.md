@@ -192,3 +192,6 @@ Yêu cầu người dùng cho phép Production sau Preview đạt được áp d
 
 ## Task4.4 — bản vá nút sai nghề, quyền mới
 Đặc tả mới yêu cầu Preview trước và **phê duyệt riêng trước Production**, thay quyền phát hành tự động của đợt trước cho bản vá này. Chọn kiểm định ngữ nghĩa độc lập, chỉ khi có nút, để không dựa riêng trên việc tìm tên nghề. Dịch vụ không xác minh được thì không hiện nút, không đoán nghề khác; boundedretry1, không trả502 chỉ vì metadata. Giữ nguyên main/Production, dữ liệu và quyền hồ sơ; không tự push nhánh làm phát sinh Preview thiếu binding. Kết quả LIVE còn chờ, không suy từ mock.
+
+## Nghiệm thu bản vá nút — phạm vi xác nhận
+Preview3f77005/33DRW8y có58testlocal+11chatLIVE+Chrome3rolePASS cho điều hướng; không đồng nhất với Task4hoànthành. Giữ lỗi phân tích khảo sátLIVEValidationError và Googlepopup mới ở trạng thái chưađạt/chưakiểm, không che bằng mock. Không thay quyền hồ sơ hoặc tạoGuestmới để vượtquota. Chỉ bàn giaoPreview và chờ quyềnProduction mới; main/domainchính/ngữcảnhdữliệucũgiữnguyên.
