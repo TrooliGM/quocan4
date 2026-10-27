@@ -329,7 +329,7 @@ async def chat(payload: ChatInput, request: Request, user=Depends(require_user))
                     if reservation and reservation['new_reservation']:
                         state['guest_reservation_token'] = reservation['reservation_token']
                     from .rollout import allowed, search_allowed
-                    state['confirmed_profile_access']=allowed(user) and not is_guest
+                    state['confirmed_profile_access']=allowed(user)  # Guest: chỉ mục đã xác nhận, TTL 2 giờ; Member: mục riêng được phép lưu lâu dài
                     state['web_search_allowed']=search_allowed(user)
                     result = await advisor_graph.ainvoke(state)
                 return {"session": result["session"], "duplicate": False, "pipeline":"task41", "guest_quota": guest_usage(user)}

@@ -80,11 +80,12 @@ class Task44Tests(unittest.TestCase):
                 again=self.client.post('/api/ai/chat',json=body);self.assertEqual(again.status_code,200);self.assertTrue(again.json()['duplicate']);self.assertEqual(mock.await_count,1)
                 self.assertEqual(self.client.get('/api/ai/sessions/'+self.session['id']+'/analysis').json()['result']['analysis_version'],2)
             self.session=get_store().get(self.identity['uid'],self.session['id'])
-    def test_profile_access_controls_unchanged(self):
+    def test_profile_public_access_even_with_legacy_qa_flags(self):
         with patch.dict(os.environ,{'ADVISOR_CONTROLLED_ROLLOUT':'true','ADVISOR_TEST_UIDS':'qa-only'}):
-            self.assertFalse(self.client.get('/api/ai/config').json()['profile_enabled'])
+            self.assertTrue(self.client.get('/api/ai/config').json()['profile_enabled'])
             text='Em thích Sinh';proposal=self.add(text,[self.update(text,area='subjects')])[0]
-            self.assertEqual(self.client.post('/api/ai/career-profile/items',json={'session_id':self.session['id'],'proposal_id':proposal['id'],'value':text,'confirmed':True}).status_code,404)
+            result=self.client.post('/api/ai/career-profile/items',json={'session_id':self.session['id'],'proposal_id':proposal['id'],'value':text,'confirmed':True})
+            self.assertEqual(result.status_code,200,result.text)
             self.assertEqual(self.client.get('/api/ai/sessions/'+self.session['id']+'/analysis').status_code,200)
     def test_exact_polarity_correction_cannot_leave_both_preferences_active(self):
         old=self.add('Em thích làm việc ngoài trời',[self.update('Em thích làm việc ngoài trời',area='work_preferences',value='Muốn làm việc ngoài trời')])[0]

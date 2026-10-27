@@ -72,7 +72,7 @@ class SearchPipelineTests(unittest.TestCase):
         self.assertEqual(message['search_status'],'unavailable');self.assertEqual(message['sources'],[])
         self.assertIn('Chưa tra cứu được',message['content']);self.assertNotIn('https://example.gov.vn',message['content'])
 
-    def test_search_canary_all_routes_and_config_keep_non_qa_on_task41(self):
+    def test_search_public_all_routes_and_config_ignore_legacy_qa_flags(self):
         rows=[{'title':'Công an Việt Nam năm 2020','url':'https://example.gov.vn/2020','description':'Công an Việt Nam năm 2020'}]
         external=type('P',(),{'search':AsyncMock(return_value=rows)})()
         with (patch.dict(os.environ,{'SEARCH_QA_ONLY':'true','SEARCH_TEST_UIDS':'qa-search','ADVISOR_TEST_UIDS':'profile-only','ADVISOR_CONTROLLED_ROLLOUT':'false'}),
@@ -80,7 +80,7 @@ class SearchPipelineTests(unittest.TestCase):
               patch('advisor.stable_graph.advisor_graph.ainvoke',side_effect=AssertionError('no legacy'))):
             for uid,role in [('guest-search','anonymous'),('member-search','password'),('qa-search','password')]:
                 self.f.identity={'uid':uid,'provider':role}
-                self.assertEqual(self.client.get('/api/ai/config').json()['web_search_enabled'],uid=='qa-search')
+                self.assertTrue(self.client.get('/api/ai/config').json()['web_search_enabled'])
                 sid=self.client.post('/api/ai/sessions',json={'remember':False}).json()['session']['id']
                 self.client.put('/api/ai/sessions/'+sid+'/survey',json={'answers':base.ANSWERS})
                 for path,body in [('/api/ai/chat',{'session_id':sid,'message':'Công an Việt Nam năm 2020?'}),
@@ -90,12 +90,12 @@ class SearchPipelineTests(unittest.TestCase):
                     self.assertEqual(response.status_code,200)
                     self.assertEqual(response.json()['pipeline'],'task41')
                     message=response.json()['session']['messages'][-1] if 'session' in response.json() else response.json()
-                    self.assertEqual(message['search_status'],'ok' if uid=='qa-search' else 'unavailable')
-                    self.assertEqual(len(message['sources']),1 if uid=='qa-search' else 0)
+                    self.assertEqual(message['search_status'],'ok')
+                    self.assertEqual(len(message['sources']),1)
                 forged=self.client.post('/api/ai/chat',json={'session_id':sid,'request_id':str(uuid4()),'message':'Hi','web_search_allowed':True})
                 self.assertEqual(forged.status_code,422)
-        self.assertEqual(len(self.payloads),9)  # Same DeepSeek graph for non-QA, no Search side effect.
-        self.assertEqual(external.search.await_count,1)  # QA only, owner cache reused across endpoints.
+        self.assertEqual(len(self.payloads),9)  # Same DeepSeek and Search pipeline for Guest/Member/QA.
+        self.assertEqual(external.search.await_count,3)  # One query per owner; cache reused across endpoints.
 
     def test_followup_rewrites_query_filters_calendar_and_charges_only_one_chat_turn(self):
         from test_task42_search_context_quality import GOOD,LEAP
