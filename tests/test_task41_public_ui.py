@@ -29,7 +29,10 @@ class PublicUITests(unittest.TestCase):
   self.assertEqual(self.client.get('/api/ai/task4-shell').status_code,200)
   self.assertEqual(self.client.get('/api/ai/sessions/'+self.sid+'/analysis').status_code,200)
   self.assertEqual(self.client.post('/api/ai/sessions/'+self.sid+'/analysis',json={}).json()['status'],'completed')
-  result=self.client.post('/api/ai/career-profile/items',json=self.f.body());self.assertEqual(result.status_code,200,result.text)\n  item=result.json()['items'][0]\n  self.assertEqual(bool(item['expires_at']),self.f.identity['provider']=='anonymous')\n  self.assertEqual(self.client.put('/api/ai/sessions/'+self.sid+'/profile-use',json={'use_profile':True}).status_code,200)
+  result=self.client.post('/api/ai/career-profile/items',json=self.f.body());self.assertEqual(result.status_code,200,result.text)
+  item=result.json()['items'][0]
+  self.assertEqual(bool(item['expires_at']),self.f.identity['provider']=='anonymous')
+  self.assertEqual(self.client.put('/api/ai/sessions/'+self.sid+'/profile-use',json={'use_profile':True}).status_code,200)
  def test_guest_can_confirm_temporary_profile_with_existing_chat_quota(self):
   self.f.identity['provider']='anonymous';self.assert_public_ui_with_separate_data_rights()
   self.assertEqual(self.client.get('/api/ai/config').json()['guest_quota']['remaining'],8)
