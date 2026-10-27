@@ -393,6 +393,7 @@ async def transcribe(request: Request, user=Depends(require_user)):
 class AnalysisRetryInput(BaseModel):
     model_config=ConfigDict(extra='forbid')
     retry:bool=False
+    request_id:UUID|None=None
 
 
 class ExplorationInput(BaseModel):
@@ -435,4 +436,4 @@ def analysis_state(session_id:UUID,user=Depends(analysis_user)):
 @router.post('/api/ai/sessions/{session_id}/analysis')
 async def automatic_analysis(session_id:UUID,payload:AnalysisRetryInput,request:Request,user=Depends(analysis_user)):
     from .analysis_jobs import execute
-    return await execute(request,user,get_store(),str(session_id),payload.retry)
+    return await execute(request,user,get_store(),str(session_id),payload.retry,str(payload.request_id) if payload.request_id else None)

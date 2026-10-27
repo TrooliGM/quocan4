@@ -112,3 +112,31 @@ class JobTests(unittest.TestCase):
   self.assertEqual(validate_analysis(raw,survey,self.sid)['strengths'],[])
   p.update(category='strengths',value='Tự nhận kiên nhẫn',evidence=[{'question_id':3,'excerpt':'kiên nhẫn'}],proposed_action='confirm')
   self.assertEqual(validate_analysis(raw,survey,self.sid)['strengths'],['Tự nhận kiên nhẫn'])
+
+ def test_explicit_same_request_id_retry_preserves_survey_and_is_cached(self):
+  from advisor.survey_analysis import AnalysisValidationError
+  body={'request_id':self.survey['analysis_request_id'],'retry':False};before=copy.deepcopy(get_store().get('owner-one',self.sid))
+  with patch('advisor.survey_analysis.generate_analysis',AsyncMock(side_effect=AnalysisValidationError('analysis_schema',{}))) as ai:
+   first=self.client.post('/api/ai/sessions/'+self.sid+'/analysis',json=body).json();self.assertEqual(first['status'],'failed');self.assertEqual(first['error_code'],'invalid_analysis');self.assertEqual(first['request_id'],body['request_id'])
+   self.assertEqual(self.client.post('/api/ai/sessions/'+self.sid+'/analysis',json=body).json()['status'],'failed');self.assertEqual(ai.await_count,1)
+  with patch('advisor.survey_analysis.generate_analysis',AsyncMock(return_value=self.result)) as ai:
+   retry={**body,'retry':True}
+   for _ in range(2):
+    data=self.client.post('/api/ai/sessions/'+self.sid+'/analysis',json=retry).json();self.assertEqual(data['status'],'completed');self.assertEqual(data['request_id'],body['request_id'])
+   self.assertEqual(ai.await_count,1)
+  after=get_store().get('owner-one',self.sid);self.assertEqual(before['messages'][0]['survey'],after['messages'][0]['survey']);self.assertEqual(len(after['messages']),len(before['messages']))
+  self.assertEqual(self.client.get('/api/ai/career-profile').json()['items'],[])
+
+ def test_wrong_request_id_rejected_before_budget_and_model(self):
+  with self.f.connection() as db:before=db.execute('SELECT count(*) AS n,coalesce(sum(requests),0) AS total FROM advisor_chat_rate_limits').fetchone()
+  with patch('advisor.survey_analysis.generate_analysis',AsyncMock()) as ai:
+   r=self.client.post('/api/ai/sessions/'+self.sid+'/analysis',json={'request_id':str(uuid4())});self.assertEqual(r.status_code,409);ai.assert_not_awaited()
+  with self.f.connection() as db:self.assertEqual(db.execute('SELECT count(*) AS n,coalesce(sum(requests),0) AS total FROM advisor_chat_rate_limits').fetchone(),before)
+
+ def test_same_request_id_parallel_retry_gets_one_lease(self):
+  from advisor.survey_analysis import AnalysisValidationError
+  with patch('advisor.survey_analysis.generate_analysis',AsyncMock(side_effect=AnalysisValidationError('analysis_schema',{}))):self.post()
+  async def slow(*args):await asyncio.sleep(.2);return self.result
+  def post_same(_):return self.client.post('/api/ai/sessions/'+self.sid+'/analysis',json={'request_id':self.survey['analysis_request_id'],'retry':True}).json()['status']
+  with patch('advisor.survey_analysis.generate_analysis',AsyncMock(side_effect=slow)) as ai,ThreadPoolExecutor(max_workers=2) as pool:
+   results=list(pool.map(post_same,range(2)));self.assertEqual(ai.await_count,1);self.assertIn('completed',results);self.assertTrue(set(results)<={'completed','processing'})

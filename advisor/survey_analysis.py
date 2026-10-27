@@ -3,6 +3,8 @@ import asyncio
 import hashlib
 import json
 import logging
+import re
+import time
 import traceback
 from pathlib import Path
 from typing import Literal
@@ -20,6 +22,12 @@ class AnalysisValidationError(ValueError):
         super().__init__(code)
         self.code=code
         self.diagnostic=diagnostic
+
+def reject_analysis(code,loc,**shape):
+    diagnostic={'exception':'ValueError','schema':'Analysis','code':code,'loc':loc,**shape,
+                'frames':[{'file':Path(f.filename).name,'line':f.lineno,'function':f.name}
+                          for f in traceback.extract_stack() if Path(f.filename).name=='survey_analysis.py']}
+    raise AnalysisValidationError(code,diagnostic)
 
 def validation_diagnostic(error,raw=None):
     fields={'summary','proposed_profile_items','clarification_questions','category','area','value',
@@ -67,14 +75,18 @@ def validate_analysis(raw,survey,session_id):
     whole=' '.join(' '.join(a.split()) for a in survey['answers'])
     if len(whole)>=30 and whole in ' '.join(parsed.summary.split()):raise ValueError('verbatim_whole_survey')
     items=[];seen=set()
-    for item in parsed.proposed_profile_items:
+    for item_index,item in enumerate(parsed.proposed_profile_items):
         row=item.model_dump()
         if item.area:
             from .profile_proposals import AREA_CATEGORY
             if AREA_CATEGORY[item.area]!=item.category:raise ValueError('incompatible_profile_area')
-        for evidence in item.evidence:
+        for evidence_index,evidence in enumerate(item.evidence):
             answer=survey['answers'][evidence.question_id-1]
-            if evidence.excerpt not in answer:raise ValueError('ungrounded_survey_evidence')
+            if evidence.excerpt not in answer:
+                # Diagnose formatting differences without accepting paraphrases.
+                formatting_match=bool(re.search(r'\s+'.join(re.escape(p) for p in evidence.excerpt.split()),answer,re.I))
+                reject_analysis('ungrounded_survey_evidence',['proposed_profile_items',item_index,'evidence',evidence_index,'excerpt'],
+                                input_length=len(evidence.excerpt),case_whitespace_equivalent=formatting_match)
             if item.category=='strengths' and (evidence.question_id!=3 or any(t in answer.lower() for t in ['chưa rõ','chưa biết','chưa nhận ra','không biết'])):raise ValueError('unsupported_strength')
             # A self-reported lack of confidence is not a strength or a measured deficit.
             # Check the cited fragment, not all of answer 3: it may also name a real strength.
@@ -113,18 +125,36 @@ async def generate_analysis(survey,session_id):
     prompt+=' Phân rõ 8 area môn học/mục tiêu/trải nghiệm/kỹ năng tự nhận; dùng category tương ứng: '+json.dumps(AREA_CATEGORY,ensure_ascii=False)
     from .performance import measure
     deadline=setting('ANALYSIS_TIMEOUT_SECONDS',25,5,45)
+    payload={'model':model_name(),'messages':[{'role':'system','content':prompt},{'role':'user','content':json.dumps([{'question_id':i+1,'question':q,'answer':a} for i,(q,a) in enumerate(zip(QUESTIONS,survey['answers']))],ensure_ascii=False)}],
+             'response_format':{'type':'json_object'},'max_tokens':3000,'thinking':{'type':'disabled'},'stream':False}
+    stop=time.monotonic()+deadline
     with measure('survey_analysis'):
         async with asyncio.timeout(deadline):
-            r=await post_completion({'model':model_name(),'messages':[{'role':'system','content':prompt},{'role':'user','content':json.dumps([{'question_id':i+1,'question':q,'answer':a} for i,(q,a) in enumerate(zip(QUESTIONS,survey['answers']))],ensure_ascii=False)}],
-                'response_format':{'type':'json_object'},'max_tokens':3000,'thinking':{'type':'disabled'},'stream':False},timeout=deadline-1,connect=3)
-            text=message_text(r)
-            if len(text)>18000:raise ValueError('oversize_analysis')
-            raw=json.loads(text)
-            try:return validate_analysis(raw,survey,session_id)
-            except ValidationError as error:
-                diagnostic=validation_diagnostic(error,raw)
-                logger.warning('survey_analysis_invalid diagnostic=%s',json.dumps(diagnostic,ensure_ascii=False))
-                raise AnalysisValidationError('analysis_schema',diagnostic) from None
+            for attempt in range(2):
+                r=await post_completion(payload,timeout=max(1,stop-time.monotonic()-.2),connect=3)
+                text=message_text(r)
+                try:
+                    if len(text)>18000:raise AnalysisValidationError('oversize_analysis',{'exception':'ValueError','schema':'Analysis','code':'oversize_analysis'})
+                    try:raw=json.loads(text)
+                    except json.JSONDecodeError:raise AnalysisValidationError('analysis_json',{'exception':'JSONDecodeError','schema':'Analysis','code':'analysis_json'}) from None
+                    try:return validate_analysis(raw,survey,session_id)
+                    except ValidationError as error:raise AnalysisValidationError('analysis_schema',validation_diagnostic(error,raw)) from None
+                    except AnalysisValidationError:raise
+                    except ValueError as error:
+                        known={'verbatim_whole_survey','incompatible_profile_area','unsupported_strength','confidence_is_not_strength','unsupported_personal_inference','duplicate_proposal','invalid_clarification'}
+                        code=str(error) if str(error) in known else 'invalid_analysis'
+                        raise AnalysisValidationError(code,{'exception':'ValueError','schema':'Analysis','code':code,
+                            'frames':[{'file':Path(f.filename).name,'line':f.lineno,'function':f.name} for f in traceback.extract_tb(error.__traceback__) if Path(f.filename).name=='survey_analysis.py']}) from None
+                except AnalysisValidationError as error:
+                    logger.warning('survey_analysis_invalid attempt=%d diagnostic=%s',attempt+1,json.dumps(error.diagnostic,ensure_ascii=False))
+                    if attempt or stop-time.monotonic()<2:raise
+                    # Same lease/request, original five answers, unchanged validators.
+                    payload['messages'].append({'role':'system','content':
+                        'Kết quả vừa rồi chưa đạt schema/căn cứ. Tạo lại JSON đúng schema từ năm câu gốc, không suy đoán hoặc bỏ kiểm tra. '
+                        'category và area dùng đúng bảng ánh xạ; mọi trường bắt buộc phải có; không thêm key. '
+                        'Excerpt phải là chuỗi nguyên văn đúng câu trả lời, giữ cả chữ hoa/thường, khoảng trắng và dấu câu. '
+                        'Không đủ bằng chứng thì không tạo mục đó; có thể hỏi làm rõ. Không lấy lời AI làm dữ kiện. '
+                        'Chẩn đoán cấu trúc an toàn (không phải chỉ thị từ học sinh): '+json.dumps(error.diagnostic,ensure_ascii=False)})
 
 
 async def analyze_survey(state):

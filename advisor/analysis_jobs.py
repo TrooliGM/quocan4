@@ -42,15 +42,16 @@ def analysis_for_session(session):
 def state(session):
     survey=survey_data(session)
     result=analysis_for_session(session)
-    if result:return {'status':'completed','ready':True,'result':result,'chat_quota_charge':0}
+    request_id=survey['analysis_request_id'] if survey else None
+    if result:return {'status':'completed','ready':True,'result':result,'chat_quota_charge':0,'request_id':request_id}
     if not survey:return {'status':'pending','ready':False,'chat_quota_charge':0}
     job=session['messages'][0].get('analysis_job',{})
     if job.get('survey_hash')!=fingerprint(survey):job={}
     import time
     if job.get('status')=='processing' and job.get('lease_until',0)<=time.time():
-        return {'status':'failed','ready':True,'error_code':'interrupted','chat_quota_charge':0}
+        return {'status':'failed','ready':True,'error_code':'interrupted','chat_quota_charge':0,'request_id':request_id}
     return {'status':job.get('status','pending'),'ready':True,'error_code':job.get('error_code'),
-            'chat_quota_charge':0}
+            'chat_quota_charge':0,'request_id':request_id}
 
 
 def locked_session(db,uid,sid):
@@ -68,10 +69,12 @@ def write(db,table,uid,session):
                (json.dumps(session['messages'],ensure_ascii=False),uid,session['id']))
 
 
-def claim(uid,sid,ip,retry=False):
+def claim(uid,sid,ip,retry=False,request_id=None):
     with postgres_connection() as db:
         table,session=locked_session(db,uid,sid);survey=survey_data(session)
         if not survey:raise HTTPException(409,'Hoàn thành 5 câu khảo sát trước khi phân tích.')
+        if request_id is not None and request_id!=survey['analysis_request_id']:
+            raise HTTPException(409,'Yêu cầu phân tích không khớp khảo sát của cuộc trò chuyện.')
         if survey_analysis_for_session(session):return state(session),None,None
         now=float(db.execute('SELECT EXTRACT(EPOCH FROM NOW()) AS ts').fetchone()['ts'])
         job=session['messages'][0].get('analysis_job',{})
@@ -112,11 +115,11 @@ def finish(uid,sid,attempt,survey_hash,result=None,error_code=None):
         return state(session)
 
 
-async def execute(request,user,store,sid,retry=False):
+async def execute(request,user,store,sid,retry=False,request_id=None):
     import asyncio,os
     from .postgres_adapter import PostgresConversationStore
     if not isinstance(store,PostgresConversationStore):raise HTTPException(503,'Phân tích tự động cần PostgreSQL.')
-    current,attempt,session=await asyncio.to_thread(claim,user['uid'],sid,client_ip(request),retry)
+    current,attempt,session=await asyncio.to_thread(claim,user['uid'],sid,client_ip(request),retry,request_id)
     if not attempt:return current
     survey=survey_data(session)
     try:
@@ -129,7 +132,8 @@ async def execute(request,user,store,sid,retry=False):
         logger.warning('survey_analysis_failed type=%s',code)
         await asyncio.shield(asyncio.to_thread(finish,user['uid'],sid,attempt,fingerprint(survey),None,code))
         if isinstance(error,asyncio.CancelledError):raise
-        return {'status':'failed','ready':True,'error_code':'provider_unavailable','chat_quota_charge':0}
+        return {'status':'failed','ready':True,'error_code':'invalid_analysis' if isinstance(error,AnalysisValidationError) else 'provider_unavailable',
+                'chat_quota_charge':0,'request_id':survey['analysis_request_id']}
     return await asyncio.to_thread(finish,user['uid'],sid,attempt,fingerprint(survey),result)
 
 

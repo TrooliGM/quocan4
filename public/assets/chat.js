@@ -555,7 +555,8 @@ async function runAnalysis(id,retry=false,show=false) {
   const task=(async()=>{
     await Promise.resolve();updateControls();analysisFailures.delete(key);
     try{
-      let result=await jsonAPI(`/api/ai/sessions/${id}/analysis`,{method:'POST',body:JSON.stringify({retry})});
+      const requestId=active?.messages?.[0]?.survey?.analysis_request_id;
+      let result=await jsonAPI(`/api/ai/sessions/${id}/analysis`,{method:'POST',body:JSON.stringify({retry,...(requestId?{request_id:requestId}:{})})});
       const deadline=Date.now()+95000;
       while(result.status==='processing'&&Date.now()<deadline&&epoch===identityEpoch){
         await new Promise(resolve=>setTimeout(resolve,2500));
