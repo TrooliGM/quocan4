@@ -1,4 +1,21 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "fastapi"
+  "framework": "fastapi",
+  "regions": [
+    "sin1"
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "main": false,
+      "feat/task-3-1-video-library": false,
+      "feat/task-4-ai-advisor-3-0": false,
+      "feat/task-4-1-advisor-intelligence": false,
+      "feat/task-4-4-continuous-journey": false
+    }
+  },
+  "functions": {
+    "app.py": {
+      "includeFiles": "{index.html,chat.html,stable-chat.html,stories.html,advisor/*.txt,data/careers-*.json,data/career-videos.json,data/stories/batch-*.json}"
+    }
+  }
 }

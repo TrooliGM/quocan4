@@ -12,3 +12,12 @@ data/
 *.sqlite3-*
 *service-account*.json
 *credentials*.json
+*serviceAccount*.json
+*firebase-adminsdk*.json
+firebase-admin*.json
+secrets/
+.secrets/
+*.pem
+*.key
+backups/
+*.backup

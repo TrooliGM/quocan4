@@ -1,0 +1,3726 @@
+[
+  {
+    "career_id": "chuyen-vien-phan-tich-dau-tu",
+    "name": "Chuyên viên phân tích đầu tư",
+    "category_id": "finance",
+    "short_description": "Đọc báo cáo doanh nghiệp, đánh giá kịch bản đầu tư.",
+    "description": "Chuyên viên phân tích đầu tư đánh giá tài sản và doanh nghiệp để làm rõ triển vọng, định giá và rủi ro đầu tư. Kết quả công việc gắn với đọc báo cáo doanh nghiệp và đánh giá kịch bản đầu tư.",
+    "daily_tasks": [
+      "Đọc báo cáo doanh nghiệp",
+      "Đánh giá kịch bản đầu tư",
+      "Đọc báo cáo và thông tin công bố",
+      "So sánh giả định định giá",
+      "Trình bày kịch bản và yếu tố bất định"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Công ty quản lý quỹ hoặc nhóm phân tích, dùng dữ liệu thị trường được phép.",
+    "challenges": [
+      "Bất định của thị trường",
+      "Thông tin chưa công bố phải được bảo mật",
+      "Không thể bảo đảm lợi nhuận"
+    ],
+    "keywords": [
+      "Chuyên viên phân tích đầu tư",
+      "Tài chính, kế toán và ngân hàng",
+      "Đọc báo cáo doanh nghiệp",
+      "Đánh giá kịch bản đầu tư",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Đọc báo cáo doanh nghiệp."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Đọc báo cáo và thông tin công bố; so sánh giả định định giá."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Trình bày kịch bản và yếu tố bất định."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đối chiếu số liệu",
+        "reason": "Hỗ trợ việc đọc báo cáo doanh nghiệp; cần kiểm tra kết quả vì thông tin chưa công bố phải được bảo mật."
+      },
+      {
+        "skill": "Phân tích và bảo mật thông tin",
+        "reason": "Hỗ trợ việc đọc báo cáo và thông tin công bố; cần kiểm tra kết quả vì không thể bảo đảm lợi nhuận."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Tin học, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử đọc báo cáo và thông tin công bố ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Phân tích doanh nghiệp giả định, không khuyến nghị mua bán thật. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "chuyen-vien-thue",
+    "name": "Chuyên viên thuế",
+    "category_id": "finance",
+    "short_description": "Rà soát nghĩa vụ thuế, chuẩn bị hồ sơ liên quan.",
+    "description": "Chuyên viên thuế đối chiếu hoạt động kinh tế với quy định thuế để kê khai và giải trình đúng căn cứ. Kết quả công việc gắn với rà soát nghĩa vụ thuế và chuẩn bị hồ sơ liên quan.",
+    "daily_tasks": [
+      "Rà soát nghĩa vụ thuế",
+      "Chuẩn bị hồ sơ liên quan",
+      "Phân loại chứng từ theo sắc thuế",
+      "Tính nghĩa vụ và chuẩn bị tờ khai",
+      "Theo dõi thay đổi quy định liên quan"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Phòng thuế doanh nghiệp, công ty tư vấn hoặc cơ quan thuế tùy vị trí.",
+    "challenges": [
+      "Quy định và tình huống thay đổi",
+      "Văn bản thay đổi theo thời kỳ",
+      "Sai hồ sơ có thể phát sinh nghĩa vụ bổ sung"
+    ],
+    "keywords": [
+      "Chuyên viên thuế",
+      "Tài chính, kế toán và ngân hàng",
+      "Rà soát nghĩa vụ thuế",
+      "Chuẩn bị hồ sơ liên quan",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Rà soát nghĩa vụ thuế."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Phân loại chứng từ theo sắc thuế; tính nghĩa vụ và chuẩn bị tờ khai."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi thay đổi quy định liên quan."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đối chiếu số liệu",
+        "reason": "Hỗ trợ việc rà soát nghĩa vụ thuế; cần kiểm tra kết quả vì văn bản thay đổi theo thời kỳ."
+      },
+      {
+        "skill": "Phân tích và bảo mật thông tin",
+        "reason": "Hỗ trợ việc phân loại chứng từ theo sắc thuế; cần kiểm tra kết quả vì sai hồ sơ có thể phát sinh nghĩa vụ bổ sung."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Tin học, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử phân loại chứng từ theo sắc thuế ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Tìm hiểu hóa đơn mẫu và phân biệt thuế với phí. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "chuyen-vien-ngan-quy",
+    "name": "Chuyên viên ngân quỹ",
+    "category_id": "finance",
+    "short_description": "Theo dõi thu chi, lập kế hoạch thanh khoản.",
+    "description": "Chuyên viên ngân quỹ điều phối dòng tiền và khả năng thanh toán để tổ chức đáp ứng nghĩa vụ đúng hạn. Kết quả công việc gắn với theo dõi thu chi và lập kế hoạch thanh khoản.",
+    "daily_tasks": [
+      "Theo dõi thu chi",
+      "Lập kế hoạch thanh khoản",
+      "Dự báo thu chi ngắn hạn",
+      "Theo dõi số dư và lịch thanh toán",
+      "Đối soát giao dịch với ngân hàng"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Phòng ngân quỹ, làm việc với ngân hàng và bộ phận kế toán.",
+    "challenges": [
+      "Duy trì đủ tiền cho hoạt động",
+      "Dòng tiền có thể lệch kế hoạch",
+      "Phê duyệt yếu dễ phát sinh gian lận"
+    ],
+    "keywords": [
+      "Chuyên viên ngân quỹ",
+      "Tài chính, kế toán và ngân hàng",
+      "Theo dõi thu chi",
+      "Lập kế hoạch thanh khoản",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Theo dõi thu chi."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Dự báo thu chi ngắn hạn; theo dõi số dư và lịch thanh toán."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Đối soát giao dịch với ngân hàng."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đối chiếu số liệu",
+        "reason": "Hỗ trợ việc theo dõi thu chi; cần kiểm tra kết quả vì dòng tiền có thể lệch kế hoạch."
+      },
+      {
+        "skill": "Phân tích và bảo mật thông tin",
+        "reason": "Hỗ trợ việc dự báo thu chi ngắn hạn; cần kiểm tra kết quả vì phê duyệt yếu dễ phát sinh gian lận."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Tin học, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử dự báo thu chi ngắn hạn ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Lập lịch dòng tiền cho quỹ lớp giả định. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "chuyen-vien-tham-dinh-gia",
+    "name": "Chuyên viên thẩm định giá",
+    "category_id": "finance",
+    "short_description": "Khảo sát tài sản, so sánh bằng chứng thị trường.",
+    "description": "Chuyên viên thẩm định giá ước tính giá trị tài sản tại thời điểm và mục đích xác định dựa trên bằng chứng. Kết quả công việc gắn với khảo sát tài sản và so sánh bằng chứng thị trường.",
+    "daily_tasks": [
+      "Khảo sát tài sản",
+      "So sánh bằng chứng thị trường",
+      "Xác định đặc điểm pháp lý tài sản",
+      "Thu thập thông tin so sánh",
+      "Chọn phương pháp và giải trình giả định"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Doanh nghiệp thẩm định hoặc bộ phận định giá, có khảo sát tài sản.",
+    "challenges": [
+      "Thiếu dữ liệu giao dịch đáng tin",
+      "Dữ liệu so sánh có thể thiếu",
+      "Áp lực giá mong muốn ảnh hưởng độc lập"
+    ],
+    "keywords": [
+      "Chuyên viên thẩm định giá",
+      "Tài chính, kế toán và ngân hàng",
+      "Khảo sát tài sản",
+      "So sánh bằng chứng thị trường",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Khảo sát tài sản."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Xác định đặc điểm pháp lý tài sản; thu thập thông tin so sánh."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Chọn phương pháp và giải trình giả định."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đối chiếu số liệu",
+        "reason": "Hỗ trợ việc khảo sát tài sản; cần kiểm tra kết quả vì dữ liệu so sánh có thể thiếu."
+      },
+      {
+        "skill": "Phân tích và bảo mật thông tin",
+        "reason": "Hỗ trợ việc xác định đặc điểm pháp lý tài sản; cần kiểm tra kết quả vì áp lực giá mong muốn ảnh hưởng độc lập."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Tin học, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử xác định đặc điểm pháp lý tài sản ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: So sánh giá sách cũ theo tình trạng và nguồn công khai. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "ke-toan-quan-tri",
+    "name": "Kế toán quản trị",
+    "category_id": "finance",
+    "short_description": "Tổng hợp chi phí hoạt động, lập báo cáo hỗ trợ quyết định.",
+    "description": "Kế toán quản trị cung cấp thông tin chi phí và hiệu quả để người quản lý lựa chọn phương án vận hành. Kết quả công việc gắn với tổng hợp chi phí hoạt động và lập báo cáo hỗ trợ quyết định.",
+    "daily_tasks": [
+      "Tổng hợp chi phí hoạt động",
+      "Lập báo cáo hỗ trợ quyết định",
+      "Phân bổ chi phí theo hoạt động",
+      "So sánh thực tế với ngân sách",
+      "Phân tích điểm hòa vốn và phương án"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Phòng tài chính phối hợp sản xuất, kinh doanh và quản lý.",
+    "challenges": [
+      "Phân bổ chi phí hợp lý",
+      "Phân bổ khác nhau đổi kết quả",
+      "Dữ liệu quản trị cần đủ kịp thời"
+    ],
+    "keywords": [
+      "Kế toán quản trị",
+      "Tài chính, kế toán và ngân hàng",
+      "Tổng hợp chi phí hoạt động",
+      "Lập báo cáo hỗ trợ quyết định",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Tổng hợp chi phí hoạt động."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Phân bổ chi phí theo hoạt động; so sánh thực tế với ngân sách."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Phân tích điểm hòa vốn và phương án."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đối chiếu số liệu",
+        "reason": "Hỗ trợ việc tổng hợp chi phí hoạt động; cần kiểm tra kết quả vì phân bổ khác nhau đổi kết quả."
+      },
+      {
+        "skill": "Phân tích và bảo mật thông tin",
+        "reason": "Hỗ trợ việc phân bổ chi phí theo hoạt động; cần kiểm tra kết quả vì dữ liệu quản trị cần đủ kịp thời."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Tin học, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử phân bổ chi phí theo hoạt động ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Tính chi phí cố định và biến đổi cho gian hàng mô phỏng. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "chuyen-vien-thanh-toan-quoc-te",
+    "name": "Chuyên viên thanh toán quốc tế",
+    "category_id": "finance",
+    "short_description": "Kiểm tra chứng từ thanh toán, phối hợp giao dịch xuyên biên giới.",
+    "description": "Chuyên viên thanh toán quốc tế xử lý thanh toán xuyên biên giới với chứng từ và quy tắc của nghiệp vụ ngân hàng. Kết quả công việc gắn với kiểm tra chứng từ thanh toán và phối hợp giao dịch xuyên biên giới.",
+    "daily_tasks": [
+      "Kiểm tra chứng từ thanh toán",
+      "Phối hợp giao dịch xuyên biên giới",
+      "Kiểm tra bộ chứng từ theo phương thức",
+      "Đối chiếu thông tin bên nhận",
+      "Theo dõi sai biệt và yêu cầu bổ sung"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Bộ phận thanh toán ngân hàng, liên hệ đối tác khác múi giờ.",
+    "challenges": [
+      "Khác biệt múi giờ và quy trình",
+      "Sai chứng từ có thể chậm nhận tiền",
+      "Giao dịch cần tuân thủ kiểm soát tài chính"
+    ],
+    "keywords": [
+      "Chuyên viên thanh toán quốc tế",
+      "Tài chính, kế toán và ngân hàng",
+      "Kiểm tra chứng từ thanh toán",
+      "Phối hợp giao dịch xuyên biên giới",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Kiểm tra chứng từ thanh toán."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Kiểm tra bộ chứng từ theo phương thức; đối chiếu thông tin bên nhận."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi sai biệt và yêu cầu bổ sung."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đối chiếu số liệu",
+        "reason": "Hỗ trợ việc kiểm tra chứng từ thanh toán; cần kiểm tra kết quả vì sai chứng từ có thể chậm nhận tiền."
+      },
+      {
+        "skill": "Phân tích và bảo mật thông tin",
+        "reason": "Hỗ trợ việc kiểm tra bộ chứng từ theo phương thức; cần kiểm tra kết quả vì giao dịch cần tuân thủ kiểm soát tài chính."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Tin học, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử kiểm tra bộ chứng từ theo phương thức ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Vẽ luồng thanh toán xuất nhập khẩu bằng tình huống mẫu. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "chuyen-vien-tuan-thu-tai-chinh",
+    "name": "Chuyên viên tuân thủ tài chính",
+    "category_id": "finance",
+    "short_description": "Rà soát hoạt động giao dịch, theo dõi yêu cầu tuân thủ.",
+    "description": "Chuyên viên tuân thủ tài chính theo dõi việc tuân thủ và phát hiện dấu hiệu giao dịch hoặc quy trình không phù hợp. Kết quả công việc gắn với rà soát hoạt động giao dịch và theo dõi yêu cầu tuân thủ.",
+    "daily_tasks": [
+      "Rà soát hoạt động giao dịch",
+      "Theo dõi yêu cầu tuân thủ",
+      "Rà quy trình với nghĩa vụ pháp lý",
+      "Kiểm tra cảnh báo giao dịch",
+      "Lập báo cáo và kiến nghị kiểm soát"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Bộ phận tuân thủ, phối hợp pháp chế và quản trị rủi ro.",
+    "challenges": [
+      "Nhận diện dấu hiệu bất thường",
+      "Cảnh báo không đồng nghĩa vi phạm",
+      "Hồ sơ điều tra cần bảo mật nghiêm ngặt"
+    ],
+    "keywords": [
+      "Chuyên viên tuân thủ tài chính",
+      "Tài chính, kế toán và ngân hàng",
+      "Rà soát hoạt động giao dịch",
+      "Theo dõi yêu cầu tuân thủ",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Rà soát hoạt động giao dịch."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Rà quy trình với nghĩa vụ pháp lý; kiểm tra cảnh báo giao dịch."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Lập báo cáo và kiến nghị kiểm soát."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đối chiếu số liệu",
+        "reason": "Hỗ trợ việc rà soát hoạt động giao dịch; cần kiểm tra kết quả vì cảnh báo không đồng nghĩa vi phạm."
+      },
+      {
+        "skill": "Phân tích và bảo mật thông tin",
+        "reason": "Hỗ trợ việc rà quy trình với nghĩa vụ pháp lý; cần kiểm tra kết quả vì hồ sơ điều tra cần bảo mật nghiêm ngặt."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Tin học, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử rà quy trình với nghĩa vụ pháp lý ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Phân loại dấu hiệu bất thường trong bộ giao dịch giả định. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "moi-gioi-chung-khoan",
+    "name": "Môi giới chứng khoán",
+    "category_id": "finance",
+    "short_description": "Giải thích dịch vụ giao dịch, cập nhật thông tin thị trường.",
+    "description": "Môi giới chứng khoán hỗ trợ khách hàng tiếp cận và thực hiện giao dịch chứng khoán trong phạm vi được phép. Kết quả công việc gắn với giải thích dịch vụ giao dịch và cập nhật thông tin thị trường.",
+    "daily_tasks": [
+      "Giải thích dịch vụ giao dịch",
+      "Cập nhật thông tin thị trường",
+      "Xác minh nhu cầu và tài khoản",
+      "Giải thích sản phẩm và rủi ro",
+      "Tiếp nhận lệnh theo quy trình"
+    ],
+    "skills": [
+      "Đối chiếu số liệu",
+      "Phân tích và bảo mật thông tin"
+    ],
+    "related_subjects": [
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Công ty chứng khoán với hệ thống giao dịch và kiểm soát nghiệp vụ.",
+    "challenges": [
+      "Không hứa hẹn lợi nhuận chắc chắn",
+      "Không được hứa chắc lợi nhuận",
+      "Xung đột lợi ích cần được kiểm soát"
+    ],
+    "keywords": [
+      "Môi giới chứng khoán",
+      "Tài chính, kế toán và ngân hàng",
+      "Giải thích dịch vụ giao dịch",
+      "Cập nhật thông tin thị trường",
+      "Toán",
+      "Tin học",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Giải thích dịch vụ giao dịch."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Xác minh nhu cầu và tài khoản; giải thích sản phẩm và rủi ro."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Tiếp nhận lệnh theo quy trình."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đối chiếu số liệu",
+        "reason": "Hỗ trợ việc giải thích dịch vụ giao dịch; cần kiểm tra kết quả vì không được hứa chắc lợi nhuận."
+      },
+      {
+        "skill": "Phân tích và bảo mật thông tin",
+        "reason": "Hỗ trợ việc xác minh nhu cầu và tài khoản; cần kiểm tra kết quả vì xung đột lợi ích cần được kiểm soát."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Toán, Tin học, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử xác minh nhu cầu và tài khoản ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Dùng bảng giá mô phỏng để tìm hiểu lệnh, không giao dịch thật. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "thiet-ke",
+    "name": "Nhà thiết kế đồ họa",
+    "category_id": "design",
+    "short_description": "Thiết kế nhận diện hình ảnh, chỉnh bố cục theo phản hồi.",
+    "description": "Nhà thiết kế đồ họa truyền đạt thông điệp bằng hình ảnh, chữ và bố cục phù hợp người xem. Kết quả công việc gắn với thiết kế nhận diện hình ảnh và chỉnh bố cục theo phản hồi.",
+    "daily_tasks": [
+      "Thiết kế nhận diện hình ảnh",
+      "Chỉnh bố cục theo phản hồi",
+      "Làm rõ thông điệp và đối tượng",
+      "Phác thảo nhiều phương án bố cục",
+      "Chuẩn bị tệp đúng định dạng xuất bản"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, nhóm truyền thông hoặc làm việc độc lập với khách hàng.",
+    "challenges": [
+      "Đáp ứng mục tiêu truyền đạt và thẩm mỹ",
+      "Hình đẹp có thể làm thông điệp khó đọc",
+      "Tài nguyên hình ảnh cần quyền sử dụng"
+    ],
+    "keywords": [
+      "Nhà thiết kế đồ họa",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Thiết kế nhận diện hình ảnh",
+      "Chỉnh bố cục theo phản hồi",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thiết kế nhận diện hình ảnh."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Làm rõ thông điệp và đối tượng; phác thảo nhiều phương án bố cục."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Chuẩn bị tệp đúng định dạng xuất bản."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tư duy hình ảnh",
+        "reason": "Tư duy hình ảnh giúp chọn bố cục, chữ và màu theo thứ tự thông tin mà người xem cần hiểu."
+      },
+      {
+        "skill": "Thử nghiệm và tiếp nhận phản hồi",
+        "reason": "Tiếp nhận phản hồi giúp sửa thiết kế theo mục tiêu truyền đạt, thay vì chỉ theo sở thích của người vẽ."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Mỹ thuật, Công nghệ, Ngữ văn qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử làm rõ thông điệp và đối tượng ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Thiết kế poster sự kiện lớp bằng hình tự tạo. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [
+      {
+        "label": "BLS: thiết kế đồ họa (tham khảo quốc tế)",
+        "url": "https://www.bls.gov/ooh/arts-and-design/graphic-designers.htm"
+      }
+    ],
+    "profile_version": 2
+  },
+  {
+    "career_id": "nha-thiet-ke-ux",
+    "name": "Nhà thiết kế UX",
+    "category_id": "design",
+    "short_description": "Nghiên cứu trải nghiệm người dùng, thử nguyên mẫu tương tác.",
+    "description": "Nhà thiết kế UX nghiên cứu trải nghiệm để sản phẩm giải quyết đúng vấn đề và dễ sử dụng. Kết quả công việc gắn với nghiên cứu trải nghiệm người dùng và thử nguyên mẫu tương tác.",
+    "daily_tasks": [
+      "Nghiên cứu trải nghiệm người dùng",
+      "Thử nguyên mẫu tương tác",
+      "Phỏng vấn người dùng có đồng ý",
+      "Vẽ luồng tác vụ và nguyên mẫu",
+      "Quan sát kiểm thử rồi sửa điểm vướng"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Nhóm sản phẩm, kết hợp nghiên cứu, thiết kế và kỹ thuật.",
+    "challenges": [
+      "Tránh thiết kế chỉ theo sở thích cá nhân",
+      "Mẫu nghiên cứu nhỏ dễ gây suy rộng",
+      "Không nên đồng nhất sở thích với hành vi"
+    ],
+    "keywords": [
+      "Nhà thiết kế UX",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Nghiên cứu trải nghiệm người dùng",
+      "Thử nguyên mẫu tương tác",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Nghiên cứu trải nghiệm người dùng."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Phỏng vấn người dùng có đồng ý; vẽ luồng tác vụ và nguyên mẫu."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Quan sát kiểm thử rồi sửa điểm vướng."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tư duy hình ảnh",
+        "reason": "Hỗ trợ việc nghiên cứu trải nghiệm người dùng; cần kiểm tra kết quả vì mẫu nghiên cứu nhỏ dễ gây suy rộng."
+      },
+      {
+        "skill": "Thử nghiệm và tiếp nhận phản hồi",
+        "reason": "Hỗ trợ việc phỏng vấn người dùng có đồng ý; cần kiểm tra kết quả vì không nên đồng nhất sở thích với hành vi."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Mỹ thuật, Công nghệ, Ngữ văn qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử phỏng vấn người dùng có đồng ý ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Thử nguyên mẫu giấy của ứng dụng mượn sách với bạn bè. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "nha-thiet-ke-ui",
+    "name": "Nhà thiết kế UI",
+    "category_id": "design",
+    "short_description": "Thiết kế màn hình số, xây thư viện thành phần giao diện.",
+    "description": "Nhà thiết kế UI thiết kế thành phần giao diện giúp người dùng nhìn rõ trạng thái và thao tác. Kết quả công việc gắn với thiết kế màn hình số và xây thư viện thành phần giao diện.",
+    "daily_tasks": [
+      "Thiết kế màn hình số",
+      "Xây thư viện thành phần giao diện",
+      "Xây hệ thống màu chữ và khoảng cách",
+      "Thiết kế trạng thái lỗi và tải",
+      "Bàn giao thông số cho lập trình viên"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Nhóm thiết kế sản phẩm số, dùng thư viện thành phần chung.",
+    "challenges": [
+      "Giữ tính nhất quán và khả năng đọc",
+      "Giao diện cần đọc được trên nhiều màn hình",
+      "Màu không được là tín hiệu duy nhất"
+    ],
+    "keywords": [
+      "Nhà thiết kế UI",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Thiết kế màn hình số",
+      "Xây thư viện thành phần giao diện",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thiết kế màn hình số."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Xây hệ thống màu chữ và khoảng cách; thiết kế trạng thái lỗi và tải."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Bàn giao thông số cho lập trình viên."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tư duy hình ảnh",
+        "reason": "Hỗ trợ việc thiết kế màn hình số; cần kiểm tra kết quả vì giao diện cần đọc được trên nhiều màn hình."
+      },
+      {
+        "skill": "Thử nghiệm và tiếp nhận phản hồi",
+        "reason": "Hỗ trợ việc xây hệ thống màu chữ và khoảng cách; cần kiểm tra kết quả vì màu không được là tín hiệu duy nhất."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Mỹ thuật, Công nghệ, Ngữ văn qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử xây hệ thống màu chữ và khoảng cách ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Thiết kế màn hình có trạng thái trống, lỗi và thành công. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "nha-thiet-ke-noi-that",
+    "name": "Nhà thiết kế nội thất",
+    "category_id": "design",
+    "short_description": "Lập phương án bố trí phòng, lựa chọn vật liệu nội thất.",
+    "description": "Nhà thiết kế nội thất bố trí không gian bên trong theo công năng, vật liệu và nhu cầu người dùng. Kết quả công việc gắn với lập phương án bố trí phòng và lựa chọn vật liệu nội thất.",
+    "daily_tasks": [
+      "Lập phương án bố trí phòng",
+      "Lựa chọn vật liệu nội thất",
+      "Đo hiện trạng và luồng di chuyển",
+      "Chọn vật liệu cùng ánh sáng",
+      "Lập bản vẽ đồ nội thất"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Văn phòng thiết kế, cửa hàng vật liệu và hiện trường nội thất.",
+    "challenges": [
+      "Không gian và ngân sách có giới hạn",
+      "Vật liệu phải phù hợp độ ẩm và sử dụng",
+      "Phối hợp thi công dễ phát sinh sai số"
+    ],
+    "keywords": [
+      "Nhà thiết kế nội thất",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Lập phương án bố trí phòng",
+      "Lựa chọn vật liệu nội thất",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Lập phương án bố trí phòng."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Đo hiện trạng và luồng di chuyển; chọn vật liệu cùng ánh sáng."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Lập bản vẽ đồ nội thất."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tư duy hình ảnh",
+        "reason": "Hỗ trợ việc lập phương án bố trí phòng; cần kiểm tra kết quả vì vật liệu phải phù hợp độ ẩm và sử dụng."
+      },
+      {
+        "skill": "Thử nghiệm và tiếp nhận phản hồi",
+        "reason": "Hỗ trợ việc đo hiện trạng và luồng di chuyển; cần kiểm tra kết quả vì phối hợp thi công dễ phát sinh sai số."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Mỹ thuật, Công nghệ, Ngữ văn qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử đo hiện trạng và luồng di chuyển ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Bố trí góc học tập trên sơ đồ có số đo. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "nha-thiet-ke-thoi-trang",
+    "name": "Nhà thiết kế thời trang",
+    "category_id": "design",
+    "short_description": "Phác thảo trang phục, thử mẫu và chỉnh phom.",
+    "description": "Nhà thiết kế thời trang phát triển trang phục từ ý tưởng, chất liệu đến mẫu có thể mặc và sản xuất. Kết quả công việc gắn với phác thảo trang phục và thử mẫu và chỉnh phom.",
+    "daily_tasks": [
+      "Phác thảo trang phục",
+      "Thử mẫu và chỉnh phom",
+      "Nghiên cứu đối tượng và bộ sưu tập",
+      "Vẽ mẫu và chọn vải",
+      "Thử phom và chỉnh rập cùng kỹ thuật"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, phòng mẫu và xưởng may với nhiều vòng thử.",
+    "challenges": [
+      "Kết hợp thẩm mỹ với khả năng sản xuất",
+      "Ý tưởng cần phù hợp cơ thể và vận động",
+      "Sản xuất mẫu tốn vật liệu"
+    ],
+    "keywords": [
+      "Nhà thiết kế thời trang",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Phác thảo trang phục",
+      "Thử mẫu và chỉnh phom",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Phác thảo trang phục."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Nghiên cứu đối tượng và bộ sưu tập; vẽ mẫu và chọn vải."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Thử phom và chỉnh rập cùng kỹ thuật."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tư duy hình ảnh",
+        "reason": "Hỗ trợ việc phác thảo trang phục; cần kiểm tra kết quả vì ý tưởng cần phù hợp cơ thể và vận động."
+      },
+      {
+        "skill": "Thử nghiệm và tiếp nhận phản hồi",
+        "reason": "Hỗ trợ việc nghiên cứu đối tượng và bộ sưu tập; cần kiểm tra kết quả vì sản xuất mẫu tốn vật liệu."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Mỹ thuật, Công nghệ, Ngữ văn qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử nghiên cứu đối tượng và bộ sưu tập ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Tạo bảng ý tưởng và mẫu giấy cho trang phục tái sử dụng. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "nha-thiet-ke-cong-nghiep",
+    "name": "Nhà thiết kế công nghiệp",
+    "category_id": "design",
+    "short_description": "Phác thảo sản phẩm vật lý, đánh giá nguyên mẫu sử dụng.",
+    "description": "Nhà thiết kế công nghiệp thiết kế hình dáng và trải nghiệm sử dụng đồ vật cùng yêu cầu sản xuất. Kết quả công việc gắn với phác thảo sản phẩm vật lý và đánh giá nguyên mẫu sử dụng.",
+    "daily_tasks": [
+      "Phác thảo sản phẩm vật lý",
+      "Đánh giá nguyên mẫu sử dụng",
+      "Quan sát cách người dùng cầm nắm",
+      "Làm mô hình hình khối",
+      "Phối hợp kỹ thuật về cấu tạo và vật liệu"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Nhóm phát triển sản phẩm, xưởng mô hình và cơ sở sản xuất.",
+    "challenges": [
+      "Công năng và quy trình chế tạo",
+      "Hình dáng đẹp chưa chắc dùng thuận tiện",
+      "Chi tiết phải khả thi khi chế tạo"
+    ],
+    "keywords": [
+      "Nhà thiết kế công nghiệp",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Phác thảo sản phẩm vật lý",
+      "Đánh giá nguyên mẫu sử dụng",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Phác thảo sản phẩm vật lý."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Quan sát cách người dùng cầm nắm; làm mô hình hình khối."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Phối hợp kỹ thuật về cấu tạo và vật liệu."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tư duy hình ảnh",
+        "reason": "Hỗ trợ việc phác thảo sản phẩm vật lý; cần kiểm tra kết quả vì hình dáng đẹp chưa chắc dùng thuận tiện."
+      },
+      {
+        "skill": "Thử nghiệm và tiếp nhận phản hồi",
+        "reason": "Hỗ trợ việc quan sát cách người dùng cầm nắm; cần kiểm tra kết quả vì chi tiết phải khả thi khi chế tạo."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Mỹ thuật, Công nghệ, Ngữ văn qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử quan sát cách người dùng cầm nắm ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Làm mẫu hộp bút bằng bìa và thử thao tác mở đóng. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "hoa-si-minh-hoa",
+    "name": "Họa sĩ minh họa",
+    "category_id": "design",
+    "short_description": "Diễn giải ý tưởng bằng hình vẽ, chỉnh hình theo nội dung.",
+    "description": "Họa sĩ minh họa diễn giải ý tưởng hoặc câu chuyện bằng hình ảnh có chủ đích. Kết quả công việc gắn với diễn giải ý tưởng bằng hình vẽ và chỉnh hình theo nội dung.",
+    "daily_tasks": [
+      "Diễn giải ý tưởng bằng hình vẽ",
+      "Chỉnh hình theo nội dung",
+      "Đọc nội dung cần minh họa",
+      "Phác thảo nhân vật và bố cục",
+      "Hoàn thiện màu theo mục đích xuất bản"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, nhà xuất bản hoặc làm độc lập qua bản duyệt.",
+    "challenges": [
+      "Giữ phong cách khi yêu cầu đa dạng",
+      "Hình có thể gây hiểu sai thông điệp",
+      "Phong cách phải đáp ứng yêu cầu biên tập"
+    ],
+    "keywords": [
+      "Họa sĩ minh họa",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Diễn giải ý tưởng bằng hình vẽ",
+      "Chỉnh hình theo nội dung",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Diễn giải ý tưởng bằng hình vẽ."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Đọc nội dung cần minh họa; phác thảo nhân vật và bố cục."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Hoàn thiện màu theo mục đích xuất bản."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tư duy hình ảnh",
+        "reason": "Hỗ trợ việc diễn giải ý tưởng bằng hình vẽ; cần kiểm tra kết quả vì hình có thể gây hiểu sai thông điệp."
+      },
+      {
+        "skill": "Thử nghiệm và tiếp nhận phản hồi",
+        "reason": "Hỗ trợ việc đọc nội dung cần minh họa; cần kiểm tra kết quả vì phong cách phải đáp ứng yêu cầu biên tập."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Mỹ thuật, Công nghệ, Ngữ văn qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử đọc nội dung cần minh họa ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Minh họa một truyện tự viết với ba phương án bố cục. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "hoa-si-truyen-tranh",
+    "name": "Họa sĩ truyện tranh",
+    "category_id": "design",
+    "short_description": "Xây phân cảnh truyện, vẽ nhân vật và bối cảnh.",
+    "description": "Họa sĩ truyện tranh kể chuyện bằng chuỗi khung hình, nhịp đọc và tương tác giữa hình với lời. Kết quả công việc gắn với xây phân cảnh truyện và vẽ nhân vật và bối cảnh.",
+    "daily_tasks": [
+      "Xây phân cảnh truyện",
+      "Vẽ nhân vật và bối cảnh",
+      "Viết phân cảnh và bố trí trang",
+      "Giữ nhân vật nhất quán giữa khung",
+      "Chỉnh lời thoại theo nhịp kể"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Nhóm truyện tranh, nhà xuất bản hoặc dự án độc lập.",
+    "challenges": [
+      "Kể chuyện rõ trong số khung hạn chế",
+      "Nhiều khung phải thống nhất bối cảnh",
+      "Thời hạn ra tập tạo áp lực"
+    ],
+    "keywords": [
+      "Họa sĩ truyện tranh",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Xây phân cảnh truyện",
+      "Vẽ nhân vật và bối cảnh",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Xây phân cảnh truyện."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Viết phân cảnh và bố trí trang; giữ nhân vật nhất quán giữa khung."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Chỉnh lời thoại theo nhịp kể."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tư duy hình ảnh",
+        "reason": "Hỗ trợ việc xây phân cảnh truyện; cần kiểm tra kết quả vì nhiều khung phải thống nhất bối cảnh."
+      },
+      {
+        "skill": "Thử nghiệm và tiếp nhận phản hồi",
+        "reason": "Hỗ trợ việc viết phân cảnh và bố trí trang; cần kiểm tra kết quả vì thời hạn ra tập tạo áp lực."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Mỹ thuật, Công nghệ, Ngữ văn qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử viết phân cảnh và bố trí trang ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Vẽ truyện sáu khung về một việc ở trường. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "hoa-si-hoat-hinh",
+    "name": "Họa sĩ hoạt hình",
+    "category_id": "design",
+    "short_description": "Tạo chuyển động nhân vật, kiểm tra nhịp diễn xuất.",
+    "description": "Họa sĩ hoạt hình tạo chuyển động và biểu cảm qua chuỗi hình hoặc mô hình theo kịch bản. Kết quả công việc gắn với tạo chuyển động nhân vật và kiểm tra nhịp diễn xuất.",
+    "daily_tasks": [
+      "Tạo chuyển động nhân vật",
+      "Kiểm tra nhịp diễn xuất",
+      "Phân tích động tác và nhịp",
+      "Tạo tư thế chính và chuyển tiếp",
+      "Kiểm tra chuyển động cùng âm thanh"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio hoạt hình, phối hợp đạo diễn và nhóm hậu kỳ.",
+    "challenges": [
+      "Nhiều khung hình cần nhất quán",
+      "Chuyển động thiếu trọng lượng trông không thật",
+      "Sửa một cảnh có thể ảnh hưởng nhiều khung"
+    ],
+    "keywords": [
+      "Họa sĩ hoạt hình",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Tạo chuyển động nhân vật",
+      "Kiểm tra nhịp diễn xuất",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Tạo chuyển động nhân vật."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Phân tích động tác và nhịp; tạo tư thế chính và chuyển tiếp."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Kiểm tra chuyển động cùng âm thanh."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tư duy hình ảnh",
+        "reason": "Hỗ trợ việc tạo chuyển động nhân vật; cần kiểm tra kết quả vì chuyển động thiếu trọng lượng trông không thật."
+      },
+      {
+        "skill": "Thử nghiệm và tiếp nhận phản hồi",
+        "reason": "Hỗ trợ việc phân tích động tác và nhịp; cần kiểm tra kết quả vì sửa một cảnh có thể ảnh hưởng nhiều khung."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Mỹ thuật, Công nghệ, Ngữ văn qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử phân tích động tác và nhịp ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Tạo flipbook quả bóng nảy bằng giấy. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "nghe-si-mo-hinh-3d",
+    "name": "Nghệ sĩ mô hình 3D",
+    "category_id": "design",
+    "short_description": "Dựng hình ba chiều, tạo chất liệu bề mặt.",
+    "description": "Nghệ sĩ mô hình 3D tạo hình thể số phục vụ phim, trò chơi hoặc trực quan hóa sản phẩm. Kết quả công việc gắn với dựng hình ba chiều và tạo chất liệu bề mặt.",
+    "daily_tasks": [
+      "Dựng hình ba chiều",
+      "Tạo chất liệu bề mặt",
+      "Dựng lưới hình khối theo bản mẫu",
+      "Tạo bề mặt và vật liệu",
+      "Tối ưu số đa giác theo mục đích"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio phim, game hoặc nhóm thiết kế trực quan.",
+    "challenges": [
+      "Độ chi tiết phải phù hợp hiệu năng",
+      "Mô hình đẹp có thể quá nặng",
+      "Lưới sai gây lỗi chuyển động"
+    ],
+    "keywords": [
+      "Nghệ sĩ mô hình 3D",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Dựng hình ba chiều",
+      "Tạo chất liệu bề mặt",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Dựng hình ba chiều."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Dựng lưới hình khối theo bản mẫu; tạo bề mặt và vật liệu."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Tối ưu số đa giác theo mục đích."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tư duy hình ảnh",
+        "reason": "Hỗ trợ việc dựng hình ba chiều; cần kiểm tra kết quả vì mô hình đẹp có thể quá nặng."
+      },
+      {
+        "skill": "Thử nghiệm và tiếp nhận phản hồi",
+        "reason": "Hỗ trợ việc dựng lưới hình khối theo bản mẫu; cần kiểm tra kết quả vì lưới sai gây lỗi chuyển động."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Mỹ thuật, Công nghệ, Ngữ văn qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử dựng lưới hình khối theo bản mẫu ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Dựng mô hình bàn học bằng phần mềm miễn phí trên máy. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "nha-dieu-khac",
+    "name": "Nhà điêu khắc",
+    "category_id": "design",
+    "short_description": "Phác hình khối, chế tác tác phẩm.",
+    "description": "Nhà điêu khắc thể hiện ý tưởng bằng hình khối, chất liệu và quan hệ với không gian. Kết quả công việc gắn với phác hình khối và chế tác tác phẩm.",
+    "daily_tasks": [
+      "Phác hình khối",
+      "Chế tác tác phẩm",
+      "Phác thảo và làm mẫu nhỏ",
+      "Chọn cách tạo hình theo chất liệu",
+      "Kiểm tra kết cấu đỡ và hoàn thiện"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Xưởng tạo hình và không gian trưng bày hoặc lắp đặt.",
+    "challenges": [
+      "Đặc tính vật liệu và trọng lượng",
+      "Tác phẩm nặng cần kết cấu an toàn",
+      "Vật liệu khó sửa khi đã gia công"
+    ],
+    "keywords": [
+      "Nhà điêu khắc",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Phác hình khối",
+      "Chế tác tác phẩm",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Phác hình khối."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Phác thảo và làm mẫu nhỏ; chọn cách tạo hình theo chất liệu."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Kiểm tra kết cấu đỡ và hoàn thiện."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tư duy hình ảnh",
+        "reason": "Hỗ trợ việc phác hình khối; cần kiểm tra kết quả vì tác phẩm nặng cần kết cấu an toàn."
+      },
+      {
+        "skill": "Thử nghiệm và tiếp nhận phản hồi",
+        "reason": "Hỗ trợ việc phác thảo và làm mẫu nhỏ; cần kiểm tra kết quả vì vật liệu khó sửa khi đã gia công."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Mỹ thuật, Công nghệ, Ngữ văn qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử phác thảo và làm mẫu nhỏ ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Nặn hình khối bằng đất sét mềm, không dùng máy cắt. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "nghe-nhan-gom",
+    "name": "Nghệ nhân gốm",
+    "category_id": "design",
+    "short_description": "Tạo hình đất, theo dõi nung và men.",
+    "description": "Nghệ nhân gốm tạo sản phẩm đất nung bằng tạo hình, xử lý bề mặt và kiểm soát quá trình nung. Kết quả công việc gắn với tạo hình đất và theo dõi nung và men.",
+    "daily_tasks": [
+      "Tạo hình đất",
+      "Theo dõi nung và men",
+      "Chuẩn bị đất và tạo phôi",
+      "Trang trí hoặc tráng men phù hợp",
+      "Kiểm tra biến dạng sau nung"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Xưởng gốm có khu đất, phơi và lò tách biệt.",
+    "challenges": [
+      "Nhiệt độ làm thay đổi thành phẩm",
+      "Nhiệt lò gây nguy hiểm",
+      "Độ co và men làm kết quả biến đổi"
+    ],
+    "keywords": [
+      "Nghệ nhân gốm",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Tạo hình đất",
+      "Theo dõi nung và men",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Tạo hình đất."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Chuẩn bị đất và tạo phôi; trang trí hoặc tráng men phù hợp."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Kiểm tra biến dạng sau nung."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tư duy hình ảnh",
+        "reason": "Hỗ trợ việc tạo hình đất; cần kiểm tra kết quả vì nhiệt lò gây nguy hiểm."
+      },
+      {
+        "skill": "Thử nghiệm và tiếp nhận phản hồi",
+        "reason": "Hỗ trợ việc chuẩn bị đất và tạo phôi; cần kiểm tra kết quả vì độ co và men làm kết quả biến đổi."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Mỹ thuật, Công nghệ, Ngữ văn qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử chuẩn bị đất và tạo phôi ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Tạo mẫu đất sét tại lớp trải nghiệm có người hướng dẫn. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "tho-kim-hoan",
+    "name": "Thợ kim hoàn",
+    "category_id": "design",
+    "short_description": "Chế tác trang sức, kiểm tra mối nối chi tiết.",
+    "description": "Thợ kim hoàn chế tác và sửa trang sức với kích thước nhỏ, vật liệu quý và độ hoàn thiện cao. Kết quả công việc gắn với chế tác trang sức và kiểm tra mối nối chi tiết.",
+    "daily_tasks": [
+      "Chế tác trang sức",
+      "Kiểm tra mối nối chi tiết",
+      "Đọc mẫu và tính kích thước",
+      "Tạo chi tiết và lắp ghép",
+      "Kiểm tra đá gắn và bề mặt"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Xưởng kim hoàn hoặc cửa hàng có khu kỹ thuật riêng.",
+    "challenges": [
+      "Độ chính xác trên vật liệu nhỏ",
+      "Vật liệu giá trị cao phải quản lý",
+      "Dụng cụ nhiệt và hóa chất cần bảo vệ"
+    ],
+    "keywords": [
+      "Thợ kim hoàn",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Chế tác trang sức",
+      "Kiểm tra mối nối chi tiết",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Chế tác trang sức."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Đọc mẫu và tính kích thước; tạo chi tiết và lắp ghép."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Kiểm tra đá gắn và bề mặt."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tư duy hình ảnh",
+        "reason": "Hỗ trợ việc chế tác trang sức; cần kiểm tra kết quả vì vật liệu giá trị cao phải quản lý."
+      },
+      {
+        "skill": "Thử nghiệm và tiếp nhận phản hồi",
+        "reason": "Hỗ trợ việc đọc mẫu và tính kích thước; cần kiểm tra kết quả vì dụng cụ nhiệt và hóa chất cần bảo vệ."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Mỹ thuật, Công nghệ, Ngữ văn qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử đọc mẫu và tính kích thước ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Thiết kế trang sức bằng giấy hoặc hạt lớn an toàn. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "nhiep-anh-gia",
+    "name": "Nhiếp ảnh gia",
+    "category_id": "design",
+    "short_description": "Chuẩn bị ánh sáng, chọn và xử lý ảnh.",
+    "description": "Nhiếp ảnh gia dùng ánh sáng, góc nhìn và thời điểm để tạo ảnh phục vụ thông điệp cụ thể. Kết quả công việc gắn với chuẩn bị ánh sáng và chọn và xử lý ảnh.",
+    "daily_tasks": [
+      "Chuẩn bị ánh sáng",
+      "Chọn và xử lý ảnh",
+      "Trao đổi mục đích và quyền chụp",
+      "Chọn ánh sáng và bố cục",
+      "Chọn ảnh và chỉnh hậu kỳ phù hợp"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio, sự kiện hoặc hiện trường tùy thể loại nhiếp ảnh.",
+    "challenges": [
+      "Điều kiện chụp thay đổi liên tục",
+      "Cần sự đồng ý của người được chụp",
+      "Chỉnh ảnh có thể làm sai sự kiện"
+    ],
+    "keywords": [
+      "Nhiếp ảnh gia",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Chuẩn bị ánh sáng",
+      "Chọn và xử lý ảnh",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Chuẩn bị ánh sáng."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Trao đổi mục đích và quyền chụp; chọn ánh sáng và bố cục."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Chọn ảnh và chỉnh hậu kỳ phù hợp."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tư duy hình ảnh",
+        "reason": "Hỗ trợ việc chuẩn bị ánh sáng; cần kiểm tra kết quả vì cần sự đồng ý của người được chụp."
+      },
+      {
+        "skill": "Thử nghiệm và tiếp nhận phản hồi",
+        "reason": "Hỗ trợ việc trao đổi mục đích và quyền chụp; cần kiểm tra kết quả vì chỉnh ảnh có thể làm sai sự kiện."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Mỹ thuật, Công nghệ, Ngữ văn qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử trao đổi mục đích và quyền chụp ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Chụp cùng một đồ vật dưới ba điều kiện ánh sáng. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "nha-thiet-ke-canh-quan",
+    "name": "Nhà thiết kế cảnh quan",
+    "category_id": "design",
+    "short_description": "Bố trí cây và lối đi, đánh giá điều kiện khu đất.",
+    "description": "Nhà thiết kế cảnh quan tổ chức không gian ngoài trời bằng địa hình, cây xanh và đường đi. Kết quả công việc gắn với bố trí cây và lối đi và đánh giá điều kiện khu đất.",
+    "daily_tasks": [
+      "Bố trí cây và lối đi",
+      "Đánh giá điều kiện khu đất",
+      "Khảo sát đất nắng và thoát nước",
+      "Chọn cây phù hợp điều kiện",
+      "Lập phương án bảo trì theo mùa"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Văn phòng thiết kế, vườn ươm và khu khảo sát ngoài trời.",
+    "challenges": [
+      "Phối hợp sinh thái với nhu cầu sử dụng",
+      "Cây sống thay đổi theo thời gian",
+      "Thoát nước sai gây ngập và xói mòn"
+    ],
+    "keywords": [
+      "Nhà thiết kế cảnh quan",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Bố trí cây và lối đi",
+      "Đánh giá điều kiện khu đất",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Bố trí cây và lối đi."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Khảo sát đất nắng và thoát nước; chọn cây phù hợp điều kiện."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Lập phương án bảo trì theo mùa."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tư duy hình ảnh",
+        "reason": "Hỗ trợ việc bố trí cây và lối đi; cần kiểm tra kết quả vì cây sống thay đổi theo thời gian."
+      },
+      {
+        "skill": "Thử nghiệm và tiếp nhận phản hồi",
+        "reason": "Hỗ trợ việc khảo sát đất nắng và thoát nước; cần kiểm tra kết quả vì thoát nước sai gây ngập và xói mòn."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Mỹ thuật, Công nghệ, Ngữ văn qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử khảo sát đất nắng và thoát nước ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Vẽ vườn trường có bóng mát và lối đi dễ tiếp cận. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "nha-thiet-ke-san-khau",
+    "name": "Nhà thiết kế sân khấu",
+    "category_id": "design",
+    "short_description": "Phác không gian biểu diễn, phối hợp dựng bối cảnh.",
+    "description": "Nhà thiết kế sân khấu tạo không gian biểu diễn hỗ trợ câu chuyện và chuyển cảnh an toàn. Kết quả công việc gắn với phác không gian biểu diễn và phối hợp dựng bối cảnh.",
+    "daily_tasks": [
+      "Phác không gian biểu diễn",
+      "Phối hợp dựng bối cảnh",
+      "Đọc kịch bản và trao đổi đạo diễn",
+      "Làm mô hình sân khấu theo tỉ lệ",
+      "Phối hợp ánh sáng và đường diễn"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Nhà hát, xưởng dựng cảnh và sàn diễn trong thời gian tập.",
+    "challenges": [
+      "Giới hạn sân khấu và thời gian chuyển cảnh",
+      "Cấu kiện cần chịu lực và chống cháy",
+      "Chuyển cảnh phải tránh va chạm"
+    ],
+    "keywords": [
+      "Nhà thiết kế sân khấu",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Phác không gian biểu diễn",
+      "Phối hợp dựng bối cảnh",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Phác không gian biểu diễn."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Đọc kịch bản và trao đổi đạo diễn; làm mô hình sân khấu theo tỉ lệ."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Phối hợp ánh sáng và đường diễn."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tư duy hình ảnh",
+        "reason": "Hỗ trợ việc phác không gian biểu diễn; cần kiểm tra kết quả vì cấu kiện cần chịu lực và chống cháy."
+      },
+      {
+        "skill": "Thử nghiệm và tiếp nhận phản hồi",
+        "reason": "Hỗ trợ việc đọc kịch bản và trao đổi đạo diễn; cần kiểm tra kết quả vì chuyển cảnh phải tránh va chạm."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Mỹ thuật, Công nghệ, Ngữ văn qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử đọc kịch bản và trao đổi đạo diễn ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Làm sân khấu giấy cho một cảnh truyện ngắn. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "tho-thu-cong-may-tre",
+    "name": "Thợ thủ công mây tre",
+    "category_id": "design",
+    "short_description": "Chuẩn bị nguyên liệu đan, hoàn thiện sản phẩm thủ công.",
+    "description": "Thợ thủ công mây tre chế tác sản phẩm từ vật liệu tự nhiên bằng kỹ thuật đan và tạo khung. Kết quả công việc gắn với chuẩn bị nguyên liệu đan và hoàn thiện sản phẩm thủ công.",
+    "daily_tasks": [
+      "Chuẩn bị nguyên liệu đan",
+      "Hoàn thiện sản phẩm thủ công",
+      "Chọn và xử lý nan phù hợp",
+      "Đan theo hoa văn và kết cấu",
+      "Kiểm tra mối nối và độ cân"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Xưởng thủ công hoặc làng nghề với khu xử lý vật liệu.",
+    "challenges": [
+      "Độ bền và độ đều của sợi",
+      "Nan sắc gây trầy xước",
+      "Độ ẩm làm sản phẩm mốc hoặc biến dạng"
+    ],
+    "keywords": [
+      "Thợ thủ công mây tre",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Chuẩn bị nguyên liệu đan",
+      "Hoàn thiện sản phẩm thủ công",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Chuẩn bị nguyên liệu đan."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Chọn và xử lý nan phù hợp; đan theo hoa văn và kết cấu."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Kiểm tra mối nối và độ cân."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tư duy hình ảnh",
+        "reason": "Hỗ trợ việc chuẩn bị nguyên liệu đan; cần kiểm tra kết quả vì nan sắc gây trầy xước."
+      },
+      {
+        "skill": "Thử nghiệm và tiếp nhận phản hồi",
+        "reason": "Hỗ trợ việc chọn và xử lý nan phù hợp; cần kiểm tra kết quả vì độ ẩm làm sản phẩm mốc hoặc biến dạng."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Mỹ thuật, Công nghệ, Ngữ văn qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử chọn và xử lý nan phù hợp ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Đan giỏ nhỏ bằng dải giấy thay nan sắc. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "chuyen-vien-thiet-ke-bao-bi",
+    "name": "Chuyên viên thiết kế bao bì",
+    "category_id": "design",
+    "short_description": "Thiết kế kết cấu hộp, thử khả năng bảo vệ sản phẩm.",
+    "description": "Chuyên viên thiết kế bao bì kết hợp thông tin, kết cấu và hình ảnh để bao gói bảo vệ sản phẩm và dễ sử dụng. Kết quả công việc gắn với thiết kế kết cấu hộp và thử khả năng bảo vệ sản phẩm.",
+    "daily_tasks": [
+      "Thiết kế kết cấu hộp",
+      "Thử khả năng bảo vệ sản phẩm",
+      "Nghiên cứu đặc tính vật cần chứa",
+      "Thiết kế khuôn gấp và nhãn",
+      "Thử mẫu vận chuyển và thao tác mở"
+    ],
+    "skills": [
+      "Tư duy hình ảnh",
+      "Thử nghiệm và tiếp nhận phản hồi"
+    ],
+    "related_subjects": [
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "work_environment": "Studio thiết kế, nhà in và nhóm phát triển sản phẩm.",
+    "challenges": [
+      "Cân đối vật liệu và thông tin nhãn",
+      "Nhãn cần đúng thông tin bắt buộc",
+      "Bao bì đẹp có thể khó tái chế"
+    ],
+    "keywords": [
+      "Chuyên viên thiết kế bao bì",
+      "Thiết kế, nghệ thuật và sáng tạo",
+      "Thiết kế kết cấu hộp",
+      "Thử khả năng bảo vệ sản phẩm",
+      "Mỹ thuật",
+      "Công nghệ",
+      "Ngữ văn"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thiết kế kết cấu hộp."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Nghiên cứu đặc tính vật cần chứa; thiết kế khuôn gấp và nhãn."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Thử mẫu vận chuyển và thao tác mở."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Tư duy hình ảnh",
+        "reason": "Hỗ trợ việc thiết kế kết cấu hộp; cần kiểm tra kết quả vì nhãn cần đúng thông tin bắt buộc."
+      },
+      {
+        "skill": "Thử nghiệm và tiếp nhận phản hồi",
+        "reason": "Hỗ trợ việc nghiên cứu đặc tính vật cần chứa; cần kiểm tra kết quả vì bao bì đẹp có thể khó tái chế."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Mỹ thuật, Công nghệ, Ngữ văn qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử nghiên cứu đặc tính vật cần chứa ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Thiết kế hộp giấy bảo vệ một mô hình nhẹ. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "truyen-thong",
+    "name": "Người làm truyền thông",
+    "category_id": "media",
+    "short_description": "Lập kế hoạch nội dung, phối hợp đưa thông tin tới công chúng.",
+    "description": "Người làm truyền thông lập và thực hiện hoạt động truyền đạt để một nhóm công chúng hiểu thông điệp đúng bối cảnh. Kết quả công việc gắn với lập kế hoạch nội dung và phối hợp đưa thông tin tới công chúng.",
+    "daily_tasks": [
+      "Lập kế hoạch nội dung",
+      "Phối hợp đưa thông tin tới công chúng",
+      "Xác định công chúng và mục tiêu",
+      "Chọn kênh cùng lịch nội dung",
+      "Đo phản hồi và điều chỉnh thông điệp"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Phòng truyền thông, phối hợp nội dung, thiết kế và đơn vị tổ chức.",
+    "challenges": [
+      "Kiểm chứng thông điệp trước khi công bố",
+      "Tin sai lan nhanh trên nhiều kênh",
+      "Lượt xem không đồng nghĩa hiểu đúng"
+    ],
+    "keywords": [
+      "Người làm truyền thông",
+      "Truyền thông và giải trí",
+      "Lập kế hoạch nội dung",
+      "Phối hợp đưa thông tin tới công chúng",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Lập kế hoạch nội dung."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Xác định công chúng và mục tiêu; chọn kênh cùng lịch nội dung."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Đo phản hồi và điều chỉnh thông điệp."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Kể chuyện",
+        "reason": "Hỗ trợ việc lập kế hoạch nội dung; cần kiểm tra kết quả vì tin sai lan nhanh trên nhiều kênh."
+      },
+      {
+        "skill": "Kiểm chứng thông tin",
+        "reason": "Hỗ trợ việc xác định công chúng và mục tiêu; cần kiểm tra kết quả vì lượt xem không đồng nghĩa hiểu đúng."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Ngữ văn, Âm nhạc, Tin học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử xác định công chúng và mục tiêu ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Lập kế hoạch truyền thông cho tuần đọc sách của trường. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "nha-bao",
+    "name": "Nhà báo",
+    "category_id": "media",
+    "short_description": "Phỏng vấn nguồn tin, kiểm chứng và viết bài.",
+    "description": "Nhà báo thu thập, kiểm chứng và trình bày thông tin phục vụ quyền được biết của công chúng. Kết quả công việc gắn với phỏng vấn nguồn tin và kiểm chứng và viết bài.",
+    "daily_tasks": [
+      "Phỏng vấn nguồn tin",
+      "Kiểm chứng và viết bài",
+      "Đối chiếu thông tin từ nhiều nguồn",
+      "Phỏng vấn và ghi nhận có căn cứ",
+      "Phân biệt sự kiện với nhận định"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Tòa soạn và hiện trường, có lịch tin bất thường.",
+    "challenges": [
+      "Đảm bảo chính xác dưới áp lực thời gian",
+      "Áp lực nhanh dễ bỏ bước kiểm chứng",
+      "Nguồn tin và người yếu thế cần bảo vệ"
+    ],
+    "keywords": [
+      "Nhà báo",
+      "Truyền thông và giải trí",
+      "Phỏng vấn nguồn tin",
+      "Kiểm chứng và viết bài",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Phỏng vấn nguồn tin."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Đối chiếu thông tin từ nhiều nguồn; phỏng vấn và ghi nhận có căn cứ."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Phân biệt sự kiện với nhận định."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Kể chuyện",
+        "reason": "Hỗ trợ việc phỏng vấn nguồn tin; cần kiểm tra kết quả vì áp lực nhanh dễ bỏ bước kiểm chứng."
+      },
+      {
+        "skill": "Kiểm chứng thông tin",
+        "reason": "Hỗ trợ việc đối chiếu thông tin từ nhiều nguồn; cần kiểm tra kết quả vì nguồn tin và người yếu thế cần bảo vệ."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Ngữ văn, Âm nhạc, Tin học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử đối chiếu thông tin từ nhiều nguồn ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Viết tin về hoạt động trường có xác nhận của người phụ trách. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "bien-tap-vien",
+    "name": "Biên tập viên",
+    "category_id": "media",
+    "short_description": "Rà soát bản thảo, chỉnh cấu trúc nội dung.",
+    "description": "Biên tập viên lựa chọn và chỉnh nội dung để thông tin rõ, đúng và phù hợp độc giả. Kết quả công việc gắn với rà soát bản thảo và chỉnh cấu trúc nội dung.",
+    "daily_tasks": [
+      "Rà soát bản thảo",
+      "Chỉnh cấu trúc nội dung",
+      "Kiểm tra cấu trúc và lập luận",
+      "Đối chiếu tên riêng và dữ kiện",
+      "Trao đổi sửa bản với tác giả"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Tòa soạn, nhà xuất bản hoặc bộ phận nội dung số.",
+    "challenges": [
+      "Giữ giọng tác giả và độ chính xác",
+      "Sửa câu có thể làm đổi nghĩa",
+      "Thời hạn xuất bản thường chặt"
+    ],
+    "keywords": [
+      "Biên tập viên",
+      "Truyền thông và giải trí",
+      "Rà soát bản thảo",
+      "Chỉnh cấu trúc nội dung",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Rà soát bản thảo."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Kiểm tra cấu trúc và lập luận; đối chiếu tên riêng và dữ kiện."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Trao đổi sửa bản với tác giả."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Kể chuyện",
+        "reason": "Hỗ trợ việc rà soát bản thảo; cần kiểm tra kết quả vì sửa câu có thể làm đổi nghĩa."
+      },
+      {
+        "skill": "Kiểm chứng thông tin",
+        "reason": "Hỗ trợ việc kiểm tra cấu trúc và lập luận; cần kiểm tra kết quả vì thời hạn xuất bản thường chặt."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Ngữ văn, Âm nhạc, Tin học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử kiểm tra cấu trúc và lập luận ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Biên tập bài tự viết bằng checklist nguồn và tính rõ ràng. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "chuyen-vien-quan-he-cong-chung",
+    "name": "Chuyên viên quan hệ công chúng",
+    "category_id": "media",
+    "short_description": "Theo dõi hình ảnh tổ chức, phối hợp phản hồi công chúng.",
+    "description": "Chuyên viên quan hệ công chúng xây quan hệ và trao đổi thông tin giữa tổ chức với công chúng, báo chí và đối tác. Kết quả công việc gắn với theo dõi hình ảnh tổ chức và phối hợp phản hồi công chúng.",
+    "daily_tasks": [
+      "Theo dõi hình ảnh tổ chức",
+      "Phối hợp phản hồi công chúng",
+      "Soạn thông tin báo chí có kiểm chứng",
+      "Theo dõi dư luận liên quan",
+      "Chuẩn bị phản hồi cho tình huống nhạy cảm"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Bộ phận quan hệ công chúng hoặc công ty tư vấn truyền thông.",
+    "challenges": [
+      "Xử lý thông tin trong khủng hoảng",
+      "Thông điệp không thống nhất làm mất tin cậy",
+      "Phải cân bằng minh bạch và bảo mật"
+    ],
+    "keywords": [
+      "Chuyên viên quan hệ công chúng",
+      "Truyền thông và giải trí",
+      "Theo dõi hình ảnh tổ chức",
+      "Phối hợp phản hồi công chúng",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Theo dõi hình ảnh tổ chức."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Soạn thông tin báo chí có kiểm chứng; theo dõi dư luận liên quan."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Chuẩn bị phản hồi cho tình huống nhạy cảm."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Kể chuyện",
+        "reason": "Hỗ trợ việc theo dõi hình ảnh tổ chức; cần kiểm tra kết quả vì thông điệp không thống nhất làm mất tin cậy."
+      },
+      {
+        "skill": "Kiểm chứng thông tin",
+        "reason": "Hỗ trợ việc soạn thông tin báo chí có kiểm chứng; cần kiểm tra kết quả vì phải cân bằng minh bạch và bảo mật."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Ngữ văn, Âm nhạc, Tin học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử soạn thông tin báo chí có kiểm chứng ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Soạn thông báo sự kiện lớp trả lời rõ ai, việc gì và thời gian. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "chuyen-vien-to-chuc-su-kien",
+    "name": "Chuyên viên tổ chức sự kiện",
+    "category_id": "media",
+    "short_description": "Lập kịch bản tổ chức, điều phối nhà cung cấp.",
+    "description": "Chuyên viên tổ chức sự kiện phối hợp nội dung, nhân sự và hạ tầng để sự kiện diễn ra theo mục tiêu và an toàn. Kết quả công việc gắn với lập kịch bản tổ chức và điều phối nhà cung cấp.",
+    "daily_tasks": [
+      "Lập kịch bản tổ chức",
+      "Điều phối nhà cung cấp",
+      "Lập kịch bản điều hành và ngân sách",
+      "Kiểm tra nhà cung cấp và địa điểm",
+      "Diễn tập xử lý thay đổi chương trình"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Văn phòng tổ chức và địa điểm sự kiện, thường có giờ làm linh hoạt.",
+    "challenges": [
+      "Sự cố tại hiện trường khó dự báo",
+      "Sự cố đông người cần phương án thoát",
+      "Thay đổi sát giờ ảnh hưởng dây chuyền"
+    ],
+    "keywords": [
+      "Chuyên viên tổ chức sự kiện",
+      "Truyền thông và giải trí",
+      "Lập kịch bản tổ chức",
+      "Điều phối nhà cung cấp",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Lập kịch bản tổ chức."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Lập kịch bản điều hành và ngân sách; kiểm tra nhà cung cấp và địa điểm."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Diễn tập xử lý thay đổi chương trình."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Kể chuyện",
+        "reason": "Hỗ trợ việc lập kịch bản tổ chức; cần kiểm tra kết quả vì sự cố đông người cần phương án thoát."
+      },
+      {
+        "skill": "Kiểm chứng thông tin",
+        "reason": "Hỗ trợ việc lập kịch bản điều hành và ngân sách; cần kiểm tra kết quả vì thay đổi sát giờ ảnh hưởng dây chuyền."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Ngữ văn, Âm nhạc, Tin học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử lập kịch bản điều hành và ngân sách ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Lập sơ đồ sự kiện nhỏ dưới giám sát giáo viên. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "dao-dien",
+    "name": "Đạo diễn",
+    "category_id": "media",
+    "short_description": "Phát triển cách kể chuyện, chỉ đạo ghi hình hoặc biểu diễn.",
+    "description": "Đạo diễn thống nhất cách kể chuyện và chỉ đạo các bộ phận tạo tác phẩm nghe nhìn. Kết quả công việc gắn với phát triển cách kể chuyện và chỉ đạo ghi hình hoặc biểu diễn.",
+    "daily_tasks": [
+      "Phát triển cách kể chuyện",
+      "Chỉ đạo ghi hình hoặc biểu diễn",
+      "Phân tích kịch bản và ý đồ cảnh",
+      "Hướng dẫn diễn xuất và bố cục",
+      "Chọn phương án dựng cùng hậu kỳ"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Trường quay, bối cảnh và phòng hậu kỳ.",
+    "challenges": [
+      "Thống nhất tầm nhìn của nhiều bộ phận",
+      "Nhiều bộ phận phải thống nhất ý đồ",
+      "Ngân sách và thời gian giới hạn cảnh quay"
+    ],
+    "keywords": [
+      "Đạo diễn",
+      "Truyền thông và giải trí",
+      "Phát triển cách kể chuyện",
+      "Chỉ đạo ghi hình hoặc biểu diễn",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Phát triển cách kể chuyện."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Phân tích kịch bản và ý đồ cảnh; hướng dẫn diễn xuất và bố cục."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Chọn phương án dựng cùng hậu kỳ."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Kể chuyện",
+        "reason": "Hỗ trợ việc phát triển cách kể chuyện; cần kiểm tra kết quả vì nhiều bộ phận phải thống nhất ý đồ."
+      },
+      {
+        "skill": "Kiểm chứng thông tin",
+        "reason": "Hỗ trợ việc phân tích kịch bản và ý đồ cảnh; cần kiểm tra kết quả vì ngân sách và thời gian giới hạn cảnh quay."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Ngữ văn, Âm nhạc, Tin học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử phân tích kịch bản và ý đồ cảnh ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Quay một cảnh ngắn bằng điện thoại với sự đồng ý của người tham gia. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "bien-kich",
+    "name": "Biên kịch",
+    "category_id": "media",
+    "short_description": "Xây cấu trúc câu chuyện, viết đối thoại.",
+    "description": "Biên kịch xây câu chuyện, nhân vật và hành động thành kịch bản có thể sản xuất. Kết quả công việc gắn với xây cấu trúc câu chuyện và viết đối thoại.",
+    "daily_tasks": [
+      "Xây cấu trúc câu chuyện",
+      "Viết đối thoại",
+      "Nghiên cứu bối cảnh câu chuyện",
+      "Viết cấu trúc cảnh và lời thoại",
+      "Sửa kịch bản theo phản hồi sản xuất"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Nhóm phát triển phim, truyền hình hoặc sáng tác độc lập.",
+    "challenges": [
+      "Duy trì logic nhân vật",
+      "Lời thoại dài dễ thiếu tính hành động",
+      "Nội dung cần tôn trọng bản quyền"
+    ],
+    "keywords": [
+      "Biên kịch",
+      "Truyền thông và giải trí",
+      "Xây cấu trúc câu chuyện",
+      "Viết đối thoại",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Xây cấu trúc câu chuyện."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Nghiên cứu bối cảnh câu chuyện; viết cấu trúc cảnh và lời thoại."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Sửa kịch bản theo phản hồi sản xuất."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Kể chuyện",
+        "reason": "Hỗ trợ việc xây cấu trúc câu chuyện; cần kiểm tra kết quả vì lời thoại dài dễ thiếu tính hành động."
+      },
+      {
+        "skill": "Kiểm chứng thông tin",
+        "reason": "Hỗ trợ việc nghiên cứu bối cảnh câu chuyện; cần kiểm tra kết quả vì nội dung cần tôn trọng bản quyền."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Ngữ văn, Âm nhạc, Tin học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử nghiên cứu bối cảnh câu chuyện ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Viết kịch bản hai nhân vật giải quyết một hiểu lầm. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "quay-phim",
+    "name": "Quay phim",
+    "category_id": "media",
+    "short_description": "Thiết lập máy và ánh sáng, ghi hình theo phân cảnh.",
+    "description": "Quay phim tổ chức hình ảnh động bằng khung hình, chuyển động máy và ánh sáng theo ý đồ tác phẩm. Kết quả công việc gắn với thiết lập máy và ánh sáng và ghi hình theo phân cảnh.",
+    "daily_tasks": [
+      "Thiết lập máy và ánh sáng",
+      "Ghi hình theo phân cảnh",
+      "Khảo sát bối cảnh và ánh sáng",
+      "Chọn ống kính cùng chuyển động máy",
+      "Kiểm tra nét và dữ liệu ghi hình"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Trường quay hoặc ngoại cảnh, phối hợp ánh sáng và đạo diễn.",
+    "challenges": [
+      "Đảm bảo hình ảnh trong điều kiện khó",
+      "Mất dữ liệu có thể phải quay lại",
+      "Thiết bị và dây dẫn gây nguy cơ hiện trường"
+    ],
+    "keywords": [
+      "Quay phim",
+      "Truyền thông và giải trí",
+      "Thiết lập máy và ánh sáng",
+      "Ghi hình theo phân cảnh",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thiết lập máy và ánh sáng."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Khảo sát bối cảnh và ánh sáng; chọn ống kính cùng chuyển động máy."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Kiểm tra nét và dữ liệu ghi hình."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Kể chuyện",
+        "reason": "Hỗ trợ việc thiết lập máy và ánh sáng; cần kiểm tra kết quả vì mất dữ liệu có thể phải quay lại."
+      },
+      {
+        "skill": "Kiểm chứng thông tin",
+        "reason": "Hỗ trợ việc khảo sát bối cảnh và ánh sáng; cần kiểm tra kết quả vì thiết bị và dây dẫn gây nguy cơ hiện trường."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Ngữ văn, Âm nhạc, Tin học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử khảo sát bối cảnh và ánh sáng ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Quay ba góc cùng một đồ vật, không đứng nơi nguy hiểm. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "dung-phim",
+    "name": "Dựng phim",
+    "category_id": "media",
+    "short_description": "Chọn và sắp xếp cảnh, phối hợp hình và âm thanh.",
+    "description": "Dựng phim sắp xếp hình và tiếng để tạo nhịp, mạch kể và thông tin đúng ý đồ. Kết quả công việc gắn với chọn và sắp xếp cảnh và phối hợp hình và âm thanh.",
+    "daily_tasks": [
+      "Chọn và sắp xếp cảnh",
+      "Phối hợp hình và âm thanh",
+      "Phân loại và đồng bộ tư liệu",
+      "Chọn nhịp cắt giữa các cảnh",
+      "Kiểm tra âm thanh và bản xuất"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Phòng hậu kỳ với phần mềm dựng và hệ thống lưu tư liệu.",
+    "challenges": [
+      "Giữ mạch kể và nhịp cảm xúc",
+      "Cắt ghép có thể làm sai bối cảnh",
+      "Nhiều phiên bản cần quản lý rõ"
+    ],
+    "keywords": [
+      "Dựng phim",
+      "Truyền thông và giải trí",
+      "Chọn và sắp xếp cảnh",
+      "Phối hợp hình và âm thanh",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Chọn và sắp xếp cảnh."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Phân loại và đồng bộ tư liệu; chọn nhịp cắt giữa các cảnh."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Kiểm tra âm thanh và bản xuất."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Kể chuyện",
+        "reason": "Hỗ trợ việc chọn và sắp xếp cảnh; cần kiểm tra kết quả vì cắt ghép có thể làm sai bối cảnh."
+      },
+      {
+        "skill": "Kiểm chứng thông tin",
+        "reason": "Hỗ trợ việc phân loại và đồng bộ tư liệu; cần kiểm tra kết quả vì nhiều phiên bản cần quản lý rõ."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Ngữ văn, Âm nhạc, Tin học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử phân loại và đồng bộ tư liệu ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Dựng video một phút từ cảnh tự quay và nhạc được phép. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "ky-thuat-vien-am-thanh",
+    "name": "Kỹ thuật viên âm thanh",
+    "category_id": "media",
+    "short_description": "Thiết lập hệ thống thu tiếng, kiểm tra chất lượng âm thanh.",
+    "description": "Kỹ thuật viên âm thanh thu, xử lý và phát âm thanh rõ theo nhu cầu biểu diễn hoặc sản xuất. Kết quả công việc gắn với thiết lập hệ thống thu tiếng và kiểm tra chất lượng âm thanh.",
+    "daily_tasks": [
+      "Thiết lập hệ thống thu tiếng",
+      "Kiểm tra chất lượng âm thanh",
+      "Chọn vị trí micro và đường tín hiệu",
+      "Cân mức và giảm phản hồi âm",
+      "Theo dõi tín hiệu trong buổi diễn"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Phòng thu, hội trường hoặc bàn điều khiển sự kiện.",
+    "challenges": [
+      "Tạp âm và phản hồi âm khó kiểm soát",
+      "Âm lượng lớn có hại thính giác",
+      "Nhiễu hoặc hú cần xử lý kịp thời"
+    ],
+    "keywords": [
+      "Kỹ thuật viên âm thanh",
+      "Truyền thông và giải trí",
+      "Thiết lập hệ thống thu tiếng",
+      "Kiểm tra chất lượng âm thanh",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Thiết lập hệ thống thu tiếng."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Chọn vị trí micro và đường tín hiệu; cân mức và giảm phản hồi âm."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi tín hiệu trong buổi diễn."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Kể chuyện",
+        "reason": "Hỗ trợ việc thiết lập hệ thống thu tiếng; cần kiểm tra kết quả vì âm lượng lớn có hại thính giác."
+      },
+      {
+        "skill": "Kiểm chứng thông tin",
+        "reason": "Hỗ trợ việc chọn vị trí micro và đường tín hiệu; cần kiểm tra kết quả vì nhiễu hoặc hú cần xử lý kịp thời."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Ngữ văn, Âm nhạc, Tin học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử chọn vị trí micro và đường tín hiệu ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Thu đoạn đọc ở mức âm lượng an toàn rồi so sánh vị trí micro. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "nhac-si-sang-tac",
+    "name": "Nhạc sĩ sáng tác",
+    "category_id": "media",
+    "short_description": "Phát triển giai điệu, hoàn thiện bản nhạc.",
+    "description": "Nhạc sĩ sáng tác tạo giai điệu, cấu trúc và phối khí để diễn đạt ý tưởng bằng âm nhạc. Kết quả công việc gắn với phát triển giai điệu và hoàn thiện bản nhạc.",
+    "daily_tasks": [
+      "Phát triển giai điệu",
+      "Hoàn thiện bản nhạc",
+      "Phát triển mô-típ giai điệu",
+      "Viết phần hòa âm hoặc bản nhạc",
+      "Chỉnh tác phẩm theo giọng và nhạc cụ"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Phòng sáng tác, studio và buổi tập cùng người biểu diễn.",
+    "challenges": [
+      "Cân bằng sáng tạo và yêu cầu biểu diễn",
+      "Ý tưởng cần phát triển thành cấu trúc",
+      "Sử dụng giai điệu có sẵn phải tôn trọng quyền tác giả"
+    ],
+    "keywords": [
+      "Nhạc sĩ sáng tác",
+      "Truyền thông và giải trí",
+      "Phát triển giai điệu",
+      "Hoàn thiện bản nhạc",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Phát triển giai điệu."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Phát triển mô-típ giai điệu; viết phần hòa âm hoặc bản nhạc."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Chỉnh tác phẩm theo giọng và nhạc cụ."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Kể chuyện",
+        "reason": "Hỗ trợ việc phát triển giai điệu; cần kiểm tra kết quả vì ý tưởng cần phát triển thành cấu trúc."
+      },
+      {
+        "skill": "Kiểm chứng thông tin",
+        "reason": "Hỗ trợ việc phát triển mô-típ giai điệu; cần kiểm tra kết quả vì sử dụng giai điệu có sẵn phải tôn trọng quyền tác giả."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Ngữ văn, Âm nhạc, Tin học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử phát triển mô-típ giai điệu ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Sáng tác giai điệu ngắn bằng nhạc cụ hoặc phần mềm học tập. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "ca-si",
+    "name": "Ca sĩ",
+    "category_id": "media",
+    "short_description": "Luyện giọng, tập và biểu diễn tiết mục.",
+    "description": "Ca sĩ thể hiện ca khúc qua kỹ thuật giọng, diễn giải và phối hợp biểu diễn. Kết quả công việc gắn với luyện giọng và tập và biểu diễn tiết mục.",
+    "daily_tasks": [
+      "Luyện giọng",
+      "Tập và biểu diễn tiết mục",
+      "Luyện hơi và khởi động giọng",
+      "Tập bài cùng ban nhạc hoặc nhạc nền",
+      "Điều chỉnh biểu đạt theo không gian diễn"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Phòng tập, phòng thu và sân khấu.",
+    "challenges": [
+      "Giữ sức khỏe giọng hát",
+      "Lạm dụng giọng dễ tổn thương",
+      "Lịch diễn và đánh giá công chúng tạo áp lực"
+    ],
+    "keywords": [
+      "Ca sĩ",
+      "Truyền thông và giải trí",
+      "Luyện giọng",
+      "Tập và biểu diễn tiết mục",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Luyện giọng."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Luyện hơi và khởi động giọng; tập bài cùng ban nhạc hoặc nhạc nền."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Điều chỉnh biểu đạt theo không gian diễn."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Kể chuyện",
+        "reason": "Hỗ trợ việc luyện giọng; cần kiểm tra kết quả vì lạm dụng giọng dễ tổn thương."
+      },
+      {
+        "skill": "Kiểm chứng thông tin",
+        "reason": "Hỗ trợ việc luyện hơi và khởi động giọng; cần kiểm tra kết quả vì lịch diễn và đánh giá công chúng tạo áp lực."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Ngữ văn, Âm nhạc, Tin học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử luyện hơi và khởi động giọng ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Tập hát ở âm vực thoải mái, không cố gằn hoặc lên nốt quá sức. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "dien-vien",
+    "name": "Diễn viên",
+    "category_id": "media",
+    "short_description": "Nghiên cứu nhân vật, tập diễn với bạn diễn.",
+    "description": "Diễn viên xây nhân vật và thể hiện hành động, cảm xúc theo kịch bản và chỉ đạo. Kết quả công việc gắn với nghiên cứu nhân vật và tập diễn với bạn diễn.",
+    "daily_tasks": [
+      "Nghiên cứu nhân vật",
+      "Tập diễn với bạn diễn",
+      "Nghiên cứu hoàn cảnh nhân vật",
+      "Tập thoại và chuyển động",
+      "Giữ tính liên tục giữa các lần diễn"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Sân khấu, trường quay và buổi tập.",
+    "challenges": [
+      "Biểu đạt thuyết phục qua nhiều lần diễn",
+      "Phải giữ ranh giới an toàn khi nhập vai",
+      "Cảnh nguy hiểm cần chuyên môn hỗ trợ"
+    ],
+    "keywords": [
+      "Diễn viên",
+      "Truyền thông và giải trí",
+      "Nghiên cứu nhân vật",
+      "Tập diễn với bạn diễn",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Nghiên cứu nhân vật."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Nghiên cứu hoàn cảnh nhân vật; tập thoại và chuyển động."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Giữ tính liên tục giữa các lần diễn."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Kể chuyện",
+        "reason": "Hỗ trợ việc nghiên cứu nhân vật; cần kiểm tra kết quả vì phải giữ ranh giới an toàn khi nhập vai."
+      },
+      {
+        "skill": "Kiểm chứng thông tin",
+        "reason": "Hỗ trợ việc nghiên cứu hoàn cảnh nhân vật; cần kiểm tra kết quả vì cảnh nguy hiểm cần chuyên môn hỗ trợ."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Ngữ văn, Âm nhạc, Tin học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử nghiên cứu hoàn cảnh nhân vật ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Diễn một cảnh đời thường không có hành động nguy hiểm. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "nguoi-dan-chuong-trinh",
+    "name": "Người dẫn chương trình",
+    "category_id": "media",
+    "short_description": "Chuẩn bị lời dẫn, kết nối các phần chương trình.",
+    "description": "Người dẫn chương trình kết nối các phần chương trình và giúp khán giả theo dõi thông tin tự nhiên. Kết quả công việc gắn với chuẩn bị lời dẫn và kết nối các phần chương trình.",
+    "daily_tasks": [
+      "Chuẩn bị lời dẫn",
+      "Kết nối các phần chương trình",
+      "Nghiên cứu khách mời và nội dung",
+      "Viết lời dẫn đúng thời lượng",
+      "Ứng biến khi thứ tự thay đổi"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Sân khấu, trường quay hoặc chương trình phát trực tiếp.",
+    "challenges": [
+      "Ứng biến trước tình huống trực tiếp",
+      "Nói sai thông tin ảnh hưởng người tham gia",
+      "Trực tiếp có ít cơ hội sửa"
+    ],
+    "keywords": [
+      "Người dẫn chương trình",
+      "Truyền thông và giải trí",
+      "Chuẩn bị lời dẫn",
+      "Kết nối các phần chương trình",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Chuẩn bị lời dẫn."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Nghiên cứu khách mời và nội dung; viết lời dẫn đúng thời lượng."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Ứng biến khi thứ tự thay đổi."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Kể chuyện",
+        "reason": "Hỗ trợ việc chuẩn bị lời dẫn; cần kiểm tra kết quả vì nói sai thông tin ảnh hưởng người tham gia."
+      },
+      {
+        "skill": "Kiểm chứng thông tin",
+        "reason": "Hỗ trợ việc nghiên cứu khách mời và nội dung; cần kiểm tra kết quả vì trực tiếp có ít cơ hội sửa."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Ngữ văn, Âm nhạc, Tin học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử nghiên cứu khách mời và nội dung ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Dẫn thử chương trình đọc sách của nhóm nhỏ. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "chuyen-vien-noi-dung-so",
+    "name": "Chuyên viên nội dung số",
+    "category_id": "media",
+    "short_description": "Biên soạn nội dung theo kênh, đánh giá phản hồi người xem.",
+    "description": "Chuyên viên nội dung số xây và quản lý nội dung phù hợp nền tảng, người đọc và mục tiêu truyền thông. Kết quả công việc gắn với biên soạn nội dung theo kênh và đánh giá phản hồi người xem.",
+    "daily_tasks": [
+      "Biên soạn nội dung theo kênh",
+      "Đánh giá phản hồi người xem",
+      "Lập lịch theo nhu cầu độc giả",
+      "Viết và kiểm tra nội dung trước đăng",
+      "Đọc phản hồi để cải thiện bài"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Nhóm nội dung website hoặc mạng xã hội, phối hợp thiết kế.",
+    "challenges": [
+      "Tránh chạy theo lượt xem bằng thông tin sai",
+      "Tốc độ đăng dễ làm giảm kiểm chứng",
+      "Nội dung cần tôn trọng quyền riêng tư"
+    ],
+    "keywords": [
+      "Chuyên viên nội dung số",
+      "Truyền thông và giải trí",
+      "Biên soạn nội dung theo kênh",
+      "Đánh giá phản hồi người xem",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Biên soạn nội dung theo kênh."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Lập lịch theo nhu cầu độc giả; viết và kiểm tra nội dung trước đăng."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Đọc phản hồi để cải thiện bài."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Kể chuyện",
+        "reason": "Hỗ trợ việc biên soạn nội dung theo kênh; cần kiểm tra kết quả vì tốc độ đăng dễ làm giảm kiểm chứng."
+      },
+      {
+        "skill": "Kiểm chứng thông tin",
+        "reason": "Hỗ trợ việc lập lịch theo nhu cầu độc giả; cần kiểm tra kết quả vì nội dung cần tôn trọng quyền riêng tư."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Ngữ văn, Âm nhạc, Tin học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử lập lịch theo nhu cầu độc giả ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Làm lịch bài viết giáo dục bằng ảnh và lời tự tạo. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "chuyen-vien-seo",
+    "name": "Chuyên viên SEO",
+    "category_id": "media",
+    "short_description": "Nghiên cứu nhu cầu tìm kiếm, cải thiện cấu trúc nội dung web.",
+    "description": "Chuyên viên SEO giúp nội dung website dễ được tìm thấy qua cấu trúc, chất lượng và khả năng truy cập. Kết quả công việc gắn với nghiên cứu nhu cầu tìm kiếm và cải thiện cấu trúc nội dung web.",
+    "daily_tasks": [
+      "Nghiên cứu nhu cầu tìm kiếm",
+      "Cải thiện cấu trúc nội dung web",
+      "Nghiên cứu ý định tìm kiếm",
+      "Kiểm tra cấu trúc và tốc độ trang",
+      "Theo dõi truy vấn và lỗi lập chỉ mục"
+    ],
+    "skills": [
+      "Kể chuyện",
+      "Kiểm chứng thông tin"
+    ],
+    "related_subjects": [
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "work_environment": "Nhóm website phối hợp nội dung, kỹ thuật và phân tích.",
+    "challenges": [
+      "Thuật toán và nhu cầu tìm kiếm thay đổi",
+      "Thuật toán thay đổi gây biến động",
+      "Nhồi từ khóa làm giảm chất lượng đọc"
+    ],
+    "keywords": [
+      "Chuyên viên SEO",
+      "Truyền thông và giải trí",
+      "Nghiên cứu nhu cầu tìm kiếm",
+      "Cải thiện cấu trúc nội dung web",
+      "Ngữ văn",
+      "Âm nhạc",
+      "Tin học"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Nghiên cứu nhu cầu tìm kiếm."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Nghiên cứu ý định tìm kiếm; kiểm tra cấu trúc và tốc độ trang."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi truy vấn và lỗi lập chỉ mục."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Kể chuyện",
+        "reason": "Hỗ trợ việc nghiên cứu nhu cầu tìm kiếm; cần kiểm tra kết quả vì thuật toán thay đổi gây biến động."
+      },
+      {
+        "skill": "Kiểm chứng thông tin",
+        "reason": "Hỗ trợ việc nghiên cứu ý định tìm kiếm; cần kiểm tra kết quả vì nhồi từ khóa làm giảm chất lượng đọc."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Ngữ văn, Âm nhạc, Tin học qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử nghiên cứu ý định tìm kiếm ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Cải thiện tiêu đề và cấu trúc một trang HTML trên máy. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "luat-su",
+    "name": "Luật sư",
+    "category_id": "public-service",
+    "short_description": "Nghiên cứu hồ sơ vụ việc, tư vấn trong phạm vi chuyên môn.",
+    "description": "Luật sư tư vấn và bảo vệ quyền, lợi ích hợp pháp của khách hàng trong phạm vi hành nghề. Kết quả công việc gắn với nghiên cứu hồ sơ vụ việc và tư vấn trong phạm vi chuyên môn.",
+    "daily_tasks": [
+      "Nghiên cứu hồ sơ vụ việc",
+      "Tư vấn trong phạm vi chuyên môn",
+      "Làm rõ tình tiết và mục tiêu khách hàng",
+      "Nghiên cứu căn cứ và chứng cứ",
+      "Chuẩn bị văn bản hoặc tham gia tố tụng"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Văn phòng luật, buổi làm việc khách hàng và cơ quan tố tụng.",
+    "challenges": [
+      "Đánh giá chứng cứ và bảo vệ bảo mật",
+      "Phải bảo mật thông tin khách hàng",
+      "Không được cam kết kết quả vụ việc"
+    ],
+    "keywords": [
+      "Luật sư",
+      "Luật, hành chính và dịch vụ công",
+      "Nghiên cứu hồ sơ vụ việc",
+      "Tư vấn trong phạm vi chuyên môn",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Nghiên cứu hồ sơ vụ việc."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Làm rõ tình tiết và mục tiêu khách hàng; nghiên cứu căn cứ và chứng cứ."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Chuẩn bị văn bản hoặc tham gia tố tụng."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc hiểu hồ sơ",
+        "reason": "Hỗ trợ việc nghiên cứu hồ sơ vụ việc; cần kiểm tra kết quả vì phải bảo mật thông tin khách hàng."
+      },
+      {
+        "skill": "Lập luận và bảo mật",
+        "reason": "Hỗ trợ việc làm rõ tình tiết và mục tiêu khách hàng; cần kiểm tra kết quả vì không được cam kết kết quả vụ việc."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Lịch sử, Ngữ văn, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử làm rõ tình tiết và mục tiêu khách hàng ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Đọc tình huống pháp luật phổ thông và phân biệt dữ kiện với ý kiến. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "regulated_or_role_specific",
+      "note": "Cần đáp ứng điều kiện hành nghề luật sư; bằng luật không tự tạo quyền hành nghề.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [
+      {
+        "label": "Thủ tục cấp chứng chỉ hành nghề luật sư",
+        "url": "https://dichvucong.gov.vn/p/home/dvc-chi-tiet-thu-tuc-hanh-chinh.html?ma_thu_tuc=1.000688"
+      }
+    ],
+    "profile_version": 2
+  },
+  {
+    "career_id": "chuyen-vien-phap-che",
+    "name": "Chuyên viên pháp chế",
+    "category_id": "public-service",
+    "short_description": "Rà soát hợp đồng, đánh giá rủi ro pháp lý của tổ chức.",
+    "description": "Chuyên viên pháp chế rà soát hoạt động của tổ chức để nhận diện rủi ro pháp lý và hỗ trợ tuân thủ. Kết quả công việc gắn với rà soát hợp đồng và đánh giá rủi ro pháp lý của tổ chức.",
+    "daily_tasks": [
+      "Rà soát hợp đồng",
+      "Đánh giá rủi ro pháp lý của tổ chức",
+      "Rà điều khoản hợp đồng",
+      "Theo dõi văn bản liên quan hoạt động",
+      "Góp ý quy trình xử lý tranh chấp"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Phòng pháp chế nội bộ phối hợp kinh doanh và quản lý.",
+    "challenges": [
+      "Giải thích quy định trong tình huống cụ thể",
+      "Quy định khác nhau theo ngành",
+      "Áp lực kinh doanh có thể trái khuyến nghị pháp lý"
+    ],
+    "keywords": [
+      "Chuyên viên pháp chế",
+      "Luật, hành chính và dịch vụ công",
+      "Rà soát hợp đồng",
+      "Đánh giá rủi ro pháp lý của tổ chức",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Rà soát hợp đồng."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Rà điều khoản hợp đồng; theo dõi văn bản liên quan hoạt động."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Góp ý quy trình xử lý tranh chấp."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc hiểu hồ sơ",
+        "reason": "Hỗ trợ việc rà soát hợp đồng; cần kiểm tra kết quả vì quy định khác nhau theo ngành."
+      },
+      {
+        "skill": "Lập luận và bảo mật",
+        "reason": "Hỗ trợ việc rà điều khoản hợp đồng; cần kiểm tra kết quả vì áp lực kinh doanh có thể trái khuyến nghị pháp lý."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Lịch sử, Ngữ văn, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử rà điều khoản hợp đồng ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: So sánh điều khoản trong hợp đồng mẫu dành cho học tập. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "cong-chung-vien",
+    "name": "Công chứng viên",
+    "category_id": "public-service",
+    "short_description": "Kiểm tra giấy tờ giao dịch, thực hiện nghiệp vụ công chứng.",
+    "description": "Công chứng viên kiểm tra và chứng nhận tính xác thực, hợp pháp của giao dịch thuộc thẩm quyền công chứng. Kết quả công việc gắn với kiểm tra giấy tờ giao dịch và thực hiện nghiệp vụ công chứng.",
+    "daily_tasks": [
+      "Kiểm tra giấy tờ giao dịch",
+      "Thực hiện nghiệp vụ công chứng",
+      "Kiểm tra giấy tờ và chủ thể giao dịch",
+      "Giải thích quyền nghĩa vụ và ý chí tự nguyện",
+      "Ghi lời chứng và tổ chức lưu hồ sơ"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Tổ chức hành nghề công chứng, tiếp nhận và xử lý hồ sơ theo quy trình.",
+    "challenges": [
+      "Xác minh tính xác thực hồ sơ",
+      "Giấy tờ giả khó phát hiện",
+      "Sai sót ảnh hưởng quyền tài sản nhiều bên"
+    ],
+    "keywords": [
+      "Công chứng viên",
+      "Luật, hành chính và dịch vụ công",
+      "Kiểm tra giấy tờ giao dịch",
+      "Thực hiện nghiệp vụ công chứng",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Kiểm tra giấy tờ giao dịch."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Kiểm tra giấy tờ và chủ thể giao dịch; giải thích quyền nghĩa vụ và ý chí tự nguyện."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Ghi lời chứng và tổ chức lưu hồ sơ."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc hiểu hồ sơ",
+        "reason": "Hỗ trợ việc kiểm tra giấy tờ giao dịch; cần kiểm tra kết quả vì giấy tờ giả khó phát hiện."
+      },
+      {
+        "skill": "Lập luận và bảo mật",
+        "reason": "Hỗ trợ việc kiểm tra giấy tờ và chủ thể giao dịch; cần kiểm tra kết quả vì sai sót ảnh hưởng quyền tài sản nhiều bên."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Lịch sử, Ngữ văn, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử kiểm tra giấy tờ và chủ thể giao dịch ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Phân biệt công chứng với chứng thực qua tài liệu chính thống. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "regulated_or_role_specific",
+      "note": "Cần đáp ứng điều kiện bổ nhiệm và hành nghề; không chỉ hoàn thành khóa học ngắn.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [
+      {
+        "label": "Quy định công chứng năm 2024",
+        "url": "https://xaydungchinhsach.chinhphu.vn/nhung-diem-moi-cua-luat-cong-chung-nam-2024-119241224213628373.htm"
+      }
+    ],
+    "profile_version": 2
+  },
+  {
+    "career_id": "tham-phan",
+    "name": "Thẩm phán",
+    "category_id": "public-service",
+    "short_description": "Nghiên cứu hồ sơ tố tụng, điều hành xét xử theo thẩm quyền.",
+    "description": "Thẩm phán thực hiện nhiệm vụ xét xử theo phân công và quyết định trên cơ sở pháp luật, chứng cứ được xem xét. Kết quả công việc gắn với nghiên cứu hồ sơ tố tụng và điều hành xét xử theo thẩm quyền.",
+    "daily_tasks": [
+      "Nghiên cứu hồ sơ tố tụng",
+      "Điều hành xét xử theo thẩm quyền",
+      "Nghiên cứu hồ sơ và vấn đề cần làm rõ",
+      "Điều hành phiên tòa theo thủ tục",
+      "Tham gia nghị án và ban hành quyết định"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Tòa án, phòng làm việc và phòng xét xử.",
+    "challenges": [
+      "Yêu cầu khách quan và trách nhiệm cao",
+      "Phải giữ độc lập và vô tư",
+      "Quyết định tác động lớn đến quyền con người"
+    ],
+    "keywords": [
+      "Thẩm phán",
+      "Luật, hành chính và dịch vụ công",
+      "Nghiên cứu hồ sơ tố tụng",
+      "Điều hành xét xử theo thẩm quyền",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Nghiên cứu hồ sơ tố tụng."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Nghiên cứu hồ sơ và vấn đề cần làm rõ; điều hành phiên tòa theo thủ tục."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Tham gia nghị án và ban hành quyết định."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc hiểu hồ sơ",
+        "reason": "Hỗ trợ việc nghiên cứu hồ sơ tố tụng; cần kiểm tra kết quả vì phải giữ độc lập và vô tư."
+      },
+      {
+        "skill": "Lập luận và bảo mật",
+        "reason": "Hỗ trợ việc nghiên cứu hồ sơ và vấn đề cần làm rõ; cần kiểm tra kết quả vì quyết định tác động lớn đến quyền con người."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Lịch sử, Ngữ văn, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử nghiên cứu hồ sơ và vấn đề cần làm rõ ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Dự phiên tòa giả định do trường tổ chức, không dùng hồ sơ cá nhân. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "kiem-sat-vien",
+    "name": "Kiểm sát viên",
+    "category_id": "public-service",
+    "short_description": "Nghiên cứu hồ sơ tố tụng, thực hiện nhiệm vụ kiểm sát theo phân công.",
+    "description": "Kiểm sát viên thực hành quyền công tố và kiểm sát hoạt động tư pháp theo phân công, góp phần bảo đảm pháp luật được chấp hành. Trong vụ án hình sự, công việc gồm đánh giá căn cứ truy tố và thực hành quyền công tố tại phiên tòa; trong lĩnh vực khác, nhiệm vụ kiểm sát tuân theo phạm vi pháp luật. Kiểm sát viên không thay thẩm phán quyết định hình phạt.",
+    "daily_tasks": [
+      "Nghiên cứu hồ sơ, hệ thống chứng cứ buộc tội và gỡ tội",
+      "Yêu cầu làm rõ vấn đề cần chứng minh theo nhiệm vụ và thẩm quyền",
+      "Kiểm tra tính hợp pháp của chứng cứ và thủ tục",
+      "Tham gia xét hỏi, luận tội và tranh luận trong vụ án hình sự",
+      "Kiến nghị hoặc kháng nghị khi có căn cứ theo thẩm quyền"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Viện kiểm sát, phiên tòa và địa điểm kiểm sát theo phân công vụ việc.",
+    "challenges": [
+      "Đánh giá chứng cứ đúng phạm vi trách nhiệm",
+      "Không được đồng nhất buộc tội với kết tội",
+      "Phải xem xét cả chứng cứ gỡ tội và tránh oan sai"
+    ],
+    "keywords": [
+      "Kiểm sát viên",
+      "Luật, hành chính và dịch vụ công",
+      "Nghiên cứu hồ sơ tố tụng",
+      "Thực hiện nhiệm vụ kiểm sát theo phân công",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Nghiên cứu hồ sơ và hệ thống các vấn đề cần chứng minh trước buổi làm việc hoặc phiên tòa."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Kiểm tra tính hợp pháp của chứng cứ và thủ tục; tham gia xét hỏi, luận tội và tranh luận trong vụ án hình sự."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Kiến nghị hoặc kháng nghị khi có căn cứ theo thẩm quyền."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc hiểu hồ sơ",
+        "reason": "Đọc hiểu hồ sơ giúp đối chiếu chứng cứ, thời điểm và thủ tục; phải xem xét cả thông tin buộc tội lẫn gỡ tội."
+      },
+      {
+        "skill": "Lập luận và bảo mật",
+        "reason": "Lập luận có căn cứ giúp trình bày quan điểm và phản hồi tranh luận; bảo mật giúp giữ an toàn thông tin vụ việc và người liên quan."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Lịch sử, Ngữ văn, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử kiểm tra tính hợp pháp của chứng cứ và thủ tục ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Đọc sơ đồ tố tụng và phân biệt vai trò kiểm sát viên với thẩm phán. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "regulated_or_role_specific",
+      "note": "Là chức danh được bổ nhiệm theo luật, không phải dịch vụ hành nghề tự do.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [
+      {
+        "label": "Văn bản hợp nhất Luật tổ chức VKSND 110/VBHN-VPQH (2025)",
+        "url": "https://vanban.chinhphu.vn/?classid=2629&docid=215229&pageid=27160"
+      },
+      {
+        "label": "VKSNDTC: kiểm tra chứng cứ buộc tội và gỡ tội",
+        "url": "https://vksndtc.gov.vn/tintuc/Pages/lists.aspx?ItemID=119"
+      }
+    ],
+    "profile_version": 2
+  },
+  {
+    "career_id": "chap-hanh-vien",
+    "name": "Chấp hành viên",
+    "category_id": "public-service",
+    "short_description": "Tổ chức thi hành quyết định, làm việc với các bên liên quan.",
+    "description": "Chấp hành viên tổ chức thi hành bản án, quyết định dân sự theo thẩm quyền và trình tự pháp luật. Kết quả công việc gắn với tổ chức thi hành quyết định và làm việc với các bên liên quan.",
+    "daily_tasks": [
+      "Tổ chức thi hành quyết định",
+      "Làm việc với các bên liên quan",
+      "Xác minh điều kiện thi hành án",
+      "Thông báo và tổ chức biện pháp thi hành",
+      "Theo dõi phân chia và bàn giao kết quả"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Cơ quan thi hành án dân sự và địa bàn xác minh, xử lý tài sản.",
+    "challenges": [
+      "Xử lý quyền lợi đối lập",
+      "Cưỡng chế tác động quyền và tài sản",
+      "Hiện trường dễ phát sinh xung đột"
+    ],
+    "keywords": [
+      "Chấp hành viên",
+      "Luật, hành chính và dịch vụ công",
+      "Tổ chức thi hành quyết định",
+      "Làm việc với các bên liên quan",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Tổ chức thi hành quyết định."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Xác minh điều kiện thi hành án; thông báo và tổ chức biện pháp thi hành."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Theo dõi phân chia và bàn giao kết quả."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc hiểu hồ sơ",
+        "reason": "Hỗ trợ việc tổ chức thi hành quyết định; cần kiểm tra kết quả vì cưỡng chế tác động quyền và tài sản."
+      },
+      {
+        "skill": "Lập luận và bảo mật",
+        "reason": "Hỗ trợ việc xác minh điều kiện thi hành án; cần kiểm tra kết quả vì hiện trường dễ phát sinh xung đột."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Lịch sử, Ngữ văn, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử xác minh điều kiện thi hành án ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Vẽ tiến trình thi hành từ một tình huống giả định đơn giản. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "chuyen-vien-hanh-chinh",
+    "name": "Chuyên viên hành chính",
+    "category_id": "public-service",
+    "short_description": "Tiếp nhận và xử lý văn bản, điều phối công việc văn phòng.",
+    "description": "Chuyên viên hành chính tổ chức công việc hỗ trợ để văn phòng có nguồn lực và quy trình vận hành rõ ràng. Kết quả công việc gắn với tiếp nhận và xử lý văn bản và điều phối công việc văn phòng.",
+    "daily_tasks": [
+      "Tiếp nhận và xử lý văn bản",
+      "Điều phối công việc văn phòng",
+      "Điều phối lịch và hậu cần họp",
+      "Theo dõi tài sản và vật tư",
+      "Chuẩn bị văn bản hành chính đúng thể thức"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Văn phòng tổ chức với các đầu mối nhân sự và dịch vụ.",
+    "challenges": [
+      "Nhiều đầu việc cần theo dõi chính xác",
+      "Nhiều yêu cầu phát sinh cùng lúc",
+      "Sai lịch hoặc hồ sơ làm chậm công việc"
+    ],
+    "keywords": [
+      "Chuyên viên hành chính",
+      "Luật, hành chính và dịch vụ công",
+      "Tiếp nhận và xử lý văn bản",
+      "Điều phối công việc văn phòng",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Tiếp nhận và xử lý văn bản."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Điều phối lịch và hậu cần họp; theo dõi tài sản và vật tư."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Chuẩn bị văn bản hành chính đúng thể thức."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc hiểu hồ sơ",
+        "reason": "Hỗ trợ việc tiếp nhận và xử lý văn bản; cần kiểm tra kết quả vì nhiều yêu cầu phát sinh cùng lúc."
+      },
+      {
+        "skill": "Lập luận và bảo mật",
+        "reason": "Hỗ trợ việc điều phối lịch và hậu cần họp; cần kiểm tra kết quả vì sai lịch hoặc hồ sơ làm chậm công việc."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Lịch sử, Ngữ văn, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử điều phối lịch và hậu cần họp ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Lập kế hoạch hậu cần cho buổi sinh hoạt lớp. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  },
+  {
+    "career_id": "van-thu-luu-tru",
+    "name": "Văn thư lưu trữ",
+    "category_id": "public-service",
+    "short_description": "Phân loại hồ sơ, theo dõi giao nhận tài liệu.",
+    "description": "Văn thư lưu trữ quản lý vòng đời văn bản và hồ sơ để thông tin được tìm đúng, bảo quản đúng và sử dụng đúng quyền. Kết quả công việc gắn với phân loại hồ sơ và theo dõi giao nhận tài liệu.",
+    "daily_tasks": [
+      "Phân loại hồ sơ",
+      "Theo dõi giao nhận tài liệu",
+      "Đăng ký văn bản đến và đi",
+      "Lập hồ sơ và danh mục lưu",
+      "Kiểm tra điều kiện bảo quản và truy cập"
+    ],
+    "skills": [
+      "Đọc hiểu hồ sơ",
+      "Lập luận và bảo mật"
+    ],
+    "related_subjects": [
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "work_environment": "Bộ phận văn thư, kho lưu trữ và hệ thống hồ sơ điện tử.",
+    "challenges": [
+      "Bảo mật và tìm lại hồ sơ lâu năm",
+      "Mất liên kết hồ sơ làm khó truy xuất",
+      "Tài liệu mật cần kiểm soát riêng"
+    ],
+    "keywords": [
+      "Văn thư lưu trữ",
+      "Luật, hành chính và dịch vụ công",
+      "Phân loại hồ sơ",
+      "Theo dõi giao nhận tài liệu",
+      "Lịch sử",
+      "Ngữ văn",
+      "Giáo dục kinh tế và pháp luật"
+    ],
+    "typical_day": [
+      {
+        "stage": "Đầu buổi / đầu ca",
+        "activity": "Phân loại hồ sơ."
+      },
+      {
+        "stage": "Trong buổi làm việc",
+        "activity": "Đăng ký văn bản đến và đi; lập hồ sơ và danh mục lưu."
+      },
+      {
+        "stage": "Cuối buổi hoặc bàn giao",
+        "activity": "Kiểm tra điều kiện bảo quản và truy cập."
+      }
+    ],
+    "skill_details": [
+      {
+        "skill": "Đọc hiểu hồ sơ",
+        "reason": "Hỗ trợ việc phân loại hồ sơ; cần kiểm tra kết quả vì mất liên kết hồ sơ làm khó truy xuất."
+      },
+      {
+        "skill": "Lập luận và bảo mật",
+        "reason": "Hỗ trợ việc đăng ký văn bản đến và đi; cần kiểm tra kết quả vì tài liệu mật cần kiểm soát riêng."
+      }
+    ],
+    "learning_path": [
+      "THCS: tìm hiểu Lịch sử, Ngữ văn, Giáo dục kinh tế và pháp luật qua bài học và câu lạc bộ; không cần phải giỏi sẵn mọi môn.",
+      "THPT: thử đăng ký văn bản đến và đi ở mức mô phỏng, ghi lại cách làm và điều chưa hiểu để hỏi người hướng dẫn.",
+      "Trải nghiệm an toàn: Lập quy tắc đặt tên và mục lục tài liệu của nhóm học. Đây là hoạt động học, không phải quyền thực hiện nghiệp vụ chuyên môn."
+    ],
+    "professional_requirements": {
+      "status": "verify_specific_role",
+      "note": "Yêu cầu tuyển dụng và quyền thực hiện nghiệp vụ phụ thuộc vị trí, nơi làm việc. Hồ sơ chưa liệt kê đầy đủ điều kiện hoặc chứng chỉ riêng; cần đối chiếu cơ quan chuyên ngành trước khi chọn chương trình đào tạo.",
+      "study_note": "Môn học và trải nghiệm trên là gợi ý khám phá, không thay thế văn bằng, bổ nhiệm hoặc giấy phép bắt buộc."
+    },
+    "sources": [],
+    "profile_version": 2
+  }
+]

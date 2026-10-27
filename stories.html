@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Thế giới nghề nghiệp · La Bàn</title>
+  <meta name="description" content="Khám phá công việc thực tế qua video và 200 câu chuyện tương tác của La Bàn.">
+  <meta name="theme-color" content="#f6f5ee"><link rel="icon" href="/assets/compass.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/style.css" rel="stylesheet"><link href="/assets/stories-31.css?v=31" rel="stylesheet">
+  <script type="module" src="/assets/stories.js?v=task44-2"></script>
+</head>
+<body class="stories-page">
+<a class="skip-link" href="#story-main">Đến nội dung</a>
+<header class="stories-top"><nav class="container" aria-label="Điều hướng chính">
+  <a class="brand" href="/"><img src="/assets/compass.svg" width="36" height="36" alt=""><span>la bàn<span class="brand-dot">.</span></span></a>
+  <a class="top-explore" href="/#careers">Khám phá nghề</a><a class="btn btn-ink" href="/ai-career-advisor">Trò chuyện với AI ↗</a>
+</nav></header>
+<main id="story-main" class="container">
+  <section id="story-library" hidden>
+    <div class="library-intro"><p class="eyebrow">GÓC NHÌN THẬT · KHẢ NĂNG MỚI</p><h1>Thế giới<br><em>nghề nghiệp.</em></h1><p>Khám phá công việc thực tế qua video<br class="desktop-break"> và những câu chuyện tương tác.</p></div>
+    <form id="story-filters" class="story-filters" role="search"><label class="search-field" for="story-search"><span aria-hidden="true">⌕</span><span class="visually-hidden">Tìm theo tên nghề</span><input id="story-search" type="search" maxlength="120" placeholder="Em muốn tìm hiểu nghề gì?"></label><label class="visually-hidden" for="story-category-filter">Nhóm nghề</label><select id="story-category-filter"><option value="">Tất cả nhóm nghề</option></select><button type="submit" class="btn btn-ink">Tìm kiếm</button></form>
+    <div class="library-meta"><p id="story-count" role="status"></p><span>Đọc truyện không cần tài khoản</span></div>
+    <div id="story-grid" class="story-grid"></div><div class="load-more"><button id="story-more" class="btn btn-outline-ink" hidden>Xem thêm nghề ↓</button></div>
+  </section>
+  <p id="story-loading" role="status">Đang mở thế giới nghề nghiệp…</p>
+  <section id="story-error" role="alert" class="story-error" hidden><h1>Chưa mở được nghề này</h1><p id="story-error-text"></p><a href="/mot-ngay-lam-viec" data-library>← Tất cả nghề</a><button id="retry-story" class="text-button">Thử lại</button></section>
+  <article id="story-detail" hidden>
+    <nav class="story-breadcrumb" aria-label="Đường dẫn"><a href="/mot-ngay-lam-viec" data-library>← Tất cả nghề</a><span aria-hidden="true">/</span><span id="breadcrumb-name"></span></nav>
+    <header class="detail-heading"><p id="story-category" class="eyebrow"></p><h1 id="career-title"></h1><p id="career-intro"></p><a id="back-career" class="profile-link">Hồ sơ nghề trong Khám phá nghề ↗</a></header>
+    <div class="story-tabs" role="tablist" aria-label="Cách tìm hiểu nghề"><button id="tab-video" role="tab" aria-controls="video-panel" aria-selected="false" tabindex="-1">Video thực tế <span id="video-count"></span></button><button id="tab-comic" role="tab" aria-controls="comic-panel" aria-selected="true">Truyện tương tác <span>5 cảnh</span></button></div>
+    <section id="video-panel" role="tabpanel" aria-labelledby="tab-video" hidden>
+      <p id="video-empty" class="empty-note" hidden>Video thực tế đang được cập nhật. Trong lúc chờ, em có thể khám phá một ngày làm việc qua truyện tương tác.</p>
+      <div id="video-content" hidden><label id="video-selector-label" class="video-selector" hidden>Video khác về nghề này<select id="video-selector"></select></label>
+        <div id="video-stage" class="video-stage"><button id="play-video" class="video-cover"><img id="video-thumbnail" alt="" width="1280" height="720" referrerpolicy="no-referrer"><span class="play-symbol" aria-hidden="true">▶</span><span class="visually-hidden">Mở trình phát YouTube</span></button><div id="youtube-host" hidden></div></div>
+        <div id="video-fallback" class="video-fallback" role="status" hidden><p id="video-fallback-text"></p></div>
+        <div class="video-heading"><h2 id="video-title"></h2><p id="video-channel"></p><p id="video-description"></p><a id="youtube-link" target="_blank" rel="noopener noreferrer" class="profile-link">Xem trên YouTube ↗</a></div>
+        <details class="watch-prompts"><summary>Ba điều em có thể chú ý khi xem</summary><ul><li>Người làm nghề thực hiện những nhiệm vụ gì?</li><li>Kỹ năng nào được sử dụng trong công việc?</li><li>Điều gì khiến công việc này khó khăn?</li></ul></details>
+        <p class="quiet-note">Trình phát YouTube chỉ tải khi em bấm phát. Video bên ngoài có thể thay đổi hoặc hiển thị quảng cáo.</p>
+      </div>
+    </section>
+    <section id="comic-panel" role="tabpanel" aria-labelledby="tab-comic">
+      <div id="comic-reader"><div class="reading-meta"><p id="comic-person"></p><span id="scene-counter" aria-live="polite"></span></div><progress id="reading-progress" max="5" value="1" aria-label="Tiến độ đọc"></progress>
+        <div class="comic-stage"><figure class="scene-figure"><div id="scene-art"></div><figcaption><span id="scene-time"></span><span id="character-name"></span></figcaption></figure>
+          <div class="scene-copy"><span id="scene-kicker" class="eyebrow"></span><h2 id="scene-title"></h2><p id="scene-caption"></p><p id="scene-consequence" class="scene-consequence" hidden></p>
+            <section id="decision-card" class="decision-area" hidden><h3 id="decision-question"></h3><div id="decision-choices"></div><p id="decision-feedback" role="status" hidden></p><p class="quiet-note">Có thể chọn lại để khám phá. Đây không phải bài chấm điểm năng lực.</p></section>
+            <details id="skill-details" class="skill-disclosure"><summary>Kỹ năng được dùng trong cảnh này</summary><strong id="scene-skill"></strong><p id="scene-skill-reason"></p><blockquote id="scene-speech"></blockquote></details>
+          </div>
+        </div>
+        <div class="reader-nav"><button id="prev-scene" class="text-button">← Trước</button><button id="next-scene" class="btn btn-ink">Tiếp theo →</button></div>
+      </div>
+      <section id="day-summary" class="day-summary" tabindex="-1" hidden><p class="eyebrow">MỘT NGÀY KHÉP LẠI · MỘT GÓC NHÌN MỚI</p><h2>Sau một ngày trải nghiệm,<br>em hiểu gì về nghề này?</h2><p id="summary-text"></p><ul id="summary-reflection"></ul><details><summary>Nhìn lại lựa chọn của em</summary><ul id="summary-decisions"></ul></details><h3>Một bước nhỏ để tìm hiểu thêm</h3><p id="summary-step"></p><div class="summary-actions"><button id="restart-story" class="btn btn-ink">Chơi lại từ đầu ↺</button><button id="return-last-scene" class="text-button">Quay lại cảnh cuối</button></div></section>
+    </section>
+    <div class="ask-secondary"><button id="ask-scene" class="text-button">Hỏi AI về cảnh này ↗</button><p id="ask-note" class="quiet-note">Câu hỏi sẽ mở ở AI Chat để em chỉnh sửa và xác nhận gửi.</p>
+      <form id="story-ask-form" hidden><label for="story-question">Điều em muốn hỏi</label><textarea id="story-question" rows="3" minlength="3" maxlength="600" required></textarea><button class="btn btn-ink" id="story-ask-submit">Mở câu hỏi ở AI Chat ↗</button><p id="story-answer" role="status" hidden></p></form>
+    </div>
+    <details class="story-source"><summary>Về câu chuyện và nguồn tham khảo</summary><p id="story-note"></p><ul id="story-sources"></ul></details>
+  </article>
+</main>
+<footer class="container stories-footer"><a class="brand" href="/">la bàn.</a><span>KHKT 2027 · Mỗi nghề, một góc nhìn.</span><a href="/#about">Về dự án ↗</a></footer>
+</body></html>

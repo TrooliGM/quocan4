@@ -4,10 +4,12 @@ from unittest.mock import patch
 
 from fastapi.testclient import TestClient
 from app import app
+from protection_fixture import ProtectedAPIFixture
 
 
-class HomepageTests(unittest.TestCase):
+class HomepageTests(ProtectedAPIFixture, unittest.TestCase):
     def setUp(self):
+        super().setUp()
         self.client = TestClient(app)
 
     def test_home_and_assets(self):
@@ -24,10 +26,8 @@ class HomepageTests(unittest.TestCase):
         self.assertEqual(len(items), 2)
         self.assertEqual(self.client.get("/api/careers?q=khongtimthay").json()["items"], [])
 
-    def test_articles_have_full_content(self):
-        items = self.client.get("/api/articles").json()["items"]
-        self.assertEqual(len(items), 3)
-        self.assertTrue(all(a["body"] for a in items))
+    def test_removed_career_corner(self):
+        self.assertEqual(self.client.get("/api/articles").status_code, 404)
 
     def test_ai_configuration_and_validation(self):
         with patch.dict(os.environ, {"DEEPSEEK_API_KEY": ""}):

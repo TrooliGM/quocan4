@@ -60,13 +60,15 @@ async def checks(debug_url, origin):
         await browser.call("Page.enable")
         await browser.call("Emulation.setDeviceMetricsOverride", {"width":1440, "height":1000, "deviceScaleFactor":1, "mobile":False})
         # Khách mở trang chat phải quay về hộp đăng nhập hiện có.
-        await browser.call("Page.navigate", {"url":origin + "/ai-career-advisor"})
+        await browser.call("Page.navigate", {"url":origin + "/?login=1"})
         await browser.wait_for("location.search.includes('login=1') && document.querySelector('#auth-dialog')?.open")
         await browser.wait_for("!document.querySelector('#auth-submit').disabled")
         await browser.evaluate("document.querySelector('#auth-email').value='test@example.com'; document.querySelector('#auth-password').value='test-password'; document.querySelector('#auth-form').requestSubmit()")
         await browser.wait_for("location.pathname==='/ai-career-advisor' && !document.querySelector('#chat-app')?.hidden")
         await browser.wait_for("document.fonts.status==='loaded'")
-        assert await browser.evaluate("!document.querySelector('#welcome').hidden")
+        await browser.wait_for("document.querySelector('#welcome').hidden && document.querySelectorAll('.message-row').length===1 && document.activeElement.id==='message-input'")
+        # Sau đăng nhập đã vào chat; mở phiên mới để kiểm tra lựa chọn lưu chủ động.
+        await browser.evaluate("document.querySelector('#new-chat').click()")
         await browser.screenshot("advisor-desktop-welcome.png")
         await browser.evaluate("document.querySelector('#remember-chat').checked=true; document.querySelector('#start-chat').click()")
         await browser.wait_for("document.querySelectorAll('.message-row').length===1 && !document.querySelector('#start-chat').disabled")
@@ -132,9 +134,14 @@ def main():
     ARTIFACTS.mkdir(exist_ok=True)
     chrome = Path(os.environ.get("PROGRAMFILES", "C:/Program Files")) / "Google/Chrome/Application/chrome.exe"
     suffix = uuid4().hex[:8]
-    environment = {**os.environ, "AI_DEMO_MODE":"true", "DATABASE_URL":"sqlite:///" + str(ARTIFACTS / f"browser-{suffix}.sqlite3")}
+    test_database = os.environ.get('LABAN_BROWSER_TEST_DATABASE')
+    if test_database:
+        from urllib.parse import urlparse
+        if urlparse(test_database).hostname not in ('127.0.0.1','localhost'):
+            raise RuntimeError('Browser PostgreSQL tests only accept loopback, never production.')
+    environment = {**os.environ, "AI_DEMO_MODE":"true", "DATABASE_URL":test_database or "sqlite:///" + str(ARTIFACTS / f"browser-{suffix}.sqlite3")}
     with (ARTIFACTS / "browser-server.log").open("w", encoding="utf-8") as log, (ARTIFACTS / "browser-chrome.log").open("w", encoding="utf-8") as chrome_log:
-        server = subprocess.Popen([sys.executable,"-m","uvicorn","browser_fixture:app","--app-dir","tests","--host","127.0.0.1","--port","8013"],
+        server = subprocess.Popen([sys.executable,"-m","uvicorn","browser_fixture:app","--app-dir","tests","--host","127.0.0.1","--port","8013","--no-proxy-headers"],
                                   cwd=ROOT, env=environment, stdout=log, stderr=log, creationflags=subprocess.CREATE_NO_WINDOW)
         browser = subprocess.Popen([str(chrome),"--headless=new","--disable-gpu","--no-first-run","--no-default-browser-check","--no-proxy-server",
                                     "--remote-debugging-port=9227","--remote-allow-origins=http://localhost:9227",

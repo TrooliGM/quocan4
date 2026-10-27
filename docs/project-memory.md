@@ -1,5 +1,33 @@
 # Bộ nhớ dự án: Website Hướng nghiệp KHKT 2027
 
+## Task 4 — 25/10/2026, Preview cách ly đã xác minh
+
+Production trước tạo nhánh đã xác minh df1c300/dpl_6Q6muJBTW7kK7owh4m5TJ7XgU2dN (đã có Task3.1), không còn 5aaed6e. Nhánh feat/task-4-ai-advisor-3-0/worktree task-4 từ đúng nền, backup task-4-before-advisor-3. Đã triển khai code giao tiếp/header, Brave adapter/citation/SSRF, phân tích năm câu có schema/evidence và hồ sơ chỉ lưu từng mục đã đồng ý. Migration006 chỉ chạy PG local, không Neon. 86 test backend khác nhau qua các lượt trọng tâm, 11 Node/Chrome7 nhóm PASS với auth/model fixture; không LIVE. Người dùng xác nhận chưa có môi trường/provider thử, chọn Preview cách ly và BLOCKED LIVE. Không đổi Production/200 nghề/Truyện nghề hoặc auth modules, không copy Production secrets. Xem docs/task-4-final-report.md và bảng đủ53ID; Preview5bbc282/dpl_FuHqTyMmFEaAam7x6ipEYAJ2CBxX READY: https://quocan4-gbxablhb0-khkt3.vercel.app/ai-career-advisor?preview=1; HTTP/Chrome desktop-mobile, providers disabled/mutations503 PASS; Production/env không đổi. Tracking19PASS/34BLOCKED, không khẳng định53PASS. NhánhTask4 đã push, chưa PR/merge/Production; checkpoint4.1a0f08dc/4.2 1a48619/4.3 b3e385b/4.4 5bbc282.
+
+## Task 3.1 — 24/10/2026, đang hoàn thiện Preview
+
+Nhánh feat/task-3-1-video-library/worktree task-3-1 từ f95cfde; backup task-3-before-redesign. Đã tách thư viện và chi tiết nghề, reader một cảnh, tab video/comic, schema/import YouTube và handoff video sang AI. Giữ nguyên 200 hồ sơ, 200 truyện/1000 cảnh/400 lựa chọn và auth/quota/DB. Ba ứng viên, hai video CareerOneStop rà metadata/mô tả/toàn bộ storyboard (chưa nghe hết âm thanh), một VTV7 KIDS pending không xuất bản. 26 backend/11 Node/Chrome10 nhóm PASS; hai YouTube player thật ready, một playback PASS, một playback chưa xác minh. Preview cần cách ly DB/providers, chưa có URL mới tại thời điểm ghi. Không Production/Neon/migration. Xem docs/task-3-1-checkpoint.md để phân biệt fixture, provider thật và giới hạn thẩm định.
+
+## Nhiệm vụ3 Truyện nghề2.0 —24/10/2026, mới nhất
+
+Hậu kiểm: Preview c23cdf3/dpl_GpkogjBB59CqFzJ1JEJyUQe3hdsp READY tại https://quocan4-2dx6bup90-khkt3.vercel.app/mot-ngay-lam-viec.200/200HTTP truyện PASS, Chrome desktop/mobile thật PASS qua bảo vệ Vercel. AI/Firebase tắt, guestcreate503/AI401, không dùngDBProduction. Production vẫn5aaed6e/dpl_8SWMtQHuQ7nFnkt3EEs5YVc1tAyQ. READY FOR PREVIEW REVIEW, chưa Production/push/merge. Báo cáo hậu kiểm commit riêng chỉdocs, runtime không đổi sau c23cdf3. Chi tiết checkpoint có URL, kiểm thử và giới hạn provider/thẩm định nội dung.
+
+Theo đặc tả mới, bắt đầu Task3 tại feat/task-3-career-stories-2-0/worktree task-3 từ Production5aaed6e, được Vercel xác minh; giữ hotfix2b4de6e và Chat2.1.200 truyện tĩnh biên tập4x50,1000cảnh/400quyếtđịnh;0video xác minh. Reader tương tác, trạng thái tab, ngữ cảnh AI có câu nháp sửa được và quay lại đúng hồ sơ.6truyệncũ cóAPIversion1.33backend/10Node/Chrome10+Chat2.1 12 checkpoint PASS với localPG/Firebasefixture/AIdemo; không coi là kiểm thử provider thật. Không đổi200hồsơ/UItrangchủ/auth/quota/schema. User cho phép checkpointcommit và Preview, không Production trước duyệt. Nhánh Preview chưa cóDBriêng, chọn Preview chỉđọc với credentials/DB trống, không sao chépProduction. Trạng thái build/URL ghi sau khi thực hiện; xem docs/task-3-checkpoint.md và docs/task-3-editorial-review.md. Các mục Task1/2 không làmTask3 bên dưới là checkpoint cũ, đã được yêu cầu mới thay thế.
+
+## Chuẩn bị Vercel — 2026-10-13
+
+- Người dùng yêu cầu chuẩn bị cấu hình Vercel từ GitHub; không commit/push, không đổi Firebase project hoặc hệ thống đăng nhập, không xóa dữ liệu. Chưa yêu cầu tạo deployment trong lần chuẩn bị này.
+- Đã đối chiếu tài liệu Vercel hiện hành: `app.py` xuất `app`, tự nhận diện; giữ entrypoint `app:app` và vercel.json tối giản, không thêm routes/rewrites. Bổ sung dependencies runtime vào pyproject.toml khớp requirements.txt, thêm Pydantic trực tiếp và `.python-version` chọn 3.14 đã thử local.
+- Đã cập nhật `.env.example` chỉ có giá trị mẫu, mở rộng `.gitignore`/`.vercelignore` cho các mẫu credentials, service account và private key. Không sửa `.env`, mã Firebase hoặc database hiện có.
+- 26 test backend đạt, browser_login và browser_stories với giả lập đạt; 19 đường dẫn local trả 200; kiểm tra import và trang/API khi `VERCEL=1` đạt, assets để Vercel public CDN phục vụ. Kiểm tra tài sản/import JS tồn tại, không có URL localhost cố định trong frontend. Chưa chạy Vercel build/dev hoặc deployment thật do máy không có CLI/Node; chưa xác minh Firebase thật trên domain production.
+- SQLite và phiên RAM vẫn là điều kiện chặn chat production trên Vercel. Đề xuất PostgreSQL managed với adapter, phiên tạm TTL và khóa/idempotency dùng chung; chưa triển khai hoặc migrate. Không dùng /tmp làm storage bền vững. Chi tiết và các bước deploy ở `docs/vercel-deploy.md`.
+
+## Đăng nhập mở thẳng chat — 2026-10-13
+
+- Người dùng yêu cầu đăng nhập tài khoản xong chuyển thẳng vào trò chuyện AI. Email/Google và liên kết đăng nhập với phiên đã xác thực chuyển tới `/ai-career-advisor?start=1`.
+- Trang chat khôi phục phiên đang mở trong tab; nếu chưa có thì tạo phiên tạm với lời chào, bỏ bước bấm Bắt đầu và đặt focus vào ô nhập sau khi bật lại điều khiển. Không tự đồng ý lưu lịch sử. Tham số start được xóa sau khi mở thành công để tránh tạo trùng khi tải lại.
+- Chrome với Firebase giả lập đã kiểm tra email, Google, phiên có sẵn, tải lại không tạo trùng, không chuyển trang khi backend xác thực lỗi và vẫn cho quay về trang chủ. Chưa thử đăng nhập Firebase thật cho thay đổi này. Các thay đổi đăng nhập này hiện ở local, chưa đồng bộ GitHub.
+
 ## Trạng thái mới nhất 2026-10-13: truyện nghề
 
 - Người dùng yêu cầu chức năng cốt lõi mô phỏng một ngày làm việc bằng hoạt hình/comic, áp dụng frontend-design, Python, DeepSeek, LangGraph, GitHub và Vercel.
@@ -124,3 +152,128 @@ Giải pháp: dùng hoạt hình, infographic, comic và tương tác để gi�
 - Công cụ kiểm tra thật ở `scripts/check_live_providers.py`; chỉ chạy chủ động, có dùng quota API, không ghi âm thanh xuống đĩa và không in khóa.
 
 Khi người dùng yêu cầu triển khai, tham khảo `docs/decisions.md`, xác định phạm vi cần làm và cập nhật bộ nhớ theo kết quả thực tế. Giữ chức năng trực quan hóa nghề nghiệp ở vị trí trung tâm của sản phẩm.
+
+
+## Nhiệm vụ 1 — 2026-10-23
+
+Đã phát triển giao diện điều hướng sau Hero và khảo sát năm bước theo phiên trên nhánh riêng feat/task-1-career-survey, từ Premium 7c07d33. Dữ liệu khảo sát dùng metadata JSON hiện có, không migration; lưu/ownership/row lock và browser local đã kiểm tra. Không thay Neon/Production. Chi tiết, giới hạn kiểm thử thật và checkpoint Nhiệm vụ 2 ở docs/task-1-checkpoint.md. Không thực hiện Nhiệm vụ 2/3.
+
+
+## Nhiệm vụ 2 — 2026-10-24
+
+### AI Chat 2.1 và hồ sơ200 nghề — cập nhật24/10/2026
+
+Yêu cầu trực tiếp mới cho phép phát triển và commit nhánh riêng, giữ giao diện, không merge/deploy Production/Task3. Đã xác minh domain thực hiện đang trỏ d5f10cc/deployment dpl_6KpjeYiZ7wseuyo7ussQ7eA2ZQbM, khác7c trong báo cáo trước. Làm tại feat/ai-chat-2-1, worktree ai-chat-21 từ đúng source đó. Đã nâng gợi ý6/câu, bản nháp nghề theo dữ liệu và mục tiêu khảo sát, quay lại đúng nơi sau login, draft tab có TTL/owner, retry claim và title có marker manual trong JSON không migration.200 hồ sơ được biên tập4x50, modal disclosure giữ links/IDs. Backend60 method cuối PASS, Node6, Chrome12+2 checkpoint PASS bằng fixture/demo/localPG; Firebase/DeepSeek thật chưa kiểm chứng. Có localhost8004 demo riêng, không Neon/Production/secret changes; xem docs/ai-chat-21-checkpoint.md. Chỉ coi dữ liệu là bản biên tập có đối chiếu mẫu, chưa có thẩm định chuyên gia cho toàn bộ200 nghề.
+
+Thư viện 200 nghề/12 nhóm, modal chung, hai mode AI và liên kết truyện theo ID đã triển khai trên feat/task-2-career-library. Preview localhost:8003 riêng dùng PostgreSQL local và AI demo. 17 test backend và browser desktop/mobile PASS có fixture; Firebase/DeepSeek thật cho flow mới chưa kiểm chứng. Không push/merge/deploy/Neon; Nhiệm vụ 3 chưa bắt đầu. Xem docs/task-2-checkpoint.md.
+
+### QA hồi quy Nhiệm vụ 1 + 2 — 2026-10-24
+
+Đã sửa whitelist bốn JSON runtime Vercel và modal bị phản hồi cũ ghi đè; giữ thiết kế, auth/quota và dữ liệu. Kết quả mới nhất: 79 backend method có outcome cuối PASS (batch 78/79 + retest module 4/4, không phải full batch 79/79), 93 browser assertion PASS trên 1440/768/390/360px. Tổng 172 PASS, 2 FAIL, 5 BLOCKED, 3 chưa kiểm chứng. Chỉ local PostgreSQL/Firebase fixture/AI demo; không chứng nhận Firebase/DeepSeek thật cho flow mới. **NOT READY FOR VERCEL PREVIEW** do hai API AI legacy không dùng auth/quota/rate chung, đã tái hiện mock; cần quyết định xử lý. Chưa deploy/Neon/push/merge; 8003 giữ nguyên. Báo cáo ở artifacts/super-board-report.md; xem checkpoint Nhiệm vụ 2. Không bắt đầu Nhiệm vụ 3.
+
+### Shared AI protection — 2026-10-24, trạng thái mới nhất
+
+High legacy đã được sửa và hai boundary retest401/graph0 PASS; chat/advice/story dùng identity/rate/quota/row lease chung, guest cookie không bắt Firebase, claim giữ lịch sử; voice rate nhưng không trừ quota8. Tổng197 PASS/0 FAIL/5 BLOCKED/3 chưa kiểm chứng, không cộng trùng batch90+security15 (94 method backend), browser101 và2boundary. Chỉ local/mock/demo, chưa live Firebase/DeepSeek. Migration004 nguồn cần phê duyệt riêng; legacy003 và proxy Vercel còn gate, nên NOT READY FOR VERCEL PREVIEW. Server8003 local mới PID16800, không dữ liệu Production. Chi tiết docs/shared-ai-protection.md và checkpoint task-2; không push/merge/deploy/Task3.
+
+### Chuẩn bị tích hợp Production — 2026-10-24
+
+Đã xác minh Production đang chạy 7c07d33, tạo nhánh/worktree integrate/task-12-production từ nền đó và fast-forward đủ Task1+2/349ff92, giữ nguyên migration002; backup Git local và deployment đã ghi. 004 đã PASS trên nhánh thử ticket-7-premium-preview, dữ liệu cũ checksum/counts không đổi; 31 test backend chọn lọc PASS. Production chỉ đọc: request/session ID còn UUID, thiếu004 và có1 completed request thiếu phiên, quota khớp; chưa đủ điều kiện phát hành. DATABASE_URL có tên trong scope/snapshot nhưng binding/định dạng thực chưa xác minh, không tự sửa config bằng suy đoán. Dừng trước PR/merge/deploy; xem docs/release-task12-readiness.md. Checkout chính và mọi thay đổi người dùng giữ nguyên, không sửa Production/backup, không Task3.
+
+## Hotfix điều hướng/hiệu năng —24/10/2026
+
+Tạo hotfix/chat-navigation-performance từ Production6c5ce23 được Vercel xác minh. Đo5create/5open thật: API median create12559,1ms/list7329,9ms/open7260,6ms, Chrome khảo sát sẵn sàng19523,7ms và open7159,7ms;0AIcalls. Sửa sidebar refresh thừa, cacheRAM owner/TTL30s, abort+fencing, one request connection/UNION/COUNT giữauthquota; thêm Server-Timing không dữ liệu nhạy cảm. Login có return_to nội bộ+UUID, chụp target trước listener, tái hiện intent mất; Google thật cần kiểm lại, không phủ nhận báo lỗi mới vì ca trước từngPASS. Local backend37+7, Node7, Chrome12 và perf guest/member/rapid PASS. Không đổi thư viện200/CSS/schema/config. User cho phép commit/push/deploy hotfix có điều kiện; build và đo Production mới còn chờ lúc ghi checkpoint này. Chi tiết docs/chat-performance-hotfix.md.
+
+
+## Task4 Production canary — 25/10/2026
+
+Đã xác nhận quyền triển khai có kiểm soát theo yêu cầu mới. Đã backup Neon READY/readback, áp migration006 additive trong transaction sau kiểm target/hash và bảng cũ/quota không đổi; không chạy001–005. Phát hành fde7ed2 / dpl_7ZaE94zBvSeBAps9HgTPkak9Q1aT lên domain chính thức, chỉ 1 UID QA Firebase đã verify được Task4; account khác/Guest giữ df1c300 ổn định, không sửa thư viện/Truyện nghề. Firebase email/password, DeepSeek, khảo sát/đề xuất/xác nhận/Neon và Guest8/concurrency LIVE có bằng chứng. Chưa Google popup/Brave; ID23 FAIL khi AI chưa dùng hồ sơ opt-in dù lưu/đọc đúng. 36PASS/16BLOCKED/1FAIL; không mở đại trà. Rollback deployment df1c300, giữ bảng additive/dữ liệu, không reset quota. Xem docs/task-4-production-rollout.md; không ghi secrets/UID/email học sinh vào memory.
+
+
+## Task4 hotfix cá nhân hóa —25/10/2026
+
+Được duyệt sửa/commit/phát hành QA-only, không migration. Tạo hotfix/task4-profile-context từ Production fde7ed2, kế thừa tài liệu36a5b8e. Hotfix957ffde / dpl_BwthFvvNpNDscwEuKPC744bVe38z đã lên domain chính thức, chỉ3 UID QA verified. Context cũ có dữ liệu nhưng model báo không có; A/B cùng hồ sơ/mode/model:old không đọc nonce, new đọc đúng sau tách block enabled/status/items gần câu hỏi, phân biệt conversation_notes. SELECT tối thiểu readonly/filterconfirmed/TTL/owner, OFF không query hoặc gửi giá trị.26 test local unique +LIVE ON/OFF/edit/2owner/irrelevant/correction và browser checkbox mới/old PASS. ID23 đã đóng,43PASS/10BLOCKED/0FAIL; không mở đại trà. Google popup user-confirmed PASS nhưng mode/career_id chưa khớp metadataNeon, giữ42partialBLOCKED; Brave thiếuenv; khảo sát mơ hồ structuredunavailable; Guest-profile canary chưa mở. Backup cũ READY; rollback về dpl_7ZaE94zBvSeBAps9HgTPkak9Q1aT, không DROP/resetquota/restoređè. Xem docs/task4-profile-hotfix.md. Không lưu email/UID/secrets trong memory.
+
+## Task4.1 — Preview nghiệm thu25/10/2026
+
+Được duyệt code/commit/Preview, không phát hành Production. Nhánh feat/task-4-1-advisor-intelligence từ dba80a6, candidate a2a2f76 có context/intent/boundedhistory, xưng hô thiếu dấu, phân tích5câu tự động bằng tác vụ PGmetadata cóhash/lease/fence/budgetriêng6attempt/ngày2/phútIP30/ngày, không trừ Guest8 hoặc tự lưu confirmed. ProfileUI căn cứ/accept/edit/reject/draft theoowner; nén mỗi6turn có recentturns6000ký tự, chỉ dữ kiện tựnhận. Neon schema-only mới/role riêng ban đầu8bảng0dòng, không copy dữ liệu học sinh/không chạy lại006remote. Preview READY https://quocan4-7x3jqli76-khkt3.vercel.app, QA-only và Vercelprotected.56testPythonuniquePASS/6browserfixturegroupsPASS; FirebaseSDKpassword/DeepSeek/autoanalysis/noautoconfirm/cache/ownership/cookieOrigin/nénlượt6 LIVE PASS.16rubric13PASS/3BLOCKED (Brave thiếukey), GooglepopupPreview cònBLOCKED; median16chatrequest mỗi bản9,17→4,27s là mẫunhỏkhôngSLA. Production vẫn957ffde/deploymentcũ; thưviện/Truyệnnghề/migrations khôngđổi. Remote377, các checkpointcuối chưapush; chờ duyệtPreview. Chi tiết docs/task41-checkpoint.md và docs/task41-validation.md; không lưuPII/secrets/UID trongmemory.
+
+### Sửa Guest vẫn thấy UI cũ
+
+Yêu cầu mới cho phép push/Preview, UI mở cho mọi người nhưng backend nhạy cảm vẫn QA-only. Chrome ẩn danh xác nhận flagcontrolled trước trả stable HTML/JS cho Guest/member. Đã tách ADVISOR_PREMIUM_UI_PREVIEW chỉ hiệu lựcVERCEL_ENVpreview, sửa reload guard, hướng dẫn panel/khảo sát khi chưa được analysis. e933f98 đãpush, Preview READY https://quocan4-bp6m6anvt-khkt3.vercel.app/ai-career-advisor, dpl_GPWPYMsLL3F7MwYsDaFsYzmBihDZ.5unitmới+3hồiquyPASS; Chrome3persona thật header/avatarless/bubbles/desktopmobilePASS có12ảnh; A/B stableDeepSeek+survey,0analysis; QA auto1analysis/đềxuấtcăn cứ/confirmmới lưu. Guest8→7đúng1chat. Không mởbackendchoall, khôngProd/migration/reset. Brave/popupGooglemới vẫnBLOCKED; báo cáo docs/task41-preview-ui-fix.md thay kết luận UIQA-only cũ. Không lưuPII/secrets/UID.
+
+### Quyết định mới nhất: thống nhất AI hội thoại
+
+Người dùng yêu cầu không chia chất lượng AI theo vai trò. Đã bỏ chọn stable_graph; cả /api/ai/chat, /api/advice và hỏi cảnh truyện dùng các node Task4.1 chung. UI và tự phân tích5câu mở cho Guest/member/QA; chỉ quyền bank Hồ sơ chưa phát hành còn QA-only, Guest không đọc confirmed context. Guest8/rate/auth/owner/consent giữ nguyên, không dùng quyền dữ liệu để quay lại AI cũ.
+
+Runtime dee7785 đã push, Preview READY https://quocan4-ju5z22f0t-khkt3.vercel.app/ai-career-advisor / dpl_Gooca1fySbMiFkmzANji1bGY2w1x.57testlocaluniquePASS; Chrome3persona tự1analysis/0chat mỗi5câu, draft có căn cứ và quyền confirm tách riêng. LIVE18turn cùng6câu cho3role có pipeline marker thật, đã đọc chất lượng; 1lỗi đại từ QA được sửa/rerun riêng PASS, không chạy lại cả18. Guest cũ tiếp tục engine mới, đủ8 thì429, retryfree; LIVE concurrencyanalysis200/200/429, headerIPgiảkhôngbypass; ownership/token/cookie/cachedanalysisPASS. Memberexploration LIVE giữcareer_id/mode. Schema8bảng/stagingriêng/Production957ffde không đổi, không migration/reset. Brave thiếukey, Googlepopuphostnamecuối chưa thử. Chờ duyệt Preview; khi được duyệt phải build Production bằng env Production, không promote nguyên Preview bindstaging. Xem docs/task41-unified-preview.md.
+## Task4.2 — DDGS Preview25/10/2026
+
+Yêu cầu mới cho phép tích hợpDDGS vàoTask4.1 vàPreview, khôngProduction/đổi nhánh/reset/migration/envproject. Giữbranchfeat/task-4-1-advisor-intelligence từ163e61c. Runtime4aae6f8, Preview READY https://quocan4-b4ajdo1cc-khkt3.vercel.app/ai-career-advisor / dpl_AHoqbo8kkjoo7TifbprKxkd6xJ7o, staging/schema-only/role riêngnhưtrước. ddgs9.16.1 keylessworkerbounded/TLS/HEADpinned/ownerprovidercache; Braveoptional, khôngchiaAItheorole. Nguồnretrycompatgiữđúng, ràngbuộcnguồnlượthiệntạivàcachetruthful.51localuniquePASS;18yêucầutrảlờiLIVE:11/14lượtcầntra cónguồn (1cache),3unavailable;2normalnotneeded/2privacyblocked. Member/QA và2compatAPI cóSearchthật; GuestLIVEBLOCKED quota8cũcạn vàIPissuanceday10cạn, khôngreset/lách. ChromeSDKdesktop/mobilefooternguồnPASS, cacheSearch1599,9→0,4ms; Googlepopup/adversarialLIVEchưa kiểm. Một diễn giải“tỷlệ”từsnippetpháplýchưa đủchi tiếtghiPARTIAL. NOTREADYPRODUCTION, khôngclaimhoàn tấtmọica. Khôngpush. GETProdthựctếdee7785/dpl_EhYXDvrYDNJznoBThVVHZ5Pu7ZDg kháccheckpoint957cũ;TasknàykhôngdeployProd. Xem docs/task42-search-preview.md. KhôngghiPII/secretsvàomemory.
+
+## Task 4.2 Production canary — 25/10/2026
+
+Người dùng đã duyệt push/phát hành DDGS QA-only trên domain chính. Source 1b1b640 đã push vào feat/task-4-1-advisor-intelligence, kế thừa a40bde6; 54 local PASS, schema Production readonly PASS, không migration. Build Production mới rồi promote dpl_EJvYVHp8yYb4Ync29JPu91WXWa6c lên labanhuongnghiep.vercel.app. Ba override Search riêng, chỉ hai UID QA đã xác minh; không đổi profile, DB, Firebase, DeepSeek hoặc secret. Guest/member vẫn Task 4.1, Search tắt, không legacy. Bốn câu cần nguồn có nguồn thật; hai lần đầu unavailable được giữ và retry một lần mỗi câu. Ca2 retry là cache từ QA Truyện nghề, ca3 Search mới nhưng model nhầm nhãn cache, ca4 nhiễm ngữ cảnh tuyển sinh: chất lượng PARTIAL, không mở đại trà. Câu5 không Search; token/owner/Origin, Guest một câu trên quota8 và retry miễn phí, lịch sử, Chrome SDK desktop/mobile PASS. Ngày 25/10/2026 chủ dự án xác nhận đăng nhập Google QA trên domain chính thành công và câu hỏi AI2026 có nguồn (PASS do người dùng xác nhận); không suy ra Search mới hay cache. Guest Search/injection LIVE chưa nghiệm thu. Rollback dee7785/dpl_EhYXDvrYDNJznoBThVVHZ5Pu7ZDg; tag backup local đã giữ. Không merge, đổi Production Branch, migration/reset hoặc sửa authorized domains. Xem docs/task42-production-canary.md; không ghi PII/UID/secrets.
+
+## Sửa chất lượng truy vấn nối tiếp Task 4.2 — 25/10/2026
+
+Đã sửa local từ fb2eca4: câu “Vậy năm 2020 là bao nhiêu ạ?” trong lịch sử điểm chuẩn Công an được khôi phục thành query đầy đủ, thay năm cũ và giữ trường/diện tuyển sinh đã nêu. Lọc nguồn theo chủ đề + điểm chuẩn + năm/trường, không chấp nhận năm nhuận. Kết quả lệch chủ đề tìm lại một lần trong tổng timeout12s, không thêm LLM hoặc lượt Guest; thiếu chủ đề/số liệu thì hỏi làm rõ, không tự điền điểm. Giữ DDGS/DeepSeek/auth/Neon/quota/canary/UI. 70 method local unique PASS qua các lượt trọng tâm; API test với PG local chứng minh hai tin chỉ trừ hai lượt dù có ba lần Search, retry request_id miễn phí. DDGS LIVE local timeout7s, chưa DeepSeek/Vercel LIVE. Chưa commit/push/deploy, Production giữ nguyên. Giữ các tài liệu xác nhận Google từ lượt trước. Xem docs/task42-search-context-fix.md; không lưu PII/secrets.
+
+## Task 4.2 — Preview LIVE và gate mở Search đại trà, 25/10/2026
+
+Người dùng cho phép Production cho mọi role chỉ sau LIVE/an toàn PASS, cấm lách hạn mức. Tiếp tục bản sửa local; chẩn đoán DDGS auto thực tế trả5kết quả sau7,53s khi Mojeek timeout5,99s, adapter7s cắt sớm. Sửa9s nhưng tổngSearch12s/two workers giữ nguyên; local LIVE7,61s có nguồn đúng. Local checkpoint399a46e rồi922983a, khôngpush. Preview cuối dpl_3Kz4eeduVK3wGr2STUKzwijARDGe / https://quocan4-87bqdbdmb-khkt3.vercel.app/ai-career-advisor, source922983a, stagingriêng/Searchmọirole/profileQA-only. 16chatLIVEhaiđợt; sửa được câu nối tiếp2020 và lời làm rõ trường/nam/A01, khôngnămnhuận; đợtcuối6/6yêucầuSearchcónguồn. Nhưng số liệu range thứ cấp khôngkhớp bảng chính thức và có nhãn cơquan nguồn sai: chấtlượngFAIL/PARTIAL, chưaREADYProduction. GuestSearchLIVEBLOCKED do0/8 vàIPissuance10/10, khôngbypass/reset.73localuniquePASS; Previewauth/owner/Origin/privatepathsPASS. Bổ sung đúngdomainPreviewgiữmọimiềnFirebasecũ; khôngđổiproject/secrets. MainGETvẫn1b1b640/dpl_EJvYVHp8yYb4Ync29JPu91WXWa6c QAcanary, khôngdeploy/DBwritesProduction/migration. Cần trích/đốichiếu ô bảng điểm chính thức và kiểmsoát attribution, hoàn tấtGuestLIVEquota hợp lệ trước mởđạitrà. Xem docs/task42-context-live-validation.md; khôngPII/UID/secrets.
+
+
+## Task 4.2 — Reader điểm chuẩn (25/10/2026)
+Bản sửa tiếp nối 415e245: thêm đối chiếu nội dung công bố CAND2020 và guard số liệu theo đủ diện tuyển sinh; bố cục/năm chưa hỗ trợ từ chối ước lượng. 55 kiểm thử local liên quan PASS, reader HTTPS LIVE PASS; Preview/DeepSeek mới chờ xác minh. Guest staging vẫn hết 8/8 và ngân sách cấp phiên 10/10, không reset/bypass. Production chưa thay. Xem docs/task42-score-evidence-validation.md.
+
+Kết thúc đợt đối chiếu điểm chuẩn: code d8491be / Preview dpl_G2gH5FQvHqDpUGnD1Hyc4BXip98N READY. Sửa thêm mất năm ở chuỗi làm rõ và ưu tiên nguồn đã đối chiếu trong ngân sách reader. 57 test phương thức local liên quan PASS; LIVE A01=23,09 và C03=18,88 member/QA, Chrome desktop/mobile quan sát PASS; auth/ownership/Origin/quota/private-path LIVE PASS. Guest Search LIVE BLOCKED (QA và người dùng đều hết lượt), external-source injection LIVE chưa kiểm; không mở Production, không push. Main vẫn1b1b640/EJvYVHp. Báo cáo docs/task42-score-evidence-validation.md là trạng thái mới nhất; không coi metadataenabled hoặc mock là GuestLIVE.
+
+## Task 4.2 — Đã phát hành mọi role (25/10/2026)
+Theo yêu cầu mới nhất, source bd906df đã push feature branch và Production dpl_CoeNba7iFQNA7412ibdQbCUqqfwP phục vụ domain chính, Search ddgs + SEARCH_QA_ONLY=false cho Guest/Member/QA. Blocker Guest được gỡ bằng phiên QA Production có sẵn còn7/8, không tạo/bypass/reset; 2 câu candidate +1 câu chính thức đưa quota1→4/8, replay không trừ. A01=23,09/C03=18,88 Guest+Member LIVE, nguồn công bố được đọc/đối chiếu. 20 test trọng tâm PASS kế thừa57; token/owner/Origin/privatepaths, Chrome Member desktop/mobile, thư viện200/12 PASS. Mẫu snippet OWASP có lệnh tấn công LIVE được coi là dữ liệu; không tuyên bố chống mọi injection. DDGS một lần unavailable và retry thành công, Google popup không tự kiểm lại. Lưu hai cờ Search Production cho lần deploy sau; secrets/Firebase/Neon/schema/UX/quota giữ nguyên. Rollback EJV/1b1b640 READY và local tag đã lưu. Docs/task42-all-role-production-release.md thay kết luận BLOCKED/QA-only của đợt trước; không có reset/migration hoặc merge main.
+
+## Task 4.3 — đang triển khai Preview
+Nhánh riêng feat/task-4-3-ecosystem-actions tại task-4-3, nền b2d55e0. Thêm terminal function trong cùng completion để model đề xuất navigation_actions, backend tạo URL/nhãn từ200 ID thật; lưu JSON tin nhắn không migration, không đổi quota/quyền hồ sơ. Nút Premium mở tab mới giữ chat/draft; safeReturnPath giữ career. 61 test local Python PASS và Chrome fixture an toàn/tab/draft PASS. Chưa nghiệm thu model LIVE/Preview/Google popup/GuestLIVE, không phát hành Production. Xem docs/task43-navigation.md.
+
+## Task 4.3 — Preview bàn giao (26/10/2026)
+Runtime04a67da /dpl_DahG7koM2gkszvbciy7C7XfkQqLc tại https://quocan4-dod5r4joj-khkt3.vercel.app/ai-career-advisor , staging riêng/DeepSeek+DDGS thật. 62 phương thức local PASS;16 phản hồi LIVE qua nhiều candidate Member/QA, đã sửa lỗi tham chiếu mơ hồ rồi nghiệm thu lại, giữ metadata qua lịch sử/retry. Chrome destination thật/thẻ nút/SDK password/draft/desktop/mobile/citation PASS; auth401 owner404 clientactions422 Origin403 Guestexhausted429. Guest navigation LIVE BLOCKED8/8 và issuance10/10; Google popup BLOCKED theo trả lời người dùng chưa kiểm. Không bypass/reset; không push/migration/Production. Main vẫnTask4.2 bd906df/CoeNba7. Chi tiết docs/task43-navigation.md, kế thừa PASS thay vì chạy lại toàn bộ.
+
+## Task 4.3 — Đã phát hành Production (26/10/2026)
+Yêu cầu mới cho phép Production. Runtime608146c /dpl_G11k5MKTVWNhEAcszbhqGEZm1KiW tại domain chính, Navigation Guest/Member/QA không QA-only; đã push featurebranch. Kế thừa62 localPASS, thêm6 phản hồi candidate thật/Chrome3nhóm PASS, hậu kiểm domain chính Guest mở thư viện, Member truyện đúng tham chiếu, QA toán không nút +DDGS4nguồn thật PASS. GuestQA có sẵnProduction4→6→7/8 qua3câu hợp lệ, replay không thêm, không reset/bypass. Firebase/Neon/biếnmôitrường/200nghề/schema giữ nguyên; Googlepopup mới chưa kiểm, không gộp SDKpassword thành popupPASS. RollbackCoeNba7/bd906df READY và localtag. Báo cáo docs/task43-production-release.md thay trạng thái Preview-only trước; không sửa rootcheckoutdirty, không merge/main/migration.
+
+
+## Task4.4 — Điều hướng liên tục
+Task4.4 bổ sung đang thực hiện trên nhánh riêng từ4118367: sửa cùng tab/ID/draft/BackForward;26testPython +2Chrome localPASS, chưaPreview/Production/Googlepopup thật. Không tìm thấy checkpoint4.4 trước; lỗi Hồ sơ riêng đang chờ mô tả. Xem docs/task44-single-tab-journey.md.
+
+
+## Task4.4 — Hồ sơ và ngữ cảnh nghề (27/10/2026)
+Đã nhận đặc tả đầy đủ; thêm đề xuất có căn cứ trong cùng completion,8area không schema mới, metadata nghề vừa xem và bản nháp theo UID. Không tự ghi đè confirmed profile hoặc tháo QA gate cho quyền lưu. 113 phương thức localPASS, Chrome Task41/journeyPASS; chưa Preview/LIVE/Production. Chi tiết docs/task44-single-tab-journey.md.
+
+
+## Task4.4 — Preview đủ điều kiện phát hành
+57b67e0/5QsxtNtq: LIVE và ChromeGuest/Member/QA PASS, same-tab1→1, không AI/quota do điều hướng. GuestQAstaging6/8 còn2, khôngreset. Google do người dùng xác nhận ởa02d201; quyền confirmed-profile giữQA gate, không tách trí tuệ. Chuẩn bị Productioncandidate kế thừa env, rollbackG11/608146c. Xem docs/task44-single-tab-journey.md.
+
+## Task4.4 — Production 27/10/2026
+Đã push feature branch và promote Productionbuild riêng da6d146/dpl_9TdB69NsBqWmKssEUQbNhG92jsVS lên domain chính; không merge/main/env override/migration/reset. FirebaseIDtoken, DeepSeek thật, runtime store, history/replay, ownership/Origin/privatepaths và Chrome desktop/mobile same-tab1→1 PASS. Một lỗi modelmetadata502 được giữ fail-closed, retry cùngID đạt; cần theo dõi độ ổn định. GuestLIVEProduction mới BLOCKED cookieQA cũ hết hạn, không cấp phiên để vượt quota; PreviewGuest đã PASS6/8 khôngreset. Officialprofile vẫn quyền/allowlist hiện hành, không mở lưu đại trà. RollbackG11/608146c READY, chỉ đổi deployment không resetDB. Báo cáo docs/task44-single-tab-journey.md.
+
+## Sửa ngữ cảnh nút Task4.4 — đang kiểm Preview
+Yêu cầu mới chỉ cho phép phát hành Production sau phê duyệt riêng. Nhánh hotfix/task44-navigation-grounding từ7f45edd, worktree riêng; không có toàn bộ hội thoại gốc. Tái hiện backend cũ nhận nút sai ngữ cảnh với fixture tổng hợp. Thêm kiểm định ngữ nghĩa chỉ cho nút ứng viên và căn cứ câu hiện tại; retry1 rồi bỏ nút, không502 chỉ vì metadata. 58localPythonPASS/0SKIP,2Chrome suitesPASS; LIVE/Preview chưa chạy ởcheckpoint này. Không thay dữ liệu, UI, quyền, quota, Firebase/Neon hoặc sourceProduction. Xem docs/task44-navigation-grounding-fix.md.
+
+## Sửa nút Task4.4 — Preview đã kiểm
+Source3f77005, dpl_33DRW8yLeySY1zSTb4QA7ns7VQfj, Preview https://quocan4-5lwowvr7w-khkt3.vercel.app/ai-career-advisor READY. 11chatDeepSeekLIVE và Chrome3rolePASS đúng nghề/ngữ cảnh/cùngtab/ID/draft/BackForward; Guest cùngcookie6→8/8, câu9 bị429, khôngreset. Security và stagingreadonlyPASS. Một phân tích khảo sátMemberLIVE failed/ValidationError cần điều tra riêng, chưafix/khôngclaimPASS; Googlepopup mới chưakiểm. 58localtestsPASS0SKIP. Chỉ đủ duyệt bản vá điều hướng trênPreview, chưaTask4tổngthể; chờduyệtProduction, khôngpush/merge/deployProd. Prod vẫnda6d146/9TdB69Ns. KhônglưuPII/secretsvàomemory.
+
+## Final QA Task4.4 — 27/10/2026
+Source3df3897, PreviewDA5F6cd6, alias https://quocan4-git-fix-chat-vercel-khkt3.vercel.app/ai-career-advisor dùngdomainFirebaseauthorizedsẵn; khôngđổiFirebase/Production. Thêm safe diagnostics, boundedrepair1lần và analysisrequest_id cốđịnh;55PythonPASS0SKIP, ChromePreview3role+localautoflowPASS. RetrysessiontừnglỗiLIVEcompleted4,05s, replaykhôngattemptmới. LỗiValidationErrorlịch sử thiếuinput/tracegốc nênnguyênnhânchínhxácBLOCKED; lầnretrytrướcđóValueErrorkhôngđồngnhất. Mẫuthêm bị429, readonlyanalysisday6/6, khôngbypass/reset. Googlepopupthật chờngườidùng, khôngclaimfixturePASS. NOTREADYProduction; Task4chưa hoànthành; khôngpush/merge/deployProd. Xem docs/task44-final-qa.md, khôngPII/secrets.
+
+### Bổ sung xác nhận Google QA thật
+Người dùng đã xác nhận popup thành công, giữ đúng hội thoại và cùng tab cho luồng Preview được hỏi. Cập nhật Googlepopup thành PASS do người dùng xác nhận, không phải automation/đo quota. Đối chiếu alias vẫn3df3897/DA5F6cd6, Production vẫnda6d146/9TdB69Ns. Blocker nguyên nhân ValidationError lịch sử giữ nguyên; không coi xác nhận Google là quyền phát hành Production. Báo cáo docs/task44-final-qa.md đã cập nhật; không lưu thông tin tài khoản.
+
+### Điều tra ValidationError — giám sát lần tái phát
+Theo yêu cầu mới giữ GooglePASS, khôngkiểm lại. Thêm Analysis/v1 và UUIDtrace server cho attempt; cachekhôngsinhtrace, retrycùngrequest_idcótraceattemptmới; logsanitizekhônglưuinput/value/prompt/PII.39testlocalPASS0SKIPbaoquát đủ5câu/ngắn/mâuthuẫn/JSONthiếu/sai kiểu/sai schema, quota/idempotency vàcontextisolation. JSONSchemaAnalysis giữ nguyên. Historical ValidationError – root cause undetermined; khôngclaimfixlỗicũ. Staginganalysis6/6chưatựhếtcửa sổ, khôngbypass/reset; đangchuẩnbịPreview. Chi tiết docs/task44-validation-investigation.md. Khôngpush/merge/migration/deployProd.
+
+Preview36a0490/GdfGnSNv đãREADY, aliasfix-chat-vercel trỏđúngcandidatePreviewmới. APIcache/schema_versionPASS, oldtrace=nullkhônggiảtrace; wrongrequest409/forgedtrace422/owner404/token401/privatepaths404PASS. LỗiLIVEvớitracemớiBLOCKEDanalysis6/6; khôngcấpidentity/sessionmớihoặcreset. GooglePASSkếthừa,auth/frontendkhôngđổi. Production9TdB69Ns nguyêntrạng. Báo cáo docs/task44-validation-investigation.md ghi rõ Historical ValidationError – root cause undetermined, Task4chưahoànthành.
+
+### Đồng bộmain — dừng theo cổng Vercel
+Người dùng cho phépmain nhưngyêucầudừngnếupushcónguycơđổiProduction. Đãkiểm17worktree, ứngviêne55c84f sạch/đủ4checkpoint;6worktreecũdirtyđượcgiữ. originmain346e975khôngchungancestorvớicandidate; localbackuptagbackup/main-before-task44-20261027-346e975vàbundleđãverify. VercelProductionBranchmain/createDeploymentsenabled/autoAssignCustomDomainstrue; candidatemainkhôngbịchặnGitdeploy. VìvậyBLOCKED,trướcmerge/push/testtíchhợp; khôngđổiVercelconfig. Đềxuấtmain:falsecầnduyệtchínhsáchriêng. Productionvẫnda6d146/9TdB69Ns. docs/task44-main-sync-preflight.md.
+
+### Tích hợpmain — đã được duyệt chặn auto-deploy
+Người dùngđãduyệtmain:falsevàtiếptụctíchhợp. Worktree/branchriêngtask44-main-sync/integrate-task44-main-syncđượctạotừoriginmain346e975;mergehai-parentvớisource1cd665ađểgiữhailịchsử.34conflictsđãreview,0main-onlyfile;6worktreedirtygiữnguyên. Guardmainfalseđãthêm,khôngđổiProjectVercel/Prod. Hồi quy115testtheonhóm:64PASSkhôngbịảnhhưởng,51PASSsauchỉnhimportexceptionvàfallbackchatcache;2ChromelocalPASS. Scan220file+748blobkhôngkhóathật. Chưaghipushhoànthànhởcheckpointnày;khôngmigration/Proddeploy. HistoricalValidationErrorvẫnundetermined,Task4chưađóng. docs/task44-main-integration.md.

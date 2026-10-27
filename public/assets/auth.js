@@ -1,6 +1,27 @@
 import {getFirebase} from './firebase-client.js';
+import {signInEmailPreservingGuest,signInGooglePreservingGuest,hasPendingGuestClaim,resumeGuestTransfer} from './account-link.js';
+import {beginLogin, finishLogin, loginDestination, currentJourney, journeyPath, forgetJourney} from './chat-journey.js';
 const select = (s) => document.querySelector(s);
 const dialog = select('#auth-dialog');
+let navigating=false;
+// Capture before Firebase listeners/redirect completion can change sessionStorage.
+let returnTarget=loginDestination();
+async function completeLogin(user) {
+  if (navigating) return;
+  navigating=true;
+  try { await resumeGuestTransfer(auth); await backendProfile(user,true); location.assign(finishLogin(returnTarget)); }
+  catch(error) { navigating=false; claimRetry.hidden=!hasPendingGuestClaim(); throw error; }
+}
+const claimRetry = document.createElement('button');
+claimRetry.id = 'guest-claim-retry';
+claimRetry.type = 'button';claimRetry.className = 'btn btn-ink';claimRetry.hidden = true;claimRetry.textContent = 'Thử giữ lịch sử';
+select('#auth-status').after(claimRetry);
+claimRetry.addEventListener('click',async()=>{
+  setBusy(true);
+  try {await completeLogin(auth.currentUser);}
+  catch(error){status(errorMessage(error),true);}
+  finally{claimRetry.hidden=!hasPendingGuestClaim();setBusy(false);}
+});
 let sdk, auth, mode = 'login', busy = false, ready = false, configTask, profileEpoch = 0;
 
 const messages = {
@@ -9,6 +30,7 @@ const messages = {
   'auth/user-not-found': 'Email hoặc mật khẩu chưa đúng. Bạn thử lại nhé.',
   'auth/wrong-password': 'Email hoặc mật khẩu chưa đúng. Bạn thử lại nhé.',
   'auth/email-already-in-use': 'Email này đã có tài khoản. Bạn chọn Đăng nhập hoặc Quên mật khẩu nhé.',
+  'auth/credential-already-in-use': 'Email này đã có tài khoản. Chọn Đăng nhập để tiếp tục và giữ lịch sử khách.',
   'auth/weak-password': 'Mật khẩu chưa đủ mạnh. Hãy dùng ít nhất 6 ký tự và thêm chữ, số hoặc ký hiệu.',
   'auth/password-does-not-meet-requirements': 'Mật khẩu chưa đáp ứng yêu cầu. Hãy dùng thêm chữ hoa, chữ thường, số và ký hiệu.',
   'auth/popup-closed-by-user': 'Bạn đã đóng cửa sổ Google. Có thể thử lại khi sẵn sàng.',
@@ -54,6 +76,7 @@ function setMode(value) {
   status(); setBusy(false);
 }
 function displayUser(user) {
+  if (user?.isAnonymous) user = null;
   const name = user?.displayName?.trim() || user?.email?.split('@')[0] || 'Bạn';
   const initial = [...name][0]?.toLocaleUpperCase('vi') || 'B';
   select('#auth-guest').hidden = Boolean(user);
@@ -90,12 +113,15 @@ async function ensureAuth() {
     try {
       ({auth, sdk} = await getFirebase());
       ready = true; select('#auth-setup-message').hidden = true; setBusy(false);
+      // Consume a Firebase redirect result before deciding where to return.
+      if (sdk.getRedirectResult) await sdk.getRedirectResult(auth);
       sdk.onAuthStateChanged(auth, (user) => {
         const epoch = ++profileEpoch;
         displayUser(user);
-        if (user) backendProfile(user).then(() => {
-          if (epoch === profileEpoch && !busy && new URLSearchParams(location.search).get('login') === '1') location.replace('/ai-career-advisor');
-        }).catch((error) => { if (epoch === profileEpoch) status(errorMessage(error), true); });
+        if (user && !user.isAnonymous && !busy) {
+          const action=new URLSearchParams(location.search).get('login')==='1' ? completeLogin(user) : backendProfile(user);
+          action.catch(error=>{if(epoch===profileEpoch)status(errorMessage(error),true);});
+        }
       });
       return true;
     } catch {
@@ -107,7 +133,7 @@ async function ensureAuth() {
   if (!result) configTask = null;
   return result;
 }
-document.querySelectorAll('[data-open-auth]').forEach((button) => button.addEventListener('click', () => { if (!dialog.open) dialog.showModal(); ensureAuth(); }));
+document.querySelectorAll('[data-open-auth]').forEach((button) => button.addEventListener('click', () => { if (new URLSearchParams(location.search).get('login')!=='1') {beginLogin(currentJourney()?journeyPath('/ai-career-advisor'):undefined);returnTarget=loginDestination();} if (!dialog.open) dialog.showModal(); ensureAuth(); }));
 select('#mode-login').addEventListener('click', () => setMode('login'));
 select('#mode-register').addEventListener('click', () => setMode('register'));
 select('#toggle-password').addEventListener('click', () => {
@@ -126,7 +152,7 @@ select('#auth-form').addEventListener('submit', async (event) => {
   setBusy(true); status();
   try {
     await persistence();
-    const credential = mode === 'register' ? await sdk.createUserWithEmailAndPassword(auth, email, password) : await sdk.signInWithEmailAndPassword(auth, email, password);
+    const credential = await signInEmailPreservingGuest(auth,sdk,email,password,mode === 'register');
     if (mode === 'register') {
       try { await sdk.updateProfile(credential.user, {displayName: name}); }
       catch { displayUser(credential.user); status('Tài khoản đã tạo, nhưng chưa lưu được tên hiển thị. Bạn vẫn có thể đăng nhập.', true); return; }
@@ -134,26 +160,24 @@ select('#auth-form').addEventListener('submit', async (event) => {
       try { await sdk.sendEmailVerification(credential.user); status('Tài khoản đã tạo! Kiểm tra hộp thư để xác minh email.'); }
       catch { status('Tài khoản đã tạo. Bạn có thể bấm “Gửi email xác minh” để thử lại.'); }
     } else { status('Đăng nhập thành công. Chào mừng bạn trở lại!'); }
-    await backendProfile(credential.user, true);
-    location.assign('/ai-career-advisor');
+    await completeLogin(credential.user);
   } catch (error) { status(errorMessage(error), true); }
-  finally { select('#auth-password').value = ''; select('#auth-confirm-password').value = ''; setBusy(false); }
+  finally { claimRetry.hidden=!hasPendingGuestClaim();select('#auth-password').value = ''; select('#auth-confirm-password').value = ''; setBusy(false); }
 });
 select('#google-signin').addEventListener('click', () => {
   if (busy || !ready) return;
   setBusy(true); status();
   const provider = new sdk.GoogleAuthProvider(); provider.setCustomParameters({prompt: 'select_account'});
   // Mở popup ngay trong click để giữ quyền mở cửa sổ của trình duyệt.
-  const popup = sdk.signInWithPopup(auth, provider);
+  const popup = signInGooglePreservingGuest(auth,sdk,provider);
   (async () => {
     try {
       const credential = await popup;
       await persistence();
-      await backendProfile(credential.user);
       status('Đăng nhập Google thành công. Chào bạn!');
-      location.assign('/ai-career-advisor');
+      await completeLogin(credential.user);
     } catch (error) { status(errorMessage(error), true); }
-    finally { setBusy(false); }
+    finally { claimRetry.hidden=!hasPendingGuestClaim();setBusy(false); }
   })();
 });
 select('#forgot-password').addEventListener('click', async () => {
@@ -170,7 +194,7 @@ select('#forgot-password').addEventListener('click', async () => {
 select('#signout-button').addEventListener('click', async () => {
   if (busy || !ready) return;
   setBusy(true);
-  try { await sdk.signOut(auth); select('#auth-form').reset(); busy = false; setMode('login'); status('Bạn đã đăng xuất. Hẹn gặp lại!'); }
+  try { forgetJourney();await sdk.signOut(auth); select('#auth-form').reset(); busy = false; setMode('login'); status('Bạn đã đăng xuất. Hẹn gặp lại!'); }
   catch (error) { status(errorMessage(error), true); }
   finally { setBusy(false); }
 });
@@ -195,8 +219,8 @@ ensureAuth();
 if (new URLSearchParams(location.search).get('login') === '1') {
   dialog.showModal();
   ensureAuth().then(async (ok) => {
-    if (ok && auth.currentUser) {
-      try { await backendProfile(auth.currentUser); location.replace('/ai-career-advisor'); }
+    if (ok && auth.currentUser && !auth.currentUser.isAnonymous) {
+      try { await completeLogin(auth.currentUser); }
       catch (error) { status(errorMessage(error), true); }
     }
   });

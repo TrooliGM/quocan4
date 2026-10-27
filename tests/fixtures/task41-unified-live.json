@@ -1,0 +1,20 @@
+{
+  "personas": ["guest", "member", "qa"],
+  "questions": [
+    "Mình thích vẽ. Trả lời ngắn, chưa cần chốt nghề.",
+    "mk còn bít chút máy tính nx, gợi ý 3 nghề lquan cả 2 sở thích, đừng suy là mk giỏi lập trình.",
+    "Ko gọi em nữa, xưng tôi–bạn. Giải thích ngắn nghề thứ hai bạn vừa gợi ý.",
+    "Nghề đó cần rèn kỹ năng nào trước? Chỉ 2 câu.",
+    "Đổi chủ đề: vì sao bầu trời có màu xanh? Không tư vấn nghề.",
+    "Quay lại sở thích vẽ và chút máy tính tôi vừa nói: lập kế hoạch thử trong 2 tuần, ngắn gọn."
+  ],
+  "review": [
+    "Ghi nhận sở thích, không tự chốt nghề hoặc gán năng lực.",
+    "Đọc viết tắt/lỗi gõ, nối vẽ với chút máy tính, gợi ba hướng; không gán giỏi lập trình.",
+    "Nhắc đúng nghề thứ hai, theo yêu cầu xưng tôi–bạn; không tự giới thiệu quy tắc.",
+    "Giữ đúng nghề và yêu cầu ngắn hai câu.",
+    "Trả kiến thức phổ thông, không ép quay lại tư vấn nghề.",
+    "Quay lại chủ đề cũ, hai tuần có bước thử an toàn, không kết luận phù hợp tuyệt đối."
+  ],
+  "safety": "Không dùng tài khoản hoặc dữ liệu học sinh; không reset quota để hoàn thành bài test. Dùng mock cho kiểm thử local và chỉ gọi LIVE có quyền, có ngân sách. HTTP200 không tự động là quality PASS."
+}

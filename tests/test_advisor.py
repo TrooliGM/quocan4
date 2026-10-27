@@ -58,6 +58,8 @@ class AdvisorTests(unittest.TestCase):
     def session(self, remember=False):
         response = self.client.post("/api/ai/sessions", headers=self.a, json={"remember": remember})
         self.assertEqual(response.status_code, 201, response.text)
+        self.client.put('/api/ai/sessions/'+response.json()['session']['id']+'/survey', headers=self.a,
+                        json={'answers':['Chưa rõ']*5,'address':'chị'}).raise_for_status()
         return response.json()["session"]
 
     def send(self, session, text="Mình thích Toán", request_id=None):
@@ -136,6 +138,7 @@ class AdvisorTests(unittest.TestCase):
             self.assertEqual(self.send(session).status_code, 503)
         self.assertEqual(self.client.post("/api/voice/transcribe", headers=self.a, content=wav_audio()).status_code, 503)
 
+    @patch('advisor.routes.check_ai_rate', lambda *args, **kwargs: None)
     def test_live_request_uses_history_and_private_profile(self):
         seen = []
         async def fake_post(client, url, **kwargs):
@@ -151,14 +154,19 @@ class AdvisorTests(unittest.TestCase):
             self.assertEqual(first.status_code, 200, first.text)
             self.assertIn("thiết kế đồ họa", first.json()["session"]["messages"][-1]["content"])
             self.assertEqual(self.send(session, "Mình còn biết một chút máy tính").status_code, 200)
-        self.assertEqual(len(seen), 4)
-        self.assertEqual(seen[0][0], "https://api.deepseek.com/chat/completions")
-        self.assertEqual(seen[0][1]["model"], "deepseek-flash")
-        self.assertEqual(seen[0][1]["response_format"]["type"], "text")
-        self.assertIn("Mình thích vẽ", [message["content"] for message in seen[2][1]["messages"]])
-        self.assertEqual(self.client.get("/api/ai/career-profile", headers=self.a).json()["profile"]["interests"], ["vẽ"])
+        # Một lần phân tích khảo sát riêng; lỗi JSON không tự chạy lại mỗi lượt.
+        self.assertEqual(len(seen), 5)
+        main=[call for call in seen if call[1]['messages'][0]['content'].startswith('Bạn là trợ lý đồng hành')]
+        self.assertEqual(len(main),2)
+        self.assertEqual(main[0][0], "https://api.deepseek.com/chat/completions")
+        self.assertEqual(main[0][1]["model"], "deepseek-flash")
+        self.assertEqual(main[0][1]["response_format"]["type"], "text")
+        self.assertIn("Mình thích vẽ", [message["content"] for message in main[1][1]["messages"]])
+        # Trích xuất LLM trong phiên không đồng nghĩa đồng ý lưu hồ sơ dài hạn.
+        self.assertEqual(self.client.get("/api/ai/career-profile", headers=self.a).json()["profile"]["interests"], [])
         self.assertEqual(self.client.get("/api/ai/career-profile", headers=self.b).json()["profile"], empty_profile())
 
+    @patch('advisor.routes.check_ai_rate', lambda *args, **kwargs: None)
     def test_invalid_memory_does_not_discard_good_answer_and_empty_answer_retries(self):
         calls = []
         async def fake_post(client, url, **kwargs):
@@ -173,6 +181,7 @@ class AdvisorTests(unittest.TestCase):
         self.assertIn("minh họa số", result.json()["session"]["messages"][-1]["content"])
         self.assertEqual(len(result.json()["session"]["messages"]), 3)
 
+    @patch('advisor.routes.check_ai_rate', lambda *args, **kwargs: None)
     def test_bad_answer_never_saves_user_message(self):
         async def fake_post(client, url, **kwargs):
             return httpx.Response(200, json={"choices": [{"finish_reason": "stop", "message": {"content": ""}}]}, request=httpx.Request("POST", url))
@@ -183,6 +192,7 @@ class AdvisorTests(unittest.TestCase):
         self.assertNotIn("fake-test-key", response.text)
         self.assertEqual(len(get_store().get("user-a", session["id"])["messages"]), 1)
 
+    @patch('advisor.routes.check_ai_rate', lambda *args, **kwargs: None)
     def test_google_transcription_auth_wav_and_no_automatic_chat_send(self):
         async def fake_transcribe(audio):
             self.assertEqual(audio, wav_audio())

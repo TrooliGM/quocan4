@@ -16,8 +16,12 @@ from uuid import uuid4
 
 from fastapi import HTTPException
 
-GREETING = "Chào bạn, mình là La Bàn. Bạn có thể kể về một sở thích, hỏi về một nghề, hoặc nói điều đang băn khoăn. Mình sẽ cùng bạn tìm hiểu từng chút một."
+GREETING = "Bạn muốn khám phá điều gì hôm nay? Bạn có thể kể về một sở thích, hỏi về một nghề hoặc chia sẻ điều đang băn khoăn."
 PROFILE_KEYS = ("interests", "strengths", "growth_skills", "careers")
+
+
+class StorageConfigurationError(RuntimeError):
+    """Lỗi cấu hình an toàn; không chứa URL hoặc credentials database."""
 
 
 def empty_profile():
@@ -98,13 +102,13 @@ class ConversationStore:
             return [{key: row[key] for key in ("id", "title", "created_at", "updated_at", "remember")}
                     for row in sorted(rows, key=lambda row: row["updated_at"], reverse=True)]
 
-    def create(self, uid, remember):
+    def create(self, uid, remember, context=None):
         with self.lock:
             if len(self.list(uid)) >= 100:
                 raise HTTPException(409, "Bạn đã có 100 cuộc trò chuyện. Hãy xóa bớt lịch sử trước nhé.")
             row = {"id": str(uuid4()), "owner": uid, "title": "Một hướng đi mới", "remember": remember,
                    "created_at": now(), "updated_at": now(), "messages": [
-                       {"id": str(uuid4()), "role": "assistant", "content": GREETING}],
+                       {"id": str(uuid4()), "role": "assistant", "content": GREETING, "survey_required": True, "career_context": context or {"mode":"career_discovery","career_id":None}}],
                    "profile": empty_profile(), "summary": ""}
             if remember:
                 with self.connect() as db:
@@ -133,6 +137,8 @@ class ConversationStore:
         with self.lock:
             row = self.get(uid, session_id)
             row["title"] = title
+            from .titles import mark_manual
+            mark_manual(row['messages'])
             return self.write(uid, row)
 
     def delete(self, uid, session_id):
@@ -167,9 +173,18 @@ class ConversationStore:
 
 @lru_cache(maxsize=4)
 def _store(database_url):
+    if database_url.startswith(("postgresql://", "postgres://")):
+        from advisor.postgres_adapter import PostgresConversationStore
+        return PostgresConversationStore()
+
+    if not database_url.startswith('sqlite:///'):
+        raise StorageConfigurationError('DATABASE_URL_UNSUPPORTED')
     return ConversationStore(database_url)
 
 
 def get_store():
-    default = "sqlite:///" + str(Path(__file__).resolve().parents[1] / "data" / "advisor.sqlite3")
-    return _store(os.getenv("DATABASE_URL", default))
+    database_url = os.getenv('DATABASE_URL', '').strip()
+    if os.getenv('VERCEL') and not database_url.startswith(('postgresql://', 'postgres://')):
+        raise StorageConfigurationError('POSTGRES_REQUIRED')
+    default = 'sqlite:///' + str(Path(__file__).resolve().parents[1] / 'data' / 'advisor.sqlite3')
+    return _store(database_url or default)

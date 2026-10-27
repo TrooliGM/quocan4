@@ -1,5 +1,21 @@
 # La Bàn · Trang chủ hướng nghiệp KHKT 2027
 
+## Trạng thái đồng bộ Task 4.4
+
+Nhánh `main` đã được chuẩn bị đồng bộ từ bản Task 4.4 có PostgreSQL/Neon,
+Firebase, Guest 8 câu, thư viện 200 nghề, DeepSeek + DDGS và hành trình cùng tab.
+Xem [báo cáo đồng bộ](docs/task44-main-integration.md),
+[QA Task 4.4](docs/task44-final-qa.md) và
+[điều tra ValidationError](docs/task44-validation-investigation.md).
+
+`git.deploymentEnabled.main=false` chặn Vercel tự deploy khi push `main`, theo
+phê duyệt của chủ dự án. Đồng bộ GitHub không phải phát hành Production.
+Không tự bật lại cờ này hoặc chạy migration trên database đang hoạt động.
+**Historical ValidationError – root cause undetermined. Task 4 tổng thể chưa hoàn thành.**
+
+Các mô tả ban đầu phía dưới được giữ để tham khảo lịch sử. Với vận hành hiện tại,
+ưu tiên các báo cáo và tài liệu triển khai mới được liên kết ở trên.
+
 Trang chủ tiếng Việt dành cho học sinh THCS/THPT, dùng Python FastAPI, HTML, Bootstrap 5.3.8, CSS, JavaScript. AI dùng DeepSeek API và LangGraph.
 
 ## Chức năng đã có
@@ -37,6 +53,8 @@ Mở http://127.0.0.1:8000. Trang chủ hoạt động khi chưa có API key; tr
 ```
 
 ## GitHub và Vercel
+
+Đọc [hướng dẫn Vercel hiện tại](docs/vercel-deploy.md) trước khi triển khai: cấu hình FastAPI đã có, nhưng chat dùng SQLite/RAM nên cần storage bền vững và adapter phù hợp trước khi mở toàn bộ tính năng công khai. Các bước ngắn bên dưới chỉ mô tả import project, không xác nhận chat đã sẵn sàng production.
 
 Repository đích do người dùng cung cấp: https://github.com/TrooliGM/quocan4.
 

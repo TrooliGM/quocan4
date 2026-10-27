@@ -1,32 +1,91 @@
 import asyncio
 import os
+import logging
 import unicodedata
 from pathlib import Path
 
 import httpx
 from dotenv import load_dotenv
-from fastapi import FastAPI, Header, HTTPException, Query, Response
-from fastapi.responses import FileResponse
+from fastapi import FastAPI, Header, HTTPException, Query, Response, Request, Depends
+from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, field_validator, ConfigDict
+from uuid import UUID, uuid4
 
-from content import ARTICLES, CAREERS
-from career_stories import STORIES, get_story
+from content import CAREERS
+from career_stories import get_story, get_legacy_story
 from firebase_auth import verify_user, web_config
+from advisor.store import StorageConfigurationError
+from advisor.storage_errors import storage_error
+from deepseek_client import provider_http_error, model_name
+import psycopg
 
 ROOT = Path(__file__).resolve().parent
-load_dotenv(ROOT / ".env")
+if not os.getenv('VERCEL'):
+    load_dotenv(ROOT / ".env")
 from advisor.routes import router as advisor_router
+from advisor.routes import require_user
+from advisor.protection import server_guest
+from advisor.legacy_ai import run_legacy
 
 app = FastAPI(title="La Bàn — KHKT 2027", version="0.1.0")
+@app.middleware('http')
+async def request_performance(request, call_next):
+    from advisor.performance import current, RequestPerformance, measure
+    state=RequestPerformance(reuse=request.url.path=='/api/ai/sessions' or request.url.path.startswith('/api/ai/sessions/'))
+    token=current.set(state)
+    try:
+        if (os.getenv('VERCEL_ENV')=='preview' and os.getenv('ADVISOR_READ_ONLY_PREVIEW')=='true'
+            and request.method not in ('GET','HEAD','OPTIONS')
+            and (request.url.path.startswith('/api/ai/') or request.url.path=='/api/advice' or request.url.path.startswith('/api/career-stories/') and request.url.path.endswith('/ask'))):
+            return JSONResponse({'detail':'Preview cách ly chỉ để xem giao diện; AI, hồ sơ và ghi dữ liệu chưa được bật.'},status_code=503,headers={'Cache-Control':'no-store'})
+        with measure('app'):
+            response=await call_next(request)
+        if (request.url.path.startswith('/api/ai/') or request.url.path=='/api/advice'
+            or request.url.path.startswith('/api/career-stories/') and request.url.path.endswith('/ask')):
+            response.headers['Server-Timing']=state.header()
+            response.headers['Cache-Control']='no-store'
+        return response
+    finally:
+        await asyncio.to_thread(state.close)
+        current.reset(token)
+
 app.include_router(advisor_router)
+
+@app.get('/api/ai/preview-info')
+def advisor_preview_info():
+    return {'read_only':os.getenv('VERCEL_ENV')=='preview' and os.getenv('ADVISOR_READ_ONLY_PREVIEW')=='true'}
 ai_slots = asyncio.Semaphore(4)
+logger = logging.getLogger(__name__)
+
+
+@app.exception_handler(StorageConfigurationError)
+@app.exception_handler(psycopg.Error)
+async def storage_failure(request, error):
+    status, detail = storage_error(error)
+    logger.error('storage_failure code=%s type=%s', detail['code'], type(error).__name__)
+    return JSONResponse({'detail': detail}, status_code=status, headers={'Cache-Control': 'no-store', 'Retry-After': '30'})
+
+
+def html_page(filename):
+    # HTML runtime ở gốc, assets trong public/ do Vercel CDN phục vụ.
+    # Bản public là fallback cho checkout cũ/local; không giả định nó có trong Function.
+    for path in (ROOT / filename, ROOT / 'public' / filename):
+        try:
+            return HTMLResponse(path.read_text(encoding='utf-8'), headers={'Cache-Control': 'no-store'})
+        except (OSError, UnicodeError):
+            continue
+    logger.error('html_page_unavailable page=%s', filename)
+    return HTMLResponse('<!doctype html><html lang="vi"><meta charset="utf-8"><title>La Bàn</title>'
+                        '<h1>La Bàn đang được cập nhật</h1><p>Chưa tải được trang này. Bạn thử lại sau nhé.</p>'
+                        '<a href="/">Về trang chủ</a></html>', status_code=503,
+                        headers={'Cache-Control': 'no-store', 'Retry-After': '30'})
 
 
 @app.middleware("http")
 async def auth_cache_control(request, call_next):
     response = await call_next(request)
-    if request.url.path.startswith(("/api/auth/", "/api/ai/", "/api/voice/")):
+    if request.url.path.startswith(("/api/auth/", "/api/ai/", "/api/voice/")) or request.url.path == '/api/advice' or request.url.path.endswith('/ask'):
         response.headers["Cache-Control"] = "no-store"
     return response
 
@@ -35,36 +94,48 @@ def normalize(text: str) -> str:
     text = unicodedata.normalize("NFD", text.casefold().replace("đ", "d"))
     return "".join(c for c in text if unicodedata.category(c) != "Mn")
 
+@app.get('/api/ai/task4-shell')
+def task4_shell(user=Depends(require_user)):
+    from advisor.rollout import require
+    require(user)
+    return HTMLResponse((ROOT/'chat.html').read_text(encoding='utf8'),headers={'Cache-Control':'no-store'})
+
 
 @app.get("/", include_in_schema=False)
 def homepage():
-    return FileResponse(ROOT / "public" / "index.html")
+    return html_page('index.html')
 
 
 @app.get("/ai-career-advisor", include_in_schema=False)
+@app.get("/chat", include_in_schema=False)
 def career_advisor():
-    # HTML không chứa dữ liệu tài khoản; mọi API đều xác minh Firebase token.
-    return FileResponse(ROOT / "public" / "chat.html", headers={"Cache-Control": "no-store"})
-
+    return html_page('chat.html')
 
 @app.get("/mot-ngay-lam-viec", include_in_schema=False)
 def career_comics():
-    return FileResponse(ROOT / "public" / "stories.html")
+    return html_page('stories.html')
 
 
 @app.get("/api/career-stories")
 def story_catalog():
-    return {"items": [{"id": c["id"], "name": c["name"], "category": c["category"],
-                       "color": c["color"], "scenes": len(STORIES[c["id"]]["scenes"])}
-                      for c in CAREERS if c["id"] in STORIES]}
+    from story_library import summaries
+    return {"items": summaries(), "preview_read_only": os.getenv('STORIES_PREVIEW_READ_ONLY')=='true'}
 
 
 @app.get("/api/career-stories/{career_id}")
-def career_story(career_id: str):
-    story = get_story(career_id)
+def career_story(career_id: str, version: int = Query(2, ge=1, le=2)):
+    story = get_legacy_story(career_id) if version == 1 else get_story(career_id)
     if not story:
-        raise HTTPException(404, "Chưa có truyện cho nghề này. Bạn chọn một nghề trong thư viện nhé.")
+        raise HTTPException(404, "Truyện nghề này đang được cập nhật.")
     return story
+
+
+@app.get('/api/career-videos/{career_id}')
+def career_video_list(career_id: str):
+    from career_library import find_career
+    from career_videos import public_for
+    if not find_career(career_id):raise HTTPException(404,'Không tìm thấy nghề.')
+    return {'items':public_for(career_id),'preview_read_only':os.getenv('STORIES_PREVIEW_READ_ONLY')=='true'}
 
 
 @app.get("/api/health")
@@ -80,12 +151,36 @@ def auth_config(response: Response):
 
 
 @app.get("/api/auth/me")
-def current_user(response: Response, authorization: str | None = Header(default=None)):
+def current_user(request: Request, response: Response, authorization: str | None = Header(default=None)):
     response.headers["Cache-Control"] = "no-store"
+    if authorization is None:
+        return {'user': server_guest(request)}
     parts = authorization.split() if authorization else []
     if len(parts) != 2 or parts[0].lower() != "bearer" or len(parts[1]) > 12000:
         raise HTTPException(401, "Bạn cần đăng nhập để xem tài khoản.", headers={"WWW-Authenticate": "Bearer"})
     return {"user": verify_user(parts[1])}
+
+
+@app.get('/api/career-library/categories')
+def library_categories():
+    from career_library import CATEGORIES, catalog
+    return {'items':[{'category_id':k,'name':v,'count':sum(c.category_id==k for c in catalog().careers)} for k,v in CATEGORIES.items()]}
+
+
+@app.get('/api/career-library')
+def library(q: str = Query('',max_length=120), category_id: str = Query('',max_length=80), offset: int = Query(0,ge=0), limit: int = Query(12,ge=1,le=24)):
+    from career_library import catalog, CATEGORIES
+    if category_id and category_id not in CATEGORIES: raise HTTPException(422,'Lĩnh vực không hợp lệ.')
+    rows=catalog().search(q,category_id)
+    return {'items':[c.model_dump() for c in rows[offset:offset+limit]],'total':len(rows),'offset':offset,'limit':limit}
+
+
+@app.get('/api/career-library/{career_id}')
+def library_detail(career_id: str):
+    from career_library import find_career
+    career=find_career(career_id)
+    if not career: raise HTTPException(404,'Không tìm thấy nghề.')
+    return career.model_dump()
 
 
 @app.get("/api/careers")
@@ -95,13 +190,10 @@ def careers(q: str = Query("", max_length=120), category: str = Query("", max_le
                       search in normalize(" ".join([c["name"], c["category"], c["description"], *c["skills"]]))]}
 
 
-@app.get("/api/articles")
-def articles():
-    return {"items": ARTICLES}
-
-
 class AdviceRequest(BaseModel):
+    model_config = ConfigDict(extra='forbid')
     question: str = Field(min_length=3, max_length=600)
+    request_id: UUID = Field(default_factory=uuid4)
 
     @field_validator("question", mode="before")
     @classmethod
@@ -114,9 +206,11 @@ class StoryQuestion(AdviceRequest):
 
 
 @app.post("/api/career-stories/{career_id}/ask")
-async def ask_about_story(career_id: str, payload: StoryQuestion, response: Response):
+async def ask_about_story(career_id: str, payload: StoryQuestion, response: Response, request: Request, user=Depends(require_user)):
     response.headers["Cache-Control"] = "no-store"
-    story = career_story(career_id)
+    story = get_story(career_id)
+    if not story:
+        raise HTTPException(404, "Truyện nghề này đang được cập nhật.")
     if payload.scene_index >= len(story["scenes"]):
         raise HTTPException(422, "Cảnh truyện không hợp lệ.")
     if not os.getenv("DEEPSEEK_API_KEY", "").strip():
@@ -125,29 +219,32 @@ async def ask_about_story(career_id: str, payload: StoryQuestion, response: Resp
     try:
         async with asyncio.timeout(30):
             async with ai_slots:
-                result = await story_graph.ainvoke({"career_id": career_id, "scene_index": payload.scene_index,
-                                                   "question": payload.question, "context": "", "answer": ""})
-        return {"answer": result["answer"]}
-    except (TimeoutError, httpx.TimeoutException):
-        raise HTTPException(504, "La Bàn phản hồi hơi lâu. Bạn thử lại nhé.") from None
-    except (httpx.HTTPError, ValueError, KeyError, IndexError, RuntimeError):
-        raise HTTPException(502, "Chưa nhận được phản hồi từ La Bàn. Bạn thử lại nhé.") from None
+                result = await run_legacy(request,user,str(payload.request_id),payload.question,
+                    f'story:{career_id}:{payload.scene_index}',story_graph,
+                    {"career_id":career_id,"scene_index":payload.scene_index,"question":payload.question,"context":"","answer":""})
+        return result
+    except StorageConfigurationError:
+        raise
+    except (TimeoutError, httpx.HTTPError, ValueError, KeyError, IndexError, TypeError, AttributeError, RuntimeError) as error:
+        raise provider_http_error(error) from None
 
 
 @app.post("/api/advice")
-async def advice(payload: AdviceRequest):
+async def advice(payload: AdviceRequest, response: Response, request: Request, user=Depends(require_user)):
+    response.headers['Cache-Control'] = 'no-store'
     if not os.getenv("DEEPSEEK_API_KEY", "").strip():
         raise HTTPException(503, "Trợ lý đang được chuẩn bị. Bạn vẫn có thể khám phá nghề và đọc bài viết.")
     from ai import advice_graph
     try:
         async with asyncio.timeout(30):
             async with ai_slots:
-                result = await advice_graph.ainvoke({"question": payload.question, "context": "", "answer": ""})
-        return {"answer": result["answer"], "model": os.getenv("DEEPSEEK_MODEL", "deepseek-flash")}
-    except (TimeoutError, httpx.TimeoutException):
-        raise HTTPException(504, "Trợ lý phản hồi hơi lâu. Bạn thử lại sau một chút nhé.") from None
-    except (httpx.HTTPError, ValueError, KeyError, IndexError, RuntimeError):
-        raise HTTPException(502, "Chưa kết nối được trợ lý. Bạn thử lại sau nhé.") from None
+                result = await run_legacy(request,user,str(payload.request_id),payload.question,'advice',advice_graph,
+                    {"question":payload.question,"context":"","answer":""})
+        return {**result, "model": model_name()}
+    except StorageConfigurationError:
+        raise
+    except (TimeoutError, httpx.HTTPError, ValueError, KeyError, IndexError, TypeError, AttributeError, RuntimeError) as error:
+        raise provider_http_error(error) from None
 
 
 # public/ được Vercel phục vụ qua CDN; mount này chỉ dành cho chạy local.

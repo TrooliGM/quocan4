@@ -1,5 +1,18 @@
 # Xác minh và triển khai
 
+## Chuẩn bị Vercel 2026-10-13
+
+- Backend 26 bài kiểm tra đạt. Chrome browser_login và browser_stories đạt với Firebase/AI giả lập và dữ liệu kiểm thử riêng.
+- Đối chiếu dependencies trong requirements.txt với pyproject.toml khớp; phiên bản đã cài nằm trong ràng buộc. Python local 3.14.7 cùng dòng `.python-version` 3.14 được Vercel hỗ trợ.
+- Local: 19 trang/API/tài sản trả HTTP 200. Các đường dẫn tài sản HTML và import JS cục bộ tồn tại; không có URL kết nối localhost cố định trong frontend.
+- Tiến trình kiểm thử riêng `VERCEL=1`: import app:app và trang HTML/API thành công, không mount assets local để Vercel public CDN phục vụ. Đây không phải Vercel build/deploy thực tế.
+- Không commit/push; chưa có deployment mới. SQLite local/RAM chưa phù hợp chat production trên Vercel, cần adapter database bền vững. Xem `vercel-deploy.md`.
+
+## Đăng nhập mở thẳng chat 2026-10-13
+
+- `python tests/browser_login.py` đạt với Firebase giả lập: email/Google mở phiên chat và focus ô nhập, phiên tạm không tự lưu lâu dài, khôi phục phiên, tải lại không tạo trùng, không chuyển trang khi backend lỗi, vẫn quay về trang chủ được.
+- Đây là kiểm tra luồng giao diện; chưa xác minh popup Google hoặc tài khoản Firebase thật trong lần thay đổi này.
+
 ## Truyện nghề 2026-10-13
 
 - Backend: 26 bài kiểm tra đạt, gồm dữ liệu sáu nghề, nghề/cảnh không hợp lệ, thiếu dịch vụ, lỗi API, ngữ cảnh nghề/cảnh trong lời gọi DeepSeek và các chức năng cũ.
