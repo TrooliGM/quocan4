@@ -70,91 +70,32 @@ class ProfileTests(unittest.TestCase):
         for p in reversed(self.patches):p.stop()
     def body(self):return {'session_id':self.session['id'],'proposal_id':self.analysis['proposed_profile_items'][0]['id'],'value':'Vẽ và Tin học (mình xác nhận)','confirmed':True}
     def accept(self):
-        response=self.client.post('/api/ai/career-profile/items',json=self.body());self.assertEqual(response.status_code,200,response.text);return response.json()['items'][0]
-    def test_survey_does_not_implicitly_save_and_only_one_accepted(self):
-        self.assertEqual(self.client.get('/api/ai/career-profile').json()['items'],[])
-        item=self.accept();self.assertEqual(item['value'],self.body()['value']);self.assertTrue(item['metadata']['edited_by_user'])
-        self.assertEqual(len(self.client.get('/api/ai/career-profile').json()['items']),1)
-    def test_duplicate_accept_does_not_overwrite_user_edit(self):
-        item=self.accept();r=self.client.patch('/api/ai/career-profile/items/'+item['id'],json={'value':'Đã tự sửa thông tin','version':item['version']});self.assertEqual(r.status_code,200)
-        self.client.post('/api/ai/career-profile/items',json=self.body())
-        items=cp.read(self.identity['uid'])['items'];self.assertEqual(len(items),1);self.assertEqual(items[0]['value'],'Đã tự sửa thông tin')
-    def test_persistence_and_delete_one(self):
-        item=self.accept();self.assertEqual(cp.read('owner-one')['items'][0]['id'],item['id'])
-        self.assertEqual(self.client.delete('/api/ai/career-profile/items/'+item['id']).status_code,204)
-        self.assertEqual(cp.read('owner-one')['items'],[])
-    def test_owner_is_server_verified_not_client_uid(self):
-        item=self.accept();self.identity={'uid':'other-account','provider':'google.com'}
-        self.assertEqual(self.client.get('/api/ai/career-profile').json()['items'],[])
-        self.assertEqual(self.client.post('/api/ai/career-profile/items',json=self.body()).status_code,404)
-        self.assertEqual(self.client.patch('/api/ai/career-profile/items/'+item['id'],json={'value':'attack','version':1}).status_code,409)
-        self.client.delete('/api/ai/career-profile/items/'+item['id']);self.assertEqual(len(cp.read('owner-one')['items']),1)
-        self.assertEqual(self.client.post('/api/ai/career-profile/items',json={**self.body(),'owner':'owner-one'}).status_code,422)
-    def test_profile_opt_out_backend_and_confirmed_context_only(self):
-        self.accept();state={'uid':'owner-one','session_id':self.session['id'],'confirmed_profile_access':True}
-        with patch('advisor.confirmed_profile.context_items',side_effect=AssertionError('must not read profile')):self.assertEqual(load_profile(state)['confirmed_profile'],[])
-        r=self.client.put('/api/ai/sessions/'+self.session['id']+'/profile-use',json={'use_profile':True});self.assertEqual(r.status_code,200)
-        self.assertEqual(load_profile(state)['confirmed_profile'][0]['value'],self.body()['value'])
-        self.client.put('/api/ai/sessions/'+self.session['id']+'/profile-use',json={'use_profile':False});self.assertEqual(load_profile(state)['confirmed_profile'],[])
-    def test_guest_claim_moves_only_verified_owner_and_keeps_ttl_until_consent(self):
-        self.identity['provider']='anonymous';item=self.accept();self.assertIsNotNone(item['expires_at'])
-        claim_guest_history('owner-one','account-new');self.assertEqual(cp.read('owner-one')['items'],[])
-        moved=cp.read('account-new')['items'][0];self.assertIsNotNone(moved['expires_at']);self.assertEqual(moved['confirmed_by'],'owner-one')
+        # Seed historical confirmed data for compatibility/deletion tests only.
+        body=self.body()
+        return cp.confirm(self.identity['uid'],self.identity['provider'],self.session,body['proposal_id'],body['value'])['items'][0]
+    def test_retired_profile_endpoints_do_not_read_or_create_items(self):
+        self.assertEqual(self.client.get('/api/ai/career-profile').status_code,410)
+        self.assertEqual(self.client.post('/api/ai/career-profile/items',json=self.body()).status_code,410)
+        self.assertEqual(cp.read(self.identity['uid'])['items'],[])
+    def test_legacy_data_preserved_and_not_loaded_even_when_opted_in(self):
+        item=self.accept();self.session['messages'][0]['use_confirmed_profile']=True
+        get_store().write(self.identity['uid'],self.session)
+        state={'uid':self.identity['uid'],'session_id':self.session['id'],'confirmed_profile_access':True}
+        with patch('advisor.confirmed_profile.context_items',side_effect=AssertionError('must not read')):self.assertEqual(load_profile(state)['confirmed_profile'],[])
+        self.assertEqual(cp.read(self.identity['uid'])['items'][0]['id'],item['id'])
+    def test_legacy_guest_claim_preserves_history_and_profile_without_enabling_usage(self):
+        self.identity['provider']='anonymous';item=self.accept();claim_guest_history('owner-one','account-new')
+        moved=cp.read('account-new')['items'][0];self.assertEqual(moved['id'],item['id']);self.assertIsNotNone(moved['expires_at'])
         self.identity={'uid':'account-new','provider':'google.com'}
-        r=self.client.patch('/api/ai/career-profile/items/'+moved['id'],json={'value':moved['value'],'version':moved['version'],'retain':True});self.assertEqual(r.status_code,200);self.assertIsNone(r.json()['items'][0]['expires_at'])
-        with self.assertRaises(Exception):claim_guest_history('owner-one','wrong-account')
-    def test_concurrent_confirm_is_idempotent(self):
-        def one(_):return cp.confirm('owner-one','password',self.session,self.body()['proposal_id'],self.body()['value'])
-        with ThreadPoolExecutor(max_workers=2) as pool:list(pool.map(one,range(2)))
-        self.assertEqual(len(cp.read('owner-one')['items']),1)
-    def test_stale_edit_and_explicit_confirmation(self):
-        item=self.accept();body={'value':'Thay đổi hợp lệ','version':1}
-        self.assertEqual(self.client.patch('/api/ai/career-profile/items/'+item['id'],json=body).status_code,200)
-        self.assertEqual(self.client.patch('/api/ai/career-profile/items/'+item['id'],json=body).status_code,409)
-        request=self.body();request.pop('confirmed');self.assertEqual(self.client.post('/api/ai/career-profile/items',json=request).status_code,422)
+        self.assertEqual(self.client.get('/api/ai/sessions/'+self.session['id']).status_code,200)
+        self.assertEqual(self.client.put('/api/ai/sessions/'+self.session['id']+'/profile-use',json={'use_profile':True}).status_code,410)
     def test_retain_conversation_preserves_id_and_survey(self):
-        sid=self.session['id'];r=self.client.post('/api/ai/sessions/'+sid+'/retain');self.assertEqual(r.status_code,200,r.text)
+        sid=self.session['id'];r=self.client.post('/api/ai/sessions/'+sid+'/retain');self.assertEqual(r.status_code,200)
         self.assertTrue(r.json()['session']['remember']);self.assertEqual(r.json()['session']['id'],sid);self.assertEqual(r.json()['session']['messages'],self.session['messages'])
-        self.assertEqual(self.client.post('/api/ai/sessions/'+sid+'/retain').status_code,200)
-    def test_delete_all_removes_confirmed_data_too(self):
-        self.accept();self.assertEqual(self.client.delete('/api/ai/data').status_code,204);self.assertEqual(cp.read('owner-one')['items'],[])
-    def test_disabled_profile_cannot_import_legacy_inference(self):
-        with patch.dict(os.environ,{'ADVISOR_PROFILE_ENABLED':'false'}):
-            self.assertEqual(self.client.get('/api/ai/career-profile').json()['items'],[])
-            self.assertEqual(self.client.post('/api/ai/career-profile/items',json=self.body()).status_code,503)
-    def test_expired_guest_content_is_not_returned_and_is_cleaned(self):
-        self.identity['provider']='anonymous';self.accept()
-        with self.connection() as db:db.execute("UPDATE advisor_profile_items SET expires_at=NOW()-INTERVAL '1 minute' WHERE owner=%s",('owner-one',))
-        self.assertEqual(cp.read('owner-one')['items'],[])
-        with self.connection() as db:self.assertEqual(db.execute('SELECT count(*) AS n FROM advisor_profile_items').fetchone()['n'],0)
-    def test_migration_guard_rolls_back_without_altering_old_rows(self):
-        import psycopg
-        def counts():
-            with self.connection() as db:return [db.execute('SELECT count(*) AS n FROM '+t).fetchone()['n'] for t in ('advisor_sessions','advisor_temporary_sessions','guest_ai_requests','guest_ai_usage')]
-        before=counts()
-        with self.assertRaises(psycopg.Error):
-            with self.connection() as db:db.execute((Path(__file__).resolve().parents[1]/'migrations/006_confirmed_career_profile.sql').read_text(encoding='utf8'))
-        self.assertEqual(counts(),before)
-    def test_rejection_survives_reload_and_cannot_modify_other_session(self):
-        sid=self.session['id'];pid=self.analysis['proposed_profile_items'][1]['id']
-        r=self.client.post(f'/api/ai/sessions/{sid}/profile-proposals/{pid}/reject');self.assertEqual(r.status_code,200)
-        self.assertIn(pid,self.client.get('/api/ai/sessions/'+sid).json()['session']['messages'][0]['profile_rejections'])
-        self.identity={'uid':'other','provider':'password'}
-        self.assertEqual(self.client.post(f'/api/ai/sessions/{sid}/profile-proposals/{pid}/reject').status_code,404)
-    def test_bounded_expiry_cleanup_does_not_remove_account_items(self):
+    def test_delete_all_removes_legacy_confirmed_data_even_when_disabled(self):
         self.accept()
-        self.identity['uid']='other-owner'
-        with self.connection() as db:
-            db.execute('''INSERT INTO advisor_profile_items(id,owner,category,value,confirmed_by,source_session_id,source_proposal_id,metadata,expires_at)
-                VALUES(%s,'expired','interests','Vẽ tranh','expired','s','p','{}',NOW()-INTERVAL '1 minute')''',(str(uuid4()),))
-        self.assertEqual(cp.purge_expired(1),1);self.assertEqual(len(cp.read('owner-one')['items']),1)
-        self.assertEqual(cp.purge_expired(1),0)
-    def test_profile_write_rate_uses_shared_state_without_charging_chat_quota(self):
-        with patch.dict(os.environ,{'PROFILE_USER_WRITES_PER_MINUTE':'1'}):
-            self.accept()
-            self.assertEqual(self.client.post('/api/ai/career-profile/items',json=self.body()).status_code,429)
-        with self.connection() as db:
-            self.assertEqual(db.execute('SELECT count(*) AS n FROM guest_ai_requests').fetchone()['n'],0)
+        with patch.dict(os.environ,{'ADVISOR_PROFILE_ENABLED':'false'}):self.assertEqual(self.client.delete('/api/ai/data').status_code,204)
+        self.assertEqual(cp.read('owner-one')['items'],[])
     def test_controlled_profile_rollout_does_not_restrict_new_chat_pipeline(self):
         with patch.dict(os.environ,{'ADVISOR_CONTROLLED_ROLLOUT':'true','ADVISOR_TEST_UIDS':'different-qa','AI_DEMO_MODE':'true'}),patch('advisor.stable_graph.advisor_graph.ainvoke',side_effect=AssertionError('legacy graph must never run')):
             result=self.client.post('/api/ai/chat',json={'session_id':self.session['id'],'request_id':str(uuid4()),'message':'Thích vẽ'})

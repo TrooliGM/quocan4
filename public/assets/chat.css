@@ -71,8 +71,6 @@
 .sidebar-link { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 10px 12px; border: 0; border-radius: 10px; color: var(--ink); background: none; font-size: 11px; text-decoration: none; text-align: left; transition: background var(--chat-ease); }
 .sidebar-link:hover { background: var(--chat-hover); color: var(--ink); }
 .sidebar-link > span { display: grid; place-items: center; width: 24px; flex: none; font-size: 19px; }
-#open-profile { background: #254c41; margin-bottom: 4px; }
-#open-profile:hover { background: #315e50; }
 .sidebar-account { display: flex; align-items: center; gap: 10px; margin-top: 16px; padding: 16px 8px max(18px, env(safe-area-inset-bottom)); border-top: 1px solid #ffffff26; }
 .user-initial { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border: 1px solid #6f9782; border-radius: 12px; color: #eff6ed; background: #2b5549; font-size: 13px; font-weight: 600; }
 .sidebar-account > div { flex: 1; min-width: 0; }
@@ -196,9 +194,6 @@
 .chat-dialog h2 { margin: 16px 0; font-size: 23px; font-weight: 600; line-height: 1.5; letter-spacing: -.5px; }
 .chat-dialog > p, .chat-dialog form > p { color: var(--chat-muted); font-size: 13px; line-height: 1.8; }
 .chat-dialog h3 { margin-top: 24px; font-size: 12px; font-weight: 600; }
-.profile-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
-.profile-tags span { padding: 7px 12px; border-radius: 8px; background: var(--mint); font-size: 12px; }
-.profile-empty { color: var(--chat-muted); font-size: 12px; }
 .danger-button { min-height: 44px; padding: 10px 0; margin-top: 16px; border: 0; background: none; color: #a34130; font-size: 12px; text-decoration: underline; text-underline-offset: 3px; }
 .chat-dialog input { width: 100%; padding: 12px; border: 1px solid #c7d4c2; border-radius: 10px; color: var(--ink); background: var(--chat-surface); font-size: 14px; }
 .chat-dialog label { margin-bottom: 8px; font-size: 12px; }
@@ -351,7 +346,6 @@
 
 .source-list{margin-top:12px;font-size:12px;line-height:1.8}.source-list summary{cursor:pointer}.source-list a,.source-list small{display:block}.source-list p{margin:6px 0 16px;color:var(--chat-muted)}
 
-.profile-use-control{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:8px 32px;font-size:11px;border-bottom:1px solid #e7ebdf}.profile-use-control small{color:var(--chat-muted)}.profile-use-control label{display:flex;align-items:center;gap:6px}.profile-proposal,.profile-item{padding:16px 0;border-top:1px solid #dbe5d8}.profile-proposal h4,.profile-item h4{font-size:14px}.profile-proposal textarea,.profile-item input{width:100%;padding:10px;border:1px solid #c6d5c4;border-radius:10px;color:var(--ink);background:#fffdf8}.profile-item small,.profile-proposal small{display:block;color:var(--chat-muted);margin:8px 0}.profile-item button,.profile-proposal button,.profile-review-button{padding:9px 12px;border:1px solid #b9cbb7;background:#edf3e7;border-radius:10px;margin:7px 8px 0 0;color:var(--ink);font-size:12px}.profile-evidence{font-size:12px;line-height:1.7}.profile-status{font-size:13px}.profile-proposal button:disabled{opacity:.5}#profile-dialog{max-height:85dvh;overflow:auto}@media(max-width:600px){.profile-use-control{padding:8px 12px;gap:5px}.profile-use-control small{font-size:10px}}
 
 /* Hành động nghề: cùng bảng màu và nhịp thẻ Premium, chỉ xuất hiện khi có ích. */
 .career-navigation{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px;max-width:100%}
@@ -360,14 +354,16 @@
 .career-navigation>small{flex-basis:100%;font-size:11px;color:var(--chat-muted);line-height:1.6;padding:2px 2px 0}
 @media(max-width:600px){.career-navigation-link{flex-basis:100%;min-height:48px}}
 @media(prefers-reduced-motion:reduce){.career-navigation-link{transition:none}}
-/* Task4.1: cùng bảng màu kem/xanh, thẻ hồ sơ có căn cứ gọn và dễ xem trên mobile. */
-#profile-dialog{width:min(690px,calc(100vw - 28px));padding:30px;background:#fcfaf4}
-#profile-content>section{margin-top:22px}#profile-content h3{font-size:16px;letter-spacing:-.02em;margin:0 0 12px}
-.profile-proposal,.profile-item{border:1px solid #dce5d7;border-radius:18px;background:#fffef9;padding:16px 18px;margin:12px 0;box-shadow:0 3px 14px #183f3405}
-.profile-proposal h4,.profile-item h4{margin:0 0 8px}.profile-proposal textarea,.profile-item input{background:#f9faf5;line-height:1.6;resize:vertical}
-.profile-proposal details{margin-top:12px;color:var(--chat-muted);font-size:12px}.profile-proposal summary{cursor:pointer;padding:6px 0}
-.confidence-label{display:inline-block!important;padding:4px 9px;background:#edf3e7;border-radius:20px;font-size:11px}
+.conversation-controls{padding:8px 32px;border-bottom:1px solid #e7ebdf}
+.conversation-controls:has(button[hidden]){display:none}
+.conversation-controls button,.analysis-retry{min-height:44px;padding:10px 16px;border:1px solid #bacbb5;border-radius:12px;background:#f3f6ed;color:var(--ink);cursor:pointer}
+.sidebar-link.account-data-action{font-size:11px;color:#e9c9b4;min-height:44px;margin-top:10px}
+.survey-result{width:100%;line-height:1.75;background:#fcfaf4;border:1px solid #d8e3d2}
+.survey-result h2{font-size:19px;letter-spacing:-.025em;margin-bottom:16px}
+.survey-result h3{font-size:16px;margin-top:22px}.survey-result small{display:block;color:var(--chat-muted);font-size:11px;line-height:1.7;margin-top:8px}
+.survey-result details{margin:16px 0;padding:12px 16px;background:#f2f5eb;border-radius:12px}
+.survey-result summary{cursor:pointer}.survey-direction{margin:16px 0;padding:18px;background:#fffef9;border:1px solid #dae4d5;border-radius:16px}
+.survey-direction h4{font-size:16px;margin:0 0 10px}.survey-direction strong{font-size:12px}.survey-direction ul{margin:4px 0 12px;padding-left:20px}
+.analysis-retry:focus-visible{outline:3px solid #b67048;outline-offset:3px}
+@media(max-width:600px){.conversation-controls{padding:6px 12px}.survey-result h2{font-size:17px}.survey-direction{padding:14px}.survey-result details{padding:10px 12px}}
 .analysis-state{padding:20px;border-radius:16px;background:#edf3e7;line-height:1.7}.analysis-state p{font-size:13px}.analysis-state small{color:var(--chat-muted);font-size:11px}.analysis-state.is-error{background:#f6ece0}.analysis-state button{padding:10px 16px;border-radius:12px;border:1px solid #bacbb5;background:#fffdf8;color:var(--ink)}
-@media(max-width:600px){#profile-dialog{padding:22px 18px}.profile-item,.profile-proposal{padding:14px}.profile-proposal button,.profile-item button{min-height:44px}}
-
-.profile-clarify{padding:10px 16px;background:var(--mint);border:1px solid #c2d3bd;border-radius:12px;color:var(--ink);font:inherit;font-size:12px;cursor:pointer}

@@ -18,21 +18,19 @@ class PublicUITests(unittest.TestCase):
   page=self.client.get('/ai-career-advisor')
   self.assertEqual(page.status_code,200);self.assertIn('Trợ lý hướng nghiệp',page.text)
   self.assertIn('Đồng hành cùng bạn khám phá nghề nghiệp',page.text)
-  self.assertNotIn('advisor-entry.js',page.text);self.assertIn('task41-unified-1',page.text)
+  self.assertNotIn('advisor-entry.js',page.text);self.assertIn('chat-without-profile-1',page.text)
   self.assertEqual(page.headers['cache-control'],'no-store')
   config=self.client.get('/api/ai/config').json()
   self.assertTrue(config['premium_ui_public'])
-  self.assertTrue(config['task4_enabled']);self.assertTrue(config['automatic_analysis']);self.assertTrue(config['profile_enabled'])
+  self.assertTrue(config['task4_enabled']);self.assertTrue(config['automatic_analysis']);self.assertFalse(config['profile_enabled'])
   self.assertEqual(config['chat_pipeline'],'task41')
   # Released confirmed profile returns only this owner's items.
-  legacy=self.client.get('/api/ai/career-profile');self.assertEqual(legacy.status_code,200);self.assertIn('items',legacy.json());self.assertEqual(legacy.json()['items'],[])
+  legacy=self.client.get('/api/ai/career-profile');self.assertEqual(legacy.status_code,410)
   self.assertEqual(self.client.get('/api/ai/task4-shell').status_code,200)
   self.assertEqual(self.client.get('/api/ai/sessions/'+self.sid+'/analysis').status_code,200)
   self.assertEqual(self.client.post('/api/ai/sessions/'+self.sid+'/analysis',json={}).json()['status'],'completed')
-  result=self.client.post('/api/ai/career-profile/items',json=self.f.body());self.assertEqual(result.status_code,200,result.text)
-  item=result.json()['items'][0]
-  self.assertEqual(bool(item['expires_at']),self.f.identity['provider']=='anonymous')
-  self.assertEqual(self.client.put('/api/ai/sessions/'+self.sid+'/profile-use',json={'use_profile':True}).status_code,200)
+  result=self.client.post('/api/ai/career-profile/items',json=self.f.body());self.assertEqual(result.status_code,410)
+  self.assertEqual(self.client.put('/api/ai/sessions/'+self.sid+'/profile-use',json={'use_profile':True}).status_code,410)
  def test_guest_can_confirm_temporary_profile_with_existing_chat_quota(self):
   self.f.identity['provider']='anonymous';self.assert_public_ui_with_separate_data_rights()
   self.assertEqual(self.client.get('/api/ai/config').json()['guest_quota']['remaining'],8)
@@ -44,14 +42,14 @@ class PublicUITests(unittest.TestCase):
  def test_legacy_qa_uid_is_not_required(self):
   with patch.dict(os.environ,{'ADVISOR_TEST_UIDS':'owner-one'}):
    config=self.client.get('/api/ai/config').json()
-   self.assertTrue(config['premium_ui_public']);self.assertTrue(config['automatic_analysis']);self.assertTrue(config['profile_enabled'])
-   self.assertEqual(self.client.get('/api/ai/career-profile').status_code,200)
+   self.assertTrue(config['premium_ui_public']);self.assertTrue(config['automatic_analysis']);self.assertFalse(config['profile_enabled'])
+   self.assertEqual(self.client.get('/api/ai/career-profile').status_code,410)
    self.assertEqual(self.client.post('/api/ai/sessions/'+self.sid+'/analysis',json={}).json()['status'],'completed')
  def test_candidate_ui_is_unified_for_all_roles(self):
   with patch.dict(os.environ,{'VERCEL_ENV':'production'}):
    self.assertTrue(self.client.get('/api/ai/config').json()['premium_ui_public'])
    page=self.client.get('/ai-career-advisor?preview=1')
-   self.assertNotIn('advisor-entry.js',page.text);self.assertIn('task41-unified',page.text)
+   self.assertNotIn('advisor-entry.js',page.text);self.assertIn('chat-without-profile-1',page.text)
  def test_old_presentation_flag_cannot_restore_legacy_chat(self):
   with patch.dict(os.environ,{'ADVISOR_PREMIUM_UI_PREVIEW':'false'}):
    self.assertNotIn('advisor-entry.js',self.client.get('/ai-career-advisor').text)

@@ -1,5 +1,21 @@
 # Quyết định và việc còn mở
 
+## Xác nhận phát hành sản phẩm cho Guest/Member — 28/10/2026
+
+Người dùng trực tiếp cho phép commit/push/tích hợp main và deploy Production sau kiểm thử quan trọng, không hỏi lại bước phát hành đã duyệt. Giữ quota Guest8/rate limit, quyền sở hữu/Firebase và giới hạn dữ liệu tài khoản; không cấp QA/admin/debug/bypass. Không khôi phục Hồ sơ riêng; không migration/đổi DATABASE_URL/reset database. Rà source đã không còn QA gate cho pipeline/search/analysis nên kế thừa, không thêm rollout trùng lặp. Preview mới và Google popup đã đạt theo bằng chứng tại docs/task4-public-release.md; vẫn phải build candidate bằng environment Production riêng, smoke rồi promote/rollback có kiểm soát.
+
+## Quyền tiếp tục Preview — đã thực hiện 28/10/2026
+
+User thay gate cũ: cho reuse staging có sẵn và tạo Preview dù LIVE có thể BLOCKED, không tạo DB/schema/reset. Đã xác minh staging độc lập và dùng env riêng từng Preview, không đổi binding env dịch vụ. Không phát hành Production vì GuestLIVE/popupGoogle mới chưa đủ bằng chứng, dù Preview READY và Member/DeepSeek/DDGS PASS. Lỗi area hiện tại sửa ở schema sinh model, giữ validator cũ; không gọi đó là nguyên nhân Historical ValidationError. Giữ bản vá chưa commit; báo cáo docs/task4-profile-removal-preview-result.md.
+
+## Preview gỡ Hồ sơ — quyền có gate (28/10/2026)
+
+Người dùng cho kiểm tra/link/Preview từ đúng worktree local, không commit/push/merge/Production; bắt buộc dừng nếu chưa chứng minh database Preview độc lập. Đã xác minh thiếu DATABASE_URL áp dụng nhánh mới và dừng, không lấy cấu hình nhánh cũ làm mặc định hay tự tạo database. CLI/token local bị ignore không phải thay binding env dịch vụ. Chờ cấu hình Preview hợp lệ rồi mới tiếp tục manifest/build/deploy. docs/task4-profile-removal-preview.md.
+
+## Đã xác nhận — bỏ Hồ sơ riêng (28/10/2026)
+
+Người dùng chốt loại bỏ Hồ sơ hướng nghiệp cá nhân khỏi UI/nghiệp vụ, giữ ghi chú/tóm tắt/khảo sát/hành trình trong session và dữ liệu legacy. API Hồ sơ cũ ngừng với 410; cờ môi trường cũ không tái bật chức năng. Lưu hội thoại và xóa dữ liệu độc lập, dùng danh tính server và bảo vệ hiện hành. Phân tích khảo sát hiển thị trong chat từ kết quả đã lưu, trường hướng nghề thêm tùy chọn để tương thích dữ liệu cũ, không tự gọi AI khi render. Đã sửa/kiểm thử local ở nhánh riêng; chưa stage/commit/push/merge/Preview/Production hay migration. Không coi việc này là hoàn thành Task 4 hoặc xác định nguyên nhân Historical ValidationError. Xem docs/task4-profile-removal.md.
+
 ## Task 4 — xác nhận 25/10/2026
 
 - User giao đủ53 yêu cầu theo4giaiđoạn; cho commit checkpoint, push nhánh Task4 và Preview, chưa Production.

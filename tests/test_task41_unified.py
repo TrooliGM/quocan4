@@ -46,8 +46,7 @@ class UnifiedTests(unittest.TestCase):
    sid=self.session(uid,role);row=get_store().get(uid,sid);row['messages'][0]['use_confirmed_profile']=True;get_store().write(uid,row)
    with patch('advisor.confirmed_profile.context_items',side_effect=AssertionError('private profile read forbidden')):
     self.assertEqual(self.chat(sid).status_code,200)
-   block=next(m['content'] for m in self.payloads[-1]['messages'] if m['content'].startswith('HỒ SƠ ĐÃ XÁC NHẬN'))
-   self.assertFalse(json.loads(block.split('\n',1)[1])['enabled'])
+   self.assertFalse(any(m['content'].startswith('HỒ SƠ ĐÃ XÁC NHẬN') for m in self.payloads[-1]['messages']))
  def test_old_and_new_sessions_both_modes_temporary_and_durable(self):
   for remember in [False,True]:
    for mode in ['career_discovery','career_exploration']:
@@ -86,5 +85,5 @@ class UnifiedTests(unittest.TestCase):
     if role=='anonymous':self.assertEqual(self.client.get('/api/ai/config').json()['guest_quota']['remaining'],8)
     proposal=result.json()['result']['proposed_profile_items'][0]
     body={'session_id':sid,'proposal_id':proposal['id'],'value':proposal['value'],'confirmed':True}
-    self.assertEqual(self.client.post('/api/ai/career-profile/items',json=body).status_code,200 if uid=='qa-test' else 404)
+    self.assertEqual(self.client.post('/api/ai/career-profile/items',json=body).status_code,410)
    self.assertEqual(model.await_count,3)

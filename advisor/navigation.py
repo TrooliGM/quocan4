@@ -135,13 +135,12 @@ def decode_completion(message,state,strict_navigation=True):
 
 
 def tool():
-    from .profile_proposals import Update
     return {'type':'function','function':{'name':TOOL_NAME,
-        'description':'Trả lời cuối, đề xuất nút nội bộ và cập nhật đề xuất hồ sơ từ lời học sinh khi có thông tin mới/đính chính. Không thực thi công cụ bên ngoài hoặc lưu hồ sơ chính thức.',
+        'description':'Trả lời cuối và đề xuất nút nội bộ đúng nghề. Không thực thi công cụ bên ngoài.',
         'parameters':{'type':'object','properties':{
             'answer':{'type':'string','description':'Câu trả lời Markdown tự nhiên cho học sinh, không URL. Không tự kết luận phù hợp tuyệt đối.'},
-            'intent':{'type':'string','enum':['navigate','explore_options','profile_update','reply']},
-            'profile_updates':{'type':'array','maxItems':8,'items':Update.model_json_schema()},
+            'intent':{'type':'string','enum':['navigate','explore_options','reply']},
+            'profile_updates':{'type':'array','maxItems':0,'items':{'type':'object'},'description':'Trường tương thích cũ, luôn để rỗng.'},
             'basis':{'type':'string','description':'Trích nguyên một cụm từ lời học sinh trong câu HIỆN TẠI, không lấy yêu cầu cũ, web hay lời AI.', 'maxLength':240},
             'actions':{'type':'array','maxItems':4,'items':{'type':'object','properties':{
                 'kind':{'type':'string','enum':['career_profile','career_story','career_exploration']},

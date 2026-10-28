@@ -54,6 +54,13 @@ class GuestPostgresTests(unittest.TestCase):
         self.dbpatch.stop();self.env.stop()
 
     def session(self,owner='guest',remember=False):
+        if remember and fake_user('Bearer '+owner)['provider']=='anonymous':
+            # Dữ liệu Guest lâu dài đã tồn tại từ phiên bản cũ vẫn phải đọc được.
+            # Không cấp quyền tạo mới qua API; test_profile_removal kiểm tra 403.
+            from advisor.store import get_store
+            sid=get_store().create(fake_user('Bearer '+owner)['uid'],True)['id']
+            self.client.put('/api/ai/sessions/'+sid+'/survey',headers={'Authorization':'Bearer '+owner},json={'answers':['Chưa rõ']*5,'address':'chị'}).raise_for_status()
+            return sid
         response = self.client.post('/api/ai/sessions',headers={'Authorization':'Bearer '+owner},json={'remember':remember})
         self.assertEqual(response.status_code,201,response.text)
         self.client.put('/api/ai/sessions/'+response.json()['session']['id']+'/survey',

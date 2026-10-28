@@ -21,16 +21,19 @@ class Task44Tests(unittest.TestCase):
     def update(self,text,area='interests',value=None,**kw):
         return {'area':area,'value':value or text,'excerpt':text,'inference_type':'trực tiếp','operation':'add','replaces':[],**kw}
     def add(self,text,updates):
-        rid=str(uuid4());state=self.state(text,rid);rows=p.validate_updates(updates,state)
+        rid=str(uuid4());state=self.state(text,rid)
+        # Giữ test đơn vị bộ đọc metadata legacy, không tái bật luồng Hồ sơ của app.
+        with patch('advisor.analysis_jobs.analysis_for_session',side_effect=lambda row:p.merge(row,self.analysis)):
+            rows=p.validate_updates(updates,state)
         self.session['messages'].extend([{'role':'user','content':text,'request_id':rid},{'role':'assistant','content':'fixture only','profile_updates':rows,'request_id':rid}])
         self.session=get_store().write(self.identity['uid'],self.session)
         return rows
     def test_additive_eight_areas_and_correction_keep_survey(self):
         rows=self.add('Em thích giúp đỡ người khác.',[self.update('Em thích giúp đỡ người khác.')]);old=rows[0]['id']
         self.add('Em thích môn Sinh và thường giúp các bạn học bài.',[self.update('Em thích môn Sinh',area='subjects'),self.update('thường giúp các bạn học bài',area='experiences')])
-        a=analysis_for_session(self.session);self.assertTrue(any(x['id']==old for x in a['proposed_profile_items']));self.assertEqual(len(a['proposed_profile_items']),5)
+        a=p.merge(self.session,self.analysis);self.assertTrue(any(x['id']==old for x in a['proposed_profile_items']));self.assertEqual(len(a['proposed_profile_items']),5)
         self.add('Em không còn thích giúp đỡ người khác.',[self.update('Em không còn thích giúp đỡ người khác.',operation='withdraw',replaces=[old])])
-        a=analysis_for_session(self.session);self.assertFalse(any(x['id']==old for x in a['proposed_profile_items']));self.assertEqual(a['changes'][-1]['operation'],'withdraw')
+        a=p.merge(self.session,self.analysis);self.assertFalse(any(x['id']==old for x in a['proposed_profile_items']));self.assertEqual(a['changes'][-1]['operation'],'withdraw')
         self.assertEqual(self.session['messages'][0]['survey']['answers'],base.ANSWERS)
         self.assertEqual(cp.read(self.identity['uid'])['items'],[])
     def test_no_assistant_web_pii_skill_inference_or_unknown_replacement(self):
@@ -40,20 +43,16 @@ class Task44Tests(unittest.TestCase):
     def test_duplicate_stable_id_reject_and_no_implicit_confirmation(self):
         text='Em thích môn Sinh';rows=self.add(text,[self.update(text,area='subjects')]);id=rows[0]['id']
         rows2=self.add(text,[self.update(text,area='subjects')]);self.assertEqual(id,rows2[0]['id'])
-        a=analysis_for_session(self.session);self.assertEqual(sum(x['id']==id for x in a['proposed_profile_items']),1)
-        r=self.client.post(f"/api/ai/sessions/{self.session['id']}/profile-proposals/{id}/reject");self.assertEqual(r.status_code,200)
-        self.assertEqual(self.client.post('/api/ai/career-profile/items',json={'session_id':self.session['id'],'proposal_id':id,'value':text,'confirmed':True}).status_code,409)
+        a=p.merge(self.session,self.analysis);self.assertEqual(sum(x['id']==id for x in a['proposed_profile_items']),1)
+        r=self.client.post(f"/api/ai/sessions/{self.session['id']}/profile-proposals/{id}/reject");self.assertEqual(r.status_code,410)
+        self.assertEqual(self.client.post('/api/ai/career-profile/items',json={'session_id':self.session['id'],'proposal_id':id,'value':text,'confirmed':True}).status_code,410)
         self.assertEqual(cp.read(self.identity['uid'])['items'],[])
-    def test_confirm_correction_preserves_saved_item_and_cross_owner(self):
-        text='Em thích môi trường bệnh viện';old=self.add(text,[self.update(text,area='work_preferences')])[0]
-        body={'session_id':self.session['id'],'proposal_id':old['id'],'value':text,'confirmed':True}
-        r=self.client.post('/api/ai/career-profile/items',json=body);self.assertEqual(r.status_code,200);item=r.json()['items'][0]
-        stale=copy.deepcopy(self.session)
-        text2='Em không thích làm việc trong bệnh viện';new=self.add(text2,[self.update(text2,area='work_preferences',operation='correct',replaces=[old['id']])])[0]
-        self.assertEqual(cp.read(self.identity['uid'])['items'][0]['value'],text)
-        r=self.client.post('/api/ai/career-profile/items',json={**body,'proposal_id':new['id'],'value':text2});self.assertEqual(r.status_code,409)
-        with self.assertRaises(HTTPException):cp.confirm(self.identity['uid'],'password',stale,old['id'],text)
-        self.assertEqual(self.client.patch('/api/ai/career-profile/items/'+item['id'],json={'value':text2,'version':item['version']}).status_code,200)
+    def test_retired_profile_keeps_old_items_and_cross_owner_guards(self):
+        old=self.analysis['proposed_profile_items'][0]
+        item=cp.confirm(self.identity['uid'],'password',self.session,old['id'],old['value'])['items'][0]
+        self.assertEqual(self.client.post('/api/ai/career-profile/items',json={}).status_code,410)
+        self.assertEqual(self.client.patch('/api/ai/career-profile/items/'+item['id'],json={'value':'new value','version':item['version']}).status_code,410)
+        self.assertEqual(cp.read(self.identity['uid'])['items'][0]['value'],old['value'])
         self.identity={'uid':'other-person','provider':'google.com'}
         self.assertEqual(self.client.get('/api/ai/sessions/'+self.session['id']+'/analysis').status_code,404)
         self.assertEqual(self.client.put('/api/ai/sessions/'+self.session['id']+'/exploration',json={'career_id':catalog().careers[0].career_id}).status_code,404)
@@ -76,22 +75,22 @@ class Task44Tests(unittest.TestCase):
             response=httpx.Response(200,json={'choices':[{'message':{'content':None,'tool_calls':[{'function':{'name':TOOL_NAME,'arguments':json.dumps(arguments)}}]},'finish_reason':'tool_calls'}]})
             with patch.dict(os.environ,{'AI_DEMO_MODE':'false','DEEPSEEK_API_KEY':'fixture-only'}),patch('advisor.graph.post_completion',AsyncMock(return_value=response)) as mock,patch('advisor.graph.compress_context',AsyncMock(return_value={})):
                 body={'session_id':self.session['id'],'request_id':rid,'message':text}
-                r=self.client.post('/api/ai/chat',json=body);self.assertEqual(r.status_code,200,r.text);row=r.json()['session'];self.assertTrue(row['messages'][-1]['profile_updates'])
+                r=self.client.post('/api/ai/chat',json=body);self.assertEqual(r.status_code,200,r.text);row=r.json()['session'];self.assertEqual(row['messages'][-1]['profile_updates'],[])
                 again=self.client.post('/api/ai/chat',json=body);self.assertEqual(again.status_code,200);self.assertTrue(again.json()['duplicate']);self.assertEqual(mock.await_count,1)
-                self.assertEqual(self.client.get('/api/ai/sessions/'+self.session['id']+'/analysis').json()['result']['analysis_version'],2)
+                self.assertEqual(self.client.get('/api/ai/sessions/'+self.session['id']+'/analysis').json()['result']['analysis_version'],1)
             self.session=get_store().get(self.identity['uid'],self.session['id'])
     def test_profile_public_access_even_with_legacy_qa_flags(self):
         with patch.dict(os.environ,{'ADVISOR_CONTROLLED_ROLLOUT':'true','ADVISOR_TEST_UIDS':'qa-only'}):
-            self.assertTrue(self.client.get('/api/ai/config').json()['profile_enabled'])
+            self.assertFalse(self.client.get('/api/ai/config').json()['profile_enabled'])
             text='Em thích Sinh';proposal=self.add(text,[self.update(text,area='subjects')])[0]
             result=self.client.post('/api/ai/career-profile/items',json={'session_id':self.session['id'],'proposal_id':proposal['id'],'value':text,'confirmed':True})
-            self.assertEqual(result.status_code,200,result.text)
+            self.assertEqual(result.status_code,410,result.text)
             self.assertEqual(self.client.get('/api/ai/sessions/'+self.session['id']+'/analysis').status_code,200)
     def test_exact_polarity_correction_cannot_leave_both_preferences_active(self):
         old=self.add('Em thích làm việc ngoài trời',[self.update('Em thích làm việc ngoài trời',area='work_preferences',value='Muốn làm việc ngoài trời')])[0]
         rows=self.add('Em không muốn làm việc ngoài trời',[self.update('Em không muốn làm việc ngoài trời',area='work_preferences',value='Không muốn làm việc ngoài trời')])
         self.assertEqual(rows[0]['operation'],'correct');self.assertEqual(rows[0]['replaces'],[old['id']])
-        result=analysis_for_session(self.session);self.assertFalse(any(p['id']==old['id'] for p in result['proposed_profile_items']))
+        result=p.merge(self.session,self.analysis);self.assertFalse(any(p['id']==old['id'] for p in result['proposed_profile_items']))
     def test_late_survey_result_cannot_resurrect_a_denied_preference(self):
         old={'id':str(uuid4()),'category':'work_preferences','value':'Muốn làm việc ngoài trời'}
         update={'id':str(uuid4()),'category':'work_preferences','value':'Không muốn làm việc ngoài trời','operation':'add','replaces':[],'evidence':[{'excerpt':'Em không muốn làm việc ngoài trời'}]}
@@ -123,7 +122,7 @@ class Task44Tests(unittest.TestCase):
         self.session['messages'][0].pop('survey',None);self.session['messages'][0].pop('survey_required',None)
         self.add('Em thích môn Sinh',[self.update('Em thích môn Sinh',area='subjects')])
         result=self.client.get('/api/ai/sessions/'+self.session['id']+'/analysis').json()
-        self.assertEqual(result['status'],'completed');self.assertTrue(any(p['area']=='subjects' for p in result['result']['proposed_profile_items']))
+        self.assertEqual(result['status'],'pending');self.assertIsNone(result.get('result'))
     def test_declared_navigation_with_invalid_actions_requests_bounded_repair(self):
         from advisor.navigation import decode_completion,NavigationMetadataError
         raw={'answer':'Model fixture','intent':'navigate','basis':'Mở truyện','actions':[{'kind':'career_story','career_id':'unknown'}],'profile_updates':[]}

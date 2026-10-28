@@ -52,10 +52,12 @@ def lock_for(session_id):
         session_locks[session_id] = lock
     return lock
 
-def profile_actor(request:Request,user=Depends(require_user)):
-    """Giới hạn ghi dữ liệu riêng, không lấy lượt chat/quota 8 câu."""
+def account_write_actor(request:Request,user=Depends(require_user)):
+    """Bảo vệ lưu/xóa dữ liệu riêng, độc lập chức năng Hồ sơ đã ngừng."""
     from .rollout import require
+    from .protection import same_origin
     require(user)
+    same_origin(request)
     if isinstance(get_store(),PostgresConversationStore):
         from .protection import connection,limit,setting,client_ip
         with connection() as db:
@@ -104,13 +106,12 @@ class ChatInput(BaseModel):
 
 @router.get("/api/ai/config")
 def config(user=Depends(require_user)):
-    from .confirmed_profile import enabled
-    from .rollout import allowed, search_allowed
+    from .rollout import search_allowed
     return {"mode": "demo" if demo_mode() else "live", "configured": demo_mode() or bool(os.getenv("DEEPSEEK_API_KEY", "").strip()),
             "model": "demo" if demo_mode() else model_name(),
             "microphone": {"google": voice.google_stt_configured()},
             "is_guest": user.get('provider') == 'anonymous',
-            "profile_enabled": enabled() and allowed(user),
+            "profile_enabled": False,
             "task4_enabled": True,
             "chat_pipeline": "task41",
             "premium_ui_public": True,
@@ -162,6 +163,8 @@ def claim_guest(payload: GuestClaimInput, request: Request, response: Response, 
 @router.post("/api/ai/sessions", status_code=201)
 def create_session(payload: SessionInput, user=Depends(require_user)):
     guest_usage(user)  # Chặn UID khách đã được chuyển sang tài khoản khác.
+    if payload.remember and user.get('provider') not in ('password','google.com'):
+        raise HTTPException(403,'Đăng nhập trước khi lưu lâu dài.')
     return {"session": get_store().create(user["uid"], payload.remember, {"mode":payload.mode,"career_id":payload.career_id,"career_name": find_career(payload.career_id).name if payload.career_id else None})}
 
 
@@ -197,12 +200,15 @@ def delete_session(session_id: UUID, user=Depends(require_user)):
     return Response(status_code=204)
 
 
-@router.get("/api/ai/career-profile")
-def profile(user=Depends(require_user)):
-    from .rollout import allowed
-    if not allowed(user):return {'profile':get_store().profile(user['uid'])}
-    from .confirmed_profile import read
-    return read(user['uid'])
+@router.get('/api/ai/career-profile')
+@router.post('/api/ai/career-profile/items')
+@router.patch('/api/ai/career-profile/items/{item_id}')
+@router.delete('/api/ai/career-profile/items/{item_id}')
+@router.post('/api/ai/sessions/{session_id}/profile-proposals/{proposal_id}/reject')
+@router.put('/api/ai/sessions/{session_id}/profile-use')
+def retired_profile(user=Depends(require_user)):
+    # Không đọc, sửa hay tiết lộ nội dung cũ, kể cả khi env cũ vẫn bật Hồ sơ.
+    raise HTTPException(410,'Chức năng Hồ sơ hướng nghiệp đã ngừng. Kết quả khảo sát nằm trong cuộc trò chuyện.')
 
 class ProfileConfirmInput(BaseModel):
     model_config=ConfigDict(extra='forbid')
@@ -227,43 +233,9 @@ class ProfileUseInput(BaseModel):
     model_config=ConfigDict(extra='forbid')
     use_profile:bool
 
-@router.post('/api/ai/career-profile/items')
-def confirm_profile(payload:ProfileConfirmInput,user=Depends(profile_actor)):
-    from .confirmed_profile import confirm
-    session=get_store().get(user['uid'],str(payload.session_id))
-    return confirm(user['uid'],user['provider'],session,str(payload.proposal_id),payload.value.strip())
-
-@router.patch('/api/ai/career-profile/items/{item_id}')
-def edit_profile(item_id:UUID,payload:ProfileEditInput,user=Depends(profile_actor)):
-    from .confirmed_profile import edit
-    return edit(user['uid'],user['provider'],str(item_id),payload.value.strip(),payload.version,payload.retain)
-
-@router.delete('/api/ai/career-profile/items/{item_id}',status_code=204)
-def remove_profile(item_id:UUID,user=Depends(profile_actor)):
-    from .confirmed_profile import remove
-    remove(user['uid'],str(item_id));return Response(status_code=204)
-
-@router.post('/api/ai/sessions/{session_id}/profile-proposals/{proposal_id}/reject')
-def reject_profile_proposal(session_id:UUID,proposal_id:UUID,request:Request,user=Depends(require_user)):
-    from .protection import same_origin,connection,limit,client_ip
-    same_origin(request)
-    get_store().get(user['uid'],str(session_id))
-    if isinstance(get_store(),PostgresConversationStore):
-        with connection() as db:
-            limit(db,'profile:ip:minute',client_ip(request),setting('PROFILE_IP_WRITES_PER_MINUTE',90),60)
-            limit(db,'profile:uid:minute',user['uid'],setting('PROFILE_USER_WRITES_PER_MINUTE',30),60)
-    from .confirmed_profile import reject_proposal
-    return {'session':reject_proposal(get_store(),user['uid'],str(session_id),str(proposal_id))}
-
-@router.put('/api/ai/sessions/{session_id}/profile-use')
-def profile_use(session_id:UUID,payload:ProfileUseInput,user=Depends(profile_actor)):
-    from .confirmed_profile import use_profile,require_enabled
-    if payload.use_profile:require_enabled()
-    return {'session':use_profile(get_store(),user['uid'],str(session_id),payload.use_profile)}
-
 @router.post('/api/ai/sessions/{session_id}/retain')
-def retain_session(session_id:UUID,user=Depends(profile_actor)):
-    if user.get('provider')=='anonymous':raise HTTPException(403,'Đăng nhập trước khi lưu lâu dài.')
+def retain_session(session_id:UUID,user=Depends(account_write_actor)):
+    if user.get('provider') not in ('password','google.com'):raise HTTPException(403,'Đăng nhập trước khi lưu lâu dài.')
     store=get_store();sid=str(session_id);row=store.get(user['uid'],sid)
     if row['remember']:return {'session':row}
     if not isinstance(store,PostgresConversationStore):raise HTTPException(503,'Lưu phiên đang mở cần PostgreSQL.')
@@ -281,7 +253,7 @@ def retain_session(session_id:UUID,user=Depends(profile_actor)):
 
 
 @router.delete("/api/ai/data", status_code=204)
-def delete_data(user=Depends(require_user)):
+def delete_data(user=Depends(account_write_actor)):
     get_store().delete_all(user["uid"])
     return Response(status_code=204)
 
@@ -328,8 +300,7 @@ async def chat(payload: ChatInput, request: Request, user=Depends(require_user))
                     state = {"uid": uid, "session_id": session_id, "request_id": request_id, "message": payload.message}
                     if reservation and reservation['new_reservation']:
                         state['guest_reservation_token'] = reservation['reservation_token']
-                    from .rollout import allowed, search_allowed
-                    state['confirmed_profile_access']=allowed(user)  # Guest: chỉ mục đã xác nhận, TTL 2 giờ; Member: mục riêng được phép lưu lâu dài
+                    from .rollout import search_allowed
                     state['web_search_allowed']=search_allowed(user)
                     result = await advisor_graph.ainvoke(state)
                 return {"session": result["session"], "duplicate": False, "pipeline":"task41", "guest_quota": guest_usage(user)}

@@ -36,8 +36,7 @@ def survey_analysis_for_session(session):
 
 
 def analysis_for_session(session):
-    from .profile_proposals import merge
-    return merge(session,survey_analysis_for_session(session))
+    return survey_analysis_for_session(session)
 
 
 def state(session):
@@ -148,7 +147,8 @@ async def execute(request,user,store,sid,retry=False,request_id=None):
 
 def attach_analysis(state):
     result=analysis_for_session(state['session'])
-    return {'survey_insights':{'summary':result['summary'],'clarification_questions':result.get('clarification_questions',[])[:3]} if result else None,
+    return {'survey_insights':{'summary':result['summary'],'clarification_questions':result.get('clarification_questions',[])[:3],
+                              'career_directions':result.get('career_directions',[])[:3]} if result else None,
             'survey_analysis':None,'analysis_status':'stored' if result else 'not_requested'}
 
 

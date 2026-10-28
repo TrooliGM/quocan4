@@ -102,7 +102,7 @@ class MatrixStoreTests(unittest.TestCase):
             failed=self.post().json();self.assertEqual(failed['status'],'failed');self.assertEqual(failed['error_code'],'invalid_analysis');self.assertEqual(ai.await_count,2)
             trace=failed['trace_id'];self.assertRegex(trace,r'^[0-9a-f]{32}$');self.assertEqual(failed['schema_version'],ANALYSIS_SCHEMA_VERSION)
             self.assertEqual(self.post().json()['trace_id'],trace);self.assertEqual(ai.await_count,2)
-        row=get_store().get(self.identity['uid'],self.sid);self.assertEqual(row['messages'][0]['survey'],before[0]['survey']);self.assertEqual(len(row['messages']),len(before));self.assertEqual(self.session_count(),count);self.assertEqual(self.client.get('/api/ai/career-profile').json()['items'],[]);self.assertEqual(self.client.get('/api/ai/config').json()['guest_quota'],quota)
+        row=get_store().get(self.identity['uid'],self.sid);self.assertEqual(row['messages'][0]['survey'],before[0]['survey']);self.assertEqual(len(row['messages']),len(before));self.assertEqual(self.session_count(),count);self.assertEqual(self.client.get('/api/ai/career-profile').status_code,410);self.assertEqual(self.client.get('/api/ai/config').json()['guest_quota'],quota)
         self.assertIn(trace,' '.join(log.output));self.assertIn('error_code=analysis_schema',' '.join(log.output))
         for answer in self.survey['answers']:self.assertNotIn(answer,' '.join(log.output))
 
@@ -111,7 +111,7 @@ class MatrixStoreTests(unittest.TestCase):
             first=self.post().json()
         with patch.dict('os.environ',{'DEEPSEEK_API_KEY':'local-fixture-key'}),patch('advisor.graph.post_completion',AsyncMock(return_value=response(base.RAW))) as ai:
             result=self.post(True).json();self.assertEqual(result['status'],'completed');self.assertNotEqual(result['trace_id'],first['trace_id']);self.assertEqual(result['request_id'],first['request_id']);self.assertEqual(self.post(True).json(),result);self.assertEqual(ai.await_count,1)
-        self.assertEqual(self.client.get('/api/ai/career-profile').json()['items'],[])
+        self.assertEqual(self.client.get('/api/ai/career-profile').status_code,410)
 
     def test_client_cannot_supply_trace_or_replace_owner_request(self):
         with patch('advisor.graph.post_completion',AsyncMock()) as ai:

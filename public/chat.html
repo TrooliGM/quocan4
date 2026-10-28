@@ -8,10 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/assets/style.css?v=20261019-premium-2" rel="stylesheet"><link href="/assets/chat.css?v=task44-journey-2" rel="stylesheet">
+  <link href="/assets/style.css?v=20261019-premium-2" rel="stylesheet"><link href="/assets/chat.css?v=chat-without-profile-1" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.3.0/dist/purify.min.js" defer></script>
-  <script src="/assets/chat.js?v=task44-finalqa-1" type="module"></script>
+  <script src="/assets/chat.js?v=chat-without-profile-1" type="module"></script>
 </head>
 <body class="advisor-page" data-ui-version="premium-20261019-2">
 <a class="skip-link" href="#message-input">Đến ô nhập tin nhắn</a>
@@ -26,9 +26,9 @@
     <div class="history-heading"><span>HÀNH TRÌNH CỦA BẠN</span><span aria-hidden="true">↙</span></div>
     <div id="history-list" class="history-list"></div>
     <div class="sidebar-bottom">
-      <button id="open-profile" class="sidebar-link"><span aria-hidden="true">✳</span> Hồ sơ hướng nghiệp của tôi</button>
       <a href="/" class="sidebar-link"><span aria-hidden="true">↖</span> Quay lại trang chủ</a>
       <div class="sidebar-account"><span id="user-initial" class="user-initial"></span><div><strong id="user-name"></strong><small id="account-caption">Tài khoản của bạn</small></div><button id="logout" class="icon-button" aria-label="Đăng xuất" title="Đăng xuất"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H5v16h4M10 12h10m-4-4 4 4-4 4"/></svg></button></div>
+      <button id="delete-all-data" class="sidebar-link account-data-action">Xóa lịch sử và dữ liệu của tôi</button>
     </div>
   </aside>
   <main class="chat-main" id="chat-main">
@@ -38,7 +38,7 @@
       <div class="assistant-identity"><h1>Trợ lý hướng nghiệp <span class="private-badge">1:1</span></h1><p>Đồng hành cùng bạn khám phá nghề nghiệp</p></div>
       <div class="header-actions"><span id="connection-status" class="connection-status" role="status">Đang kết nối</span><button id="end-session" class="end-session" title="Trở về màn hình bắt đầu">Kết thúc</button></div>
     </header>
-    <div class="profile-use-control"><label><input id="use-profile" type="checkbox" disabled> Dùng hồ sơ đã xác nhận trong cuộc trò chuyện này</label><button id="keep-conversation" type="button" class="text-link" hidden>Lưu hội thoại vào tài khoản</button><small>Áp dụng cho lượt tiếp theo; không xóa nội dung đã trao đổi.</small></div>
+    <div class="conversation-controls"><button id="keep-conversation" type="button" class="text-link" hidden>Lưu hội thoại vào tài khoản</button></div>
     <div id="mode-banner" class="mode-banner" role="status" hidden></div>
     <div id="guest-banner" class="guest-banner" role="status" hidden><span id="guest-quota-text"></span><a id="guest-login" class="text-link" href="/?login=1&amp;upgrade=1">Đăng nhập Google / email ↗</a></div>
     <section class="chat-scroll" id="chat-scroll" aria-label="Nội dung tư vấn">
@@ -88,7 +88,6 @@
     </div>
   </main>
 </div>
-<dialog id="profile-dialog" class="chat-dialog" aria-labelledby="profile-title"><button data-close-dialog class="dialog-close" aria-label="Đóng hồ sơ">×</button><span class="eyebrow">TỪ NHỮNG ĐIỀU BẠN CHIA SẺ</span><h2 id="profile-title">Hồ sơ hướng nghiệp của tôi</h2><p>Đề xuất của AI chỉ được lưu sau khi bạn chấp nhận từng mục. Đây không phải kết quả đánh giá năng lực.</p><div id="profile-content"></div><button id="delete-all-data" class="danger-button">Xóa toàn bộ lịch sử và ghi nhớ</button></dialog>
 <dialog id="action-dialog" class="chat-dialog" aria-labelledby="action-title"><form id="action-form"><button type="button" data-close-dialog class="dialog-close" aria-label="Đóng">×</button><h2 id="action-title"></h2><p id="action-description"></p><label for="rename-input" id="rename-label" hidden>Tên cuộc trò chuyện</label><input id="rename-input" maxlength="80" hidden><div class="dialog-actions"><button type="button" data-close-dialog class="btn btn-light">Hủy</button><button id="confirm-action" class="btn btn-coral" type="submit">Xác nhận</button></div><p id="action-error" role="status"></p></form></dialog>
 
 </body>

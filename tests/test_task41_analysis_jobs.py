@@ -28,7 +28,7 @@ class JobTests(unittest.TestCase):
    for _ in range(3):self.assertEqual(self.post().json()['status'],'completed')
    self.assertEqual(ai.await_count,1)
   row=get_store().get('owner-one',self.sid);self.assertEqual(len(row['messages']),1);self.assertEqual(row['messages'][0]['analysis_job']['attempts'],1)
-  self.assertEqual(self.client.get('/api/ai/career-profile').json()['items'],[])
+  self.assertEqual(self.client.get('/api/ai/career-profile').status_code,410)
   with self.f.connection() as db:self.assertEqual(db.execute("SELECT used_questions AS n FROM guest_ai_usage WHERE uid='owner-one'").fetchone()['n'],0)
  def test_concurrent_calls_get_single_provider_attempt(self):
   async def slow(*a):await asyncio.sleep(.2);return self.result
@@ -57,9 +57,9 @@ class JobTests(unittest.TestCase):
    self.assertEqual(self.post().json()['status'],'completed');self.assertEqual(ai.await_count,1)
  def test_confirm_and_reject_from_job_without_chat_message(self):
   with patch('advisor.survey_analysis.generate_analysis',AsyncMock(return_value=self.result)):self.post()
-  p=self.result['proposed_profile_items'][0];r=self.client.post('/api/ai/career-profile/items',json={'session_id':self.sid,'proposal_id':p['id'],'value':p['value'],'confirmed':True});self.assertEqual(r.status_code,200);self.assertEqual(len(r.json()['items']),1)
-  other=self.result['proposed_profile_items'][1]['id'];self.assertEqual(self.client.post('/api/ai/sessions/'+self.sid+'/profile-proposals/'+other+'/reject').status_code,200)
-  self.assertIn(other,get_store().get('owner-one',self.sid)['messages'][0]['profile_rejections'])
+  p=self.result['proposed_profile_items'][0];r=self.client.post('/api/ai/career-profile/items',json={'session_id':self.sid,'proposal_id':p['id'],'value':p['value'],'confirmed':True});self.assertEqual(r.status_code,410)
+  other=self.result['proposed_profile_items'][1]['id'];self.assertEqual(self.client.post('/api/ai/sessions/'+self.sid+'/profile-proposals/'+other+'/reject').status_code,410)
+  self.assertNotIn('profile_rejections',get_store().get('owner-one',self.sid)['messages'][0])
  def test_guest_analysis_keeps_eight_chat_questions(self):
   self.f.identity['provider']='anonymous'
   before=self.client.get('/api/ai/config').json()['guest_quota']
@@ -125,7 +125,7 @@ class JobTests(unittest.TestCase):
     data=self.client.post('/api/ai/sessions/'+self.sid+'/analysis',json=retry).json();self.assertEqual(data['status'],'completed');self.assertEqual(data['request_id'],body['request_id'])
    self.assertEqual(ai.await_count,1)
   after=get_store().get('owner-one',self.sid);self.assertEqual(before['messages'][0]['survey'],after['messages'][0]['survey']);self.assertEqual(len(after['messages']),len(before['messages']))
-  self.assertEqual(self.client.get('/api/ai/career-profile').json()['items'],[])
+  self.assertEqual(self.client.get('/api/ai/career-profile').status_code,410)
 
  def test_wrong_request_id_rejected_before_budget_and_model(self):
   with self.f.connection() as db:before=db.execute('SELECT count(*) AS n,coalesce(sum(requests),0) AS total FROM advisor_chat_rate_limits').fetchone()

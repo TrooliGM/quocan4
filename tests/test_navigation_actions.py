@@ -102,7 +102,11 @@ class NavigationPipelineTests(unittest.TestCase):
         self.review=patch('advisor.navigation_review.review_navigation',review);self.review.start()
     def tearDown(self):self.review.stop();self.model.stop();self.env.stop();self.f.tearDown()
     def session(self,remember=False):
-        id=self.client.post('/api/ai/sessions',json={'remember':remember}).json()['session']['id']
+        if remember and self.f.identity['provider']=='anonymous':
+            # Fixture cho hội thoại Guest legacy; API tạo lâu dài nay trả 403.
+            from advisor.store import get_store
+            id=get_store().create(self.f.identity['uid'],True)['id']
+        else:id=self.client.post('/api/ai/sessions',json={'remember':remember}).json()['session']['id']
         self.client.put('/api/ai/sessions/'+id+'/survey',json={'answers':base.ANSWERS});return id
 
     def test_all_roles_temporary_and_persistent_history_retry_ownership(self):

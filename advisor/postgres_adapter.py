@@ -89,9 +89,9 @@ class PostgresConversationStore:
 
     def delete_all(self, uid):
         with postgres_store.postgres_connection() as db:
-            from .confirmed_profile import enabled,owner_lock
-            from .rollout import uid_allowed
-            if enabled() and uid_allowed(uid):
+            from .confirmed_profile import owner_lock
+            # Quyền xóa dữ liệu cũ không phụ thuộc cờ bật chức năng đã ngừng.
+            if db.execute("SELECT to_regclass('advisor_profile_items') AS profile_table").fetchone()['profile_table']:
                 owner_lock(db,uid)
                 db.execute('DELETE FROM advisor_profile_items WHERE owner=%s',(uid,))
             db.execute(

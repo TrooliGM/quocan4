@@ -22,7 +22,7 @@ from advisor import voice
 def fake_user(authorization: str | None = Header(default=None)):
     if authorization not in ("Bearer user-a", "Bearer user-b"):
         raise HTTPException(401, "Unauthorized")
-    return {"uid": authorization.removeprefix("Bearer ")}
+    return {"uid": authorization.removeprefix("Bearer "),"provider":"password"}
 
 
 def live_reply():
@@ -129,7 +129,7 @@ class AdvisorTests(unittest.TestCase):
         self.session(False)
         self.assertEqual(self.client.delete("/api/ai/data", headers=self.a).status_code, 204)
         self.assertEqual(self.client.get("/api/ai/sessions", headers=self.a).json()["items"], [])
-        self.assertEqual(self.client.get("/api/ai/career-profile", headers=self.a).json()["profile"], empty_profile())
+        self.assertEqual(self.client.get("/api/ai/career-profile", headers=self.a).status_code,410)
         self.assertEqual(self.client.get("/api/ai/sessions/" + other["id"], headers=self.b).status_code, 200)
 
     def test_missing_provider_is_explicit(self):
@@ -154,8 +154,8 @@ class AdvisorTests(unittest.TestCase):
             self.assertEqual(first.status_code, 200, first.text)
             self.assertIn("thiết kế đồ họa", first.json()["session"]["messages"][-1]["content"])
             self.assertEqual(self.send(session, "Mình còn biết một chút máy tính").status_code, 200)
-        # Một lần phân tích khảo sát riêng; lỗi JSON không tự chạy lại mỗi lượt.
-        self.assertEqual(len(seen), 5)
+        # Hai câu chat chỉ gọi model hai lần, không tự phân tích lại khảo sát.
+        self.assertEqual(len(seen), 2)
         main=[call for call in seen if call[1]['messages'][0]['content'].startswith('Bạn là trợ lý đồng hành')]
         self.assertEqual(len(main),2)
         self.assertEqual(main[0][0], "https://api.deepseek.com/chat/completions")
@@ -163,23 +163,27 @@ class AdvisorTests(unittest.TestCase):
         self.assertEqual(main[0][1]["response_format"]["type"], "text")
         self.assertIn("Mình thích vẽ", [message["content"] for message in main[1][1]["messages"]])
         # Trích xuất LLM trong phiên không đồng nghĩa đồng ý lưu hồ sơ dài hạn.
-        self.assertEqual(self.client.get("/api/ai/career-profile", headers=self.a).json()["profile"]["interests"], [])
-        self.assertEqual(self.client.get("/api/ai/career-profile", headers=self.b).json()["profile"], empty_profile())
+        self.assertEqual(self.client.get("/api/ai/career-profile", headers=self.a).status_code,410)
+        self.assertEqual(self.client.get("/api/ai/career-profile", headers=self.b).status_code,410)
 
     @patch('advisor.routes.check_ai_rate', lambda *args, **kwargs: None)
     def test_invalid_memory_does_not_discard_good_answer_and_empty_answer_retries(self):
         calls = []
         async def fake_post(client, url, **kwargs):
             calls.append(kwargs["json"])
-            content = "" if len(calls) == 1 else "Có thể thử **minh họa số**." if len(calls) == 2 else "{invalid metadata"
+            memory='bộ nén ngữ cảnh' in kwargs['json']['messages'][0]['content']
+            content = '{invalid metadata' if memory else '' if len(calls)==1 else 'Có thể thử **minh họa số**.'
             return httpx.Response(200, json={"choices": [{"finish_reason": "stop", "message": {"content": content}}]}, request=httpx.Request("POST", url))
         session = self.session(True)
         with patch.dict(os.environ, {"AI_DEMO_MODE": "false", "DEEPSEEK_API_KEY": "fake-test-key"}), patch.object(httpx.AsyncClient, "post", fake_post):
-            result = self.send(session, "Mình thích vẽ")
+            for _ in range(6):
+                result = self.send(session, "Mình thích vẽ")
+                self.assertEqual(result.status_code,200)
         self.assertEqual(result.status_code, 200, result.text)
-        self.assertEqual(len(calls), 3)
+        self.assertEqual(len(calls), 8)
+        self.assertEqual(sum('bộ nén ngữ cảnh' in c['messages'][0]['content'] for c in calls),1)
         self.assertIn("minh họa số", result.json()["session"]["messages"][-1]["content"])
-        self.assertEqual(len(result.json()["session"]["messages"]), 3)
+        self.assertEqual(len(result.json()["session"]["messages"]), 13)
 
     @patch('advisor.routes.check_ai_rate', lambda *args, **kwargs: None)
     def test_bad_answer_never_saves_user_message(self):

@@ -37,6 +37,16 @@ class AnalysisValidationTests(unittest.TestCase):
             result=asyncio.run(generate_analysis(self.survey,'synthetic-session'));self.assertTrue(result['proposed_profile_items']);self.assertEqual(ai.await_count,2)
             messages=ai.call_args.args[0]['messages'];self.assertIn('category',messages[-1]['content']);self.assertIn(ANSWERS[0],messages[1]['content'])
         self.assertEqual(self.survey,before)
+    def test_new_analysis_omits_retired_area_but_legacy_validator_stays_strict(self):
+        bad=copy.deepcopy(RAW);bad['proposed_profile_items'][0]['area']='goals'
+        with self.assertRaisesRegex(AnalysisValidationError,'incompatible_profile_area'):validate_analysis(bad,self.survey,'synthetic-session')
+        response=httpx.Response(200,json={'choices':[{'message':{'content':json.dumps(RAW)},'finish_reason':'stop'}]})
+        with patch('advisor.graph.post_completion',AsyncMock(return_value=response)) as ai:
+            asyncio.run(generate_analysis(self.survey,'synthetic-session'))
+            prompt=ai.call_args.args[0]['messages'][0]['content']
+            schema=json.JSONDecoder().raw_decode(prompt.split('Trả JSON theo schema: ',1)[1])[0]
+            self.assertEqual(schema['$defs']['Proposal']['properties']['area']['type'],'null');self.assertEqual(ai.await_count,1)
+
     def test_grounding_error_is_not_accepted_by_repair(self):
         bad=copy.deepcopy(RAW);bad['proposed_profile_items'][0]['evidence'][0]['excerpt']='made up student evidence'
         response=httpx.Response(200,json={'choices':[{'message':{'content':json.dumps(bad)},'finish_reason':'stop'}]})

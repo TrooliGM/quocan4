@@ -96,3 +96,7 @@ app.router.routes.insert(0, APIRoute("/assets/firebase-client.js", firebase_stub
 if os.getenv('LABAN_BROWSER_ADVISOR30')=='1':
     from browser_advisor30_fixture import install
     install()
+
+if os.getenv('LABAN_BROWSER_NO_PROFILE')=='1':
+    from browser_profile_removal import install_fixture
+    install_fixture()
