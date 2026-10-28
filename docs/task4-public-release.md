@@ -1,5 +1,7 @@
 # Task 4 — phát hành bản gỡ Hồ sơ, quyền sản phẩm công khai
 
+**Cập nhật sau phát hành:** Production đã chạy commit43a8337 / dpl_7cdWzerGqdzD3c4Ucjvfb8GaJbfE, hậu kiểm Guest/Member và Google popup PASS. Đây là bản preflight theo mốc; xem [báo cáo Production](task4-public-production-result.md) để biết kết quả mới nhất.
+
 Ngày kiểm tra: 28/10/2026. Repository `TrooliGM/quocan4`, worktree `task4-remove-profile`, nhánh `feat/task4-remove-profile`, base `1a534b186a9a53aedc7b94d3a01a2d4f6a3b21b4`.
 
 ## Phạm vi và xác minh nguồn

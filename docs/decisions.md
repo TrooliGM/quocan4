@@ -2,6 +2,8 @@
 
 ## Xác nhận phát hành sản phẩm cho Guest/Member — 28/10/2026
 
+**Đã thực hiện:** commit43a8337 fast-forward main, Production dpl_7cdWzerGqdzD3c4Ucjvfb8GaJbfE đã promote và hậu kiểm Guest/Member/Google popup PASS. Không cần thêm QA flag vì source base đã công khai pipeline/search/analysis; các quyền dữ liệu, quota và công tắc sự cố giữ nguyên. Không migration/đổi env/DB/reset. Báo cáo hậu kiểm commit riêng chỉ tài liệu, không đổi mã Production; rollbackDa9yyb/1a534b1 sẵn sàng.
+
 Người dùng trực tiếp cho phép commit/push/tích hợp main và deploy Production sau kiểm thử quan trọng, không hỏi lại bước phát hành đã duyệt. Giữ quota Guest8/rate limit, quyền sở hữu/Firebase và giới hạn dữ liệu tài khoản; không cấp QA/admin/debug/bypass. Không khôi phục Hồ sơ riêng; không migration/đổi DATABASE_URL/reset database. Rà source đã không còn QA gate cho pipeline/search/analysis nên kế thừa, không thêm rollout trùng lặp. Preview mới và Google popup đã đạt theo bằng chứng tại docs/task4-public-release.md; vẫn phải build candidate bằng environment Production riêng, smoke rồi promote/rollback có kiểm soát.
 
 ## Quyền tiếp tục Preview — đã thực hiện 28/10/2026
