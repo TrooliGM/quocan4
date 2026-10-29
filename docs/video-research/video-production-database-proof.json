@@ -1,0 +1,12 @@
+{
+  "project_id": "frosty-math-90753534",
+  "branch_id": "br-delicate-wave-azxcb1jo",
+  "database": "neondb",
+  "tool": "Neon MCP run_sql read-only",
+  "database_matches": true,
+  "owned_qa_session_matches": true,
+  "qa_answer_present": true,
+  "message_count_matches": true,
+  "sql_writes": 0,
+  "connection_string_requested": false
+}

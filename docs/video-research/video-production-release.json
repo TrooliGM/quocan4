@@ -1,0 +1,89 @@
+{
+  "production": {
+    "production_url": "https://labanhuongnghiep.vercel.app",
+    "deployment": "dpl_AF4FHHHTCci7dGNLuvyiuCDqMojk",
+    "commit": "92703d34cdfacff7aa20a7ca37ae092ed3bd73bc",
+    "readyState": "READY",
+    "domain_verified": true,
+    "rollback_deployment": "dpl_Gqr6yuuyfyurkBYZJEVuFaqjBs6Z",
+    "project_env_unchanged": true,
+    "preview_database_not_used": true
+  },
+  "tested_preview_source": "2366ad42a4d9e4130215db999515eaea09dadad1",
+  "feature_preflight_docs_commit": "473b79905d10cdfac5f375e5fda532529ddb1249",
+  "runtime_files_matching_preview": 100,
+  "preview_gates": {
+    "neon_mcp": "PASS",
+    "google_popup_and_member_deepseek_retain_reload": "PASS",
+    "password_member_and_guest_eight_turns": "PASS"
+  },
+  "candidate": {
+    "deployment": "dpl_AF4FHHHTCci7dGNLuvyiuCDqMojk",
+    "commit": "92703d34cdfacff7aa20a7ca37ae092ed3bd73bc",
+    "origin": "https://quocan4-jz68taxqj-khkt3.vercel.app",
+    "ready_to_promote": true,
+    "checks": {
+      "production_live_config_no_profile": "PASS",
+      "catalog_200_careers_and_videos": "PASS",
+      "corrected_notes_and_sample_comics": "PASS",
+      "auth_profile_removal_private_paths": "PASS",
+      "member_survey_analysis_live": "PASS",
+      "member_deepseek_chat_live": {
+        "pipeline": "task41",
+        "seconds": 11.78
+      },
+      "member_retained_fresh_client_reload": "PASS",
+      "guest_live_normal_identity_limit_eight_no_reset": {
+        "limit": 8,
+        "used_questions": 1,
+        "remaining": 7
+      }
+    },
+    "quota_reset": false,
+    "sql_writes": 0,
+    "migrations": 0,
+    "production_database_binding": "PASS via read-only Neon MCP: exact owned QA session, answer and message count in Production branch",
+    "status": "PASS",
+    "project_env_unchanged": true,
+    "preview_database_not_used": true
+  },
+  "post_promotion": {
+    "deployment": "dpl_AF4FHHHTCci7dGNLuvyiuCDqMojk",
+    "commit": "92703d34cdfacff7aa20a7ca37ae092ed3bd73bc",
+    "origin": "https://labanhuongnghiep.vercel.app",
+    "ready_to_promote": false,
+    "checks": {
+      "production_live_config_no_profile": "PASS",
+      "catalog_200_careers_and_videos": "PASS",
+      "corrected_notes_and_sample_comics": "PASS",
+      "auth_profile_removal_private_paths": "PASS",
+      "member_survey_analysis_live": "PASS",
+      "member_deepseek_chat_live": {
+        "pipeline": "task41",
+        "seconds": 4.51
+      },
+      "member_retained_fresh_client_reload": "PASS",
+      "guest_live_normal_identity_limit_eight_no_reset": {
+        "limit": 8,
+        "used_questions": 2,
+        "remaining": 6
+      }
+    },
+    "quota_reset": false,
+    "sql_writes": 0,
+    "migrations": 0,
+    "status": "PASS",
+    "project_env_unchanged": true,
+    "preview_database_not_used": true
+  },
+  "production_video_sample_count": 3,
+  "inherited_playback_count": 200,
+  "production_videos_not_replayed": 197,
+  "rollback_ready": true,
+  "rollback_used": false,
+  "production_env_unchanged": true,
+  "database_url_changed": false,
+  "migrations_run": 0,
+  "quota_resets": 0,
+  "student_data_used": false
+}

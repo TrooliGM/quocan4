@@ -1,5 +1,9 @@
 # Quyết định và việc còn mở
 
+## Production video đã phát hành, không mở rộng phạm vi QA — 30/10/2026
+
+Đã thực hiện quyền phát hành: Neon OAuth/read-only PASS, Preview Google/DeepSeek/Member/Guest8 PASS, tích hợp/push main92703d3 không force. Production dpl_AF4FHHHTCci7dGNLuvyiuCDqMojk READY, domain chính đã xác minh; candidate env Production không override/Preview DB và runtime100file khớp Preview. Hậu kiểm UI/3mẫu phát/Member/Guest PASS, giữ main:false/DB/quota/auth và không Hồ sơ. Kế thừa200video cũ, không gọi197video chưa phát lại là Production LIVE PASS. Rollback dpl_Gqr6yuuyfyurkBYZJEVuFaqjBs6Z cònREADY, không cần rollback. Commit tài liệu hậu kiểm riêng sau mã phát hành, không redeploy docs-only; SHA đã chạy luôn báo92703d34cdfacff7aa20a7ca37ae092ed3bd73bc.
+
 ## Neon MCP và phát hành Production video — đã xác nhận 30/10/2026
 
 Người dùng cho phép bật lại đúng Neon MCP hiện có, OAuth lại và xác minh bằng đọc project/database, không đổi DATABASE_URL/tạo DB/reset/migration. Cổng phát hành: Google login thật, DeepSeek LIVE, Member lưu/reload và Guest quota8 trên Preview đầy đủ bằng tài khoản/phiên thử riêng. Khi cổng quan trọng đạt, được commit tài liệu liên quan, push/tích hợp main an toàn, giữ thay đổi mới hơn và phát hành Production bằng env Production hiện có, không promote DB Preview. Ghi rollback trước, hậu kiểm domain/200 nghề/Video-Truyện/tìm-lọc/mẫu phát/luồng chính; rollback nếu hồi quy nghiêm trọng. Không hỏi lại quyền phát hành đã cấp. Nếu blocker thực, ghi đúng và chưa vượt cổng.

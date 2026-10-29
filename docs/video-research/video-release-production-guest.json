@@ -1,0 +1,8 @@
+{
+  "origin": "https://labanhuongnghiep.vercel.app",
+  "status": "PASS",
+  "checks": {
+    "browser_desktop_mobile_reload_same_conversation": "PASS",
+    "browser_js_errors": 0
+  }
+}
