@@ -1,5 +1,13 @@
 # Bộ nhớ dự án: Website Hướng nghiệp KHKT 2027
 
+## Cổng Neon/Preview LIVE đã PASS, chuẩn bị Production video — 30/10/2026
+
+Theo quyền phát hành mới, đã OAuth lại Neon MCP đúng server và xác minh đọc project/database; không đổi DATABASE_URL/tạo DB/reset/migration, server chỉ đọc. Preview2366ad4 PASS Google popup thật bằng tài khoản thử, phân tích/chat DeepSeek LIVE, lưu/reload Member; Member password SDK desktop/mobile cũng PASS. Guest thử riêng một danh tính: 8 lượt PASS/câu9 HTTP429/duplicate không tính thêm, Chrome reload PASS, không reset quota. Google harness đã sửa thao tác CTA và xác nhận lưu, không sửa app. Main remote1a1a4c4; Production hiện có dpl_Gqr6yuuyfyurkBYZJEVuFaqjBs6Z/READY là rollback mới, 99/100 file giống Preview, chỉ catalog ghi chú cũ khác. Kế thừa video200/200, không tìm nguồn/chạy lại toàn bộ. Đang tích hợp bằng worktree phát hành riêng, chỉ dùng env Production hiện có và kiểm candidate trước promote; chưa xác nhận đã lên web chính trong mốc này. Chi tiết checkpoint và docs/video-research/video-release-*.json.
+
+## Preview sửa UTF-8 đã READY và smoke PASS — 30/10/2026
+
+Đã commit đúng 9 file sửa ghi chú/tài liệu/bằng chứng video: `2366ad42a4d9e4130215db999515eaea09dadad1` trên career-video-pilot. Deploy từ source sạch, 100 file upload thuộc commit; Preview `dpl_4kmjZ6KBTQFj3qni4uQedJGgUhtt` / `https://quocan4-ii7vcyh80-khkt3.vercel.app/mot-ngay-lam-viec` READY, metadata SHA khớp. Giữ Preview đầy đủ AI/Firebase/database staging cũ, xác minh SQL chỉ đọc/schema/TLS độc lập Production; health AI/auth configured và read-only flags false. 9 video sửa ghi chú API/hiển thị UTF-8 PASS, catalog200, desktop/mobile/tìm-lọc/Video-Truyện/BackForward/0JSerrors PASS; 3 mẫu khởi chạy PASS. Kế thừa 200/200 khởi chạy cũ, không phát lại 197 video trên hostname mới hoặc kiểm LIVE DeepSeek/đăng nhập; không tìm nguồn/chạy lại toàn bộ QA. Project env/Production alias giữ nguyên, không migration/DB writes/push/merge/Production. Tài liệu hậu kiểm mới được lưu local sau source commit; xem checkpoint và `docs/video-research/utf8-preview-*.json`.
+
 ## Quyền commit và Preview sửa UTF-8 — 30/10/2026
 
 Người dùng cho phép commit riêng sửa ghi chú tiếng Việt và tài liệu/bằng chứng video, tạo Preview mới từ đúng commit cuối. Kế thừa 200/200 khởi chạy PASS cũ, chỉ smoke ghi chú/catalog/tìm-lọc/Video-Truyện trên hostname mới. Giữ cấu hình Preview đầy đủ AI/auth/database và staging sẵn có; không tìm nguồn/chạy lại toàn bộ QA, không push/merge main hoặc Production. Trạng thái SHA/deployment thực sẽ ghi trong checkpoint sau khi thực hiện.

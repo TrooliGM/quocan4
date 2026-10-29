@@ -1,5 +1,35 @@
 # Checkpoint tiếp tục — Video Truyện nghề, 29/10/2026
 
+## Cổng phát hành đã PASS — 30/10/2026
+
+- Neon MCP: OAuth thành công; đã đọc `describe_project` và `list_postgres_databases` qua Codex app-server và trực tiếp công cụ Neon trong phiên. Đúng project `frosty-math-90753534`, database `neondb`, nhánh staging có sẵn. Server giữ chế độ chỉ đọc, không thay DATABASE_URL/tạo DB/reset/migration. Lượt OAuth đầu hết hạn; lượt sau hoàn tất callback. Bằng chứng `video-release-neon-mcp.json`.
+- Preview đầy đủ `dpl_4kmjZ6KBTQFj3qni4uQedJGgUhtt`: Member Firebase thử riêng PASS phân tích 3 hướng DeepSeek LIVE, chat LIVE (pipeline task41, 12,16 giây), retain và đọc lại bằng client xác thực mới; Chrome password SDK thật, desktop/mobile reload cùng hội thoại PASS, 0 JS errors. Không gọi đây là Google popup.
+- Google popup thật trên alias Preview có sẵn `quocan4-git-fix-chat-vercel-khkt3.vercel.app` đã trỏ đúng deployment, không sửa Firebase authorized domains hoặc Production. Người dùng đăng nhập tài khoản Google thử nghiệm; trình duyệt xác minh provider google.com, phân tích 3 hướng, chat DeepSeek LIVE, xác nhận lưu và reload cùng hội thoại PASS, 0 JS errors. Trình kiểm thử ban đầu giả định login vào thẳng chat và thiếu bấm xác nhận lưu; đã đi đúng CTA/hộp đồng ý, giữ phiên để hoàn tất. Không sửa mã website hoặc bỏ qua lỗi ứng dụng.
+- Guest: đúng một danh tính cấp thông thường trên Preview, khảo sát/phân tích LIVE, đủ 8 câu dùng quota 1–8, câu 9 HTTP429, duplicate không trừ thêm, cuối limit8/used8/remaining0; không reset/thay Guest vượt quota. Chrome desktop/mobile reload cùng hội thoại và nút gửi bị chặn khi hết lượt PASS.
+- Kế thừa bằng chứng video 200/200 khởi chạy trước đó; Preview sửa UTF-8 có 3 mẫu phát mới PASS, không phát lại toàn bộ. Không đổi nguồn/ID hoặc mã chạy sau `2366ad4`.
+- Main remote vẫn `1a1a4c4`; đối chiếu manifest Production hiện có và Preview: 99/100 file giống, chỉ catalog cũ khác; catalog Production khớp `0c9ddbb` CRLF. Mốc rollback hiện tại **`dpl_Gqr6yuuyfyurkBYZJEVuFaqjBs6Z` READY**, không dùng ID cũ trong báo cáo lịch sử.
+- Đang commit tài liệu hậu kiểm và tích hợp trên worktree riêng `career-video-production-20261030`; chỉ phát hành khi candidate dùng env Production hiện có, source khớp Preview và runtime database Production được xác minh bằng đọc qua MCP. Không mang cấu hình/database Preview sang Production.
+
+## Mốc bắt đầu cổng phát hành Production — 30/10/2026
+
+- Quyền mới cho phép OAuth lại Neon MCP, QA LIVE Preview và phát hành/tích hợp main sau khi cổng quan trọng đạt; không migration/reset/đổi DATABASE_URL hoặc dùng dữ liệu người dùng thật. Kế thừa bằng chứng video, không tìm nguồn hoặc chạy lại toàn bộ.
+- Đã bật lại duy nhất `mcp_servers.neon.enabled=true`, giữ URL server hiện có. Khởi chạy đăng nhập OAuth bằng `codex mcp login neon`. Người dùng báo đã đăng nhập, nhưng CLI còn chờ callback; kiểm qua Codex app-server MCP status vẫn `notLoggedIn`, chưa có tools. **Chưa xác nhận Neon MCP kết nối thành công**, đang chờ hoàn tất callback cấp quyền.
+- Main remote đọc trực tiếp vẫn `1a1a4c48a6221c7850496038064c066b91aea701`. Production thực tế READY tại **`dpl_Gqr6yuuyfyurkBYZJEVuFaqjBs6Z`**, URL `quocan4-fkx0amrhj-khkt3.vercel.app`, metadata base `1a1a4c4` + gitDirty=1; không dùng mốc rollback cũ trong tài liệu phát hành trước.
+- Đối chiếu manifest source Vercel (không rà lại code): Production và Preview đã duyệt đều 100 file, 99 file có cùng UID/hash nguồn; khác duy nhất `data/career-videos.json`. Hash catalog Production khớp blob `0c9ddbb` dạng CRLF, tức chưa sửa ghi chú. Catalog Production đã có 200 nghề/video; không suy đây là lượt phát hành mới. Các mã AI/auth/database hiện tại khớp Preview đã duyệt.
+- Chưa tích hợp/push hoặc phát hành trong mốc này. QA Google/DeepSeek/Member/Guest mới chưa hoàn tất. Không coi cấu hình health hoặc video PASS là bằng chứng auth/AI LIVE.
+
+## Kết quả mới nhất — Preview từ commit sửa UTF-8, 30/10/2026
+
+- Đã commit riêng 9 file sửa ghi chú/tài liệu/bằng chứng liên quan: **`2366ad42a4d9e4130215db999515eaea09dadad1`**, nhánh `feat/career-video-pilot`, cha `0c9ddbb`. Không đổi ID/URL hoặc logic AI/auth/database/quota; không push/merge main.
+- Preview mới **`dpl_4kmjZ6KBTQFj3qni4uQedJGgUhtt`**, READY, target null: **https://quocan4-ii7vcyh80-khkt3.vercel.app/mot-ngay-lam-viec**. API Vercel xác nhận `gitCommitSha` chính xác như trên, không có cờ `gitDirty=1`. Working tree sạch trước upload; dry-run xác minh 100 file thực đều thuộc commit, đúng worktree, loại secrets/docs/tests/scripts/artifacts. Bằng chứng định danh: `docs/video-research/utf8-preview-deployment.json`.
+- Dùng cấu hình Preview đầy đủ hiện có: AI demo false, advisor/story read-only false, DDGS, database staging cũ `task41-preview-schema-20261025`. Xác minh lại branch/endpoint độc lập Production, schema và TLS qua SQL chỉ đọc; không migration, không ghi/reset database/quota. Không dùng cấu hình pilot tắt dịch vụ. Health trả `ai_configured=true`, `auth_configured=true`, Firebase config configured; không gọi DeepSeek hoặc thực hiện đăng nhập LIVE trong smoke này.
+- **Kiểm trực tiếp trên Preview mới:** API và ghi chú hiển thị UTF-8 của đúng 9 video sửa đều khớp commit; 9 truyện mở được. Catalog đủ 200 nghề/mỗi nghề một video; ba asset video khớp source commit sau chuẩn hóa xuống dòng. Desktop/mobile PASS tìm không dấu/không kết quả, lọc đúng nhóm theo catalog, hai liên kết Video/Truyện, cảnh tiếp, Back/Forward cùng tab, không tràn ngang, không tải iframe sẵn, 0 lỗi JavaScript.
+- **Phát mẫu trên Preview mới: 3/3 PASS** — Lập trình viên `_WQ_VV4pXPc`, Ngân quỹ `AQz3pSPYk0k`, Phát triển nông thôn `4I_GSf3nWaU`; đúng ID, PLAYING=1, thời gian tăng và chuyển về Truyện gỡ iframe. Không có lỗi tái hiện cần sửa mã.
+- **Kế thừa, không chạy lại:** 200/200 video khởi chạy PASS trên Preview cũ `dpl_DfarPXsrAJjGpgbGWh2qiVZ4q6DH`, lưu `preview-resume-playback.json`. Trên Preview mới chỉ phát lại 3 video mẫu; 197 video còn lại chưa phát lại trên hostname mới. Không ghi thành 200/200 LIVE mới. Không tìm lại nguồn hoặc chạy toàn bộ bộ kiểm thử.
+- Project env metadata và alias Production đối chiếu trước/sau không đổi. Chỉ tạo Preview, không deploy/promote Production, không thay bindings dịch vụ hoặc dữ liệu.
+- Báo cáo smoke: `docs/video-research/utf8-preview-smoke.json`; receipt deployment như trên. Tài liệu/bằng chứng hậu kiểm mới được ghi **local sau commit source** để HEAD vẫn đúng commit đã deploy; chưa stage/commit tiếp hoặc push. Bằng chứng 200/200 cũ và bảng kiểm kê đã nằm trong commit `2366ad4`.
+- **Còn chưa kiểm trong lượt này:** 197 player trên hostname mới, Google/email login LIVE và hội thoại DeepSeek LIVE; xem/nghe trọn nội dung video; Production. Không có thay đổi liên quan cần chạy lại toàn bộ QA.
+
 ## Mốc chuẩn bị commit và Preview UTF-8 — 30/10/2026
 
 - Quyền mới: commit riêng sửa tiếng Việt và tài liệu/bằng chứng video liên quan; tạo Preview từ commit cuối, không push/merge main hoặc Production. Giữ AI/auth/database/quota và thay đổi ngoài phạm vi.
@@ -63,14 +93,14 @@
 
 ## Còn phải xử lý hoặc xác minh
 
-1. Lỗi mã hóa tiếng Việt ở một số ghi chú của 7 nguồn pilot và hai nghề Ngân quỹ/Phát triển nông thôn đã sửa và kiểm định local trong lượt tiếp tục; chưa đưa bản sửa lên Preview.
+1. Lỗi mã hóa tiếng Việt ở ghi chú của 7 nguồn pilot và hai nghề Ngân quỹ/Phát triển nông thôn đã sửa, commit `2366ad4`, triển khai và kiểm trực tiếp PASS trên Preview mới `dpl_4kmjZ6KBTQFj3qni4uQedJGgUhtt`.
 2. Đã hoàn thiện kiểm kê đủ 200 nghề và kiểm phát từng video trên Preview hiện có, kết quả cuối 200 PASS. Nếu có deployment mới cần hậu kiểm đúng deployment mới; không kế thừa tự động từ nghiên cứu hoặc Preview cũ.
-3. Đã PASS desktop/mobile, tìm/lọc, hai nút Video/Truyện, Back/Forward và cùng tab trên Preview hiện có. Bản sửa UTF-8 local chưa triển khai, chưa có kiểm thử trên một deployment chứa bản sửa.
+3. Đã PASS desktop/mobile, tìm/lọc, hai nút Video/Truyện, Back/Forward và cùng tab trên cả Preview cũ và Preview mới chứa bản sửa UTF-8. Phạm vi phát mẫu mới và phát đầy đủ kế thừa ghi riêng ở đầu file.
 4. Báo riêng tình trạng Firebase/DeepSeek/Guest/Member LIVE; không tự đánh dấu PASS từ mock hoặc từ build READY.
 5. `docs/career-video-production-release.md` có kế hoạch phát hành, nhưng chưa có kết quả deployment cuối trong tài liệu này. **Trạng thái Production/push/main chưa được xác minh lại trong lượt checkpoint; không kết luận đã phát hành từ tài liệu kế hoạch.**
 
 ## Cách tiếp tục
 
-Ưu tiên kết quả mới nhất ngày 30/10 ở đầu file, kiểm tra Git và deployment thực tế trước thao tác tiếp. `docs/career-video-200-checkpoint.md` và `docs/career-video-production-release.md` là lịch sử, không dùng trạng thái Git/quyền phát hành cũ để thay yêu cầu mới. Kế thừa nghiên cứu, không tìm lại 193 nghề từ đầu. Lượt tiếp tục đã sửa văn bản local và kiểm Preview hiện có; không có thao tác Git xuất bản, database hoặc triển khai mới. Bước tiếp nếu được yêu cầu là triển khai bản sửa lên Preview với source được định danh rõ và hậu kiểm lại; chưa Production.
+Ưu tiên kết quả mới nhất ngày 30/10 ở đầu file, kiểm tra Git và deployment thực tế trước thao tác tiếp. `docs/career-video-200-checkpoint.md` và `docs/career-video-production-release.md` là lịch sử, không dùng trạng thái Git/quyền phát hành cũ để thay yêu cầu mới. Đã commit và triển khai Preview sửa UTF-8 theo quyền mới, chưa push/merge main hoặc Production. Kế thừa bằng chứng, không tìm lại nguồn hoặc chạy lại toàn bộ kiểm thử khi không có thay đổi liên quan. Kết quả các lượt trước dưới đây là lịch sử, không thay kết quả mới nhất.
 
 Bản sao local chỉ chứa các file mã nguồn/dữ liệu nghiên cứu được chỉ định nằm tại `artifacts/checkpoints/career-video-resume-20261029/`; không bao gồm dotenv, credentials hoặc toàn bộ artifacts.

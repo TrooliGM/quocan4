@@ -1,0 +1,29 @@
+{
+  "origin": "https://quocan4-ii7vcyh80-khkt3.vercel.app",
+  "deployment": "dpl_4kmjZ6KBTQFj3qni4uQedJGgUhtt",
+  "identity": "dedicated synthetic QA member",
+  "quota_reset": false,
+  "checks": {
+    "live_config": {
+      "mode": "live",
+      "model": "deepseek-flash",
+      "is_guest": false,
+      "profile_enabled": false
+    },
+    "firebase_member_token_validated_not_google_popup": "PASS",
+    "survey_completed_with_synthetic_answers": "PASS",
+    "deepseek_survey_analysis_live_three_directions": "PASS",
+    "deepseek_live": {
+      "pipeline": "task41",
+      "seconds": 12.16,
+      "duplicate": false
+    },
+    "retained_and_reloaded_on_fresh_authenticated_client": "PASS",
+    "browser_desktop_mobile_reload_same_conversation": "PASS",
+    "browser_js_errors": 0,
+    "browser_real_firebase_password_login_not_google": "PASS"
+  },
+  "status": "PASS",
+  "error_type": "AssertionError",
+  "google_popup": "NOT_TESTED_BY_THIS_SCRIPT"
+}

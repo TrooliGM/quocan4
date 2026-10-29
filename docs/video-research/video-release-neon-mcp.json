@@ -1,0 +1,17 @@
+{
+  "server": "neon",
+  "enabled": true,
+  "oauth_login": "SUCCESS",
+  "authenticated_read": "PASS",
+  "project_id": "frosty-math-90753534",
+  "existing_database": "neondb",
+  "existing_branch": "br-morning-tooth-aznv081q",
+  "tools_called": [
+    "describe_project",
+    "list_postgres_databases"
+  ],
+  "database_writes": 0,
+  "migration_run": false,
+  "website_database_url_changed": false,
+  "transport": "Codex app-server MCP tool call, no model turn"
+}
