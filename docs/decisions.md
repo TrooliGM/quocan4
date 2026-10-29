@@ -1,5 +1,13 @@
 # Quyết định và việc còn mở
 
+## Commit sửa UTF-8 và tạo Preview mới — đã xác nhận 30/10/2026
+
+Người dùng cho phép commit riêng bản sửa tiếng Việt cùng tài liệu/bằng chứng video liên quan trong worktree career-video-pilot, rồi tạo Preview mới từ commit đó. Kế thừa bằng chứng 200/200 video khởi chạy PASS trên Preview trước; chỉ kiểm nhanh ghi chú sửa, catalog, tìm/lọc, Video/Truyện và luồng bị ảnh hưởng. Giữ Preview đầy đủ AI/auth/database và staging đã dùng, không mang override tắt dịch vụ của pilot. Không push/merge main hoặc phát hành Production; không tìm lại nguồn hay chạy lại toàn bộ kiểm thử khi không có thay đổi liên quan.
+
+## Tiếp tục QA video — yêu cầu xác nhận 29/10/2026
+
+Tiếp tục đúng worktree career-video-pilot từ `0c9ddbb`, không làm lại 32 file hoặc tìm nguồn mới. Sửa đúng ghi chú mã hóa tái hiện được rồi kiểm Preview hiện có; phân biệt metadata commit dirty với nội dung thực tế, verified với LIVE, chưa thử với lỗi player và chưa xác nhận phát. Không đổi AI/auth/database/quota hoặc ghi đè thay đổi local; cập nhật checkpoint theo mốc, chưa Production. Lượt này chỉ sửa văn bản local và kiểm runtime hiện có, không triển khai mới.
+
 ## Video toàn bộ 200 nghề — quyền đã xác nhận, checkpoint 29/10/2026
 
 Yêu cầu mới thay phạm vi pilot 5 nghề: được tìm nguồn toàn bộ 200 nghề, sửa mã/dữ liệu và deploy Preview đầy đủ; chưa được commit/push/merge hoặc phát hành Production. Giữ 200 truyện, video riêng từng nghề, không dùng nguồn sai nghề để đủ số; chỉ công khai nguồn có rà mẫu nội dung và bằng chứng player thật. Phân biệt mức rà mẫu với xem/nghe toàn bộ, và build READY với nghiệm thu Preview. Tái sử dụng staging đã xác minh, không mang cấu hình tắt AI/auth/database của pilot sang bản đầy đủ. Checkpoint hiện tại có lỗi mã hóa tiếng Việt đã biết và QA Preview còn thiếu, chưa hoàn tất bàn giao. Chi tiết: `docs/career-video-200-checkpoint.md`.

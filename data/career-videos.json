@@ -34,8 +34,8 @@
         "en",
         "es"
       ],
-      "subtitle_note": "C? ph? ?? ti?ng Anh tr?n YouTube; b?i c?nh qu?c t?, kh?ng ?p quy ??nh h?nh ngh? n??c ngo?i cho Vi?t Nam.",
-      "review_scope": "?? r? m? t? ngu?n v? c?c ?o?n h?nh/ph? ?? m?u trong ??t pilot; ch?a nghe to?n b? video."
+      "subtitle_note": "Có phụ đề tiếng Anh trên YouTube; bối cảnh quốc tế, không áp quy định hành nghề nước ngoài cho Việt Nam.",
+      "review_scope": "Đã rà mô tả nguồn và các đoạn hình/phụ đề mẫu trong đợt pilot; chưa nghe toàn bộ video."
     },
     {
       "id": "thiet-ke-careeronestop",
@@ -71,8 +71,8 @@
         "en",
         "es"
       ],
-      "subtitle_note": "C? ph? ?? ti?ng Anh tr?n YouTube; b?i c?nh qu?c t?, kh?ng ?p quy ??nh h?nh ngh? n??c ngo?i cho Vi?t Nam.",
-      "review_scope": "?? r? m? t? ngu?n v? c?c ?o?n h?nh/ph? ?? m?u trong ??t pilot; ch?a nghe to?n b? video."
+      "subtitle_note": "Có phụ đề tiếng Anh trên YouTube; bối cảnh quốc tế, không áp quy định hành nghề nước ngoài cho Việt Nam.",
+      "review_scope": "Đã rà mô tả nguồn và các đoạn hình/phụ đề mẫu trong đợt pilot; chưa nghe toàn bộ video."
     },
     {
       "id": "dau-bep-vtv7-candidate",
@@ -133,8 +133,8 @@
       "subtitle_languages": [
         "vi"
       ],
-      "review_scope": "?? r? m? t? ngu?n v? c?c ?o?n h?nh/ph? ?? m?u trong ??t pilot; ch?a nghe to?n b? video.",
-      "subtitle_note": "C? ph? ?? ti?ng Vi?t t? ??ng tr?n YouTube."
+      "review_scope": "Đã rà mô tả nguồn và các đoạn hình/phụ đề mẫu trong đợt pilot; chưa nghe toàn bộ video.",
+      "subtitle_note": "Có phụ đề tiếng Việt tự động trên YouTube."
     },
     {
       "id": "dieu-duong-bv-thu-duc",
@@ -167,8 +167,8 @@
       "last_checked_at": "2026-10-28T14:24:00.528715+00:00",
       "schema_version": 1,
       "subtitle_languages": [],
-      "review_scope": "?? r? m? t? ngu?n v? c?c ?o?n h?nh/ph? ?? m?u trong ??t pilot; ch?a nghe to?n b? video.",
-      "subtitle_note": "Ch?a ghi nh?n ph? ?? t? YouTube."
+      "review_scope": "Đã rà mô tả nguồn và các đoạn hình/phụ đề mẫu trong đợt pilot; chưa nghe toàn bộ video.",
+      "subtitle_note": "Chưa ghi nhận phụ đề từ YouTube."
     },
     {
       "id": "giao-vien-fpt-school",
@@ -203,8 +203,8 @@
       "subtitle_languages": [
         "vi"
       ],
-      "review_scope": "?? r? m? t? ngu?n v? c?c ?o?n h?nh/ph? ?? m?u trong ??t pilot; ch?a nghe to?n b? video.",
-      "subtitle_note": "C? ph? ?? ti?ng Vi?t t? ??ng tr?n YouTube."
+      "review_scope": "Đã rà mô tả nguồn và các đoạn hình/phụ đề mẫu trong đợt pilot; chưa nghe toàn bộ video.",
+      "subtitle_note": "Có phụ đề tiếng Việt tự động trên YouTube."
     },
     {
       "id": "ky-su-xay-dung-coteccons",
@@ -239,8 +239,8 @@
       "subtitle_languages": [
         "vi"
       ],
-      "review_scope": "?? r? m? t? ngu?n v? c?c ?o?n h?nh/ph? ?? m?u trong ??t pilot; ch?a nghe to?n b? video.",
-      "subtitle_note": "C? ph? ?? ti?ng Vi?t t? ??ng tr?n YouTube."
+      "review_scope": "Đã rà mô tả nguồn và các đoạn hình/phụ đề mẫu trong đợt pilot; chưa nghe toàn bộ video.",
+      "subtitle_note": "Có phụ đề tiếng Việt tự động trên YouTube."
     },
     {
       "id": "dau-bep-huong-nghiep-a-au",
@@ -276,8 +276,8 @@
         "en-US",
         "vi"
       ],
-      "review_scope": "?? r? m? t? ngu?n v? c?c ?o?n h?nh/ph? ?? m?u trong ??t pilot; ch?a nghe to?n b? video.",
-      "subtitle_note": "C? ph? ?? ti?ng Vi?t t? ??ng tr?n YouTube."
+      "review_scope": "Đã rà mô tả nguồn và các đoạn hình/phụ đề mẫu trong đợt pilot; chưa nghe toàn bộ video.",
+      "subtitle_note": "Có phụ đề tiếng Việt tự động trên YouTube."
     },
     {
       "id": "ky-su-hoc-may-review-20261028",
@@ -7366,7 +7366,7 @@
       "title": "A Career in Treasury",
       "channel_name": "The Association of Corporate Treasurers",
       "channel_id": "UCHXtR2D0F0EHO7JN1fJky5g",
-      "description": "Association of Corporate Treasurers gi?i thi?u ngh? treasury cho h?c sinh/sinh vi?n v?i CEO Caroline Stockmann v? c?c Group Treasurer Alexandra Lewis/Courtney Huggs. ??ng vai tr? qu?n l? d?ng ti?n/thanh kho?n, kh?ng nh?m nh?n vi?n ki?m ??m kho ti?n.",
+      "description": "Association of Corporate Treasurers giới thiệu nghề treasury cho học sinh/sinh viên với CEO Caroline Stockmann và các Group Treasurer Alexandra Lewis/Courtney Huggs. Đúng vai trò quản lý dòng tiền/thanh khoản, không nhầm nhân viên kiểm đếm kho tiền.",
       "thumbnail_url": "https://i.ytimg.com/vi/AQz3pSPYk0k/hqdefault.jpg",
       "duration_seconds": 2743,
       "published_at": "2020-11-17",
@@ -7378,11 +7378,11 @@
       "review_scope": "Đã rà mô tả nguồn và hai đoạn hình/phụ đề mẫu đầu–giữa, chưa xem/nghe toàn bộ. Không thấy nội dung đồ họa nhạy cảm trong các mẫu đã rà.",
       "video_type": "career_interview",
       "featured_tasks": [
-        "Qu?n l? d?ng ti?n",
-        "L?p k? ho?ch thanh kho?n",
-        "Ph?i h?p t?i ch?nh doanh nghi?p"
+        "Quản lý dòng tiền",
+        "Lập kế hoạch thanh khoản",
+        "Phối hợp tài chính doanh nghiệp"
       ],
-      "relevance_notes": "Association of Corporate Treasurers gi?i thi?u ngh? treasury cho h?c sinh/sinh vi?n v?i CEO Caroline Stockmann v? c?c Group Treasurer Alexandra Lewis/Courtney Huggs. ??ng vai tr? qu?n l? d?ng ti?n/thanh kho?n, kh?ng nh?m nh?n vi?n ki?m ??m kho ti?n.",
+      "relevance_notes": "Association of Corporate Treasurers giới thiệu nghề treasury cho học sinh/sinh viên với CEO Caroline Stockmann và các Group Treasurer Alexandra Lewis/Courtney Huggs. Đúng vai trò quản lý dòng tiền/thanh khoản, không nhầm nhân viên kiểm đếm kho tiền.",
       "source_reliability": "official_institution",
       "verification_status": "verified",
       "verification_method": "Chrome LIVE YouTube IFrame API PLAYING=1, clock 2.03→3.24s; video ID matched. Reviewed actual sample frames/captions and publisher description; not full audio. Evidence docs/video-research/playback.json + content-review.json.",
@@ -7402,7 +7402,7 @@
       "title": "Từ thực tập sinh đến người gieo hy vọng",
       "channel_name": "World Vision International in Vietnam",
       "channel_id": "UCmEZVSvj1pWbK-yNAje0zTg",
-      "description": "World Vision International in Vietnam ph?ng v?n Ph?ng A Minh, ?i?u ph?i vi?n Ph?t tri?n c?ng ??ng t?i Ch??ng tr?nh v?ng T?a Ch?a 2. ??ng ng??i l?m ph?t tri?n c?ng ??ng ? ??a b?n n?ng th?n, k? h?nh tr?nh t? th?c t?p ??n c?ng vi?c; kh?ng d?ng video gi?i thi?u t? ch?c chung ho?c c?n b? ??i ngo?i IFAD thay ngh?.",
+      "description": "World Vision International in Vietnam phỏng vấn Phàng A Minh, Điều phối viên Phát triển cộng đồng tại Chương trình vùng Tủa Chùa 2. Đúng người làm phát triển cộng đồng ở địa bàn nông thôn, kể hành trình từ thực tập đến công việc; không dùng video giới thiệu tổ chức chung hoặc cán bộ đối ngoại IFAD thay nghề.",
       "thumbnail_url": "https://i.ytimg.com/vi/4I_GSf3nWaU/hqdefault.jpg",
       "duration_seconds": 134,
       "published_at": "2025-09-19",
@@ -7414,11 +7414,11 @@
       "review_scope": "Đã rà mô tả nguồn và hai đoạn hình/phụ đề mẫu đầu–giữa, chưa xem/nghe toàn bộ. Không thấy nội dung đồ họa nhạy cảm trong các mẫu đã rà.",
       "video_type": "career_interview",
       "featured_tasks": [
-        "Ph?i h?p ch??ng tr?nh v?ng",
-        "L?m vi?c c?ng c?ng ??ng",
-        "H?c v? th?c hi?n d? ?n ??a ph??ng"
+        "Phối hợp chương trình vùng",
+        "Làm việc cùng cộng đồng",
+        "Học và thực hiện dự án địa phương"
       ],
-      "relevance_notes": "World Vision International in Vietnam ph?ng v?n Ph?ng A Minh, ?i?u ph?i vi?n Ph?t tri?n c?ng ??ng t?i Ch??ng tr?nh v?ng T?a Ch?a 2. ??ng ng??i l?m ph?t tri?n c?ng ??ng ? ??a b?n n?ng th?n, k? h?nh tr?nh t? th?c t?p ??n c?ng vi?c; kh?ng d?ng video gi?i thi?u t? ch?c chung ho?c c?n b? ??i ngo?i IFAD thay ngh?.",
+      "relevance_notes": "World Vision International in Vietnam phỏng vấn Phàng A Minh, Điều phối viên Phát triển cộng đồng tại Chương trình vùng Tủa Chùa 2. Đúng người làm phát triển cộng đồng ở địa bàn nông thôn, kể hành trình từ thực tập đến công việc; không dùng video giới thiệu tổ chức chung hoặc cán bộ đối ngoại IFAD thay nghề.",
       "source_reliability": "official_institution",
       "verification_status": "verified",
       "verification_method": "Chrome LIVE YouTube IFrame API PLAYING=1, clock 2.06→3.27s; video ID matched. Reviewed actual sample frames/captions and publisher description; not full audio. Evidence docs/video-research/playback.json + content-review.json.",
