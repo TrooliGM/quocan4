@@ -1,0 +1,44 @@
+{
+  "origin": "https://quocan4-ii7vcyh80-khkt3.vercel.app",
+  "deployment": "dpl_4kmjZ6KBTQFj3qni4uQedJGgUhtt",
+  "identity": "one normally issued QA Guest",
+  "quota_reset": false,
+  "checks": {
+    "live_config": {
+      "mode": "live",
+      "model": "deepseek-flash",
+      "is_guest": true,
+      "profile_enabled": false
+    },
+    "survey_completed_with_synthetic_answers": "PASS",
+    "deepseek_survey_analysis_live_three_directions": "PASS",
+    "guest_limit_is_eight": "PASS",
+    "guest_turn_1": "PASS",
+    "guest_turn_2": "PASS",
+    "guest_turn_3": "PASS",
+    "guest_turn_4": "PASS",
+    "guest_turn_5": "PASS",
+    "guest_turn_6": "PASS",
+    "guest_turn_7": "PASS",
+    "guest_turn_8": "PASS",
+    "ninth_429_duplicate_free_no_reset": "PASS",
+    "browser_desktop_mobile_reload_same_conversation": "PASS",
+    "browser_js_errors": 0
+  },
+  "status": "PASS",
+  "chat_seconds": [
+    5.7,
+    9.09,
+    4.11,
+    13.04,
+    3.94,
+    8.95,
+    9.02,
+    8.71
+  ],
+  "final_quota": {
+    "limit": 8,
+    "used_questions": 8,
+    "remaining": 0
+  }
+}

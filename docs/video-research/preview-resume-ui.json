@@ -1,0 +1,19 @@
+{
+  "desktop": {
+    "category_matches_api": true,
+    "accentless_search": true,
+    "video_link_same_page": true,
+    "comic_link_same_page": true,
+    "no_results_search": true,
+    "no_horizontal_overflow": true
+  },
+  "mobile": {
+    "category_matches_api": true,
+    "accentless_search": true,
+    "video_link_same_page": true,
+    "comic_link_same_page": true,
+    "no_results_search": true,
+    "no_horizontal_overflow": true
+  },
+  "js_errors": 0
+}

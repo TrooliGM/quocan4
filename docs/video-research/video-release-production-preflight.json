@@ -1,0 +1,26 @@
+{
+  "rollback": {
+    "id": "dpl_Gqr6yuuyfyurkBYZJEVuFaqjBs6Z",
+    "url": "quocan4-fkx0amrhj-khkt3.vercel.app",
+    "readyState": "READY",
+    "target": "production",
+    "source_metadata": {
+      "gitCommitSha": "1a1a4c48a6221c7850496038064c066b91aea701",
+      "gitDirty": "1"
+    }
+  },
+  "project_id": "prj_ZYNrx6mJp1SUWEX7vGO8c98G7489",
+  "source_comparison": {
+    "production": "dpl_Gqr6yuuyfyurkBYZJEVuFaqjBs6Z",
+    "preview": "dpl_4kmjZ6KBTQFj3qni4uQedJGgUhtt",
+    "production_files": 100,
+    "preview_files": 100,
+    "source_differences": [
+      "data/career-videos.json"
+    ]
+  },
+  "production_catalog_matches_0c9ddbb_crlf": true,
+  "main_before": "1a1a4c48a6221c7850496038064c066b91aea701",
+  "tested_source": "2366ad42a4d9e4130215db999515eaea09dadad1",
+  "production_changed": false
+}

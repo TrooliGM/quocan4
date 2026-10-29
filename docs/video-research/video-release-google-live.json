@@ -1,0 +1,30 @@
+{
+  "origin": "https://quocan4-git-fix-chat-vercel-khkt3.vercel.app",
+  "deployment": "dpl_4kmjZ6KBTQFj3qni4uQedJGgUhtt",
+  "status": "PASS",
+  "checks": {
+    "real_google_popup_provider": "PASS",
+    "google_member_survey_deepseek_live": "PASS",
+    "google_member_chat_live": "PASS",
+    "google_member_retain_reload_same_conversation": "PASS",
+    "js_errors": 0
+  },
+  "firebase_config_changed": false,
+  "identity": "user-selected dedicated Google test account",
+  "student_data_used": false,
+  "previous_attempts": [
+    {
+      "status": "BLOCKED",
+      "checks": {
+        "real_google_popup_provider": "PASS"
+      }
+    }
+  ],
+  "phase": "complete",
+  "error_type": "AssertionError",
+  "failure_line": 49,
+  "harness_corrections": [
+    "Follow actual home-to-chat CTA after Google login",
+    "Confirm retain consent dialog for synthetic QA conversation; no website changes"
+  ]
+}

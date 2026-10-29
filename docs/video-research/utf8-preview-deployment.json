@@ -1,0 +1,37 @@
+{
+  "deployment": {
+    "id": "dpl_4kmjZ6KBTQFj3qni4uQedJGgUhtt",
+    "url": "quocan4-ii7vcyh80-khkt3.vercel.app",
+    "readyState": "READY",
+    "target": null,
+    "gitCommitSha": "2366ad42a4d9e4130215db999515eaea09dadad1",
+    "gitDirty": null,
+    "production_unchanged": true,
+    "project_env_metadata_unchanged": true
+  },
+  "committed_upload": {
+    "source_sha": "2366ad42a4d9e4130215db999515eaea09dadad1",
+    "files": 100,
+    "only_committed_files": true,
+    "clean_worktree_required_before_upload": true
+  },
+  "preview_database_check": {
+    "verified": true,
+    "branch": "task41-preview-schema-20261025",
+    "schema": "PASS",
+    "read_only": true,
+    "tls": true,
+    "migration_run": false,
+    "independent_from_production": true
+  },
+  "full_preview_flags": {
+    "AI_DEMO_MODE": false,
+    "ADVISOR_READ_ONLY_PREVIEW": false,
+    "STORIES_PREVIEW_READ_ONLY": false,
+    "SEARCH_PROVIDER": "ddgs"
+  },
+  "production_deployment_unchanged": "dpl_Gqr6yuuyfyurkBYZJEVuFaqjBs6Z",
+  "project_environment_values_changed": false,
+  "git_push_or_merge": false,
+  "production_deploy": false
+}

@@ -1,0 +1,140 @@
+{
+  "deployment_id": "dpl_4kmjZ6KBTQFj3qni4uQedJGgUhtt",
+  "source_sha": "2366ad42a4d9e4130215db999515eaea09dadad1",
+  "origin": "https://quocan4-ii7vcyh80-khkt3.vercel.app",
+  "checked_at": "2026-10-29T17:22:27.070797+00:00",
+  "checks": {
+    "full_preview_configuration": {
+      "health": {
+        "status": "ok",
+        "ai_configured": true,
+        "auth_configured": true
+      },
+      "firebase_configured": true,
+      "advisor_read_only": false,
+      "stories_read_only": false,
+      "live_provider_call_performed": false
+    },
+    "catalog_200_careers_200_videos": true,
+    "initial_library_no_iframe": true,
+    "three_video_assets_match_committed_source": true,
+    "desktop": {
+      "filter_matches_catalog": true,
+      "accentless_search": true,
+      "video_link_same_tab": true,
+      "comic_link_same_tab": true,
+      "back_forward": true,
+      "empty_results": true,
+      "no_horizontal_overflow": true
+    },
+    "mobile": {
+      "filter_matches_catalog": true,
+      "accentless_search": true,
+      "video_link_same_tab": true,
+      "comic_link_same_tab": true,
+      "back_forward": true,
+      "empty_results": true,
+      "no_horizontal_overflow": true
+    },
+    "no_mutating_fetch_on_final_page": true,
+    "js_errors": 0
+  },
+  "note_checks": {
+    "lap-trinh": {
+      "api_matches_commit": true,
+      "rendered_utf8_notes": true,
+      "comic_available": true
+    },
+    "thiet-ke": {
+      "api_matches_commit": true,
+      "rendered_utf8_notes": true,
+      "comic_available": true
+    },
+    "ky-su-du-lieu": {
+      "api_matches_commit": true,
+      "rendered_utf8_notes": true,
+      "comic_available": true
+    },
+    "dieu-duong": {
+      "api_matches_commit": true,
+      "rendered_utf8_notes": true,
+      "comic_available": true
+    },
+    "giao-vien": {
+      "api_matches_commit": true,
+      "rendered_utf8_notes": true,
+      "comic_available": true
+    },
+    "ky-su-xay-dung": {
+      "api_matches_commit": true,
+      "rendered_utf8_notes": true,
+      "comic_available": true
+    },
+    "dau-bep": {
+      "api_matches_commit": true,
+      "rendered_utf8_notes": true,
+      "comic_available": true
+    },
+    "chuyen-vien-ngan-quy": {
+      "api_matches_commit": true,
+      "rendered_utf8_notes": true,
+      "comic_available": true
+    },
+    "chuyen-vien-phat-trien-nong-thon": {
+      "api_matches_commit": true,
+      "rendered_utf8_notes": true,
+      "comic_available": true
+    }
+  },
+  "playback_sample": {
+    "lap-trinh": {
+      "attempts": [
+        {
+          "state": 1,
+          "start": 2.1560621373291013,
+          "video_id": "_WQ_VV4pXPc",
+          "error": null,
+          "end": 3.3690470762939455,
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    "chuyen-vien-ngan-quy": {
+      "attempts": [
+        {
+          "state": 1,
+          "start": 2.089701948501587,
+          "video_id": "AQz3pSPYk0k",
+          "error": null,
+          "end": 3.3070868359680174,
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    "chuyen-vien-phat-trien-nong-thon": {
+      "attempts": [
+        {
+          "state": 1,
+          "start": 2.1251048683929445,
+          "video_id": "4I_GSf3nWaU",
+          "error": null,
+          "end": 3.3410079008178712,
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    }
+  },
+  "inherited_playback": {
+    "count": 200,
+    "status": "PASS",
+    "deployment_id": "dpl_DfarPXsrAJjGpgbGWh2qiVZ4q6DH",
+    "evidence": "docs/video-research/preview-resume-playback.json",
+    "not_replayed_on_new_preview": 197
+  },
+  "live_ai_or_login_tested": false,
+  "database_or_quota_writes": false,
+  "status": "PASS"
+}

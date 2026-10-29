@@ -1,0 +1,29 @@
+{
+  "public/assets/stories.js": {
+    "http": 200,
+    "head_bytes": 15623,
+    "remote_bytes": 15800,
+    "exact_match": false,
+    "match_normalized_newlines": true,
+    "head_sha256": "2d329fbdd2649d6debb9cc100a425ebc242a38e326466c435f8d956a27d00105",
+    "remote_sha256": "3db9672789210d82cc8e181c7ffb315fd89497661a1c79ffa55cad871c62de86"
+  },
+  "public/assets/stories-31.css": {
+    "http": 200,
+    "head_bytes": 12138,
+    "remote_bytes": 12145,
+    "exact_match": false,
+    "match_normalized_newlines": true,
+    "head_sha256": "2520375e2118226baab520d74eed73584dba5568817947209b2da4f816ba0701",
+    "remote_sha256": "a40d1d1b5f5f9accaa2a8651b9dbf91ee0ba2e6b6be89e7da637d5eaf228eb78"
+  },
+  "public/assets/youtube-player.js": {
+    "http": 200,
+    "head_bytes": 2674,
+    "remote_bytes": 2710,
+    "exact_match": false,
+    "match_normalized_newlines": true,
+    "head_sha256": "dee11106df19168018a302b7868820dc9ea4a72bbb1fb0a219a3715776cbc15a",
+    "remote_sha256": "f85d6ed6aee2a48ab5a6e20dcb17f9064dbf096bf2b1cb98d952c082547e8e0a"
+  }
+}
