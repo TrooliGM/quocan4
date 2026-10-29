@@ -1,6 +1,6 @@
 import os
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, AsyncMock
 
 import httpx
 from fastapi.testclient import TestClient
@@ -55,13 +55,18 @@ class StoryTests(ProtectedAPIFixture, unittest.TestCase):
 
 class StoryGraphTests(unittest.IsolatedAsyncioTestCase):
     async def test_deepseek_receives_selected_scene(self):
-        captured = {}
-        async def fake_post(client, url, **kwargs):
-            captured.update(kwargs['json'])
-            return httpx.Response(200, json={'choices': [{'message': {'content': 'Cùng kiểm tra dữ liệu nhé.'}}]}, request=httpx.Request('POST', url))
-        with patch.dict(os.environ, {'DEEPSEEK_API_KEY': 'test-key'}), patch.object(httpx.AsyncClient, 'post', fake_post):
-            await story_graph.ainvoke({'career_id': 'ky-su-moi-truong', 'scene_index': 1, 'question': 'Vì sao phải kiểm tra lại?', 'context': '', 'answer': ''})
+        # Task4 uses the shared answer graph. Verify the scene reaches that boundary,
+        # with the server-owned session; this is not a live provider/authentication test.
+        engine=AsyncMock(return_value={'reply':{'answer':'Cùng kiểm tra dữ liệu nhé.'}})
+        session={'id':'synthetic-scene-session','uid':'synthetic-owner','messages':[],'profile':{}}
+        with patch('ai.answer_graph.ainvoke',engine):
+            await story_graph.ainvoke({'uid':'synthetic-owner','session':session,
+                'career_id':'ky-su-moi-truong','scene_index':1,'question':'Vì sao phải kiểm tra lại?','context':'','answer':''})
+        captured=engine.await_args.args[0]
         from career_stories import get_story
-        self.assertIn(get_story('ky-su-moi-truong')['scenes'][1]['title'], captured['messages'][0]['content'])
-        self.assertIn('Kỹ sư môi trường', captured['messages'][0]['content'])
-        self.assertEqual(captured['messages'][1]['content'], 'Vì sao phải kiểm tra lại?')
+        self.assertIn(get_story('ky-su-moi-truong')['scenes'][1]['title'],captured['scene_context'])
+        self.assertIn('Kỹ sư môi trường',captured['scene_context'])
+        self.assertEqual(captured['message'],'Vì sao phải kiểm tra lại?')
+        self.assertEqual(captured['session'],session)
+        self.assertEqual(captured['uid'],'synthetic-owner')
+        self.assertFalse(captured['confirmed_profile_access'])

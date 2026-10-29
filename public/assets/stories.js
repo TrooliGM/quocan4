@@ -78,7 +78,7 @@ function renderVideo(){
   $('#video-title').textContent=v.title;
   const duration=v.duration_seconds?`${Math.floor(v.duration_seconds/60)}:${String(v.duration_seconds%60).padStart(2,'0')}`:'';
   $('#video-channel').textContent=[v.channel_name,v.language==='en'?'Tiếng Anh · Bối cảnh quốc tế':v.language==='vi'?'Tiếng Việt':v.language||'',duration].filter(Boolean).join(' · ');
-  $('#video-description').textContent=v.description;$('#youtube-link').href=v.youtube_url;
+    $('#video-description').textContent=[v.description,v.subtitle_note,v.review_scope].filter(Boolean).join(' ');$('#youtube-link').href=v.youtube_url;
   if(v.embeddable!==true||v.availability_status==='region_restricted'){
     $('#play-video').disabled=true;$('#video-fallback').hidden=false;
     $('#video-fallback-text').textContent='Video chưa phát nhúng tại đây hoặc có giới hạn khu vực. Em có thể kiểm tra trực tiếp trên YouTube.';
@@ -89,11 +89,13 @@ function libraryCards(){
   if(!catalog)return;
   const query=normalize($('#story-search').value),category=$('#story-category-filter').value;
   const matches=catalog.filter(c=>(!category||c.category_id===category)&&normalize(c.name).includes(query));
-  $('#story-count').textContent=matches.length?`${matches.length} nghề · ${matches.filter(c=>c.video_count>0).length} nghề có video đã rà soát`:'Chưa tìm thấy nghề. Em thử từ khóa hoặc nhóm khác nhé.';
+  const withVideo=matches.filter(c=>c.video_count>0).length;
+  $('#story-count').textContent=matches.length?`${matches.length} nghề · ${withVideo} nghề có video đã rà soát · ${matches.length-withVideo} chưa có video`:'Chưa tìm thấy nghề. Em thử từ khóa hoặc nhóm khác nhé.';
   $('#story-grid').innerHTML=matches.slice(0,shown).map(c=>{
     const v=c.cover_video;
     const cover=v?`<img src="${esc(v.thumbnail_url)}" width="640" height="360" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Ảnh thu nhỏ YouTube: ${esc(v.title)}"><span class="cover-play" aria-hidden="true">▶</span>`:comicCover(c.category_id);
-    return `<a class="story-card" href="/mot-ngay-lam-viec?nghe=${encodeURIComponent(c.id)}" data-story="${esc(c.id)}"><div class="card-cover">${cover}</div><p class="card-label">${v?'VIDEO YOUTUBE':'TRUYỆN TƯƠNG TÁC · 5 CẢNH'}</p><h2>${esc(c.name)}</h2><p>${esc(c.short_description)}</p></a>`;
+    const path='/mot-ngay-lam-viec?nghe='+encodeURIComponent(c.id);
+    return `<article class="story-card"><a class="story-card-main" href="${path}" data-story="${esc(c.id)}"><div class="card-cover">${cover}</div><p class="card-label">${v?'VIDEO YOUTUBE + TRUYỆN':'TRUYỆN TƯƠNG TÁC · 5 CẢNH'}</p><h2>${esc(c.name)}</h2><p>${esc(c.short_description)}</p></a><nav class="story-card-actions" aria-label="Cách tìm hiểu nghề ${esc(c.name)}">${v?`<a class="story-open-video" href="${path}&tab=video" data-story="${esc(c.id)}">▶ Xem video</a>`:'<span class="story-video-missing">Chưa có video đã duyệt</span>'}<a class="story-open-comic" href="${path}&tab=comic" data-story="${esc(c.id)}">Đọc truyện →</a></nav></article>`;
   }).join('');$('#story-more').hidden=shown>=matches.length;
 }
 function filterURL(){

@@ -1,5 +1,13 @@
 # Quyết định và việc còn mở
 
+## Video toàn bộ 200 nghề — quyền đã xác nhận, checkpoint 29/10/2026
+
+Yêu cầu mới thay phạm vi pilot 5 nghề: được tìm nguồn toàn bộ 200 nghề, sửa mã/dữ liệu và deploy Preview đầy đủ; chưa được commit/push/merge hoặc phát hành Production. Giữ 200 truyện, video riêng từng nghề, không dùng nguồn sai nghề để đủ số; chỉ công khai nguồn có rà mẫu nội dung và bằng chứng player thật. Phân biệt mức rà mẫu với xem/nghe toàn bộ, và build READY với nghiệm thu Preview. Tái sử dụng staging đã xác minh, không mang cấu hình tắt AI/auth/database của pilot sang bản đầy đủ. Checkpoint hiện tại có lỗi mã hóa tiếng Việt đã biết và QA Preview còn thiếu, chưa hoàn tất bàn giao. Chi tiết: `docs/career-video-200-checkpoint.md`.
+
+## Video thực tế — chỉ5 nghề mẫu và Preview (28/10/2026)
+
+Người dùng yêu cầu kiểm kê thực tế có/thiếu/lỗi video rồi thêm5nghề khác nhóm, giữ truyện và hai lựa chọn rõ ràng. Chưa cho Production hay mở rộng200nghề. Chọn dữ liệu tĩnh biên tập từ nguồn thật; metadata/oEmbed không đủ để duyệt, phải thử phát nhúng Chrome. Không dùng chung video cho nhiều career_id.5nguồn mẫu đã phát thật, kiểm mẫu nội dung, chờ người dùng duyệt âm thanh/nội dung đầy đủ trên Preview; không giả định đã xem trọn. Giữ nguyên API/model/Neon/Firebase/quota; Preview riêng tắt các thao tác cần database, không dùngProduction làm môi trường thử. Không commit/push/merge trong đợt này. Chi tiết docs/career-video-pilot.md.
+
 ## Xác nhận phát hành sản phẩm cho Guest/Member — 28/10/2026
 
 **Đã thực hiện:** commit43a8337 fast-forward main, Production dpl_7cdWzerGqdzD3c4Ucjvfb8GaJbfE đã promote và hậu kiểm Guest/Member/Google popup PASS. Không cần thêm QA flag vì source base đã công khai pipeline/search/analysis; các quyền dữ liệu, quota và công tắc sự cố giữ nguyên. Không migration/đổi env/DB/reset. Báo cáo hậu kiểm commit riêng chỉ tài liệu, không đổi mã Production; rollbackDa9yyb/1a534b1 sẵn sàng.

@@ -1,0 +1,201 @@
+﻿career_id,name,group,public_videos,attachment_status,pending_review,recorded_availability_issues,youtube_urls,production_public_videos_at_audit
+lap-trinh,Lập trình viên,Công nghệ thông tin và dữ liệu,1,ATTACHED,0,0,https://www.youtube.com/watch?v=_WQ_VV4pXPc,1
+ky-su-du-lieu,Kỹ sư dữ liệu,Công nghệ thông tin và dữ liệu,1,ATTACHED,0,0,https://www.youtube.com/watch?v=aNyGaxNzt9k,0
+nha-khoa-hoc-du-lieu,Nhà khoa học dữ liệu,Công nghệ thông tin và dữ liệu,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-phan-tich-du-lieu,Chuyên viên phân tích dữ liệu,Công nghệ thông tin và dữ liệu,0,NOT_ATTACHED,0,0,,0
+ky-su-hoc-may,Kỹ sư học máy,Công nghệ thông tin và dữ liệu,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-an-toan-thong-tin,Chuyên viên an toàn thông tin,Công nghệ thông tin và dữ liệu,0,NOT_ATTACHED,0,0,,0
+quan-tri-mang,Quản trị mạng,Công nghệ thông tin và dữ liệu,0,NOT_ATTACHED,0,0,,0
+quan-tri-co-so-du-lieu,Quản trị cơ sở dữ liệu,Công nghệ thông tin và dữ liệu,0,NOT_ATTACHED,0,0,,0
+kiem-thu-phan-mem,Kiểm thử phần mềm,Công nghệ thông tin và dữ liệu,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-phan-tich-nghiep-vu,Chuyên viên phân tích nghiệp vụ,Công nghệ thông tin và dữ liệu,0,NOT_ATTACHED,0,0,,0
+ky-su-dien-toan-dam-may,Kỹ sư điện toán đám mây,Công nghệ thông tin và dữ liệu,0,NOT_ATTACHED,0,0,,0
+ky-su-devops,Kỹ sư DevOps,Công nghệ thông tin và dữ liệu,0,NOT_ATTACHED,0,0,,0
+lap-trinh-vien-tro-choi,Lập trình viên trò chơi,Công nghệ thông tin và dữ liệu,0,NOT_ATTACHED,0,0,,0
+lap-trinh-vien-ung-dung-di-dong,Lập trình viên ứng dụng di động,Công nghệ thông tin và dữ liệu,0,NOT_ATTACHED,0,0,,0
+lap-trinh-vien-nhung,Lập trình viên nhúng,Công nghệ thông tin và dữ liệu,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-ho-tro-cntt,Chuyên viên hỗ trợ CNTT,Công nghệ thông tin và dữ liệu,0,NOT_ATTACHED,0,0,,0
+kien-truc-su-phan-mem,Kiến trúc sư phần mềm,Công nghệ thông tin và dữ liệu,0,NOT_ATTACHED,0,0,,0
+ky-su-thi-giac-may-tinh,Kỹ sư thị giác máy tính,Công nghệ thông tin và dữ liệu,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-quan-tri-he-thong,Chuyên viên quản trị hệ thống,Công nghệ thông tin và dữ liệu,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-gis,Chuyên viên GIS,Công nghệ thông tin và dữ liệu,0,NOT_ATTACHED,0,0,,0
+bac-si,Bác sĩ,Y tế và chăm sóc sức khỏe,0,NOT_ATTACHED,0,0,,0
+dieu-duong,Điều dưỡng,Y tế và chăm sóc sức khỏe,1,ATTACHED,0,0,https://www.youtube.com/watch?v=RgwsLjr2jZo,0
+ho-sinh,Hộ sinh,Y tế và chăm sóc sức khỏe,0,NOT_ATTACHED,0,0,,0
+duoc-si,Dược sĩ,Y tế và chăm sóc sức khỏe,0,NOT_ATTACHED,0,0,,0
+ky-thuat-vien-xet-nghiem,Kỹ thuật viên xét nghiệm,Y tế và chăm sóc sức khỏe,0,NOT_ATTACHED,0,0,,0
+ky-thuat-vien-chan-doan-hinh-anh,Kỹ thuật viên chẩn đoán hình ảnh,Y tế và chăm sóc sức khỏe,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-vat-ly-tri-lieu,Chuyên viên vật lý trị liệu,Y tế và chăm sóc sức khỏe,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-dinh-duong,Chuyên viên dinh dưỡng,Y tế và chăm sóc sức khỏe,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-tam-ly,Chuyên viên tâm lý,Y tế và chăm sóc sức khỏe,0,NOT_ATTACHED,0,0,,0
+ky-thuat-vien-phuc-hinh-rang,Kỹ thuật viên phục hình răng,Y tế và chăm sóc sức khỏe,0,NOT_ATTACHED,0,0,,0
+nhan-vien-y-te-cong-dong,Nhân viên y tế cộng đồng,Y tế và chăm sóc sức khỏe,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-dich-te-hoc,Chuyên viên dịch tễ học,Y tế và chăm sóc sức khỏe,0,NOT_ATTACHED,0,0,,0
+ky-su-thiet-bi-y-te,Kỹ sư thiết bị y tế,Y tế và chăm sóc sức khỏe,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-hoat-dong-tri-lieu,Chuyên viên hoạt động trị liệu,Y tế và chăm sóc sức khỏe,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-am-ngu-tri-lieu,Chuyên viên âm ngữ trị liệu,Y tế và chăm sóc sức khỏe,0,NOT_ATTACHED,0,0,,0
+nhan-vien-cap-cuu-ngoai-vien,Nhân viên cấp cứu ngoại viện,Y tế và chăm sóc sức khỏe,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-quan-ly-thong-tin-y-te,Chuyên viên quản lý thông tin y tế,Y tế và chăm sóc sức khỏe,0,NOT_ATTACHED,0,0,,0
+nhan-vien-cham-soc-nguoi-cao-tuoi,Nhân viên chăm sóc người cao tuổi,Y tế và chăm sóc sức khỏe,0,NOT_ATTACHED,0,0,,0
+giao-vien,Giáo viên,Giáo dục và đào tạo,1,ATTACHED,0,0,https://www.youtube.com/watch?v=ROdxHd6Fjq0,0
+giao-vien-mam-non,Giáo viên mầm non,Giáo dục và đào tạo,0,NOT_ATTACHED,0,0,,0
+giao-vien-giao-duc-dac-biet,Giáo viên giáo dục đặc biệt,Giáo dục và đào tạo,0,NOT_ATTACHED,0,0,,0
+giang-vien-dai-hoc,Giảng viên đại học,Giáo dục và đào tạo,0,NOT_ATTACHED,0,0,,0
+giao-vien-day-nghe,Giáo viên dạy nghề,Giáo dục và đào tạo,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-thiet-ke-hoc-lieu,Chuyên viên thiết kế học liệu,Giáo dục và đào tạo,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-phat-trien-chuong-trinh,Chuyên viên phát triển chương trình,Giáo dục và đào tạo,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-dao-tao-doanh-nghiep,Chuyên viên đào tạo doanh nghiệp,Giáo dục và đào tạo,0,NOT_ATTACHED,0,0,,0
+can-bo-thu-vien,Cán bộ thư viện,Giáo dục và đào tạo,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-tu-van-hoc-duong,Chuyên viên tư vấn học đường,Giáo dục và đào tạo,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-huong-nghiep,Chuyên viên hướng nghiệp,Giáo dục và đào tạo,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-khao-thi,Chuyên viên khảo thí,Giáo dục và đào tạo,0,NOT_ATTACHED,0,0,,0
+quan-ly-dao-tao,Quản lý đào tạo,Giáo dục và đào tạo,0,NOT_ATTACHED,0,0,,0
+huan-luyen-vien-ky-nang-song,Huấn luyện viên kỹ năng sống,Giáo dục và đào tạo,0,NOT_ATTACHED,0,0,,0
+ky-su-co-khi,Kỹ sư cơ khí,Kỹ thuật và công nghiệp,0,NOT_ATTACHED,0,0,,0
+ky-su-dien,Kỹ sư điện,Kỹ thuật và công nghiệp,0,NOT_ATTACHED,0,0,,0
+ky-su-dien-tu,Kỹ sư điện tử,Kỹ thuật và công nghiệp,0,NOT_ATTACHED,0,0,,0
+ky-su-tu-dong-hoa,Kỹ sư tự động hóa,Kỹ thuật và công nghiệp,0,NOT_ATTACHED,0,0,,0
+ky-su-xay-dung,Kỹ sư xây dựng,Kỹ thuật và công nghiệp,1,ATTACHED,0,0,https://www.youtube.com/watch?v=zZlop6W27s0,0
+kien-truc-su,Kiến trúc sư,Kỹ thuật và công nghiệp,0,NOT_ATTACHED,0,0,,0
+ky-su-giao-thong,Kỹ sư giao thông,Kỹ thuật và công nghiệp,0,NOT_ATTACHED,0,0,,0
+ky-su-cap-thoat-nuoc,Kỹ sư cấp thoát nước,Kỹ thuật và công nghiệp,0,NOT_ATTACHED,0,0,,0
+ky-su-nhiet-lanh,Kỹ sư nhiệt lạnh,Kỹ thuật và công nghiệp,0,NOT_ATTACHED,0,0,,0
+ky-su-o-to,Kỹ sư ô tô,Kỹ thuật và công nghiệp,0,NOT_ATTACHED,0,0,,0
+ky-thuat-vien-sua-chua-o-to,Kỹ thuật viên sửa chữa ô tô,Kỹ thuật và công nghiệp,0,NOT_ATTACHED,0,0,,0
+tho-han,Thợ hàn,Kỹ thuật và công nghiệp,0,NOT_ATTACHED,0,0,,0
+tho-dien-dan-dung,Thợ điện dân dụng,Kỹ thuật và công nghiệp,0,NOT_ATTACHED,0,0,,0
+tho-tien-cnc,Thợ tiện CNC,Kỹ thuật và công nghiệp,0,NOT_ATTACHED,0,0,,0
+ky-su-vat-lieu,Kỹ sư vật liệu,Kỹ thuật và công nghiệp,0,NOT_ATTACHED,0,0,,0
+ky-su-hoa-hoc,Kỹ sư hóa học,Kỹ thuật và công nghiệp,0,NOT_ATTACHED,0,0,,0
+ky-su-cong-nghe-thuc-pham,Kỹ sư công nghệ thực phẩm,Kỹ thuật và công nghiệp,0,NOT_ATTACHED,0,0,,0
+ky-su-det-may,Kỹ sư dệt may,Kỹ thuật và công nghiệp,0,NOT_ATTACHED,0,0,,0
+ky-su-dong-tau,Kỹ sư đóng tàu,Kỹ thuật và công nghiệp,0,NOT_ATTACHED,0,0,,0
+ky-thuat-vien-bao-tri-cong-nghiep,Kỹ thuật viên bảo trì công nghiệp,Kỹ thuật và công nghiệp,0,NOT_ATTACHED,0,0,,0
+ky-su-nang-luong-tai-tao,Kỹ sư năng lượng tái tạo,Kỹ thuật và công nghiệp,0,NOT_ATTACHED,0,0,,0
+ky-su-hang-khong,Kỹ sư hàng không,Kỹ thuật và công nghiệp,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-nhan-su,Chuyên viên nhân sự,Kinh doanh và quản lý,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-tuyen-dung,Chuyên viên tuyển dụng,Kinh doanh và quản lý,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-phat-trien-kinh-doanh,Chuyên viên phát triển kinh doanh,Kinh doanh và quản lý,0,NOT_ATTACHED,0,0,,0
+nhan-vien-kinh-doanh,Nhân viên kinh doanh,Kinh doanh và quản lý,0,NOT_ATTACHED,0,0,,0
+quan-ly-san-pham,Quản lý sản phẩm,Kinh doanh và quản lý,0,NOT_ATTACHED,0,0,,0
+quan-ly-du-an,Quản lý dự án,Kinh doanh và quản lý,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-van-hanh,Chuyên viên vận hành,Kinh doanh và quản lý,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-mua-hang,Chuyên viên mua hàng,Kinh doanh và quản lý,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-logistics,Chuyên viên logistics,Kinh doanh và quản lý,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-xuat-nhap-khau,Chuyên viên xuất nhập khẩu,Kinh doanh và quản lý,0,NOT_ATTACHED,0,0,,0
+quan-ly-kho,Quản lý kho,Kinh doanh và quản lý,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-thuong-mai-dien-tu,Chuyên viên thương mại điện tử,Kinh doanh và quản lý,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-cham-soc-khach-hang,Chuyên viên chăm sóc khách hàng,Kinh doanh và quản lý,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-nghien-cuu-thi-truong,Chuyên viên nghiên cứu thị trường,Kinh doanh và quản lý,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-quan-ly-chat-luong,Chuyên viên quản lý chất lượng,Kinh doanh và quản lý,0,NOT_ATTACHED,0,0,,0
+quan-ly-cua-hang,Quản lý cửa hàng,Kinh doanh và quản lý,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-hoach-dinh-chuoi-cung-ung,Chuyên viên hoạch định chuỗi cung ứng,Kinh doanh và quản lý,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-tu-van-quan-tri,Chuyên viên tư vấn quản trị,Kinh doanh và quản lý,0,NOT_ATTACHED,0,0,,0
+ke-toan-vien,Kế toán viên,"Tài chính, kế toán và ngân hàng",0,NOT_ATTACHED,0,0,,0
+kiem-toan-vien,Kiểm toán viên,"Tài chính, kế toán và ngân hàng",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-phan-tich-tai-chinh,Chuyên viên phân tích tài chính,"Tài chính, kế toán và ngân hàng",0,NOT_ATTACHED,0,0,,0
+giao-dich-vien-ngan-hang,Giao dịch viên ngân hàng,"Tài chính, kế toán và ngân hàng",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-tin-dung,Chuyên viên tín dụng,"Tài chính, kế toán và ngân hàng",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-quan-tri-rui-ro,Chuyên viên quản trị rủi ro,"Tài chính, kế toán và ngân hàng",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-bao-hiem,Chuyên viên bảo hiểm,"Tài chính, kế toán và ngân hàng",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-dinh-phi-bao-hiem,Chuyên viên định phí bảo hiểm,"Tài chính, kế toán và ngân hàng",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-phan-tich-dau-tu,Chuyên viên phân tích đầu tư,"Tài chính, kế toán và ngân hàng",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-thue,Chuyên viên thuế,"Tài chính, kế toán và ngân hàng",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-ngan-quy,Chuyên viên ngân quỹ,"Tài chính, kế toán và ngân hàng",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-tham-dinh-gia,Chuyên viên thẩm định giá,"Tài chính, kế toán và ngân hàng",0,NOT_ATTACHED,0,0,,0
+ke-toan-quan-tri,Kế toán quản trị,"Tài chính, kế toán và ngân hàng",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-thanh-toan-quoc-te,Chuyên viên thanh toán quốc tế,"Tài chính, kế toán và ngân hàng",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-tuan-thu-tai-chinh,Chuyên viên tuân thủ tài chính,"Tài chính, kế toán và ngân hàng",0,NOT_ATTACHED,0,0,,0
+moi-gioi-chung-khoan,Môi giới chứng khoán,"Tài chính, kế toán và ngân hàng",0,NOT_ATTACHED,0,0,,0
+thiet-ke,Nhà thiết kế đồ họa,"Thiết kế, nghệ thuật và sáng tạo",1,ATTACHED,0,0,https://www.youtube.com/watch?v=dt6td67yF9E,1
+nha-thiet-ke-ux,Nhà thiết kế UX,"Thiết kế, nghệ thuật và sáng tạo",0,NOT_ATTACHED,0,0,,0
+nha-thiet-ke-ui,Nhà thiết kế UI,"Thiết kế, nghệ thuật và sáng tạo",0,NOT_ATTACHED,0,0,,0
+nha-thiet-ke-noi-that,Nhà thiết kế nội thất,"Thiết kế, nghệ thuật và sáng tạo",0,NOT_ATTACHED,0,0,,0
+nha-thiet-ke-thoi-trang,Nhà thiết kế thời trang,"Thiết kế, nghệ thuật và sáng tạo",0,NOT_ATTACHED,0,0,,0
+nha-thiet-ke-cong-nghiep,Nhà thiết kế công nghiệp,"Thiết kế, nghệ thuật và sáng tạo",0,NOT_ATTACHED,0,0,,0
+hoa-si-minh-hoa,Họa sĩ minh họa,"Thiết kế, nghệ thuật và sáng tạo",0,NOT_ATTACHED,0,0,,0
+hoa-si-truyen-tranh,Họa sĩ truyện tranh,"Thiết kế, nghệ thuật và sáng tạo",0,NOT_ATTACHED,0,0,,0
+hoa-si-hoat-hinh,Họa sĩ hoạt hình,"Thiết kế, nghệ thuật và sáng tạo",0,NOT_ATTACHED,0,0,,0
+nghe-si-mo-hinh-3d,Nghệ sĩ mô hình 3D,"Thiết kế, nghệ thuật và sáng tạo",0,NOT_ATTACHED,0,0,,0
+nha-dieu-khac,Nhà điêu khắc,"Thiết kế, nghệ thuật và sáng tạo",0,NOT_ATTACHED,0,0,,0
+nghe-nhan-gom,Nghệ nhân gốm,"Thiết kế, nghệ thuật và sáng tạo",0,NOT_ATTACHED,0,0,,0
+tho-kim-hoan,Thợ kim hoàn,"Thiết kế, nghệ thuật và sáng tạo",0,NOT_ATTACHED,0,0,,0
+nhiep-anh-gia,Nhiếp ảnh gia,"Thiết kế, nghệ thuật và sáng tạo",0,NOT_ATTACHED,0,0,,0
+nha-thiet-ke-canh-quan,Nhà thiết kế cảnh quan,"Thiết kế, nghệ thuật và sáng tạo",0,NOT_ATTACHED,0,0,,0
+nha-thiet-ke-san-khau,Nhà thiết kế sân khấu,"Thiết kế, nghệ thuật và sáng tạo",0,NOT_ATTACHED,0,0,,0
+tho-thu-cong-may-tre,Thợ thủ công mây tre,"Thiết kế, nghệ thuật và sáng tạo",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-thiet-ke-bao-bi,Chuyên viên thiết kế bao bì,"Thiết kế, nghệ thuật và sáng tạo",0,NOT_ATTACHED,0,0,,0
+truyen-thong,Người làm truyền thông,Truyền thông và giải trí,0,NOT_ATTACHED,0,0,,0
+nha-bao,Nhà báo,Truyền thông và giải trí,0,NOT_ATTACHED,0,0,,0
+bien-tap-vien,Biên tập viên,Truyền thông và giải trí,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-quan-he-cong-chung,Chuyên viên quan hệ công chúng,Truyền thông và giải trí,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-to-chuc-su-kien,Chuyên viên tổ chức sự kiện,Truyền thông và giải trí,0,NOT_ATTACHED,0,0,,0
+dao-dien,Đạo diễn,Truyền thông và giải trí,0,NOT_ATTACHED,0,0,,0
+bien-kich,Biên kịch,Truyền thông và giải trí,0,NOT_ATTACHED,0,0,,0
+quay-phim,Quay phim,Truyền thông và giải trí,0,NOT_ATTACHED,0,0,,0
+dung-phim,Dựng phim,Truyền thông và giải trí,0,NOT_ATTACHED,0,0,,0
+ky-thuat-vien-am-thanh,Kỹ thuật viên âm thanh,Truyền thông và giải trí,0,NOT_ATTACHED,0,0,,0
+nhac-si-sang-tac,Nhạc sĩ sáng tác,Truyền thông và giải trí,0,NOT_ATTACHED,0,0,,0
+ca-si,Ca sĩ,Truyền thông và giải trí,0,NOT_ATTACHED,0,0,,0
+dien-vien,Diễn viên,Truyền thông và giải trí,0,NOT_ATTACHED,0,0,,0
+nguoi-dan-chuong-trinh,Người dẫn chương trình,Truyền thông và giải trí,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-noi-dung-so,Chuyên viên nội dung số,Truyền thông và giải trí,0,NOT_ATTACHED,0,0,,0
+chuyen-vien-seo,Chuyên viên SEO,Truyền thông và giải trí,0,NOT_ATTACHED,0,0,,0
+luat-su,Luật sư,"Luật, hành chính và dịch vụ công",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-phap-che,Chuyên viên pháp chế,"Luật, hành chính và dịch vụ công",0,NOT_ATTACHED,0,0,,0
+cong-chung-vien,Công chứng viên,"Luật, hành chính và dịch vụ công",0,NOT_ATTACHED,0,0,,0
+tham-phan,Thẩm phán,"Luật, hành chính và dịch vụ công",0,NOT_ATTACHED,0,0,,0
+kiem-sat-vien,Kiểm sát viên,"Luật, hành chính và dịch vụ công",0,NOT_ATTACHED,0,0,,0
+chap-hanh-vien,Chấp hành viên,"Luật, hành chính và dịch vụ công",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-hanh-chinh,Chuyên viên hành chính,"Luật, hành chính và dịch vụ công",0,NOT_ATTACHED,0,0,,0
+van-thu-luu-tru,Văn thư lưu trữ,"Luật, hành chính và dịch vụ công",0,NOT_ATTACHED,0,0,,0
+can-bo-tu-phap-ho-tich,Cán bộ tư pháp hộ tịch,"Luật, hành chính và dịch vụ công",0,NOT_ATTACHED,0,0,,0
+can-bo-hai-quan,Cán bộ hải quan,"Luật, hành chính và dịch vụ công",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-ngoai-giao,Chuyên viên ngoại giao,"Luật, hành chính và dịch vụ công",0,NOT_ATTACHED,0,0,,0
+nhan-vien-cong-tac-xa-hoi,Nhân viên công tác xã hội,"Luật, hành chính và dịch vụ công",0,NOT_ATTACHED,0,0,,0
+linh-cuu-hoa,Lính cứu hỏa,"Luật, hành chính và dịch vụ công",0,NOT_ATTACHED,0,0,,0
+can-bo-canh-sat-giao-thong,Cán bộ cảnh sát giao thông,"Luật, hành chính và dịch vụ công",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-chinh-sach-cong,Chuyên viên chính sách công,"Luật, hành chính và dịch vụ công",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-so-huu-tri-tue,Chuyên viên sở hữu trí tuệ,"Luật, hành chính và dịch vụ công",0,NOT_ATTACHED,0,0,,0
+ky-su-moi-truong,Kỹ sư môi trường,"Nông nghiệp, môi trường và tài nguyên",0,NOT_ATTACHED,0,0,,0
+ky-su-nong-hoc,Kỹ sư nông học,"Nông nghiệp, môi trường và tài nguyên",0,NOT_ATTACHED,0,0,,0
+ky-su-chan-nuoi,Kỹ sư chăn nuôi,"Nông nghiệp, môi trường và tài nguyên",0,NOT_ATTACHED,0,0,,0
+bac-si-thu-y,Bác sĩ thú y,"Nông nghiệp, môi trường và tài nguyên",0,NOT_ATTACHED,0,0,,0
+ky-su-nuoi-trong-thuy-san,Kỹ sư nuôi trồng thủy sản,"Nông nghiệp, môi trường và tài nguyên",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-lam-nghiep,Chuyên viên lâm nghiệp,"Nông nghiệp, môi trường và tài nguyên",0,NOT_ATTACHED,0,0,,0
+nhan-vien-kiem-lam,Nhân viên kiểm lâm,"Nông nghiệp, môi trường và tài nguyên",0,NOT_ATTACHED,0,0,,0
+ky-su-thuy-loi,Kỹ sư thủy lợi,"Nông nghiệp, môi trường và tài nguyên",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-quan-trac-moi-truong,Chuyên viên quan trắc môi trường,"Nông nghiệp, môi trường và tài nguyên",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-bao-ton-da-dang-sinh-hoc,Chuyên viên bảo tồn đa dạng sinh học,"Nông nghiệp, môi trường và tài nguyên",0,NOT_ATTACHED,0,0,,0
+nha-dia-chat,Nhà địa chất,"Nông nghiệp, môi trường và tài nguyên",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-khi-tuong,Chuyên viên khí tượng,"Nông nghiệp, môi trường và tài nguyên",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-khi-hau,Chuyên viên khí hậu,"Nông nghiệp, môi trường và tài nguyên",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-quan-ly-dat-dai,Chuyên viên quản lý đất đai,"Nông nghiệp, môi trường và tài nguyên",0,NOT_ATTACHED,0,0,,0
+ky-thuat-vien-xu-ly-nuoc,Kỹ thuật viên xử lý nước,"Nông nghiệp, môi trường và tài nguyên",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-phat-trien-nong-thon,Chuyên viên phát triển nông thôn,"Nông nghiệp, môi trường và tài nguyên",0,NOT_ATTACHED,0,0,,0
+huong-dan-vien-du-lich,Hướng dẫn viên du lịch,"Du lịch, dịch vụ và khách sạn",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-dieu-hanh-tour,Chuyên viên điều hành tour,"Du lịch, dịch vụ và khách sạn",0,NOT_ATTACHED,0,0,,0
+le-tan-khach-san,Lễ tân khách sạn,"Du lịch, dịch vụ và khách sạn",0,NOT_ATTACHED,0,0,,0
+quan-ly-khach-san,Quản lý khách sạn,"Du lịch, dịch vụ và khách sạn",0,NOT_ATTACHED,0,0,,0
+nhan-vien-buong-phong,Nhân viên buồng phòng,"Du lịch, dịch vụ và khách sạn",0,NOT_ATTACHED,0,0,,0
+dau-bep,Đầu bếp,"Du lịch, dịch vụ và khách sạn",1,ATTACHED,1,0,https://www.youtube.com/watch?v=kXaIZNZ2HZg,0
+tho-lam-banh,Thợ làm bánh,"Du lịch, dịch vụ và khách sạn",0,NOT_ATTACHED,0,0,,0
+nhan-vien-pha-che,Nhân viên pha chế,"Du lịch, dịch vụ và khách sạn",0,NOT_ATTACHED,0,0,,0
+nhan-vien-phuc-vu-nha-hang,Nhân viên phục vụ nhà hàng,"Du lịch, dịch vụ và khách sạn",0,NOT_ATTACHED,0,0,,0
+tiep-vien-hang-khong,Tiếp viên hàng không,"Du lịch, dịch vụ và khách sạn",0,NOT_ATTACHED,0,0,,0
+phi-cong,Phi công,"Du lịch, dịch vụ và khách sạn",0,NOT_ATTACHED,0,0,,0
+nhan-vien-dieu-phoi-van-tai,Nhân viên điều phối vận tải,"Du lịch, dịch vụ và khách sạn",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-cham-soc-sac-dep,Chuyên viên chăm sóc sắc đẹp,"Du lịch, dịch vụ và khách sạn",0,NOT_ATTACHED,0,0,,0
+tho-cat-toc,Thợ cắt tóc,"Du lịch, dịch vụ và khách sạn",0,NOT_ATTACHED,0,0,,0
+nha-toan-hoc,Nhà toán học,"Khoa học, nghiên cứu và lĩnh vực khác",0,NOT_ATTACHED,0,0,,0
+nha-vat-ly,Nhà vật lý,"Khoa học, nghiên cứu và lĩnh vực khác",0,NOT_ATTACHED,0,0,,0
+nha-hoa-hoc,Nhà hóa học,"Khoa học, nghiên cứu và lĩnh vực khác",0,NOT_ATTACHED,0,0,,0
+nha-sinh-hoc,Nhà sinh học,"Khoa học, nghiên cứu và lĩnh vực khác",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-thong-ke,Chuyên viên thống kê,"Khoa học, nghiên cứu và lĩnh vực khác",0,NOT_ATTACHED,0,0,,0
+nha-xa-hoi-hoc,Nhà xã hội học,"Khoa học, nghiên cứu và lĩnh vực khác",0,NOT_ATTACHED,0,0,,0
+nha-khao-co-hoc,Nhà khảo cổ học,"Khoa học, nghiên cứu và lĩnh vực khác",0,NOT_ATTACHED,0,0,,0
+nha-su-hoc,Nhà sử học,"Khoa học, nghiên cứu và lĩnh vực khác",0,NOT_ATTACHED,0,0,,0
+bien-dich-vien,Biên dịch viên,"Khoa học, nghiên cứu và lĩnh vực khác",0,NOT_ATTACHED,0,0,,0
+phien-dich-vien,Phiên dịch viên,"Khoa học, nghiên cứu và lĩnh vực khác",0,NOT_ATTACHED,0,0,,0
+chuyen-vien-nghien-cuu-vat-lieu-sinh-hoc,Chuyên viên nghiên cứu vật liệu sinh học,"Khoa học, nghiên cứu và lĩnh vực khác",0,NOT_ATTACHED,0,0,,0
+ky-thuat-vien-phong-thi-nghiem,Kỹ thuật viên phòng thí nghiệm,"Khoa học, nghiên cứu và lĩnh vực khác",0,NOT_ATTACHED,0,0,,0
